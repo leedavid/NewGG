@@ -1,0 +1,15 @@
+!subprojects/*.wrap
+*.swp
+.clang_complete
+.DS_Store
+.clangd/
+build/
+compile_commands.json
+CUDA_NN/
+lc0.xcodeproj/
+LC0VSProj/
+src/.vs/
+subprojects/*
+testdata/
+xcuserdata
+/.vs/ST2017_GGX64
