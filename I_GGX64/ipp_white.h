@@ -189,16 +189,16 @@
 #define MY_EV_ADD(val) (ei->evscore+=(val))
 #define MY_EV_SUB(val) (ei->evscore-=(val))
 
-//#include "endgame\\end_white_common_fun.h"
+//#include "endgame/end_white_common_fun.h"
 
-#include "endgame\\end_white.h"
-#include "endgame\\white_mat1.h"
-#include "endgame\\white_mat2.h"
-#include "endgame\\white_mat3.h"
-#include "endgame\\white_mat4.h"
-#include "endgame\\white_mat5.h"
-#include "endgame\\white_mat6.h"
-#include "endgame\\white_mat7.h"
-#include "endgame\\white_mat8.h"
-#include "endgame\\white_mat9.h"
+#include "endgame/end_white.h"
+#include "endgame/white_mat1.h"
+#include "endgame/white_mat2.h"
+#include "endgame/white_mat3.h"
+#include "endgame/white_mat4.h"
+#include "endgame/white_mat5.h"
+#include "endgame/white_mat6.h"
+#include "endgame/white_mat7.h"
+#include "endgame/white_mat8.h"
+#include "endgame/white_mat9.h"
 

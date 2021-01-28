@@ -1,14 +1,14 @@
 #ifndef Emy_m_MT_R_1PAWN
 #define Emy_m_MT_R_1PAWN
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
 //#define PawnAddOk  64  // 有兵方的加分  
  
 #include "1兵.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif  
 //引用书目 象棋残局基础
 

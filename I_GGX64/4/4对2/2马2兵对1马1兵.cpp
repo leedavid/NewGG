@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2ma2pawn_B_1ma1pawn
 #define END_my_m_MT_R_2ma2pawn_B_1ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 #include "2马2兵对1马1兵.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //const int  ADD_2MaXPawn_1Ma2Pawn_ByPawn[3]         = {96, 64, 32};            //2马x兵对1马2兵, 多兵的加分

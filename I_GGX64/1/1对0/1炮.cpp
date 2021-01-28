@@ -1,15 +1,15 @@
 #ifndef Emy_m_MT_R_1PAO
 #define Emy_m_MT_R_1PAO
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
 //#define PaoAdd 16
 //#define cons_炮仕例胜象 168
  
 #include "1炮.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif  
 
 //const int PaoAdd = 16;

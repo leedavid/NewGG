@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1pao5pawn_B_2pao2ma1pawn
 #define END_my_m_MT_R_1che1pao5pawn_B_2pao2ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 #include "1车1炮5兵对2炮2马1兵.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 #pragma warning(disable : 4100) 
 //const int _3pawn1paopawn_PawnShiAdd[3] = {96,48,24};

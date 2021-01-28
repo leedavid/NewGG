@@ -230,7 +230,10 @@ bool Position::gives_check(Move m, CheckInfo& ci) {
 
 	//ASSERT(pos_is_ok());
 	ASSERT(is_ok(m));
-	ASSERT(m128_is_same(ci.dcCandidates, discovered_check_candidates(side_to_move())));
+
+	Bitboard bb = discovered_check_candidates(side_to_move());
+	ASSERT(m128_is_same(ci.dcCandidates, bb));
+	
 	ASSERT(color_of(b90[from_sq(m)]) == side_to_move());
 
 

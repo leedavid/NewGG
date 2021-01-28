@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1ma1pao1pawn_B_1pao1pawn
 #define END_my_m_MT_R_1ma1pao1pawn_B_1pao1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 #include "1炮1马1兵对1炮1兵.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //
@@ -137,10 +137,10 @@ void my_m_MT_R_1ma1pao1pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 
 
 //
-//#include "..\\..\\chess.h"
-//#include "..\\..\\preGen.h"
+//#include "../../chess.h"
+//#include "../../preGen.h"
 //
-//#include "..\\..\\endgame\mat.h"
+//#include "../../endgame/mat.h"
 ////
 ////const int  ADD_MAPAO_Xpawn_To_PAO1Pawn[3]           = {96, 64, 32};            //马炮对炮的优势分
 ////const int  ADD_PAO1Pawn_To_MAPAO_Xpawn[3]           = {96, 64, 32};            //马炮对炮的优势分

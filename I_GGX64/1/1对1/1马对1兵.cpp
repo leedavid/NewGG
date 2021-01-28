@@ -1,12 +1,12 @@
 #ifndef END_my_m_MT_R_1MA_B_1PAWN
 #define END_my_m_MT_R_1MA_B_1PAWN
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
 #include "1马对1兵.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 //能不能和，怎样胜
 

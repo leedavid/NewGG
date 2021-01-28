@@ -1,10 +1,10 @@
 #ifndef E_InitMatFunction3
 #define E_InitMatFunction3
-#include "..\\chess.h"
+#include "../chess.h"
  
-#include "..\\white.h"
+#include "../white.h"
 #else
-#include "..\\black.h"
+#include "../black.h"
 #endif
 
 void InitMatFunction3(void){

@@ -48,6 +48,7 @@
 #define NOT_USE_FIND_MUL
 //////////////////////////////////////////////////////////////////////////
 
+#include "platform.h"
 #include "types.h"
 #include "Config.h"
 #include "my_data.h"   // ok
@@ -57,8 +58,8 @@
 #include "position.h"
 #include "evaluate.h"
 #include "funzione.h"  
-#include "VMProtectSDK.h"
-#include "WMI_DeviceQuery.h"
+// #include "VMProtectSDK.h"
+// #include "WMI_DeviceQuery.h"
 
 #endif
 

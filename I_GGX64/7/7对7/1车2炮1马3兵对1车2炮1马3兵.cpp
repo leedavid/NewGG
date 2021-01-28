@@ -1,5 +1,5 @@
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 //const int _3pawn1paopawn_PawnShiAdd[3] = {96,48,24};
 
 void BR_1che2pao1ma3pawn(typePOS &POSITION, EvalInfo &ei){

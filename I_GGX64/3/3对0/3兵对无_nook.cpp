@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_3pawn
 #define END_my_m_MT_R_3pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 #include "3兵对无_nook.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //我方3兵，对方 0 attacker

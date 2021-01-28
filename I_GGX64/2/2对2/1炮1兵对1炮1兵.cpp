@@ -1,7 +1,7 @@
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
 
 void m_MT_PaoPawn_To_PaoPawn(typePOS &POSITION, EvalInfo &ei){

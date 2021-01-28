@@ -1,12 +1,12 @@
 #ifndef END_my_m_MT_R_1pao_2ma5pawn_B_1che
 #define END_my_m_MT_R_1pao_2ma5pawn_B_1che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h" 
-#include "..\\..\\endgame\mat.h"
+#include "../../chess.h"
+#include "../../preGen.h" 
+#include "../../endgame/mat.h"
 #include "1炮2马5兵对1车.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 

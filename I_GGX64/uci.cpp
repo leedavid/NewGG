@@ -10,7 +10,7 @@
 #include <sstream>
 #include <string>
 
-
+#include "platform.h"
 #include "evaluate.h"
 #include "misc.h"
 #include "move.h"
@@ -19,12 +19,9 @@
 #include "notation.h"
 #include "search.h"
 #include "uci.h"
-#include "uci.h"
-#include <windows.h>
 #include "thread.h"
 #include "timeman.h"
 #include "tt.h"
-#include "VMP.h"
 
 
 #pragma warning(disable : 4239)  
@@ -337,7 +334,7 @@ bool ccmd(Position& pos, istringstream& uip){
 					uip >> token;
 				}
 
-				Sleep(DELEY_BEST_MOVE_TIME);
+				sleep_ms(DELEY_BEST_MOVE_TIME);
 				std::cout << "bestmove " << token << std::endl;
 				return true;
 			}
@@ -426,10 +423,7 @@ bool ccmd(Position& pos, istringstream& uip){
 	return true;
 }
 
-
-
-
-
+#ifdef _MSC_VER
 
 #include <io.h>
 #include <fcntl.h>
@@ -505,6 +499,11 @@ void read_uci_set_file(){
 	}
 }
 
+#else
 
+void read_uci_set_file() {
+	
+}
 
+#endif
 

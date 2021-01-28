@@ -1,10 +1,10 @@
 #ifndef E_InitMatFunction9
 #define E_InitMatFunction9
-#include "..\\chess.h"
+#include "../chess.h"
  
-#include "..\\white.h"
+#include "../white.h"
 #else
-#include "..\\black.h"
+#include "../black.h"
 #endif
 
 

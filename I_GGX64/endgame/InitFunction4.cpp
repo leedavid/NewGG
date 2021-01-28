@@ -1,10 +1,10 @@
 #ifndef E_InitMatFunction4
 #define E_InitMatFunction4
-#include "..\\chess.h"
+#include "../chess.h"
  
-#include "..\\white.h"
+#include "../white.h"
 #else
-#include "..\\black.h"
+#include "../black.h"
 #endif
 
 void InitMatFunction4(void){

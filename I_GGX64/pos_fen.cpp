@@ -76,70 +76,70 @@ static bool RequestPending = false;
 /////////////////////////////////////////////////////////////
 void Position::board_display(const std::string& reason) const{
 
-	static bool isouting = false;
+	//static bool isouting = false;
 
-	if(isouting) return;
+	//if(isouting) return;
 
-	isouting = true;
+	//isouting = true;
 
-	char buf[256];
-	int r,f;
-	int chess;
+	//char buf[256];
+	//int r,f;
+	//int chess;
 
-	static const  char *c_BoardStrSim[19] = {
-		"cmd: 9┌--┬--┬--┬--┬--┬--┬--┬--┐ \n",
-		"cmd:  │  │  │  │＼│／│  │  │  │ \n",
-		"cmd: 8├--┼--┼--┼--※--┼--┼--┼--┤ \n",
-		"cmd:  │  │  │  │／│＼│  │  │  │ \n",
-		"cmd: 7├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
-		"cmd:  │  │  │  │  │  │  │  │  │ \n",
-		"cmd: 6├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
-		"cmd:  │  │  │  │  │  │  │  │  │ \n",
-		"cmd: 5├--┴--┴--┴--┴--┴--┴--┴--┤ \n",
-		"cmd:  │                              │ \n",
-		"cmd: 4├--┬--┬--┬--┬--┬--┬--┬--┤ \n",
-		"cmd:  │  │  │  │  │  │  │  │  │ \n",
-		"cmd: 3├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
-		"cmd:  │  │  │  │  │  │  │  │  │ \n",
-		"cmd: 2├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
-		"cmd:  │  │  │  │＼│／│  │  │  │ \n",
-		"cmd: 1├--┼--┼--┼--※--┼--┼--┼--┤ \n",
-		"cmd:  │  │  │  │／│＼│  │  │  │ \n",
-		"cmd: 0└--┴--┴--┴--┴--┴--┴--┴--┘ \n"
-		"cmd:  a   b   c   d   e   f   g   h   i\n"
-	};
+	//static const  char *c_BoardStrSim[19] = {
+	//	"cmd: 9┌--┬--┬--┬--┬--┬--┬--┬--┐ \n",
+	//	"cmd:  │  │  │  │＼│／│  │  │  │ \n",
+	//	"cmd: 8├--┼--┼--┼--※--┼--┼--┼--┤ \n",
+	//	"cmd:  │  │  │  │／│＼│  │  │  │ \n",
+	//	"cmd: 7├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
+	//	"cmd:  │  │  │  │  │  │  │  │  │ \n",
+	//	"cmd: 6├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
+	//	"cmd:  │  │  │  │  │  │  │  │  │ \n",
+	//	"cmd: 5├--┴--┴--┴--┴--┴--┴--┴--┤ \n",
+	//	"cmd:  │                              │ \n",
+	//	"cmd: 4├--┬--┬--┬--┬--┬--┬--┬--┤ \n",
+	//	"cmd:  │  │  │  │  │  │  │  │  │ \n",
+	//	"cmd: 3├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
+	//	"cmd:  │  │  │  │  │  │  │  │  │ \n",
+	//	"cmd: 2├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
+	//	"cmd:  │  │  │  │＼│／│  │  │  │ \n",
+	//	"cmd: 1├--┼--┼--┼--※--┼--┼--┼--┤ \n",
+	//	"cmd:  │  │  │  │／│＼│  │  │  │ \n",
+	//	"cmd: 0└--┴--┴--┴--┴--┴--┴--┴--┘ \n"
+	//	"cmd:  a   b   c   d   e   f   g   h   i\n"
+	//};
 
-	static const  char chessStr[17][4] = {
-		"错",
-		"帥","仕","相","馬","車","炮","兵",
-		"错",
-		"將","士","象","马","车","包","卒",
-		"错"
-	};
+	//static const  char chessStr[17][4] = {
+	//	"错",
+	//	"帥","仕","相","馬","車","炮","兵",
+	//	"错",
+	//	"將","士","象","马","车","包","卒",
+	//	"错"
+	//};
 
-	//fprintf(out,"cmd: ");
-	//fprintf(out, szReason);   //
+	////fprintf(out,"cmd: ");
+	////fprintf(out, szReason);   //
 
-	std::cout << "cmd: fen " << fen() << std::endl;
+	//std::cout << "cmd: fen " << fen() << std::endl;
 
-	std::cout << "cmd: " << reason << std::endl;             
+	//std::cout << "cmd: " << reason << std::endl;             
 
-	for(r = 0; r < 19; r++){
-		sprintf_s(buf,256, c_BoardStrSim[r]);
-		if(r%2 == 0){
-			for(f = 0; f < 9; f++){
-				chess = piece_on(XYtoS(f, r/2));
-				if(chess != EMPTY){
-					buf[f*4+1+5] = chessStr[chess][0];
-					buf[f*4+2+5] = chessStr[chess][1];
-				}
-			}
-		}
-		std::cout << buf;
-	}
-	std::cout << "cmd: fen " << fen() << std::endl;
+	//for(r = 0; r < 19; r++){
+	//	sprintf_s(buf,256, c_BoardStrSim[r]);
+	//	if(r%2 == 0){
+	//		for(f = 0; f < 9; f++){
+	//			chess = piece_on(XYtoS(f, r/2));
+	//			if(chess != EMPTY){
+	//				buf[f*4+1+5] = chessStr[chess][0];
+	//				buf[f*4+2+5] = chessStr[chess][1];
+	//			}
+	//		}
+	//	}
+	//	std::cout << buf;
+	//}
+	//std::cout << "cmd: fen " << fen() << std::endl;
 
-	isouting = false;
+	//isouting = false;
 }
 
 // Position::set() initializes the position object with the given FEN string.

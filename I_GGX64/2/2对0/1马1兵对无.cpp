@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1MA1PAWN_B_NO
 #define END_my_m_MT_R_1MA1PAWN_B_NO
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 #include "1马1兵对无.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //我方一马一兵，对方 0 attacker

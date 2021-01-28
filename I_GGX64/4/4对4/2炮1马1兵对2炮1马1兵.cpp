@@ -1,7 +1,7 @@
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
 
 //const int ADD_2Pao1MaXpawn_To_2Pao1Ma1Pawn_ByPawn[3]     = { 96, 64, 32};   //

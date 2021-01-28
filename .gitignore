@@ -15,4 +15,5 @@ xcuserdata
 /.vs/ST2017_GGX64
 *.obj
 x64/
-
+*.o
+newgg

@@ -1,12 +1,12 @@
 #ifndef END_my_m_MT_R_1CHE_B_1PAO
 #define END_my_m_MT_R_1CHE_B_1PAO
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
 #include "1车对1炮.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 //红方一个车，黑方一个炮
 void my_m_MT_R_1CHE_B_1PAO(typePOS &POSITION, EvalInfo &ei){

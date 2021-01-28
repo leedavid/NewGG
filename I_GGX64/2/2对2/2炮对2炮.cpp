@@ -1,6 +1,6 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
 
 // fen 4k4/4a4/3ab4/3C5/2b6/9/9/4C4/2c1AK3/c8 w - - 210 210

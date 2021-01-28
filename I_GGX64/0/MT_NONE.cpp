@@ -1,7 +1,7 @@
 #ifndef END_my_m_MT_MT_NONE
 #define END_my_m_MT_MT_NONE
-#include "..\\chess.h"
-#include "..\\preGen.h"
+#include "../chess.h"
+#include "../preGen.h"
 // 
 // 
 

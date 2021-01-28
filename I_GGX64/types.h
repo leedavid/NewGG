@@ -26,6 +26,10 @@
 //inline uint64 time_to_msec(const my_time_t& t) { return t.tv_sec * 1000LL + t.tv_usec / 1000; }
 #endif
 
+#if !defined(_WIN32) && !defined(_WIN64)
+#define TCHAR char
+#endif
+
 #define CACHE_LINE_SIZE 64
 // Cache line alignment specification
 #if defined(_MSC_VER) || defined(__INTEL_COMPILER)

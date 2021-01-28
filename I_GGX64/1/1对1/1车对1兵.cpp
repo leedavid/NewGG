@@ -1,12 +1,12 @@
 #ifndef END_my_m_MT_R_1CHE_B_1PAWN
 #define END_my_m_MT_R_1CHE_B_1PAWN
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
 #include "1车对1兵.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //红方一个车，黑方一个兵
