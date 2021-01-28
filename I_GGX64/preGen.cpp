@@ -10,10 +10,10 @@
 
 
 Bitboard CheYaMa[90];
-Bitboard BitMaGooDMove[2];                      // ÂíÓĞºÃ²½×Ó¿É×ß
+Bitboard BitMaGooDMove[2];                      // é©¬æœ‰å¥½æ­¥å­å¯èµ°
 
 
-												//  ½«µÄÏàÓ¦Î»ÖÃÑ¹Ëõ¸ñÊ½
+												//  å°†çš„ç›¸åº”ä½ç½®å‹ç¼©æ ¼å¼
 												//  1 0 1
 												//  2 4 2
 												//  3 5 3
@@ -61,7 +61,7 @@ void init_Ma_bitboard(){
 		if (mx > 0 && mx < 8){
 
 			//////////////////////////////////////////////////
-			// ºìÂíµÄºÃ²½×Ó
+			// çº¢é©¬çš„å¥½æ­¥å­
 			if (my < 8 && my >= 0){
 				set_bit(BitMaGooDMove[WHITE], ma);
 			}
@@ -71,7 +71,7 @@ void init_Ma_bitboard(){
 			//}
 
 			//////////////////////////////////////////////////
-			//  ºÚÂíµÄºÃ²½×Ó
+			//  é»‘é©¬çš„å¥½æ­¥å­
 			if (my > 1 && my <= 9){
 				set_bit(BitMaGooDMove[BLACK], ma);
 			}
@@ -136,7 +136,7 @@ static void init_TOTAL_ATT_POIN(void){
 							che = 0;						
 						}
 
-						//  ½«µÄÏàÓ¦Î»ÖÃÑ¹Ëõ¸ñÊ½
+						//  å°†çš„ç›¸åº”ä½ç½®å‹ç¼©æ ¼å¼
 						//  1 0 1
 						//  2 4 2
 						//  3 5 3
@@ -195,7 +195,7 @@ static void init_TOTAL_ATT_POIN(void){
 						}
 
 						
-						//  ºÚ½«µÄÏàÓ¦Î»ÖÃÑ¹Ëõ¸ñÊ½
+						//  é»‘å°†çš„ç›¸åº”ä½ç½®å‹ç¼©æ ¼å¼
 						//  1 0 1
 						//  2 4 2
 						//  3 5 3
@@ -222,7 +222,7 @@ static void init_SIDE_ATT_POINT(void){
 				for(int deltking = 0; deltking < 3; deltking++){
 					int result = 0;
 
-					if(che >= 0){                     // ÓĞ³µµÄÇé¿ö
+					if(che >= 0){                     // æœ‰è½¦çš„æƒ…å†µ
 						result += pao * 4;
 						result += ma *  4;
 						result += che * 3;
@@ -244,14 +244,14 @@ static void init_SIDE_ATT_POINT(void){
 						}
 					}
 
-					// ÔÙ¿´Ò»ÏÂ½«ÊÇ²»ÊÇÔÚÒ»±ß
+					// å†çœ‹ä¸€ä¸‹å°†æ˜¯ä¸æ˜¯åœ¨ä¸€è¾¹
 					if(deltking == 0){
 						result = result * 138 / 100;
 					}
-					else if(deltking == 1){   // ½«ÔÚÖĞ¼ä
+					else if(deltking == 1){   // å°†åœ¨ä¸­é—´
 						result = result * 100 / 100;
 					}
-					else{                     // ½«ÔÚÁíÒ»±ß
+					else{                     // å°†åœ¨å¦ä¸€è¾¹
 						result = result * 85 / 100;
 					}
 					ASSERT(result < 128);
@@ -279,25 +279,25 @@ static void initMalegTable(void){
 			tx = StoX(to);
 			ty = StoY(to);
 
-			//toÔÚÓÒ
+			//toåœ¨å³
 			if((fx - tx) == -2){
 				if(abs(fy-ty) == 1){
 					_MaLegTable[from][to] = uint8(from+1);
 				}
 			}
-			//toÔÚ×ó
+			//toåœ¨å·¦
 			if((fx - tx) == 2){
 				if(abs(fy-ty) == 1){
 					_MaLegTable[from][to] = uint8(from-1);
 				}
 			}
-			//toÔÚÉÏ
+			//toåœ¨ä¸Š
 			if((fy - ty) == 2){
 				if(abs(fx-tx) == 1){
 					_MaLegTable[from][to] = uint8(from-9);
 				}
 			}
-			//toÔÚÏÂ
+			//toåœ¨ä¸‹
 			if((fy - ty) == -2){
 				if(abs(fx-tx) == 1){
 					_MaLegTable[from][to] = uint8(from+9);
@@ -308,7 +308,7 @@ static void initMalegTable(void){
 }
 
 Bitboard PawnKingAttackZone[90];  
-// ¼ÆËã±øÈı×Ó¹é±ßµÄ½ø¹¥ĞÔÄÜ.
+// è®¡ç®—å…µä¸‰å­å½’è¾¹çš„è¿›æ”»æ€§èƒ½.
 static void InitPawnKingAttackZone(void){
 	for(int k = 0; k < 90; k++){
 
@@ -324,7 +324,7 @@ static void InitPawnKingAttackZone(void){
 		if(y1 >= 3 && y1 <= 6){
 			continue;
 		}
-		// Èç¹û½«ÔÚÔ­Î».
+		// å¦‚æœå°†åœ¨åŸä½.
 		//////////////////////////////////////////////////////////////////////////
 		if(k == 0x04){
 			for(int x = 2; x <= 6; x++){
@@ -539,7 +539,7 @@ static void InitMaKingAttackZone(void){
 				set_bit(mpk,m);
 			}
 		}
-		// Èç¹û½«ÔÚÔ­Î».
+		// å¦‚æœå°†åœ¨åŸä½.
 		//////////////////////////////////////////////////////////////////////////
 		if(i == 0x04){
 			for(int x = 0; x <= 8; x++){
@@ -548,7 +548,7 @@ static void InitMaKingAttackZone(void){
 				}
 			}
 			// fen 2r1kab2/4a4/3cb1nR1/C3p1C2/6p2/2Nn5/3r4P/4B4/4A4/1R2KAB2 w - - 0 25
-			// ¶Ô·½µÄÂíÏÂÒ»²½ÄÜµ½³¼Î»
+			// å¯¹æ–¹çš„é©¬ä¸‹ä¸€æ­¥èƒ½åˆ°è‡£ä½
 			//set_bit(result,0x1c);
 			//set_bit(result,0x1e);
 			//set_bit(result,0x20);
@@ -727,9 +727,9 @@ void PreGenInit(void){
 
 
 	initMalegTable();
-	InitPreMatinfo();                // ÎïÖÊĞÅÏ¢	
+	InitPreMatinfo();                // ç‰©è´¨ä¿¡æ¯	
 
-	init_KposSafe();                 // Õâ¸öÒª·ÅÔÚÏÂÃæµÄÇ°Ãæ
+	init_KposSafe();                 // è¿™ä¸ªè¦æ”¾åœ¨ä¸‹é¢çš„å‰é¢
 	init_Ma_bitboard();
 	init_TOTAL_ATT_POIN();
 	init_SIDE_ATT_POINT();
@@ -739,15 +739,15 @@ void PreGenInit(void){
 }
 
 #ifdef USE_RPPAWN_GOOD_MOVE
-static void init_PawnGoodMove(void){        // ³õÊ¼»¯±øµÄºÃ²½
-	//	extern Bitboard RPawnGoodMove[90];     // Ö»ÓĞÏòÖĞ¼ä×ßµÄ²½ÊÇºÃ²½.
+static void init_PawnGoodMove(void){        // åˆå§‹åŒ–å…µçš„å¥½æ­¥
+	//	extern Bitboard RPawnGoodMove[90];     // åªæœ‰å‘ä¸­é—´èµ°çš„æ­¥æ˜¯å¥½æ­¥.
 	//	extern Bitboard BPawnGoodMove[90];
 	for(int i = 0; i < 90; i++){
 		RPawnGoodMove[i] = _mm_setzero_si128();
 		BPawnGoodMove[i] = _mm_setzero_si128();
 
 
-		if(StoY(i) <= 4){  // ¿´Ò»ÏÂºì±øÄÜ²»ÄÜÏòÇ°
+		if(StoY(i) <= 4){  // çœ‹ä¸€ä¸‹çº¢å…µèƒ½ä¸èƒ½å‘å‰
 			if(StoY(i) > 0){
 				set_bit(RPawnGoodMove[i],i-9);
 			}
@@ -762,7 +762,7 @@ static void init_PawnGoodMove(void){        // ³õÊ¼»¯±øµÄºÃ²½
 				set_bit(RPawnGoodMove[i],i+1);
 			}
 		}
-		if(StoY(i) >= 5){ // ¿´Ò»ÏÂºÚ±øÄÜ²»ÄÜÏòÇ°
+		if(StoY(i) >= 5){ // çœ‹ä¸€ä¸‹é»‘å…µèƒ½ä¸èƒ½å‘å‰
 			if(StoY(i) < 9){
 				set_bit(BPawnGoodMove[i],i+9);
 			}
@@ -782,9 +782,9 @@ static void init_PawnGoodMove(void){        // ³õÊ¼»¯±øµÄºÃ²½
 #endif
 
 // PaoCanAttKing
-static void int_PaoCanAttKing(void){   // ³õÊ¼»¯ÅÚÄÜ¹¥»÷½«Î»ÖÃ
+static void int_PaoCanAttKing(void){   // åˆå§‹åŒ–ç‚®èƒ½æ”»å‡»å°†ä½ç½®
 	for(int k = 0; k < 90; k++){
-		//ÉÏÈıÏß, ÏÂÈıÏß
+		//ä¸Šä¸‰çº¿, ä¸‹ä¸‰çº¿
 		if(StoX(k) < 0x3){
 			continue;
 		}
@@ -795,7 +795,7 @@ static void int_PaoCanAttKing(void){   // ³õÊ¼»¯ÅÚÄÜ¹¥»÷½«Î»ÖÃ
 			continue;
 		}
 		// fen 2bakNR2/5r3/8N/p8/4p4/2n6/Pr1n5/1c1CB4/1R2A4/2BK1A3 w - - 0 1
-		// ºìÅÚ¹¥ºÚ½«
+		// çº¢ç‚®æ”»é»‘å°†
 		if(StoY(k) < 0x3){
 			for(int p = 0; p < 90; p++){
 				if(StoY(p) < 0x3 && abs(StoY(p) - StoY(k)) <= 1){
@@ -810,7 +810,7 @@ static void int_PaoCanAttKing(void){   // ³õÊ¼»¯ÅÚÄÜ¹¥»÷½«Î»ÖÃ
 				}
 			}
 		}
-		// ºÚÅÚ¹¥ºì½«
+		// é»‘ç‚®æ”»çº¢å°†
 		if(StoY(k) > 0x6){
 			for(int p = 0; p < 90; p++){
 				if(StoY(p) > 0x6 && abs(StoY(p) - StoY(k)) <= 1){
@@ -835,7 +835,7 @@ void frist_init(void){
 	init_direction_table();  // 
 	init_relative_rank();
 
-	init_bitboards();           // ³õÊ¼»¯Î»ÆåÅÌ	
+	init_bitboards();           // åˆå§‹åŒ–ä½æ£‹ç›˜	
 	PreGenInit();
 
 	int_PaoCanAttKing();

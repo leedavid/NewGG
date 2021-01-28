@@ -4,13 +4,13 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1��1������.cpp"
+#include "1马1兵对无.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//�ҷ�һ��һ�����Է� 0 attacker
+//我方一马一兵，对方 0 attacker
 void my_m_MT_R_1MA1PAWN_B_NO(typePOS &POSITION, EvalInfo &ei){
 
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
@@ -35,7 +35,7 @@ void my_m_MT_R_1MA1PAWN_B_NO(typePOS &POSITION, EvalInfo &ei){
 	if(mycan == 0){
 		if((your_shi_num + your_xiang_num) > 1){
 			if(StoY(yk) == MY_RANK1){
-				if(PB90(yk MY_ADD 9) == my_ma){ // �����Է��Ľ�ǣ��ס��. 
+				if(PB90(yk MY_ADD 9) == my_ma){ // 马给对方的将牵制住了. 
 					RETRUN_MUL(2);
 				}
 			}
@@ -120,7 +120,7 @@ void my_m_MT_R_1MA1PAWN_B_NO(typePOS &POSITION, EvalInfo &ei){
 		//		RETRUN_MUL(2);
 		//	}
 		//}
-		MY_EV_SUB(128); // ��һЩ����.
+		MY_EV_SUB(128); // 减一些分哇.
 
 		if(StoY(mpawn) MY_SMALL_EQL MY_RANK2 && !IsOnSameSide(mpawn,yk)){
 			if(StoX(yk) == 0x3 && PB90(MY_SQ03) == your_shi){
@@ -139,7 +139,7 @@ void my_m_MT_R_1MA1PAWN_B_NO(typePOS &POSITION, EvalInfo &ei){
 				RETRUN_MUL(3);
 			}
 		}
-		MY_EV_SUB(128); // ��һЩ����.
+		MY_EV_SUB(128); // 减一些分哇.
 	}
 
 	// fen 5k3/3P1N3/3a5/9/2b3b2/9/9/4B4/4AK3/6B2 b - - 0 1
@@ -175,11 +175,11 @@ void my_m_MT_R_1MA1PAWN_B_NO(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 3a5/9/3a1k2b/9/9/9/9/4p2nB/4A4/3K1A3 w - - 120 120
-	// �������
+	// 特殊和形
 	if(your_shi_num == 2 && your_xiang_num >= 1){
 		if(StoX(yk) != 0x7 && mpawn == MY_SQ16 
 			&& PB90(MY_SQ0D) == your_shi){
-				// �Է�������ĵ�һ�����Ӳ����ˡ�
+				// 对方将上面的第一个棋子不是仕。
 				if(PB90(yk MY_ADD 9) != your_shi
 					&& PB90(yk MY_ADD 18) != your_shi){
 						RETRUN_MUL(3);

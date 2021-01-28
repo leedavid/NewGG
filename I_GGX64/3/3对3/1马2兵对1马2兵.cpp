@@ -5,10 +5,10 @@
 
 
 
-//1Âí2±ø¶Ô1Âí2±ø
+//1é©¬2å…µå¯¹1é©¬2å…µ
 void m_MT_1ma2pawn_1ma2pawn(typePOS &POSITION, EvalInfo &ei){	
 
-	//Èç¹ûÒ»·½ÓÐÊË,ÁíÒ»·½µÄ¶þ¸ö±ø¶¼µ½ÁËµÍ±ø,ÇÒÔÚÒ»±ß,ÔòÒ»±ßÒª¼õ·Ö
+	//å¦‚æžœä¸€æ–¹æœ‰ä»•,å¦ä¸€æ–¹çš„äºŒä¸ªå…µéƒ½åˆ°äº†ä½Žå…µ,ä¸”åœ¨ä¸€è¾¹,åˆ™ä¸€è¾¹è¦å‡åˆ†
 
 
 	Square rpawn1 = S90_from_piecelist(POSITION,RPAWN,0);
@@ -93,7 +93,7 @@ void m_MT_1ma2pawn_1ma2pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 3a5/P2k1P3/b8/2n6/2b6/2P6/4N4/3A1A3/2p3p2/2B1K4 b - - 0 1
-	// Èç¹û¶Ô·½ÓÐÊË, ÇÒÎÒ·½µÄÒ»¸ö±øÔÚ±ßÉÏ, Òª¿Û·Ö
+	// å¦‚æžœå¯¹æ–¹æœ‰ä»•, ä¸”æˆ‘æ–¹çš„ä¸€ä¸ªå…µåœ¨è¾¹ä¸Š, è¦æ‰£åˆ†
 	if(BShi_num() >= 1){
 		if(abs(StoX(rpawn1) - 0x4) >= 4 || abs(StoX(rpawn2) - 0x4) >= 4){
 			ei.evscore -= 64;

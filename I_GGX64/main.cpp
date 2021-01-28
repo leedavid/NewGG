@@ -60,14 +60,14 @@ int main(int argc, char *argv[]) {
 		*filepart = 0;
 	}
 	else{
-		GetCurrentDirectory(MAX_PATH, (installDir));			//µÃµ½Èí¼şÔËĞĞÄ¿Â¼
+		GetCurrentDirectory(MAX_PATH, (installDir));			//å¾—åˆ°è½¯ä»¶è¿è¡Œç›®å½•
 	}
 #else
 	if(SearchPath(NULL,(L"NewGG.exe"),NULL,MAX_PATH, installDir, &filepart)){
 		*filepart = 0;
 	}
 	else{
-		GetCurrentDirectory(MAX_PATH, (installDir));			//µÃµ½Èí¼şÔËĞĞÄ¿Â¼
+		GetCurrentDirectory(MAX_PATH, (installDir));			//å¾—åˆ°è½¯ä»¶è¿è¡Œç›®å½•
 	}
 #endif
 
@@ -78,7 +78,7 @@ int main(int argc, char *argv[]) {
 	Open_Log_File();
 #endif
 
-	// ½«µ±Ç°Ïß³ÌµÄÓÅÏÈ¼¶½µÒ»ÏÂ
+	// å°†å½“å‰çº¿ç¨‹çš„ä¼˜å…ˆçº§é™ä¸€ä¸‹
 	//HANDLE hProcess = GetCurrentProcess();
 	//SetPriorityClass(hProcess, IDLE_PRIORITY_CLASS);  //BELOW_NORMAL_PRIORITY_CLASS  IDLE_PRIORITY_CLASS
 

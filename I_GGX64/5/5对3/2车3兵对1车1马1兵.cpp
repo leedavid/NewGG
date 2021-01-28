@@ -4,13 +4,13 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2³µ3±ø¶Ô1³µ1Âí1±ø.cpp"
+#include "2è½¦3å…µå¯¹1è½¦1é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//2³µ2±ø¶Ô1³µ1Âí1±ø
+//2è½¦2å…µå¯¹1è½¦1é©¬1å…µ
 void my_m_MT_R_2che3pawn_B_1che1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;

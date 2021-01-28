@@ -1,12 +1,12 @@
 
-//********************************************* Ò»¶ÔÎÞ********************
+//********************************************* ä¸€å¯¹æ— ********************
 #undef my_m_MT_R_1CHE 
 #undef my_m_MT_R_1MA  
 #undef my_m_MT_R_1PAO  
 #undef my_m_MT_R_1PAWN
-//********************************************* Ò»¶ÔÒ»********************
+//********************************************* ä¸€å¯¹ä¸€********************
 #undef my_m_MT_1CHE_TO_1CHE  
-#undef my_m_MT_R_1CHE_B_1PAO  		 //ºìÒ»³µºÚÒ»ÅÚ	
+#undef my_m_MT_R_1CHE_B_1PAO  		 //çº¢ä¸€è½¦é»‘ä¸€ç‚®	
 #undef your_m_MT_R_1CHE_B_1PAO
 
 #undef my_m_MT_R_1CHE_B_1MA  
@@ -14,7 +14,7 @@
 
 #undef my_m_MT_R_1CHE_B_1PAWN  
 #undef my_m_MT_R_1PAO_B_1MA
-#undef my_m_MT_R_1PAO_B_1PAWN  	//ºìÒ»ÅÚºÚÒ»±ø
-#undef my_m_MT_R_1MA_B_1PAWN  	//ºìÒ»ÂíºÚÒ»±ø
+#undef my_m_MT_R_1PAO_B_1PAWN  	//çº¢ä¸€ç‚®é»‘ä¸€å…µ
+#undef my_m_MT_R_1MA_B_1PAWN  	//çº¢ä¸€é©¬é»‘ä¸€å…µ
 
 

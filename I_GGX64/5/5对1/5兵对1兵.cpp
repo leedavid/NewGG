@@ -4,19 +4,19 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "5±ø¶Ô1±ø.cpp"
+#include "5å…µå¯¹1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
-//5±ø¶Ô1±ø
+//5å…µå¯¹1å…µ
 void my_m_MT_R_5pawn_B_1pawn(typePOS &POSITION, EvalInfo &ei){
 	
 	BothOnlyPawnEval(POSITION,ei);
 
 }
 //
-////5±ø¶Ô1±ø
+////5å…µå¯¹1å…µ
 //void m_MT_B_5pawn_R_1pawn(typePOS &POSITION, EvalInfo &ei){
 //	//BothOnlyPawnEval(board);
 //

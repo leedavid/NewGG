@@ -2,13 +2,13 @@
 #define Emy_m_MT_R_1MA
 #include "..\\..\\chess.h"
 #include "..\\..\\preGen.h" 
-#include "1Âí.cpp"
+#include "1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif  
 
-//ºì·½Ò»¸öÂí
+//çº¢æ–¹ä¸€ä¸ªé©¬
 void my_m_MT_R_1MA(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
@@ -17,12 +17,12 @@ void my_m_MT_R_1MA(typePOS &POSITION, EvalInfo &ei){
 
 	// MY_EV_ADD(32);
 
-	// ¶Ô·½ÓÐË«Ïà »òË«ÊË
+	// å¯¹æ–¹æœ‰åŒç›¸ æˆ–åŒä»•
 	if(your_shi_num == 2 || your_xiang_num == 2){
 		RETRUN_MUL(1);
 	}
 	// fen 3k5/3Na4/9/9/9/6B2/9/5A3/9/2BK1A3 w - - 41 41
-	// ºìÂí¸øºÚ½«Ç£ÖÆ×¡ÁË, Ò²ÊÇºÍÆå
+	// çº¢é©¬ç»™é»‘å°†ç‰µåˆ¶ä½äº†, ä¹Ÿæ˜¯å’Œæ£‹
 	if(StoY(yk) MY_SMALL_EQL MY_RANK1){
 		if(PB90(your_king_pos MY_ADD 9) == my_ma){
 			if (your_xiang_num >= 1 || your_shi_num >= 1){
@@ -30,7 +30,7 @@ void my_m_MT_R_1MA(typePOS &POSITION, EvalInfo &ei){
 			}
 		}
 	}
-	// ¶Ô·½ÓÐÏà
+	// å¯¹æ–¹æœ‰ç›¸
 	if(your_xiang_num == 1){
 
 		Square yx = S90_from_piecelist(POSITION, your_xiang, 0);

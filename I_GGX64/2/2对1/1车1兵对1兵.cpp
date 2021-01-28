@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1±ø¶Ô1±ø.cpp"
+#include "1è½¦1å…µå¯¹1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//³µ2±ø¶Ô1±ø
+//è½¦2å…µå¯¹1å…µ
 void my_m_MT_R_1che1pawn_B_1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
@@ -23,7 +23,7 @@ void my_m_MT_R_1che1pawn_B_1pawn(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_ADD(ADD_CheXPawn_To1Pawn);
 
 	// fen 3a1kb2/4a4/4b4/9/5Rp2/2B6/6P2/5A2B/4K4/3A5 b - - 18 18
-	//Èç¹û±ø²»ÄÜ¹ıºÓ£¬Ò²¿ÉÄÜÊÇºÍÆå'
+	//å¦‚æœå…µä¸èƒ½è¿‡æ²³ï¼Œä¹Ÿå¯èƒ½æ˜¯å’Œæ£‹'
 	if(your_shi_num == 2 && your_xiang_num == 2 && StoY(yk) == MY_RANK0){
 		if(PB90(MY_SQ16) == your_xiang){
 			if(PB90(MY_SQ2A) == your_pawn && PB90(MY_SQ3C) == my_pawn){

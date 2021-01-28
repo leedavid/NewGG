@@ -1,6 +1,6 @@
 
 
-// ºÚ·½¹¥»÷ºìË§
+// é»‘æ–¹æ”»å‡»çº¢å¸…
 
 Bitboard undefended;
 int attackCounter = count_1s(m_and(ei.attackKingBoard,bitboard_occ_black));
@@ -19,34 +19,34 @@ if(attackCounter >= 2){
 
 	ei.attPoint[BLACKCOLOR] += 6 * (ei.kingAdjacentZoneAttacksCount[BLACKCOLOR] + count_1s(undefended));
 
-	// ½«ÊÇ²»ÊÇ¸ø±ø¹¥»÷ÁË
+	// å°†æ˜¯ä¸æ˜¯ç»™å…µæ”»å‡»äº†
 	Bitboard att = m_and(ei.attackKingBoard,bitboard_black_pawn);
     ei.attPoint[BLACKCOLOR] += PawnAttWeight * count_1s(att);
 	
-	// ½«ÊÇ²»ÊÇ¸ø³µ¹¥»÷ÁË
+	// å°†æ˜¯ä¸æ˜¯ç»™è½¦æ”»å‡»äº†
 	att = m_and(ei.attackKingBoard,bitboard_black_che);
 	if(m128_is_have_bit(att)){
 		int che_num = count_1s(att);
 	    ei.attPoint[BLACKCOLOR] += CheAttWeight * che_num;
 	}
 
-	// ½«ÊÇ²»ÊÇ¸øÂí¹¥»÷ÁË
+	// å°†æ˜¯ä¸æ˜¯ç»™é©¬æ”»å‡»äº†
 	att = m_and(ei.attackKingBoard,bitboard_black_ma);
 	if(m128_is_have_bit(att)){
 		int ma_num = count_1s(att);
 	    ei.attPoint[BLACKCOLOR] += MaAttWeight * ma_num;
 	}
 
-	// ½«ÊÇ²»ÊÇ¸øÅÚ¹¥»÷ÁË
+	// å°†æ˜¯ä¸æ˜¯ç»™ç‚®æ”»å‡»äº†
 	att = m_and(ei.attackKingBoard,bitboard_black_pao);
 	if(m128_is_have_bit(att)){
 		int pao_num = count_1s(att);
 	    ei.attPoint[BLACKCOLOR] += PaoAttWeight * pao_num;
 	}
 
-	// Analyse safe distance checks ·ÖÎö¶Ô·½µÄ½«¾üµÄ°²È«²½, Ç°ÃæÂí,ÅÚÒÑ·ÖÎö¹ıÁË
+	// Analyse safe distance checks åˆ†æå¯¹æ–¹çš„å°†å†›çš„å®‰å…¨æ­¥, å‰é¢é©¬,ç‚®å·²åˆ†æè¿‡äº†
 
-	// ³é½«,µş½«µÄµÃ·Ö
+	// æŠ½å°†,å å°†çš„å¾—åˆ†
 	
 }
 
@@ -54,21 +54,21 @@ if(attackCounter >= 2){
 
 //
 //Bitboard white_safe = m_not(m128_bb_or_bb(bitboard_occ_white,
-//	POSITION->DYN->attack_black));  // ºì·½¿É°²È«×ßµ½µÄÆå¸ñ,»¹µÃ¼ÓÉÏpao_NULLÍÛ
+//	POSITION->DYN->attack_black));  // çº¢æ–¹å¯å®‰å…¨èµ°åˆ°çš„æ£‹æ ¼,è¿˜å¾—åŠ ä¸Špao_NULLå“‡
 //Bitboard black_safe = m_not(m128_bb_or_bb(bitboard_occ_black,
-//	POSITION->DYN->attack_white));  // ºÚ·½¿É°²È«×ßµ½µÄÆå¸ñ
+//	POSITION->DYN->attack_white));  // é»‘æ–¹å¯å®‰å…¨èµ°åˆ°çš„æ£‹æ ¼
 
 
-	//Bitboard RmaAtt[2];                                  // ±£´æÖĞ¼äµÄÊı¾İ
+	//Bitboard RmaAtt[2];                                  // ä¿å­˜ä¸­é—´çš„æ•°æ®
 	//Bitboard BmaAtt[2];
 	//Bitboard RcheAtt[2];
 	//Bitboard BcheAtt[2];
 	//Bitboard RPaoAtt[2];
 	//Bitboard BPaoAtt[2];
-	//Bitboard RPaoCheAtt[2];                              // ÅÚ¿É×ßµ½µÄÆå¸ñ.
+	//Bitboard RPaoCheAtt[2];                              // ç‚®å¯èµ°åˆ°çš„æ£‹æ ¼.
 	//Bitboard BPaoCheAtt[2];
 	//Bitboard RpawnAtt;
 	//Bitboard BpawnAtt;
 
-	//Bitboard RShiXiangAtt;      // ºìÊËºìÏà
-	//Bitboard BShiXiangAtt;      // ºÚÊËºÚÏó
+	//Bitboard RShiXiangAtt;      // çº¢ä»•çº¢ç›¸
+	//Bitboard BShiXiangAtt;      // é»‘ä»•é»‘è±¡

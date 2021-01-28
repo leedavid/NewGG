@@ -29,7 +29,7 @@ Score WeightKingSafety[2];
 
 
 
-/// 攻击分数
+/// 鏀诲嚮鍒嗘暟
 
 //uint8 KingPosSafe[90];
 //static void init_KingPosSafe(void){
@@ -71,7 +71,7 @@ namespace Eval {
 	void init_safety(){
 
 		//int  SafetyTable[100]; 
-		//MIN_ZEOR_SAFE_POINT    前面全是0
+		//MIN_ZEOR_SAFE_POINT    鍓嶉潰鍏ㄦ槸0
 		int maxSlope   = 12;     // get_option_value_int("King Safety Max Slope");
 		int peak       = 1680;
 		double a       = 0.06;   // get_option_value_int("King Safety Coefficient") / 100.0;
@@ -109,14 +109,14 @@ namespace Eval {
 				}
 			}
 
-			if (*(pSafe+i)  > (peak)){ // 最大值{
+			if (*(pSafe+i)  > (peak)){ // 鏈�澶у�納
 				*(pSafe+i) = Value(peak);
 			}
 		}
 
 		for(i = 0; i < TOTAL_SAFE_POINT; i++){
 			int val = tmp[i];
-			SafetyTable[i] = make_score(val,val);  // 这个不需要哇
+			SafetyTable[i] = make_score(val,val);  // 杩欎釜涓嶉渶瑕佸搰
 		}
 	}
 

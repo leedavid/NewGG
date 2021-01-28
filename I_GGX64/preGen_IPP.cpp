@@ -16,7 +16,7 @@ void InitCaptureValues (void)   // int_capture_value
 {
 	//memset(CAPTURE_VALU,0,16*16*sizeof(sint32));
 	CAPTURE_VALU[0][0] 		= 0;
-	// ³ÔºÚ³µ	
+	// åƒé»‘è½¦	
 	CAPTURE_VALU[RPAWN][BCHE] 		= (0xd0 << 24) + (0x02 << 20);
 	CAPTURE_VALU[RSHI][BCHE] 		= (0xcf << 24) + (0x02 << 20);
 	CAPTURE_VALU[RXIANG][BCHE] 		= (0xcf << 24) + (0x02 << 20);
@@ -24,7 +24,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[RMA][BCHE] 		= (0xce << 24) + (0x02 << 20);
 	CAPTURE_VALU[RCHE][BCHE] 		= (0xcd << 24) + (0x01 << 20);
 	
-	// ³ÔºÚÂí
+	// åƒé»‘é©¬
 	CAPTURE_VALU[RPAWN][BMA] 		= (0xc8 << 24) + (0x02 << 20);
 	CAPTURE_VALU[RSHI][BMA] 		= (0xc7 << 24) + (0x02 << 20);
 	CAPTURE_VALU[RXIANG][BMA] 		= (0xc7 << 24) + (0x02 << 20);
@@ -32,7 +32,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[RMA][BMA] 		    = (0xc6 << 24) + (0x01 << 20);
 	CAPTURE_VALU[RCHE][BMA] 		= (0xc5 << 24) + (0x00 << 20);
 
-	// ³ÔºÚÅÚ
+	// åƒé»‘ç‚®
 	CAPTURE_VALU[RPAWN][BPAO] 		= (0xc8 << 24) + (0x02 << 20);
 	CAPTURE_VALU[RSHI][BPAO] 		= (0xc7 << 24) + (0x02 << 20);
 	CAPTURE_VALU[RXIANG][BPAO] 		= (0xc7 << 24) + (0x02 << 20);
@@ -40,7 +40,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[RMA][BPAO] 	    = (0xc6 << 24) + (0x01 << 20);
 	CAPTURE_VALU[RCHE][BPAO] 		= (0xc5 << 24) + (0x00 << 20);
 	
-	// ³ÔºÚÊË
+	// åƒé»‘ä»•
 	CAPTURE_VALU[RPAWN][BSHI] 		= (0xc0 << 24) + (0x02 << 20);
 	CAPTURE_VALU[RSHI][BSHI] 		= (0xbf << 24) + (0x01 << 20);
 	CAPTURE_VALU[RXIANG][BSHI] 		= (0xbf << 24) + (0x01 << 20);
@@ -48,7 +48,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[RMA][BSHI] 	    = (0xbe << 24) + (0x00 << 20);
 	CAPTURE_VALU[RCHE][BSHI] 		= (0xbd << 24) + (0x00 << 20);
 
-	// ³ÔºÚÏà
+	// åƒé»‘ç›¸
 	CAPTURE_VALU[RPAWN][BXIANG] 	= (0xc0 << 24) + (0x02 << 20);
 	CAPTURE_VALU[RSHI][BXIANG] 		= (0xbf << 24) + (0x01 << 20);
 	CAPTURE_VALU[RXIANG][BXIANG] 	= (0xbf << 24) + (0x01 << 20);
@@ -56,7 +56,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[RMA][BXIANG] 	    = (0xbe << 24) + (0x00 << 20);
 	CAPTURE_VALU[RCHE][BXIANG] 		= (0xbd << 24) + (0x00 << 20);
 
-	// ³ÔºÚ±ø
+	// åƒé»‘å…µ
 	CAPTURE_VALU[RPAWN][BPAWN] 	    = (0xb0 << 24) + (0x01 << 20);
 	CAPTURE_VALU[RSHI][BPAWN] 		= (0xaf << 24) + (0x00 << 20);
 	CAPTURE_VALU[RXIANG][BPAWN] 	= (0xaf << 24) + (0x00 << 20);
@@ -64,7 +64,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[RMA][BPAWN] 	    = (0xae << 24) + (0x00 << 20);
 	CAPTURE_VALU[RCHE][BPAWN] 		= (0xac << 24) + (0x00 << 20);
 
-	// ½«³ÔÆäËü
+	// å°†åƒå…¶å®ƒ
 	CAPTURE_VALU[RKING][BCHE] 	    = (0xcb << 24) + (0x00 << 20);
 	CAPTURE_VALU[RKING][BMA] 		= (0xc3 << 24) + (0x00 << 20);
 	CAPTURE_VALU[RKING][BPAO] 	    = (0xc3 << 24) + (0x00 << 20);
@@ -72,7 +72,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[RKING][BXIANG] 	= (0xbb << 24) + (0x00 << 20);
 	CAPTURE_VALU[RKING][BPAWN] 		= (0xb3 << 24) + (0x00 << 20);
 
-	// ²»³Ô×Ó
+	// ä¸åƒå­
 	/*CAPTURE_VALU[RKING][0] 	    = (0x07 << 24) + (0x00 << 15);
 	CAPTURE_VALU[RPAWN][0] 		= (0x06 << 24) + (0x01 << 15);
 	CAPTURE_VALU[RSHI][0] 	    = (0x05 << 24) + (0x01 << 15);
@@ -88,7 +88,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[RMA][0] 		= (0x04 << 24) + (0x01 << 16);	
 	CAPTURE_VALU[RCHE][0]       = (0x03 << 24) + (0x01 << 16);
 
-	// ³Ôºì³µ	
+	// åƒçº¢è½¦	
 	CAPTURE_VALU[BPAWN][RCHE] 		= (0xd0 << 24) + (0x02 << 20);
 	CAPTURE_VALU[BSHI][RCHE] 		= (0xcf << 24) + (0x02 << 20);
 	CAPTURE_VALU[BXIANG][RCHE] 		= (0xcf << 24) + (0x02 << 20);
@@ -96,7 +96,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[BMA][RCHE] 		= (0xce << 24) + (0x02 << 20);
 	CAPTURE_VALU[BCHE][RCHE] 		= (0xcd << 24) + (0x01 << 20);
 				 
-	// ³ÔºìÂí	   
+	// åƒçº¢é©¬	   
 	CAPTURE_VALU[BPAWN][RMA] 		= (0xc8 << 24) + (0x02 << 20);
 	CAPTURE_VALU[BSHI][RMA] 		= (0xc7 << 24) + (0x02 << 20);
 	CAPTURE_VALU[BXIANG][RMA] 		= (0xc7 << 24) + (0x02 << 20);
@@ -104,7 +104,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[BMA][RMA] 		    = (0xc6 << 24) + (0x01 << 20);
 	CAPTURE_VALU[BCHE][RMA] 		= (0xc5 << 24) + (0x00 << 20);
 				
-	// ³ÔºìÅÚ	   
+	// åƒçº¢ç‚®	   
 	CAPTURE_VALU[BPAWN][RPAO] 		= (0xc8 << 24) + (0x02 << 20);
 	CAPTURE_VALU[BSHI][RPAO] 		= (0xc7 << 24) + (0x02 << 20);
 	CAPTURE_VALU[BXIANG][RPAO] 		= (0xc7 << 24) + (0x02 << 20);
@@ -112,7 +112,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[BMA][RPAO] 	    = (0xc6 << 24) + (0x01 << 20);
 	CAPTURE_VALU[BCHE][RPAO] 		= (0xc5 << 24) + (0x00 << 20);
 				 
-	// ³ÔºìÊË	   
+	// åƒçº¢ä»•	   
 	CAPTURE_VALU[BPAWN][RSHI] 		= (0xc0 << 24) + (0x02 << 20);
 	CAPTURE_VALU[BSHI][RSHI] 		= (0xbf << 24) + (0x01 << 20);
 	CAPTURE_VALU[BXIANG][RSHI] 		= (0xbf << 24) + (0x01 << 20);
@@ -120,7 +120,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[BMA][RSHI] 	    = (0xbe << 24) + (0x00 << 20);
 	CAPTURE_VALU[BCHE][RSHI] 		= (0xbd << 24) + (0x00 << 20);
 				 
-	// ³ÔºìÏà	   
+	// åƒçº¢ç›¸	   
 	CAPTURE_VALU[BPAWN][RXIANG] 	= (0xc0 << 24) + (0x02 << 20);
 	CAPTURE_VALU[BSHI][RXIANG] 		= (0xbf << 24) + (0x01 << 20);
 	CAPTURE_VALU[BXIANG][RXIANG] 	= (0xbf << 24) + (0x01 << 20);
@@ -128,7 +128,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[BMA][RXIANG] 	    = (0xbe << 24) + (0x00 << 20);
 	CAPTURE_VALU[BCHE][RXIANG] 		= (0xbd << 24) + (0x00 << 20);
 				 
-	// ³Ôºì±ø	   
+	// åƒçº¢å…µ	   
 	CAPTURE_VALU[BPAWN][RPAWN]  	= (0xb0 << 24) + (0x01 << 20);
 	CAPTURE_VALU[BSHI][RPAWN] 		= (0xaf << 24) + (0x00 << 20);
 	CAPTURE_VALU[BXIANG][RPAWN] 	= (0xaf << 24) + (0x00 << 20);
@@ -136,7 +136,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[BMA][RPAWN] 	    = (0xae << 24) + (0x00 << 20);
 	CAPTURE_VALU[BCHE][RPAWN] 		= (0xac << 24) + (0x00 << 20);
 				 
-	// ½«³ÔÆäËü	   
+	// å°†åƒå…¶å®ƒ	   
 	CAPTURE_VALU[BKING][RCHE] 	    = (0xcb << 24) + (0x00 << 20);
 	CAPTURE_VALU[BKING][RMA] 		= (0xc3 << 24) + (0x00 << 20);
 	CAPTURE_VALU[BKING][RPAO] 	    = (0xc3 << 24) + (0x00 << 20);
@@ -144,7 +144,7 @@ void InitCaptureValues (void)   // int_capture_value
 	CAPTURE_VALU[BKING][RXIANG] 	= (0xbb << 24) + (0x00 << 20);
 	CAPTURE_VALU[BKING][RPAWN] 		= (0xb3 << 24) + (0x00 << 20);
 				 
-	// ²»³Ô×Ó	   
+	// ä¸åƒå­	   
 	//CAPTURE_VALU[BKING][0] 	    = (0x07 << 24) + (0x00 << 15);
 	//CAPTURE_VALU[BPAWN][0] 		= (0x06 << 24) + (0x01 << 15);
 	//CAPTURE_VALU[BSHI][0] 	    = (0x05 << 24) + (0x01 << 15);
@@ -221,25 +221,25 @@ static void initMalegTable(void){
 			tx = StoX(to);
 			ty = StoY(to);
 
-			//toÔÚÓÒ
+			//toåœ¨å³
 			if((fx - tx) == -2){
 				if(ABS(fy-ty) == 1){
 					_MaLegTable[from][to] = from+1;
 				}
 			}
-			//toÔÚ×ó
+			//toåœ¨å·¦
 			if((fx - tx) == 2){
 				if(ABS(fy-ty) == 1){
 					_MaLegTable[from][to] = from-1;
 				}
 			}
-            //toÔÚÉÏ
+            //toåœ¨ä¸Š
 			if((fy - ty) == 2){
 				if(ABS(fx-tx) == 1){
 					_MaLegTable[from][to] = from-9;
 				}
 			}
-			//toÔÚÏÂ
+			//toåœ¨ä¸‹
 			if((fy - ty) == -2){
 				if(ABS(fx-tx) == 1){
 					_MaLegTable[from][to] = from+9;
@@ -249,7 +249,7 @@ static void initMalegTable(void){
 	}
 }
 
-// ³õÊ¼»¯Ç£ÖÆ·Ö.,¸ù¾İ²Ğ¾ÖµÄ×´Ì¬.
+// åˆå§‹åŒ–ç‰µåˆ¶åˆ†.,æ ¹æ®æ®‹å±€çš„çŠ¶æ€.
 void initStringTable(void){
 	//int MatStringScore = 220;
 
@@ -278,8 +278,8 @@ void InitKingAttackZone(void){
 	   x = StoX(i);
 	   y = StoY(i);
 
-	   // Ê×ÏÈ°Ñ×Ô¼º¼ÓÉÏ
-	   set_bit(KingKingAttBB[i],i);  // ¶Ô½«¼ì²âÓÃµÄ
+	   // é¦–å…ˆæŠŠè‡ªå·±åŠ ä¸Š
+	   set_bit(KingKingAttBB[i],i);  // å¯¹å°†æ£€æµ‹ç”¨çš„
 
 	   if(x >= 0x3 && x <= 0x5){
 
@@ -307,30 +307,30 @@ void InitKingAttackZone(void){
 		   }
 
 		   //bk
-		   if(y <= 2){ // ½«µÄËÄÖÜÈ«Ëã¿É¹¥»÷µÄÎ».
+		   if(y <= 2){ // å°†çš„å››å‘¨å…¨ç®—å¯æ”»å‡»çš„ä½.
 
 			    set_bit(KingAttackZone[i],i);
 
-			   // ½«µÄ×ó,ÓÒÒ»¸ñ.
-			   set_bit(KingAttackZone[i],i-1);     //×ó
-			   set_bit(KingAttackZone[i],i+1);     //ÓÒ
+			   // å°†çš„å·¦,å³ä¸€æ ¼.
+			   set_bit(KingAttackZone[i],i-1);     //å·¦
+			   set_bit(KingAttackZone[i],i+1);     //å³
 
-			   // ½«µÄÉÏÃæÒ»¸ñ.
-               set_bit(KingAttackZone[i],i+9);     //ÏÂ
+			   // å°†çš„ä¸Šé¢ä¸€æ ¼.
+               set_bit(KingAttackZone[i],i+9);     //ä¸‹
 
 			   if(y != 0){
-				   set_bit(KingAttackZone[i],i-9); //ÉÏ
-				   set_bit(KingAttackZone[i],i-9+1); //ÉÏ
-				   set_bit(KingAttackZone[i],i-9-1); //ÉÏ
+				   set_bit(KingAttackZone[i],i-9); //ä¸Š
+				   set_bit(KingAttackZone[i],i-9+1); //ä¸Š
+				   set_bit(KingAttackZone[i],i-9-1); //ä¸Š
 			   }
 
-			   // ½«µÄÖÜÎ§9¸ñ, ÏÂÃæ¶şÅÅ3¸ñ,×ó,ÓÒ
+			   // å°†çš„å‘¨å›´9æ ¼, ä¸‹é¢äºŒæ’3æ ¼,å·¦,å³
 			  
-			   set_bit(KingAttackZone[i],i+9);     //ÏÂ
+			   set_bit(KingAttackZone[i],i+9);     //ä¸‹
 			   set_bit(KingAttackZone[i],i+9-1);     //
 			   set_bit(KingAttackZone[i],i+9+1);     //
 			   
-			   // ½«µÄÖÜÎ§9¸ñ, ÏÂÃæÈıÅÅ3¸ñ,×ó,ÓÒ
+			   // å°†çš„å‘¨å›´9æ ¼, ä¸‹é¢ä¸‰æ’3æ ¼,å·¦,å³
 			   set_bit(KingAttackZone[i],i+18);
 			   set_bit(KingAttackZone[i],i+18-1);     //
 			   set_bit(KingAttackZone[i],i+18+1);     //
@@ -341,21 +341,21 @@ void InitKingAttackZone(void){
 		   if(y >= 7){
 
 			   set_bit(KingAttackZone[i],i);
-			   set_bit(KingAttackZone[i],i-1);      //×ó
-			   set_bit(KingAttackZone[i],i+1);      //ÓÒ
+			   set_bit(KingAttackZone[i],i-1);      //å·¦
+			   set_bit(KingAttackZone[i],i+1);      //å³
 
-			   set_bit(KingAttackZone[i],i-9);      //ÉÏ
-			   set_bit(KingAttackZone[i],i-9+1);      //ÉÏ
-			   set_bit(KingAttackZone[i],i-9-1);      //ÉÏ
+			   set_bit(KingAttackZone[i],i-9);      //ä¸Š
+			   set_bit(KingAttackZone[i],i-9+1);      //ä¸Š
+			   set_bit(KingAttackZone[i],i-9-1);      //ä¸Š
 
-			   set_bit(KingAttackZone[i],i-18);      //ÉÏ
-			   set_bit(KingAttackZone[i],i-18+1);      //ÉÏ
-			   set_bit(KingAttackZone[i],i-18-1);      //ÉÏ
+			   set_bit(KingAttackZone[i],i-18);      //ä¸Š
+			   set_bit(KingAttackZone[i],i-18+1);      //ä¸Š
+			   set_bit(KingAttackZone[i],i-18-1);      //ä¸Š
 
 			   if(y != 9){
-				   set_bit(KingAttackZone[i],i+9);   //ÏÂ
-				   set_bit(KingAttackZone[i],i+9+1);   //ÏÂ
-				   set_bit(KingAttackZone[i],i+9-1);   //ÏÂ
+				   set_bit(KingAttackZone[i],i+9);   //ä¸‹
+				   set_bit(KingAttackZone[i],i+9+1);   //ä¸‹
+				   set_bit(KingAttackZone[i],i+9-1);   //ä¸‹
 			   }
 		   }
 	   }
@@ -369,7 +369,7 @@ void second_init(void){
 
 void init_SafetyTable(void){
 	//int  SafetyTable[100]; 
-	//MIN_ZEOR_SAFE_POINT    Ç°ÃæÈ«ÊÇ0
+	//MIN_ZEOR_SAFE_POINT    å‰é¢å…¨æ˜¯0
 	int maxSlope   = 12;     // get_option_value_int("King Safety Max Slope");
 	int peak       = 1680;
 	double a       = 0.06;   // get_option_value_int("King Safety Coefficient") / 100.0;
@@ -405,7 +405,7 @@ void init_SafetyTable(void){
 			}
 		}
 
-		if (*(pSafe+i)  > (peak)){ // ×î´óÖµ{
+		if (*(pSafe+i)  > (peak)){ // æœ€å¤§å€¼{
 			*(pSafe+i) = (peak);
 	    }
 	}
@@ -476,7 +476,7 @@ void init_PawnCanAddByChe(void){
 //			for (j = i + 1; j < 100; j++)
 //				SafetyTable[j] = SafetyTable[j-1] + (maxSlope);
 //
-//		if (SafetyTable[i]  > (peak)) // ×î´óÖµ
+//		if (SafetyTable[i]  > (peak)) // æœ€å¤§å€¼
 //			SafetyTable[i] = (peak);
 //	}
 //}
@@ -485,8 +485,8 @@ void PreGenInit(void){
 
 	//_MaLegTable[90][90]
 	initMalegTable();
-    initStringTable();    // ³õÊ¼»¯Ç£ÖÆ·Ö
-	InitPreMatinfo();     // ÎïÖÊĞÅÏ¢	
+    initStringTable();    // åˆå§‹åŒ–ç‰µåˆ¶åˆ†
+	InitPreMatinfo();     // ç‰©è´¨ä¿¡æ¯	
 	init_PawnCanAddByChe();
 	//init_preKingSafe();
 	init_SafetyTable();
@@ -496,7 +496,7 @@ void PreGenInit(void){
 	VMProtectBegin(MARKER_NAME);
 	int res;
 	res = VMProtectGetSerialNumberState();
-	if(res != 0){  //  Ã»ÓĞ×¢²á³É¹¦
+	if(res != 0){  //  æ²¡æœ‰æ³¨å†ŒæˆåŠŸ
 	}
 	else{
 		InitKingAttackZone();
@@ -509,9 +509,9 @@ void PreGenInit(void){
 }
 
 // PaoCanAttKing
-void int_PaoCanAttKing(void){   // ³õÊ¼»¯ÅÚÄÜ¹¥»÷½«Î»ÖÃ
+void int_PaoCanAttKing(void){   // åˆå§‹åŒ–ç‚®èƒ½æ”»å‡»å°†ä½ç½®
 	for(int k = 0; k < 90; k++){
-		//ÉÏÈıÏß, ÏÂÈıÏß
+		//ä¸Šä¸‰çº¿, ä¸‹ä¸‰çº¿
 		if(StoX(k) < 0x3){
 			continue;
 		}
@@ -522,7 +522,7 @@ void int_PaoCanAttKing(void){   // ³õÊ¼»¯ÅÚÄÜ¹¥»÷½«Î»ÖÃ
 			continue;
 		}
 
-        // ºìÅÚ¹¥ºÚ½«
+        // çº¢ç‚®æ”»é»‘å°†
 		if(StoY(k) < 0x3){
 			for(int p = 0; p < 90; p++){
 				if(StoY(p) < 0x3){
@@ -537,7 +537,7 @@ void int_PaoCanAttKing(void){   // ³õÊ¼»¯ÅÚÄÜ¹¥»÷½«Î»ÖÃ
 				}
 			}
 		}
-		// ºÚÅÚ¹¥ºì½«
+		// é»‘ç‚®æ”»çº¢å°†
 		if(StoY(k) > 0x6){
 			for(int p = 0; p < 90; p++){
 				if(StoY(p) > 0x6){
@@ -555,15 +555,15 @@ void int_PaoCanAttKing(void){   // ³õÊ¼»¯ÅÚÄÜ¹¥»÷½«Î»ÖÃ
 	}
 }
 
-void init_PawnGoodMove(void){        // ³õÊ¼»¯±øµÄºÃ²½
-	//	extern Bitboard RPawnGoodMove[90];     // Ö»ÓĞÏòÖĞ¼ä×ßµÄ²½ÊÇºÃ²½.
+void init_PawnGoodMove(void){        // åˆå§‹åŒ–å…µçš„å¥½æ­¥
+	//	extern Bitboard RPawnGoodMove[90];     // åªæœ‰å‘ä¸­é—´èµ°çš„æ­¥æ˜¯å¥½æ­¥.
 	//	extern Bitboard BPawnGoodMove[90];
 	for(int i = 0; i < 90; i++){
 		RPawnGoodMove[i] = _mm_setzero_si128();
 		BPawnGoodMove[i] = _mm_setzero_si128();
 
 		
-		if(StoY(i) <= 4){  // ¿´Ò»ÏÂºì±øÄÜ²»ÄÜÏòÇ°
+		if(StoY(i) <= 4){  // çœ‹ä¸€ä¸‹çº¢å…µèƒ½ä¸èƒ½å‘å‰
 			if(StoY(i) > 0){
 				set_bit(RPawnGoodMove[i],i-9);
 			}
@@ -578,7 +578,7 @@ void init_PawnGoodMove(void){        // ³õÊ¼»¯±øµÄºÃ²½
 				set_bit(RPawnGoodMove[i],i+1);
 			}
 		}
-		if(StoY(i) >= 5){ // ¿´Ò»ÏÂºÚ±øÄÜ²»ÄÜÏòÇ°
+		if(StoY(i) >= 5){ // çœ‹ä¸€ä¸‹é»‘å…µèƒ½ä¸èƒ½å‘å‰
 			if(StoY(i) < 9){
 				set_bit(BPawnGoodMove[i],i+9);
 			}
@@ -597,7 +597,7 @@ void init_PawnGoodMove(void){        // ³õÊ¼»¯±øµÄºÃ²½
 }
 
 //extern int ThreatBonus[16][16];        // open_end;
-//×éºÏÌ«¶àÁË.ÔõÃ´³õÊ¼»¯??
+//ç»„åˆå¤ªå¤šäº†.æ€ä¹ˆåˆå§‹åŒ–??
 //void init_ThreatBonus(void){
 //	for(int r = 0; r < 16; r++){
 //		for(int b = 0; b < 16; b++){
@@ -607,7 +607,7 @@ void init_PawnGoodMove(void){        // ³õÊ¼»¯±øµÄºÃ²½
 //				break;
 //			case RCHE:
 //				{
-//					const sint16 ºì³µ_X[16] = {	
+//					const sint16 çº¢è½¦_X[16] = {	
 //					}
 //				}
 //				break;
@@ -646,16 +646,16 @@ void init_PawnGoodMove(void){        // ³õÊ¼»¯±øµÄºÃ²½
 void frist_init(void){
 
 	//init_mersenne();
-	//init_zobrist();           // ³õÊ¼»¯hash key 
-	init_bitboards();           // ³õÊ¼»¯Î»ÆåÅÌ	
+	//init_zobrist();           // åˆå§‹åŒ–hash key 
+	init_bitboards();           // åˆå§‹åŒ–ä½æ£‹ç›˜	
 	init_fromtoBBbackBB();        // xxxxxx from -> to
 	PreGenInit();
 	eval_const_int();
 	second_init();             //  
 
-	init_PawnGoodMove();        // ³õÊ¼»¯±øµÄºÃ²½
+	init_PawnGoodMove();        // åˆå§‹åŒ–å…µçš„å¥½æ­¥
 	int_PaoCanAttKing();	
-	//init_MaKongKing();          // [90][90]; // Âí¿ØÖÆ½«µÄÄÜÁ¦
+	//init_MaKongKing();          // [90][90]; // é©¬æ§åˆ¶å°†çš„èƒ½åŠ›
 
 	//init_ThreatBonus();         //
 	

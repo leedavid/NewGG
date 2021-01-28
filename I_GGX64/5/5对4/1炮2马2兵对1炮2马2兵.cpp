@@ -5,7 +5,7 @@
 
 
 
-//5±ø¶Ô1±ø
+//5å…µå¯¹1å…µ
 void m_MT_BR_1pao2ma2pawn(typePOS &POSITION, EvalInfo &ei){
 
 

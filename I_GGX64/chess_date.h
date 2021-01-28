@@ -1,14 +1,14 @@
 
-extern sint32 statico_valu[16][90]; /* SMP read */       //static_value¡¡
+extern sint32 statico_valu[16][90]; /* SMP read */       //static_valueã€€
 
-extern sint32 point_R_01Shi_B_Pawn90[3][90];           // ¶Ô·½È±ÊËÊ±±øµÄÎ»ÖÃ·Ö
+extern sint32 point_R_01Shi_B_Pawn90[3][90];           // å¯¹æ–¹ç¼ºä»•æ—¶å…µçš„ä½ç½®åˆ†
 extern sint32 point_B_01Shi_R_Pawn90[3][90];
 
-extern sint32 point_R_01Shi_B_Pawn90_My_CheOpen[90];   // ¶Ô·½ÎŞÊË£¬ÎÒ·½³µ¿ª·ÅÊ±±øµÄÎ»ÖÃ·Ö
+extern sint32 point_R_01Shi_B_Pawn90_My_CheOpen[90];   // å¯¹æ–¹æ— ä»•ï¼Œæˆ‘æ–¹è½¦å¼€æ”¾æ—¶å…µçš„ä½ç½®åˆ†
 extern sint32 point_B_01Shi_R_Pawn90_My_CheOpen[90];
 
-extern sint32 PrePawnAttKingMul_Safe[3][90][90]; // ±øÄÜ¹¥»÷½«µÄÄÜÁ¦ 
-//extern Bitboard PrePawnAttKingGoodMove[90][90];  // ºó¿É½Ó½ü½«µÄÄÜÁ¦,¿´¶Ô·½ÄÜ²»ÄÜ¿ØÖÆÎÒ·½µÄ±øÇ°½ø
+extern sint32 PrePawnAttKingMul_Safe[3][90][90]; // å…µèƒ½æ”»å‡»å°†çš„èƒ½åŠ› 
+//extern Bitboard PrePawnAttKingGoodMove[90][90];  // åå¯æ¥è¿‘å°†çš„èƒ½åŠ›,çœ‹å¯¹æ–¹èƒ½ä¸èƒ½æ§åˆ¶æˆ‘æ–¹çš„å…µå‰è¿›
 
 extern sint32 MaterialTotalOver[16][16];    
 
@@ -32,12 +32,12 @@ extern char STRING1[64], STRING2[64], STRING3[64], STRING4[64];
 #define MIN(x, y) (( (x) <= (y)) ? (x) : (y))
 #define ABS(x) (( (x) >= 0) ? (x) : -(x))
 
-/// Õâ¸öÓĞÎÊÌâ
+/// è¿™ä¸ªæœ‰é—®é¢˜
 #define MoveHistory(x) (TRUE)   // #define move_history(x) (((x) & 060000) == 0)
-#define RE0XE000 0x8000 // ²»ÊÇÉı±ä£¬½«¾ü²½
+#define RE0XE000 0x8000 // ä¸æ˜¯å‡å˜ï¼Œå°†å†›æ­¥
 
-#define VALUE_ALWAYS_CHECK_OR_CAP         30000  // ³£½«³£×½µÄµÃ·Ö
-#define VALUE_MATE     30000                     // VALUE_MATE ½«ËÀµÄ·ÖÊı
+#define VALUE_ALWAYS_CHECK_OR_CAP         30000  // å¸¸å°†å¸¸æ‰çš„å¾—åˆ†
+#define VALUE_MATE     30000                     // VALUE_MATE å°†æ­»çš„åˆ†æ•°
 #define VALUE_INFINITY 32750                     // VALUE_INFINITE
 #define MOVE_NONE      0                         // MOVE_NONE
 
@@ -171,46 +171,46 @@ static const uint64 XMM_ALIGN File6BB[2] = { 0x1008040201008040, 0x0000000000804
 static const uint64 XMM_ALIGN File7BB[2] = { 0x2010080402010080, 0x0000000001008040 };
 static const uint64 XMM_ALIGN File8BB[2] = { 0x4020100804020100, 0x0000000002010080 };
 
-static const uint64 XMM_ALIGN RpawnOverBB[2] = { 0x00001fffffffffff,0x0000000000000000 };  //¹ıºÓµÄºì±ø
-static const uint64 XMM_ALIGN BpawnOverBB[2] = { 0xffffe00000000000,0x0000000003ffffff };  //¹ıºÓµÄºÚ±ø
+static const uint64 XMM_ALIGN RpawnOverBB[2] = { 0x00001fffffffffff,0x0000000000000000 };  //è¿‡æ²³çš„çº¢å…µ
+static const uint64 XMM_ALIGN BpawnOverBB[2] = { 0xffffe00000000000,0x0000000003ffffff };  //è¿‡æ²³çš„é»‘å…µ
 
 static const uint64 XMM_ALIGN TiMenBit_Pawn[2] = { 0x0000000000a0d844,0x0000000000886c14};
 
-extern Bitboard OneRpawnOrRking_AttackBB[90];      // ºì±ø,ºì½«,¹¥»÷ÆäËüµÄÆå¸ñ.
-extern Bitboard OneBpawnOrBking_AttackBB[90];      // ºÚ±ø,ºÚ½«
+extern Bitboard OneRpawnOrRking_AttackBB[90];      // çº¢å…µ,çº¢å°†,æ”»å‡»å…¶å®ƒçš„æ£‹æ ¼.
+extern Bitboard OneBpawnOrBking_AttackBB[90];      // é»‘å…µ,é»‘å°†
 
-extern Bitboard ShiAttackBB[90];                   // Ë«·½µÄÊË¹¥»÷µ½ 90 µÄÎ»ÆåÅÌ
+extern Bitboard ShiAttackBB[90];                   // åŒæ–¹çš„ä»•æ”»å‡»åˆ° 90 çš„ä½æ£‹ç›˜
 
-extern Bitboard Attack_By_Rpawn_Rking[90];         // ËùÓĞ¿É¹¥»÷µ½Æå¸ñµÄºì±ø, ºì½« //±øÊÇµ¥ÏòµÄ
-extern Bitboard Attack_By_Bpawn_Bking[90];         // ËùÓĞ¿É¹¥»÷µ½Æå¸ñµÄºÚ×ä, ºÚ½«
+extern Bitboard Attack_By_Rpawn_Rking[90];         // æ‰€æœ‰å¯æ”»å‡»åˆ°æ£‹æ ¼çš„çº¢å…µ, çº¢å°† //å…µæ˜¯å•å‘çš„
+extern Bitboard Attack_By_Bpawn_Bking[90];         // æ‰€æœ‰å¯æ”»å‡»åˆ°æ£‹æ ¼çš„é»‘å’, é»‘å°†
 
-extern Bitboard Ma_Pseudo_Good_Att[90];            // Âí¿ÉÄÜ×ßµ½ºÃ²½µÄÎ»ÖÃ.
-extern Bitboard Ma_Pseudo_Att[90];                 // Âí¿ÉÄÜ×ßµ½µÄËùÓĞÎ»ÖÃ
+extern Bitboard Ma_Pseudo_Good_Att[90];            // é©¬å¯èƒ½èµ°åˆ°å¥½æ­¥çš„ä½ç½®.
+extern Bitboard Ma_Pseudo_Att[90];                 // é©¬å¯èƒ½èµ°åˆ°çš„æ‰€æœ‰ä½ç½®
 
 #define NUM_MA_TO_KING_ATT (23040)
-extern Bitboard Ma_to_King_Mask[90];             //´ÓÂíµÄÎ»ÖÃ,À´³Ô½«, ÊÇËãÒ»ÏÂ±ğ½Å
+extern Bitboard Ma_to_King_Mask[90];             //ä»é©¬çš„ä½ç½®,æ¥åƒå°†, æ˜¯ç®—ä¸€ä¸‹åˆ«è„š
 extern Bitboard Ma_to_King_Attacks[NUM_MA_TO_KING_ATT];
 extern int      Ma_to_King_AttackIndex[90];
 
 #define NUM_KING_TO_MA_ATT (23040)
-extern Bitboard King_to_Ma_Mask[90];             //´Ó½«µÄÎ»ÖÃ,±»Âí³Ô, ÊÇËãÒ»ÏÂ·´±ğ½Å
+extern Bitboard King_to_Ma_Mask[90];             //ä»å°†çš„ä½ç½®,è¢«é©¬åƒ, æ˜¯ç®—ä¸€ä¸‹ååˆ«è„š
 extern Bitboard King_to_Ma_Attacks[NUM_MA_TO_KING_ATT];
 extern int      King_to_Ma_AttackIndex[90];
 
 extern Bitboard fromtoBBback[90][90]; 
-extern Bitboard XiangMask[90];               // Ïà,Ö÷ÒªÊÇÓÃÀ´ËãÒ»ÏÂÏóÑÛ,
+extern Bitboard XiangMask[90];               // ç›¸,ä¸»è¦æ˜¯ç”¨æ¥ç®—ä¸€ä¸‹è±¡çœ¼,
 extern int      XiangAttackIndex[90];
 #define NUM_XIANG_ATT    (300)
 extern Bitboard XiangAttacks[NUM_XIANG_ATT];
 
 extern Bitboard SetMaskBB[90];                 
 extern Bitboard ClearMaskBB[90];
-extern Bitboard Che_Mask_FR[90];            // ³µÓÃÀ´¼ÆËãÆå²½µÄÉÙ×îºóÒ»Î»,²»°üÀ¨×Ô¼º
-extern Bitboard Che_Mask_F[90];             // ³µFILE MASK, ²»°üÀ¨×Ô¼º
-extern Bitboard Che_Mask_R[90];             // ³µRANK MASK, ²»°üÀ¨×Ô¼º
-extern Bitboard ChePseudoMask_FR[90];       //³µ¿É¹¥»÷µÄÎ»,°üÀ¨×îºóÒ»Î»
-extern Bitboard KingAttackZone[90];         // Æå×Ó¿É¹¥»÷½«µÄÄÜÁ¦.
-extern Bitboard KingKingAttBB[90];          // ½«Óë½«µÄÏà»¥¹¥»÷ĞÔ¡£
+extern Bitboard Che_Mask_FR[90];            // è½¦ç”¨æ¥è®¡ç®—æ£‹æ­¥çš„å°‘æœ€åä¸€ä½,ä¸åŒ…æ‹¬è‡ªå·±
+extern Bitboard Che_Mask_F[90];             // è½¦FILE MASK, ä¸åŒ…æ‹¬è‡ªå·±
+extern Bitboard Che_Mask_R[90];             // è½¦RANK MASK, ä¸åŒ…æ‹¬è‡ªå·±
+extern Bitboard ChePseudoMask_FR[90];       //è½¦å¯æ”»å‡»çš„ä½,åŒ…æ‹¬æœ€åä¸€ä½
+extern Bitboard KingAttackZone[90];         // æ£‹å­å¯æ”»å‡»å°†çš„èƒ½åŠ›.
+extern Bitboard KingKingAttBB[90];          // å°†ä¸å°†çš„ç›¸äº’æ”»å‡»æ€§ã€‚
 
 #define NUM_CHE_ATT_R    (11520)
 
@@ -243,13 +243,13 @@ extern Bitboard FileBB_A[9];
 extern Bitboard RankBB_A[10];
 extern Bitboard NeighboringFilesBB[9];
 extern Bitboard ThisAndNeighboringFilesBB[9]; 
-extern Bitboard LowBB[10];      //Æå×ÓÏÂÃæµÄÎ»ÆåÅÌ
-extern Bitboard UpBB[10];       //Æå×ÓÉÏÃæµÄÎ»ÆåÅÌ
-extern Bitboard LeftBB[9];      //Æå×Ó×ó±ßµÄÎ»ÆåÅÌ
-extern Bitboard RightBB[9];     //Æå×ÓÓÒ±ßµÄÎ»ÆåÅÌ
-extern Bitboard BetweenBB[90][90];          // ¶ş¸öÔÚÍ¬Ò»ÏßÉÏµÄÆå×ÓÖ®¼äµÄÎ»ÆåÅÌ£®²»°üÀ¨×Ô¼ºµÄĞÅÏ¢.
+extern Bitboard LowBB[10];      //æ£‹å­ä¸‹é¢çš„ä½æ£‹ç›˜
+extern Bitboard UpBB[10];       //æ£‹å­ä¸Šé¢çš„ä½æ£‹ç›˜
+extern Bitboard LeftBB[9];      //æ£‹å­å·¦è¾¹çš„ä½æ£‹ç›˜
+extern Bitboard RightBB[9];     //æ£‹å­å³è¾¹çš„ä½æ£‹ç›˜
+extern Bitboard BetweenBB[90][90];          // äºŒä¸ªåœ¨åŒä¸€çº¿ä¸Šçš„æ£‹å­ä¹‹é—´çš„ä½æ£‹ç›˜ï¼ä¸åŒ…æ‹¬è‡ªå·±çš„ä¿¡æ¯.
 
 extern int HashSizeNow;
 
-//extern Bitboard TiMenBit_Pawn;              // ÄÜÌúÃÅË¨µÄ±ø
-//extern Bitboard TimenBit_Che;               // ÄÜÌúÃÅµÄ³µ
+//extern Bitboard TiMenBit_Pawn;              // èƒ½é“é—¨æ “çš„å…µ
+//extern Bitboard TimenBit_Che;               // èƒ½é“é—¨çš„è½¦

@@ -27,7 +27,7 @@ using std::string;
 // fen 3k5/1R7/3ara3/9/6n2/6B2/9/4C4/4AK3/c5B2 w - - 0 1 moves b8a8 a0b0 a8a9 d9d8 a9b9 b0a0 b9b8 d8d9
 // Explicit template instantiations
 
-// Ò»½«Ò»×½£¬repeat ²âÊÔ
+// ä¸€å°†ä¸€æ‰ï¼Œrepeat æµ‹è¯•
 // 
 
 
@@ -43,9 +43,9 @@ REPEAT_INFO Position::is_repeat() {
 			stp = stp->previous->previous;
 			if (stp->key == st->key){
 				Position Tpos;
-				memcpy(&Tpos, this, sizeof(Position));    // ¸´ÖÆµ±Ç°µÄ¾ÖÃæ£¬ÒÔÃâÓĞÎÊÌâ, ÒªÓÃREP_COPY
+				memcpy(&Tpos, this, sizeof(Position));    // å¤åˆ¶å½“å‰çš„å±€é¢ï¼Œä»¥å…æœ‰é—®é¢˜, è¦ç”¨REP_COPY
 				
-				return Tpos.get_repeat_info(i, st->m);    // ×îºóÒ»¸ö×ß²½				
+				return Tpos.get_repeat_info(i, st->m);    // æœ€åä¸€ä¸ªèµ°æ­¥				
 			}
 			i += 2;
 		} while (i <= e);
@@ -72,11 +72,11 @@ REPEAT_INFO Position::get_repeat_info(int i, Move last_move){
 	int nOppCapture = 1;
 	int n;
 
-	for (n = 0; n < i; n++){ // ´Óµ±Ç°Æå²½¿ªÊ¼·´ÍÆ£¬ÊÇ²»ÊÇÓĞÖØ¸´²½£¿£¿
+	for (n = 0; n < i; n++){ // ä»å½“å‰æ£‹æ­¥å¼€å§‹åæ¨ï¼Œæ˜¯ä¸æ˜¯æœ‰é‡å¤æ­¥ï¼Ÿï¼Ÿ
 
 		alwaysCheckByHis = st->mischeck; // alwaysCheckByHis = (st - n)->mischeck; /// LLL
 
-		if (alwaysCheckByHis == false){  // Èç¹û²»ÊÇ½«¾ü
+		if (alwaysCheckByHis == false){  // å¦‚æœä¸æ˜¯å°†å†›
 			if (1 & n){
 				nOppChecks = 0;
 			}
@@ -85,7 +85,7 @@ REPEAT_INFO Position::get_repeat_info(int i, Move last_move){
 			}
 		}
 		else{
-			ASSERT(in_check());   // ÕıÔÚ±»½«¾ü
+			ASSERT(in_check());   // æ­£åœ¨è¢«å°†å†›
 		}
 
 		alwaysCapture = false;
@@ -132,7 +132,7 @@ REPEAT_INFO Position::get_repeat_info(int i, Move last_move){
 		st = st->previous;
 	} //for(n = 0; n < i; n++){
 
-	if (nOwnChecks && nOppChecks){		//Ë«·½³¤½«	
+	if (nOwnChecks && nOppChecks){		//åŒæ–¹é•¿å°†	
 		return REPEAT_TRUE;
 	}
 	else if (nOwnChecks){
@@ -141,7 +141,7 @@ REPEAT_INFO Position::get_repeat_info(int i, Move last_move){
 	else if (nOppChecks){
 		return REPEAT_BAN_ME_CHECK;
 	}
-	else if (nOwnCapture && nOppCapture){		//Ë«·½³¤×½
+	else if (nOwnCapture && nOppCapture){		//åŒæ–¹é•¿æ‰
 		return REPEAT_TRUE;
 	}
 	else if (nOwnCapture){
@@ -151,7 +151,7 @@ REPEAT_INFO Position::get_repeat_info(int i, Move last_move){
 		return REPEAT_BAN_ME_CAP;
 	}
 	else{
-		return REPEAT_TRUE;            //ÍêÈ«ÏàÍ¬??
+		return REPEAT_TRUE;            //å®Œå…¨ç›¸åŒ??
 	}
 }
 
@@ -175,11 +175,11 @@ REPEAT_INFO Position::get_repeat_info_notCatChe(int i, Move last_move){
 	int nOppCapture = 1;
 	int n;
 
-	for(n = 0; n < i; n++){ // ´Óµ±Ç°Æå²½¿ªÊ¼·´ÍÆ£¬ÊÇ²»ÊÇÓĞÖØ¸´²½£¿£¿
+	for(n = 0; n < i; n++){ // ä»å½“å‰æ£‹æ­¥å¼€å§‹åæ¨ï¼Œæ˜¯ä¸æ˜¯æœ‰é‡å¤æ­¥ï¼Ÿï¼Ÿ
 
 		alwaysCheckByHis = st->mischeck; // alwaysCheckByHis = (st - n)->mischeck; /// LLL
 
-		if(alwaysCheckByHis == false){  // Èç¹û²»ÊÇ½«¾ü
+		if(alwaysCheckByHis == false){  // å¦‚æœä¸æ˜¯å°†å†›
 			if( 1 & n){
 				nOppChecks = 0;
 			}
@@ -188,14 +188,14 @@ REPEAT_INFO Position::get_repeat_info_notCatChe(int i, Move last_move){
 			}
 		}
 		else{
-			ASSERT(in_check());   // ÕıÔÚ±»½«¾ü
+			ASSERT(in_check());   // æ­£åœ¨è¢«å°†å†›
 		}
 
 		alwaysCapture = false;
 		if(alwaysCheckByHis == false && (nOppCapture + nOwnCapture) != 0){  
 		//if((nOppCapture + nOwnCapture) != 0){  
 			//if((nOppCapture + nOwnCapture) != 0){  
-			// ÊÇ½«¾Í²»ÓÃÅĞ¶ÏÊÇ²»ÊÇ×½ÁË¡£ 
+			// æ˜¯å°†å°±ä¸ç”¨åˆ¤æ–­æ˜¯ä¸æ˜¯æ‰äº†ã€‚ 
 
 			me_m      = st->m;            // me_m = Move((st-n)->m);    
 			other_m   = st->previous->m;  // other_m    = Move((st-n-1)->m);  /// LLL
@@ -213,15 +213,15 @@ REPEAT_INFO Position::get_repeat_info_notCatChe(int i, Move last_move){
 			mto   = TO(me_m);
 			//alwaysCapture = false;
 			//board_display("is true cap");
-			//Èç¹û×ßµÄÆå×ÓÊÇKING£¬Ôò²»ÊÇ×½
+			//å¦‚æœèµ°çš„æ£‹å­æ˜¯KINGï¼Œåˆ™ä¸æ˜¯æ‰
 			// fen 4k4/4a4/b3b4/9/9/9/9/3A4B/1Cn2p3/3K5 b - - 0 1
-			//µ«Õâ¸ö¶¯½«Ëã×½£¬ÒòÎªÊÇÈÃÅÚÀ´×½
+			//ä½†è¿™ä¸ªåŠ¨å°†ç®—æ‰ï¼Œå› ä¸ºæ˜¯è®©ç‚®æ¥æ‰
 			//if(type_of(b90[mto]) == KING){
 			//	alwaysCapture = false;
 			//}									
 			//else{
 				// fen 2bak4/2Nra2R1/c1n1bc3/p1p1p4/6p2/2P6/P3P1P2/2C1B1C2/9/3AKAB2 r moves h8h9 e8f9 h9h8 f9e8
-				// Èç¹ûÉÏ°ÑÊÇ¶Ô·½½«¾ü£¬ÔòÈç¹ûÎÒ·½×ßµÄ²»ÊÇ³µ£¬Ò²²»»áÊÇ×½¡£¡£¡£	
+				// å¦‚æœä¸ŠæŠŠæ˜¯å¯¹æ–¹å°†å†›ï¼Œåˆ™å¦‚æœæˆ‘æ–¹èµ°çš„ä¸æ˜¯è½¦ï¼Œä¹Ÿä¸ä¼šæ˜¯æ‰ã€‚ã€‚ã€‚	
 			//if(st->previous->mischeck){          // if(n < i-1 && (st - n - 1)->mischeck){
 			//	ASSERT((st->previous->m & 0xcccc)  != 0xcccc);
 			//	alwaysCapture = see_draw_by_last_move(mfrom, mto,ofrom,oto,side_to_move(), TRUECap,true);	
@@ -259,7 +259,7 @@ REPEAT_INFO Position::get_repeat_info_notCatChe(int i, Move last_move){
 	} //for(n = 0; n < i; n++){
 
 #ifdef REPEAT_DEBUG
-	if(nOwnChecks && nOppChecks){		//Ë«·½³¤½«	
+	if(nOwnChecks && nOppChecks){		//åŒæ–¹é•¿å°†	
 		return REPEAT_TRUE;
 	}
 	else if(nOwnChecks){
@@ -268,7 +268,7 @@ REPEAT_INFO Position::get_repeat_info_notCatChe(int i, Move last_move){
 	else if(nOppChecks){
 		return REPEAT_BAN_ME_CHECK;
 	}
-	else if(nOwnCapture && nOppCapture){		//Ë«·½³¤×½
+	else if(nOwnCapture && nOppCapture){		//åŒæ–¹é•¿æ‰
 
 		if(TRUECap->capture_chess[WHITE] != CHE && TRUECap->capture_chess[BLACK] != CHE){
 			return REPEAT_TRUE;
@@ -298,13 +298,13 @@ REPEAT_INFO Position::get_repeat_info_notCatChe(int i, Move last_move){
 		return REPEAT_BAN_ME_CAP;
 	}
 	else{
-		return REPEAT_TRUE;            //ÍêÈ«ÏàÍ¬??
+		return REPEAT_TRUE;            //å®Œå…¨ç›¸åŒ??
 	}
 
 #else
 
 
-	if (nOwnChecks && nOppChecks){		//Ë«·½³¤½«	
+	if (nOwnChecks && nOppChecks){		//åŒæ–¹é•¿å°†	
 		return REPEAT_TRUE;
 	}
 	else if (nOwnChecks){
@@ -313,7 +313,7 @@ REPEAT_INFO Position::get_repeat_info_notCatChe(int i, Move last_move){
 	else if (nOppChecks){
 		return REPEAT_BAN_ME_CHECK;
 	}
-	else if (nOwnCapture && nOppCapture){		//Ë«·½³¤×½
+	else if (nOwnCapture && nOppCapture){		//åŒæ–¹é•¿æ‰
 
 		if (TRUECap->capture_chess[WHITE] != CHE && TRUECap->capture_chess[BLACK] != CHE){
 			return REPEAT_TRUE;
@@ -343,7 +343,7 @@ REPEAT_INFO Position::get_repeat_info_notCatChe(int i, Move last_move){
 		return REPEAT_BAN_ME_CAP;
 	}
 	else{
-		return REPEAT_TRUE;            //ÍêÈ«ÏàÍ¬??
+		return REPEAT_TRUE;            //å®Œå…¨ç›¸åŒ??
 	}
 
 #endif

@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ез2╠Ь╤т1ез.cpp"
+#include "1Г┌╝2Е┘╣Е╞╧1Г┌╝.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -12,7 +12,7 @@
 
 //const int PawnAdd = 64;
 
-//нр╥╫р╩ез╤Ч╠Ьё╛╤т╥╫р╩ез
+//Ф┬▒Ф√╧Д╦─Г┌╝Д╨▄Е┘╣О╪▄Е╞╧Ф√╧Д╦─Г┌╝
 void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	// ADD
@@ -93,7 +93,7 @@ void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 	// fen 2bk5/5P3/4b1c2/3P5/9/9/9/9/9/3K5 w - - 0 0
 	// fen 9/4k4/b4P3/9/6bc1/P3C4/9/9/9/3K5 w - - 53 53
 	if(my_shi_num == 0 && my_xiang_num == 0 && your_xiang_num >= 1){
-		//1╦Ж╠Ь╧Щ╨сак,р╩╦Ж╠Ь╡╩дэ╧Щ╨с
+		//1Д╦╙Е┘╣Х©┤Ф╡ЁД╨├,Д╦─Д╦╙Е┘╣Д╦█Х┐╫Х©┤Ф╡Ё
 		if(StoY(mpawn1) MY_SMALL_EQL MY_RANK3 || StoY(mpawn2) MY_SMALL_EQL MY_RANK3){			
 			Square sq = SQ_END90;
 			if(StoY(mpawn1) MY_LARGE_EQL MY_RANK5){
@@ -129,7 +129,7 @@ void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	//  fen 3ak1b2/9/3a5/5P3/1cb6/8P/4C4/3AB4/4A4/4K1B2 b - - 0 1
-    // спр╩╦Ж╠Ьц╩сп╟Л╥╗╧Щ╨с
+    // Ф°┴Д╦─Д╦╙Е┘╣Ф╡║Ф°┴Е┼·ФЁ∙Х©┤Ф╡Ё
 	if (your_shi_num == 2 && your_xiang_num == 2 && StoY(yk) == MY_RANK0) {
 
 		MY_EV_SUB(64);
@@ -142,7 +142,7 @@ void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 4k4/2c1aP3/4b4/5P3/6b2/2B6/9/9/5C3/2B1K4 b - - 0 1
 	if(your_shi_num >= 1 && your_xiang_num == 2){
-		//хЩ╦Жвстзр╩лУвщоъиоё╛╡╒гр╤т╥╫╣дез╢Рв║акнр╥╫╣др╩╦Ж╠Ь║ё
+		//Д╦┴Д╦╙Е╜░Е°╗Д╦─Ф²║Г╨╣Г╨©Д╦┼О╪▄Е╧╤Д╦■Е╞╧Ф√╧Г └Г┌╝Ф┴⌠Д╫▐Д╨├Ф┬▒Ф√╧Г └Д╦─Д╦╙Е┘╣Ц─┌
 		if(PB90(MY_SQ0D) == your_shi && StoY(ypao) == MY_RANK1){
 			if(PB90(MY_SQ0E) == my_pawn && StoX(ypao) <= 0x3){
 				if(PB90(MY_SQ20) == my_pawn || PB90(MY_SQ29) == my_pawn){
@@ -188,7 +188,7 @@ void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 6b2/3ka4/4ba3/9/3C5/9/4c4/4B4/3pA4/2BAK1p2 b - - 0 1
 	if (your_shi_num == 2 && your_shi_num == 2) {
-		if (have_bit(bb_my_pawn, RankBB_A[MY_RANK0])) { // сп╣воъ╠Ь
+		if (have_bit(bb_my_pawn, RankBB_A[MY_RANK0])) { // Ф°┴Е╨∙Г╨©Е┘╣
 			MY_EV_SUB(64);
 
 			Bitboard bysx = m_or(bb_your_shi, bb_your_xiang);
@@ -373,7 +373,7 @@ void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 
 	if(your_shi_num == 2 && your_xiang_num == 2 && StoY(yk) == MY_RANK0){
 		// fen 3ak2P1/4a4/2c1b3b/7P1/4C4/9/9/B2AB4/5K3/3A5 w - - 0 1
-		// спр╩╦Ж╣м╠Ьё╛груБ╦Ж╠ЬтзхЩоъмБцФ
+		// Ф°┴Д╦─Д╦╙Д╫▌Е┘╣О╪▄Д╦■Х©≥Д╦╙Е┘╣Е°╗Д╦┴Г╨©Е╓√И²╒
 		if((StoY(mpawn1) == MY_RANK0 && abs(StoX(mpawn1) - 0x4) >= 3)
 			|| (StoY(mpawn2) == MY_RANK0 && abs(StoX(mpawn2) - 0x4) >= 3)){
 				if(StoY(mpawn1) MY_LARGE_EQL MY_RANK3 || StoY(mpawn2) MY_LARGE_EQL MY_RANK3){
@@ -414,15 +414,15 @@ void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// нр╥╫спжпез╩Р╣вез.
+	// Ф┬▒Ф√╧Ф°┴Д╦╜Г┌╝Ф┬√Е╨∙Г┌╝.
 	if (bit_is_set(EV_MY_XBIT, MY_SQ0D) && bit_is_set(EV_MY_XBIT, MY_SQ16)){
 		return;
 	}
 
 	// fen 4P4/3k5/5P2b/7C1/9/2B6/4c4/8B/4K4/9 w - - 255 255
-	// хГ╧Ш╨Л╥╫ц╩спйк,грж╩спр╩╦Ж©и╧Щ╨с,╤т╥╫╩╧споЮ,тРйг╨мфЕ
+	// Е╕┌Ф·°Г╨╒Ф√╧Ф╡║Ф°┴Д╩∙,Д╦■Е▐╙Ф°┴Д╦─Д╦╙Е▐╞Х©┤Ф╡Ё,Е╞╧Ф√╧Х©≤Ф°┴Г⌡╦,Е┬≥Ф≤╞Е▓▄Фё▀
 	if(my_shi_num == 0){
-		//спр╩╦Ж╠Ь╣╫ак╣воъ
+		//Ф°┴Д╦─Д╦╙Е┘╣Е┬╟Д╨├Е╨∙Г╨©
 		if(StoY(mpawn1) == MY_RANK0 || StoY(mpawn2) == MY_RANK0){
 			if(your_xiang_num >= 1){
 				RETRUN_MUL(2);
@@ -431,7 +431,7 @@ void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 		// fen 3k5/2P1a1P2/4ba3/4cC3/9/9/9/9/4K4/9 b - - 145 145
 		if(your_shi_num == 2 && your_xiang_num >= 1){
 			if(StoY(mpawn1) MY_SMALL_EQL MY_RANK1 && StoY(mpawn2) MY_SMALL_EQL MY_RANK1){
-				//╤Ч╦Ж╠Ь╡╩тзр╩╠ъ
+				//Д╨▄Д╦╙Е┘╣Д╦█Е°╗Д╦─Х╬╧
 				if(!IsOnSameSide(mpawn1,mpawn2) && StoX(yk) != 0x4){
 					RETRUN_MUL(2);
 				}
@@ -467,7 +467,7 @@ void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 5c3/3k5/4ba3/9/9/2B6/4C4/4K4/3p5/3p5 b - - 121 121
-	//╤Ч╦Ж╠Ь,р╩╦Ж╣╫ак╣воъ,р╩╦Жтз╤Чоъртоб,сп©идэйг╨мфЕ
+	//Д╨▄Д╦╙Е┘╣,Д╦─Д╦╙Е┬╟Д╨├Е╨∙Г╨©,Д╦─Д╦╙Е°╗Д╨▄Г╨©Д╩╔Д╦▀,Ф°┴Е▐╞Х┐╫Ф≤╞Е▓▄Фё▀
 	if(your_xiang_num >= 1 && StoY(yk) == MY_RANK2){
 		if(StoY(mpawn1) MY_SMALL MY_RANK2 && StoY(mpawn2) MY_SMALL MY_RANK2){
 			RETRUN_MUL(4);
@@ -582,7 +582,7 @@ void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 	}
 }
 
-////нр╥╫р╩ез╤Ч╠Ьё╛╤т╥╫р╩ез
+////Ф┬▒Ф√╧Д╦─Г┌╝Д╨▄Е┘╣О╪▄Е╞╧Ф√╧Д╦─Г┌╝
 //void m_MT_B_1PAO2PAWN_R_1PAO(typePOS &POSITION, EvalInfo &ei){
 ///*
 //	int    rk      = PieceListStart(board,RKING);
@@ -598,15 +598,15 @@ void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 //	Square bpawn2 = NextPiece(board,bpawn1);
 //	int rpao   = PieceListStart(board,RPAO);
 //
-//	if(Is_BhaveTianMenShuanCanControl_Rking(board)){  //сплЗцек╗
+//	if(Is_BhaveTianMenShuanCanControl_Rking(board)){  //Ф°┴И⌠│И≈╗Ф═⌠
 //
 //		return 16;
 //	}
 //
 //	// fen 9/4k4/b4P3/9/6bc1/P3C4/9/9/9/3K5 w - - 53 53
 //	if(board->B_shi == 0 && board->B_xiang == 0 && board->R_xiang == 2){
-//		//1╦Ж╠Ь╧Щ╨сак,р╩╦Ж╠Ь╡╩дэ╧Щ╨с
-//		if(StoY(bpawn1) < 0x8){ //╢к╠Ьц╩сп╧Щ╨с,гр╡╩дэ╧Щ╨с
+//		//1Д╦╙Е┘╣Х©┤Ф╡ЁД╨├,Д╦─Д╦╙Е┘╣Д╦█Х┐╫Х©┤Ф╡Ё
+//		if(StoY(bpawn1) < 0x8){ //Ф╜╓Е┘╣Ф╡║Ф°┴Х©┤Ф╡Ё,Д╦■Д╦█Х┐╫Х©┤Ф╡Ё
 //			if(StoY(bpawn2) >= 0xa){
 //				if(StoX(bpawn1) < 0x7){
 //					if(board->b256[0x89] == RXIANG){
@@ -647,9 +647,9 @@ void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 //
 //
 //	// fen 4P4/3k5/5P2b/7C1/9/2B6/4c4/8B/4K4/9 w - - 255 255
-//	//хГ╧Ш╨Л╥╫ц╩спйк,грж╩спр╩╦Ж©и╧Щ╨с,╤т╥╫╩╧споЮ,тРйг╨мфЕ
+//	//Е╕┌Ф·°Г╨╒Ф√╧Ф╡║Ф°┴Д╩∙,Д╦■Е▐╙Ф°┴Д╦─Д╦╙Е▐╞Х©┤Ф╡Ё,Е╞╧Ф√╧Х©≤Ф°┴Г⌡╦,Е┬≥Ф≤╞Е▓▄Фё▀
 //	if(board->B_shi == 0){
-//		//спр╩╦Ж╠Ь╣╫ак╣воъ
+//		//Ф°┴Д╦─Д╦╙Е┘╣Е┬╟Д╨├Е╨∙Г╨©
 //		if(StoY(bpawn1) == 0xc || StoY(bpawn2) == 0xc){
 //			if(board->R_xiang >= 1){
 //				return 1;
@@ -663,7 +663,7 @@ void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 //			if(board->b256[0xb6] == BPAWN && board->b256[0xb8] == BPAWN && board->b256[0xc7] == RKING){
 //			}
 //			else{
-//				//╤Ч╦Ж╠Ь╡╩тзр╩╠ъ
+//				//Д╨▄Д╦╙Е┘╣Д╦█Е°╗Д╦─Х╬╧
 //				if(IsOnSameSide(bpawn1,bpawn2) == FALSE){
 //					if(board->B_shi == 0){
 //						return 1;
@@ -724,7 +724,7 @@ void my_m_MT_R_1PAO2PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 //
 //
 //	// fen 5c3/3k5/4ba3/9/9/2B6/4C4/4K4/3p5/3p5 b - - 121 121
-//	//╤Ч╦Ж╠Ь,р╩╦Ж╣╫ак╣воъ,р╩╦Жтз╤Чоъртоб,сп©идэйг╨мфЕ
+//	//Д╨▄Д╦╙Е┘╣,Д╦─Д╦╙Е┬╟Д╨├Е╨∙Г╨©,Д╦─Д╦╙Е°╗Д╨▄Г╨©Д╩╔Д╦▀,Ф°┴Е▐╞Х┐╫Ф≤╞Е▓▄Фё▀
 //	if(board->R_xiang >= 1 && StoY(rk) == 0xa){
 //		if((StoY(bpawn1) + StoY(bpawn2)) > (0xb*2)){
 //			return 4;

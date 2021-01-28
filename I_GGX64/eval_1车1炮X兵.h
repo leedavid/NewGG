@@ -3,7 +3,7 @@
 //fen 3k2b2/4a4/4ba3/6r1p/3PC4/3R4P/9/5A3/3KA4/8c b - - 127 127
 if(pMat->searchInfo16 & (CK_R_Only_1Che1PaoxPawn + CK_B_Only_1Che1PaoxPawn)){
 
-	// ºì·½Ö»ÓÐ1³µ1ÅÚx±ø Ê±µÄ¹¥ÊÆ·Ö
+	// çº¢æ–¹åªæœ‰1è½¦1ç‚®xå…µ æ—¶çš„æ”»åŠ¿åˆ†
 	if(pMat->searchInfo16 & CK_R_Only_1Che1PaoxPawn){			
 		int malr = White_pawn_already_over_river(POSITION);
 		if(malr == 0){
@@ -37,7 +37,7 @@ if(pMat->searchInfo16 & (CK_R_Only_1Che1PaoxPawn + CK_B_Only_1Che1PaoxPawn)){
 					}
 				}
 			}
-			//ÔÙ¿´Ò»ÏÂÎÒ·½µÄÅÚÊÇ²»ÊÇ±»Ç£ÖÆÁË¡£
+			//å†çœ‹ä¸€ä¸‹æˆ‘æ–¹çš„ç‚®æ˜¯ä¸æ˜¯è¢«ç‰µåˆ¶äº†ã€‚
 
 			//fen 7r1/4k4/5a2b/p7p/6p2/3N5/P6cP/B3B4/4A4/4KR3 b - - 0 0
 			if(BMa_num() != 0){
@@ -50,7 +50,7 @@ if(pMat->searchInfo16 & (CK_R_Only_1Che1PaoxPawn + CK_B_Only_1Che1PaoxPawn)){
 			}
 		}
 		}
-	// ºÚ·½Ö»ÓÐ1³µ1ÅÚx±ø Ê±µÄ¹¥ÊÆ·Ö
+	// é»‘æ–¹åªæœ‰1è½¦1ç‚®xå…µ æ—¶çš„æ”»åŠ¿åˆ†
 	if(pMat->searchInfo16 & CK_B_Only_1Che1PaoxPawn){			
 		int malr = Black_pawn_already_over_river(POSITION);
 		if(malr == 0){

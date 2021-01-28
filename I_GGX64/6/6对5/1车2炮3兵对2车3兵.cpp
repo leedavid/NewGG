@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Ё╣2ез3╠Ь╤т2Ё╣3╠Ь.cpp"
+#include "1Х╫╕2Г┌╝3Е┘╣Е╞╧2Х╫╕3Е┘╣.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -14,7 +14,7 @@
 void my_m_MT_R_1che2pao3pawn_B_2che3pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 3ak1b2/1R2a4/1c2b2c1/2p6/p1r5p/6P2/P2R4P/4B4/9/3AKAB2 w - - 20 20
-	//к╚Ё╣спр╩╦ЖЁ╣╠Ёак
+	//Е▐▄Х╫╕Ф°┴Д╦─Д╦╙Х╫╕Х┐▄Д╨├
 
 	if((my_shi_num + my_xiang_num) == 4 && StoY(my_king_pos) == MY_RANK9){
 		int ycan  = EV_YOUR_CAN;

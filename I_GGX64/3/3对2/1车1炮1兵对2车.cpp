@@ -4,18 +4,18 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1±ø¶Ô2³µ.cpp"
+#include "1è½¦1ç‚®1å…µå¯¹2è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//#define ADD_³µÅÚ±ø¶Ô¶þ³µ_by_Pawn_Safe   32             //³µÅÚ±ø¶Ô¶þ³µ,ÅÚ·½°²È«Ê±±øµÄ¼Ó·Ö
+//#define ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn_Safe   32             //è½¦ç‚®å…µå¯¹äºŒè½¦,ç‚®æ–¹å®‰å…¨æ—¶å…µçš„åŠ åˆ†
 
 
 
-//ºì·½³µÅÚ1±ø ¶Ô ºÚ·½2³µ
+//çº¢æ–¹è½¦ç‚®1å…µ å¯¹ é»‘æ–¹2è½¦
 void my_m_MT_R_1che1pao1pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 
 	your_m_MT_R_2CHE_B_1CHE1PAO(POSITION,ei);
@@ -28,17 +28,17 @@ void my_m_MT_R_1che1pao1pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 	Square mpawn = S90_from_piecelist(POSITION, my_pawn, 0);
 	Square mche = S90_from_piecelist(POSITION, my_che, 0);
 	int pmok = (int)count_1s(bmp);
-	MY_EV_ADD(pmok * ADD_³µÅÚ±ø¶Ô¶þ³µ_by_Pawn__Safe_Shi[your_shi_num]);
+	MY_EV_ADD(pmok * ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn__Safe_Shi[your_shi_num]);
 
 	if(ei.mul == 1){
 		return;
 	}
 
 	// fen 2bakc3/5R3/4b4/9/3r5/4p4/R8/4B4/4A4/2BAK4 w - - 0 0</P>
-    //Ò²ÊÇºÍÆå
+    //ä¹Ÿæ˜¯å’Œæ£‹
 
 	// fen 2bak4/4a4/4b4/4r4/4CP3/8R/4r4/9/4A4/3AK4 w - - 2 2
-	//Õâ¸öÒ²ÊÇºÍÆå
+	//è¿™ä¸ªä¹Ÿæ˜¯å’Œæ£‹
 	if(my_shi_num == 2 && PB90(MY_SQ55) == my_king){
 		if (StoY(mpao) MY_LARGE_EQL MY_RANK7){
 			MY_EV_ADD(32);
@@ -136,7 +136,7 @@ void my_m_MT_R_1che1pao1pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 //
 //	for(int pawn = PieceListStart(board,BPAWN); pawn > 0x32; pawn = NextPiece(board,pawn)){
 //		if(StoY(pawn) != 0xc){
-//			board->mulScore -= ADD_³µÅÚ±ø¶Ô¶þ³µ_by_Pawn__Safe_Shi[board->R_shi];
+//			board->mulScore -= ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn__Safe_Shi[board->R_shi];
 //		}
 //	}
 //
@@ -145,7 +145,7 @@ void my_m_MT_R_1che1pao1pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 //	}
 //
 //	// fen 2bak4/4a4/4b4/4r4/4CP3/8R/4r4/9/4A4/3AK4 w - - 2 2
-//	//Õâ¸öÒ²ÊÇºÍÆå
+//	//è¿™ä¸ªä¹Ÿæ˜¯å’Œæ£‹
 //	if(board->B_shi == 2 && board->b256[0x37] == BKING){
 //		if(board->b256[0x87] == BPAO && board->b256[0x97] == RCHE){
 //			if(board->b256[0x86] == BPAWN || board->b256[0x88] == BPAWN){

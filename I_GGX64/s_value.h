@@ -37,7 +37,7 @@ enum Value {
 	VALUE_ZERO      = 0,
 	VALUE_DRAW      = -1,
 	VALUE_KNOWN_WIN = 15000,
-	//VALUE_BAN       = 29000,         //　常捉，常将的分数
+	//VALUE_BAN       = 29000,         //銆�甯告崏锛屽父灏嗙殑鍒嗘暟
 	VALUE_BAN_CHECK = 28500,           // 29500,
 	//VALUE_BAN_CAP   = 28000,
 	VALUE_MATE      = 30000,
@@ -192,7 +192,7 @@ inline Value value_mated_in(int ply) {
 	return Value(-VALUE_MATE + Value(ply));
 }
 
-// 常将分．　
+// 甯稿皢鍒嗭紟銆�
 inline Value value_baned_check_in(int ply) {
 	return Value(-VALUE_BAN_CHECK + Value(ply));
 	//return -VALUE_BAN;
@@ -202,7 +202,7 @@ inline Value value_ban_check_in(int ply) {
 	return Value(VALUE_BAN_CHECK - Value(ply));
 	//return VALUE_BAN;
 }
-//常捉的分
+//甯告崏鐨勫垎
 //inline Value value_baned_cap_in(int ply) {
 //	return Value(-VALUE_BAN_CAP + Value(ply));
 //	//return -VALUE_BAN;

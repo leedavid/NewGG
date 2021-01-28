@@ -1,7 +1,7 @@
 
 
 //***********************************************************
-	// ÖĞÅÚµÄÆÀ¹À. (ÖĞÅÚ,µ×ÅÚ)
+	// ä¸­ç‚®çš„è¯„ä¼°. (ä¸­ç‚®,åº•ç‚®)
 	//*********************************************************** 
 	Bitboard bzp = ei.ZhongDiPaoBB;
 	while(m128_is_have_bit(bzp)){
@@ -9,25 +9,25 @@
 		uint8 mchess = PB90(msq);
 		if(FALSE){
 		}
-		else if(mchess == RPAO){  // ÓĞ¿ÉÄÜÊÇºì·½ÖĞÅÚ,µ×ÅÚ
+		else if(mchess == RPAO){  // æœ‰å¯èƒ½æ˜¯çº¢æ–¹ä¸­ç‚®,åº•ç‚®
 			if(FALSE){
 			}
-			else if(StoX(msq) == StoX(bk)){ // ÓĞ¿ÉÄÜÊÇºì·½ÖĞÅÚ
+			else if(StoX(msq) == StoX(bk)){ // æœ‰å¯èƒ½æ˜¯çº¢æ–¹ä¸­ç‚®
 
-				// ¿´Ò»ÏÂÊÇ²»ÊÇÔÚÔ­Î»µÄÖĞÅÚ
+				// çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯åœ¨åŸä½çš„ä¸­ç‚®
 				//if(msq == 0x43 && PB90(0x3A) == RPAWN && PB90(0x1F) == BPAWN && bk == 0x04){
 				//	if(bit_is_set(POSITION->DYN->attack_black,0x1F)){
-				//		continue;  //Õâ¸ö²»ÊÇÖĞÅÚÍÛ
+				//		continue;  //è¿™ä¸ªä¸æ˜¯ä¸­ç‚®å“‡
 				//	}
 				//}		
 
-				ei.attPoint[WHITECOLOR] += MidPao_att_point;         // ÖĞÅÚ¼Ó¹¥»÷µã
-				// »¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÌúÃÅË¨
+				ei.attPoint[WHITECOLOR] += MidPao_att_point;         // ä¸­ç‚®åŠ æ”»å‡»ç‚¹
+				// è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯é“é—¨æ “
 				if(bk == 0x04 && PB90(0x0D) == BSHI && PB90(0X16) != EMPTY){					
-					//if((PIECE_SIDE(PB90(0x03)) == BLACK_TO_MOVE && PB90(0x03) == BSHI)	        // Ö»Òª½«²»ÄÜÏò×ó±ßÒÆ¶¯,¾ÍÊÇÓÒ±ßÌúÃÅË¨	    			
-					//	|| (bit_is_set(POSITION->DYN->attack_white,0x03))){ // Õâ¸öÆå¸ñÊÜµ½¶Ô·½µÄ¹¥»÷ 
-					if(PB90(0x03) == BSHI){        // Ö»Òª½«²»ÄÜÏò×ó±ßÒÆ¶¯,¾ÍÊÇÓÒ±ßÌúÃÅË¨	
-						// 1, ³µÄÜ²»ÄÜ¹¥»÷µ½½«µÄ ÓÒ±ß µ×Ïß, 
+					//if((PIECE_SIDE(PB90(0x03)) == BLACK_TO_MOVE && PB90(0x03) == BSHI)	        // åªè¦å°†ä¸èƒ½å‘å·¦è¾¹ç§»åŠ¨,å°±æ˜¯å³è¾¹é“é—¨æ “	    			
+					//	|| (bit_is_set(POSITION->DYN->attack_white,0x03))){ // è¿™ä¸ªæ£‹æ ¼å—åˆ°å¯¹æ–¹çš„æ”»å‡» 
+					if(PB90(0x03) == BSHI){        // åªè¦å°†ä¸èƒ½å‘å·¦è¾¹ç§»åŠ¨,å°±æ˜¯å³è¾¹é“é—¨æ “	
+						// 1, è½¦èƒ½ä¸èƒ½æ”»å‡»åˆ°å°†çš„ å³è¾¹ åº•çº¿, 
 						for(int i = 0; i < RChe_num(); i++){
 							int s = S90_from_piecelist(POSITION,RCHE,i);
 							if(StoX(s) > 0x4){
@@ -40,7 +40,7 @@
 								}
 							}
 						}
-						// 1, Èç¹û±øÔÚ½«µÄÓÒÀß,ÓÒÉÏÀß Ôò»¹Òª¼ÓÉÏµ²×¡µÄ³µ
+						// 1, å¦‚æœå…µåœ¨å°†çš„å³è‚‹,å³ä¸Šè‚‹ åˆ™è¿˜è¦åŠ ä¸ŠæŒ¡ä½çš„è½¦
 						Bitboard tbP = m_and(bitboard_white_pawn,
 							m_and(RightBB[0x04],
 							_mm_load_si128((__m128i*)TiMenBit_Pawn)));
@@ -48,7 +48,7 @@
 						  valu += TiMen_Pawn_att_Score;
 						  ei.attPoint[WHITECOLOR]  += TiMen_Pawn_att_point;
 						}
-					    // 3, ½«
+					    // 3, å°†
 						if(StoX(rk) > 0x4){
 							Bitboard tkb = rook_attacks_bb(rk,
 								_mm_andnot_si128(m128_bb_or_bb(POSITION->byChessBB[BCHE],
@@ -60,22 +60,22 @@
 							   ei.attPoint[WHITECOLOR]  += TiMen_King_att_point;
 							}
 						}
-					    // 4, Èç¹ûÂíÄÜ¹¥»÷µ½½«µÄÓÒ
+					    // 4, å¦‚æœé©¬èƒ½æ”»å‡»åˆ°å°†çš„å³
 						for(int i = 0; i < RMa_num(); i++){
 							int s = S90_from_piecelist(POSITION,RMA,i);
 							if(StoX(s) > 0x4){
-								Bitboard A =  ma_to_king_attacks_bb(s,occ);  // µÃµ½ÂíµÄ¹¥»÷Î»ÆåÅÌ
+								Bitboard A =  ma_to_king_attacks_bb(s,occ);  // å¾—åˆ°é©¬çš„æ”»å‡»ä½æ£‹ç›˜
 								if(m128_is_have_bit(m_and(A,ei.attackKingMaCan[BLACKCOLOR]))){
 								   valu += TiMen_Ma_att_Score;
 								   ei.attPoint[WHITECOLOR]  += TiMen_Ma_att_point;
 								}
 							}
 						}
-					} // ÓÒ±ßÌúÃÅË¨
-					//if((PIECE_SIDE(PB90(0x05)) == BLACK_TO_MOVE && PB90(0x05) == BSHI)			    // Ö»Òª½«²»ÄÜÏòÓÒ±ßÒÆ¶¯,¾ÍÊÇ×ó±ßÌúÃÅË¨				
-					//	|| (bit_is_set(POSITION->DYN->attack_white,0x05))){ // Õâ¸öÆå¸ñÊÜµ½¶Ô·½µÄ¹¥»÷
+					} // å³è¾¹é“é—¨æ “
+					//if((PIECE_SIDE(PB90(0x05)) == BLACK_TO_MOVE && PB90(0x05) == BSHI)			    // åªè¦å°†ä¸èƒ½å‘å³è¾¹ç§»åŠ¨,å°±æ˜¯å·¦è¾¹é“é—¨æ “				
+					//	|| (bit_is_set(POSITION->DYN->attack_white,0x05))){ // è¿™ä¸ªæ£‹æ ¼å—åˆ°å¯¹æ–¹çš„æ”»å‡»
 					if(PB90(0x05) == BSHI) {
-							// 1, ³µÄÜ²»ÄÜ¹¥»÷µ½½«µÄ ÓÒ±ß µ×Ïß, 
+							// 1, è½¦èƒ½ä¸èƒ½æ”»å‡»åˆ°å°†çš„ å³è¾¹ åº•çº¿, 
 							for(int i = 0; i < RChe_num(); i++){
 								int s = S90_from_piecelist(POSITION,RCHE,i);
 								if(StoX(s) < 0x4){
@@ -88,7 +88,7 @@
 									}
 								}
 							}
-							// 1, Èç¹û±øÔÚ½«µÄÓÒÀß,ÓÒÉÏÀß Ôò»¹Òª¼ÓÉÏµ²×¡µÄ³µ
+							// 1, å¦‚æœå…µåœ¨å°†çš„å³è‚‹,å³ä¸Šè‚‹ åˆ™è¿˜è¦åŠ ä¸ŠæŒ¡ä½çš„è½¦
 							Bitboard tbP = m_and(bitboard_white_pawn,
 								m_and(LeftBB[0x04],
 								_mm_load_si128((__m128i*)TiMenBit_Pawn)));
@@ -96,7 +96,7 @@
 								valu += TiMen_Pawn_att_Score;
 								ei.attPoint[WHITECOLOR]  += TiMen_Pawn_att_point;
 							}
-							// 3, ½«
+							// 3, å°†
 							if(StoX(rk) < 0x4){
 								Bitboard tkb = rook_attacks_bb(rk,
 									_mm_andnot_si128(m128_bb_or_bb(POSITION->byChessBB[RCHE],
@@ -108,21 +108,21 @@
 									ei.attPoint[WHITECOLOR]  += TiMen_King_att_point;
 								}
 							}
-							// 4, Èç¹ûÂíÄÜ¹¥»÷µ½½«µÄ×ó
+							// 4, å¦‚æœé©¬èƒ½æ”»å‡»åˆ°å°†çš„å·¦
 							for(int i = 0; i < RMa_num(); i++){
 								int s = S90_from_piecelist(POSITION,RMA,i);
 								if(StoX(s) < 0x4){
-									Bitboard A =  ma_to_king_attacks_bb(s,occ);  // µÃµ½ÂíµÄ¹¥»÷Î»ÆåÅÌ
+									Bitboard A =  ma_to_king_attacks_bb(s,occ);  // å¾—åˆ°é©¬çš„æ”»å‡»ä½æ£‹ç›˜
 									if(m128_is_have_bit(m_and(A,ei.attackKingMaCan[BLACKCOLOR]))){
 										valu += TiMen_Ma_att_Score;
 										ei.attPoint[WHITECOLOR]  += TiMen_Ma_att_point;
 									}
 								}
 							}
-					}// ×ó±ßÌúÃÅË¨
+					}// å·¦è¾¹é“é—¨æ “
 				} // if(bk == 0x04 && PB90(0x0D) == BSHI){	
-			}// ÓĞ¿ÉÄÜÊÇºì·½ÖĞÅÚ
-			else if(StoY(msq) == StoY(bk)){ // ÓĞ¿ÉÄÜÊÇºì·½µ×ÅÚ
+			}// æœ‰å¯èƒ½æ˜¯çº¢æ–¹ä¸­ç‚®
+			else if(StoY(msq) == StoY(bk)){ // æœ‰å¯èƒ½æ˜¯çº¢æ–¹åº•ç‚®
 				
 				if(pMat->searchInfo16 & CK_R_Only_1Che1PaoxPawn){	
 					int palr = White_pawn_already_over_river(POSITION);
@@ -130,10 +130,10 @@
 						continue;
 					}
 				}
-				ei.attPoint[WHITECOLOR]  += Di_Pao_att_point;       // µ×ÅÚ¼Ó¹¥»÷µã
-				//»¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÊÜµ½¶Ô·½µÄ¹¥»÷
+				ei.attPoint[WHITECOLOR]  += Di_Pao_att_point;       // åº•ç‚®åŠ æ”»å‡»ç‚¹
+				//è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯å—åˆ°å¯¹æ–¹çš„æ”»å‡»
 				if(bit_is_set(POSITION->DYN->attack_black,msq)){
-					// µ«»¹ÊÇ¸ø×Ô¼ºµÄÂí,±ø,ÅÚ±£»¤ÁË,Ò²Òª¼Ó·Ö
+					// ä½†è¿˜æ˜¯ç»™è‡ªå·±çš„é©¬,å…µ,ç‚®ä¿æŠ¤äº†,ä¹Ÿè¦åŠ åˆ†
 					if(bit_is_set(POSITION->DYN->attack_white,msq)){
 					}
 					else{
@@ -142,22 +142,22 @@
 				}
 			}
 		}
-		else if(mchess == BPAO){  // ÓĞ¿ÉÄÜÊÇºÚ·½ÖĞÅÚ,µ×ÅÚ
+		else if(mchess == BPAO){  // æœ‰å¯èƒ½æ˜¯é»‘æ–¹ä¸­ç‚®,åº•ç‚®
 			if(FALSE){
 			}
-			else if(StoX(msq) == StoX(rk)){ // ÓĞ¿ÉÄÜÊÇºÚ·½ÖĞÅÚ
+			else if(StoX(msq) == StoX(rk)){ // æœ‰å¯èƒ½æ˜¯é»‘æ–¹ä¸­ç‚®
 
-				// ¿´Ò»ÏÂÊÇ²»ÊÇÔÚÔ­Î»µÄÖĞÅÚ
+				// çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯åœ¨åŸä½çš„ä¸­ç‚®
 				//if(msq == 0x16 && PB90(0x3A) == RPAWN && PB90(0x1F) == BPAWN && rk == 0x55){
 				//	if(bit_is_set(POSITION->DYN->attack_white,0x3A)){
-				//		continue;  //Õâ¸ö²»ÊÇÖĞÅÚÍÛ
+				//		continue;  //è¿™ä¸ªä¸æ˜¯ä¸­ç‚®å“‡
 				//	}
 				//}
-				ei.attPoint[BLACKCOLOR] += MidPao_att_point;         // ÖĞÅÚ¼Ó¹¥»÷µã
-				// »¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÌúÃÅË¨
+				ei.attPoint[BLACKCOLOR] += MidPao_att_point;         // ä¸­ç‚®åŠ æ”»å‡»ç‚¹
+				// è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯é“é—¨æ “
 				if(rk == 0x55 && PB90(0x4c) == RSHI && PB90(0X43) != EMPTY){					
-					if(PB90(0x54) == RSHI){	        // Ö»Òª½«²»ÄÜÏò×ó±ßÒÆ¶¯,¾ÍÊÇÓÒ±ßÌúÃÅË¨	
-							// 1, ³µÄÜ²»ÄÜ¹¥»÷µ½½«µÄ ÓÒ±ß µ×Ïß, 
+					if(PB90(0x54) == RSHI){	        // åªè¦å°†ä¸èƒ½å‘å·¦è¾¹ç§»åŠ¨,å°±æ˜¯å³è¾¹é“é—¨æ “	
+							// 1, è½¦èƒ½ä¸èƒ½æ”»å‡»åˆ°å°†çš„ å³è¾¹ åº•çº¿, 
 							for(int i = 0; i < BChe_num(); i++){
 								int s = S90_from_piecelist(POSITION,BCHE,i);
 								if(StoX(s) > 0x4){
@@ -170,7 +170,7 @@
 									}
 								}
 							}
-							// 1, Èç¹û±øÔÚ½«µÄÓÒÀß,ÓÒÉÏÀß Ôò»¹Òª¼ÓÉÏµ²×¡µÄ³µ
+							// 1, å¦‚æœå…µåœ¨å°†çš„å³è‚‹,å³ä¸Šè‚‹ åˆ™è¿˜è¦åŠ ä¸ŠæŒ¡ä½çš„è½¦
 							Bitboard tbP = m_and(bitboard_black_pawn,
 								m_and(RightBB[0x04],
 								_mm_load_si128((__m128i*)TiMenBit_Pawn)));
@@ -178,7 +178,7 @@
 								valu -= TiMen_Pawn_att_Score;
 								ei.attPoint[BLACKCOLOR] += TiMen_Pawn_att_point;
 							}
-							// 3, ½«
+							// 3, å°†
 							if(StoX(bk) > 0x4){
 								Bitboard tkb = rook_attacks_bb(bk,
 									_mm_andnot_si128(m128_bb_or_bb(POSITION->byChessBB[BCHE],
@@ -190,20 +190,20 @@
 									ei.attPoint[BLACKCOLOR] += TiMen_King_att_point;
 								}
 							}
-							// 4, Èç¹ûÂíÄÜ¹¥»÷µ½½«µÄÓÒ
+							// 4, å¦‚æœé©¬èƒ½æ”»å‡»åˆ°å°†çš„å³
 							for(int i = 0; i < BMa_num(); i++){
 								int s = S90_from_piecelist(POSITION,BMA,i);
 								if(StoX(s) > 0x4){
-									Bitboard A =  ma_to_king_attacks_bb(s,occ);  // µÃµ½ÂíµÄ¹¥»÷Î»ÆåÅÌ
+									Bitboard A =  ma_to_king_attacks_bb(s,occ);  // å¾—åˆ°é©¬çš„æ”»å‡»ä½æ£‹ç›˜
 									if(m128_is_have_bit(m_and(A,ei.attackKingMaCan[WHITECOLOR]))){
 										valu -= TiMen_Ma_att_Score;
 										ei.attPoint[BLACKCOLOR] += TiMen_Ma_att_point;
 									}
 								}
 							}
-					} // ÓÒ±ßÌúÃÅË¨
-					if(PB90(0x56) == RSHI){			    // Ö»Òª½«²»ÄÜÏòÓÒ±ßÒÆ¶¯,¾ÍÊÇ×ó±ßÌúÃÅË¨	
-							// 1, ³µÄÜ²»ÄÜ¹¥»÷µ½½«µÄ ÓÒ±ß µ×Ïß, 
+					} // å³è¾¹é“é—¨æ “
+					if(PB90(0x56) == RSHI){			    // åªè¦å°†ä¸èƒ½å‘å³è¾¹ç§»åŠ¨,å°±æ˜¯å·¦è¾¹é“é—¨æ “	
+							// 1, è½¦èƒ½ä¸èƒ½æ”»å‡»åˆ°å°†çš„ å³è¾¹ åº•çº¿, 
 							for(int i = 0; i < BChe_num(); i++){
 								int s = S90_from_piecelist(POSITION,BCHE,i);
 								if(StoX(s) < 0x4){
@@ -216,14 +216,14 @@
 									}
 								}
 							}
-							// 1, Èç¹û±øÔÚ½«µÄÓÒÀß,ÓÒÉÏÀß Ôò»¹Òª¼ÓÉÏµ²×¡µÄ³µ
+							// 1, å¦‚æœå…µåœ¨å°†çš„å³è‚‹,å³ä¸Šè‚‹ åˆ™è¿˜è¦åŠ ä¸ŠæŒ¡ä½çš„è½¦
 							Bitboard tbP = m_and(bitboard_black_pawn,
 								m_and(LeftBB[0x04],_mm_load_si128((__m128i*)TiMenBit_Pawn)));
 							if(m128_is_have_bit(tbP)){
 								valu -= TiMen_Pawn_att_Score;
 								ei.attPoint[BLACKCOLOR] += TiMen_Pawn_att_point;
 							}
-							// 3, ½«
+							// 3, å°†
 							if(StoX(bk) < 0x4){
 								Bitboard tkb = rook_attacks_bb(bk,
 									_mm_andnot_si128(m128_bb_or_bb(POSITION->byChessBB[BCHE],
@@ -235,21 +235,21 @@
 									ei.attPoint[BLACKCOLOR] += TiMen_King_att_point;
 								}
 							}
-							// 4, Èç¹ûÂíÄÜ¹¥»÷µ½½«µÄÓÒ
+							// 4, å¦‚æœé©¬èƒ½æ”»å‡»åˆ°å°†çš„å³
 							for(int i = 0; i < BMa_num(); i++){
 								int s = S90_from_piecelist(POSITION,BMA,i);
 								if(StoX(s) < 0x4){
-									Bitboard A =  ma_to_king_attacks_bb(s,occ);  // µÃµ½ÂíµÄ¹¥»÷Î»ÆåÅÌ
+									Bitboard A =  ma_to_king_attacks_bb(s,occ);  // å¾—åˆ°é©¬çš„æ”»å‡»ä½æ£‹ç›˜
 									if(m128_is_have_bit(m_and(A,ei.attackKingMaCan[WHITECOLOR]))){
 										valu -= TiMen_Ma_att_Score;
 										ei.attPoint[BLACKCOLOR] += TiMen_Ma_att_point;
 									}
 								}
 							}
-					}// ×ó±ßÌúÃÅË¨
+					}// å·¦è¾¹é“é—¨æ “
 				} // if(bk == 0x04 && PB90(0x0D) == BSHI){	
-			}// ÓĞ¿ÉÄÜÊÇºÚ·½ÖĞÅÚ
-			else if(StoY(msq) == StoY(rk)){ // ÓĞ¿ÉÄÜÊÇºÚ·½µ×ÅÚ
+			}// æœ‰å¯èƒ½æ˜¯é»‘æ–¹ä¸­ç‚®
+			else if(StoY(msq) == StoY(rk)){ // æœ‰å¯èƒ½æ˜¯é»‘æ–¹åº•ç‚®
 
 				if(pMat->searchInfo16 & CK_B_Only_1Che1PaoxPawn){	
 					int palr = Black_pawn_already_over_river(POSITION);
@@ -257,18 +257,18 @@
 						continue;
 					}
 				}
-				ei.attPoint[BLACKCOLOR] += Di_Pao_att_point;       // µ×ÅÚ¼Ó¹¥»÷µã
+				ei.attPoint[BLACKCOLOR] += Di_Pao_att_point;       // åº•ç‚®åŠ æ”»å‡»ç‚¹
 				//fen 3k1P3/4aR3/2n1b4/p3p3p/2P3c2/P8/R2C4P/4C3N/cr2AK3/3r2B2 b - - 0 1
-				//»¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÊÜµ½¶Ô·½µÄ¹¥»÷
+				//è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯å—åˆ°å¯¹æ–¹çš„æ”»å‡»
 				if(bit_is_set(POSITION->DYN->attack_white,msq)){
-					// µ«»¹ÊÇ¸ø×Ô¼ºµÄÂí,±ø,ÅÚ±£»¤ÁË,Ò²Òª¼Ó·Ö
+					// ä½†è¿˜æ˜¯ç»™è‡ªå·±çš„é©¬,å…µ,ç‚®ä¿æŠ¤äº†,ä¹Ÿè¦åŠ åˆ†
 					if(bit_is_set(POSITION->DYN->attack_black,msq)){
 					}
 					else{
 					   ei.attPoint[BLACKCOLOR] -= Di_Pao_att_By_Other;
 					}
 				}
-				// µ×ÅÚÊ±»¹¿ÉÒÔ³é½«µÄ·ÖÍÛ
+				// åº•ç‚®æ—¶è¿˜å¯ä»¥æŠ½å°†çš„åˆ†å“‡
 			}
 		}
 	}

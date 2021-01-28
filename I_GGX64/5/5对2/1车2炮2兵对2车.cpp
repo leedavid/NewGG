@@ -4,21 +4,21 @@
 #include "..\\..\\preGen.h"
 
 #include "..\\..\\endgame\mat.h"
-#include "1³µ2ÅÚ2±ø¶Ô2³µ.cpp"
+#include "1è½¦2ç‚®2å…µå¯¹2è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//#define ADD_³µÅÚ±ø¶Ô¶ş³µ_by_Pawn_Safe   32             //³µÅÚ±ø¶Ô¶ş³µ,ÅÚ·½°²È«Ê±±øµÄ¼Ó·Ö
+//#define ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn_Safe   32             //è½¦ç‚®å…µå¯¹äºŒè½¦,ç‚®æ–¹å®‰å…¨æ—¶å…µçš„åŠ åˆ†
 
 
 
-//ºì·½³µÅÚ2±ø ¶Ô ºÚ·½2³µ
+//çº¢æ–¹è½¦ç‚®2å…µ å¯¹ é»‘æ–¹2è½¦
 void my_m_MT_R_1che2pao2pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 	// fen 3ak4/4a4/2C1b4/6R2/2b1r4/P7P/r8/4B4/4A4/2BAK1C2 w - - 0 1
-	// Èç¹û¶Ô·½ÊËÏàÈ«, ÎÒ·½Ò»¸ö±øÒ²Ã»ÓĞ¹ıºÓ, Òª¼õ·Ö
+	// å¦‚æœå¯¹æ–¹ä»•ç›¸å…¨, æˆ‘æ–¹ä¸€ä¸ªå…µä¹Ÿæ²¡æœ‰è¿‡æ²³, è¦å‡åˆ†
 	if((your_shi_num + your_xiang_num) == 4){
 		Bitboard bmp = m_and(bb_my_pawn,MyLowBB[MY_RANK4]);
 		if(count_1s(bmp) == 2){
@@ -36,10 +36,10 @@ void my_m_MT_R_1che2pao2pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 	//// ADD 
 	//Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
 	//if(EV_MY_SAFE){
-	//	MY_EV_ADD((sint16)count_1s(bmp) * ADD_³µÅÚ±ø¶Ô¶ş³µ_by_Pawn__Safe_Shi[your_shi_num] * 3/2);
+	//	MY_EV_ADD((sint16)count_1s(bmp) * ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn__Safe_Shi[your_shi_num] * 3/2);
 	//}
 	//else{
-	//	MY_EV_ADD((sint16)count_1s(bmp) * ADD_³µÅÚ±ø¶Ô¶ş³µ_by_Pawn__Safe_Shi[your_shi_num]);
+	//	MY_EV_ADD((sint16)count_1s(bmp) * ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn__Safe_Shi[your_shi_num]);
 	//}
 
 }

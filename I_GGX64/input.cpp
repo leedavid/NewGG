@@ -519,7 +519,7 @@ void Input (typePOS* POSITION)
 #include <sys/stat.h>
 
 void read_uci_set_file(){
-	//´ò¿ªÉè¶¨ÎÄ¼ş
+	//æ‰“å¼€è®¾å®šæ–‡ä»¶
 	char filename[1024];  
 	sprintf_s(filename,1024,"%s\\%s",installDir,"ggX64set.txt");
 
@@ -542,7 +542,7 @@ void read_uci_set_file(){
 		_close(pFile);
 
 
-		//ÔÚÕâ¶ù¶Á³öÉè¶¨Êı¾İ
+		//åœ¨è¿™å„¿è¯»å‡ºè®¾å®šæ•°æ®
 		//setoption name xx value xx
 		char *p = rbuf;
 
@@ -551,7 +551,7 @@ void read_uci_set_file(){
 
 		char opcmd[1024];
 
-		//while(byteRead-- != 0){  //µ±ÓĞ×Ö½Ú´æÔÚÊ±
+		//while(byteRead-- != 0){  //å½“æœ‰å­—èŠ‚å­˜åœ¨æ—¶
 		while(*p != 0){
 			//strncpy_s(name,p,128);
 			//p = strstr(name,"=");

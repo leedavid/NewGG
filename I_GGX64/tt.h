@@ -138,10 +138,10 @@ struct TTEntry {
 
 //#ifndef STORE_ALWAYS_CHECK 
 		//if (abs(ev) == VALUE_BAN_CHECK) {
-		//	return;  // 不保存连将分到HASH表中
+		//	return;  // 涓嶄繚瀛樿繛灏嗗垎鍒癏ASH琛ㄤ腑
 		//}
 //#endif // !STORE_ALWAYS_CHECK 
-		//if (abs(ev) == VALUE_BAN_CAP) {   // 常捉不保存了
+		//if (abs(ev) == VALUE_BAN_CAP) {   // 甯告崏涓嶄繚瀛樹簡
 		//	return;
 		//}
 

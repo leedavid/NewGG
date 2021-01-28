@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "4±ø¶Ô1ÅÚ.cpp"
+#include "4å…µå¯¹1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -29,7 +29,7 @@ void my_m_MT_R_4pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 //		if(StoY(from) < StoY(rk)){
 //			board->mulScore -=  ADD_XPawnToPao_ByPawnShi[board->R_shi];
 //
-//			//if(StoX(from) == 0x7){  //±øÔÚÖÐÏß
+//			//if(StoX(from) == 0x7){  //å…µåœ¨ä¸­çº¿
 //			//	if(board->b256[from+1] == RPAWN || board->b256[
 //			//}
 //		}

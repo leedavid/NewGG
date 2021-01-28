@@ -4,15 +4,15 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2Âí2±ø¶Ô1ÅÚ1Âí1±ø.cpp"
+#include "2é©¬2å…µå¯¹1ç‚®1é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 //
-//const int  ADD_2MaXPawn_2Pao1Pawn_ByPawn[3]         = {96, 64, 32};            //2Âíx±ø¶Ô1ÅÚ2±ø, ¶à±øµÄ¼Ó·Ö
-//const int  ADD_2Pao1Pawn_2MaXPawn_ByPawn[3]         = {96, 64, 32};            //1ÅÚ2±ø¶Ô2Âíx±ø, ¶à±øµÄ¼Ó·Ö
+//const int  ADD_2MaXPawn_2Pao1Pawn_ByPawn[3]         = {96, 64, 32};            //2é©¬xå…µå¯¹1ç‚®2å…µ, å¤šå…µçš„åŠ åˆ†
+//const int  ADD_2Pao1Pawn_2MaXPawn_ByPawn[3]         = {96, 64, 32};            //1ç‚®2å…µå¯¹2é©¬xå…µ, å¤šå…µçš„åŠ åˆ†
 
 
 
@@ -133,7 +133,7 @@ void my_m_MT_R_2ma2pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 2bak4/3PaP3/9/9/5N3/9/9/5p3/n1N6/1c2KAB2 b - - 0 1
-	//¶ş³µÅÄÃÅ£¬Òª¼Ó·Ö¡£
+	//äºŒè½¦æ‹é—¨ï¼Œè¦åŠ åˆ†ã€‚
 
 	// fen 3k1a3/4a2P1/b4c3/4NN3/2p6/2B6/2P6/4BA3/2n1A4/5K3 b - - 0 1
 	if(EV_MY_CAN <= 1){

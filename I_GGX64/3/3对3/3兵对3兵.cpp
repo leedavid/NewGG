@@ -3,7 +3,7 @@
 #include "..\\..\\preGen.h"
 
 
-//3±ø¶Ô3±ø
+//3å…µå¯¹3å…µ
 void m_MT_3pawn_TO_3pawn(typePOS &POSITION, EvalInfo &ei){
 	BothOnlyPawnEval(POSITION,ei);
 }

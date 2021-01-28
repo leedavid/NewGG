@@ -37,21 +37,21 @@ static bool fen_posizionale (const typePOS *POSITION, char *I)
 	for(rank = 0; rank <= 9; rank++){
 		for(file = 0; file <=8;){
 			sq90= XYtoS(file,rank);
-			//PB90(sq90) = EMPTY;  //×¢Òâ,Õâ¶ùµÄ¿ÕÆå×ÓÊÇ16,²»ÊÇ0! PB90(sq90)
+			//PB90(sq90) = EMPTY;  //æ³¨æ„,è¿™å„¿çš„ç©ºæ£‹å­æ˜¯16,ä¸æ˜¯0! PB90(sq90)
 			if(c >= '1' && c <= '9'){
 				int len = c - '0';
 				for(i = 0; i < len; i++){
 					if(file > 8){
-						printf("Error>ĞĞ¿Õ¸ñ²»ÕıÈ·,board_from_fen(): bad FEN (board=%d)\n",pf); 
+						printf("Error>è¡Œç©ºæ ¼ä¸æ­£ç¡®,board_from_fen(): bad FEN (board=%d)\n",pf); 
 						return FALSE;
 					}					
 					file++;
 				}
 			}
-			else{  // piece, ÕâÊÇÒ»¸öÆå×Ó
+			else{  // piece, è¿™æ˜¯ä¸€ä¸ªæ£‹å­
 				int piece = piece_from_char(c);
 				if(piece == EMPTY){
-					printf("Error>Æå×Ó²»¶Ô, board_from_fen(): bad FEN (board=%d)\n",pf);
+					printf("Error>æ£‹å­ä¸å¯¹, board_from_fen(): bad FEN (board=%d)\n",pf);
 					return FALSE;
 				}
 				PB90(sq90)     = piece;
@@ -65,7 +65,7 @@ static bool fen_posizionale (const typePOS *POSITION, char *I)
 		}
 		if(rank < 9){
 			if( c != '/'){
-				printf("Error>Æå×ÓÃ»ĞĞ½áÊø,board_from_fen(): bad FEN (board=%d)\n",pf); 
+				printf("Error>æ£‹å­æ²¡è¡Œç»“æŸ,board_from_fen(): bad FEN (board=%d)\n",pf); 
 				return FALSE;
 			}
 			c = I[++pf];
@@ -79,7 +79,7 @@ char * ReadFEN (const typePOS *POSITION, char *I)
    
 	char i[1024];
     sscanf_s (I, "%s", i, 512);
-    fen_posizionale (POSITION, i);  // µÃµ½B90µÄÆå×ÓĞÅÏ¢
+    fen_posizionale (POSITION, i);  // å¾—åˆ°B90çš„æ£‹å­ä¿¡æ¯
     //memset (POSITION->DYN_inizio, 0, 256 * sizeof (tipo_POSITION->DYN));
     POSITION->DYN = POSITION->DYN_ROOT;
     I += strlen (i) + 1;
@@ -105,11 +105,11 @@ static uint32 FullMove (const typePOS *POSITION, uint32 x)
  // if (pezzo == conto_re_bianco || pezzo == conto_re_nero)
  //   {
  //     if (ai - di == 2 || di - ai == 2)
-	//x |= pietra_arrocco;        // flag_castling Íõ³µÒ×Î»
+	//x |= pietra_arrocco;        // flag_castling ç‹è½¦æ˜“ä½
  //   }
  // if (AI (x) != 0 && AI (x) == POSITION->DYN->en_passant
  //     && (pezzo == conto_pedone_bianco || pezzo == conto_pedone_nero))
- //   x |= pietra_en_passant;     // ³Ô¹ıºÓ±ø
+ //   x |= pietra_en_passant;     // åƒè¿‡æ²³å…µ
  return x;
 
   //int piece, ai = AI(x), di = DI(x);
@@ -179,7 +179,7 @@ static void ReadMoves (const typePOS *POSITION, char *I)
 		//}
 		for (i = 0; i < lista - LISTA; i++)
 		{
-			if (totale == (LISTA[i].move & 0x7fff))      // ×ß²½²»´æÔÚ?
+			if (totale == (LISTA[i].move & 0x7fff))      // èµ°æ­¥ä¸å­˜åœ¨?
 			{
 				Make (POSITION, totale);
 				break;
@@ -202,7 +202,7 @@ void InitPosition (const typePOS *POSITION, char *I)
 	//SEARCH_ROBBO_BASES = TRUE;
 
 	sscanf_s (I, "%s", i,1000);
-	if (!strcmp (i, "startpos"))  // ¿ªÊ¼µÄ¾ÖÃæ
+	if (!strcmp (i, "startpos"))  // å¼€å§‹çš„å±€é¢
 	{
 		ReadFEN (POSITION, (char*)posizione_originale);
 		InitBitboards (POSITION,TRUE);
@@ -219,12 +219,12 @@ void InitPosition (const typePOS *POSITION, char *I)
 		I = strstr(I,"moves");
 		if(I != NULL){
 			I += 6;
-			ReadMoves (POSITION, I);   // legal_moves(I); // Èç¹ûÓĞ×ß²½,¾ÍÅĞ¶ÏºÏ·¨×ß²½
+			ReadMoves (POSITION, I);   // legal_moves(I); // å¦‚æœæœ‰èµ°æ­¥,å°±åˆ¤æ–­åˆæ³•èµ°æ­¥
 		}
 	}
 	POSITION->height = 0;
 	if (NEW_GAME)          // GAME_NEW
-		ResetPositionalGain ();      // ÔöÒæ³õÊ¼»¯ gain_reset();
+		ResetPositionalGain ();      // å¢ç›Šåˆå§‹åŒ– gain_reset();
 }
 
 #endif

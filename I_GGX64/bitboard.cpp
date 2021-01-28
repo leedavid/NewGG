@@ -4,23 +4,23 @@
 #include <fstream>
 #include <iostream>
 
- Bitboard ShiAttackBB[90];                   // Ë«·½µÄÊË¹¥»÷µ½ 90 µÄÎ»ÆåÅÌ
+ Bitboard ShiAttackBB[90];                   // åŒæ–¹çš„ä»•æ”»å‡»åˆ° 90 çš„ä½æ£‹ç›˜
 
 
- Bitboard Attack_By_Rpawn_Rking[90];         // ËùÓĞ¿É¹¥»÷µ½Æå¸ñµÄºì±ø, ºì½« //±øÊÇµ¥ÏòµÄ
- Bitboard Attack_By_Bpawn_Bking[90];         // ËùÓĞ¿É¹¥»÷µ½Æå¸ñµÄºÚ×ä, ºÚ½«
+ Bitboard Attack_By_Rpawn_Rking[90];         // æ‰€æœ‰å¯æ”»å‡»åˆ°æ£‹æ ¼çš„çº¢å…µ, çº¢å°† //å…µæ˜¯å•å‘çš„
+ Bitboard Attack_By_Bpawn_Bking[90];         // æ‰€æœ‰å¯æ”»å‡»åˆ°æ£‹æ ¼çš„é»‘å’, é»‘å°†
 
 
- Bitboard Ma_to_King_Mask[90];             //´ÓÂíµÄÎ»ÖÃ,À´³Ô½«, ÊÇËãÒ»ÏÂ±ğ½Å
+ Bitboard Ma_to_King_Mask[90];             //ä»é©¬çš„ä½ç½®,æ¥åƒå°†, æ˜¯ç®—ä¸€ä¸‹åˆ«è„š
  Bitboard Ma_to_King_Attacks[NUM_MA_TO_KING_ATT];
  int      Ma_to_King_AttackIndex[90];
 
- Bitboard King_to_Ma_Mask[90];             //´Ó½«µÄÎ»ÖÃ,±»Âí³Ô, ÊÇËãÒ»ÏÂ·´±ğ½Å
+ Bitboard King_to_Ma_Mask[90];             //ä»å°†çš„ä½ç½®,è¢«é©¬åƒ, æ˜¯ç®—ä¸€ä¸‹ååˆ«è„š
  Bitboard King_to_Ma_Attacks[NUM_MA_TO_KING_ATT];
  int      King_to_Ma_AttackIndex[90];
 
 
- Bitboard XiangMask[90];               // Ïà,Ö÷ÒªÊÇÓÃÀ´ËãÒ»ÏÂÏóÑÛ,
+ Bitboard XiangMask[90];               // ç›¸,ä¸»è¦æ˜¯ç”¨æ¥ç®—ä¸€ä¸‹è±¡çœ¼,
  int      XiangAttackIndex[90];
  Bitboard XiangAttacks[NUM_XIANG_ATT];
 
@@ -28,18 +28,18 @@
  Bitboard ClearMaskBB[90];
 
 
- Bitboard Che_Mask_FR[90];            // ³µÓÃÀ´¼ÆËãÆå²½µÄÉÙ×îºóÒ»Î»,²»°üÀ¨×Ô¼º
- Bitboard Che_Mask_F[90];             // ³µFILE MASK, ²»°üÀ¨×Ô¼º
- Bitboard Che_Mask_R[90];             // ³µRANK MASK, ²»°üÀ¨×Ô¼º
+ Bitboard Che_Mask_FR[90];            // è½¦ç”¨æ¥è®¡ç®—æ£‹æ­¥çš„å°‘æœ€åä¸€ä½,ä¸åŒ…æ‹¬è‡ªå·±
+ Bitboard Che_Mask_F[90];             // è½¦FILE MASK, ä¸åŒ…æ‹¬è‡ªå·±
+ Bitboard Che_Mask_R[90];             // è½¦RANK MASK, ä¸åŒ…æ‹¬è‡ªå·±
 
- Bitboard ChePseudoMask_FR[90];       //³µ¿É¹¥»÷µÄÎ»,°üÀ¨×îºóÒ»Î»
- Bitboard Ma_Pseudo_Att[90];          // Âí¿ÉÄÜ×ßµ½µÄËùÓĞÎ»ÖÃ
+ Bitboard ChePseudoMask_FR[90];       //è½¦å¯æ”»å‡»çš„ä½,åŒ…æ‹¬æœ€åä¸€ä½
+ Bitboard Ma_Pseudo_Att[90];          // é©¬å¯èƒ½èµ°åˆ°çš„æ‰€æœ‰ä½ç½®
 
- Bitboard MaKingAttackZone[90];         // Æå×Ó¿É¹¥»÷½«µÄÄÜÁ¦.
+ Bitboard MaKingAttackZone[90];         // æ£‹å­å¯æ”»å‡»å°†çš„èƒ½åŠ›.
  Bitboard MaPosAttackKing[90];
 
 
- Bitboard Ma_good_mask[2];              // °×Âí²»Ì«ºÃ×ßµÄ²½×Ó
+ Bitboard Ma_good_mask[2];              // ç™½é©¬ä¸å¤ªå¥½èµ°çš„æ­¥å­
 
  Bitboard CheAttacks_R[NUM_CHE_ATT_R];
  int      CheAttackIndex_R[90];
@@ -62,41 +62,41 @@
  Bitboard FileBB_A[9];
  Bitboard RankBB_A[10];
 
- Bitboard LowBB[10];      //Æå×ÓÏÂÃæµÄÎ»ÆåÅÌ
- Bitboard UpBB[10];       //Æå×ÓÉÏÃæµÄÎ»ÆåÅÌ
+ Bitboard LowBB[10];      //æ£‹å­ä¸‹é¢çš„ä½æ£‹ç›˜
+ Bitboard UpBB[10];       //æ£‹å­ä¸Šé¢çš„ä½æ£‹ç›˜
 
- Bitboard LeftBB[9];      //Æå×Ó×ó±ßµÄÎ»ÆåÅÌ
- Bitboard RightBB[9];     //Æå×ÓÓÒ±ßµÄÎ»ÆåÅÌ
+ Bitboard LeftBB[9];      //æ£‹å­å·¦è¾¹çš„ä½æ£‹ç›˜
+ Bitboard RightBB[9];     //æ£‹å­å³è¾¹çš„ä½æ£‹ç›˜
 
- Bitboard BetweenBB[90][90];          // ¶ş¸öÔÚÍ¬Ò»ÏßÉÏµÄÆå×ÓÖ®¼äµÄÎ»ÆåÅÌ£®²»°üÀ¨×Ô¼ºµÄĞÅÏ¢.
+ Bitboard BetweenBB[90][90];          // äºŒä¸ªåœ¨åŒä¸€çº¿ä¸Šçš„æ£‹å­ä¹‹é—´çš„ä½æ£‹ç›˜ï¼ä¸åŒ…æ‹¬è‡ªå·±çš„ä¿¡æ¯.
 
-const char BB_BDISPLAY_CHESS[3] = {"¡ñ"};
+const char BB_BDISPLAY_CHESS[3] = {"â—"};
 
-//½«Î»ÆåÅÌ´òÓ¡³öÀ´
-//½«Î»ÆåÅÌ´òÓ¡³öÀ´
+//å°†ä½æ£‹ç›˜æ‰“å°å‡ºæ¥
+//å°†ä½æ£‹ç›˜æ‰“å°å‡ºæ¥
 void print_bb(Bitboard bb){
 
 	static const  char *c_BoardStrSim[] = {
 		"cmd:    0  1   2   3   4   5   6   7   8  \n",
-		"cmd: 0 ©°--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©´ \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦£Ü©¦£¯©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 1 ©À--©à--©à--©à--¡ù--©à--©à--©à--©È \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦£¯©¦£Ü©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 2 ©À--©à--©à--©à--©à--©à--©à--©à--©È \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 3 ©À--©à--©à--©à--©à--©à--©à--©à--©È \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 4 ©À--©Ø--©Ø--©Ø--©Ø--©Ø--©Ø--©Ø--©È \n",
-		"cmd:   ©¦                              ©¦ \n",
-		"cmd: 5 ©À--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©È \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 6 ©À--©à--©à--©à--©à--©à--©à--©à--©È \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 7 ©À--©à--©à--©à--©à--©à--©à--©à--©È \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦£Ü©¦£¯©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 8 ©À--©à--©à--©à--¡ù--©à--©à--©à--©È \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦£¯©¦£Ü©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 9 ©¸--©Ø--©Ø--©Ø--©Ø--©Ø--©Ø--©Ø--©¼ \n"
+		"cmd: 0 â”Œ--â”¬--â”¬--â”¬--â”¬--â”¬--â”¬--â”¬--â” \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚ï¼¼â”‚ï¼â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 1 â”œ--â”¼--â”¼--â”¼--â€»--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚ï¼â”‚ï¼¼â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 2 â”œ--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 3 â”œ--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 4 â”œ--â”´--â”´--â”´--â”´--â”´--â”´--â”´--â”¤ \n",
+		"cmd:   â”‚                              â”‚ \n",
+		"cmd: 5 â”œ--â”¬--â”¬--â”¬--â”¬--â”¬--â”¬--â”¬--â”¤ \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 6 â”œ--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 7 â”œ--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚ï¼¼â”‚ï¼â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 8 â”œ--â”¼--â”¼--â”¼--â€»--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚ï¼â”‚ï¼¼â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 9 â””--â”´--â”´--â”´--â”´--â”´--â”´--â”´--â”˜ \n"
 	};
 
 	char buf[256];
@@ -124,32 +124,32 @@ void print_bb(Bitboard bb){
 }
 
 
-// ¸ù¾İÆåÅÌ,µÃµ½Î»ÆåÅÌ
+// æ ¹æ®æ£‹ç›˜,å¾—åˆ°ä½æ£‹ç›˜
 void qibanToBB(Bitboard* bb){
 
 	int r;
 	int f;
 	static const  char *c_BoardStrSim[] = {
 		"cmd:    0  1   2   3   4   5   6   7   8  \n",
-		"cmd: 0 ¡ñ--¡ñ--¡ñ--¡ñ--¡ñ--¡ñ--¡ñ--¡ñ--¡ñ \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦£Ü©¦£¯©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 1 ©À--©à--©à--©à--¡ù--©à--©à--©à--©È \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦£¯©¦£Ü©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 2 ©À--¡ñ--©à--©à--©à--©à--©à--¡ñ--©È \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 3 ¡ñ--©à--¡ñ--©à--¡ñ--©à--¡ñ--©à--¡ñ \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 4 ©À--©Ø--©Ø--©Ø--©Ø--©Ø--©Ø--©Ø--©È \n",
-		"cmd:   ©¦                              ©¦ \n",
-		"cmd: 5 ©À--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©È \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 6 ¡ñ--©à--¡ñ--©à--¡ñ--©à--¡ñ--©à--¡ñ \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 7 ©À--¡ñ--©à--©à--©à--©à--©à--¡ñ--©È \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦£Ü©¦£¯©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 8 ©À--©à--©à--©à--¡ù--©à--©à--©à--©È \n",
-		"cmd:   ©¦  ©¦  ©¦  ©¦£¯©¦£Ü©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 9 ¡ñ--¡ñ--¡ñ--¡ñ--¡ñ--¡ñ--¡ñ--¡ñ--¡ñ \n"
+		"cmd: 0 â—--â—--â—--â—--â—--â—--â—--â—--â— \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚ï¼¼â”‚ï¼â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 1 â”œ--â”¼--â”¼--â”¼--â€»--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚ï¼â”‚ï¼¼â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 2 â”œ--â—--â”¼--â”¼--â”¼--â”¼--â”¼--â—--â”¤ \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 3 â—--â”¼--â—--â”¼--â—--â”¼--â—--â”¼--â— \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 4 â”œ--â”´--â”´--â”´--â”´--â”´--â”´--â”´--â”¤ \n",
+		"cmd:   â”‚                              â”‚ \n",
+		"cmd: 5 â”œ--â”¬--â”¬--â”¬--â”¬--â”¬--â”¬--â”¬--â”¤ \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 6 â—--â”¼--â—--â”¼--â—--â”¼--â—--â”¼--â— \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 7 â”œ--â—--â”¼--â”¼--â”¼--â”¼--â”¼--â—--â”¤ \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚ï¼¼â”‚ï¼â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 8 â”œ--â”¼--â”¼--â”¼--â€»--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:   â”‚  â”‚  â”‚  â”‚ï¼â”‚ï¼¼â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 9 â—--â—--â—--â—--â—--â—--â—--â—--â— \n"
 	};
 
 	*bb = _mm_setzero_si128();
@@ -202,7 +202,7 @@ void initLowUpBB(void){
 	}
 }
 
-// µÃµ½³µµÄ¹¥»÷Î»ÆåÅÌ
+// å¾—åˆ°è½¦çš„æ”»å‡»ä½æ£‹ç›˜
 void find_che_mask(Bitboard* result,Bitboard* result_f, Bitboard* result_r, int sq){
 
 	int r,f;
@@ -211,22 +211,22 @@ void find_che_mask(Bitboard* result,Bitboard* result_f, Bitboard* result_r, int 
 
 	*result = *result_f = *result_r = _mm_setzero_si128(); 
 
-	//ÏòÉÏ
+	//å‘ä¸Š
 	for(r = rk+1; r <= 8; r++){
        set_bit(*result,XYtoS(fl,r));
 	   set_bit(*result_f,XYtoS(fl,r));
 	}
-	//ÏòÏÂ
+	//å‘ä¸‹
 	for(r = rk-1; r >= 1; r--){
 		set_bit(*result,XYtoS(fl,r));
 		set_bit(*result_f,XYtoS(fl,r));
 	}
-	//ÏòÓÒ
+	//å‘å³
 	for(f = fl+1; f <= 7; f++){
 		set_bit(*result,XYtoS(f,rk));
 		set_bit(*result_r,XYtoS(f,rk));
 	}
-	//Ïò×ó
+	//å‘å·¦
 	for(f = fl-1; f >= 1; f--){
 		set_bit(*result,XYtoS(f,rk));
 		set_bit(*result_r,XYtoS(f,rk));
@@ -234,7 +234,7 @@ void find_che_mask(Bitboard* result,Bitboard* result_f, Bitboard* result_r, int 
 }
 
 void isMaJumpGood(int x, int y, Bitboard* result ){
-    //Ìøµ½±ßÏßµÄÂí¶¼²»ÊÇºÃÂí
+    //è·³åˆ°è¾¹çº¿çš„é©¬éƒ½ä¸æ˜¯å¥½é©¬
 
 	if(x == 0 || x == 8) return ;
 	//if(y == 0 || y == 9) return ;
@@ -251,47 +251,47 @@ void Init_Ma_Pseudo_Good_Mask(Bitboard* all, int sq){
 
 	*all = _mm_setzero_si128(); 
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÉÏ×ó
+	//é©¬çš„8ä¸ªæ–¹å‘,1,ä¸Šå·¦
 	if(rk >= 2 && fl >= 1){
 		set_bit(*all,XYtoS(fl-1,rk-2));
 		
 	}
-	//ÂíµÄ8¸ö·½Ïò,1,ÉÏÓÒ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,ä¸Šå³
 	if(rk >= 2 && fl <= 7){
 		set_bit(*all,XYtoS(fl+1,rk-2));
 		
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÓÒÉÏ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,å³ä¸Š
 	if(rk >= 1 && fl <= 6){
 		set_bit(*all,XYtoS(fl+2,rk-1));		
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÓÒÏÂ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,å³ä¸‹
 	if(rk <= 8 && fl <= 6){
 		set_bit(*all,XYtoS(fl+2,rk+1));
 		
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÏÂÓÒ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,ä¸‹å³
 	if(rk <= 7 && fl <= 7){
 		set_bit(*all,XYtoS(fl+1,rk+2));
 		
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÏÂ×ó
+	//é©¬çš„8ä¸ªæ–¹å‘,1,ä¸‹å·¦
 	if(rk <= 7 && fl >= 1){
 		set_bit(*all,XYtoS(fl-1,rk+2));
 		
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,×óÏÂ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,å·¦ä¸‹
 	if(rk <= 8 && fl >= 2){
 		set_bit(*all,XYtoS(fl-2,rk+1));
 		
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,×óÉÏ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,å·¦ä¸Š
 	if(rk >= 1 && fl >= 2){
 		set_bit(*all,XYtoS(fl-2,rk-1));
 		
@@ -304,11 +304,11 @@ void find_ma_to_king_mask(Bitboard* result,int sq){
 	int fl = StoX(sq);
 	*result = _mm_setzero_si128(); 
 
-	if(rk >= 2){ //Âí¿É²»¿ÉÒÔÏòÉÏ
+	if(rk >= 2){ //é©¬å¯ä¸å¯ä»¥å‘ä¸Š
        set_bit(*result,XYtoS(fl,rk-1));
 	}
 
-	if(rk <= 7){ //Âí¿É²»¿ÉÒÔÏòÏÂ
+	if(rk <= 7){ //é©¬å¯ä¸å¯ä»¥å‘ä¸‹
        set_bit(*result,XYtoS(fl,rk+1));
 	}
 
@@ -319,10 +319,10 @@ void find_ma_to_king_mask(Bitboard* result,int sq){
 	if(fl <= 6){
 		set_bit(*result,XYtoS(fl+1,rk));
 	}
-	//»¹¿ÉÒÔÔÙÓÅ»¯Ò»ÏÂ,°Ñ±ß½ÇµÄMASKÔÙÈ¥ÁË.
+	//è¿˜å¯ä»¥å†ä¼˜åŒ–ä¸€ä¸‹,æŠŠè¾¹è§’çš„MASKå†å»äº†.
 }
 
-// Õâ¸öÊÇ´ÓKingµÄ½Ç¶È,¿´ÓĞÂíÄÜ²»ÄÜ³Ôµ½
+// è¿™ä¸ªæ˜¯ä»Kingçš„è§’åº¦,çœ‹æœ‰é©¬èƒ½ä¸èƒ½åƒåˆ°
 void find_king_to_ma_mask(Bitboard* result,int sq){
 
 	int rk = StoY(sq);
@@ -417,28 +417,28 @@ void find_che_pseudo_mask(Bitboard* result, int sq){
 
 	*result = _mm_setzero_si128(); 
 
-	//·ÅÉÏ×Ô¼º
+	//æ”¾ä¸Šè‡ªå·±
 	set_bit(*result,sq);
 
-	//ÏòÉÏ
+	//å‘ä¸Š
 	for(r = rk+1; r <= 9; r++){
        set_bit(*result,XYtoS(fl,r));
 	}
-	//ÏòÏÂ
+	//å‘ä¸‹
 	for(r = rk-1; r >= 0; r--){
 		set_bit(*result,XYtoS(fl,r));
 	}
-	//ÏòÓÒ
+	//å‘å³
 	for(f = fl+1; f <= 8; f++){
 		set_bit(*result,XYtoS(f,rk));
 	}
-	//Ïò×ó
+	//å‘å·¦
 	for(f = fl-1; f >= 0; f--){
 		set_bit(*result,XYtoS(f,rk));
 	}	
 }
 
-// ÕÒµ½ÊËµÄ¿É¹¥»÷Î»ÆåÅÌ, ÊËÊÇË«ÏòµÄ,²»ÓÃ·Ö¿ªÅĞ¶Ï
+// æ‰¾åˆ°ä»•çš„å¯æ”»å‡»ä½æ£‹ç›˜, ä»•æ˜¯åŒå‘çš„,ä¸ç”¨åˆ†å¼€åˆ¤æ–­
 void find_stepshi_attack(Bitboard* result, int sq){
 
 	*result = _mm_setzero_si128(); 
@@ -482,7 +482,7 @@ void find_stepshi_attack(Bitboard* result, int sq){
 	}
 }
 
-// Bitboard StepKingToPawnBB[90];  ´Ó½«µÄÎ»ÖÃ¿´ÓĞÃ»ÓĞ±øÔÚ½«¾ü
+// Bitboard StepKingToPawnBB[90];  ä»å°†çš„ä½ç½®çœ‹æœ‰æ²¡æœ‰å…µåœ¨å°†å†›
 void find_stepking_to_pawn(Bitboard* result,int sq){
 
 	int rk = StoY(sq);
@@ -536,7 +536,7 @@ void find_sq_attack_by_pawn(Bitboard* byrpawn,Bitboard* bybpawn,int sq){
 	}
 
 	if(x >= 3 && x <= 5){
-		//ºì½«
+		//çº¢å°†
 		if(y >= 7){
 			if(y >= 8){
 				set_bit(*byrpawn,XYtoS(x,y-1));
@@ -552,7 +552,7 @@ void find_sq_attack_by_pawn(Bitboard* byrpawn,Bitboard* bybpawn,int sq){
 			}
 		}
 
-		//ºÚ½«
+		//é»‘å°†
 		if(y <= 2){
 			if(y >= 1){
 				set_bit(*bybpawn,XYtoS(x,y-1));
@@ -571,7 +571,7 @@ void find_sq_attack_by_pawn(Bitboard* byrpawn,Bitboard* bybpawn,int sq){
 }
 
 
-// ºì½«ºì±ø¹¥»÷ÆäËüµÄ×ÓµÄÇé¿ö
+// çº¢å°†çº¢å…µæ”»å‡»å…¶å®ƒçš„å­çš„æƒ…å†µ
 void find_step_rking_rpawn_attack(Bitboard* result,int sq){
 
 	int x = StoX(sq);
@@ -579,41 +579,41 @@ void find_step_rking_rpawn_attack(Bitboard* result,int sq){
 
 	*result = _mm_setzero_si128();
 
-	//ºì±ø
-	if(y == 6 || y == 5){  // ºì±ø»¹Ã»ÓĞ¹ıºÓ
-		set_bit(*result,XYtoS(x,y-1));  //Ö»ÄÜÏòÇ°
+	//çº¢å…µ
+	if(y == 6 || y == 5){  // çº¢å…µè¿˜æ²¡æœ‰è¿‡æ²³
+		set_bit(*result,XYtoS(x,y-1));  //åªèƒ½å‘å‰
 	}
 
-	if(y <= 4){            // ºì±ø¹ıºÓÁË
+	if(y <= 4){            // çº¢å…µè¿‡æ²³äº†
 		if(y != 0){
-			set_bit(*result,XYtoS(x,y-1));  //ÏòÇ°
+			set_bit(*result,XYtoS(x,y-1));  //å‘å‰
 		}
 		if(x != 0){
-			set_bit(*result,XYtoS(x-1,y));   //Ïò×ó
+			set_bit(*result,XYtoS(x-1,y));   //å‘å·¦
 		}
 		if(x != 8){
-			set_bit(*result,XYtoS(x+1,y));   //ÏòÓÒ
+			set_bit(*result,XYtoS(x+1,y));   //å‘å³
 		}
 	}
 
-	//ºì½«
+	//çº¢å°†
 	if(y >= 7){
 		if(y >= 8){
-			set_bit(*result,XYtoS(x,y-1));  //ÏòÇ°
+			set_bit(*result,XYtoS(x,y-1));  //å‘å‰
 		}
 		if(y <= 8){
-			set_bit(*result,XYtoS(x,y+1));  //ÏòÏÂ
+			set_bit(*result,XYtoS(x,y+1));  //å‘ä¸‹
 		}
 		if(x >= 4){
-			set_bit(*result,XYtoS(x-1,y));  //Ïò×ó
+			set_bit(*result,XYtoS(x-1,y));  //å‘å·¦
 		}
 		if(x <= 4){
-			set_bit(*result,XYtoS(x+1,y));  //ÏòÓÒ
+			set_bit(*result,XYtoS(x+1,y));  //å‘å³
 		}
 	}
 
 }
-// ºÚ½«ºÚ±ø
+// é»‘å°†é»‘å…µ
 void find_step_bking_bpawn_attack(Bitboard* result,int sq){
 
 	int x = StoX(sq);
@@ -621,36 +621,36 @@ void find_step_bking_bpawn_attack(Bitboard* result,int sq){
 
 	*result = _mm_setzero_si128();
 
-	//ºÚ±ø
-	if(y == 4 || y == 3){  // ºÚ±ø»¹Ã»ÓĞ¹ıºÓ
-		set_bit(*result,XYtoS(x,y+1));  //Ö»ÄÜÏòÇ°
+	//é»‘å…µ
+	if(y == 4 || y == 3){  // é»‘å…µè¿˜æ²¡æœ‰è¿‡æ²³
+		set_bit(*result,XYtoS(x,y+1));  //åªèƒ½å‘å‰
 	}
 
-	if(y >= 5){            // ºì±ø¹ıºÓÁË
+	if(y >= 5){            // çº¢å…µè¿‡æ²³äº†
 		if(y != 9){
-			set_bit(*result,XYtoS(x,y+1));  //ÏòÇ°
+			set_bit(*result,XYtoS(x,y+1));  //å‘å‰
 		}
 		if(x != 0){
-			set_bit(*result,XYtoS(x-1,y));   //Ïò×ó
+			set_bit(*result,XYtoS(x-1,y));   //å‘å·¦
 		}
 		if(x != 8){
-			set_bit(*result,XYtoS(x+1,y));   //ÏòÓÒ
+			set_bit(*result,XYtoS(x+1,y));   //å‘å³
 		}
 	}
 
-	//ºÚ½«
+	//é»‘å°†
 	if(y <= 2){
 		if(y >= 1){
-			set_bit(*result,XYtoS(x,y-1));  //ÏòÇ°
+			set_bit(*result,XYtoS(x,y-1));  //å‘å‰
 		}
 		if(y <= 1){
-			set_bit(*result,XYtoS(x,y+1));  //ÏòÏÂ
+			set_bit(*result,XYtoS(x,y+1));  //å‘ä¸‹
 		}
 		if(x >= 4){
-			set_bit(*result,XYtoS(x-1,y));  //Ïò×ó
+			set_bit(*result,XYtoS(x-1,y));  //å‘å·¦
 		}
 		if(x <= 4){
-			set_bit(*result,XYtoS(x+1,y));  //ÏòÓÒ
+			set_bit(*result,XYtoS(x+1,y));  //å‘å³
 		}
 	}
 }
@@ -668,12 +668,12 @@ void init_rool_attack_r(Bitboard attacks[],
 
 	Bitboard b;
 
-	Bitboard m;  //³µÒªÖĞÁíÍâËãMASK
+	Bitboard m;  //è½¦è¦ä¸­å¦å¤–ç®—MASK
 
 	for(sq = 0; sq < 90; sq++){
-		attackIndex[sq] = index;  //¹¥»÷Î»ÆåÅÌµÄ¿ªÊ¼±àºÅ
+		attackIndex[sq] = index;  //æ”»å‡»ä½æ£‹ç›˜çš„å¼€å§‹ç¼–å·
 		m = m_and(RankBB_A[StoY(sq)],mask[sq]);
-		n = (int)count_1s(m);  //µÃµ½maskµÄÎ»Êı6         
+		n = (int)count_1s(m);  //å¾—åˆ°maskçš„ä½æ•°6         
 		j = (1 << shift);
 
 		for(k = 0; k < j; k++){
@@ -700,14 +700,14 @@ void init_paoeat_attack_r(Bitboard attacks[],
 	int tra;
 	Bitboard att;
 
-	Bitboard m;  //³µÒªÖĞÁíÍâËãMASK
+	Bitboard m;  //è½¦è¦ä¸­å¦å¤–ç®—MASK
 
 	for(sq = 0; sq < 90; sq++){
-		attackIndex[sq] = index;  //¹¥»÷Î»ÆåÅÌµÄ¿ªÊ¼±àºÅ
+		attackIndex[sq] = index;  //æ”»å‡»ä½æ£‹ç›˜çš„å¼€å§‹ç¼–å·
 
 		m = m_and(RankBB_A[StoY(sq)],mask[sq]);
 
-		n = (int)count_1s(m);  //µÃµ½maskµÄÎ»Êı6
+		n = (int)count_1s(m);  //å¾—åˆ°maskçš„ä½æ•°6
          
 		j = (1 << shift);  // 1 << 7  = 
 
@@ -739,17 +739,17 @@ void init_paoeat_attack_f(Bitboard attacks[],
 
 	Bitboard b;
 
-	Bitboard m;  //³µÒªÖĞÁíÍâËãMASK
+	Bitboard m;  //è½¦è¦ä¸­å¦å¤–ç®—MASK
 
 	int n,tra;
 	Bitboard att;
 
 	for(sq = 0; sq < 90; sq++){
-		attackIndex[sq] = index;  //¹¥»÷Î»ÆåÅÌµÄ¿ªÊ¼±àºÅ
+		attackIndex[sq] = index;  //æ”»å‡»ä½æ£‹ç›˜çš„å¼€å§‹ç¼–å·
 
 		m = m_and(FileBB_A[StoX(sq)], mask[sq]);
 
-		n = (int)count_1s(m);  //µÃµ½maskµÄÎ»Êı6
+		n = (int)count_1s(m);  //å¾—åˆ°maskçš„ä½æ•°6
          
 		j = (1 << shift);
 
@@ -775,16 +775,16 @@ void init_rool_attack_f(Bitboard attacks[],
                             const int shift, const uint64 mult[]) {
 	int sq,j,k, index = 0;
 	Bitboard b;
-	Bitboard m;  //³µÒªÖĞÁíÍâËãMASK
+	Bitboard m;  //è½¦è¦ä¸­å¦å¤–ç®—MASK
 	int n,tra;
 	Bitboard att;
 	//Bitboard occ;
 	for(sq = 0; sq < 90; sq++){
-		attackIndex[sq] = index;  //¹¥»÷Î»ÆåÅÌµÄ¿ªÊ¼±àºÅ
+		attackIndex[sq] = index;  //æ”»å‡»ä½æ£‹ç›˜çš„å¼€å§‹ç¼–å·
 		m = m_and(FileBB_A[StoX(sq)],mask[sq]);
-		n = (int)count_1s(m);  //µÃµ½maskµÄÎ»Êı6
+		n = (int)count_1s(m);  //å¾—åˆ°maskçš„ä½æ•°6
 		j = (1 << shift);
-		//Õâ¸öÃ»ÓĞ¼ì²â³åÍ», Òª¼ì²âÒ»ÏÂ.
+		//è¿™ä¸ªæ²¡æœ‰æ£€æµ‹å†²çª, è¦æ£€æµ‹ä¸€ä¸‹.
 		for(k = 0; k < j; k++){
            index_to_Bitboard(&b,k,n,m);		   
 		   che_att_by_block_f(&att,sq,b);
@@ -804,17 +804,17 @@ void init_paosuper_attack_f(Bitboard attacks[],
 	Bitboard b;
 	 Bitboard att;
 	 int n,tra;
-	Bitboard m;  //³µÒªÖĞÁíÍâËãMASK
+	Bitboard m;  //è½¦è¦ä¸­å¦å¤–ç®—MASK
 
 	for(sq = 0; sq < 90; sq++){
-		attackIndex[sq] = index;  //¹¥»÷Î»ÆåÅÌµÄ¿ªÊ¼±àºÅ
+		attackIndex[sq] = index;  //æ”»å‡»ä½æ£‹ç›˜çš„å¼€å§‹ç¼–å·
 
 		//BB_from_BB(m,FileBB_A[StoX(sq)]);
 		//m_and(m,mask[sq]);
 
 		m = m_and(FileBB_A[StoX(sq)],mask[sq]);
 
-		n = (int)count_1s(m);  //µÃµ½maskµÄÎ»Êı6
+		n = (int)count_1s(m);  //å¾—åˆ°maskçš„ä½æ•°6
          
 		j = (1 << shift);
 
@@ -840,14 +840,14 @@ void init_paosuper_attack_r(Bitboard attacks[],
 	Bitboard b;
 	int n, tra;
 	Bitboard att;
-	Bitboard m;  //³µÒªÖĞÁíÍâËãMASK
+	Bitboard m;  //è½¦è¦ä¸­å¦å¤–ç®—MASK
 
 	for(sq = 0; sq < 90; sq++){
-		attackIndex[sq] = index;  //¹¥»÷Î»ÆåÅÌµÄ¿ªÊ¼±àºÅ
+		attackIndex[sq] = index;  //æ”»å‡»ä½æ£‹ç›˜çš„å¼€å§‹ç¼–å·
 
 		m = m_and(RankBB_A[StoY(sq)], mask[sq]);
 
-		n = (int)count_1s(m);  //µÃµ½maskµÄÎ»Êı6
+		n = (int)count_1s(m);  //å¾—åˆ°maskçš„ä½æ•°6
          
 		j = (1 << shift);
 
@@ -882,11 +882,11 @@ void init_xiang_attack(Bitboard attacks[],
 	Bitboard att;
 	int n,tra;
 
-	Bitboard m;  //³µÒªÖĞÁíÍâËãMASK
+	Bitboard m;  //è½¦è¦ä¸­å¦å¤–ç®—MASK
 
 	for(sq = 0; sq < 90; sq++){
 
-		attackIndex[sq] = index;  //¹¥»÷Î»ÆåÅÌµÄ¿ªÊ¼±àºÅ
+		attackIndex[sq] = index;  //æ”»å‡»ä½æ£‹ç›˜çš„å¼€å§‹ç¼–å·
 
 		if((sq == 2 || sq == 6 || sq == 18 || sq == 22 || sq == 26
 			|| sq == 38 || sq == 42
@@ -903,7 +903,7 @@ void init_xiang_attack(Bitboard attacks[],
 
 		m = mask[sq];
 
-		n = (int)count_1s(m);  //µÃµ½maskµÄÎ»Êı6
+		n = (int)count_1s(m);  //å¾—åˆ°maskçš„ä½æ•°6
          
 		j = (1 << shift);
 
@@ -937,17 +937,17 @@ void init_ma_to_king_attack(Bitboard attacks[],
 	Bitboard b;
 	 Bitboard att;
 	 int n,tra;
-	Bitboard m;  //³µÒªÖĞÁíÍâËãMASK
+	Bitboard m;  //è½¦è¦ä¸­å¦å¤–ç®—MASK
 
 	for(sq = 0; sq < 90; sq++){
 
-		attackIndex[sq] = index;  //¹¥»÷Î»ÆåÅÌµÄ¿ªÊ¼±àºÅ
+		attackIndex[sq] = index;  //æ”»å‡»ä½æ£‹ç›˜çš„å¼€å§‹ç¼–å·
 
 		//m128_BB_from_BB(m,mask[sq]);
 
 		m = mask[sq];
 
-		n = (int)count_1s(m);  //µÃµ½maskµÄÎ»Êı6
+		n = (int)count_1s(m);  //å¾—åˆ°maskçš„ä½æ•°6
          
 		j = (1 << shift);
 
@@ -980,17 +980,17 @@ void init_king_to_ma_attack(Bitboard attacks[],
 	Bitboard b;
 	int n,tra;
 	Bitboard att;
-	Bitboard m;  //³µÒªÖĞÁíÍâËãMASK
+	Bitboard m;  //è½¦è¦ä¸­å¦å¤–ç®—MASK
 
 	for(sq = 0; sq < 90; sq++){
 
-		attackIndex[sq] = index;  //¹¥»÷Î»ÆåÅÌµÄ¿ªÊ¼±àºÅ
+		attackIndex[sq] = index;  //æ”»å‡»ä½æ£‹ç›˜çš„å¼€å§‹ç¼–å·
 
 		//m128_BB_from_BB(m,mask[sq]);
 
 		m = mask[sq];
 
-		n = (int)count_1s(m);  //µÃµ½maskµÄÎ»Êı6
+		n = (int)count_1s(m);  //å¾—åˆ°maskçš„ä½æ•°6
          
 		j = (1 << shift);
 
@@ -1017,30 +1017,30 @@ void init_king_to_ma_attack(Bitboard attacks[],
 void init_attack_bitboard(void){
 
 
-	init_rool_attack_r(CheAttacks_R,CheAttackIndex_R,Che_Mask_FR,7,CHE_Mult_R);  //³õÊ¼»¯³µµÄ¹¥»÷Î»ÆåÅÌ
-	init_rool_attack_f(CheAttacks_F,CheAttackIndex_F,Che_Mask_FR,8,CHE_Mult_F);  //³õÊ¼»¯³µµÄ¹¥»÷Î»ÆåÅÌ
+	init_rool_attack_r(CheAttacks_R,CheAttackIndex_R,Che_Mask_FR,7,CHE_Mult_R);  //åˆå§‹åŒ–è½¦çš„æ”»å‡»ä½æ£‹ç›˜
+	init_rool_attack_f(CheAttacks_F,CheAttackIndex_F,Che_Mask_FR,8,CHE_Mult_F);  //åˆå§‹åŒ–è½¦çš„æ”»å‡»ä½æ£‹ç›˜
 
-	init_paoeat_attack_r(Pao_Eat_Attacks_R,Pao_Eat_AttackIndex_R,Che_Mask_FR,7,PAO_EAT_Mult_R);  //³õÊ¼»¯ÅÚ³Ô×ÓµÄ¹¥»÷Î»ÆåÅÌ
-	init_paoeat_attack_f(Pao_Eat_Attacks_F,Pao_Eat_AttackIndex_F,Che_Mask_FR,8,PAO_EAT_Mult_F);  //³õÊ¼»¯ÅÚ³Ô×ÓµÄ¹¥»÷Î»ÆåÅÌ
+	init_paoeat_attack_r(Pao_Eat_Attacks_R,Pao_Eat_AttackIndex_R,Che_Mask_FR,7,PAO_EAT_Mult_R);  //åˆå§‹åŒ–ç‚®åƒå­çš„æ”»å‡»ä½æ£‹ç›˜
+	init_paoeat_attack_f(Pao_Eat_Attacks_F,Pao_Eat_AttackIndex_F,Che_Mask_FR,8,PAO_EAT_Mult_F);  //åˆå§‹åŒ–ç‚®åƒå­çš„æ”»å‡»ä½æ£‹ç›˜
 
-	init_paosuper_attack_r(PaoSUPER_R,PaoSUPERIndex_R,Che_Mask_FR,7,PAO_SUPER_Mult_R);  //³õÊ¼»¯³¬¼¶ÅÚµÄ¹¥»÷Î»ÆåÅÌ
-	init_paosuper_attack_f(PaoSUPER_F,PaoSUPERIndex_F,Che_Mask_FR,8,PAO_SUPER_Mult_F);  //³õÊ¼»¯³¬¼¶ÅÚµÄ¹¥»÷Î»ÆåÅÌ
+	init_paosuper_attack_r(PaoSUPER_R,PaoSUPERIndex_R,Che_Mask_FR,7,PAO_SUPER_Mult_R);  //åˆå§‹åŒ–è¶…çº§ç‚®çš„æ”»å‡»ä½æ£‹ç›˜
+	init_paosuper_attack_f(PaoSUPER_F,PaoSUPERIndex_F,Che_Mask_FR,8,PAO_SUPER_Mult_F);  //åˆå§‹åŒ–è¶…çº§ç‚®çš„æ”»å‡»ä½æ£‹ç›˜
 
 	//////////////////////////////////////////////////////////////////////////
 
-	init_xiang_attack(XiangAttacks,XiangAttackIndex,XiangMask,4,XIANG_Mult);  //³õÊ¼»¯ÏóµÄ¹¥»÷Î»ÆåÅÌ
+	init_xiang_attack(XiangAttacks,XiangAttackIndex,XiangMask,4,XIANG_Mult);  //åˆå§‹åŒ–è±¡çš„æ”»å‡»ä½æ£‹ç›˜
 	//////////////////////////////////////////////////////////////////////////
 
-	init_ma_to_king_attack(Ma_to_King_Attacks,Ma_to_King_AttackIndex,Ma_to_King_Mask,4,Ma_to_King_Mult);  //³õÊ¼»¯Âíµ½½«µÄ¹¥»÷Î»ÆåÅÌ
+	init_ma_to_king_attack(Ma_to_King_Attacks,Ma_to_King_AttackIndex,Ma_to_King_Mask,4,Ma_to_King_Mult);  //åˆå§‹åŒ–é©¬åˆ°å°†çš„æ”»å‡»ä½æ£‹ç›˜
 	//////////////////////////////////////////////////////////////////////////
 	
-    init_king_to_ma_attack(King_to_Ma_Attacks,King_to_Ma_AttackIndex,King_to_Ma_Mask,4,King_to_Ma_Mult);  //³õÊ¼»¯Âíµ½½«µÄ¹¥»÷Î»ÆåÅÌ
+    init_king_to_ma_attack(King_to_Ma_Attacks,King_to_Ma_AttackIndex,King_to_Ma_Mask,4,King_to_Ma_Mult);  //åˆå§‹åŒ–é©¬åˆ°å°†çš„æ”»å‡»ä½æ£‹ç›˜
 
 }
 
 //////////////////////////////////////////////////////////////////////////
-/// Í¬Ò»Ö±Ïß
- void init_BetweenBB(void){ //BetweenBB[90][90];          // ¶ş¸öÔÚÍ¬Ò»ÏßÉÏµÄÆå×ÓÖ®¼äµÄÎ»ÆåÅÌ£®
+/// åŒä¸€ç›´çº¿
+ void init_BetweenBB(void){ //BetweenBB[90][90];          // äºŒä¸ªåœ¨åŒä¸€çº¿ä¸Šçš„æ£‹å­ä¹‹é—´çš„ä½æ£‹ç›˜ï¼
 
 	 int i,j,x,y;
 	 int ix,iy,jx,jy;
@@ -1089,7 +1089,7 @@ void init_mask(){
 	Bitboard btmp = _mm_setr_epi32(1,0,0,0);
 	int s;
 	int sq;
-	init_bb_const();  //³õÊ¼»¯Êı¾İ.
+	init_bb_const();  //åˆå§‹åŒ–æ•°æ®.
 
 	for(s = 0; s < 90; s++){  
 		SetMaskBB[s] = btmp;
@@ -1101,7 +1101,7 @@ void init_mask(){
 
  	initLeftRightBB();
     initLowUpBB();
-	init_BetweenBB(); //BetweenBB[90][90];          // ¶ş¸öÔÚÍ¬Ò»ÏßÉÏµÄÆå×ÓÖ®¼äµÄÎ»ÆåÅÌ£®
+	init_BetweenBB(); //BetweenBB[90][90];          // äºŒä¸ªåœ¨åŒä¸€çº¿ä¸Šçš„æ£‹å­ä¹‹é—´çš„ä½æ£‹ç›˜ï¼
 
 	//
 	for(sq = 0; sq < 90; sq++){
@@ -1111,8 +1111,8 @@ void init_mask(){
 		find_king_to_ma_mask(&King_to_Ma_Mask[sq],sq);
 		find_xiang_mask(&XiangMask[sq],sq);
 		find_stepshi_attack(&ShiAttackBB[sq],sq);
-		find_step_rking_rpawn_attack(&OneRpawnOrRking_AttackBB[sq],sq); //ºì½«ºì±ø
-		find_step_bking_bpawn_attack(&OneBpawnOrBking_AttackBB[sq],sq); //ºÚ½«ºÚ±ø
+		find_step_rking_rpawn_attack(&OneRpawnOrRking_AttackBB[sq],sq); //çº¢å°†çº¢å…µ
+		find_step_bking_bpawn_attack(&OneBpawnOrBking_AttackBB[sq],sq); //é»‘å°†é»‘å…µ
 		find_sq_attack_by_pawn(&Attack_By_Rpawn_Rking[sq],&Attack_By_Bpawn_Bking[sq],sq);		
 		Init_Ma_Pseudo_Good_Mask(&Ma_Pseudo_Att[sq], sq);
 	}	
@@ -1146,12 +1146,12 @@ void init_mask(){
 	//print_bb(Black_Ma_good_mask);
 	//print_bb(White_Ma_good_mask);
 #ifndef NOT_USE_FIND_MUL		
-    //ÕÒµ½Ä¥ÊõÊı×Ö, Õâ¸öÒÑÕÒµ½.Ğ´Èë³£Êı6669-8+-+----------------------
+    //æ‰¾åˆ°ç£¨æœ¯æ•°å­—, è¿™ä¸ªå·²æ‰¾åˆ°.å†™å…¥å¸¸æ•°6669-8+-+----------------------
 	find_mul(TRUE);
 	//find_mul(FALSE);
 #endif
 
-	//³õÊ¼»¯¹¥»÷Î»ÆåÅÌ, ËùÓĞµÄÓĞblockerµÄ.
+	//åˆå§‹åŒ–æ”»å‡»ä½æ£‹ç›˜, æ‰€æœ‰çš„æœ‰blockerçš„.
 	init_attack_bitboard();
 }
 

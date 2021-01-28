@@ -89,7 +89,7 @@ extern bool getBetweenSq(typePOS &POSITION, Square sq1, Square sq2, Square& mid)
 extern bool isStringByChe(typePOS &POSITION,Square sq1,Square mid, Square sq2);
 extern bool isStringByPao(typePOS &POSITION,Square pao,Square sq3, Square sq4);
 
-extern void (*funMat[26244])	(typePOS &board, EvalInfo &ei);  //ÓÃÀ´ÆÀ¹ÀµÄº¯ÊıÖ¸Õë 
+extern void (*funMat[26244])	(typePOS &board, EvalInfo &ei);  //ç”¨æ¥è¯„ä¼°çš„å‡½æ•°æŒ‡é’ˆ 
 // ----------------------------------------------------------------------------------------
 extern  void InitMatFunction1();
 extern  void InitMatFunction2();

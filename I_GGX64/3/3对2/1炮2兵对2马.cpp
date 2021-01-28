@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2±ø¶Ô2Âí.cpp"
+#include "1ç‚®2å…µå¯¹2é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-// 1ÅÚ2±ø¶Ô2Âí
+// 1ç‚®2å…µå¯¹2é©¬
 void my_m_MT_R_1pao2pawn_B_2ma(typePOS &POSITION, EvalInfo &ei){
 
 	// ADD

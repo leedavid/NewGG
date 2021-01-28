@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí2±ø¶Ô1Âí1±ø.cpp"
+#include "1ç‚®1é©¬2å…µå¯¹1é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -45,7 +45,7 @@ void my_m_MT_R_1ma1pao2pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 //
 //	}
 //
-//	//ÂíÅÚ·½ÁíÍâ¼Ó·Ö
+//	//é©¬ç‚®æ–¹å¦å¤–åŠ åˆ†
 //	pos.mulScore -= MaPaoXPawn_MaPawn ;
 //
 //	*/

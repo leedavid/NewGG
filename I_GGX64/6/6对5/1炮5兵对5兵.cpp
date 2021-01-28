@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ5±ø¶Ô5±ø.cpp"
+#include "1ç‚®5å…µå¯¹5å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -29,6 +29,6 @@ void my_m_MT_R_1pao5pawn_B_5pawn(typePOS &POSITION, EvalInfo &ei){
 		MY_EV_SUB((sint16)count_1s(ymp) * ADD_3pawn_PaoXPawn_ShiAdd[my_shi_num]);
 	}
 
-	MY_EV_ADD(ADD_1PaoXPawn_3Pawn);  //ÅÚ±ø·½µÄ±ðÍâ¼Ó·Ö
+	MY_EV_ADD(ADD_1PaoXPawn_3Pawn);  //ç‚®å…µæ–¹çš„åˆ«å¤–åŠ åˆ†
 }
 

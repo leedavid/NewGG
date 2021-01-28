@@ -1,12 +1,12 @@
 
-// Ω´µƒµƒªÓ∂Ø–‘ƒ‹°£-----------------------------------------------
+// Â∞ÜÁöÑÁöÑÊ¥ªÂä®ÊÄßËÉΩ„ÄÇ-----------------------------------------------
 Bitboard KcanBB;
 KcanBB = one_rpawn_rk_attacks(rk); 
 KcanBB = _mm_andnot_si128(m128_bb_or_bb(bitboard_occ_white,
 	POSITION->DYN->attack_black),KcanBB);
 while(m128_is_have_bit(KcanBB)){
 	int can = pop_1st_bit(&KcanBB);
-	if(StoY(can) == StoY(rk)){  // ƒ‹◊Û”““∆∂Ø
+	if(StoY(can) == StoY(rk)){  // ËÉΩÂ∑¶Âè≥ÁßªÂä®
 		ei.RKing_Info |= KING_CAN_RIGHT_LEFT;
 	}
 	else {
@@ -27,26 +27,26 @@ if(StoY(bk) != 0x0){
 	ei.BKing_Info |= KING_IS_NOT_BOTTOM; 
 }
 
-//const uint16 KING_CAN_UP_DOWN     = 1 << 0;   // ¿œΩ´µƒπ§◊˜◊¥Ã¨
+//const uint16 KING_CAN_UP_DOWN     = 1 << 0;   // ËÄÅÂ∞ÜÁöÑÂ∑•‰ΩúÁä∂ÊÄÅ
 //const uint16 KING_CAN_RIGHT_LEFT  = 1 << 1;
 //const uint16 KING_IS_OUT_SIDE     = 1 << 2;
 //const uint16 KING_IS_NOT_BOTTOM   = 1 << 3;
 
 
 
-////»Áπ˚Ω´‘⁄…œ√Ê,≤ªƒ‹ªÿ»•,æÕ“™ø€∑÷
+////Â¶ÇÊûúÂ∞ÜÂú®‰∏äÈù¢,‰∏çËÉΩÂõûÂéª,Â∞±Ë¶ÅÊâ£ÂàÜ
 //if(StoY(rk) != 0x9){
 //	if((ei.B_att_Rside[RK_LEFT] & KS_M_CAN_UPDOWN) == 0){
 //		 ei.Battack_R_Count += KingCanNotBackToBottom;
 //	}
 //	//fen 3ak4/4a4/9/2N6/P5b2/2B6/7rp/4BA3/R3AKR2/c6r1 w - - 0 0</
-//	//‘Ÿø¥“ªœ¬,◊‘º∫œﬂ…œ≥µµƒ∏ˆ ˝,‘Ω∂‡‘Ω“™ø€∑÷
+//	//ÂÜçÁúã‰∏Ä‰∏ã,Ëá™Â∑±Á∫ø‰∏äËΩ¶ÁöÑ‰∏™Êï∞,Ë∂äÂ§öË∂äË¶ÅÊâ£ÂàÜ
 //	Bitboard bbc = m_and(bitboard_white_che,RankBB_A[StoY(rk)]);
 //	if(m128_is_have_bit(bbc)){
 //		valu -= KingNotOnBottom_Che_SameY_Sub;
 //	}
 //
-//	//‘Ÿø¥“ªœ¬ «≤ª «”–≈⁄‘⁄∑¿ ÿ
+//	//ÂÜçÁúã‰∏Ä‰∏ãÊòØ‰∏çÊòØÊúâÁÇÆÂú®Èò≤ÂÆà
 //	Bitboard bbp = m_and(bitboard_white_pao,RankBB_A[StoY(rk)]);
 //	if(m128_is_have_bit(bbp)){
 //		ei.Battack_R_Count -= Y_HavePao_Protect; 
@@ -59,7 +59,7 @@ if(StoY(bk) != 0x0){
 //		ei.Battack_R_Count += KingCanNotBackToMid;
 //	}
 //
-//	//‘Ÿø¥“ªœ¬ «≤ª «Ω´œﬂ…œµƒ◊‘º∫µƒ≥µ,≈⁄‘⁄∑¿ ÿ
+//	//ÂÜçÁúã‰∏Ä‰∏ãÊòØ‰∏çÊòØÂ∞ÜÁ∫ø‰∏äÁöÑËá™Â∑±ÁöÑËΩ¶,ÁÇÆÂú®Èò≤ÂÆà
 //	Bitboard bbc = m_and(bitboard_white_che,FileBB_A[StoX(rk)]);
 //	if(m128_is_have_bit(bbc)){
 //		ei.Battack_R_Count -= X_Have_Che_Protect;
@@ -77,7 +77,7 @@ KcanBB = _mm_andnot_si128(m128_bb_or_bb(bitboard_occ_black,
 	POSITION->DYN->attack_white),KcanBB);
 while(m128_is_have_bit(KcanBB)){
 	int can = pop_1st_bit(&KcanBB);
-	if(StoY(can) == StoY(bk)){  // ƒ‹◊Û”““∆∂Ø
+	if(StoY(can) == StoY(bk)){  // ËÉΩÂ∑¶Âè≥ÁßªÂä®
 		ei.BKing_Info |= KING_CAN_RIGHT_LEFT;
 	}
 	else {
@@ -92,13 +92,13 @@ while(m128_is_have_bit(KcanBB)){
 //	}
 //
 //	//fen 3ak4/4a4/9/2N6/P5b2/2B6/7rp/4BA3/R3AKR2/c6r1 w - - 0 0</
-//	//‘Ÿø¥“ªœ¬,◊‘º∫œﬂ…œ≥µµƒ∏ˆ ˝,‘Ω∂‡‘Ω“™ø€∑÷
+//	//ÂÜçÁúã‰∏Ä‰∏ã,Ëá™Â∑±Á∫ø‰∏äËΩ¶ÁöÑ‰∏™Êï∞,Ë∂äÂ§öË∂äË¶ÅÊâ£ÂàÜ
 //	Bitboard bbc = m_and(bitboard_black_che,RankBB_A[StoY(bk)]);
 //	if(m128_is_have_bit(bbc)){
 //		valu += KingNotOnBottom_Che_SameY_Sub;
 //	}
 //
-//	//‘Ÿø¥“ªœ¬ «≤ª «”–≈⁄‘⁄∑¿ ÿ
+//	//ÂÜçÁúã‰∏Ä‰∏ãÊòØ‰∏çÊòØÊúâÁÇÆÂú®Èò≤ÂÆà
 //	Bitboard bbp = m_and(bitboard_black_pao,RankBB_A[StoY(bk)]);
 //	if(m128_is_have_bit(bbp)){
 //		ei.Rattack_B_Count -= Y_HavePao_Protect; 
@@ -110,8 +110,8 @@ while(m128_is_have_bit(KcanBB)){
 //		ei.Rattack_B_Count += KingCanNotBackToMid;
 //	}
 //
-//	//’‚∏ˆ“™ø¥“ªœ¬FILE…œ≥µ,≈⁄µƒ∏ˆ ˝,
-//	//‘Ÿø¥“ªœ¬ «≤ª «Ω´œﬂ…œµƒ◊‘º∫µƒ≥µ,≈⁄‘⁄∑¿ ÿ
+//	//Ëøô‰∏™Ë¶ÅÁúã‰∏Ä‰∏ãFILE‰∏äËΩ¶,ÁÇÆÁöÑ‰∏™Êï∞,
+//	//ÂÜçÁúã‰∏Ä‰∏ãÊòØ‰∏çÊòØÂ∞ÜÁ∫ø‰∏äÁöÑËá™Â∑±ÁöÑËΩ¶,ÁÇÆÂú®Èò≤ÂÆà
 //	Bitboard bbc = m_and(bitboard_black_che,FileBB_A[StoX(bk)]);
 //	if(m128_is_have_bit(bbc)){
 //		ei.Rattack_B_Count -= X_Have_Che_Protect;
@@ -122,7 +122,7 @@ while(m128_is_have_bit(KcanBB)){
 //	}
 //}
 
-////‘Ÿø¥“ªœ¬ «≤ª «”–À´≥µ≥È…±µƒ∆Â
+////ÂÜçÁúã‰∏Ä‰∏ãÊòØ‰∏çÊòØÊúâÂèåËΩ¶ÊäΩÊùÄÁöÑÊ£ã
 //if(RXiang_num() <= 1 && BChe_num() == 2 && StoY(yk) != 0x9){
 //
 //     switch(ei.B_att_Rside[RK_LEFT] & const_CHE_OPEN_INFO){
@@ -132,9 +132,9 @@ while(m128_is_have_bit(KcanBB)){
 //	 } 
 //}
 
-//const uint32   KS_S_CHE_MY_SIDE_1_OPEN   =(1<<4);     // Œ“’‚±ﬂ”–“ª∏ˆ≥µø™∑≈¡À
-//const uint32   KS_S_CHE_MY_SIDE_2_OPEN   =(KS_S_CHE_MY_SIDE_1_OPEN + KS_S_CHE_MY_SIDE_1_OPEN);     //Œ“’‚±ﬂ”–2∏ˆ≥µø™∑≈¡À
+//const uint32   KS_S_CHE_MY_SIDE_1_OPEN   =(1<<4);     // ÊàëËøôËæπÊúâ‰∏Ä‰∏™ËΩ¶ÂºÄÊîæ‰∫Ü
+//const uint32   KS_S_CHE_MY_SIDE_2_OPEN   =(KS_S_CHE_MY_SIDE_1_OPEN + KS_S_CHE_MY_SIDE_1_OPEN);     //ÊàëËøôËæπÊúâ2‰∏™ËΩ¶ÂºÄÊîæ‰∫Ü
 //
-//const uint32   KS_S_CHE_OT_SIDE_1_OPEN   =(1<<6);     // Œ“¡Ì“ª±ﬂ”–“ª∏ˆ≥µø™∑≈¡À
-//const uint32   KS_S_CHE_OT_SIDE_2_OPEN   =(KS_S_CHE_OT_SIDE_1_OPEN + KS_S_CHE_OT_SIDE_1_OPEN);     //Œ“¡Ì“ª±ﬂ”–“ª∏ˆ≥µø™∑≈¡À
+//const uint32   KS_S_CHE_OT_SIDE_1_OPEN   =(1<<6);     // ÊàëÂè¶‰∏ÄËæπÊúâ‰∏Ä‰∏™ËΩ¶ÂºÄÊîæ‰∫Ü
+//const uint32   KS_S_CHE_OT_SIDE_2_OPEN   =(KS_S_CHE_OT_SIDE_1_OPEN + KS_S_CHE_OT_SIDE_1_OPEN);     //ÊàëÂè¶‰∏ÄËæπÊúâ‰∏Ä‰∏™ËΩ¶ÂºÄÊîæ‰∫Ü
 //

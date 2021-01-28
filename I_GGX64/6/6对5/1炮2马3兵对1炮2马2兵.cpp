@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
 
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2Âí3±ø¶Ô1ÅÚ2Âí2±ø.cpp"
+#include "1ç‚®2é©¬3å…µå¯¹1ç‚®2é©¬2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -32,7 +32,7 @@ void my_m_MT_R_1pao2ma3pawn_B_1pao2ma2pawn(typePOS &POSITION, EvalInfo &ei){
 	//MY_EV_SUB(ycan * 32);
 
 	// fen 2bk1ab2/4a4/5c3/3C4p/p3P1P2/4nN3/8P/1N3c3/9/3A1K3 w - - 0 1
-	//Èç¹û¶Ô·½µÄ±øÈ«ÔÚ±ßÉÏ£¬ÇÒÃ»ÓÐ¹ýºÓ
+	//å¦‚æžœå¯¹æ–¹çš„å…µå…¨åœ¨è¾¹ä¸Šï¼Œä¸”æ²¡æœ‰è¿‡æ²³
 	int malr = My_pawn_already_over_river(POSITION);
 	if(malr >= 2){
 		if(!have_bit(bb_your_pawn,m_and(LeftBB[0x7],RightBB[0x1]))){

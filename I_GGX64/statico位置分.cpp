@@ -4,7 +4,7 @@
 #ifdef USE_STOCK_FISH_FILE
 #else
 
-#define xpoint(x,y) ( ( ( x ) << 16 ) + ( y ) )    // ½«²Ð¾Ö·ÖÓë¿ª¾Ö·ÖÈ«ÔÚÒ»Æð
+#define xpoint(x,y) ( ( ( x ) << 16 ) + ( y ) )    // å°†æ®‹å±€åˆ†ä¸Žå¼€å±€åˆ†å…¨åœ¨ä¸€èµ·
 //statico_valu[16][90]
 
 const static uint8 a90from50[90] = {
@@ -21,7 +21,7 @@ const static uint8 a90from50[90] = {
 	/*09*/45,  46,  47,  48,  49,  48,  47,  46,  45, 
 };
 
-const sint16 OpeningKing45[50] = {  //¿ª¾ÖµÄ½«µÄÎ»ÖÃ·Ö
+const sint16 OpeningKing45[50] = {  //å¼€å±€çš„å°†çš„ä½ç½®åˆ†
     0,    0,   0,   0,    0,
     0,    0,   0,   0,    0,
     0,    0,   0,   0,    0,
@@ -47,7 +47,7 @@ const sint16 EndgameKing45[50] = {
     0,    0,   0,  -5,    0,
 };
 
-const sint16 OpeningPawn45[50] = {	//Ææ±øµÄ¿ª¾ÖµÄ±ø
+const sint16 OpeningPawn45[50] = {	//å¥‡å…µçš„å¼€å±€çš„å…µ
    -60,  -50, -40,  -30,  -55,
     80,  140, 155,  180,  270,
     67,  110, 135,  160,  190,
@@ -60,7 +60,7 @@ const sint16 OpeningPawn45[50] = {	//Ææ±øµÄ¿ª¾ÖµÄ±ø
     0,    0,   0,    0,     0,
 };
 
-//const sint16 EndgamePawn45[50] = {	//Ææ±øµÄ²Ð¾ÖµÄ±ø
+//const sint16 EndgamePawn45[50] = {	//å¥‡å…µçš„æ®‹å±€çš„å…µ
 //   -60,  -50, -40,  -30,  -55,
 //    76,   95, 115,  125,  145,
 //    67,   85, 105,  115,  125,
@@ -72,9 +72,9 @@ const sint16 OpeningPawn45[50] = {	//Ææ±øµÄ¿ª¾ÖµÄ±ø
 //    0,    0,   0,    0,     0,
 //    0,    0,   0,    0,     0,
 //};
-//Ã»ÓÐ¹ýºÓµÄ±øÒª½µ·Ö£¬²Ð¾ÖÊ±£®
+//æ²¡æœ‰è¿‡æ²³çš„å…µè¦é™åˆ†ï¼Œæ®‹å±€æ—¶ï¼Ž
 //fen 3k1ab2/3n5/4ba3/3PC3p/p1p6/6B2/3C4c/4B4/3NA4/3AK2c1 w
-const sint16 EndgamePawn45[50] = {	//Ææ±øµÄ²Ð¾ÖµÄ±ø
+const sint16 EndgamePawn45[50] = {	//å¥‡å…µçš„æ®‹å±€çš„å…µ
    -60,  -50, -40,  -30,  -55,
     66,   95, 115,  125,  145,
     47,   85, 105,  115,  125,
@@ -113,7 +113,7 @@ const sint16 EndgameShiXiang45[50] = {
      0,   0,   8,   0,    0,
 };
 
-const sint16 OpeningPao45[50] = {	//Ææ±øµÄ¿ª¾ÖµÄÅÚ
+const sint16 OpeningPao45[50] = {	//å¥‡å…µçš„å¼€å±€çš„ç‚®
     85,  70,  60,  55,  40,
     65,  75,  50,  50,  40,
     65,  75,  30,  50,  50,
@@ -152,7 +152,7 @@ const sint16 EndgamePao45[50] = {
 //    80, 80,   80, 108,  0,
 //};
 
-//²Ð¾ÖÂíÔÚ¼ÒÒªºÃÒ»Ð©
+//æ®‹å±€é©¬åœ¨å®¶è¦å¥½ä¸€äº›
 const sint16 EndgameMa45[50] = {
     48,  65,  75,  80,   65,
     92,  95, 108,  90,   59,
@@ -166,7 +166,7 @@ const sint16 EndgameMa45[50] = {
    -30, -17,  18,  -5,  -55,
 };
 
-const sint16 OpeningMa45[50] = {	  //Ææ±øµÄÂí
+const sint16 OpeningMa45[50] = {	  //å¥‡å…µçš„é©¬
     48,  65,  75,  80,   65,
     92,  95, 108,  90,   59,
     95, 100, 115, 120,  130,
@@ -179,7 +179,7 @@ const sint16 OpeningMa45[50] = {	  //Ææ±øµÄÂí
    -30, -17,  18,  -5,  -55,
 };
 
-const sint16 EndgameChe45[50] = {	//Ææ±øµÄ³µ
+const sint16 EndgameChe45[50] = {	//å¥‡å…µçš„è½¦
     44,  69,  54, 104,   89,
     64,  79,  74,  99,  112,
     54,  74,  54, 104,  109,
@@ -257,7 +257,7 @@ const sint16 End_2_Shi_Pawn45[50] = {
 	0,   0,   0,   0,    0,        //c
 };
 
-// //1Shi_B_Pawn256[256];  //Ö»ÓÐÒ»¸öÊ¿ºó,¶Ô·½±øµÄ¼Ó·Ö
+// //1Shi_B_Pawn256[256];  //åªæœ‰ä¸€ä¸ªå£«åŽ,å¯¹æ–¹å…µçš„åŠ åˆ†
 const sint16 Open_1_Shi_Pawn45[50] = {
 	0,   0,   0,   0,    0,        //3
 	15,  15,  48,  64,   96,        //4
@@ -271,7 +271,7 @@ const sint16 Open_1_Shi_Pawn45[50] = {
 	0,   0,   0,   0,    0,        //c
 };
 
-// //1Shi_B_Pawn256[256];  //Ö»ÓÐÒ»¸öÊ¿ºó,¶Ô·½±øµÄ¼Ó·Ö
+// //1Shi_B_Pawn256[256];  //åªæœ‰ä¸€ä¸ªå£«åŽ,å¯¹æ–¹å…µçš„åŠ åˆ†
 const sint16 End_1_Shi_Pawn45[50] = {
 	0,   0,   0,   0,    0,        //3
 	15,  15,  48,  64,   96,        //4
@@ -311,28 +311,28 @@ const sint16 End_0_Shi_Pawn45[50] = {
 	0,   0,   0,   0,    0,        //c
 };
 
-//extern sint32 R_01Shi_B_Pawn90[3][90];           // ¶Ô·½È±ÊËÊ±±øµÄÎ»ÖÃ·Ö
+//extern sint32 R_01Shi_B_Pawn90[3][90];           // å¯¹æ–¹ç¼ºä»•æ—¶å…µçš„ä½ç½®åˆ†
 //extern sint32 B_01Shi_R_Pawn90[3][90];
 //
-//extern sint32 R_01Shi_B_Pawn90_My_CheOpen[90];   // ¶Ô·½ÎÞÊË£¬ÎÒ·½³µ¿ª·ÅÊ±±øµÄÎ»ÖÃ·Ö
+//extern sint32 R_01Shi_B_Pawn90_My_CheOpen[90];   // å¯¹æ–¹æ— ä»•ï¼Œæˆ‘æ–¹è½¦å¼€æ”¾æ—¶å…µçš„ä½ç½®åˆ†
 //extern sint32 B_01Shi_R_Pawn90_My_CheOpen[90];
 
-//extern sint32 PrePawnAttKingMul_Safe[3][90][90]; // ±øÄÜ¹¥»÷½«µÄÄÜÁ¦ 
+//extern sint32 PrePawnAttKingMul_Safe[3][90][90]; // å…µèƒ½æ”»å‡»å°†çš„èƒ½åŠ› 
 
 #define  MAX_PrePawnAttKingMul_Safe 255
 static void init_PrePawnAttKingMul_Safe(){
 
 	static const uint8 const_PawnAtt_X[3][10] =  {
 		// 0   1   2   3   4   5  6    7   8   9
-		{ 16, 32, 28, 24, 20, 16, 12,  8,  4,  0,  },  //0¸öÊË
-		{  8, 16, 12,  8,  0,  0,  0,  0,  0, 0,  },  //1¸öÊË
-		{  4,  8,  4,  0,  0,  0,  0,  0,  0, 0,  },  //2¸öÊË
+		{ 16, 32, 28, 24, 20, 16, 12,  8,  4,  0,  },  //0ä¸ªä»•
+		{  8, 16, 12,  8,  0,  0,  0,  0,  0, 0,  },  //1ä¸ªä»•
+		{  4,  8,  4,  0,  0,  0,  0,  0,  0, 0,  },  //2ä¸ªä»•
 	};
 	static const uint8 const_PawnAtt_Y[3][10] =  {
 		// 0   1   2   3   4   5  6    7   8   9
-		{ 16, 32, 28, 24, 16,  12, 0,  0,  0, 0,  },   //0¸öÊË
-		{  8, 16, 12,  8,  0,  0,  0,  0,  0, 0,  },   //1¸öÊË
-		{  4,  8,  4,  0,  0,  0,  0,  0,  0, 0,  },   //2¸öÊË
+		{ 16, 32, 28, 24, 16,  12, 0,  0,  0, 0,  },   //0ä¸ªä»•
+		{  8, 16, 12,  8,  0,  0,  0,  0,  0, 0,  },   //1ä¸ªä»•
+		{  4,  8,  4,  0,  0,  0,  0,  0,  0, 0,  },   //2ä¸ªä»•
 	};
 	static const char PawnKing[90] = {
 		  0,   0,   0,  16,  12,  16,   0,   0,   0,   
@@ -347,7 +347,7 @@ static void init_PrePawnAttKingMul_Safe(){
 		  0,   0,   0,  16,  12,  16,   0,   0,   0,   	
 	};
 
-	// Ö÷ÒªÊÇ¿´±øÓë½«µÄÏà¶ÔÎ»ÖÃ, Õâ¶ù×ª»¯³É¹¥»÷µãºÃÒ»Ð©¡£
+	// ä¸»è¦æ˜¯çœ‹å…µä¸Žå°†çš„ç›¸å¯¹ä½ç½®, è¿™å„¿è½¬åŒ–æˆæ”»å‡»ç‚¹å¥½ä¸€äº›ã€‚
 	for(int shi = 0; shi < 3; shi++){
 		for(int p = 0; p < 90; p++){
 			for(int k = 0; k < 90; k++){
@@ -359,8 +359,8 @@ static void init_PrePawnAttKingMul_Safe(){
 				uint8 score = 0;
 				int offx = ABS(StoX(k) - StoX(p));
 				int offy = ABS(StoY(k) - StoY(p));
-				if(offx <= 3 && offy <= 2){ // ×îÉÙÒªÔÚ3²½ÄÚ²ÅÓÐÍþÐ²ÍÛ
-					// ±øÔÚ½«ÉÏÃæ
+				if(offx <= 3 && offy <= 2){ // æœ€å°‘è¦åœ¨3æ­¥å†…æ‰æœ‰å¨èƒå“‡
+					// å…µåœ¨å°†ä¸Šé¢
 					if(  (StoY(k) <= 2 && StoY(p) >= StoY(k))
 					   ||(StoY(k) >= 7 && StoY(p) <= StoY(k))){
 						   score += const_PawnAtt_X[shi][offx];
@@ -387,12 +387,12 @@ static void init_PrePawnAttKingMul_Safe(){
 						}
 					}
 				}
-				if(StoX(p) == 0x4){  //Èç¹û±øÔÚÖÐÏß»¹Òª¼ÓÒ»Ð©
-					score /= 2;  //ÒòÎª±øÔÚÖÐ¼äÊÇ¶þ±ßËãµÄ								
+				if(StoX(p) == 0x4){  //å¦‚æžœå…µåœ¨ä¸­çº¿è¿˜è¦åŠ ä¸€äº›
+					score /= 2;  //å› ä¸ºå…µåœ¨ä¸­é—´æ˜¯äºŒè¾¹ç®—çš„								
 				}
-				//Èç¹û±øÔÚ±ßÉÏ,Ò²ÒªËãÐ¡Ò»Ð©
+				//å¦‚æžœå…µåœ¨è¾¹ä¸Š,ä¹Ÿè¦ç®—å°ä¸€äº›
 				if(StoX(p) == 0x0 || StoX(p) == 0x8){
-					score /= 2;  //ÒòÎª±øÔÚÖÐ¼äÊÇ¶þ±ßËãµÄ
+					score /= 2;  //å› ä¸ºå…µåœ¨ä¸­é—´æ˜¯äºŒè¾¹ç®—çš„
 				}
 				if(score != 0){
 					score = score * PawnKing[k] / 16;
@@ -402,7 +402,7 @@ static void init_PrePawnAttKingMul_Safe(){
 						score /= 2;
 					}
 				}
-				//Èç¹û½«ÔÚ¶þÏß£¬Ò²Òª½µ·ÖÍÛ
+				//å¦‚æžœå°†åœ¨äºŒçº¿ï¼Œä¹Ÿè¦é™åˆ†å“‡
 				//fen 3k1ab2/4a4/4b4/p3C4/c1p1P3p/3N1R2P/P2r1p3/1R3C2B/4AK2c/3A3r1 b - - 11 11
 				if((StoY(k) == 0x1 && StoY(p) >= 0x3) || (StoY(k) == 0x8 && StoY(p) <= 0x6)){
 					if(shi == 2){
@@ -410,7 +410,7 @@ static void init_PrePawnAttKingMul_Safe(){
 					}
 				}
 				//fen 4k1br1/2R1a4/3ab4/2N3R1C/4p4/1N2c1B2/6n1P/4B1p2/3KA4/r4A3 w - - 0 0
-				//Èç¹û½«£¬±øÔÚÁíÒ»±ß£¬ÇÒÓÐ£²¸öÊË
+				//å¦‚æžœå°†ï¼Œå…µåœ¨å¦ä¸€è¾¹ï¼Œä¸”æœ‰ï¼’ä¸ªä»•
 				if(shi >= 1){
 					if(    (StoX(k) == 0x3 && StoX(p) > 0x4) 
 						|| (StoX(k) == 0x5 && StoX(p) < 0x4)){
@@ -435,7 +435,7 @@ static void init_PrePawnAttKingMul_Safe(){
 					score = MAX_PrePawnAttKingMul_Safe;
 				}
 
-				// Èç¹û±øÄÜ½«¾ü,ÖÁÉÙ¼ÓÒ»·Ö
+				// å¦‚æžœå…µèƒ½å°†å†›,è‡³å°‘åŠ ä¸€åˆ†
 				if(StoY(p) == StoY(k)){
 					if(ABS(StoX(p) - StoX(k)) == 2){
 						score += 1;
@@ -462,12 +462,12 @@ static void init_PrePawnAttKingMul_Safe(){
 void
 InitStatic ()
 {
-	init_PrePawnAttKingMul_Safe();  // ±øÄÜ¹¥»÷½«µÄÄÜÁ¦ 
+	init_PrePawnAttKingMul_Safe();  // å…µèƒ½æ”»å‡»å°†çš„èƒ½åŠ› 
 	
 	from50to90_OE(point_B_01Shi_R_Pawn90_My_CheOpen, point_R_01Shi_B_Pawn90_My_CheOpen, 		
 		Open_0_Shi_Pawn45, End_0_Shi_Pawn45,  80,60,FALSE);
 	
-	// ¶Ô·½È±ÊËÊ±±øµÄÎ»ÖÃ·Ö //point_B_01Shi_R_Pawn90[pnum++][yshi][pawn];
+	// å¯¹æ–¹ç¼ºä»•æ—¶å…µçš„ä½ç½®åˆ† //point_B_01Shi_R_Pawn90[pnum++][yshi][pawn];
 	from50to90_OE(point_B_01Shi_R_Pawn90[2], point_R_01Shi_B_Pawn90[2],  
 		Open_2_Shi_Pawn45, End_2_Shi_Pawn45,  60,60,FALSE);
 
@@ -477,7 +477,7 @@ InitStatic ()
 	from50to90_OE(point_B_01Shi_R_Pawn90[0], point_R_01Shi_B_Pawn90[0],  
 		Open_0_Shi_Pawn45, End_0_Shi_Pawn45,  80,80,FALSE);
 
-	//// ±øµÄ¸öÊýÒª¼õÒ»Ð©¡£
+	//// å…µçš„ä¸ªæ•°è¦å‡ä¸€äº›ã€‚
 	//static const sint16 NumOfPawnAdd[8] = {
 	//	//1  2  3  4  5 6 
 	//	128,32,16,16,8,4,0,

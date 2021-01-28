@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2ÅÚ1Âí2±ø¶Ô1³µ1ÅÚ.cpp"
+#include "2ç‚®1é©¬2å…µå¯¹1è½¦1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -22,7 +22,7 @@ void my_m_MT_R_2pao1ma2pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 3ak4/4a4/8b/9/5cb2/1N7/P3P4/B7C/3rA4/2CAK1B2 b - - 0 0
-	// ±ø·½¶þ¸ö±ø¶¼ÔÚ¼Ò£¬Òª¿Û·ÖÍÛ
+	// å…µæ–¹äºŒä¸ªå…µéƒ½åœ¨å®¶ï¼Œè¦æ‰£åˆ†å“‡
 
 	if((your_shi_num + your_xiang_num) >= 3){
 		int malr = My_pawn_already_over_river(POSITION);

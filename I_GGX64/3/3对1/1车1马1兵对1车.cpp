@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí1±ø¶Ô1³µ.cpp"
+#include "1è½¦1é©¬1å…µå¯¹1è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -13,7 +13,7 @@
 
 void my_m_MT_R_1che_1ma_1pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 
-	//±ø²»ÄÜ¹ıºÓ,Âí±»Ç£ÖÆÁË,¶Ô·½ÊÇÊËÏàÈ«,Ò²ÊÇºÍÆå
+	//å…µä¸èƒ½è¿‡æ²³,é©¬è¢«ç‰µåˆ¶äº†,å¯¹æ–¹æ˜¯ä»•ç›¸å…¨,ä¹Ÿæ˜¯å’Œæ£‹
     // fen 2b1kab2/9/3a5/9/6p2/2B4R1/7n1/4B4/3KA2r1/5A3 w - - 120 120
 	Square mche  = S90_from_piecelist(POSITION,my_che,0);
 	Square mma   = S90_from_piecelist(POSITION,my_ma,0);
@@ -21,7 +21,7 @@ void my_m_MT_R_1che_1ma_1pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 	Square yche  = S90_from_piecelist(POSITION,your_che,0);
 	Square yk = your_king_pos;
 
-	bool isString = isStringByChe(POSITION,mche,mma,yche); //³µÂíÇ£ÖÆÁË
+	bool isString = isStringByChe(POSITION,mche,mma,yche); //è½¦é©¬ç‰µåˆ¶äº†
 	int mcan = EV_MY_CAN;
 	
 	if(isString){
@@ -75,7 +75,7 @@ void my_m_MT_R_1che_1ma_1pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 		}
 
 		// fen 3aka3/6R2/b4r2b/4PN3/9/6B2/9/4BA3/4A4/4K4 w - - 121 121
-		//Èç¹û¶Ô·½ÊÇÊËÏàÈ«£¬ÇÒÎÒ·½µÄ±øÔÚÈıÏßÉÏÃæ£¬¾Í·µ»Ø£¹
+		//å¦‚æœå¯¹æ–¹æ˜¯ä»•ç›¸å…¨ï¼Œä¸”æˆ‘æ–¹çš„å…µåœ¨ä¸‰çº¿ä¸Šé¢ï¼Œå°±è¿”å›ï¼™
 		// 3a1k3/3Pa4/b3r3b/3R1N3/9/9/9/3A1A3/9/5KB2 b - - 120 120
 		if(StoY(mpawn) MY_LARGE_EQL MY_RANK2){
 			RETRUN_MUL(8);

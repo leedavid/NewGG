@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
 
 #include "..\\..\\endgame\mat.h"
-#include "1³µ2ÅÚ2±ø¶Ô1³µ1ÅÚ1Âí2±ø.cpp"
+#include "1è½¦2ç‚®2å…µå¯¹1è½¦1ç‚®1é©¬2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -33,7 +33,7 @@ void my_m_MT_R_1che2pao2pawn_B_1che1pao1ma2pawn(typePOS &POSITION, EvalInfo &ei)
 		if(!have_bit(bb_my_pawn,MyUpBB[MY_RANK5])){
 			MY_EV_SUB(EV_YOUR_CAN * 16);
 
-			//ÎÒ·½µÄÒ»¸öÅÚÔÚµ×Ïß£¬¸ø¶Ô·½¿ØÖÆÁË
+			//æˆ‘æ–¹çš„ä¸€ä¸ªç‚®åœ¨åº•çº¿ï¼Œç»™å¯¹æ–¹æŽ§åˆ¶äº†
 			if(have_bit(bb_my_pao,m_and(MyLowBB[MY_RANK7],EV_YOUR_XBIT))){
 				MY_EV_SUB(32);
 				// fen R4a3/3ka4/9/8p/9/1r7/4PnC1P/4B1p2/9/1cCAKAB2 w - - 0 1
@@ -70,7 +70,7 @@ void my_m_MT_R_1che2pao2pawn_B_1che1pao1ma2pawn(typePOS &POSITION, EvalInfo &ei)
 			MY_EV_SUB(32);
 		}
 
-		// ¶Ô·½µÄ¹¬ÖÐÓÐÎÒ·½µÄÅÚ
+		// å¯¹æ–¹çš„å®«ä¸­æœ‰æˆ‘æ–¹çš„ç‚®
 		if(have_bit(bb_my_pao,m_and(MyUpBB[MY_RANK3],m_and(LeftBB[0x6],RightBB[0x2])))){
 			MY_EV_SUB(32);
 		}

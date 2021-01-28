@@ -10,12 +10,12 @@ struct EvalInfo {
 
 	Bitboard attackedBy[16];	         // 
 	Bitboard attackKingBoard[2];
-	Bitboard KongPao[2];                 // ¶ş¸ö¿ÕÅÚ
-	Bitboard xray_bit[2];                // Õâ¸ö»¹ÊÇĞèÒªµÄ. ¿ÉÅĞ¶ÏÕâ¸ö×ÓÄÜ²»ÄÜ×ßÍÛ.
-	Pawns::Entry* pi;                    // ±øµÄĞÅÏ¢£¬°üÀ¨ÊËÍÛ
+	Bitboard KongPao[2];                 // äºŒä¸ªç©ºç‚®
+	Bitboard xray_bit[2];                // è¿™ä¸ªè¿˜æ˜¯éœ€è¦çš„. å¯åˆ¤æ–­è¿™ä¸ªå­èƒ½ä¸èƒ½èµ°å“‡.
+	Pawns::Entry* pi;                    // å…µçš„ä¿¡æ¯ï¼ŒåŒ…æ‹¬ä»•å“‡
 	sint8 rcan;
 	sint8 bcan;
-	sint16 attPoint[2];                  // ºÏ¼ÆµÄ¹¥»÷Êı
+	sint16 attPoint[2];                  // åˆè®¡çš„æ”»å‡»æ•°
 	sint16 evscore;	
 	uint8 rsafe;
 	uint8 bsafe;
@@ -44,7 +44,7 @@ static const  Score LackXiangAttackByCheMaPoint[] = {
 	Score(((0) << 0) + (0)), Score(((24) << 16) + (64)), Score(((32) << 16) + (80))
 };
 //////////////////////////////////////////////////////////////////////////
-// Èç¹ûÓĞ±ø£¬»¹Òª¼Ó·Ö
+// å¦‚æœæœ‰å…µï¼Œè¿˜è¦åŠ åˆ†
 static const  Score LackXiangAttackByCheMaPawnPoint =  Score(((16) << 16) + (48));
 
 
@@ -72,7 +72,7 @@ extern Score evaluate_pieces_no_include_king_first(Position& pos, EvalInfo& ei);
 
 
 //////////////////////////////////////////////////////////////////////////
-/// ÅÚµÄµÚ¶ş½«ÆÀ¹À
+/// ç‚®çš„ç¬¬äºŒå°†è¯„ä¼°
 template<Color Us>
 extern Score evaluate_pao_che_ma_pawn_second(Position& pos, EvalInfo& ei);
 
@@ -93,7 +93,7 @@ template<Color Us>
 extern Score eval_lack_shi_xiang(Position& pos, EvalInfo& ei);
 
 //////////////////////////////////////////////////////////////////////////
-/// ÖĞÅÚ,µ×ÅÚ,
+/// ä¸­ç‚®,åº•ç‚®,
 template<Color Us>
 extern Score eval_zhong_di_pao(Position& pos, EvalInfo& ei);
 
@@ -116,7 +116,7 @@ Score eval_Only_1chexPaoxPawnNoshi(Position& pos, EvalInfo& ei);
 //Score eval_PawnCan_MustADD_by_att(const Position& pos, EvalInfo& ei);
 
 //////////////////////////////////////////////////////////////////////////
-/// ¿ÕÖĞÅÚ, ¿Õµ×ÅÚ
+/// ç©ºä¸­ç‚®, ç©ºåº•ç‚®
 template<Color Us>
 extern Score eval_kong_zhong_di_pao(Position& pos, EvalInfo& ei);
 
@@ -126,7 +126,7 @@ template<Color Us>
 extern Score eval_king_safe(Position& pos, EvalInfo& ei, Value& margin);
 
 //////////////////////////////////////////////////////////////////////////
-/// ÃÆ¹¬ÍşĞ²µÄÆÀ¹À
+/// é—·å®«å¨èƒçš„è¯„ä¼°
 extern Score eval_men_gong_threat(Position& pos, EvalInfo& ei);
 
 

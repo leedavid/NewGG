@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ3±ø¶Ô1³µ1ÅÚ.cpp"
+#include "1è½¦3å…µå¯¹1è½¦1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -13,7 +13,7 @@
 
 ////const int const_Pawn_Shi_Add[3] = {180, 120, 32};
 
-//³µ3±ø¶Ô³µÅÚ
+//è½¦3å…µå¯¹è½¦ç‚®
 void my_m_MT_R_1che3pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 	
 	// ADD_MY
@@ -23,12 +23,12 @@ void my_m_MT_R_1che3pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_ADD(pmok * ADD_ChePawn_To_ChePao_Pawn_Shi_Add[your_shi_num]);
 
 	Square mk = my_king_pos;
-	// fen 2bak4/9/4b4/4R4/P3c4/4r1P2/8P/4B4/9/2B1KA3 b - - 0 0 //Õâ¸öFEN Ó¦ÊÇºìÓÅ
+	// fen 2bak4/9/4b4/4R4/P3c4/4r1P2/8P/4B4/9/2B1KA3 b - - 0 0 //è¿™ä¸ªFEN åº”æ˜¯çº¢ä¼˜
 	Square mche = S90_from_piecelist(POSITION,my_che,0);
 	Square yche = S90_from_piecelist(POSITION,your_che,0);
 	Square ypao = S90_from_piecelist(POSITION,your_pao,0);
 	
-	//Èç¹û³µÅÚ±»Ç£ÖÆÁË, ÔòÅÚ·½Òª¼õ·Ö
+	//å¦‚æžœè½¦ç‚®è¢«ç‰µåˆ¶äº†, åˆ™ç‚®æ–¹è¦å‡åˆ†
 	if(isStringByChe(POSITION,mche,ypao,yche)){
 		MY_EV_ADD(ADD_ChePawn_To_ChePao_By_StringPao);
 	}
@@ -99,7 +99,7 @@ void my_m_MT_R_1che3pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	int mcan = EV_MY_CAN;
-	//³µÅÚÊ®×Ö±»Ç£
+	//è½¦ç‚®åå­—è¢«ç‰µ
 	// fen 3k1a3/4a2CR/9/9/7r1/9/2p2p3/9/2p1A4/2B1KAB2 w - - 110 110
 	if(my_shi_num == 2 && StoY(mk) == MY_RANK9){
 		int x = XYtoS(StoX(mche),StoY(yche));
@@ -149,7 +149,7 @@ void my_m_MT_R_1che3pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 //	int bche = PieceListStart(board,BCHE);
 //	int rpao = PieceListStart(board,RPAO);
 //
-//	//Èç¹û³µÅÚ±»Ç£ÖÆÁË, ÔòÅÚ·½Òª¼õ·Ö
+//	//å¦‚æžœè½¦ç‚®è¢«ç‰µåˆ¶äº†, åˆ™ç‚®æ–¹è¦å‡åˆ†
 //	if(IsStringByChe(board,rche,rpao,bche)){
 //		board->mulScore -= ADD_ChePawn_To_ChePao_By_StringPao;
 //	}
@@ -163,7 +163,7 @@ void my_m_MT_R_1che3pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 //	}
 //
 //	
-//	//³µÅÚÊ®×Ö±»Ç£
+//	//è½¦ç‚®åå­—è¢«ç‰µ
 //	// fen 3k1a3/4a2CR/9/9/7r1/9/2p2p3/9/2p1A4/2B1KAB2 w - - 110 110
 //	if(board->B_shi == 2 && StoY(bk) == 0x3){
 //		if(board->b256[XYtoS(StoX(bche),StoY(rche))] == RPAO){

@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2ÅÚ1±ø¶Ô1ÅÚ1Âí1±ø.cpp"
+#include "2ç‚®1å…µå¯¹1ç‚®1é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//2ÅÚ1±ø¶Ô1ÅÚ1Âí1±ø
+//2ç‚®1å…µå¯¹1ç‚®1é©¬1å…µ
 //int _2Pao4SX_Add = 96;
 
 void my_m_MT_R_2pao1pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
@@ -43,7 +43,7 @@ void my_m_MT_R_2pao1pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// fen 4ka3/2Nc5/6P2/9/3C5/9/9/B4K3/4p4/4c1B2 b - - 0 0 Õâ¸öÊÇºì·½ºÃ¡£
+	// fen 4ka3/2Nc5/6P2/9/3C5/9/9/B4K3/4p4/4c1B2 b - - 0 0 è¿™ä¸ªæ˜¯çº¢æ–¹å¥½ã€‚
 
 	if(StoY(mpawn) == MY_RANK3){
 		MY_EV_ADD(32);
@@ -95,7 +95,7 @@ void my_m_MT_R_2pao1pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//Èç¹û2ÅÚ·½ÊÇÊËÏàÈ«,Ò²ÒªÆ½ºâÒ»ÏÂ·ÖÊı
+	//å¦‚æœ2ç‚®æ–¹æ˜¯ä»•ç›¸å…¨,ä¹Ÿè¦å¹³è¡¡ä¸€ä¸‹åˆ†æ•°
 	if(my_shi_num == 2 && my_xiang_num == 2 && StoY(mk) == MY_RANK9){
 		if(your_shi_num == 2 && your_xiang_num >= 1 && StoY(yk) == MY_RANK0){
 			if(StoY(ypawn) MY_SMALL MY_RANK5){
@@ -128,7 +128,7 @@ void my_m_MT_R_2pao1pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 2bCk2P1/3P5/4b4/9/7c1/4n4/9/2CA5/5p3/3K5 b - - 0 1
 	if(your_xiang_num == 2){
-		if(have_bit(bb_my_pawn,RankBB_A[MY_RANK0])){ // ÓĞÒ»¸öµ×±ø
+		if(have_bit(bb_my_pawn,RankBB_A[MY_RANK0])){ // æœ‰ä¸€ä¸ªåº•å…µ
 			if(PB90(MY_SQ04) == your_king){
 				if(PB90(MY_SQ03) == my_pao && PB90(MY_SQ0C) == my_pawn && PB90(MY_SQ02) == your_xiang){
 					MY_EV_SUB(64);
@@ -151,7 +151,7 @@ void my_m_MT_R_2pao1pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// ¶Ô·½µÄ±ø¸øÎÒ·½´ò×ÅÄØ
+	// å¯¹æ–¹çš„å…µç»™æˆ‘æ–¹æ‰“ç€å‘¢
 	// fen 4k4/3Pa1cC1/5a3/4N4/9/4c4/9/4B4/3pA4/4KAB2 b - - 0 1
 	if(my_shi_num == 2 && StoY(mk) == MY_RANK9 && StoY(ypawn) == MY_RANK8 && EV_MY_CAN >= 1){
 		if(bit_is_set(ei.attacked_by(my_pao),ypawn)){

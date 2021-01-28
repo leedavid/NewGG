@@ -4,17 +4,17 @@
 //#define FIND_UM128_MUL
 #ifdef FIND_UM128_MUL
 
-//#define M_get_Che_File(resFR)    ((resFR) & 0xff)               // 8Î»
-//#define M_get_CHe_Rank(resFR)    (((resFR)>>8) & 0x7f)          // 7Î»
-#define M_get_Che_f(res1)           ((res1) & 0xff)                 // Ö»Òª³µµÄÇé¿ö
-#define M_get_Che_r(res1)           ((res1) & 0x7f)                 // Ö»Òª³µµÄÇé¿ö
-#define M_get_Ma(res1)            ((res1) & 0xff)                 // 8Î»
-#define M_get_Xiang(res1)         ((res1) & 0x0f)                 // 4Î»
+//#define M_get_Che_File(resFR)    ((resFR) & 0xff)               // 8ä½
+//#define M_get_CHe_Rank(resFR)    (((resFR)>>8) & 0x7f)          // 7ä½
+#define M_get_Che_f(res1)           ((res1) & 0xff)                 // åªè¦è½¦çš„æƒ…å†µ
+#define M_get_Che_r(res1)           ((res1) & 0x7f)                 // åªè¦è½¦çš„æƒ…å†µ
+#define M_get_Ma(res1)            ((res1) & 0xff)                 // 8ä½
+#define M_get_Xiang(res1)         ((res1) & 0x0f)                 // 4ä½
 
 //_mm_unpackhi_epi64
 //#define M128_get_Mix64(bb)  (_mm_cvtsi128_si64(m_or(bb,_mm_slli_si128(_mm_srli_si128(bb,8),2)))) 
 //#define M128_get_Mix64(bb)  (_mm_cvtsi128_si64(m_or(bb,_mm_slli_si128(_mm_unpackhi_epi64(bb,bb),2))))
-                                   // ÏÈ8Î»ÒÆ£¬ÔÙ1Î»ÒÆ
+                                   // å…ˆ8ä½ç§»ï¼Œå†1ä½ç§»
 
 #define NUM_CHE_ATT_R    (11520)
 extern Bitboard M_CheAttacks_R[NUM_CHE_ATT_R];
@@ -47,24 +47,24 @@ extern int      M_Pao_SUPER_Index_F[90];
 extern uint64   M_Pao_SUPER_Mult_F[90];
 
 #define NUM_MA_TO_KING_ATT (23040)
-extern Bitboard M_Ma_to_King_Mask[90];             //´ÓÂíµÄÎ»ÖÃ,À´³Ô½«, ÊÇËãÒ»ÏÂ±ğ½Å
+extern Bitboard M_Ma_to_King_Mask[90];             //ä»é©¬çš„ä½ç½®,æ¥åƒå°†, æ˜¯ç®—ä¸€ä¸‹åˆ«è„š
 extern Bitboard M_Ma_to_King_Attacks[NUM_MA_TO_KING_ATT];
 extern int      M_Ma_to_King_AttackIndex[90];
 extern uint64   M_Ma_to_King_Mult[90];
 
 #define NUM_KING_TO_MA_ATT (23040)
-extern Bitboard M_King_to_Ma_Mask[90];             //´Ó½«µÄÎ»ÖÃ,±»Âí³Ô, ÊÇËãÒ»ÏÂ·´±ğ½Å
+extern Bitboard M_King_to_Ma_Mask[90];             //ä»å°†çš„ä½ç½®,è¢«é©¬åƒ, æ˜¯ç®—ä¸€ä¸‹ååˆ«è„š
 extern Bitboard M_King_to_Ma_Attacks[NUM_MA_TO_KING_ATT];
 extern int      M_King_to_Ma_AttackIndex[90];
 extern uint64   M_King_to_Ma_Mult[90];
 
 #define NUM_XIANG_ATT    (300)
-extern Bitboard M_XiangMask[90];               // Ïà,Ö÷ÒªÊÇÓÃÀ´ËãÒ»ÏÂÏóÑÛ,
+extern Bitboard M_XiangMask[90];               // ç›¸,ä¸»è¦æ˜¯ç”¨æ¥ç®—ä¸€ä¸‹è±¡çœ¼,
 extern Bitboard M_XiangAttacks[NUM_XIANG_ATT];
 extern int      M_XiangAttackIndex[90];
 extern uint64   M_Xiang_Mult[90];
 
-// ¸ß8Î»ÓëµÍ8Î»»òÒ»ÏÂ
+// é«˜8ä½ä¸ä½8ä½æˆ–ä¸€ä¸‹
 #define M128_get_Or64(bb)        (_mm_cvtsi128_si64(m_or(bb,_mm_srli_si128(bb,8))))
 #define M128_Mul128(bb,mul,res)   _umul128(M128_get_Or64(bb),mul,res);
 
@@ -166,9 +166,9 @@ extern void M_find_mul(bool isZero);
 //}
 
 
-//__m128i _mm_srli_si128(__m128i a, int imm) // ÓÒÒÆ
-//        _mm_slli_si128                     // ×óÒÆ£¬
+//__m128i _mm_srli_si128(__m128i a, int imm) // å³ç§»
+//        _mm_slli_si128                     // å·¦ç§»ï¼Œ
 //d = _umul128(a, b, &c);
-//È¡³öÒ»¸ö64Î»Êı¾İ
+//å–å‡ºä¸€ä¸ª64ä½æ•°æ®
 //#define _mm_extract_epi64(x, imm) 
 //_mm_cvtsi128_si64(_mm_srli_si128((x), 8 * (imm)))

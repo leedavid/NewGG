@@ -5,7 +5,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2ез1╠Ь╤т1ез2╠Ь.cpp"
+#include "2Г┌╝1Е┘╣Е╞╧1Г┌╝2Е┘╣.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -38,7 +38,7 @@
 	 }
 
 	 //board->mulScore 
-	 //хГ╧Ш╨з╥╫ж╩спр╩╦Ж╠Ь©и╧Щ╨с,тРр╙©ш╥ж
+	 //Е╕┌Ф·°И╩▒Ф√╧Е▐╙Ф°┴Д╦─Д╦╙Е┘╣Е▐╞Х©┤Ф╡Ё,Е┬≥Х╕│Ф┴ёЕ┬├
 	 if(ycan <= 1){
 		 MY_EV_ADD(32);
 	 }	
@@ -102,7 +102,7 @@
 //
 //
 //	 int rcan = RpawnCanOverLiver(board);
-//	 //хГ╧Ш╨Л╥╫ж╩спр╩╦Ж╠Ь©и╧Щ╨с,тРр╙©ш╥ж
+//	 //Е╕┌Ф·°Г╨╒Ф√╧Е▐╙Ф°┴Д╦─Д╦╙Е┘╣Е▐╞Х©┤Ф╡Ё,Е┬≥Х╕│Ф┴ёЕ┬├
 //	 // fen 3k1ab2/4a4/4b4/8C/2p1c4/P8/6p2/4B4/5K3/6C2 b - - 1 1
 //	 if(rcan <= 1){
 //		 board->mulScore -= _OnlyOnePawnCanOverRiver;

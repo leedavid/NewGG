@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ3±ø¶Ô1³µ1Âí.cpp"
+#include "1è½¦3å…µå¯¹1è½¦1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -24,7 +24,7 @@ void my_m_MT_R_1che3pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 	
 	Square mk = my_king_pos;
 	Square yma = S90_from_piecelist(POSITION,your_ma,0);
-	//Èç¹û±ø·½Ò»¸ö×ÓÒ²Ã»ÓĞÁË
+	//å¦‚æœå…µæ–¹ä¸€ä¸ªå­ä¹Ÿæ²¡æœ‰äº†
 	if((my_shi_num + my_xiang_num) <= 1){
 		if(StoY(yma) MY_LARGE_EQL MY_RANK5){
 			MY_EV_SUB(ADD_ChePawn_To_CheMa_Pawn_SX_LessOne);
@@ -64,7 +64,7 @@ void my_m_MT_R_1che3pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	//Èç¹û±ø·½Ò»¸ö×ÓÒ²Ã»ÓĞÁË
+//	//å¦‚æœå…µæ–¹ä¸€ä¸ªå­ä¹Ÿæ²¡æœ‰äº†
 //	if((board->B_shi + board->B_xiang)<= 1){
 //		board->mulScore += ADD_ChePawn_To_CheMa_Pawn_SX_LessOne ;
 //	}
@@ -74,7 +74,7 @@ void my_m_MT_R_1che3pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 //
 //	int rma = PieceListStart(board,RMA);
 //
-//	if((board->B_shi + board->B_xiang) >= 3 && StoY(bk) != 0x5){   //±ø·½°²È«ÁË
+//	if((board->B_shi + board->B_xiang) >= 3 && StoY(bk) != 0x5){   //å…µæ–¹å®‰å…¨äº†
 //		board->mulScore -= 128;
 //
 //		// fen 4kab2/4a4/4b4/1R7/P1P3r2/8P/9/3nB4/9/2BK1A3 b - - 0 0
@@ -85,7 +85,7 @@ void my_m_MT_R_1che3pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 //
 //	// fen 2b1k4/9/4b4/9/P1P1R3P/9/2r6/3An4/4A4/3K5 b - - 3 3
 //	if(board->B_xiang == 0 && StoY(rma) <= 0x7){
-//		//Èç¹ûËùÓĞ±øÔÚ±øÏßÉÏ	
+//		//å¦‚æœæ‰€æœ‰å…µåœ¨å…µçº¿ä¸Š	
 //		bool pok = FALSE;
 //		for(int from = PieceListStart(board,BPAWN); from > 0x32; from = NextPiece(board,from)){
 //			if(StoY(from) >= 0xa && StoY(from) <= 0xb){

@@ -38,12 +38,12 @@ boolean  MyOK (const typePOS *POSITION, uint32 mossa)
   }
 
   if(capture == your_king ){
-	  ASSERT(0); // ÔÚ×ß²½Éú³É,Òª²úÉú³Ô½«²½²ÅÐÐ. Ò²¾ÍÊÇ¶Ô½«Ê±,ÎÒ·½µÄ½«¿É³Ô¶Ô·½µÄ½«.
+	  ASSERT(0); // åœ¨èµ°æ­¥ç”Ÿæˆ,è¦äº§ç”Ÿåƒå°†æ­¥æ‰è¡Œ. ä¹Ÿå°±æ˜¯å¯¹å°†æ—¶,æˆ‘æ–¹çš„å°†å¯åƒå¯¹æ–¹çš„å°†.
 	  return FALSE;
   }
 
   switch(piece){
-  case my_ma: //µÃµ½ÂíµÄËùÓÐ×ß²½	
+  case my_ma: //å¾—åˆ°é©¬çš„æ‰€æœ‰èµ°æ­¥	
 	  //print_bb(king_to_ma_attacks_bb(to,POSITION->byWhiteBlack));
 	  return (bit_is_set(king_to_ma_attacks_bb(to,POSITION->byWhiteBlack),from) !=0);
   case my_xiang:
@@ -52,9 +52,9 @@ boolean  MyOK (const typePOS *POSITION, uint32 mossa)
   case my_shi:
 	  //print_bb(shi_attacks(to));
 	  return (bit_is_set(shi_attacks(to),from) !=0);
-  case my_che: //²»³Ô×ÓÓë³Ô×Ó
+  case my_che: //ä¸åƒå­ä¸Žåƒå­
 	  return (bit_is_set(rook_attacks_bb(to,POSITION->byWhiteBlack),from) !=0);
-  case my_pao://²»³Ô×Ó
+  case my_pao://ä¸åƒå­
 	  if(capture == EMPTY){
 		  return (bit_is_set(rook_attacks_bb(to,POSITION->byWhiteBlack),from) !=0);
 	  }

@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2³µ1±ø¶Ô1³µ1Âí1±ø.cpp"
+#include "2è½¦1å…µå¯¹1è½¦1é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -31,7 +31,7 @@ void my_m_MT_R_2che1pawn_B_1che1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
 	Square yma   = S90_from_piecelist(POSITION,your_ma,0);
 	// fen 4kab2/4aR3/4R4/4n1r2/9/9/9/4B4/9/2BAKA3 w - - 0 0
-	// ºì·½¶ş¸ö³µÒ»¸öÒ²²»ÄÜ¶¯ÁË,Ò²ÊÇºÍÆå, ºì·½µÄ±ø²»ÄÜ¹ıºÓ
+	// çº¢æ–¹äºŒä¸ªè½¦ä¸€ä¸ªä¹Ÿä¸èƒ½åŠ¨äº†,ä¹Ÿæ˜¯å’Œæ£‹, çº¢æ–¹çš„å…µä¸èƒ½è¿‡æ²³
 
 	// fen 3nkab2/3Ra4/4b4/4R4/r3p4/2P6/9/4B4/4A4/3AK1B2 b - - 0 1
 	if ((your_shi_num + your_xiang_num) == 4 && MY_SQ04 == yk){

@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Âí3±ø¶Ô1Âí2±ø.cpp"
+#include "1é©¬3å…µå¯¹1é©¬2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//1Âí3±ø¶Ô1ÅÚ2±ø //ADD_1PaoXPawn_1MaXPawn_ByShi
+//1é©¬3å…µå¯¹1ç‚®2å…µ //ADD_1PaoXPawn_1MaXPawn_ByShi
 
 void my_m_MT_R_1ma3pawn_B_1ma2pawn(typePOS &POSITION, EvalInfo &ei){	
 	// ADD_MY
@@ -27,7 +27,7 @@ void my_m_MT_R_1ma3pawn_B_1ma2pawn(typePOS &POSITION, EvalInfo &ei){
 
 	Square yma = S90_from_piecelist(POSITION,your_ma,0);
 	Square mma = S90_from_piecelist(POSITION, my_ma, 0);
-	//Ò»¸öºÍĞÍ
+	//ä¸€ä¸ªå’Œå‹
 
 	//int ycan = EV_YOUR_CAN;
 	int mcan = EV_MY_CAN;
@@ -48,7 +48,7 @@ void my_m_MT_R_1ma3pawn_B_1ma2pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 3a1kb2/4a4/4b1n2/8p/4P1p2/2B5P/6P2/4B4/4AN3/3K1A3 w - - 9 
 	// fen 3ak4/4a4/4b4/p8/8p/P5B2/4P1n1P/6N2/4A4/2BAK4 w - - 3 3
-    //Èç¹ûºÚ±øÉÏÃæÓĞ¶ş¸öºì±ø,ºìÂí¸øºÚÂíÑ¹ÖÆ×¡ÁË,Ò²ÊÇºÍÆå
+    //å¦‚æœé»‘å…µä¸Šé¢æœ‰äºŒä¸ªçº¢å…µ,çº¢é©¬ç»™é»‘é©¬å‹åˆ¶ä½äº†,ä¹Ÿæ˜¯å’Œæ£‹
 	if(mcan <= 1 && PB90(MY_SQ3A) == my_pawn){
 		if(PB90(MY_SQ45) == my_ma && PB90(MY_SQ3C) == your_ma){
 			if(PB90(MY_SQ3E) == my_pawn && PB90(MY_SQ2C) == your_pawn){
@@ -117,7 +117,7 @@ void my_m_MT_R_1ma3pawn_B_1ma2pawn(typePOS &POSITION, EvalInfo &ei){
 		
 	
 	// fen 4kab2/9/4ba3/p3n3p/9/2B1P4/P7P/6N2/4A4/3K1AB2 w - - 0 0
-    //¶à±ø·½Ö»ÄÜ¹ıÒ»¸ö±ø,Ò²¿ÉÄÜÊÇºÍÆåÒÕ
+    //å¤šå…µæ–¹åªèƒ½è¿‡ä¸€ä¸ªå…µ,ä¹Ÿå¯èƒ½æ˜¯å’Œæ£‹è‰º
 	if(your_shi_num == 2 && your_xiang_num == 2 && StoY(yk) == MY_RANK0){
 		if(mcan <= 1){
 			RETRUN_MUL(8);

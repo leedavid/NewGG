@@ -1,8 +1,8 @@
 
 
-//********************************************* 4¶Ô0********************
+//********************************************* 4å¯¹0********************
 #undef my_m_MT_R_4pawn  
-//********************************************* 4¶Ô1********************
+//********************************************* 4å¯¹1********************
 #undef my_m_MT_R_1CHE_3PAWN_B_1CHE  
 #undef my_m_MT_R_1che3pawn_B_1pao  
 #undef my_m_MT_R_1che3pawn_B_1ma 
@@ -33,7 +33,7 @@
 #undef my_m_MT_R_4pawn_B_1pao 
 #undef my_m_MT_R_4pawn_B_1ma  
 #undef my_m_MT_R_4pawn_B_1pawn  
-//********************************************* 4 ¶Ô 2********************
+//********************************************* 4 å¯¹ 2********************
 #undef my_m_MT_R_2che1pao1pawn_B_2che  
 #undef my_m_MT_R_2che1ma1pawn_B_2che  
 #undef my_m_MT_R_2che2pawn_B_2che  
@@ -103,7 +103,7 @@
 #undef my_m_MT_R_4pawn_B_1pao1pawn  
 #undef my_m_MT_R_4pawn_B_1ma1pawn  
 #undef my_m_MT_R_4pawn_B_2pawn  
-//********************************************* 4 ¶Ô 3********************
+//********************************************* 4 å¯¹ 3********************
 #undef my_m_MT_R_2che1pao1pawn_B_2che1pao  
 #undef my_m_MT_R_2che1ma1pawn_B_2che1pao  
 #undef my_m_MT_R_2che1pao1pawn_B_2che1ma 
@@ -226,7 +226,7 @@
 #undef my_m_MT_R_4pawn_B_1pao2pawn  
 #undef my_m_MT_R_4pawn_B_1ma2pawn  
 #undef my_m_MT_R_4pawn_B_3pawn  
-//********************************************* 4 ¶Ô 4********************
+//********************************************* 4 å¯¹ 4********************
 #undef my_m_MT_R_2che2ma_B_2che2pawn     
 #undef my_m_MT_R_2che2pawn_B_1che1pao1ma1pawn  
 #undef my_m_MT_R_2che2pawn_B_1che1ma2pawn  

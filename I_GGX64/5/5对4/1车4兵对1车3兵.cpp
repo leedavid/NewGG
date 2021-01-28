@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Ё╣4╠Ь╤т1Ё╣3╠Ь.cpp"
+#include "1Х╫╕4Е┘╣Е╞╧1Х╫╕3Е┘╣.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -21,7 +21,7 @@ void my_m_MT_R_1che4pawn_B_1che3pawn(typePOS &POSITION, EvalInfo &ei){
 	Bitboard ymp = m_and(bb_your_pawn,MyUpBB[StoY(my_king_pos)]);
 	MY_EV_SUB((sint16)count_1s(ymp) * ADD_CheXPawn_To_1Che1Pao1Pawn_ByPawn[my_shi_num]);
 
-	//1, ╨Л╥╫ж╩спр╩╦Ж╠Ь©и╧Щ╨сё╝ 2,грж╩╧Щ╨сакр╩╦Ж╠Ь 3,╨з╥╫ж╩спр╩╦Ж╠Ь©и╧Щ╨сё╛╬мйг╨мфЕ
+	//1, Г╨╒Ф√╧Е▐╙Ф°┴Д╦─Д╦╙Е┘╣Е▐╞Х©┤Ф╡ЁО╪▌ 2,Д╦■Е▐╙Х©┤Ф╡ЁД╨├Д╦─Д╦╙Е┘╣ 3,И╩▒Ф√╧Е▐╙Ф°┴Д╦─Д╦╙Е┘╣Е▐╞Х©┤Ф╡ЁО╪▄Е╟╠Ф≤╞Е▓▄Фё▀
 	// fen 2bak4/4a4/2P1b4/p6rp/4p4/2R5P/P5P2/4B4/9/3AKAB2 w - - 3 3
 	if((your_shi_num + your_xiang_num) == 4 && StoY(yk) == MY_RANK0){
 		int mcan = EV_MY_CAN;
@@ -37,7 +37,7 @@ int bcan = BpawnCanOverLiver(board);
 	Square rk   = PieceListStart(board,RKING);
 	Square bk   = PieceListStart(board,BKING);
 
-	//1, ╨Л╥╫ж╩спр╩╦Ж╠Ь©и╧Щ╨сё╝ 2,грж╩╧Щ╨сакр╩╦Ж╠Ь 3,╨з╥╫ж╩спр╩╦Ж╠Ь©и╧Щ╨сё╛╬мйг╨мфЕ
+	//1, Г╨╒Ф√╧Е▐╙Ф°┴Д╦─Д╦╙Е┘╣Е▐╞Х©┤Ф╡ЁО╪▌ 2,Д╦■Е▐╙Х©┤Ф╡ЁД╨├Д╦─Д╦╙Е┘╣ 3,И╩▒Ф√╧Е▐╙Ф°┴Д╦─Д╦╙Е┘╣Е▐╞Х©┤Ф╡ЁО╪▄Е╟╠Ф≤╞Е▓▄Фё▀
 	// fen 2bak4/4a4/2P1b4/p6rp/4p4/2R5P/P5P2/4B4/9/3AKAB2 w - - 3 3
 	if(rcan <= 1 && RpawnAlreadyRiver(board) <= 1){
 		if(board->B_shi == 2 && board->B_xiang == 2 && StoY(bk) == 0x3){
@@ -62,7 +62,7 @@ int bcan = BpawnCanOverLiver(board);
 //	Square rk   = PieceListStart(board,RKING);
 //	Square bk   = PieceListStart(board,BKING);
 //
-//	//1, ╨Л╥╫ж╩спр╩╦Ж╠Ь©и╧Щ╨сё╝ 2,грж╩╧Щ╨сакр╩╦Ж╠Ь 3,╨з╥╫ж╩спр╩╦Ж╠Ь©и╧Щ╨сё╛╬мйг╨мфЕ
+//	//1, Г╨╒Ф√╧Е▐╙Ф°┴Д╦─Д╦╙Е┘╣Е▐╞Х©┤Ф╡ЁО╪▌ 2,Д╦■Е▐╙Х©┤Ф╡ЁД╨├Д╦─Д╦╙Е┘╣ 3,И╩▒Ф√╧Е▐╙Ф°┴Д╦─Д╦╙Е┘╣Е▐╞Х©┤Ф╡ЁО╪▄Е╟╠Ф≤╞Е▓▄Фё▀
 //	// fen 2bak4/4a4/2P1b4/p6rp/4p4/2R5P/P5P2/4B4/9/3AKAB2 w - - 3 3
 //	if(bcan <= 1 && BpawnAlreadyRiver(board) <= 1){
 //		if(board->R_shi == 2 && board->R_xiang == 2 && StoY(rk) == 0xc){

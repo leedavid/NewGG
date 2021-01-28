@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí2±ø¶Ô1³µ1Âí.cpp"
+#include "1è½¦1é©¬2å…µå¯¹1è½¦1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//ÎÒ·½1³µ1Âí2±ø£¬¶Ô·½1³µ1Âí
+//æˆ‘æ–¹1è½¦1é©¬2å…µï¼Œå¯¹æ–¹1è½¦1é©¬
 void my_m_MT_R_1che1ma2pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 
 	// ADD_MY
@@ -133,7 +133,7 @@ void my_m_MT_R_1che1ma2pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 		if((my_shi_num + my_xiang_num) <= 1 && StoY(yma) MY_LARGE_EQL MY_RANK5){
 			MY_EV_SUB(32);
 		}
-		// Èç¹û¶þ¸ö±ø¶¼ÔÚ3ÏßÉÏÃæ,Ò²Òª¼õ·Ö
+		// å¦‚æžœäºŒä¸ªå…µéƒ½åœ¨3çº¿ä¸Šé¢,ä¹Ÿè¦å‡åˆ†
 		// fen 4k1b2/R3a4/4ba3/PPN6/2n6/8r/9/5A3/4A4/2B1K1B2 b - - 0 126
 		if(count_1s(MyLowBB[MY_RANK2],bmp) == 2){
 			MY_EV_SUB(32);
@@ -218,7 +218,7 @@ void my_m_MT_R_1che1ma2pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 //	*/
 //}
 
-//Õâ¸öÒª»»³µ
+//è¿™ä¸ªè¦æ¢è½¦
 
 // fen 9/3k5/3r1a3/3R5/4nN3/9/5p3/3AB2p1/4A4/4K1B2 w - - 57 57
 

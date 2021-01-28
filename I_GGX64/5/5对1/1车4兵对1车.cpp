@@ -4,13 +4,13 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ4±ø¶Ô1³µ.cpp"
+#include "1è½¦4å…µå¯¹1è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//ÎÒ·½Ò»³µ4±ø£¬¶Ô·½Ò»³µ
+//æˆ‘æ–¹ä¸€è½¦4å…µï¼Œå¯¹æ–¹ä¸€è½¦
 void my_m_MT_R_1CHE_4PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
@@ -44,7 +44,7 @@ void my_m_MT_R_1CHE_4PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	}
 }
 
-//ÎÒ·½Ò»³µ4±ø£¬¶Ô·½Ò»³µ
+//æˆ‘æ–¹ä¸€è½¦4å…µï¼Œå¯¹æ–¹ä¸€è½¦
 //void m_MT_B_1CHE_4PAWN_R_1CHE(typePOS &POSITION, EvalInfo &ei){
 //	/*	
 //	//premat_t* pMat = board->pMat;
@@ -59,8 +59,8 @@ void my_m_MT_R_1CHE_4PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	//if((Info16 & CK_R_2s) && (Info16 & CK_R_2x)){		//¶Ô·½ÊËÏàÈ«
-//	//	//if((Info16 & CK_R_2s) && (Info16 & CK_R_2x)){		//¶Ô·½ÊËÏàÈ«
+//	//if((Info16 & CK_R_2s) && (Info16 & CK_R_2x)){		//å¯¹æ–¹ä»•ç›¸å…¨
+//	//	//if((Info16 & CK_R_2s) && (Info16 & CK_R_2x)){		//å¯¹æ–¹ä»•ç›¸å…¨
 //	//	//	if((rk > 0xc0) && (bk < 0x40)){
 //	//	//		return 4;
 //	//	//	}

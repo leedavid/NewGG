@@ -13,10 +13,10 @@
 
 
 
-//#define USE_Æå×ÓµÄ±£»¤·Ö   // Ê¹ÓÃÆå×ÓµÄÏà»¥±£»¤·Ö
+//#define USE_æ£‹å­çš„ä¿æŠ¤åˆ†   // ä½¿ç”¨æ£‹å­çš„ç›¸äº’ä¿æŠ¤åˆ†
 
-#define NOT_USE_FIND_MUL             // ÕÒµ½Ä§ÊõÊı×Ö,Õâ¸öÊÇ³ÌĞòÓÃµÄ,
-//#define USE_HASH_EAXCT_VALUE       //Ê¹ÓÃEVAL_HASHµÄÈ·ÇĞÖµ, ÓÃÁË²Ğ¾Ö¿â²ÅÒªÕâ¸ö¶«¶«
+#define NOT_USE_FIND_MUL             // æ‰¾åˆ°é­”æœ¯æ•°å­—,è¿™ä¸ªæ˜¯ç¨‹åºç”¨çš„,
+//#define USE_HASH_EAXCT_VALUE       //ä½¿ç”¨EVAL_HASHçš„ç¡®åˆ‡å€¼, ç”¨äº†æ®‹å±€åº“æ‰è¦è¿™ä¸ªä¸œä¸œ
 #define RP_PER_CPU  8                /* per cpu */
 #define MAX_SP     16                /* total splitpoints */
 
@@ -30,7 +30,7 @@
 #define YUSUF_MULTICORE
 #define MULTIPLE_POS_GAIN  // TRUE
 #define MULTIPLE_HISTORY   // TRUE
-#define USE_STACK_MOVE     // Æå¾ÖÖĞ±£»¤ÀúÊ·Æå²½
+#define USE_STACK_MOVE     // æ£‹å±€ä¸­ä¿æŠ¤å†å²æ£‹æ­¥
 
 #include <windows.h>
 #include <intrin.h>
@@ -119,7 +119,7 @@ extern COND_TYPE WAKEUP[MAX_CPUS];
 
 #define FROM(m)				   (((m)>>MOVE_BIT) & MOVE_MASK)  //  DI(m)
 #define TO(m)				   ((m) & MOVE_MASK)              //  AI(m)
-#define MOVE_FromTo(from,to)   ((to)|((from) << MOVE_BIT))   //»¹ÓĞ¶şÎ»,Ò»Î»×öÀúÊ·²½,Ò»Î»×ö½«¾ü²½
+#define MOVE_FromTo(from,to)   ((to)|((from) << MOVE_BIT))   //è¿˜æœ‰äºŒä½,ä¸€ä½åšå†å²æ­¥,ä¸€ä½åšå°†å†›æ­¥
 #define StoY(s) (_stoxy[s])       // ((s)/9)           // 
 #define StoX(s) (_stoxx[s])       // _stoxx[s] StoX(s) ((s)%9)      // _stoxx[s]
 #define XYtoS(x,y) ((y)*9+(x))
@@ -227,7 +227,7 @@ extern uint64  NODE_CHECK;
 #define MOVE_IS_CHECK_WHITE m128_is_have_bit(POS1->white_king_check)
 #define MOVE_IS_CHECK_BLACK m128_is_have_bit(POS1->black_king_check)
 
-#ifdef MULTIPLE_POS_GAIN           //GUADAGNO ÔöÒæ
+#ifdef MULTIPLE_POS_GAIN           //GUADAGNO å¢ç›Š
 extern sint16 MAX_POSITIONAL_GAIN[MAX_CPUS][0x10][GAIN_SIZE];
 #define MAX_POS_GAIN(pez, mos) MAX_POSITIONAL_GAIN[POSITION->cpu][pez][mos]
 #else
@@ -255,9 +255,9 @@ extern boolean NEW_GAME;         // NEW_GAME
 
 #define MAX_REAL_CAP_NUM 16
 typedef struct  {	
-   int    LastCapChess[MAX_REAL_CAP_NUM][2][2];                   //×îºóÒ»´Î³ÔµÄÆå×Ó
-   int    last_to[MAX_REAL_CAP_NUM][2][2];                        //×îºóÒ»´Î¶Ô·½to
-   int    last_ot_from[MAX_REAL_CAP_NUM][2][2];                   //×î¶à¿ÉÄÜÓĞ16¸öÕæ×½	
+   int    LastCapChess[MAX_REAL_CAP_NUM][2][2];                   //æœ€åä¸€æ¬¡åƒçš„æ£‹å­
+   int    last_to[MAX_REAL_CAP_NUM][2][2];                        //æœ€åä¸€æ¬¡å¯¹æ–¹to
+   int    last_ot_from[MAX_REAL_CAP_NUM][2][2];                   //æœ€å¤šå¯èƒ½æœ‰16ä¸ªçœŸæ‰	
    int    cap_num[2][2];
    bool   isTrueCap;
 }TrupCap_t;
@@ -266,8 +266,8 @@ typedef struct  {
 typedef struct
 {
   uint32 hash;              // key
-  uint8  flags;             // flags Ê¯
-  uint8  age;                // years Äê´ú
+  uint8  flags;             // flags çŸ³
+  uint8  age;                // years å¹´ä»£
   uint8  DepthUpper;         // hole_high
   uint8  DepthLower;         // hole_low
   sint16 ValueLower;         // value_low
@@ -277,9 +277,9 @@ typedef struct
   uint8 _2;
 } typeHash;   // type_hash 
 
-extern typeHash *HashTable;   // hash_Ö¸Õë
-extern uint64 HashMask;      // hash_mask list_hide elenco Ä¿Â¼ mask
-extern uint32 AGE;           // ANNI Äê´ú,
+extern typeHash *HashTable;   // hash_æŒ‡é’ˆ
+extern uint64 HashMask;      // hash_mask list_hide elenco ç›®å½• mask
+extern uint32 AGE;           // ANNI å¹´ä»£,
 
 typedef struct
 {
@@ -312,44 +312,44 @@ typedef struct
 {
 	/* 0x00-0x0f */ 
 	uint64 HASH;
-	uint32 statico;             // statik    Î»ÖÃ·Ö
+	uint32 statico;             // statik    ä½ç½®åˆ†
 	uint16 mossa50;             // move50 
-	uint8 _10;                  //_en_passant;          // ËùÎ½en passant (ÇÉĞĞ½«³ÔÃîÕĞ)ÊÇ¹ú¼ÊÏóÆåÖĞÒ»¸ö¡°³Ô¹ıÂ·±ø¡±µÄ¼¼
-	uint8 cattura;              // capture ³ÔµÄÆå×Ó
+	uint8 _10;                  //_en_passant;          // æ‰€è°“en passant (å·§è¡Œå°†åƒå¦™æ‹›)æ˜¯å›½é™…è±¡æ£‹ä¸­ä¸€ä¸ªâ€œåƒè¿‡è·¯å…µâ€çš„æŠ€
+	uint8 cattura;              // capture åƒçš„æ£‹å­
 
-} DYN_size32;             // type_dynamic ·¢Õ¹±ä»¯µÄ
+} DYN_size32;             // type_dynamic å‘å±•å˜åŒ–çš„
 
 typedef struct
 {
 	uint64 HASH;
-	uint32 statico;            // statik    Î»ÖÃ·Ö
+	uint32 statico;            // statik    ä½ç½®åˆ†
 	uint16 mossa50;             // move50 
-	uint8 _10;                  //_en_passant;          // ËùÎ½en passant (ÇÉĞĞ½«³ÔÃîÕĞ)ÊÇ¹ú¼ÊÏóÆåÖĞÒ»¸ö¡°³Ô¹ıÂ·±ø¡±µÄ¼¼
-	uint8 cattura;              // capture ³ÔµÄÆå×Ó
+	uint8 _10;                  //_en_passant;          // æ‰€è°“en passant (å·§è¡Œå°†åƒå¦™æ‹›)æ˜¯å›½é™…è±¡æ£‹ä¸­ä¸€ä¸ªâ€œåƒè¿‡è·¯å…µâ€çš„æŠ€
+	uint8 cattura;              // capture åƒçš„æ£‹å­
 	// 
 	Bitboard attack_white;       // attacco_bianco;   // attack_white
 	Bitboard attack_black;       // attacco_nero;     // attack_black
 	Bitboard white_xray;
 	Bitboard black_xray;
-	Bitboard white_pao_null;      // Æå×Ó¿É×ßµ½ÅÚX½«¾üµÄÆåÒ²ÒªËÑË÷ÍÛ
-	Bitboard black_pao_null;      // Æå×Ó¿É×ßµ½ÅÚX½«¾üµÄÆåÒ²ÒªËÑË÷ÍÛ
-} DYN_size64;      // type_dynamic ·¢Õ¹±ä»¯µÄ
+	Bitboard white_pao_null;      // æ£‹å­å¯èµ°åˆ°ç‚®Xå°†å†›çš„æ£‹ä¹Ÿè¦æœç´¢å“‡
+	Bitboard black_pao_null;      // æ£‹å­å¯èµ°åˆ°ç‚®Xå°†å†›çš„æ£‹ä¹Ÿè¦æœç´¢å“‡
+} DYN_size64;      // type_dynamic å‘å±•å˜åŒ–çš„
 
 typedef struct
 {
 	uint64 HASH;
-    uint32 statico;             // statik    Î»ÖÃ·Ö
+    uint32 statico;             // statik    ä½ç½®åˆ†
 	uint16 mossa50;             // move50 
-	uint8 _check;               //_en_passant;          // ËùÎ½en passant (ÇÉĞĞ½«³ÔÃîÕĞ)ÊÇ¹ú¼ÊÏóÆåÖĞÒ»¸ö¡°³Ô¹ıÂ·±ø¡±µÄ¼¼
-	uint8 catturaa;             // capture ³ÔµÄÆå×Ó
+	uint8 _check;               //_en_passant;          // æ‰€è°“en passant (å·§è¡Œå°†åƒå¦™æ‹›)æ˜¯å›½é™…è±¡æ£‹ä¸­ä¸€ä¸ªâ€œåƒè¿‡è·¯å…µâ€çš„æŠ€
+	uint8 catturaa;             // capture åƒçš„æ£‹å­
 	// 
 	Bitboard attack_white;       // attacco_bianco;   // attack_white
 	Bitboard attack_black;       // attacco_nero;     // attack_black
 	Bitboard white_xray;
 	Bitboard black_xray;
 
-	Bitboard white_pao_null;      // Æå×Ó¿É×ßµ½ÅÚX½«¾üµÄÆåÒ²ÒªËÑË÷ÍÛ
-	Bitboard black_pao_null;      // Æå×Ó¿É×ßµ½ÅÚX½«¾üµÄÆåÒ²ÒªËÑË÷ÍÛ
+	Bitboard white_pao_null;      // æ£‹å­å¯èµ°åˆ°ç‚®Xå°†å†›çš„æ£‹ä¹Ÿè¦æœç´¢å“‡
+	Bitboard black_pao_null;      // æ£‹å­å¯èµ°åˆ°ç‚®Xå°†å†›çš„æ£‹ä¹Ÿè¦æœç´¢å“‡
 
 	Bitboard white_king_check;    // bianco_re_scacco; // white_king_check
 	Bitboard black_king_check;    // nero_re_scacco;   // black_king_check
@@ -370,11 +370,11 @@ typedef struct
 	uint8 _exact_not_use;
 #endif
 
-	uint8 lazy;			 // pigro ÀÁ¶è lazy?	
+	uint8 lazy;			 // pigro æ‡’æƒ° lazy?	
 	uint8 SAVED_FLAGS;   // flags_saves
 	uint8 flags;         // flags
 	//uint64 _8;
-} typeDYNAMIC;             // type_dynamic ·¢Õ¹±ä»¯µÄ
+} typeDYNAMIC;             // type_dynamic å‘å±•å˜åŒ–çš„
 
 typedef struct
 {
@@ -416,10 +416,10 @@ extern volatile int SMP_FREE;
 typedef struct  {    
 	uint8   R_KongPaoScore;
 	uint8   B_KongPaoScore;     //
-    uint8   Rphase;             // ºì·½µÄ¹¥ÆåµÄ×´Ì¬	//×î´ó256 ³µ 4 ÅÚ 3 Âí 2 ±ø 1 ¶Ô·½µÄÊ¿ -2 £¬Ïà -2 £¬
-	uint8   Bphase;             // ºÚ·½µÄ¹¥ÆåµÄ×´Ì¬  //
-	uint16  searchInfo16;       // ÊÇÆå¾ÖµÄ¼ì²é×´Ì¬
-	sint16  material;		    // 2 ×ÓÁ¦·Ö
+    uint8   Rphase;             // çº¢æ–¹çš„æ”»æ£‹çš„çŠ¶æ€	//æœ€å¤§256 è½¦ 4 ç‚® 3 é©¬ 2 å…µ 1 å¯¹æ–¹çš„å£« -2 ï¼Œç›¸ -2 ï¼Œ
+	uint8   Bphase;             // é»‘æ–¹çš„æ”»æ£‹çš„çŠ¶æ€  //
+	uint16  searchInfo16;       // æ˜¯æ£‹å±€çš„æ£€æŸ¥çŠ¶æ€
+	sint16  material;		    // 2 å­åŠ›åˆ†
 } premat_t;
 
 #define xray_white_list POSITION->_xray_white_lista
@@ -449,7 +449,7 @@ typedef struct
 		
 	uint8 wtm;                       // bianco_en_mossa
 	uint8 height;                    // 	
-	premat_t*      pMat;             // ×ÓÁ¦
+	premat_t*      pMat;             // å­åŠ›
 	
 } TP_size;
 
@@ -468,16 +468,16 @@ struct TP
 	
 	uint8 wtm;                       // bianco_en_mossa
 	uint8 height;                    // 	
-	premat_t*      pMat;             // ×ÓÁ¦
+	premat_t*      pMat;             // å­åŠ›
 
 	typeDYNAMIC *DYN;
 	typeDYNAMIC *DYN_ROOT;
 
 #ifdef USE_STACK_MOVE
-	_STACKst STACKst[1024];           // Õâ¶ù»¹Òª¼ÓÈëMOVE£¬ÒÔ±ã¼ì²â³£×½Ê²Ã´µÄ¡£
+	_STACKst STACKst[1024];           // è¿™å„¿è¿˜è¦åŠ å…¥MOVEï¼Œä»¥ä¾¿æ£€æµ‹å¸¸æ‰ä»€ä¹ˆçš„ã€‚
 	sint64 StackHeight;             // stack_height = 0;
 #else
-    uint64 STACK[1024];             // Õâ¶ù»¹Òª¼ÓÈëMOVE£¬ÒÔ±ã¼ì²â³£×½Ê²Ã´µÄ¡£
+    uint64 STACK[1024];             // è¿™å„¿è¿˜è¦åŠ å…¥MOVEï¼Œä»¥ä¾¿æ£€æµ‹å¸¸æ‰ä»€ä¹ˆçš„ã€‚
 	sint64 StackHeight;             // stack_height = 0;
 #endif
 
@@ -509,38 +509,38 @@ struct TP
 };
 
 typedef struct {
-	//Bitboard canNotMoveBB;                             // ²»ÄÜÒÆ¶¯µÄÆå×Ó, ÄÜ²»ÄÜºÏÔÚÒ»Æğ??
-	//Bitboard attackedBy[16];						     // ´ú±íËùÓĞÆå×Ó¸÷×Ô¿É¹¥»÷µÄÆå¸ñ	
-	//Bitboard StringBB;                                 // ÊÜÇ£ÖÆµÄÆå×Ó,Ö»¿ÉÄÜÊÇÂí»òÅÚ.Õâ¸ö²»ÓÃÁË,ÒòÎªÒÑÓĞÆäËüµÄÆÀ¼Û´úÌæÒ»ÏÂ.
-	Bitboard ZhongDiPaoBB;                               // ÖĞÅÚ»òµ×ÅÚµÄÎ»ÆåÅÌ, xray_list ÓĞÒÑÓĞÁË
-	Bitboard KongPaoBB;                                  // ¿ÕÅÚµÄÎ»ÆåÅÌ.	
+	//Bitboard canNotMoveBB;                             // ä¸èƒ½ç§»åŠ¨çš„æ£‹å­, èƒ½ä¸èƒ½åˆåœ¨ä¸€èµ·??
+	//Bitboard attackedBy[16];						     // ä»£è¡¨æ‰€æœ‰æ£‹å­å„è‡ªå¯æ”»å‡»çš„æ£‹æ ¼	
+	//Bitboard StringBB;                                 // å—ç‰µåˆ¶çš„æ£‹å­,åªå¯èƒ½æ˜¯é©¬æˆ–ç‚®.è¿™ä¸ªä¸ç”¨äº†,å› ä¸ºå·²æœ‰å…¶å®ƒçš„è¯„ä»·ä»£æ›¿ä¸€ä¸‹.
+	Bitboard ZhongDiPaoBB;                               // ä¸­ç‚®æˆ–åº•ç‚®çš„ä½æ£‹ç›˜, xray_list æœ‰å·²æœ‰äº†
+	Bitboard KongPaoBB;                                  // ç©ºç‚®çš„ä½æ£‹ç›˜.	
 
-	Bitboard attackKingMaCan[2];                         // ÂíÄÜ½«¾üµÄ¸ñÊ½, ¶Ô·½µÄÂíÄÜÌøµ½½«¾üµÄ¸ñ×Ó
-	Bitboard attackKingCheCan[2];                        // ³µÄÜ¹¥»÷µ½ ½« µÄ¸ñ×Ó
-	Bitboard attackKingPaoCan[2];                        // ¶Ô·½ÅÚÄÜ¹¥»÷µ½ ½« µÄ¸ñ×Ó.
-	//Bitboard attackKignPawnCan[2];                     // ¶Ô·½±øÄÜ½«¾üµÄÆå×Ó
-	Bitboard attackKingBoard;                            // Ë«·½¿É¹¥»÷µÄÆå×ÓÎ»ÖÃÆåÅÌ 
-	//Bitboard attackZone[2];                              // ´ú±íËùÓĞ¹¥ÍõµÄÆå¸ñ.
-	//sint16 kingAttackersCount[2];                      // ¶Ô·½ÔÚ¹¥»÷µÄÆå×ÓµÄÊıÄ¿
+	Bitboard attackKingMaCan[2];                         // é©¬èƒ½å°†å†›çš„æ ¼å¼, å¯¹æ–¹çš„é©¬èƒ½è·³åˆ°å°†å†›çš„æ ¼å­
+	Bitboard attackKingCheCan[2];                        // è½¦èƒ½æ”»å‡»åˆ° å°† çš„æ ¼å­
+	Bitboard attackKingPaoCan[2];                        // å¯¹æ–¹ç‚®èƒ½æ”»å‡»åˆ° å°† çš„æ ¼å­.
+	//Bitboard attackKignPawnCan[2];                     // å¯¹æ–¹å…µèƒ½å°†å†›çš„æ£‹å­
+	Bitboard attackKingBoard;                            // åŒæ–¹å¯æ”»å‡»çš„æ£‹å­ä½ç½®æ£‹ç›˜ 
+	//Bitboard attackZone[2];                              // ä»£è¡¨æ‰€æœ‰æ”»ç‹çš„æ£‹æ ¼.
+	//sint16 kingAttackersCount[2];                      // å¯¹æ–¹åœ¨æ”»å‡»çš„æ£‹å­çš„æ•°ç›®
 	//sint16 kingAttackersWeight[2];                     // AttackWeight
-	sint16 kingAdjacentZoneAttacksCount[2];              // ¿É½«¾üµÄÆå¸ñ×ÜÊı
-	sint16 attPoint[2];                                  // ºÏ¼ÆµÄ¹¥»÷Êı
+	sint16 kingAdjacentZoneAttacksCount[2];              // å¯å°†å†›çš„æ£‹æ ¼æ€»æ•°
+	sint16 attPoint[2];                                  // åˆè®¡çš„æ”»å‡»æ•°
 	
 
 
-	Bitboard RmaAtt[2];                                  // ±£´æÖĞ¼äµÄÊı¾İ
+	Bitboard RmaAtt[2];                                  // ä¿å­˜ä¸­é—´çš„æ•°æ®
 	Bitboard BmaAtt[2];
 	Bitboard RcheAtt[2];
 	Bitboard BcheAtt[2];
 	Bitboard RPaoAtt[2];
 	Bitboard BPaoAtt[2];
-	//Bitboard RPaoCheAtt[2];                              // ÅÚ¿É×ßµ½µÄÆå¸ñ.
+	//Bitboard RPaoCheAtt[2];                              // ç‚®å¯èµ°åˆ°çš„æ£‹æ ¼.
 	//Bitboard BPaoCheAtt[2];
 	Bitboard RpawnAtt;
 	Bitboard BpawnAtt;
 
-	Bitboard RShiXiangAtt;      // ºìÊËºìÏà
-	Bitboard BShiXiangAtt;      // ºÚÊËºÚÏó
+	Bitboard RShiXiangAtt;      // çº¢ä»•çº¢ç›¸
+	Bitboard BShiXiangAtt;      // é»‘ä»•é»‘è±¡
 
 	uint8 rsafe;
 	uint8 bsafe;
@@ -553,9 +553,9 @@ typedef struct {
 	uint16 mul;
 	sint16 evscore;
 
-	uint32 ev_stat;                            // ÆÀ¹ÀµÄÒ»Ğ©ĞÅÏ¢.
-	int rattb_score;                           // ºì·½¹¥»÷ºÚ·½µÄµÃ·Ö
-	int battr_score;                           // ºÚ·½¹¥»÷ºì·½µÄµÃ·Ö	
+	uint32 ev_stat;                            // è¯„ä¼°çš„ä¸€äº›ä¿¡æ¯.
+	int rattb_score;                           // çº¢æ–¹æ”»å‡»é»‘æ–¹çš„å¾—åˆ†
+	int battr_score;                           // é»‘æ–¹æ”»å‡»çº¢æ–¹çš„å¾—åˆ†	
 
 	uint16 RKing_Info;
 	uint16 BKing_Info;
@@ -575,7 +575,7 @@ extern typePOS NULL_PARENT[1];
 
 typedef enum
 {
-	   EMPTY=0,  // Õâ¸ö²»ÓÃÁË
+	   EMPTY=0,  // è¿™ä¸ªä¸ç”¨äº†
        RKING=1,  RSHI=2, RXIANG=3, RMA=4, RCHE=5, RPAO=6, RPAWN=7,
 	   _X_X =8,
        BKING=9,  BSHI=10,BXIANG=11,BMA=12,BCHE=13,BPAO=14,BPAWN=15,   
@@ -628,7 +628,7 @@ const static uint8 _piece_side[16] = {
 	BLACK_TO_MOVE,BLACK_TO_MOVE,BLACK_TO_MOVE,BLACK_TO_MOVE,BLACK_TO_MOVE,BLACK_TO_MOVE,BLACK_TO_MOVE,
 };
 
-#define PIECE_TYPE(p)    ((p)&7)           // Õâ¸ö¿ÉÒÔ
+#define PIECE_TYPE(p)    ((p)&7)           // è¿™ä¸ªå¯ä»¥
 #define PIECE_SIDE(p)    _piece_side[p]
 
 typedef struct {
@@ -662,7 +662,7 @@ FASE_0
 #include "common.h"    // ok
 #include "my_const_h.h"// ok
 #include "bitboard.h"
-#include "funzione.h"  // function º¯Êı
+#include "funzione.h"  // function å‡½æ•°
 #include "VMProtectSDK.h"
 // end_game_common_define
 #define RETRUN_MUL(x)  { ei->mul = x; return; }

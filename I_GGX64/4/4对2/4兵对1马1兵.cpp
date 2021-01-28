@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "4±ø¶Ô1Âí1±ø.cpp"
+#include "4å…µå¯¹1é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -20,7 +20,7 @@ void my_m_MT_R_4pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	Bitboard ymp = m_and(bb_your_pawn,MyUpBB[StoY(my_king_pos)]);
 	MY_EV_SUB((sint16)count_1s(ymp) * ADD_1MaXPawn_3pawn_ShiAdd[my_shi_num]);
 	 
-	MY_EV_SUB(ADD_1MaXPawn_3Pawn);   //Âí±ø·½µÄ±ðÍâ¼Ó·Ö
+	MY_EV_SUB(ADD_1MaXPawn_3Pawn);   //é©¬å…µæ–¹çš„åˆ«å¤–åŠ åˆ†
 
 
 }

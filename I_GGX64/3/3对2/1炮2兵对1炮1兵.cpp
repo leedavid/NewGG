@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2±ø¶Ô1ÅÚ1±ø.cpp"
+#include "1ç‚®2å…µå¯¹1ç‚®1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -152,7 +152,7 @@ void my_m_MT_R_1pao2pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 9/4a1P2/b4k3/5c3/9/2B6/9/5A3/2pp3C1/3AK4 w - - 131 131
-	//ºÚÅÚ²»ÄÜ¶¯ÁË£®
+	//é»‘ç‚®ä¸èƒ½åŠ¨äº†ï¼Ž
 	if(your_shi_num == 2 && your_xiang_num >= 1 && PB90(MY_SQ04) == your_king){
 		if(IsOnSameSide(mpawn1,mpawn2) && StoY(mpawn1) MY_SMALL_EQL MY_RANK1
 			&& StoY(mpawn2) MY_SMALL_EQL MY_RANK1 && !IsOnSameSide(mpawn1,ypao)){
@@ -203,7 +203,7 @@ void my_m_MT_R_1pao2pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 		}
 		// fen C1Pa2c2/1P2ak3/9/9/9/2B6/9/4BAp2/4A4/3K5 w - - 0 1
 		if(your_shi_num == 2){
-			if(have_bit(bb_my_pawn,RankBB_A[MY_RANK0])){ // ÓÐÒ»¸öµ×±ø
+			if(have_bit(bb_my_pawn,RankBB_A[MY_RANK0])){ // æœ‰ä¸€ä¸ªåº•å…µ
 				Bitboard mp = m_and(bb_my_pawn,MyUpBB[MY_RANK2]);
 				if(!have_bit(mp,RightBB[0x3]) && PB90(MY_SQ05) == EMPTY){
 					if(StoX(ypao) >= 0x5 && StoX(yk) == 0x5 && StoY(yk) != MY_RANK0){
@@ -221,7 +221,7 @@ void my_m_MT_R_1pao2pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 4k4/3Pa3c/4b4/3P5/9/3C5/9/B2p5/4K4/9 w - - 0 1
 	if (your_shi_num >= 1 && your_xiang_num >= 1){
-		// ÕÒ³ö½»²æµãµÄ±ø¡£
+		// æ‰¾å‡ºäº¤å‰ç‚¹çš„å…µã€‚
 		Bitboard mpyp = m_and(ei.attacked_by(your_pao), bb_my_pawn);
 		while (m_have_bit(mpyp)){
 			Square mp = pop_1st_bit_sq(mpyp);
@@ -275,7 +275,7 @@ void my_m_MT_R_1pao2pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	if(EV_MY_SAFE){
 		if(your_shi_num == 2 && your_xiang_num >= 1){
 			if(StoY(mpao) MY_SMALL_EQL MY_RANK2 && PB90(XYtoS(StoX(yk),MY_RANK2)) != your_shi){
-				// ÓÐÒ»¸ö±øÔÚ2ÏßÒÔÏÂ£¬ÇÒ¶Ô·½µÄ½«ÄÜÏòÉÏÅÜ
+				// æœ‰ä¸€ä¸ªå…µåœ¨2çº¿ä»¥ä¸‹ï¼Œä¸”å¯¹æ–¹çš„å°†èƒ½å‘ä¸Šè·‘
 
 				if(StoY(ypawn) == MY_RANK6){
 					MY_EV_SUB(64);
@@ -412,7 +412,7 @@ void my_m_MT_R_1pao2pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
     if(EV_MY_SAFE){
 		if(your_shi_num == 2 && your_xiang_num >= 1 && StoY(yk) == MY_RANK0){
 			if(StoY(ypawn) == MY_RANK5 || StoY(ypawn) == MY_RANK4){
-				//ÖÐÏßÃ»ÓÐ¶þ¸ö±ø
+				//ä¸­çº¿æ²¡æœ‰äºŒä¸ªå…µ
 				if(have_bit(bb_my_pawn,m_or(LeftBB[0x3],RightBB[0x5]))){
 					RETRUN_MUL(8);
 				}				

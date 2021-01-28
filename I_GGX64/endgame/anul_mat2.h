@@ -1,12 +1,12 @@
 
-//********************************************* ¶þ¶ÔÎÞ********************
+//********************************************* äºŒå¯¹æ— ********************
 #undef my_m_MT_R_2pao_B_NO  	
 #undef my_m_MT_R_1PAO1ma_B_NO
 #undef my_m_MT_R_1PAO1PAWN_B_NO  
 #undef my_m_MT_R_1MA1PAWN_B_NO  
 #undef my_m_MT_R_2PAWN  
 
-//********************************************* ¶þ¶ÔÒ»********************
+//********************************************* äºŒå¯¹ä¸€********************
 #undef my_m_MT_R_2CHE_B_1CHE  
 #undef my_m_MT_R_1CHE1PAO_B_1CHE  
 #undef my_m_MT_R_1CHE1MA_B_1CHE  
@@ -35,10 +35,10 @@
 #undef my_m_MT_R_1MA1PAWN_B_1PAWN  
 #undef my_m_MT_R_2PAWN_B_1CHE  
 #undef my_m_MT_R_2pawn_B_1pao  
-#undef my_m_MT_R_2PAWN_B_1MA     //¶þ±ø¶ÔÒ»Âí
-#undef my_m_MT_R_2pawn_B_1pawn  	//¶þ±ø¶ÔÒ»Âí
-//********************************************* ¶þ¶Ô¶þ********************
-//#undef m_MT_2che_2che               //2³µ¶Ô2³µ
+#undef my_m_MT_R_2PAWN_B_1MA     //äºŒå…µå¯¹ä¸€é©¬
+#undef my_m_MT_R_2pawn_B_1pawn  	//äºŒå…µå¯¹ä¸€é©¬
+//********************************************* äºŒå¯¹äºŒ********************
+//#undef m_MT_2che_2che               //2è½¦å¯¹2è½¦
 #undef my_m_MT_R_2CHE_B_1CHE1PAO  
 #undef your_m_MT_R_2CHE_B_1CHE1PAO
 
@@ -77,7 +77,7 @@
 #undef my_m_MT_R_1pao1ma_B_1ma1pawn 
 #undef my_m_MT_R_2ma_B_1pao1pawn  
 #undef my_m_MT_R_2ma_B_1ma1pawn  
-#undef my_m_MT_R_1pao1pawn_B_1ma1pawn  	//ÅÚ±ø¶ÔÂí±ø
+#undef my_m_MT_R_1pao1pawn_B_1ma1pawn  	//ç‚®å…µå¯¹é©¬å…µ
 #undef my_m_MT_R_1pao1pawn_B_2pawn  
 #undef my_m_MT_R_1MA1PAWN_B_2PAWN  
 #undef m_MT_2pawn_TO_2pawn  

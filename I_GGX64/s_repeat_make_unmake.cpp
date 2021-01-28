@@ -129,7 +129,7 @@ void Position::repeat_unmake(){
 	pieceList[piece][index[to]] = from;
 	index[from] = index[to];
 
-	//if (capture)  // Èç¹ûÓĞ³Ô×ÓÁË. 
+	//if (capture)  // å¦‚æœæœ‰åƒå­äº†. 
 	//{
 	//	//Square capsq = to;
 
@@ -145,7 +145,7 @@ void Position::repeat_unmake(){
 	//	set_bit(byChessBB[COLOR_BY_SIDE_ADD[them]],to);
 	//	set_bit(byChessBB[capture],to);
 
-	//	b90[to] = capture;  // Õâ¸ö¼ÓÉÏ,°²È«Ğ©		
+	//	b90[to] = capture;  // è¿™ä¸ªåŠ ä¸Š,å®‰å…¨äº›		
 
 	//	// Update piece list, add a new captured piece in capsq square
 	//	pieceList[capture][pieceCount[capture]] = to;

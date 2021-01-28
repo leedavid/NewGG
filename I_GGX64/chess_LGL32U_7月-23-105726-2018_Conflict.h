@@ -3,7 +3,7 @@
 
 //#define USE_LOG_FILE
 #define USE_32KEY_HASH
-#define STORE_ALWAYS_CHECK                          // ±£´æ³£½«µÄ·ÖÊı
+#define STORE_ALWAYS_CHECK                          // ä¿å­˜å¸¸å°†çš„åˆ†æ•°
 
 #define MAX_CPUS                128                 // vary for increase 
 #define USE_I7_MACHINE                              // _mm_popcnt_u64
@@ -18,9 +18,9 @@
 #define DELEY_BEST_MOVE_TIME   880
 //////////////////////////////////////////////////////////////////////////
 
-//#define ĞÔÄÜÏòµ¼
+//#define æ€§èƒ½å‘å¯¼
 
-#ifndef ĞÔÄÜÏòµ¼
+#ifndef æ€§èƒ½å‘å¯¼
 
 #ifndef NDEBUG
 
@@ -35,7 +35,7 @@
 
 #endif
 
-#endif // ĞÔÄÜÏòµ¼
+#endif // æ€§èƒ½å‘å¯¼
 
 
 

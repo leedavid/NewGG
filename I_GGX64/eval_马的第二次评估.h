@@ -1,25 +1,25 @@
 
 	//***********************************************************
-	// ºìÂí ( µÚ¶ş´ÎÆÀ¹À )
+	// çº¢é©¬ ( ç¬¬äºŒæ¬¡è¯„ä¼° )
 	//***********************************************************
 	for(int i = 0; i < RMa_num(); i++){
 		int s = S90_from_piecelist(POSITION,RMA,i);
 		Bitboard A = ei.RmaAtt[i];
 
-		// 1. ¿´Ò»ÏÂÄÜ²»ÄÜÀİ½«
+		// 1. çœ‹ä¸€ä¸‹èƒ½ä¸èƒ½å’å°†
 		if(m128_is_have_bit(m_and(POSITION->DYN->white_pao_null,A))){
 			ei.attPoint[WHITECOLOR] += MaCanPaoNullCHeckPoint;
 			ei.kingAdjacentZoneAttacksCount[WHITECOLOR] ++;
-			set_bit(ei.attackKingBoard,s);                  // ×öÒ»¸ö±êÖ¾, Èç¹ûÂíÄÜÀİ½«,Ôò°ÑÂíÒ²¼ÓÈë½ø¹¥µÄÆå×Ó
+			set_bit(ei.attackKingBoard,s);                  // åšä¸€ä¸ªæ ‡å¿—, å¦‚æœé©¬èƒ½å’å°†,åˆ™æŠŠé©¬ä¹ŸåŠ å…¥è¿›æ”»çš„æ£‹å­
 		}
 
 		Bitboard ckatt = m_and(A,ei.attackKingMaCan[BLACKCOLOR]);
-		// 2. ¿´Ò»ÏÂÄÜ²»ÄÜÖ±½Ó½«
+		// 2. çœ‹ä¸€ä¸‹èƒ½ä¸èƒ½ç›´æ¥å°†
 		if(m128_is_have_bit(ckatt)){
 			ei.attPoint[WHITECOLOR] += MaCanCHeckPoint;
-			set_bit(ei.attackKingBoard,s);                  // ×öÒ»¸ö±êÖ¾
+			set_bit(ei.attackKingBoard,s);                  // åšä¸€ä¸ªæ ‡å¿—
 
-			// ¿´Ò»ÏÂÊÇ²»ÊÇ°²È«µÄ½«
+			// çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯å®‰å…¨çš„å°†
 			if(have_bit(white_safe,ckatt)){
 				ei.attPoint[WHITECOLOR] += MaSafeCheckBonus * count_1s(m_and(white_safe,ckatt));
 				ei.kingAdjacentZoneAttacksCount[WHITECOLOR] ++;
@@ -27,59 +27,59 @@
 		}
 
 
-		// 3. Âí¹¥»÷µ½¶Ô·½½«µÄ×ß²½
+		// 3. é©¬æ”»å‡»åˆ°å¯¹æ–¹å°†çš„èµ°æ­¥
 		if(m128_is_have_bit(m_and(A,KingAttackZone[bk]))){
 			set_bit(ei.attackKingBoard,s);  
 			Bitboard bb = m_and(A,one_bpawn_bk_attacks(bk));				
 			ei.kingAdjacentZoneAttacksCount[WHITECOLOR] += count_1s(bb);	
 		}
 
-		// ÏÂÃæÎªÁé»îĞÔÆÀ¼Û, 
-		A = m_and(A,Ma_Pseudo_Good_Att[s]);		  // ÂíµÄËùÓĞºÃ²½
-		A = _mm_andnot_si128(LowBB[0x7],A);                   // È¥ÁËÏÂÃæ¶ş²ã
-		A = _mm_andnot_si128(bitboard_occ_white,A);           // È¥ÁË×ÔÒÑµÄÆå¸ñ
+		// ä¸‹é¢ä¸ºçµæ´»æ€§è¯„ä»·, 
+		A = m_and(A,Ma_Pseudo_Good_Att[s]);		  // é©¬çš„æ‰€æœ‰å¥½æ­¥
+		A = _mm_andnot_si128(LowBB[0x7],A);                   // å»äº†ä¸‹é¢äºŒå±‚
+		A = _mm_andnot_si128(bitboard_occ_white,A);           // å»äº†è‡ªå·²çš„æ£‹æ ¼
 		B = A;
-		A = _mm_andnot_si128(POSITION->DYN->attack_black,A);  // È¥ÁË¶Ô·½µÄ¹¥»÷Æå¸ñ
+		A = _mm_andnot_si128(POSITION->DYN->attack_black,A);  // å»äº†å¯¹æ–¹çš„æ”»å‡»æ£‹æ ¼
 
 		int mob = count_1s(A);
 		valu += Point_MaMob(MaMoveAddNoProtect[mob]);
 
-		if(mob == 0){ // ÂíÃ»ÓĞºÃ²½ÁË
-			if(m128_is_have_bit(B)){  // Ô­À´ÓĞºÃ²½
+		if(mob == 0){ // é©¬æ²¡æœ‰å¥½æ­¥äº†
+			if(m128_is_have_bit(B)){  // åŸæ¥æœ‰å¥½æ­¥
 				if(m128_is_have_bit(_mm_andnot_si128(ei.BpawnAtt,B)) == FALSE){
-					valu -= point(32,48); // µ«ÏÖÔÚ¸ø±ø¿ØÖÆÁË,Ã»ÓĞºÃ²½ÁË
+					valu -= point(32,48); // ä½†ç°åœ¨ç»™å…µæ§åˆ¶äº†,æ²¡æœ‰å¥½æ­¥äº†
 				}
 			}
 		}
 	}
 	//***********************************************************
-	// ºÚÂí ( µÚ¶ş´ÎÆÀ¹À )
+	// é»‘é©¬ ( ç¬¬äºŒæ¬¡è¯„ä¼° )
 	//***********************************************************
 	for(int i = 0; i < BMa_num(); i++){
 		int s = S90_from_piecelist(POSITION,BMA,i);
 		Bitboard A = ei.BmaAtt[i];
 
-		// 1. ¿´Ò»ÏÂÄÜ²»ÄÜÀİ½«
+		// 1. çœ‹ä¸€ä¸‹èƒ½ä¸èƒ½å’å°†
 		if(m128_is_have_bit(m_and(POSITION->DYN->black_pao_null,A))){
 			ei.attPoint[BLACKCOLOR] += MaCanPaoNullCHeckPoint;
 			ei.kingAdjacentZoneAttacksCount[WHITECOLOR] ++;
-			set_bit(ei.attackKingBoard,s);                  // ×öÒ»¸ö±êÖ¾, Èç¹ûÂíÄÜÀİ½«,Ôò°ÑÂíÒ²¼ÓÈë½ø¹¥µÄÆå×Ó
+			set_bit(ei.attackKingBoard,s);                  // åšä¸€ä¸ªæ ‡å¿—, å¦‚æœé©¬èƒ½å’å°†,åˆ™æŠŠé©¬ä¹ŸåŠ å…¥è¿›æ”»çš„æ£‹å­
 		}
 
 		Bitboard ckatt = m_and(A,ei.attackKingMaCan[WHITECOLOR]);
-		// 2. ¿´Ò»ÏÂÄÜ²»ÄÜÖ±½Ó½«
+		// 2. çœ‹ä¸€ä¸‹èƒ½ä¸èƒ½ç›´æ¥å°†
 		if(m128_is_have_bit(ckatt)){
 			ei.attPoint[BLACKCOLOR] += MaCanCHeckPoint;
-			set_bit(ei.attackKingBoard,s);                  // ×öÒ»¸ö±êÖ¾
+			set_bit(ei.attackKingBoard,s);                  // åšä¸€ä¸ªæ ‡å¿—
 
-			// ¿´Ò»ÏÂÊÇ²»ÊÇ°²È«µÄ½«
+			// çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯å®‰å…¨çš„å°†
 			if(have_bit(black_safe,ckatt)){
 				ei.attPoint[BLACKCOLOR] += MaSafeCheckBonus * count_1s(m_and(black_safe,ckatt));
 				ei.kingAdjacentZoneAttacksCount[BLACKCOLOR] ++;
 			}
 		}
 
-		// 3. Âí¹¥»÷µ½¶Ô·½½«µÄ×ß²½
+		// 3. é©¬æ”»å‡»åˆ°å¯¹æ–¹å°†çš„èµ°æ­¥
 		if(m128_is_have_bit(m_and(A,KingAttackZone[rk]))){
 			set_bit(ei.attackKingBoard,s);  
 			Bitboard bb = m_and(A,one_rpawn_rk_attacks(rk));				
@@ -89,17 +89,17 @@
 
 		A = m_and(A,Ma_Pseudo_Good_Att[s]);		
 		A = _mm_andnot_si128(UpBB[0x2],A);   //A = _mm_andnot_si128(RankBB_A[0x0],A);
-		A = _mm_andnot_si128(bitboard_occ_black,A);           // È¥ÁË×ÔÒÑÈËµÄÆå¸ñ
+		A = _mm_andnot_si128(bitboard_occ_black,A);           // å»äº†è‡ªå·²äººçš„æ£‹æ ¼
 		B = A;
 		A = _mm_andnot_si128(POSITION->DYN->attack_white,A);  //
 
 		int mob = count_1s(A);
 		valu -= Point_MaMob(MaMoveAddNoProtect[mob]);
 
-		if(mob == 0){ // ÂíÃ»ÓĞºÃ²½ÁË POSITION->DYN->white_xray
-			if(m128_is_have_bit(B)){  // Ô­À´ÓĞºÃ²½
+		if(mob == 0){ // é©¬æ²¡æœ‰å¥½æ­¥äº† POSITION->DYN->white_xray
+			if(m128_is_have_bit(B)){  // åŸæ¥æœ‰å¥½æ­¥
 				if(m128_is_have_bit(_mm_andnot_si128(ei.RpawnAtt,B)) == FALSE){
-					valu += point(32,48); // µ«ÏÖÔÚ¸ø±ø¿ØÖÆÁË,Ã»ÓĞºÃ²½ÁË
+					valu += point(32,48); // ä½†ç°åœ¨ç»™å…µæ§åˆ¶äº†,æ²¡æœ‰å¥½æ­¥äº†
 				}
 			}// fen 1c2kab2/4a1n2/b8/p2P2p1p/9/2P3P2/P1R6/3A1A3/3N5/c1BnK4 w - - 39 39
 		}
@@ -107,16 +107,16 @@
 	
 	
     //// ***********************************************************
-	//// ÎÑĞÄÂíµÄÆÀ¹À.   board_display(board,"³µ ÎÑĞÄÂí!!",stdout);
+	//// çªå¿ƒé©¬çš„è¯„ä¼°.   board_display(board,"è½¦ çªå¿ƒé©¬!!",stdout);
 	////*********************************************************** 
-	//if(ei.ev_stat & EV_STAT_Rwoxin_By_B){   // ºì·½±»ÎÑĞÄÂí
+	//if(ei.ev_stat & EV_STAT_Rwoxin_By_B){   // çº¢æ–¹è¢«çªå¿ƒé©¬
 	//	ei.Battack_R_Count += Wo_Xing_Ma_att_point; // 
 	//    valu -= point(64,512);
 	//}
 
-	//if(ei.ev_stat & EV_STAT_Bwoxin_By_R){   // ºÚ·½±»ÎÑĞÄÂí
+	//if(ei.ev_stat & EV_STAT_Bwoxin_By_R){   // é»‘æ–¹è¢«çªå¿ƒé©¬
 	//	ei.Rattack_B_Count += Wo_Xing_Ma_att_point; // 
 	//	 valu += point(64,512);
 	//}
 	//fen 3a3CC/4k4/bc3ac2/1R6p/6b2/2P2p3/P3r3P/9/4N4/3AKA3 w - - 16 16
-	//¼ÓÉÏÅÚµÄ¿ÉÄÜ½«¾ü·Ö£¬
+	//åŠ ä¸Šç‚®çš„å¯èƒ½å°†å†›åˆ†ï¼Œ

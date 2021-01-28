@@ -36,55 +36,55 @@ void ma_to_king_att_by_block(Bitboard* result, int sq, Bitboard block){
 
 	*result = _mm_setzero_si128();
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÉÏ×ó
+	//é©¬çš„8ä¸ªæ–¹å‘,1,ä¸Šå·¦
 	if(rk >= 2 && fl >= 1){
 		if(bit_is_set(block,XYtoS(fl,rk-1)) == 0){
 			set_bit(*result,XYtoS(fl-1,rk-2));
 		}
 	}
-	//ÂíµÄ8¸ö·½Ïò,1,ÉÏÓÒ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,ä¸Šå³
 	if(rk >= 2 && fl <= 7){
 		if(bit_is_set(block,XYtoS(fl,rk-1)) == 0){
 			set_bit(*result,XYtoS(fl+1,rk-2));
 		}
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÓÒÉÏ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,å³ä¸Š
 	if(rk >= 1 && fl <= 6){
 		if(bit_is_set(block,XYtoS(fl+1,rk)) == 0){
 			set_bit(*result,XYtoS(fl+2,rk-1));
 		}
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÓÒÏÂ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,å³ä¸‹
 	if(rk <= 8 && fl <= 6){
 		if(bit_is_set(block,XYtoS(fl+1,rk)) == 0){
 			set_bit(*result,XYtoS(fl+2,rk+1));
 		}
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÏÂÓÒ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,ä¸‹å³
 	if(rk <= 7 && fl <= 7){
 		if(bit_is_set(block,XYtoS(fl,rk+1)) == 0){
 			set_bit(*result,XYtoS(fl+1,rk+2));
 		}
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÏÂ×ó
+	//é©¬çš„8ä¸ªæ–¹å‘,1,ä¸‹å·¦
 	if(rk <= 7 && fl >= 1){
 		if(bit_is_set(block,XYtoS(fl,rk+1)) == 0){
 			set_bit(*result,XYtoS(fl-1,rk+2));
 		}
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,×óÏÂ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,å·¦ä¸‹
 	if(rk <= 8 && fl >= 2){
 		if(bit_is_set(block,XYtoS(fl-1,rk)) == 0){
 			set_bit(*result,XYtoS(fl-2,rk+1));
 		}
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,×óÉÏ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,å·¦ä¸Š
 	if(rk >= 1 && fl >= 2){
 		if(bit_is_set(block,XYtoS(fl-1,rk)) == 0){
 			set_bit(*result,XYtoS(fl-2,rk-1));
@@ -99,55 +99,55 @@ void king_to_ma_att_by_block(Bitboard* result, int sq, Bitboard block){
 
 	*result = _mm_setzero_si128();
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÉÏ×ó
+	//é©¬çš„8ä¸ªæ–¹å‘,1,ä¸Šå·¦
 	if(rk >= 2 && fl >= 1){
 		if(bit_is_set(block,XYtoS(fl-1,rk-1)) == 0){
 			set_bit(*result,XYtoS(fl-1,rk-2));
 		}
 	}
-	//ÂíµÄ8¸ö·½Ïò,1,ÉÏÓÒ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,ä¸Šå³
 	if(rk >= 2 && fl <= 7){
 		if(bit_is_set(block,XYtoS(fl+1,rk-1)) == 0){
 			set_bit(*result,XYtoS(fl+1,rk-2));
 		}
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÓÒÉÏ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,å³ä¸Š
 	if(rk >= 1 && fl <= 6){
 		if(bit_is_set(block,XYtoS(fl+1,rk-1)) == 0){
 			set_bit(*result,XYtoS(fl+2,rk-1));
 		}
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÓÒÏÂ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,å³ä¸‹
 	if(rk <= 8 && fl <= 6){
 		if(bit_is_set(block,XYtoS(fl+1,rk+1)) == 0){
 			set_bit(*result,XYtoS(fl+2,rk+1));
 		}
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÏÂÓÒ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,ä¸‹å³
 	if(rk <= 7 && fl <= 7){
 		if(bit_is_set(block,XYtoS(fl+1,rk+1)) == 0){
 			set_bit(*result,XYtoS(fl+1,rk+2));
 		}
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,ÏÂ×ó
+	//é©¬çš„8ä¸ªæ–¹å‘,1,ä¸‹å·¦
 	if(rk <= 7 && fl >= 1){
 		if(bit_is_set(block,XYtoS(fl-1,rk+1)) == 0){
 			set_bit(*result,XYtoS(fl-1,rk+2));
 		}
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,×óÏÂ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,å·¦ä¸‹
 	if(rk <= 8 && fl >= 2){
 		if(bit_is_set(block,XYtoS(fl-1,rk+1)) == 0){
 			set_bit(*result,XYtoS(fl-2,rk+1));
 		}
 	}
 
-	//ÂíµÄ8¸ö·½Ïò,1,×óÉÏ
+	//é©¬çš„8ä¸ªæ–¹å‘,1,å·¦ä¸Š
 	if(rk >= 1 && fl >= 2){
 		if(bit_is_set(block,XYtoS(fl-1,rk-1)) == 0){
 			set_bit(*result,XYtoS(fl-2,rk-1));
@@ -307,19 +307,19 @@ void pao_eat_by_block_f(Bitboard* result, int sq,Bitboard block){
 	//int fl = StoX(sq);
 
 
-	//ÏòÏÂ
+	//å‘ä¸‹
 	pao = 0;
 	for(r = rk+1; r <= 9; r++){
 
 		if(pao == 1){
-			set_bit(*result,XYtoS(fl,r)); //³Ô×Ó  
+			set_bit(*result,XYtoS(fl,r)); //åƒå­  
 		}
 
 		if(bit_is_set(block,XYtoS(fl,r))){
 			pao++;
 		};
 		if(pao == 2){
-			//Õâ¶ùÒª°ÑÇ°ÃæµÄ¼¸Î»Çå³ıÁË
+			//è¿™å„¿è¦æŠŠå‰é¢çš„å‡ ä½æ¸…é™¤äº†
 			//for(int a = r - 1; a > rk; a--){
 			//	clear_bit(result,XYtoS(fl,a));
 			//}
@@ -327,18 +327,18 @@ void pao_eat_by_block_f(Bitboard* result, int sq,Bitboard block){
 		}
 	}
 
-	//ÏòÉÏ
+	//å‘ä¸Š
 	pao = 0;
 	for(r = rk-1; r >= 0; r--){
 		if(pao == 1){
-			set_bit(*result,XYtoS(fl,r)); //³Ô×Ó  
+			set_bit(*result,XYtoS(fl,r)); //åƒå­  
 		}
 
 		if(bit_is_set(block,XYtoS(fl,r))){
 			pao++;
 		};
 		if(pao == 2){
-			//Õâ¶ùÒª°ÑÇ°ÃæµÄ¼¸Î»Çå³ıÁË
+			//è¿™å„¿è¦æŠŠå‰é¢çš„å‡ ä½æ¸…é™¤äº†
 			//for(int a = r + 1; a < rk; a++){
 			//	clear_bit(result,XYtoS(fl,a));
 			//}
@@ -362,39 +362,39 @@ void pao_eat_by_block_r(Bitboard* result, int sq,Bitboard block){
 
 
 	int f;
-	//ÏòÓÒ
+	//å‘å³
 	int pao = 0;
 
 	*result = _mm_setzero_si128();
 	for(f = fl+1; f <= 8; f++){
 
 		if(pao == 1){
-			set_bit(*result,XYtoS(f,rk)); //³Ô×Ó  
+			set_bit(*result,XYtoS(f,rk)); //åƒå­  
 		}
 
 		if(bit_is_set(block,XYtoS(f,rk))){
 			pao++;
 		};
 		if(pao == 2){
-			//Õâ¶ùÒª°ÑÇ°ÃæµÄ¼¸Î»Çå³ıÁË	
+			//è¿™å„¿è¦æŠŠå‰é¢çš„å‡ ä½æ¸…é™¤äº†	
 			//for(int a = f - 1; a > fl; a--){
 			//	clear_bit(result,XYtoS(a,rk));
 			//}			
 			break;
 		}
 	}
-	//Ïò×ó
+	//å‘å·¦
 	pao = 0;
 	for(f = fl-1; f >= 0; f--){
 		if(pao == 1){
-			set_bit(*result,XYtoS(f,rk)); //³Ô×Ó  
+			set_bit(*result,XYtoS(f,rk)); //åƒå­  
 		}
 
 		if(bit_is_set(block,XYtoS(f,rk))){
 			pao++;
 		};
 		if(pao == 2){
-			//Õâ¶ùÒª°ÑÇ°ÃæµÄ¼¸Î»Çå³ıÁË	
+			//è¿™å„¿è¦æŠŠå‰é¢çš„å‡ ä½æ¸…é™¤äº†	
 			//for(int a = f + 1; a < fl; a++){
 			//	clear_bit(result,XYtoS(a,rk));
 			//}
@@ -415,7 +415,7 @@ void pao_super_by_block_f(Bitboard* result, int sq,Bitboard block){
 	int fl = StoX(sq);
 
 
-	//ÏòÏÂ
+	//å‘ä¸‹
 	int pao = 0;
 
 	int r;
@@ -425,14 +425,14 @@ void pao_super_by_block_f(Bitboard* result, int sq,Bitboard block){
 	for(r = rk+1; r <= 9; r++){
 
 		if(pao == 2){
-			set_bit(*result,XYtoS(fl,r)); //³Ô×Ó  
+			set_bit(*result,XYtoS(fl,r)); //åƒå­  
 		}
 
 		if(bit_is_set(block,XYtoS(fl,r))){
 			pao++;
 		};
 		if(pao == 3){
-			//Õâ¶ùÒª°ÑÇ°ÃæµÄ¼¸Î»Çå³ıÁË
+			//è¿™å„¿è¦æŠŠå‰é¢çš„å‡ ä½æ¸…é™¤äº†
 			//for(int a = r - 1; a > rk; a--){
 			//	clear_bit(result,XYtoS(fl,a));
 			//}
@@ -441,19 +441,19 @@ void pao_super_by_block_f(Bitboard* result, int sq,Bitboard block){
 		}
 	}
 
-	//ÏòÉÏ
+	//å‘ä¸Š
 	pao = 0;
 	for(r = rk-1; r >= 0; r--){
 
 		if(pao == 2){
-			set_bit(*result,XYtoS(fl,r)); //³Ô×Ó  
+			set_bit(*result,XYtoS(fl,r)); //åƒå­  
 		}
 
 		if(bit_is_set(block,XYtoS(fl,r))){
 			pao++;
 		};
 		if(pao == 3){
-			//Õâ¶ùÒª°ÑÇ°ÃæµÄ¼¸Î»Çå³ıÁË
+			//è¿™å„¿è¦æŠŠå‰é¢çš„å‡ ä½æ¸…é™¤äº†
 			//for(int a = r + 1; a < rk; a++){
 			//	clear_bit(result,XYtoS(fl,a));
 			//}
@@ -472,14 +472,14 @@ void pao_super_by_block_r(Bitboard* result, int sq,Bitboard block){
 
 
 
-	//ÏòÓÒ
+	//å‘å³
 	int pao = 0;
 
 	*result = _mm_setzero_si128();
 	for(f = fl+1; f <= 8; f++){
 
 		if(pao == 2){
-			set_bit(*result,XYtoS(f,rk)); //³Ô×Ó  
+			set_bit(*result,XYtoS(f,rk)); //åƒå­  
 		}
 
 		if(bit_is_set(block,XYtoS(f,rk))){
@@ -487,7 +487,7 @@ void pao_super_by_block_r(Bitboard* result, int sq,Bitboard block){
 		};
 		if(pao == 3){
 
-			//Õâ¶ùÒª°ÑÇ°ÃæµÄ¼¸Î»Çå³ıÁË
+			//è¿™å„¿è¦æŠŠå‰é¢çš„å‡ ä½æ¸…é™¤äº†
 			//for(int a = f - 1; a > fl; a--){
 			//	clear_bit(result,XYtoS(a,rk));
 			//}
@@ -495,11 +495,11 @@ void pao_super_by_block_r(Bitboard* result, int sq,Bitboard block){
 			break;
 		}
 	}
-	//Ïò×ó
+	//å‘å·¦
 	pao = 0;
 	for(f = fl-1; f >= 0; f--){
 		if(pao == 2){
-			set_bit(*result,XYtoS(f,rk)); //³Ô×Ó  
+			set_bit(*result,XYtoS(f,rk)); //åƒå­  
 		}
 
 		if(bit_is_set(block,XYtoS(f,rk))){
@@ -507,7 +507,7 @@ void pao_super_by_block_r(Bitboard* result, int sq,Bitboard block){
 		};
 		if(pao == 3){
 
-			//Õâ¶ùÒª°ÑÇ°ÃæµÄ¼¸Î»Çå³ıÁË
+			//è¿™å„¿è¦æŠŠå‰é¢çš„å‡ ä½æ¸…é™¤äº†
 			//for(int a = f + 1; a < fl; a++){
 			//	clear_bit(result,XYtoS(a,rk));
 			//}
@@ -530,12 +530,12 @@ void che_att_by_block_r(Bitboard* result, int sq,Bitboard block){
 
 	*result = _mm_setzero_si128();
 
-	//ÏòÓÒ
+	//å‘å³
 	for(f = fl+1; f <= 8; f++){
 		set_bit(*result,XYtoS(f,rk));
 		if(bit_is_set(block,XYtoS(f,rk))) break;
 	}
-	//Ïò×ó
+	//å‘å·¦
 	for(f = fl-1; f >= 0; f--){
 		set_bit(*result,XYtoS(f,rk));
 		if(bit_is_set(block,XYtoS(f,rk))) break;
@@ -548,12 +548,12 @@ void che_att_by_block_f(Bitboard* result, int sq,Bitboard block){
 	int fl = StoX(sq);
 	int r;
 	*result = _mm_setzero_si128();
-	//ÏòÉÏ
+	//å‘ä¸Š
 	for(r = rk+1; r <= 9; r++){
 		set_bit(*result,XYtoS(fl,r));
 		if(bit_is_set(block,XYtoS(fl,r))) break;
 	}
-	//ÏòÏÂ
+	//å‘ä¸‹
 	for(r = rk-1; r >= 0; r--){
 		set_bit(*result,XYtoS(fl,r));
 		if(bit_is_set(block,XYtoS(fl,r))) break;
@@ -564,7 +564,7 @@ void index_to_Bitboard(Bitboard* result, int index, int bits, Bitboard mask){
 	int i,j;
 	*result = _mm_setzero_si128();      //print_bb(mask);
 	for(i = 0; i < bits; i++){
-		j = pop_1st_bit_sq(mask);   // Õâ¶ùÓĞ´í
+		j = pop_1st_bit_sq(mask);   // è¿™å„¿æœ‰é”™
 		if(index & (1 << i)){
 			set_bit(*result,j);
 		}
@@ -583,10 +583,10 @@ Bitboard used[MAX_ARR];
 #define NO_CAN_ATT_MUL -1
 
 
-//ÕÒµ½ÅÚµÄ×óÓÒ¹¥»÷²½
+//æ‰¾åˆ°ç‚®çš„å·¦å³æ”»å‡»æ­¥
 void find_pao_eat_magic_r(uint64* BB_magic, int sq, int m){
 	Bitboard mask = m_and(RankBB_A[StoY(sq)],Che_Mask_FR[sq]);
-	int n = (int)count_1s(mask);  //µÃµ½maskµÄÎ»Êı
+	int n = (int)count_1s(mask);  //å¾—åˆ°maskçš„ä½æ•°
 	int fail;
 	int i,j;
 	uint64 k;
@@ -624,13 +624,13 @@ void find_pao_eat_magic_r(uint64* BB_magic, int sq, int m){
 		}
 	}
 	//not find
-	*BB_magic = 0; //»¹ÊÇÇåÒ»ÏÂ0
+	*BB_magic = 0; //è¿˜æ˜¯æ¸…ä¸€ä¸‹0
 	printf_s("\n <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>ERR not find sq= %d", sq);
 }
-//ÕÒµ½ÅÚµÄ¹¥»÷²½
+//æ‰¾åˆ°ç‚®çš„æ”»å‡»æ­¥
 void find_pao_eat_magic_f(uint64* BB_magic, int sq, int m){
 	Bitboard mask = m_and(Che_Mask_FR[sq],FileBB_A[StoX(sq)]);
-	int n = (int)count_1s(mask);  //µÃµ½maskµÄÎ»Êı
+	int n = (int)count_1s(mask);  //å¾—åˆ°maskçš„ä½æ•°
 	int fail;
 	int i,j;
 	uint64 k;
@@ -642,7 +642,7 @@ void find_pao_eat_magic_f(uint64* BB_magic, int sq, int m){
 		pao_eat_by_block_f(&a[i],sq,b[i]);  // a[i] = bishop? batt(sq, b[i]) : ratt(sq, b[i]);
 	}
 	for(k = 0; k < testchenum; k++) {
-		if((k & 0xffffff) == 0){ //¼ÆÊı
+		if((k & 0xffffff) == 0){ //è®¡æ•°
 			printf_s("\n >>now PAO Eat SQ=%d, %.16I64X, remain: %.16I64X total k = %.16I64X,\n",sq,k, testchenum - k, testchenum);
 		}
 		*BB_magic = random_uint64_fewbits();
@@ -668,13 +668,13 @@ void find_pao_eat_magic_f(uint64* BB_magic, int sq, int m){
 		}
 	}
 	//not find
-	*BB_magic = 0; //»¹ÊÇÇåÒ»ÏÂ0
+	*BB_magic = 0; //è¿˜æ˜¯æ¸…ä¸€ä¸‹0
 	printf_s("\n <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>ERR not find sq= %d", sq);
 }
 
 void find_pao_super_magic_f(uint64* BB_magic, int sq, int m){
 	Bitboard mask = m_and(Che_Mask_FR[sq],FileBB_A[StoX(sq)]);
-	int n = (int)count_1s(mask);  //µÃµ½maskµÄÎ»Êı
+	int n = (int)count_1s(mask);  //å¾—åˆ°maskçš„ä½æ•°
 	int fail;
 	int i,j;
 	uint64 k;
@@ -712,13 +712,13 @@ void find_pao_super_magic_f(uint64* BB_magic, int sq, int m){
 		}
 	}
 	//not find
-	*BB_magic = 0; //»¹ÊÇÇåÒ»ÏÂ0
+	*BB_magic = 0; //è¿˜æ˜¯æ¸…ä¸€ä¸‹0
 	printf_s("\n <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>ERR not find sq= %d", sq);
 }
 
 void find_pao_super_magic_r(uint64* BB_magic, int sq, int m){
 	Bitboard mask = m_and(Che_Mask_FR[sq],RankBB_A[StoY(sq)]);
-	int n = (int)count_1s(mask);  //µÃµ½maskµÄÎ»Êı
+	int n = (int)count_1s(mask);  //å¾—åˆ°maskçš„ä½æ•°
 	int fail;
 	int i,j;
 	uint64 k;
@@ -756,11 +756,11 @@ void find_pao_super_magic_r(uint64* BB_magic, int sq, int m){
 		}
 	}
 	//not find
-	*BB_magic = 0; //»¹ÊÇÇåÒ»ÏÂ0 RankBB_A[StoY(sq)]);
+	*BB_magic = 0; //è¿˜æ˜¯æ¸…ä¸€ä¸‹0 RankBB_A[StoY(sq)]);
 	printf_s("\n <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>ERR not find sq= %d", sq);
 }
 
-//ÕÒµ½Ó°ÏìµÚÒ»Î»µÄmagicÊı×Ö >>57Î»
+//æ‰¾åˆ°å½±å“ç¬¬ä¸€ä½çš„magicæ•°å­— >>57ä½
 void find_ma_magic(uint64* BB_magic, int sq, int m){ //BB_Get_90bitOnly
 	Bitboard mask = Ma_to_King_Mask[sq];
 	int n = (int)count_1s(mask);
@@ -780,7 +780,7 @@ void find_ma_magic(uint64* BB_magic, int sq, int m){ //BB_Get_90bitOnly
 		if((k & 0xffffff) == 0){
 			printf_s("\n >>now MaKing SQ=%d, %.16I64X, remain: %.16I64X total k = %.16I64X,\n",sq,k, testchenum - k, testchenum);
 		}
-		//µÃµ½
+		//å¾—åˆ°
 		*BB_magic = random_uint64_fewbits();
 		t64 = get_transfrom_u64(mask,*BB_magic);
 		if(_mm_popcnt_u64(t64 & 0xFF80000000000000ULL ) < 8){
@@ -805,7 +805,7 @@ void find_ma_magic(uint64* BB_magic, int sq, int m){ //BB_Get_90bitOnly
 		}
 	}
 	//not find
-	*BB_magic = 0; //»¹ÊÇÇåÒ»ÏÂ0
+	*BB_magic = 0; //è¿˜æ˜¯æ¸…ä¸€ä¸‹0
 	printf_s("\n <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>ERR not find sq= %d", sq);
 }
 
@@ -826,7 +826,7 @@ void find_king_to_ma_magic(uint64* BB_magic, int sq, int m){ //BB_Get_90bitOnly
 		if((k & 0xffffff) == 0){
 			printf_s("\n >>now KingMa SQ=%d, %.16I64X, remain: %.16I64X total k = %.16I64X,\n",sq,k, testchenum - k, testchenum);
 		}
-		//µÃµ½
+		//å¾—åˆ°
 		*BB_magic = random_uint64_fewbits();
 		t64 = get_transfrom_u64(mask,*BB_magic);
 		if(_mm_popcnt_u64(t64 & 0xFF80000000000000ULL ) < 8){
@@ -848,13 +848,13 @@ void find_king_to_ma_magic(uint64* BB_magic, int sq, int m){ //BB_Get_90bitOnly
 		}
 	}
 	//not find
-	*BB_magic = 0; //»¹ÊÇÇåÒ»ÏÂ0
+	*BB_magic = 0; //è¿˜æ˜¯æ¸…ä¸€ä¸‹0
 	printf_s("\n <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>ERR not find sq= %d", sq);
 }
 
 void find_xiang_magic(uint64* BB_magic, int sq, int m){ //BB_Get_90bitOnly
 	Bitboard mask = XiangMask[sq];	
-	int n = (int)count_1s(mask);  //µÃµ½maskµÄÎ»Êı6
+	int n = (int)count_1s(mask);  //å¾—åˆ°maskçš„ä½æ•°6
 	uint64 t64;
 	const uint64 testchenum = 100000000000000;
 	int fail;
@@ -869,7 +869,7 @@ void find_xiang_magic(uint64* BB_magic, int sq, int m){ //BB_Get_90bitOnly
 		if((k & 0xffffff) == 0){
 			printf_s("\n >>now Xiang SQ=%d, %.16I64X, remain: %.16I64X total k = %.16I64X,\n",sq,k, testchenum - k, testchenum);
 		}
-		//µÃµ½
+		//å¾—åˆ°
 		*BB_magic = random_uint64_fewbits();
 		t64 = get_transfrom_u64(mask,*BB_magic);
 		if(_mm_popcnt_u64(t64 & 0xFF00000000000000ULL ) < 5){
@@ -893,7 +893,7 @@ void find_xiang_magic(uint64* BB_magic, int sq, int m){ //BB_Get_90bitOnly
 		}
 	}
 	//not find
-	*BB_magic = 0; //»¹ÊÇÇåÒ»ÏÂ0
+	*BB_magic = 0; //è¿˜æ˜¯æ¸…ä¸€ä¸‹0
 	printf_s("\n <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>ERR not find sq= %d", sq);
 }
 
@@ -914,16 +914,16 @@ void find_che_magic_f(uint64* BB_magic, int sq, int m) {
 		if((k & 0xfffff) == 0){
 			printf_s("\n >>now CHE SQ=%d, %.16I64X, remain: %.16I64X total k = %.16I64X,\n",sq,k, testchenum - k, testchenum);
 		}
-		//µÃµ½
+		//å¾—åˆ°
 		*BB_magic = random_uint64_fewbits();
 		t64 = get_transfrom_u64(mask,*BB_magic);
 		if(_mm_popcnt_u64(t64 & 0xFF80000000000000ULL ) < 8){
-			continue;  // ÔÙÖØËãÏÂÒ»¸ö magic64
+			continue;  // å†é‡ç®—ä¸‹ä¸€ä¸ª magic64
 		}
 		for(i = 0; i < MAX_ARR; i++){			
 			m128_from_2u64(used[i],NO_CAN_ATT_MUL,NO_CAN_ATT_MUL);
 		}
-		// Ğ£ÑéÕâ¸öÊı¾İ.
+		// æ ¡éªŒè¿™ä¸ªæ•°æ®.
 		for(i = 0, fail = 0; !fail && i < (1 << n); i++) {
 			j = transform_mul(b[i],*BB_magic,m);
 			if(used[j].m128i_u64[0] == NO_CAN_ATT_MUL && used[j].m128i_u64[1] == NO_CAN_ATT_MUL){
@@ -939,7 +939,7 @@ void find_che_magic_f(uint64* BB_magic, int sq, int m) {
 		}
 	}
 	//not find
-	*BB_magic = 0; //»¹ÊÇÇåÒ»ÏÂ0
+	*BB_magic = 0; //è¿˜æ˜¯æ¸…ä¸€ä¸‹0
 	printf_s("\n <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>ERR not find sq= %d", sq);
 }
 
@@ -960,7 +960,7 @@ void find_che_magic_r(uint64* BB_magic, int sq, int m){
 		if((k & 0xfffff) == 0){
 			printf_s("\n >>now CHE SQ=%d, %.16I64X, remain: %.16I64X total k = %.16I64X,\n",sq,k, testchenum - k, testchenum);
 		}
-		//µÃµ½
+		//å¾—åˆ°
 		*BB_magic = random_uint64_fewbits();
 		t64 = get_transfrom_u64(mask,*BB_magic);
 		if(_mm_popcnt_u64(t64 & 0xFFC0000000000000ULL ) < 8){
@@ -984,7 +984,7 @@ void find_che_magic_r(uint64* BB_magic, int sq, int m){
 		}
 	}
 	//not find
-	*BB_magic = 0; //»¹ÊÇÇåÒ»ÏÂ0
+	*BB_magic = 0; //è¿˜æ˜¯æ¸…ä¸€ä¸‹0
 	printf_s("\n <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>ERR not find sq= %d", sq);
 }
 
@@ -995,13 +995,13 @@ void find_mul(bool isZero){
 	int sq;
 	PMul = (uint64*)CHE_Mult_R;
 	//goto findma;
-	//ÕÒµ½³µµÄÄ§ÊõÊı×Ö
+	//æ‰¾åˆ°è½¦çš„é­”æœ¯æ•°å­—
 	for(sq = 0; sq < 90; sq++){
 		if(isZero){
 			PMul[sq] = 0;
 		}
 		if(PMul[sq] == 0){
-			find_che_magic_r(&PMul[sq], sq, 7);    // Rank ×î¶à 7
+			find_che_magic_r(&PMul[sq], sq, 7);    // Rank æœ€å¤š 7
 			if(PMul[sq] != 0){
 				find++;
 			}
@@ -1013,7 +1013,7 @@ void find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	fprintf_s(llog_file,"\n che rank array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	fprintf_s(llog_file,"\n che rank array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(llog_file,"0x%.16I64X,",PMul[sq]);
 		//fprintf_s(llog_file,"0x%.16I64X,",PMul[sq]);
@@ -1024,13 +1024,13 @@ void find_mul(bool isZero){
 	//----------------------------------------------------------------------------
 	PMul = (uint64*)CHE_Mult_F;
 	find = 0;
-	//ÕÒµ½³µµÄÄ§ÊõÊı×Ö
+	//æ‰¾åˆ°è½¦çš„é­”æœ¯æ•°å­—
 	for(sq = 0; sq < 90; sq++){
 		if(isZero){
 			PMul[sq] = 0;
 		}
 		if(PMul[sq] == 0){
-			find_che_magic_f(&PMul[sq], sq, 8);    // Rank ×î¶à 7
+			find_che_magic_f(&PMul[sq], sq, 8);    // Rank æœ€å¤š 7
 			if(PMul[sq] != 0){
 				find++;
 			}
@@ -1041,8 +1041,8 @@ void find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(llog_file,"\n che file array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(llog_file,"\n che file array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(llog_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(llog_file,"\n");
@@ -1057,7 +1057,7 @@ void find_mul(bool isZero){
 			PMul[sq] = 0;
 		}
 		if(PMul[sq] == 0){
-			find_pao_eat_magic_r(&PMul[sq], sq, 7);  //R×î¶à7
+			find_pao_eat_magic_r(&PMul[sq], sq, 7);  //Ræœ€å¤š7
 			if(PMul[sq] != 0){
 				find++;
 			}
@@ -1068,8 +1068,8 @@ void find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(llog_file,"\n pao eat rank array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(llog_file,"\n pao eat rank array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(llog_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(llog_file,"\n");
@@ -1084,7 +1084,7 @@ void find_mul(bool isZero){
 			PMul[sq] = 0;
 		}
 		if(PMul[sq] == 0){
-			find_pao_eat_magic_f(&PMul[sq], sq, 8);  //File ×î¶à 8
+			find_pao_eat_magic_f(&PMul[sq], sq, 8);  //File æœ€å¤š 8
 			if(PMul[sq] != 0){
 				find++;
 			}
@@ -1095,8 +1095,8 @@ void find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(llog_file,"\n pao eat file array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(llog_file,"\n pao eat file array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(llog_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(llog_file,"\n");
@@ -1123,7 +1123,7 @@ void find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	fprintf_s(llog_file,"\n pao super rank array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	fprintf_s(llog_file,"\n pao super rank array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(llog_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(llog_file,"\n");
@@ -1149,8 +1149,8 @@ void find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(llog_file,"\n pao super file array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(llog_file,"\n pao super file array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(llog_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(llog_file,"\n");
@@ -1178,8 +1178,8 @@ void find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(llog_file,"\n ma_ma eat array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(llog_file,"\n ma_ma eat array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(llog_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(llog_file,"\n");
@@ -1206,8 +1206,8 @@ void find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(llog_file,"\n king_to_ma eat array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(llog_file,"\n king_to_ma eat array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(llog_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(llog_file,"\n");
@@ -1237,8 +1237,8 @@ void find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(llog_file,"\n xiang eat array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(llog_file,"\n xiang eat array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(llog_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(llog_file,"\n");

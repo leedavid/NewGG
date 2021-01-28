@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "4±ø¶Ô1Âí.cpp"
+#include "4å…µå¯¹1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -23,12 +23,12 @@ void my_m_MT_R_4pawn_B_1ma(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_ADD(count * ADD_XPawnToMa_ByPawnShi[your_shi_num]);
 
 
-	if(count == 0){   //ËùÓĞµÄ±øÔÚ¶Ô·½µÄ½«ÏÂÃæÁË,Ò²ÊÇºÍÁË
+	if(count == 0){   //æ‰€æœ‰çš„å…µåœ¨å¯¹æ–¹çš„å°†ä¸‹é¢äº†,ä¹Ÿæ˜¯å’Œäº†
 		RETRUN_MUL(2);
 	}
 
 	int mcan = EV_MY_CAN;
-	//Èç¹ûÄÜ¹ıºÓµÄ±øÖ»ÓĞÒ»¸ö,Ò²ÊÇºÍÆå
+	//å¦‚æœèƒ½è¿‡æ²³çš„å…µåªæœ‰ä¸€ä¸ª,ä¹Ÿæ˜¯å’Œæ£‹
 	if(mcan <= 1){
       if(your_shi_num >= 1 || your_xiang_num >= 1){
 		  RETRUN_MUL(2)
@@ -63,13 +63,13 @@ void my_m_MT_R_4pawn_B_1ma(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	if(AllpawnBlowKing == TRUE){   //ËùÓĞµÄ±øÔÚ¶Ô·½µÄ½«ÏÂÃæÁË,Ò²ÊÇºÍÁË
+//	if(AllpawnBlowKing == TRUE){   //æ‰€æœ‰çš„å…µåœ¨å¯¹æ–¹çš„å°†ä¸‹é¢äº†,ä¹Ÿæ˜¯å’Œäº†
 //		board->mulScore = 0;
 //		return 1;
 //	}
 //
 //	// fen 5a3/4k4/3a5/9/1N7/9/1p7/3A1K2B/2pp5/1p7 w - - 123 123
-//	//Èç¹ûÄÜ¹ıºÓµÄ±øÖ»ÓĞÒ»¸ö,Ò²ÊÇºÍÆå
+//	//å¦‚æœèƒ½è¿‡æ²³çš„å…µåªæœ‰ä¸€ä¸ª,ä¹Ÿæ˜¯å’Œæ£‹
 //	if(bcan <= 1){
 //		if(board->R_shi != 0 || board->R_xiang != 0){
 //			return 1;

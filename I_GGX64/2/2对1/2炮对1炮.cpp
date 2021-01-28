@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2ÅÚ¶Ô1ÅÚ.cpp"
+#include "2ç‚®å¯¹1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -16,11 +16,11 @@ void my_m_MT_R_2pao_B_1pao(typePOS &POSITION, EvalInfo &ei){
 
 	Square ypao = S90_from_piecelist(POSITION,your_pao,0);
 
-	// Ë«ÅÚÀýºÍÅÚÊËÏàÈ«
+	// åŒç‚®ä¾‹å’Œç‚®ä»•ç›¸å…¨
 	if((your_shi_num + your_xiang_num) == 4){
 		RETRUN_MUL(2);
 	}
-	// Ë«ÅÚÀýºÍÒ»ÅÚ
+	// åŒç‚®ä¾‹å’Œä¸€ç‚®
 	if((my_shi_num + my_xiang_num) == 0){
 		RETRUN_MUL(2);
 	}
@@ -49,7 +49,7 @@ void my_m_MT_R_2pao_B_1pao(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen C1bCk4/3c5/4b4/9/9/6B2/9/5A3/9/2B1KA3 b - - 0 0
-	// Èç¹û¶Ô·½µÄÒ»ÅÚÒ»¶¯Ò²²»ÄÜ¶¯ÁË£¬Ò²ËãºÍÆå
+	// å¦‚æžœå¯¹æ–¹çš„ä¸€ç‚®ä¸€åŠ¨ä¹Ÿä¸èƒ½åŠ¨äº†ï¼Œä¹Ÿç®—å’Œæ£‹
 	if((your_xiang_num + your_shi_num) >= 2 && StoY(yk) == MY_RANK0){
 		if(PB90(MY_SQ03) == my_pao && PB90(MY_SQ0C) == your_pao){
 			if(PB90(MY_SQ02) == your_xiang){

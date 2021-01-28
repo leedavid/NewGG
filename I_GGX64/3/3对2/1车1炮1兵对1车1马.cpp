@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1±ø¶Ô1³µ1Âí.cpp"
+#include "1è½¦1ç‚®1å…µå¯¹1è½¦1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -104,7 +104,7 @@ void my_m_MT_R_1che1pao1pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 
 
 	
-	//Èç¹û³µÂí·½ÊÇÊËÏàÈ«,ÔòÒ²ÄÑÊ¤
+	//å¦‚æžœè½¦é©¬æ–¹æ˜¯ä»•ç›¸å…¨,åˆ™ä¹Ÿéš¾èƒœ
 	if((my_shi_num + my_xiang_num) >= 3 && StoY(mk) MY_LARGE_EQL MY_RANK8){
 		EV_MY_SAFE = TRUE;
 	}

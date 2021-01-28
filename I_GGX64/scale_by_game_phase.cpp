@@ -9,18 +9,18 @@
 //Value scale_by_game_phase(const Position& pos, EvalInfo& ei, const Score& v) {
 Value scale_by_game_phase(Position& pos, EvalInfo& ei, const Score& v) {
 
-	// 1, ÏÈÇó²Ð¾ÖµÄºÍÆåÒò×Ó
+	// 1, å…ˆæ±‚æ®‹å±€çš„å’Œæ£‹å› å­
 	ei.mul = 16;
 
 	//static const  premat_t *Porg  = &PreMatInfo[0][0][0][0][0][0][0][0][0][0][0][0];
 
-	(*funMat[(pos.pMatinfo() - &PreMatInfo[0][0][0][0][0][0][0][0])])(pos, ei);       // µÃµ½²Ð¾ÖµÄ·ÖÐÅÏ¢
+	(*funMat[(pos.pMatinfo() - &PreMatInfo[0][0][0][0][0][0][0][0])])(pos, ei);       // å¾—åˆ°æ®‹å±€çš„åˆ†ä¿¡æ¯
 
 	if((ei.bsafe + ei.rsafe) == 2) {
 		ei.mul = 1;
 	}
 
-	// ¼ÓÉÏ²Ð¾ÖµÄÐÅÏ¢·Ö.
+	// åŠ ä¸Šæ®‹å±€çš„ä¿¡æ¯åˆ†.
 	Score bonus = v + make_score(ei.evscore,ei.evscore);
 
 	int ev = eg_value(bonus);
@@ -38,7 +38,7 @@ Value scale_by_game_phase(Position& pos, EvalInfo& ei, const Score& v) {
 	ASSERT(ph >= PHASE_ENDGAME && ph <= PHASE_MIDGAME);
 
 	int result = ((mv * ph + ev * (128 - ph)) * ei.mul) / (128 * 16); 
-	//result = result * ei.mul / 16;               // ºÍÆåÒò×Ó.
+	//result = result * ei.mul / 16;               // å’Œæ£‹å› å­.
 
 #ifdef CAN_OUT_EVAL_INFO
 	if(MustOuPutEvalInf){

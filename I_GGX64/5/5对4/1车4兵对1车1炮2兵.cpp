@@ -4,15 +4,15 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ4±ø¶Ô1³µ1ÅÚ2±ø.cpp"
+#include "1è½¦4å…µå¯¹1è½¦1ç‚®2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//const int  ADD_ChePaoXPawn_VS_1Che2Pawn_ByShi[3]    = {96, 64, 16};            //³µÅÚX±ø¶Ô³µ2±ø_±øµÄ¼Ó·Ö
-//const int  ADD_1Che2Pawn_VS_ChePaoXPawn_ByShi[3]    = {96, 64, 32};            //³µ2±ø_±ø¶Ô³µÅÚX±øµÄ¼Ó·Ö
+//const int  ADD_ChePaoXPawn_VS_1Che2Pawn_ByShi[3]    = {96, 64, 16};            //è½¦ç‚®Xå…µå¯¹è½¦2å…µ_å…µçš„åŠ åˆ†
+//const int  ADD_1Che2Pawn_VS_ChePaoXPawn_ByShi[3]    = {96, 64, 32};            //è½¦2å…µ_å…µå¯¹è½¦ç‚®Xå…µçš„åŠ åˆ†
 
 
 //m_MT_R_1che4pawn_B_1che1pao2pawn

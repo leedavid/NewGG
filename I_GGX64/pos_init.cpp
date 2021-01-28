@@ -40,7 +40,7 @@ using std::string;
 
 /// Position::put_piece() puts a piece on the given square of the board,
 /// updating the board array, bitboards, and piece counts.
-/// ÔÚÆåÅÌÉÏÌí¼ÓÒ»¸öÆå×Ó
+/// åœ¨æ£‹ç›˜ä¸Šæ·»åŠ ä¸€ä¸ªæ£‹å­
 
 void Position::put_piece(Piece p, Square s) {
 

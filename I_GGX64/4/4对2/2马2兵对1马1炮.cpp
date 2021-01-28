@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2Âí2±ø¶Ô1Âí1ÅÚ.cpp"
+#include "2é©¬2å…µå¯¹1é©¬1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -27,7 +27,7 @@ void my_m_MT_R_2ma2pawn_B_1ma1pao(typePOS &POSITION, EvalInfo &ei){
 	// fen 3k2b2/2P1a4/4ba3/9/3N5/2P6/c5N2/3AB4/8n/2BAK4 w - - 32 32
 	// fen 3ak4/4a4/4b3b/9/2p3p2/9/6nn1/3AB2N1/4A4/2BC1K3 w - - 120 120
 	if((your_shi_num + your_xiang_num) == 4 && StoY(yk) == MY_RANK0){
-		if(mcan <= 1){  //±øÒ»¸öÒ²²»ÄÜ¹ýºÓ,¾ÍÊÇºÍÆå
+		if(mcan <= 1){  //å…µä¸€ä¸ªä¹Ÿä¸èƒ½è¿‡æ²³,å°±æ˜¯å’Œæ£‹
 			RETRUN_MUL(4);
 		}
 	}
@@ -54,7 +54,7 @@ void my_m_MT_R_2ma2pawn_B_1ma1pao(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 2ba5/4ak3/6N1b/3N5/P3P4/2B6/9/9/2nKA4/7c1 b - - 11 11
-	//Èç¹ûºÚ·½ÊÇÊËÏàÈ«,Òª¼ÓÒ»Ð©·Ö
+	//å¦‚æžœé»‘æ–¹æ˜¯ä»•ç›¸å…¨,è¦åŠ ä¸€äº›åˆ†
 	if((your_shi_num + your_xiang_num) == 4){
 		RETRUN_MUL(8);
 	}
@@ -89,7 +89,7 @@ void my_m_MT_R_2ma2pawn_B_1ma1pao(typePOS &POSITION, EvalInfo &ei){
 //	// fen 3ak4/4a4/4b3b/9/2p3p2/9/6nn1/3AB2N1/4A4/2BC1K3 w - - 120 120
 //	if(board->R_shi == 2 && board->R_xiang == 2){
 //		if(StoY(rk) == 0xc){
-//			if(bcan <= 1){             //±øÒ»¸öÒ²²»ÄÜ¹ýºÓ,¾ÍÊÇºÍÆå
+//			if(bcan <= 1){             //å…µä¸€ä¸ªä¹Ÿä¸èƒ½è¿‡æ²³,å°±æ˜¯å’Œæ£‹
 //				return 1; 
 //			}
 //		}
@@ -107,7 +107,7 @@ void my_m_MT_R_2ma2pawn_B_1ma1pao(typePOS &POSITION, EvalInfo &ei){
 //	}
 //
 //	// fen 2ba5/4ak3/6N1b/3N5/P3P4/2B6/9/9/2nKA4/7c1 b - - 11 11
-//	//Èç¹ûºÚ·½ÊÇÊËÏàÈ«,Òª¼ÓÒ»Ð©·Ö
+//	//å¦‚æžœé»‘æ–¹æ˜¯ä»•ç›¸å…¨,è¦åŠ ä¸€äº›åˆ†
 //	if(board->R_shi == 2 && board->R_xiang == 2){
 //		board->mulScore += 96;
 //		return 8;

@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Âí1±ø¶Ô1ÅÚ.cpp"
+#include "1é©¬1å…µå¯¹1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -13,7 +13,7 @@
 
 
 
-//ÎÒ·½Ò»ÂíÒ»±ø£¬¶Ô·½Ò»ÅÚ
+//æˆ‘æ–¹ä¸€é©¬ä¸€å…µï¼Œå¯¹æ–¹ä¸€ç‚®
 void my_m_MT_R_1MA1PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 	
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
@@ -33,19 +33,19 @@ void my_m_MT_R_1MA1PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//¶Ô·½Ã»ÓÐÊË£¬¾Í²»¿ÉÄÜÉ±ÎÒ
+	//å¯¹æ–¹æ²¡æœ‰ä»•ï¼Œå°±ä¸å¯èƒ½æ€æˆ‘
 	if(your_shi_num == 0){
 		if(StoY(yk) MY_LARGE StoY(mpawn)){
 			RETRUN_MUL(2);
 		}
 
-		//Âíµ¥±ø¶ÔÅÚË«ÏóÔòÎªÀýºÍÆå¡£ 
+		//é©¬å•å…µå¯¹ç‚®åŒè±¡åˆ™ä¸ºä¾‹å’Œæ£‹ã€‚ 
 		if(your_xiang_num == 2){
 			RETRUN_MUL(2);
 		}
-		else{ // Âí¸ß±øÀýÊ¤ÅÚÏó
+		else{ // é©¬é«˜å…µä¾‹èƒœç‚®è±¡
 			if(StoY(mpawn) MY_LARGE StoY(yk)){
-				MY_EV_ADD(ADD_1Âí±ø¶Ô1ÅÚ_by_Pawn_By_Shi[your_shi_num]);
+				MY_EV_ADD(ADD_1é©¬å…µå¯¹1ç‚®_by_Pawn_By_Shi[your_shi_num]);
 			}
 		}
 	}
@@ -60,9 +60,9 @@ void my_m_MT_R_1MA1PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 		RETRUN_MUL(2);
 	}
 
-	//Âí¸ß±øÀýºÍÅÚÊËÏà 
-	//Àýµä page84 fen 2c6/4ak3/9/5P3/2b6/5N3/9/9/9/4K4 w
-	//Ïó,ÊËÊØ»¤ÖÐ¹¬, ºì±øÄÑÒÔÈëÇÖ,ÖÕ³ÉºÍ¾Ö
+	//é©¬é«˜å…µä¾‹å’Œç‚®ä»•ç›¸ 
+	//ä¾‹å…¸ page84 fen 2c6/4ak3/9/5P3/2b6/5N3/9/9/9/4K4 w
+	//è±¡,ä»•å®ˆæŠ¤ä¸­å®«, çº¢å…µéš¾ä»¥å…¥ä¾µ,ç»ˆæˆå’Œå±€
 	if(your_shi_num >= 1 && your_xiang_num >= 1){
 		RETRUN_MUL(2);
 	}

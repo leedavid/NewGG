@@ -5,7 +5,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí3±ø¶Ô1³µ1±ø.cpp"
+#include "1ç‚®1é©¬3å…µå¯¹1è½¦1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -13,7 +13,7 @@
 
 //Add_MAT_B_1ma1pao1pawn_R_1che1pawn_ByShi
 
-// ºì·½ÂíÅÚ±ø,ºÚ·½³µ±ø
+// çº¢æ–¹é©¬ç‚®å…µ,é»‘æ–¹è½¦å…µ
 void my_m_MT_R_1ma1pao3pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;

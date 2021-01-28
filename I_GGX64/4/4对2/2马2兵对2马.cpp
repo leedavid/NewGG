@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2Âí2±ø¶Ô2Âí.cpp"
+#include "2é©¬2å…µå¯¹2é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -38,7 +38,7 @@ void my_m_MT_R_2ma2pawn_B_2ma(typePOS &POSITION, EvalInfo &ei){
 
 	Bitboard bym = m_and(bb_your_ma,MyUpBB[MY_RANK6]);
 	if(count_1s(bym) == 2){
-		MY_EV_SUB(96);  // ¶Ô·½µÄ¶şÂíÒª»ØÊØ
+		MY_EV_SUB(96);  // å¯¹æ–¹çš„äºŒé©¬è¦å›å®ˆ
 	}
 
 	if(StoY(yk) == MY_RANK0){

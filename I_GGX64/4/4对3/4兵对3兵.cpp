@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "4±ø¶Ô3±ø.cpp"
+#include "4å…µå¯¹3å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"

@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
 
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ3±ø¶Ô2³µ2±ø.cpp"
+#include "1è½¦1ç‚®3å…µå¯¹2è½¦2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -18,7 +18,7 @@ void my_m_MT_R_1che1pao3pawn_B_2che2pawn(typePOS &POSITION, EvalInfo &ei){
 	if(my_shi_num == 2 && StoY(mk) == MY_RANK9){
 		if(!have_bit(bb_your_pawn,MyLowBB[MY_RANK5]) && EV_YOUR_CAN <= 1)
 			if(your_xiang_num  <= 1 && have_bit(EV_MY_XBIT,bb_your_che)){
-				// ÎÒ·½¹ýÁË¶þ¸ö±ø
+				// æˆ‘æ–¹è¿‡äº†äºŒä¸ªå…µ
 				if(count_1s(bb_my_pawn,MyUpBB[MY_RANK5]) >= 2){
 					MY_EV_ADD(32);
 					MY_EV_ADD(EV_MY_CAN * 16);

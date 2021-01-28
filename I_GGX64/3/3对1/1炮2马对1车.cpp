@@ -4,19 +4,19 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2Âí¶Ô1³µ.cpp"
+#include "1ç‚®2é©¬å¯¹1è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//1ÅÚ2Âí¶Ô1³µ, ÅÚÂí·½Òª¼Ó·Ö
+//1ç‚®2é©¬å¯¹1è½¦, ç‚®é©¬æ–¹è¦åŠ åˆ†
 
 void my_m_MT_R_1pao_2ma_B_1che(typePOS &POSITION, EvalInfo &ei){
 
-	//ei.evScore += Add_1ÅÚ2Âí¶Ô1³µ;
-	MY_EV_ADD(Add_1ÅÚ2Âí¶Ô1³µ);
+	//ei.evScore += Add_1ç‚®2é©¬å¯¹1è½¦;
+	MY_EV_ADD(Add_1ç‚®2é©¬å¯¹1è½¦);
 
 	Square mk = my_king_pos;
 	Square yk = your_king_pos;
@@ -70,5 +70,5 @@ void my_m_MT_R_1pao_2ma_B_1che(typePOS &POSITION, EvalInfo &ei){
 
 //void m_MT_B_1pao_2ma_R_1che(typePOS &POSITION, EvalInfo &ei){
 //
-//	//ei.evScore -= Add_1ÅÚ2Âí¶Ô1³µ;
+//	//ei.evScore -= Add_1ç‚®2é©¬å¯¹1è½¦;
 //}

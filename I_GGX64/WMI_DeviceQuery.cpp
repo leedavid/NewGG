@@ -12,57 +12,57 @@
 
 typedef struct _T_WQL_QUERY
 {
-	CHAR*	szSelect;		// SELECT���
-	WCHAR*	szProperty;		// �����ֶ�
+	CHAR*	szSelect;		// SELECT语句
+	WCHAR*	szProperty;		// 属性字段
 } T_WQL_QUERY;
 
-// WQL��ѯ���
+// WQL查询语句
 const T_WQL_QUERY szWQLQuery[] = {
-	// ����ԭ��MAC��ַ
+	// 网卡原生MAC地址
 	"SELECT * FROM Win32_NetworkAdapter WHERE (MACAddress IS NOT NULL) AND (NOT (PNPDeviceID LIKE 'ROOT%'))",
 	L"PNPDeviceID",
 
-	// Ӳ�����к�
+	// 硬盘序列号
 	"SELECT * FROM Win32_DiskDrive WHERE (SerialNumber IS NOT NULL) AND (MediaType LIKE 'Fixed hard disk%')",
 	L"SerialNumber",
 
-	// �������к�
+	// 主板序列号
 	"SELECT * FROM Win32_BaseBoard WHERE (SerialNumber IS NOT NULL)",
 	L"SerialNumber",	
 
-	// ������ID
+	// 处理器ID
 	"SELECT * FROM Win32_Processor WHERE (ProcessorId IS NOT NULL)",
 	L"ProcessorId",
 
-	// BIOS���к�
+	// BIOS序列号
 	"SELECT * FROM Win32_BIOS WHERE (SerialNumber IS NOT NULL)",
 	L"SerialNumber",
 
-	// �����ͺ�
+	// 主板型号
 	"SELECT * FROM Win32_BaseBoard WHERE (Product IS NOT NULL)",
 	L"Product",
 
-	// ������ǰMAC��ַ
+	// 网卡当前MAC地址
 	"SELECT * FROM Win32_NetworkAdapter WHERE (MACAddress IS NOT NULL) AND (NOT (PNPDeviceID LIKE 'ROOT%'))",
 	L"MACAddress",
 };
 
-// ͨ����PNPDeviceID����ȡ����ԭ��MAC��ַ
+// 通过“PNPDeviceID”获取网卡原生MAC地址
 static BOOL WMI_DoWithPNPDeviceID( const TCHAR *PNPDeviceID, TCHAR *MacAddress, UINT uSize )
 {
 	TCHAR	DevicePath[MAX_PATH];
 	HANDLE	hDeviceFile;	
 	BOOL	isOK = FALSE;
 
-	// �����豸·����
+	// 生成设备路径名
 	StringCchCopy( DevicePath, MAX_PATH, TEXT("\\\\.\\") );
 	StringCchCat( DevicePath, MAX_PATH, PNPDeviceID );
 	StringCchCat( DevicePath, MAX_PATH, TEXT("#{ad498944-762f-11d0-8dcb-00c04fc3358c}") );
 
-	// ����PNPDeviceID���еġ�\���滻�ɡ�#�����Ի���������豸·����
+	// 将“PNPDeviceID”中的“\”替换成“#”，以获得真正的设备路径名
 	std::replace( DevicePath + 4, DevicePath + 4 + _tcslen(PNPDeviceID), TEXT('\\'), TEXT('#') ); 
 
-	// ��ȡ�豸���
+	// 获取设备句柄
 	hDeviceFile = CreateFile( DevicePath,
 		0,
 		FILE_SHARE_READ | FILE_SHARE_WRITE,
@@ -77,11 +77,11 @@ static BOOL WMI_DoWithPNPDeviceID( const TCHAR *PNPDeviceID, TCHAR *MacAddress, 
 		BYTE	ucData[8];
 		DWORD	dwByteRet;		
 
-		// ��ȡ����ԭ��MAC��ַ
+		// 获取网卡原生MAC地址
 		dwID = OID_802_3_PERMANENT_ADDRESS;
 		isOK = DeviceIoControl( hDeviceFile, IOCTL_NDIS_QUERY_GLOBAL_STATS, &dwID, sizeof(dwID), ucData, sizeof(ucData), &dwByteRet, NULL );
 		if( isOK )
-		{	// ���ֽ�����ת����16�����ַ���
+		{	// 将字节数组转换成16进制字符串
 			for( DWORD i = 0; i < dwByteRet; i++ )
 			{
 				StringCchPrintf( MacAddress + (i << 1), uSize - (i << 1), TEXT("%02X"), ucData[i] );
@@ -101,12 +101,12 @@ static BOOL WMI_DoWithHarddiskSerialNumber( TCHAR *SerialNumber, UINT uSize )
 
 	iLen = (UINT)_tcslen(SerialNumber);
 	if( iLen == 40 )	// InterfaceType = "IDE"
-	{	// ��Ҫ��16���Ʊ��봮ת��Ϊ�ַ���
+	{	// 需要将16进制编码串转换为字符串
 		TCHAR ch, szBuf[32];
 		BYTE b;		
 
 		for( i = 0; i < 20; i++ )
-		{	// ��16�����ַ�ת��Ϊ��4λ
+		{	// 将16进制字符转换为高4位
 			ch = SerialNumber[i * 2];
 			if( (ch >= '0') && (ch <= '9') )
 			{
@@ -121,13 +121,13 @@ static BOOL WMI_DoWithHarddiskSerialNumber( TCHAR *SerialNumber, UINT uSize )
 				b = BYTE(ch - 'a' + 10);
 			}
 			else
-			{	// �Ƿ��ַ�
+			{	// 非法字符
 				break;
 			}
 
 			b <<= 4;
 
-			// ��16�����ַ�ת��Ϊ��4λ
+			// 将16进制字符转换为低4位
 			ch = SerialNumber[i * 2 + 1];
 			if( (ch >= '0') && (ch <= '9') )
 			{
@@ -142,7 +142,7 @@ static BOOL WMI_DoWithHarddiskSerialNumber( TCHAR *SerialNumber, UINT uSize )
 				b += BYTE(ch - 'a' + 10);
 			}
 			else
-			{	// �Ƿ��ַ�
+			{	// 非法字符
 				break;
 			}
 
@@ -150,20 +150,20 @@ static BOOL WMI_DoWithHarddiskSerialNumber( TCHAR *SerialNumber, UINT uSize )
 		}
 
 		if( i == 20 )
-		{	// ת���ɹ�
+		{	// 转换成功
 			szBuf[i] = L'\0';
 			StringCchCopy( SerialNumber, uSize, szBuf );
 			iLen = (UINT)_tcslen(SerialNumber);
 		}
 	}
 
-	// ÿ2���ַ�����λ��
+	// 每2个字符互换位置
 	for( i = 0; i < iLen; i += 2 )
 	{
 		std::swap( SerialNumber[i], SerialNumber[i+1] );
 	}
 
-	// ȥ���ո�
+	// 去掉空格
 	std::remove( SerialNumber, SerialNumber + _tcslen(SerialNumber) + 1, L' ' );
 
 	return TRUE;
@@ -175,47 +175,47 @@ static BOOL WMI_DoWithProperty( INT iQueryType, TCHAR *szProperty, UINT uSize )
 
 	switch( iQueryType )
 	{
-	case 0:		// ����ԭ��MAC��ַ		
+	case 0:		// 网卡原生MAC地址		
 		isOK = WMI_DoWithPNPDeviceID( szProperty, szProperty, uSize );
 		break;
 
-	case 1:		// Ӳ�����к�
+	case 1:		// 硬盘序列号
 		isOK = WMI_DoWithHarddiskSerialNumber( szProperty, uSize );
 		break;
 
-	case 6:		// ������ǰMAC��ַ
-		// ȥ��ð��
+	case 6:		// 网卡当前MAC地址
+		// 去掉冒号
 		std::remove( szProperty, szProperty + _tcslen(szProperty) + 1, L':' );
 		break;
 
 	default:
-		// ȥ���ո�
+		// 去掉空格
 		std::remove( szProperty, szProperty + _tcslen(szProperty) + 1, L' ' );
 	}
 
 	return isOK;
 }
 
-// ����Windows Management Instrumentation��Windows�����淶��
+// 基于Windows Management Instrumentation（Windows管理规范）
 INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
 {
 	HRESULT hres;
 	INT	iTotal = 0;
 	
-	// �жϲ�ѯ�����Ƿ�֧��
+	// 判断查询类型是否支持
 	if( (iQueryType < 0) || (iQueryType >= sizeof(szWQLQuery)/sizeof(T_WQL_QUERY)) )
 	{
-		return -1;	// ��ѯ���Ͳ�֧��
+		return -1;	// 查询类型不支持
 	}
 
-    // ��ʼ��COM
+    // 初始化COM
     hres = CoInitializeEx( NULL, COINIT_MULTITHREADED ); 
     if( FAILED(hres) )
     {
         return -2;
     }
 
-    // ����COM�İ�ȫ��֤����
+    // 设置COM的安全认证级别
 	hres = CoInitializeSecurity( 
 		NULL, 
 		-1, 
@@ -233,7 +233,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
         return -2;
     }
     
-	// ���WMI����COM�ӿ�
+	// 获得WMI连接COM接口
     IWbemLocator *pLoc = NULL;
     hres = CoCreateInstance( 
 		CLSID_WbemLocator,             
@@ -248,7 +248,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
         return -2;
     }
 
-    // ͨ�����ӽӿ�����WMI���ں˶�����"ROOT\\CIMV2"
+    // 通过连接接口连接WMI的内核对象名"ROOT\\CIMV2"
 	IWbemServices *pSvc = NULL;
 	hres = pLoc->ConnectServer(
          _bstr_t( L"ROOT\\CIMV2" ),
@@ -267,7 +267,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
         return -2;
     }
 
-	// ������������İ�ȫ����
+	// 设置请求代理的安全级别
     hres = CoSetProxyBlanket(
 		pSvc,
 		RPC_C_AUTHN_WINNT,
@@ -286,7 +286,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
         return -2;
     }
 
-    // ͨ�������������WMI��������
+    // 通过请求代理来向WMI发送请求
     IEnumWbemClassObject *pEnumerator = NULL;
     hres = pSvc->ExecQuery(
 		bstr_t("WQL"), 
@@ -303,7 +303,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
         return -3;
     }
 
-    // ѭ��ö�����еĽ������  
+    // 循环枚举所有的结果对象  
     while( pEnumerator )
     {
 		IWbemClassObject *pclsObj = NULL;
@@ -327,7 +327,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
         }
 
 		if( properties != NULL )
-		{	// ��ȡ����ֵ
+		{	// 获取属性值
 			VARIANT vtProperty;
 			
 			VariantInit( &vtProperty );	
@@ -335,7 +335,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
 			StringCchCopy( properties[iTotal].szProperty, PROPERTY_MAX_LEN, W2T(vtProperty.bstrVal) );
 			VariantClear( &vtProperty );
 
-			// ������ֵ����һ���Ĵ���
+			// 对属性值做进一步的处理
 			if( WMI_DoWithProperty( iQueryType, properties[iTotal].szProperty, PROPERTY_MAX_LEN ) )
 			{
 				iTotal++;
@@ -349,7 +349,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
 		pclsObj->Release();
     } // End While
 
-    // �ͷ���Դ
+    // 释放资源
 	pEnumerator->Release();
     pSvc->Release();
     pLoc->Release();    

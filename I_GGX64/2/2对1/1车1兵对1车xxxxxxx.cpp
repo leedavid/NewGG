@@ -4,13 +4,13 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1±ø¶Ô1³µxxxxxxx.cpp"
+#include "1è½¦1å…µå¯¹1è½¦xxxxxxx.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//ºì·½Ò»³µÒ»±ø, ºÚ·½Ò»³µ
+//çº¢æ–¹ä¸€è½¦ä¸€å…µ, é»‘æ–¹ä¸€è½¦
 void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS *POSITION, EvalInfo *ei){
 
 	int mpawn = S90_from_piecelist(POSITION,my_pawn,0);
@@ -19,7 +19,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS *POSITION, EvalInfo *ei){
 
 	Bitboard yCheATT = rook_attacks_bb(yche,BitboardOCC);
 	
-	// <<ÏóÆå²Ğ¾ÖÀıµä>> page295 ³µ¸ß±øÊËÀıºÍ³µ2ÊË
+	// <<è±¡æ£‹æ®‹å±€ä¾‹å…¸>> page295 è½¦é«˜å…µä»•ä¾‹å’Œè½¦2ä»•
 	if(your_shi_num == 2){
 		if(StoY(your_king_pos) == MY_RANK0 
 			|| StoY(mpawn) MY_SMALL StoY(your_king_pos)){
@@ -37,13 +37,13 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS *POSITION, EvalInfo *ei){
 		}
 	}
 
-	MY_EV_ADD(196);  // ÓĞ±ø·½µÄ¼Ó·Ö.
+	MY_EV_ADD(196);  // æœ‰å…µæ–¹çš„åŠ åˆ†.
 
 	
 	if(your_shi_num >= 1 && your_xiang_num >= 1){
 		
 		// fen 3ak1b2/9/9/9/5r3/2P4R1/9/4B3B/4A4/4KA3 r cmd eval cmd:
-		// ¶Ô·½µÄ±øÃ»ÓĞ¹ıºÓ
+		// å¯¹æ–¹çš„å…µæ²¡æœ‰è¿‡æ²³
 		if(StoY(your_king_pos) == MY_RANK0){
 			if(StoY(mpawn) MY_LARGE MY_RANK4){
 				RETRUN_MUL(1);
@@ -51,7 +51,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS *POSITION, EvalInfo *ei){
 		}
 
 		//fen 4ka3/1P1r5/4b4/9/9/1R7/9/3A5/9/3K5 w - - 26 26
-		//³µ±ø¶Ô³µÊËÏó
+		//è½¦å…µå¯¹è½¦ä»•è±¡
 		if(your_king_pos == MY_SQ04){
 			if(StoY(mche) MY_LARGE StoY(yche)){
 				if((StoX(mpawn) <= 0x02 && PB90[MY_SQ05] == your_shi)
@@ -74,7 +74,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS *POSITION, EvalInfo *ei){
 	} // if(your_shi_num >= 1 && your_xiang_num >= 1){
 
 	// fen 3k5/9/9/4R4/9/2B6/9/3A5/1r1K1p3/9 w - - 211 211
-	// µ¥³µÁì¸ßÊË
+	// å•è½¦é¢†é«˜ä»•
 	if(your_shi_num != 0 && StoY(mpawn) MY_SMALL_EQL MY_RANK1){
 		if(StoY(yche) MY_LARGE MY_RANK2){
 			// R
@@ -98,7 +98,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS *POSITION, EvalInfo *ei){
 		}
 	}
 
-	// ³µ±øÄÑÊ¤µ¥È±ÊË	
+	// è½¦å…µéš¾èƒœå•ç¼ºä»•	
 	if(your_xiang_num == 2 && your_shi_num >= 1 && StoY(your_king_pos) == MY_RANK0){
 		// fen 2b1k4/9/4b4/9/9/6R2/5r3/4B4/4A2p1/4K1B2 w - - 41 41  
 		if(ABS(StoX(mpawn) - 0x4) > 2 || StoY(mpawn) != MY_RANK1){
@@ -118,6 +118,6 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS *POSITION, EvalInfo *ei){
 
 		//fen 3k5/4a4/9/9/2b2r3/9/9/B3B4/4Ap1R1/4K4 w - - 124 124
 
-	}// ³µ±øÄÑÊ¤µ¥È±ÊË	
+	}// è½¦å…µéš¾èƒœå•ç¼ºä»•	
 }
 

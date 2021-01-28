@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ3±ø¶Ô1ÅÚ2Âí1±ø.cpp"
+#include "1è½¦3å…µå¯¹1ç‚®2é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -35,7 +35,7 @@ void my_m_MT_R_1che3pawn_B_1pao2ma1pawn(typePOS &POSITION, EvalInfo &ei){
 		//	MY_EV_ADD(32);
 		//}
 
-		//Èç¹ûÓÐ±ßÂí£¬ÇÒ±»¹¥»÷ÁË
+		//å¦‚æžœæœ‰è¾¹é©¬ï¼Œä¸”è¢«æ”»å‡»äº†
 		Bitboard bm = m_and(bb_your_ma,m_or(LeftBB[0x1],RightBB[0x7]));
 		if(have_bit(bm,MY_ATTACK)){
 			MY_EV_ADD(32);

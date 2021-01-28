@@ -4,13 +4,13 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí2±ø¶Ô1ÅÚ1Âí.cpp"
+#include "1ç‚®1é©¬2å…µå¯¹1ç‚®1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//ÂíÅÚ¶ş±ø¶ÔÒ»ÂíÒ»ÅÚ
+//é©¬ç‚®äºŒå…µå¯¹ä¸€é©¬ä¸€ç‚®
 void my_m_MT_R_1ma1pao2pawn_B_1ma1pao(typePOS &POSITION, EvalInfo &ei){
 
 	// ADD
@@ -89,7 +89,7 @@ void my_m_MT_R_1ma1pao2pawn_B_1ma1pao(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 3ak4/4a4/b3b4/9/2c6/2C3B2/P1n1P4/2N6/4A4/4KAB2 w - - 0 0
-	//¶Ô·½µÄÂíÕıºÃ¹Ü×¡ÁËÎÒ·½µÄ¶ş¸ö±øÒ»¸öÂí
+	//å¯¹æ–¹çš„é©¬æ­£å¥½ç®¡ä½äº†æˆ‘æ–¹çš„äºŒä¸ªå…µä¸€ä¸ªé©¬
 	if(your_shi_num == 2 && your_xiang_num == 2){
 		if(PB90(MY_SQ41) == my_ma && PB90(MY_SQ38) == your_ma){
 			if(PB90(MY_SQ36) == my_pawn && PB90(MY_SQ3A) == my_pawn){

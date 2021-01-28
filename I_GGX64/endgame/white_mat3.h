@@ -1,9 +1,9 @@
 
 
-//********************************************* Èý¶Ô0********************
+//********************************************* ä¸‰å¯¹0********************
 #define my_m_MT_R_3pawn                          m_MT_R_3pawn  
 #define my_m_MT_R_1pao2pawn  					 m_MT_R_1pao2pawn  
-//********************************************* *************************************** ÈýÈý¶Ô1********************
+//********************************************* *************************************** ä¸‰ä¸‰å¯¹1********************
 #define my_m_MT_R_1che_1pao_1pawn_B_1che  		 m_MT_R_1che_1pao_1pawn_B_1che  
 #define my_m_MT_R_1che_1ma_1pawn_B_1che  		 m_MT_R_1che_1ma_1pawn_B_1che  
 #define my_m_MT_R_1CHE_2PAWN_B_1CHE  			 m_MT_R_1CHE_2PAWN_B_1CHE  
@@ -36,7 +36,7 @@
 #define my_m_MT_R_3pawn_B_1pao  				 m_MT_R_3pawn_B_1pao  
 #define my_m_MT_R_3pawn_B_1ma  					 m_MT_R_3pawn_B_1ma  
 #define my_m_MT_R_3pawn_B_1pawn  				 m_MT_R_3pawn_B_1pawn  
-//********************************************* *************************************** ÈýÈý¶Ô2********************
+//********************************************* *************************************** ä¸‰ä¸‰å¯¹2********************
 #define my_m_MT_R_2che1ma_B_2che                 m_MT_R_2che1ma_B_2che
 #define my_m_MT_R_2che1pao_B_2che                m_MT_R_2che1pao_B_2che
 #define my_m_MT_R_2che1pawn_B_2che  			 m_MT_R_2che1pawn_B_2che  
@@ -118,7 +118,7 @@
 #define my_m_MT_R_3pawn_B_1pao1pawn      		 m_MT_R_3pawn_B_1pao1pawn      
 #define my_m_MT_R_3pawn_B_1ma1pawn       		 m_MT_R_3pawn_B_1ma1pawn       
 #define my_m_MT_R_3pawn_B_2pawn  				 m_MT_R_3pawn_B_2pawn  
-//********************************************* *************************************** 3 ¶Ô 3********************
+//********************************************* *************************************** 3 å¯¹ 3********************
 #define my_m_MT_R_2che1pao_B_2che1pawn           m_MT_R_2che1pao_B_2che1pawn
 #define my_m_MT_R_2che1ma_B_2che1pawn            m_MT_R_2che1ma_B_2che1pawn
 #define my_m_MT_R_2che1pawn_B_1che2pao  		 m_MT_R_2che1pawn_B_1che2pao  

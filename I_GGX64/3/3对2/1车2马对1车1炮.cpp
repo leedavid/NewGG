@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ2Âí¶Ô1³µ1ÅÚ.cpp"
+#include "1è½¦2é©¬å¯¹1è½¦1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -12,7 +12,7 @@
 
 
 
-//³µ2Âí¶Ô³µÅÚ
+//è½¦2é©¬å¯¹è½¦ç‚®
 void my_m_MT_R_1che2ma_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	if((your_shi_num + your_xiang_num) == 4 && StoY(yk) == MY_RANK0){

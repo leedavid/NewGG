@@ -2,7 +2,7 @@
 
 
 ///////////////////////////////////////////////////////////////////////////
-/// ½«ÉÏÃæµÄÒ»¸öÆåÁË±»Ç£ÖÆÁË, °üÀ¨ ÎÑĞÄÂí, ÌúÃÅË¨, ... Õâ¶ùËãºì·½¹¥»÷ºÚ·½¿¼ÂÇ
+/// å°†ä¸Šé¢çš„ä¸€ä¸ªæ£‹äº†è¢«ç‰µåˆ¶äº†, åŒ…æ‹¬ çªå¿ƒé©¬, é“é—¨æ “, ... è¿™å„¿ç®—çº¢æ–¹æ”»å‡»é»‘æ–¹è€ƒè™‘
 template<Color Us>
 Score eval_king_up_one_string(Position& pos, EvalInfo& ei){
 
@@ -12,7 +12,7 @@ Score eval_king_up_one_string(Position& pos, EvalInfo& ei){
 
 	Square sq1 = Us == WHITE? Square(0x0d):Square(0x4c);
 	
-	// ¶Ô·½½«ÉÏÃæµÄÆå×Ó±»Ç£ÖÆÁË. 
+	// å¯¹æ–¹å°†ä¸Šé¢çš„æ£‹å­è¢«ç‰µåˆ¶äº†. 
 	if(bit_is_set(ei.xray_bit[Us],sq1) 
 		&& (Us == WHITE ? yk == Square(0x04) : Square(yk == 0x55))){		
 
@@ -28,35 +28,35 @@ Score eval_king_up_one_string(Position& pos, EvalInfo& ei){
 
 		ei.attPoint[Us] += 3;
 
-		bool isMPao = false;  // ÊÇ²»ÊÇ¶Ô·½µÄÅÚÔÚÇ£ÖÆ. 
+		bool isMPao = false;  // æ˜¯ä¸æ˜¯å¯¹æ–¹çš„ç‚®åœ¨ç‰µåˆ¶. 
 		if(bit_is_set(ei.xray_bit[Us],sq2)){
 			// fen 1rbnkab2/4a4/3cc4/pCP3R2/8p/4C4/P3P1P1n/2N1B4/4A4/3K1AB2 b - - 0 1
-            // ÖĞÅÚÒª¼ÓÒ»Ğ©¹¥ÊÆ
+            // ä¸­ç‚®è¦åŠ ä¸€äº›æ”»åŠ¿
 			ei.attPoint[Us] += 6;
-			bonus += make_score(16, 32);  // ÔÙ¼ÓÒ»Ğ©·Ö
+			bonus += make_score(16, 32);  // å†åŠ ä¸€äº›åˆ†
 			isMPao = true;
 		}
 
 		// fen 2bak4/3ra4/4n2r1/pR1CCP2p/6b2/9/Pp6P/3R5/2nNA4/2c1KAB2 b - - 0 1
-		// ½« ÊË (½«,³µ  ÅÚ)
+		// å°† ä»• (å°†,è½¦  ç‚®)
 		if(false){			
-		}// ÏÂÃæ¹²ËÄÖÖ¿ÉÄÜ.
-		else if(Up1Chess == (BSHI - delt)){	 // ½« ÊË sq2 sq3 ÓĞ¿ÉÄÜÊÇÌúÃÅË¨.
+		}// ä¸‹é¢å…±å››ç§å¯èƒ½.
+		else if(Up1Chess == (BSHI - delt)){	 // å°† ä»• sq2 sq3 æœ‰å¯èƒ½æ˜¯é“é—¨æ “.
 			if(isMPao){
 				if(pos.piece_on(yk - 1) == (BSHI - delt) || pos.piece_on(yk + 1) == (BSHI - delt)){
-					if(Up2Chess == (BMA - delt) || Up2Chess == (BPAO - delt)){ // fen 2b2ab2/3ka4/4c4/p8/3P3P1/9/P3Cn1N1/8B/2p1A4/4KA3 w - - 0 1 Õâ¸öRS too high
+					if(Up2Chess == (BMA - delt) || Up2Chess == (BPAO - delt)){ // fen 2b2ab2/3ka4/4c4/p8/3P3P1/9/P3Cn1N1/8B/2p1A4/4KA3 w - - 0 1 è¿™ä¸ªRS too high
 						bonus += make_score(16,32);
 						ei.attPoint[Us] += 4;
 					}
 				}
 			}
 		} // fen r1bakab2/4n3r/1cn4c1/p1p1p1p1p/9/4C4/P1P1P1P1P/2N4C1/9/R1BAKABNR w - -
-		else if(Up1Chess == (BMA - delt)){  // ½« Âí sq2 sq3 
-			// ½« Âí sq2 ÅÚ 
+		else if(Up1Chess == (BMA - delt)){  // å°† é©¬ sq2 sq3 
+			// å°† é©¬ sq2 ç‚® 
 			if(isMPao){
-				// Èç¹ûÊÇÕæµÄÎÑĞÄÂí
+				// å¦‚æœæ˜¯çœŸçš„çªå¿ƒé©¬
 				if(pos.piece_on(yk - 1) == (BSHI - delt) && pos.piece_on(yk + 1) == (BSHI - delt)){
-					// Èç¹û»¹ÓĞÎÒ·½·½µÄ´ó×Ó,»¹Òª¼õ·Ö
+					// å¦‚æœè¿˜æœ‰æˆ‘æ–¹æ–¹çš„å¤§å­,è¿˜è¦å‡åˆ†
 					if(Up2Chess == (BMA - delt) || Up2Chess == (BPAO - delt)){
 						bonus  +=  make_score(96, 196);
 					} // fen fen 3aka3/4n4/bc2b2c1/p3C1P1p/2nC5/2B6/3NP3P/9/9/2BAKA3 w - - 0 1
@@ -64,10 +64,10 @@ Score eval_king_up_one_string(Position& pos, EvalInfo& ei){
 					ei.attPoint[Us] += 20;
 					// fen 3a5/2P1a4/b2kc4/9/9/9/3r5/4B4/4N4/R2AKAB2 b - - 0 1
 					// fen 3aka3/4n2R1/1c2b1c1b/3CC3p/4R4/6P2/2r2r2P/4B4/9/2BAKA3 w - - 0 1
-					// ÔÙ¼ÓÒ»Ğ©¹ıºÓÆå×ÓµÄatt fen 1r1akaR2/4n4/4b4/p3C3C/5P3/2p6/P3P3P/4B1c2/4A2r1/2BAK4 w - - 0 1
+					// å†åŠ ä¸€äº›è¿‡æ²³æ£‹å­çš„att fen 1r1akaR2/4n4/4b4/p3C3C/5P3/2p6/P3P3P/4B1c2/4A2r1/2BAK4 w - - 0 1
 					ei.attPoint[Us] += (int)count_1s(pos.pieces_of_color(Us), Us == WHITE? UpBB[0x5] : LowBB[0x4]) * 3;
 				}
-				// Ò²Òª¼õÒ»Ğ©·ÖÍÛ
+				// ä¹Ÿè¦å‡ä¸€äº›åˆ†å“‡
 				else{
 					if(Up2Chess == (BMA - delt) || Up2Chess == (BPAO - delt)){
 						bonus  += make_score(16, 32);
@@ -76,37 +76,37 @@ Score eval_king_up_one_string(Position& pos, EvalInfo& ei){
 					ei.attPoint[Us] += 6;
 				}
 			}
-			// ½« Âí ³µ
+			// å°† é©¬ è½¦
 			else if(Up2Chess == (RCHE + delt)){ 
-				// Èç¹ûÊÇÕæµÄÎÑĞÄÂí
+				// å¦‚æœæ˜¯çœŸçš„çªå¿ƒé©¬
 				if(pos.piece_on(yk - 1) == (BSHI - delt) && pos.piece_on(yk + 1) == (BSHI - delt)
 					&& pos.piece_count(BXIANG - delt) == 0){
 						bonus  += make_score(32,378);
 						ei.attPoint[Us] += 10; // fen 3aka3/4nR3/4R4/7rp/4P4/2B6/6p1P/1c7/3rA4/2B1KA1N1 w - - 0 1
 						ei.attPoint[Us] += (int)count_1s(pos.pieces_of_color(Us), Us == WHITE? UpBB[0x5] : LowBB[0x4]);
 				}
-				// Ò²Òª¼õÒ»Ğ©·ÖÍÛ
+				// ä¹Ÿè¦å‡ä¸€äº›åˆ†å“‡
 				else{
 					bonus  += make_score(32,96);
 					ei.attPoint[Us] += 3;
 				}
 			}
-			// ½« Âí ½«
+			// å°† é©¬ å°†
 			else if(Up2Chess == (RKING + delt)){
 				bonus  += make_score(16,64);
 				ei.attPoint[Us] += 3;
 			}
 		}
-		else if(Up1Chess == (BPAO - delt)){  // ½« ÅÚ sq2 sq3 
-			// ½« ÅÚ ³µ
+		else if(Up1Chess == (BPAO - delt)){  // å°† ç‚® sq2 sq3 
+			// å°† ç‚® è½¦
 			if(Up2Chess == (RCHE + delt)){
-				// Èç¹ûÊÇÕæµÄÎÑĞÄÅÚ
+				// å¦‚æœæ˜¯çœŸçš„çªå¿ƒç‚®
 				if(pos.piece_on(yk - 1) == (BSHI - delt) && pos.piece_on(yk + 1) == (BSHI - delt)
 					&& pos.piece_count(BXIANG - delt) == 0){
 						bonus  += make_score(48,128);
 						ei.attPoint[Us] += 12;
 				}
-				// Ò²Òª¼õÒ»Ğ©·ÖÍÛ
+				// ä¹Ÿè¦å‡ä¸€äº›åˆ†å“‡
 				else{
 					bonus  += make_score(16,80);
 					ei.attPoint[Us] += 3;
@@ -117,18 +117,18 @@ Score eval_king_up_one_string(Position& pos, EvalInfo& ei){
 				ei.attPoint[Us] += 3;
 			}
 		}
-		else if(Up1Chess == (BCHE - delt)){  // ½« ³µ sq2 sq3 
+		else if(Up1Chess == (BCHE - delt)){  // å°† è½¦ sq2 sq3 
 			if(isMPao){
-				// Èç¹ûÊÇÕæµÄÎÑĞÄ³µ
+				// å¦‚æœæ˜¯çœŸçš„çªå¿ƒè½¦
 				if(pos.piece_on(yk - 1) == (BSHI - delt) && pos.piece_on(yk + 1) == (BSHI - delt)){
-					// Èç¹û»¹ÓĞÎÒ·½·½µÄ´ó×Ó,»¹Òª¼õ·Ö
+					// å¦‚æœè¿˜æœ‰æˆ‘æ–¹æ–¹çš„å¤§å­,è¿˜è¦å‡åˆ†
 					if(Up2Chess == (BMA - delt) || Up2Chess == (BPAO - delt)){
 						bonus  += make_score(96, 196);
 					}
 					bonus  += make_score(128,256);
 					ei.attPoint[Us] += 28;
 				}
-				// Ò²Òª¼õÒ»Ğ©·ÖÍÛ
+				// ä¹Ÿè¦å‡ä¸€äº›åˆ†å“‡
 				else{
 					if(Up2Chess == (BMA - delt) || Up2Chess == (BPAO - delt)){
 						bonus  += make_score(64, 96);
@@ -139,14 +139,14 @@ Score eval_king_up_one_string(Position& pos, EvalInfo& ei){
 			}
 		}
 
-		// Èç¹ûÓĞÅÚÔÚÇ£ÖÆÁË£¬Ò²Òª¼Ó½ø¹¥
+		// å¦‚æœæœ‰ç‚®åœ¨ç‰µåˆ¶äº†ï¼Œä¹Ÿè¦åŠ è¿›æ”»
 		if(have_bit(ei.xray_bit[Us],RankBB_A[StoY(yk)])){
 			ei.attPoint[Us] += 4; // fen 1Crak1b2/1R2a1r2/9/9/P3R4/9/7pc/9/3KA4/5A3 b - - 0 1
 		}
 
-		// ÔÙ¿´Ò»ÏÂÖĞÂ·µÄ¹¥ÊÆ
+		// å†çœ‹ä¸€ä¸‹ä¸­è·¯çš„æ”»åŠ¿
 		//////////////////////////////////////////////////////////////////////////					  
-		// 1. ÎÒ·½³µÄÜ²»ÄÜ¹¥»÷µ½¶Ô·½½«µÄ±ßÏß
+		// 1. æˆ‘æ–¹è½¦èƒ½ä¸èƒ½æ”»å‡»åˆ°å¯¹æ–¹å°†çš„è¾¹çº¿
 		for(int i = 0; i < pos.piece_count(RCHE + delt); i++){
 			Square s =  pos.piece_list(RCHE + delt,i);	
 
@@ -155,23 +155,23 @@ Score eval_king_up_one_string(Position& pos, EvalInfo& ei){
 			Bitboard A = pos.Rook_attacks_bb(s);	
 
 			//Us == WHITE ?
-			//	att = m_and(att,m_or(_mm_load_si128((__m128i*)Rank0BB),  // µ×Ïß+±øµÄ»ò¹¥»÷Î»ÖÃ
+			//	att = m_and(att,m_or(_mm_load_si128((__m128i*)Rank0BB),  // åº•çº¿+å…µçš„æˆ–æ”»å‡»ä½ç½®
 			//	m_and(_mm_load_si128((__m128i*)TiMenBit_Pawn),UpBB[3])))
 			//	: att = m_and(att,m_or(_mm_load_si128((__m128i*)Rank9BB),
 			//	m_and(_mm_load_si128((__m128i*)TiMenBit_Pawn),LowBB[6])));
 			Bitboard att;
 			Us == WHITE ? att = m_and(A,UpBB[03]) : att = m_and(A,LowBB[0x6]);
 
-			// Èç¹û³µ²»ÄÜ¹¥»÷
+			// å¦‚æœè½¦ä¸èƒ½æ”»å‡»
 			if(!m_have_bit(att) && (Us == WHITE? StoY(s) >= 0x5 : StoY(s) <= 0x4)){
 				continue;
 			}
 
-			// ×óÓÒÒ»ÆğĞ´? 
+			// å·¦å³ä¸€èµ·å†™? 
 			Square mside = yk - 1;
 			Square oside = yk + 1;
 
-			// ½«µÄ¶ş±ßµÄĞÅÏ¢
+			// å°†çš„äºŒè¾¹çš„ä¿¡æ¯
 			if(StoX(s) < 0x4){
 				att = m_and(LeftBB[0x4],att);
 			}
@@ -181,7 +181,7 @@ Score eval_king_up_one_string(Position& pos, EvalInfo& ei){
 				att = m_and(RightBB[0x4],att);
 			}
 
-			// Õâ¸öÊÇÌúÃÅË¨.
+			// è¿™ä¸ªæ˜¯é“é—¨æ “.
 			if(pos.piece_on(oside) == (BSHI - delt)){
 
 				ei.attPoint[Us] += 4; // fen 3ak2r1/4a4/4b3b/4C1p1p/2p6/6P2/1pPnPR2P/8B/9/1N3K3 w - - 0 1
@@ -207,20 +207,20 @@ Score eval_king_up_one_string(Position& pos, EvalInfo& ei){
 				if(isMPao){
 					bonus  += make_score(16,128);
 					ei.attPoint[Us] += 3;
-					// Èç¹ûÒÔ·½Ã»ÓĞÆå×ÓÔÚ±£»¤½«¾üµÄÄÇÒ»ÌõÏß,Òª¼Ó·Ö
+					// å¦‚æœä»¥æ–¹æ²¡æœ‰æ£‹å­åœ¨ä¿æŠ¤å°†å†›çš„é‚£ä¸€æ¡çº¿,è¦åŠ åˆ†
 					if(!bit_is_set(ei.attacked_by(Them),mside) && pos.piece_on(mside) == EMPTY){
 						// fen 2bak4/4a4/2c1b1n2/p3CR3/6p2/2Pr5/4P4/C3B1N2/1c2K4/2BA1A3 w - - 0 1
 						bonus  += make_score(16,48);
 					}
 					// fen 2r1kab2/4a3n/4bc3/6P1p/R2NC4/1p7/P3P3P/2C6/4A4/1c2K1B2 w - - 0 1
-					//Èç¹ûÊÇ¶Ô·½µÄ³µÔÚµ×Ïß,±£×ÅÄÇ¸öÆå¸ñ,¾ÍÒª¿Û·Ö.
+					//å¦‚æœæ˜¯å¯¹æ–¹çš„è½¦åœ¨åº•çº¿,ä¿ç€é‚£ä¸ªæ£‹æ ¼,å°±è¦æ‰£åˆ†.
 					if(have_bit(pos.pieces(BCHE - delt), Us == WHITE? RankBB_A[0x0] : RankBB_A[0x9])){
 					    //if(have_bit(ei.attackKingCheCan[Them],pos.pieces(BCHE - delt))){
 						bonus  += make_score(16,128);
 					}
 
 					// fen 1nbak4/1N2a4/1c2b1nC1/1C2p1N1p/5r3/6P2/P2pc2RP/4B4/4A4/2BAK4 w - - 0 1
-					//ÓĞÆå×ÓÔÚ±£»¤ÎÒ·½µÄÖĞÅÚ
+					//æœ‰æ£‹å­åœ¨ä¿æŠ¤æˆ‘æ–¹çš„ä¸­ç‚®
 					//if(have_bit(ei.attacked_by(Us),m_and(ei.ZhongDiPaoBB[Us],FileBB_A[0x04]))){
 					//	bonus  += make_score(8,64);
 					//}
@@ -228,13 +228,13 @@ Score eval_king_up_one_string(Position& pos, EvalInfo& ei){
 				else{
 					bonus  += make_score(8,48);
 					ei.attPoint[Us] += 3;
-					// Èç¹ûÒÔ·½Ã»ÓĞÆå×ÓÔÚ±£»¤½«¾üµÄÄÇÒ»ÌõÏß,Òª¼Ó·Ö
+					// å¦‚æœä»¥æ–¹æ²¡æœ‰æ£‹å­åœ¨ä¿æŠ¤å°†å†›çš„é‚£ä¸€æ¡çº¿,è¦åŠ åˆ†
 					if(!bit_is_set(ei.attacked_by(Them),mside) && pos.piece_on(mside) == EMPTY){
 						// fen 2bak4/4a4/2c1b1n2/p3CR3/6p2/2Pr5/4P4/C3B1N2/1c2K4/2BA1A3 w - - 0 1
 						bonus  += make_score(16,32);
 					}
 					// fen 2r1kab2/4a3n/4bc3/6P1p/R2NC4/1p7/P3P3P/2C6/4A4/1c2K1B2 w - - 0 1
-					//Èç¹ûÊÇ¶Ô·½µÄ³µÔÚµ×Ïß,±£×ÅÄÇ¸öÆå¸ñ,¾ÍÒª¿Û·Ö.
+					//å¦‚æœæ˜¯å¯¹æ–¹çš„è½¦åœ¨åº•çº¿,ä¿ç€é‚£ä¸ªæ£‹æ ¼,å°±è¦æ‰£åˆ†.
 					//if(have_bit(ei.attackKingCheCan[Them],pos.pieces(BCHE - delt))){
 					//	bonus  += make_score(6,32);
 					//}
@@ -244,35 +244,35 @@ Score eval_king_up_one_string(Position& pos, EvalInfo& ei){
 				bonus  += make_score(8,64);
 				ei.attPoint[Us] += 4;
 
-				// Èç¹ûÒÔ·½Ã»ÓĞÆå×ÓÔÚ±£»¤½«¾üµÄÄÇÒ»ÌõÏß,Òª¼Ó·Ö
+				// å¦‚æœä»¥æ–¹æ²¡æœ‰æ£‹å­åœ¨ä¿æŠ¤å°†å†›çš„é‚£ä¸€æ¡çº¿,è¦åŠ åˆ†
 				if(!bit_is_set(ei.attacked_by(Them),mside)){
 					// fen 2bak4/4a4/2c1b1n2/p3CR3/6p2/2Pr5/4P4/C3B1N2/1c2K4/2BA1A3 w - - 0 1
 					bonus  += make_score(16,48);
 				}
 			}
-			else{ // Òª¿´Ò»ÏÂÊÇ²»ÊÇÄÜ¹¥»÷µ½ mside
+			else{ // è¦çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯èƒ½æ”»å‡»åˆ° mside
 				if(bit_is_set(att,mside)){
 					bonus  += make_score(4,32);
 					ei.attPoint[Us] += 3;
 				}
 			}
 			// fen 2bakc1R1/4a4/n1c1b4/N1prC3p/P8/2P3r2/4P1n1P/3C2N2/4A4/1RBAK4 b - - 0 1
-			/// 5. ¶Ô·½ÓĞÅÚÔÚ·ÀÊØ,Ò²Òª¿Û·Ö
-			// ¶Ô·½ÓĞÅÚÔÚ·ÀÊØ
+			/// 5. å¯¹æ–¹æœ‰ç‚®åœ¨é˜²å®ˆ,ä¹Ÿè¦æ‰£åˆ†
+			// å¯¹æ–¹æœ‰ç‚®åœ¨é˜²å®ˆ
 			// fen 2bk2b2/4a4/3a5/8p/1P2RN3/P4r2P/4c1rn1/4B2R1/4A4/2BAKC3 w - - 0 1			
 			if(bit_is_set(ei.attacked_by(BPAO - delt),mside) || pos.piece_on(mside) == (BPAO- delt)){
 				ei.attPoint[Us] -= 6;
 			}
-			//// Èç¹ûÓĞÆå×ÓÔÚ¹¥»÷ÎÒ·½µÄÖĞÅÚ
+			//// å¦‚æœæœ‰æ£‹å­åœ¨æ”»å‡»æˆ‘æ–¹çš„ä¸­ç‚®
 			//if(have_bit(ei.attacked_by(Them),m_and(ei.ZhongDiPaoBB[Us],FileBB_A[0x04]))){
 			//	ei.attPoint[Us] -= 3;
 			//}
 		} // che_end
 
 		//////////////////////////////////////////////////////////////////////////
-		// 2 ¿´Ò»ÏÂ±ø
+		// 2 çœ‹ä¸€ä¸‹å…µ
 		//Bitboard tbp = m_and(pos.pieces(RPAWN + delt),_mm_load_si128((__m128i*)TiMenBit_Pawn));
-		//// ¿´Ò»ÏÂ,ÊÇ²»ÊÇÁíÒ»±ßÓĞÊË.
+		//// çœ‹ä¸€ä¸‹,æ˜¯ä¸æ˜¯å¦ä¸€è¾¹æœ‰ä»•.
 		//if(m_have_bit(tbp)){  
 		//	if(pos.piece_on(yk + 1) == (BSHI -delt)){
 		//		if(have_bit(tbp,LeftBB[0x4])){
@@ -304,16 +304,16 @@ Score eval_king_up_one_string(Position& pos, EvalInfo& ei){
 		ei.attPoint[Us] += pawnNum * 4;
 
 		//////////////////////////////////////////////////////////////////////////
-		/// 4. Âí
+		/// 4. é©¬
 		int maNum = (int)count_1s(ei.attackKingBoard[Us],pos.pieces(RMA + delt));
 		ei.attPoint[Us] += maNum * 3;
 		bonus += make_score(maNum * 16, maNum * 32);
 		//for(int i = 0; i < pos.piece_count(RMA + delt); i++){
 		//	Square s =  pos.piece_list(RMA + delt,i);
-		//	// ÂíÔÚ¼ÒÀïÒ²ÒªÌø¹ı
+		//	// é©¬åœ¨å®¶é‡Œä¹Ÿè¦è·³è¿‡
 		//	if(Us == WHITE? StoY(s) >= 0x5 : StoY(s) <= 0x4) continue;
 		//	Bitboard att = ma_to_king_attacks_bb(s,occ);		
-		//	if(have_bit(att,ei.attackKingMaCan[Them])){  // Âí¿ÉÒÔ½«¾ü
+		//	if(have_bit(att,ei.attackKingMaCan[Them])){  // é©¬å¯ä»¥å°†å†›
 		//		if(  (StoX(s) < 0x4 && pos.piece_on(yk + 1) == (BSHI -delt))
 		//			||(StoX(s) > 0x4 && pos.piece_on(yk - 1) == (BSHI -delt))) {
 		//				bonus  += make_score(8,64);

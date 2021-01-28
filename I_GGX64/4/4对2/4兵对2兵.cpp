@@ -4,18 +4,18 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "4±ø¶Ô2±ø.cpp"
+#include "4å…µå¯¹2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//4±ø¶Ô2±ø
+//4å…µå¯¹2å…µ
 void my_m_MT_R_4pawn_B_2pawn(typePOS &POSITION, EvalInfo &ei){
 
 	BothOnlyPawnEval(POSITION,ei);
 
-	//ºì·½Ö»ÄÜ¹ıÒ»¸ö±ø,ÆäËüµÄ±ø±»¶¥×¡ÁË£¬»òÊÇÏàÊØ×¡ÁË£¬¾ÍÊÇºÍÆå
+	//çº¢æ–¹åªèƒ½è¿‡ä¸€ä¸ªå…µ,å…¶å®ƒçš„å…µè¢«é¡¶ä½äº†ï¼Œæˆ–æ˜¯ç›¸å®ˆä½äº†ï¼Œå°±æ˜¯å’Œæ£‹
 
 	int mcan = EV_MY_CAN;
   
@@ -33,7 +33,7 @@ void my_m_MT_R_4pawn_B_2pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 }
 
-//4±ø¶Ô2±ø
+//4å…µå¯¹2å…µ
 //void m_MT_B_4pawn_R_2pawn(typePOS &POSITION, EvalInfo &ei){
 ///*
 //	BothOnlyPawnEval(board);

@@ -10,20 +10,20 @@
 #define LACK_XIANG_ATT_POINT   4
 #define ALL_SHIXIANG_ATT_POINT 6
 
-// ±ø£¬ÊËÏàµÄÌØÊâÐÎ×´ÒýÆðµÄÆÀ·Ö
+// å…µï¼Œä»•ç›¸çš„ç‰¹æ®Šå½¢çŠ¶å¼•èµ·çš„è¯„åˆ†
 
-#define PEV_Rshi_MenGong         (1<<0)  // ÅÚÃÆ¹¬µÄÇé¿ö
+#define PEV_Rshi_MenGong         (1<<0)  // ç‚®é—·å®«çš„æƒ…å†µ
 #define PEV_Bshi_MenGong         (1<<1)
 								
-#define PEV_C_is_Rche_ATT		 (1<<2)  // ÊÇ²»ÊÇÓÐºì³µ½ø¹¥£¬ÒªÁíÍâ¼Ó·Ö
-#define PEV_C_is_Bche_ATT		 (1<<3)  // ÊÇ²»ÊÇÓÐºÚ³µ½ø¹¥£¬ÒªÁíÍâ¼Ó·Ö
+#define PEV_C_is_Rche_ATT		 (1<<2)  // æ˜¯ä¸æ˜¯æœ‰çº¢è½¦è¿›æ”»ï¼Œè¦å¦å¤–åŠ åˆ†
+#define PEV_C_is_Bche_ATT		 (1<<3)  // æ˜¯ä¸æ˜¯æœ‰é»‘è½¦è¿›æ”»ï¼Œè¦å¦å¤–åŠ åˆ†
 								
-#define R_HAVE_CONNECT_PAWN      (1<<4)  // ºì·½ÓÐÁ¬±ø²»ÊÇµ×Ïß
-#define B_HAVE_CONNECT_PAWN      (1<<5)  // ºÚ·½ÓÐÁ¬±ø
+#define R_HAVE_CONNECT_PAWN      (1<<4)  // çº¢æ–¹æœ‰è¿žå…µä¸æ˜¯åº•çº¿
+#define B_HAVE_CONNECT_PAWN      (1<<5)  // é»‘æ–¹æœ‰è¿žå…µ
 
-#define KING_CANNOT_STRING       (1<<6)  // Ë«·½µÄ½«²»»áÓÐÇ£ÖÆ×÷ÓÃ,¶þÕßÖ»¸ôÒ»¸ö×Ó£¬ÇÒÔÚÒ»¸öFILEÉÏ
-#define R_KING_CANNOT_ATT        (1<<7)  // ºì½«²»¿ÉÄÜ¼ÓÈë½ø¹¥£¬Ò²¾ÍÊÇËµ£¬ºì½«ÉÏÃæÃ»ÓÐ×Ô¼ºµÄÊËÏà±ø
-#define B_KING_CANNOT_ATT        (1<<8)  // ºÚ½«²»¿ÉÄÜ¼ÓÈë½ø¹¥£¬Ò²¾ÍÊÇËµ£¬ºÚ½«ÉÏÃæÃ»ÓÐ×Ô¼ºµÄÊËÏà±ø
+#define KING_CANNOT_STRING       (1<<6)  // åŒæ–¹çš„å°†ä¸ä¼šæœ‰ç‰µåˆ¶ä½œç”¨,äºŒè€…åªéš”ä¸€ä¸ªå­ï¼Œä¸”åœ¨ä¸€ä¸ªFILEä¸Š
+#define R_KING_CANNOT_ATT        (1<<7)  // çº¢å°†ä¸å¯èƒ½åŠ å…¥è¿›æ”»ï¼Œä¹Ÿå°±æ˜¯è¯´ï¼Œçº¢å°†ä¸Šé¢æ²¡æœ‰è‡ªå·±çš„ä»•ç›¸å…µ
+#define B_KING_CANNOT_ATT        (1<<8)  // é»‘å°†ä¸å¯èƒ½åŠ å…¥è¿›æ”»ï¼Œä¹Ÿå°±æ˜¯è¯´ï¼Œé»‘å°†ä¸Šé¢æ²¡æœ‰è‡ªå·±çš„ä»•ç›¸å…µ
 
 
 //const int PawnTableSize = 16384*2;
@@ -54,11 +54,11 @@ struct Entry {
 	Bitboard attack_pawn() const { return _attackKingBoard; }
 	
 	Key key;
-	Bitboard _pawnShiXiangAttacks[2];     // Õâ¸ö¿É·ÅÔÚÒ»Æð
-	Bitboard _attackKingBoard;            // ´¦ÓÚ½ø¹¥Î»ÖÃµÄ±ø£¬ ºìºÚ¿ÉÐ´ÔÚÒ»Æð
-	sint8   _pcan[2];                     // ³ýÁËÏà£¬±ø¿ÉºÓµÄÄÜÁ¦¡£
-	sint8   _attPoint[2];                 // ×ª»»³É KingSafety;
-	uint16  _PawnInfo;                    // Òª²âÊÔ±øµÄÆäËüÐÅÏ¢¡£
+	Bitboard _pawnShiXiangAttacks[2];     // è¿™ä¸ªå¯æ”¾åœ¨ä¸€èµ·
+	Bitboard _attackKingBoard;            // å¤„äºŽè¿›æ”»ä½ç½®çš„å…µï¼Œ çº¢é»‘å¯å†™åœ¨ä¸€èµ·
+	sint8   _pcan[2];                     // é™¤äº†ç›¸ï¼Œå…µå¯æ²³çš„èƒ½åŠ›ã€‚
+	sint8   _attPoint[2];                 // è½¬æ¢æˆ KingSafety;
+	uint16  _PawnInfo;                    // è¦æµ‹è¯•å…µçš„å…¶å®ƒä¿¡æ¯ã€‚
 	Score value;
 };
 

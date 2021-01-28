@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Âí3±ø¶Ô2Âí.cpp"
+#include "1é©¬3å…µå¯¹2é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -13,7 +13,7 @@
 //
 
 
-// Âí±ø¶Ô2Âí
+// é©¬å…µå¯¹2é©¬
 void my_m_MT_R_1ma3pawn_B_2ma(typePOS &POSITION, EvalInfo &ei){
 
 	// ADD_MY
@@ -29,7 +29,7 @@ void my_m_MT_R_1ma3pawn_B_2ma(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// ¶Ô·½°²È«
+	// å¯¹æ–¹å®‰å…¨
 	// fen 5a3/3P1P3/b2ak4/9/2b6/2Nn2B2/2n1P4/3K1A3/4A4/9 b - - 0 1
 
 	if(count_1s(bb_my_pawn,MyUpBB[StoY(yk)]) == 2){

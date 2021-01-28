@@ -903,7 +903,7 @@ namespace {
 			// Calculate new depth for this move
 			newDepth = depth - ONE_PLY + extension;
 
-			// Step 13. Pruning at shallow depth Ç³²ãËÑË÷¾Í²Ã¼ô£¬Õâ¸öºÜÎ£ÏÕ
+			// Step 13. Pruning at shallow depth æµ…å±‚æœç´¢å°±è£å‰ªï¼Œè¿™ä¸ªå¾ˆå±é™©
 			if (!rootNode
 				&&  non_pawn_material(pos)
 				&& bestValue > VALUE_MATED_IN_MAX_PLY)
@@ -1294,7 +1294,7 @@ namespace {
 			
 			if (   // !PvNode				&& (
 				!InCheck // || evasionPrunable)
-				&& !givesCheck                               // ÓĞ½«¾üÒ²Òª½«¡£
+				&& !givesCheck                               // æœ‰å°†å†›ä¹Ÿè¦å°†ã€‚
 				&& !pos.see_ge(move))
 				continue;
 
@@ -1562,7 +1562,7 @@ string UCI::pv(Position& pos, Depth depth, Value alpha, Value beta) {
 		for (Move m : rootMoves[i].pv)
 			ss << " " << UCI::move(m);
 
-#ifdef OUTPUT_END_PV_POSITION  // ¿ÉÒÔÊä³öPVµÄ×îºóÒ»¸ö¾ÖÃæ
+#ifdef OUTPUT_END_PV_POSITION  // å¯ä»¥è¾“å‡ºPVçš„æœ€åä¸€ä¸ªå±€é¢
 		Position mpos;
 		StateInfo state[MAX_PLY + 4], *sta = state;
 		mpos.set(pos.fen(), state, 0);
@@ -1608,13 +1608,13 @@ bool RootMove::extract_ponder_from_tt(Position& pos)
 }
 
 //==================================================================================
-//ÒıÇæ×ßÆå¿â²½
+//å¼•æ“èµ°æ£‹åº“æ­¥
 #ifdef USE_OPENBOOK
 // bool FillBookByPos(Position& pos, DB* db);
 
 bool Search::Is_Have_Book_Move(Position& pos, RootMoves& rootMoves) {
 
-	// pos.book_num = 0;             // Æå¿âÆå²½ÊıÁ¿
+	// pos.book_num = 0;             // æ£‹åº“æ£‹æ­¥æ•°é‡
 	int max_book_val = -1;
 
 	DB* db = MST->book;
@@ -1625,9 +1625,9 @@ bool Search::Is_Have_Book_Move(Position& pos, RootMoves& rootMoves) {
 
 	bool have_book_move = false;
 
-	Move book_move[128];             // Æå¿âÆå²½
-	int book_val[128];               // Æå¿âÆå²½µÄ·ÖÖµ
-	int book_num = 0;                // Æå²½µÄÊıÁ¿
+	Move book_move[128];             // æ£‹åº“æ£‹æ­¥
+	int book_val[128];               // æ£‹åº“æ£‹æ­¥çš„åˆ†å€¼
+	int book_num = 0;                // æ£‹æ­¥çš„æ•°é‡
 
 									 //int id = 0;
 	bool have_next = false;
@@ -1654,7 +1654,7 @@ bool Search::Is_Have_Book_Move(Position& pos, RootMoves& rootMoves) {
 
 			have_next = true;
 			if (book_face->info->isuse == TRUE) {
-				if ((side == WHITE && res != BOOK_VERY_GOOD && res != BOOK_LIT_GOOD)		//²»
+				if ((side == WHITE && res != BOOK_VERY_GOOD && res != BOOK_LIT_GOOD)		//ä¸
 					|| (side == BLACK && res != BOOK_VERY_BAD && res != BOOK_LIT_BAD)) {
 
 					int tval = GetValByBookFaceInfo(book_face->info, side);
@@ -1663,7 +1663,7 @@ bool Search::Is_Have_Book_Move(Position& pos, RootMoves& rootMoves) {
 					book_val[book_num] = tval;
 
 					if (tval > max_book_val) {
-						book_num = 0;               // ÖØĞÂ¿ªÊ¼Ìî³äÆå¿âÆå²½
+						book_num = 0;               // é‡æ–°å¼€å§‹å¡«å……æ£‹åº“æ£‹æ­¥
 						max_book_val = tval;
 					}
 

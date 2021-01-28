@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2ÅÚ2±ø¶Ô1ÅÚ1Âí1±ø.cpp"
+#include "2ç‚®2å…µå¯¹1ç‚®1é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -23,7 +23,7 @@ void my_m_MT_R_2pao2pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_SUB(pyok * ADD_2PaoXPawn_1Pao1Ma_ByPawn[my_shi_num]);
 
 	Square ypawn  = S90_from_piecelist(POSITION,your_pawn,0);
-	//ÅÚ·½Òª¼õÒ»Ð©·Ö
+	//ç‚®æ–¹è¦å‡ä¸€äº›åˆ†
 	if(your_shi_num == 2 && your_xiang_num == 2 && StoY(yk) == MY_RANK0){
 		MY_EV_SUB(32);
 	}
@@ -135,7 +135,7 @@ void my_m_MT_R_2pao2pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 2bCk2P1/3P5/4b4/9/7c1/4n4/9/2CA5/5p3/3K5 b - - 0 1
 	if(your_xiang_num == 2){
-		if(have_bit(bb_my_pawn,RankBB_A[MY_RANK0])){ // ÓÐÒ»¸öµ×±ø
+		if(have_bit(bb_my_pawn,RankBB_A[MY_RANK0])){ // æœ‰ä¸€ä¸ªåº•å…µ
 			if(PB90(MY_SQ04) == your_king){
 				if(PB90(MY_SQ03) == my_pao && PB90(MY_SQ0C) == my_pawn && PB90(MY_SQ02) == your_xiang){
 					MY_EV_SUB(96);
@@ -233,7 +233,7 @@ void my_m_MT_R_2pao2pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 //		if(abs(StoX(from) - 0x7) >= 3) boff++;
 //	}
 //
-//	//ÅÚ·½Òª¼õÒ»Ð©·Ö
+//	//ç‚®æ–¹è¦å‡ä¸€äº›åˆ†
 //	// fen C1baka3/9/4b4/2P5C/2n6/2B5P/3p2c2/9/4A4/4KAB2 w - - 6 6
 //	if(board->R_shi == 2 && board->R_xiang == 2 && StoY(rk) == 0xc){
 //		board->mulScore += 64;

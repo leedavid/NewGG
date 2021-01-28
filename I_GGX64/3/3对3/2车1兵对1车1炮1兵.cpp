@@ -5,7 +5,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2≥µ1±¯∂‘1≥µ1≈⁄1±¯.cpp"
+#include "2ËΩ¶1ÂÖµÂØπ1ËΩ¶1ÁÇÆ1ÂÖµ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -34,7 +34,7 @@ void my_m_MT_R_2che1pawn_B_1che1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 		MY_EV_ADD(64);
 	}
 
-	//2≥µ∑Ω∞≤»´
+	//2ËΩ¶ÊñπÂÆâÂÖ®
 	// fen 3a5/3ck4/3a4b/p8/6b2/9/P2R2R2/9/3K5/4r4 b - - 0 1
 	if(ycan == 0 && (my_shi_num + my_xiang_num) >= 1){
 		EV_MY_SAFE = TRUE;
@@ -45,7 +45,7 @@ void my_m_MT_R_2che1pawn_B_1che1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	Square ypao = S90_from_piecelist(POSITION,your_pao,0);
-	//≈⁄≤ª‘⁄º“
+	//ÁÇÆ‰∏çÂú®ÂÆ∂
 	if(StoY(ypao) MY_LARGE MY_RANK2){
 		MY_EV_ADD(96);
 	}

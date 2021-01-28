@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "5±ø¶Ô1Âí.cpp"
+#include "5å…µå¯¹1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -41,7 +41,7 @@ void my_m_MT_R_5pawn_B_1ma(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	if(AllpawnBlowKing == TRUE){   //ËùÓÐµÄ±øÔÚ¶Ô·½µÄ½«ÏÂÃæÁË,Ò²ÊÇºÍÁË
+//	if(AllpawnBlowKing == TRUE){   //æ‰€æœ‰çš„å…µåœ¨å¯¹æ–¹çš„å°†ä¸‹é¢äº†,ä¹Ÿæ˜¯å’Œäº†
 //		board->mulScore = 0;
 //		return 1;
 //	}

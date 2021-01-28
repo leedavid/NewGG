@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ2±ø¶Ô1±ø.cpp"
+#include "1è½¦2å…µå¯¹1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -12,7 +12,7 @@
 
 
 
-//1³µ2±ø¶Ô1±ø
+//1è½¦2å…µå¯¹1å…µ
 void my_m_MT_R_1che_2pawn_B_1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	// ADD
@@ -23,7 +23,7 @@ void my_m_MT_R_1che_2pawn_B_1pawn(typePOS &POSITION, EvalInfo &ei){
 
 }
 
-////1³µ2±ø¶Ô1±ø
+////1è½¦2å…µå¯¹1å…µ
 //void m_MT_B_1che_2pawn_R_1pawn(typePOS &POSITION, EvalInfo &ei){
 ///*
 //	Square rk   = PieceListStart(board,RKING);

@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
 
 #include "..\\..\\endgame\mat.h"
-#include "2±ø¶ÔÎÞ.cpp"
+#include "2å…µå¯¹æ— .cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -14,7 +14,7 @@
 //const int Pawn_Add_ok   = 64;
 //const int Pawn_Add_bad  = 16;
 // fen 9/5PP2/3k5/9/9/6B2/9/B8/9/4K4 w
-//ºì·½¶þ±ø£¬¶Ô·½ 0 attacker
+//çº¢æ–¹äºŒå…µï¼Œå¯¹æ–¹ 0 attacker
 void my_m_MT_R_2PAWN(typePOS &POSITION, EvalInfo &ei){
 
 	BothOnlyPawnEval(POSITION, ei);
@@ -63,11 +63,11 @@ void my_m_MT_R_2PAWN(typePOS &POSITION, EvalInfo &ei){
 		MY_EV_SUB(64);
 	}
 
-	// <<ÏóÆå²Ð¾ÖÀýµä>> 22Ò³ Ë«¸ß±øÀýºÍµ¥ÊËÏó, ²»ÄÜÐÎ³É¶þ¸ö±øÔÚÒ»±ß,¾ÍÊ¤ÁË. 
+	// <<è±¡æ£‹æ®‹å±€ä¾‹å…¸>> 22é¡µ åŒé«˜å…µä¾‹å’Œå•ä»•è±¡, ä¸èƒ½å½¢æˆäºŒä¸ªå…µåœ¨ä¸€è¾¹,å°±èƒœäº†. 
 	if (your_shi_num >= 1 && your_xiang_num >= 1 && StoY(yk) != MY_RANK0){
 		RETRUN_MUL(1);
 	}
-	//¶Ô·½ÓÐÊËÏà£¬ÔòÖ»Òª½«ÔÚ±øÉÏ¾ÍºÍÁË
+	//å¯¹æ–¹æœ‰ä»•ç›¸ï¼Œåˆ™åªè¦å°†åœ¨å…µä¸Šå°±å’Œäº†
 	if (your_xiang_num >= 1){
 		dp = (int)count_1s(p,MyUpBB[StoY(yk)]);
 		if (dp == 2){ // fen 2b6/5PP2/4k4/9/9/9/9/B3B4/9/4K4 w
@@ -94,7 +94,7 @@ void my_m_MT_R_2PAWN(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 5kb2/4a4/9/9/9/9/9/3A1A3/1p1p5/4K4 w - - 90 90
-	// ¶þ¸ö±øÔÚÒ»±ß,Ò²ÊÇºÍÆå
+	// äºŒä¸ªå…µåœ¨ä¸€è¾¹,ä¹Ÿæ˜¯å’Œæ£‹
 
 	if (your_shi_num == 2 && IsOnSameSide(mpawn1, mpawn2)){
 		if (StoY(mpawn1) MY_SMALL_EQL MY_RANK1 && StoY(mpawn2) MY_SMALL_EQL MY_RANK1){
@@ -236,7 +236,7 @@ void my_m_MT_R_2PAWN(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 9/9/3k5/9/9/9/9/5K3/4A1p2/8p w - - 0 0
-	//Ò»¸ö±øµ½ÁËµ×Ïß,ÁíÒ»¸ö±øÔÚ¶þÏßµÄ½«µÄÍ¬Ò»±ß
+	//ä¸€ä¸ªå…µåˆ°äº†åº•çº¿,å¦ä¸€ä¸ªå…µåœ¨äºŒçº¿çš„å°†çš„åŒä¸€è¾¹
 	if (your_shi_num >= 1){
 		if (StoY(mpawn1) == MY_RANK0 && StoY(mpawn2) MY_SMALL_EQL MY_RANK1){
 			if (IsOnSameSide(yk, mpawn2)){

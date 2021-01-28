@@ -7,7 +7,7 @@ void m_MT_BR_1che3pawn(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 4k1b2/5R3/4b4/6p2/2p2P2p/9/2P2r2P/4B4/4A4/4KA3 b - - 1 1
-	//ÌØÕ÷ÊÇÊ²Ã´?
+	//ç‰¹å¾æ˜¯ä»€ä¹ˆ?
 	Square rk = RKpos();
 	Square bk = BKpos();
 
@@ -29,7 +29,7 @@ void m_MT_BR_1che3pawn(typePOS &POSITION, EvalInfo &ei){
 	//if(board->rsafe){
 	//	if(board->B_xiang == 2 && board->b256[0x37] == BKING){
 	//		if(abs(StoX(rche) - 0x7) == 1){
-	//			//ËãÒ»ÏÂ¶¥±øµÄÊýÁ¿
+	//			//ç®—ä¸€ä¸‹é¡¶å…µçš„æ•°é‡
 	//			int d = 0;
 	//			int p = 0;
 	//			for(int from = PieceListStart(board,RPAWN); from > 0x32; from = NextPiece(board,from)){
@@ -54,7 +54,7 @@ void m_MT_BR_1che3pawn(typePOS &POSITION, EvalInfo &ei){
 	//if(board->bsafe){
 	//	if(board->R_xiang == 2 && board->b256[0xc7] == RKING){
 	//		if(abs(StoX(bche) - 0x7) == 1){
-	//			//ËãÒ»ÏÂ¶¥±øµÄÊýÁ¿
+	//			//ç®—ä¸€ä¸‹é¡¶å…µçš„æ•°é‡
 	//			int d = 0;
 	//			int p = 0;
 	//			for(int from = PieceListStart(board,BPAWN); from > 0x32; from = NextPiece(board,from)){

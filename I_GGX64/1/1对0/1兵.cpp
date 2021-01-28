@@ -3,18 +3,18 @@
 #include "..\\..\\chess.h"
 #include "..\\..\\preGen.h"
 
-//#define PawnAddOk  64  // ÓĞ±ø·½µÄ¼Ó·Ö  
+//#define PawnAddOk  64  // æœ‰å…µæ–¹çš„åŠ åˆ†  
  
-#include "1±ø.cpp"
+#include "1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif  
-//ÒıÓÃÊéÄ¿ ÏóÆå²Ğ¾Ö»ù´¡
+//å¼•ç”¨ä¹¦ç›® è±¡æ£‹æ®‹å±€åŸºç¡€
 
-//const int PawnAddOk = 24;                //ÓĞ±ø·½µÄ¼Ó·Ö
+//const int PawnAddOk = 24;                //æœ‰å…µæ–¹çš„åŠ åˆ†
 
-//ºì·½Ò»¸ö±ø
+//çº¢æ–¹ä¸€ä¸ªå…µ
 void my_m_MT_R_1PAWN(typePOS &POSITION, EvalInfo &ei){
 
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
@@ -27,15 +27,15 @@ void my_m_MT_R_1PAWN(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////
-	// ¶Ô·½ÓĞÏà
+	// å¯¹æ–¹æœ‰ç›¸
 	// fen 3k2b2/9/4b4/5P3/9/9/9/9/9/4K4 w
 	if(your_xiang_num == 2){
 		RETRUN_MUL(1);
 	}
 	// fen 3k5/9/4b4/5P3/9/9/9/9/9/4K4 w
 	if(your_xiang_num == 1){
-		// <<ÏóÆå²Ğ¾ÖÀıµä>> page 3 ¸ß±øÀıºÍÏó
-		// ÎÒ·½µÄ±ø³Ô²»µ½¶Ô·½µÄÏó¡£
+		// <<è±¡æ£‹æ®‹å±€ä¾‹å…¸>> page 3 é«˜å…µä¾‹å’Œè±¡
+		// æˆ‘æ–¹çš„å…µåƒä¸åˆ°å¯¹æ–¹çš„è±¡ã€‚
 		if(m_have_bit(m_and(my_pawn_k_attacks(mpawn),
 			bb_your_xiang)) == FALSE){
             RETRUN_MUL(1);
@@ -49,19 +49,19 @@ void my_m_MT_R_1PAWN(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 	if(your_shi_num == 2){
-        // <<ÏóÆå²Ğ¾ÖÀıµä>> Ò»±øÊ¤¶şÊË
+        // <<è±¡æ£‹æ®‹å±€ä¾‹å…¸>> ä¸€å…µèƒœäºŒä»•
 		RETRUN_MUL(1);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////
-	// <<ÏóÆåšˆ¾ÖÀıµä>>
-	// µÚ1Ò³ µÚ1¾Ö µ×±øÀıºÍµ¥½« 
-	//±øµ½µÍÁË, 
+	// <<è±¡æ£‹æ®˜å±€ä¾‹å…¸>>
+	// ç¬¬1é¡µ ç¬¬1å±€ åº•å…µä¾‹å’Œå•å°† 
+	//å…µåˆ°ä½äº†, 
 	if(StoY(mpawn) == MY_RANK0){
 		RETRUN_MUL(1);
 	}
 
-	MY_EV_ADD(64); // ¶à±ø·½¼Ó·Ö
+	MY_EV_ADD(64); // å¤šå…µæ–¹åŠ åˆ†
 
 	// fen 9/3P5/3a1k3/9/9/2B6/9/3A1A3/9/5KB2 w - - 0 0
 	if(StoY(mpawn) MY_SMALL_EQL MY_RANK1){
@@ -76,7 +76,7 @@ void my_m_MT_R_1PAWN(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////
-	//¶Ô·½ÓĞÒ»¸öÊËµÄÇé¿ö
+	//å¯¹æ–¹æœ‰ä¸€ä¸ªä»•çš„æƒ…å†µ
 	if(your_shi_num == 1){
 		int yshi = S90_from_piecelist(POSITION,your_shi,0);		
 
@@ -85,8 +85,8 @@ void my_m_MT_R_1PAWN(typePOS &POSITION, EvalInfo &ei){
 		}
 
 		// fen 4ka3/9/9/4P4/9/9/9/9/4K4/9 w 
-		// <<ÏóÆå²Ğ¾ÖÀıµä>>£¬page 3 µÚ9¾Ö  ¸ß±øÀıºÍÊË
-		//  Ö»Òª²»ÊÜÇ£ÖÆ¾ÍĞĞÁË¡£ ²»ĞÎ³É ½« ÊË ½«
+		// <<è±¡æ£‹æ®‹å±€ä¾‹å…¸>>ï¼Œpage 3 ç¬¬9å±€  é«˜å…µä¾‹å’Œä»•
+		//  åªè¦ä¸å—ç‰µåˆ¶å°±è¡Œäº†ã€‚ ä¸å½¢æˆ å°† ä»• å°†
 		if(StoX(my_king_pos) != StoX(your_king_pos)){
 			RETRUN_MUL(1);
 		}
@@ -144,7 +144,7 @@ void my_m_MT_R_1PAWN(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// ±ØÊ¤µÄÆå
+	// å¿…èƒœçš„æ£‹
 	// fen 9/4a4/4k4/9/6b2/9/9/3K5/6p2/9 b - - 0 0<
 	if ((your_shi_num + your_xiang_num) == 0){
 		if (StoY(mpawn) MY_LARGE_EQL MY_RANK1){

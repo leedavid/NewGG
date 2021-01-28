@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí1±ø¶Ô2³µ.cpp"
+#include "1è½¦1é©¬1å…µå¯¹2è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -25,7 +25,7 @@ void my_m_MT_R_1che1ma1pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 	Square mk = my_king_pos;
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
 	// fen 4kab2/4aR3/4R4/4n1r2/9/9/9/4B4/9/2BAKA3 w - - 0 0
-	//ºì·½¶þ¸ö³µÒ»¸öÒ²²»ÄÜ¶¯ÁË,Ò²ÊÇºÍÆå
+	//çº¢æ–¹äºŒä¸ªè½¦ä¸€ä¸ªä¹Ÿä¸èƒ½åŠ¨äº†,ä¹Ÿæ˜¯å’Œæ£‹
 
 	// fen 4kab2/4aR3/4R4/4n1r2/9/9/9/4B4/9/2BAKA3 w - - 0 0
 	if(my_xiang_num >= 1 && my_xiang_num == 2 && StoY(mk) == MY_RANK9){
@@ -54,7 +54,7 @@ void my_m_MT_R_1che1ma1pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 3ak1b2/4a4/4b1n2/3Rp4/8r/5R3/9/4B4/4A4/4KAB2 w - - 0 0
-	//Ò»°ãÐÔµÄºÍÆå
+	//ä¸€èˆ¬æ€§çš„å’Œæ£‹
 	if((my_shi_num + my_xiang_num) == 4 && StoY(mk) == MY_RANK9){
 		EV_MY_SAFE = TRUE;
 	}

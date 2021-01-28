@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1±ø¶Ô1³µ1Âí1±ø.cpp"
+#include "1è½¦1ç‚®1å…µå¯¹1è½¦1é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -33,7 +33,7 @@ void my_m_MT_R_1che1pao1pawn_B_1che1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square ypawn = S90_from_piecelist(POSITION,your_pawn,0);
 
 	// CR1ak1b2/4a4/1P2b4/1r7/3n5/9/4p4/4B4/4A4/2BAK4 w
-	// ³µ±ø¶Ô¶Ô·½Ç£ÖÆ×¡ÁË¡£
+	// è½¦å…µå¯¹å¯¹æ–¹ç‰µåˆ¶ä½äº†ã€‚
 	//if(your_shi_num == 2 && your_xiang_num == 2 && !IsOnSameSide(yche,mk)){
 	//	//if(is)
 	//}
@@ -116,7 +116,7 @@ void my_m_MT_R_1che1pao1pawn_B_1che1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 3ak4/9/3ab4/5R3/6b2/2P1N4/9/3AB4/3KApc2/5r3 w - - 60 60
-	//ºì·½µÄ³µ¸ø×Ô¼º¸ãËÀÁË¡£
+	//çº¢æ–¹çš„è½¦ç»™è‡ªå·±æžæ­»äº†ã€‚
 	if(PB90(MY_SQ0D) == your_shi && your_xiang_num >= 1 && StoY(mpao) == MY_RANK1){
 		if(PB90(MY_SQ0E) == my_pawn && PB90(MY_SQ05) == my_che && PB90(MY_SQ0C) == your_king){
 			if(StoX(yche) == 0x5){				

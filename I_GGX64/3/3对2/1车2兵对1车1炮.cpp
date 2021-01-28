@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Ё╣2╠Ь╤т1Ё╣1ез.cpp"
+#include "1Х╫╕2Е┘╣Е╞╧1Х╫╕1Г┌╝.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -12,7 +12,7 @@
 
 //const int const_Pawn_Shi_Add[3] = {128,96,32};
 
-// нр╥╫ р╩Ё╣╤Ч╠Ь ╤т╥╫ Ё╣ез
+// Ф┬▒Ф√╧ Д╦─Х╫╕Д╨▄Е┘╣ Е╞╧Ф√╧ Х╫╕Г┌╝
 void my_m_MT_R_1CHE2PAWN_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 
 	// ADD_MY
@@ -83,7 +83,7 @@ void my_m_MT_R_1CHE2PAWN_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 	int isString = isStringByChe(POSITION,mche,ypao,yche);
 
 	if(isString){
-		MY_EV_ADD(128); //хГ╧ШЁ╣ез╠╩гёжфак, тРез╥╫р╙╪У╥ж
+		MY_EV_ADD(128); //Е╕┌Ф·°Х╫╕Г┌╝Х╒╚Г┴╣Е┬╤Д╨├, Е┬≥Г┌╝Ф√╧Х╕│Е┤▐Е┬├
 	}	
 
 	if(your_shi_num == 2 && your_xiang_num >= 1 && StoY(yk) == MY_RANK0){
@@ -98,7 +98,7 @@ void my_m_MT_R_1CHE2PAWN_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 	Bitboard lp = My_get_connect_Pawn(POSITION);
 
 	// fen 3ak1b2/4a4/2c6/5PP2/4r4/3R2B2/9/4B4/3K5/9 b - - 41 41
-	//хГ╧Ш╨Л╥╫сп╤Ч╦Жа╛╠Ь,гр╧Щ╨сак,р╡йг╟╡х╚╣д
+	//Е╕┌Ф·°Г╨╒Ф√╧Ф°┴Д╨▄Д╦╙Х©·Е┘╣,Д╦■Х©┤Ф╡ЁД╨├,Д╧÷Ф≤╞Е╝┴Е┘╗Г └
 	if(my_xiang_num == 2 && StoY(mk) MY_LARGE_EQL MY_RANK8){
 		Bitboard b1 = m_and(lp,MyLowBB[MY_RANK2]);
 		if(m_have_bit(b1)){
@@ -107,7 +107,7 @@ void my_m_MT_R_1CHE2PAWN_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	if(your_shi_num >= 1){
-		//╨ЛЁ╣╡╩дэ╤╞,р╡йг╨з╥╫╟╡х╚╣д
+		//Г╨╒Х╫╕Д╦█Х┐╫Е┼╗,Д╧÷Ф≤╞И╩▒Ф√╧Е╝┴Е┘╗Г └
 		if(PB90(MY_SQ55) == my_king && PB90(MY_SQ4C) == my_shi){
 			if(PB90(MY_SQ54) == my_che && PB90(MY_SQ52) == your_che && PB90(MY_SQ51) == your_pao){
 				EV_YOUR_SAFE = TRUE;
@@ -123,11 +123,11 @@ void my_m_MT_R_1CHE2PAWN_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 	}
 
     
-	//льйБ╣д╨мпн
+	//Г┴╧Ф╝┼Г └Е▓▄Е╫╒
 	// fen 2b6/4P4/5k2b/9/5c1r1/8P/5R3/B7B/9/3AKA3 b - - 121 121
 	if((my_shi_num + my_xiang_num) >= 1 && StoY(yche) == MY_RANK4){
 		if(StoY(mpawn1) MY_SMALL StoY(yk) || StoY(mpawn2) MY_SMALL StoY(yk)){
-			if(StoY(ypao) == StoY(yche) && StoY(mche) MY_LARGE StoY(yche)){ //╣╡в║р╩╦ЖЁ╣
+			if(StoY(ypao) == StoY(yche) && StoY(mche) MY_LARGE StoY(yche)){ //Ф▄║Д╫▐Д╦─Д╦╙Х╫╕
 				if(PB90(MY_SQ35) == my_pawn || PB90(MY_SQ3E) == my_pawn){
 					if(PB90(MY_SQ2B) == your_che && StoX(ypao) < StoX(yche)){
 						RETRUN_MUL(2);
@@ -186,12 +186,12 @@ void my_m_MT_R_1CHE2PAWN_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 2b2P3/3k5/3rc4/2P6/9/9/9/4B3B/4A4/2R1KA3 b - - 128 128
-	//1,р╩╠Ь╣╫╣вё╛аМр╩╦Ж╠Ь╡╩дэобх╔ё╛
+	//1,Д╦─Е┘╣Е┬╟Е╨∙О╪▄Е▐╕Д╦─Д╦╙Е┘╣Д╦█Х┐╫Д╦▀Е▌╩О╪▄
 	if(EV_MY_SAFE){
 		if((your_shi_num + your_xiang_num) >= 1 && StoY(mche) == MY_RANK9){
 			if(StoY(mpawn1) == MY_RANK0 || StoY(mpawn2) == MY_RANK0){
 				MY_EV_SUB(128);
-				// ©╢р╩обспц╩сплЗцек╗
+				// Г°▀Д╦─Д╦▀Ф°┴Ф╡║Ф°┴И⌠│И≈╗Ф═⌠
 				if(MY_SQ55 == mk && PB90(MY_SQ4C) == my_shi && PB90(MY_SQ43) == my_xiang){
 					if(PB90(MY_SQ16) == your_pao){
 						if(PB90(MY_SQ56) == my_shi && PB90(MY_SQ15) == your_che){

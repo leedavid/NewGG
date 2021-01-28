@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2³µ1±ø¶Ô1³µ1ÅÚ.cpp"
+#include "2è½¦1å…µå¯¹1è½¦1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -13,13 +13,13 @@
 
 
 
-//2³µ1±ø¶Ô2³µ
+//2è½¦1å…µå¯¹2è½¦
 void my_m_MT_R_2che1pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	// ADD
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
 	int pmok = (int)count_1s(bmp);
-	MY_EV_ADD(pmok * ADD_2³µx±ø¶Ô2³µ_byPawn[your_shi_num]);
+	MY_EV_ADD(pmok * ADD_2è½¦xå…µå¯¹2è½¦_byPawn[your_shi_num]);
 	
     int mcan = EV_MY_CAN;
 
@@ -29,7 +29,7 @@ void my_m_MT_R_2che1pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 
 	if(your_shi_num == 2 && StoY(yk) == MY_RANK0){
 		if((my_shi_num + my_xiang_num) == 0){
-			// ÎÒ·½ÓĞ³µ²»ÄÜ¶¯ÁË¡£
+			// æˆ‘æ–¹æœ‰è½¦ä¸èƒ½åŠ¨äº†ã€‚
 			if(have_bit(EV_YOUR_XBIT,bb_my_che) && StoY(mpawn) MY_LARGE_EQL MY_RANK2){
 				RETRUN_MUL(4);
 			}

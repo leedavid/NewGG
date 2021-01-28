@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2±ø¶Ô1³µ1±ø.cpp"
+#include "1ç‚®2å…µå¯¹1è½¦1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//1ÅÚ2±ø¶Ô1³µ1±ø, ÅÚÂí·½Òª¼Ó·Ö
+//1ç‚®2å…µå¯¹1è½¦1å…µ, ç‚®é©¬æ–¹è¦åŠ åˆ†
 
 void my_m_MT_R_1pao2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 
@@ -52,7 +52,7 @@ void my_m_MT_R_1pao2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square ypawn = S90_from_piecelist(POSITION,your_pawn,0);
 	Square mpao  = S90_from_piecelist(POSITION,my_pao,0);
 	// fen 2b1kab2/4a4/9/p7r/4P4/2B6/P8/C8/4A4/3AK4 w - - 2 2
-    //ºÚ·½µÄ±ø¸øºì·½µÄÅÚÇ£ÖÆ×¡ÁË£®
+    //é»‘æ–¹çš„å…µç»™çº¢æ–¹çš„ç‚®ç‰µåˆ¶ä½äº†ï¼Ž
 	if(my_shi_num == 2 && my_xiang_num >= 1 && PB90(MY_SQ55) == my_king){
 		if(StoX(ypawn) == 0x0 || StoX(ypawn) == 0x8){
 			if(StoY(ypawn) MY_SMALL_EQL MY_RANK4 && StoY(mpao) MY_LARGE MY_RANK5){
@@ -98,7 +98,7 @@ void my_m_MT_R_1pao2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 
 //void m_MT_B_1pao2pawn_R_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 ///*
-//	//Èç¹ûÃ»ÓÐ¹ýºÓ,»òÕßÂíÅÚ·½ÓÐÊË
+//	//å¦‚æžœæ²¡æœ‰è¿‡æ²³,æˆ–è€…é©¬ç‚®æ–¹æœ‰ä»•
 //    bool isSafe = FALSE;
 //
 //	int  bpao  = PieceListStart(board,BPAO);
@@ -137,7 +137,7 @@ void my_m_MT_R_1pao2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 //	}
 //
 //	// fen 2b1kab2/4a4/9/p7r/4P4/2B6/P8/C8/4A4/3AK4 w - - 2 2
-//    //ºÚ·½µÄ±ø¸øºì·½µÄÅÚÇ£ÖÆ×¡ÁË£®
+//    //é»‘æ–¹çš„å…µç»™çº¢æ–¹çš„ç‚®ç‰µåˆ¶ä½äº†ï¼Ž
 //	if(board->B_shi == 2 && board->b256[0x37] == BKING && board->B_xiang >= 1){
 //		if(board->b256[rpawn - 0x20] == BPAWN || board->b256[rpawn - 0x30] == BPAWN){
 //			if(StoX(rpawn) == 0x3 || StoX(rpawn) == 0xb){

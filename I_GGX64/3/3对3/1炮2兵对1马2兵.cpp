@@ -4,13 +4,13 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2±ø¶Ô1Âí2±ø.cpp"
+#include "1ç‚®2å…µå¯¹1é©¬2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-// fen 4kab2/2n6/3ab4/P1p5p/3P3C1/9/9/4B4/4A4/4KAB2 w - - 0 0 Õâ¸öÒªµ÷ÕûÒ»ÏÂ·ÖÊý
+// fen 4kab2/2n6/3ab4/P1p5p/3P3C1/9/9/4B4/4A4/4KAB2 w - - 0 0 è¿™ä¸ªè¦è°ƒæ•´ä¸€ä¸‹åˆ†æ•°
 
 void my_m_MT_R_1pao2pawn_B_1ma2pawn(typePOS &POSITION, EvalInfo &ei){	
 
@@ -135,7 +135,7 @@ void my_m_MT_R_1pao2pawn_B_1ma2pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 3a1k3/1cN1a1P2/4P4/9/9/2B3B2/4pp3/3A5/4A4/5K3 b - - 140 140
-    //Èç¹ûºì·½¶þ¸ö±ø¶¼×ßËÀÁË£¬Òª¼õ·Ö
+    //å¦‚æžœçº¢æ–¹äºŒä¸ªå…µéƒ½èµ°æ­»äº†ï¼Œè¦å‡åˆ†
 	if(my_shi_num == 2 ){
 
 		if(PB90(MY_SQ43) == your_pawn && StoX(mk) != 0x4){
@@ -267,7 +267,7 @@ void my_m_MT_R_1pao2pawn_B_1ma2pawn(typePOS &POSITION, EvalInfo &ei){
 //	}
 //
 //	// fen 3a1k3/1cN1a1P2/4P4/9/9/2B3B2/4pp3/3A5/4A4/5K3 b - - 140 140
-//    //Èç¹ûºì·½¶þ¸ö±ø¶¼×ßËÀÁË£¬Òª¼õ·Ö
+//    //å¦‚æžœçº¢æ–¹äºŒä¸ªå…µéƒ½èµ°æ­»äº†ï¼Œè¦å‡åˆ†
 //	if(board->B_shi == 2){
 //		if(board->b256[0x57] == RPAWN && StoX(bk) != 0x7){
 //			int op = rpawn1;

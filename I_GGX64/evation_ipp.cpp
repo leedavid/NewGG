@@ -88,10 +88,10 @@ void                                   //   minimum     maximum     move
 	Bitboard occ;
 	Bitboard bit_rk;  // = SetMaskBB[rk];
 	Bitboard bit_bk;  // = SetMaskBB[bk];
-	Bitboard BString; // ÖĞÅÚ, ³µX½«µÄ¼ì²é
+	Bitboard BString; // ä¸­ç‚®, è½¦Xå°†çš„æ£€æŸ¥
 
 	int valu = 0;	
-	int posizionale;  // Î»ÖÃ·Ö
+	int posizionale;  // ä½ç½®åˆ†
 	int endgame;
 	int opening;
 	int rk;
@@ -106,12 +106,12 @@ void                                   //   minimum     maximum     move
 
 
 #ifdef USE_EVAL_HASH //#define USE_EVAL_HASH
-	// È¡¹ÀÖµ HASH.
+	// å–ä¼°å€¼ HASH.
 	if (((POSITION->DYN->HASH ^ EvalHash[POSITION->DYN->HASH & HASH_MASK]) &
 		0xffffffffffff0000) == 0)
 	{
 		valu =
-			(int) ((sint16)(EvalHash[POSITION->DYN->HASH & HASH_MASK] & 0xffff)); //µÍ4Î»×öÖµ
+			(int) ((sint16)(EvalHash[POSITION->DYN->HASH & HASH_MASK] & 0xffff)); //ä½4ä½åšå€¼
 		POSITION->DYN->lazy = 0;  // hash flag??
 		Mobility (POSITION); // attack and attack_king
 		POSITION->DYN->valu_posizionale =
@@ -131,70 +131,70 @@ void                                   //   minimum     maximum     move
 	}
 #endif	
     
-	memset(&ei,0,sizeof(EvalInfo));                          // Çå¿ÕÆÀ¹ÀµÄĞÅÏ¢
+	memset(&ei,0,sizeof(EvalInfo));                          // æ¸…ç©ºè¯„ä¼°çš„ä¿¡æ¯
 	ei.mul = 16;
 
 
 
-#include "eval_½«Ë§_first.h" ¡¡¡¡¡¡¡¡¡¡¡¡ // 2 
-#include "eval_ÅÚµÄµÚÒ»´ÎÆÀ¹À.h"          // ÏÈÆÀ¹ÀÒ»ÏÂË«·½µÄÅÚ      // ÒòÎªÅÚÓĞÇ£ÖÆ¹¦ÄÜ,¿ÉÈ¥ÁË¶Ô·½ÊËÏàµÄ·ÀÊØ
-#include "eval_ÊËÏà.h"                  // ÆÀ¹ÀÒ»ÏÂË«·½µÄÊËÏà¡£
-#include "eval_±øµÄµÚÒ»´ÎÆÀ¹À.h"          // ÆÀ¼ÛÒ»ÏÂË«·½µÄ±ø
-#include "eval_±øµÄ¹ıºÓÄÜÁ¦.h"            // ÆÀ¼ÛË«·½µÄ±ø¿É¹ıºÓµÄÊıÁ¿, ÒòÎªÔÚ²Ğ¾ÖÖĞÒªÓÃµ½,ËùÒÔµÃÏÈÆÀ¹ÀÒ»ÏÂ.
+#include "eval_å°†å¸…_first.h" ã€€ã€€ã€€ã€€ã€€ã€€ // 2 
+#include "eval_ç‚®çš„ç¬¬ä¸€æ¬¡è¯„ä¼°.h"          // å…ˆè¯„ä¼°ä¸€ä¸‹åŒæ–¹çš„ç‚®      // å› ä¸ºç‚®æœ‰ç‰µåˆ¶åŠŸèƒ½,å¯å»äº†å¯¹æ–¹ä»•ç›¸çš„é˜²å®ˆ
+#include "eval_ä»•ç›¸.h"                  // è¯„ä¼°ä¸€ä¸‹åŒæ–¹çš„ä»•ç›¸ã€‚
+#include "eval_å…µçš„ç¬¬ä¸€æ¬¡è¯„ä¼°.h"          // è¯„ä»·ä¸€ä¸‹åŒæ–¹çš„å…µ
+#include "eval_å…µçš„è¿‡æ²³èƒ½åŠ›.h"            // è¯„ä»·åŒæ–¹çš„å…µå¯è¿‡æ²³çš„æ•°é‡, å› ä¸ºåœ¨æ®‹å±€ä¸­è¦ç”¨åˆ°,æ‰€ä»¥å¾—å…ˆè¯„ä¼°ä¸€ä¸‹.
 
 #ifdef TEST_ENDGAME_SHI_XIANG_IS_OK
 	int oldsx = POSITION->pieceCount[BSHI] + POSITION->pieceCount[BXIANG]
 	          + POSITION->pieceCount[RSHI] + POSITION->pieceCount[RXIANG];
-	(*funMat[(POSITION->pMat - Porg)])(POSITION, &ei);       // µÃµ½²Ğ¾ÖµÄ·ÖĞÅÏ¢
+	(*funMat[(POSITION->pMat - Porg)])(POSITION, &ei);       // å¾—åˆ°æ®‹å±€çš„åˆ†ä¿¡æ¯
 	int newsx = POSITION->pieceCount[BSHI] + POSITION->pieceCount[BXIANG]
 	+ POSITION->pieceCount[RSHI] + POSITION->pieceCount[RXIANG];
 	if(oldsx != newsx){
 		board_display(POSITION,"ERROR sx not same??\n");
 	}
 #else
-	(*funMat[(POSITION->pMat - Porg)])(POSITION, &ei);       // µÃµ½²Ğ¾ÖµÄ·ÖĞÅÏ¢
+	(*funMat[(POSITION->pMat - Porg)])(POSITION, &ei);       // å¾—åˆ°æ®‹å±€çš„åˆ†ä¿¡æ¯
 #endif
 
 	if((ei.bsafe + ei.rsafe) == 2) {
 		ei.mul = 1;
 	}
 
-#include "eval_lazy_first.h"  ¡¡¡¡¡¡¡¡¡¡// 1 Õâ¸öÒ»¶¨Òª·ÅÔÚÕâ¶ù
+#include "eval_lazy_first.h"  ã€€ã€€ã€€ã€€ã€€// 1 è¿™ä¸ªä¸€å®šè¦æ”¾åœ¨è¿™å„¿
 
 
-#include "eval_ÂíµÄµÚÒ»´ÎÆÀ¹À.h"         // ÔÙÆÀ¹ÀÒ»ÏÂË«·½µÄÂí
-#include "eval_³µµÄµÚÒ»´ÎÆÀ¹À.h"	       // È»ºó¿ÉÆÀ¹ÀÒ»ÏÂË«·½µÄ³µ.³µµÄÆÀ¹ÀÒª·ÅÔÚºóÃæ¡£
+#include "eval_é©¬çš„ç¬¬ä¸€æ¬¡è¯„ä¼°.h"         // å†è¯„ä¼°ä¸€ä¸‹åŒæ–¹çš„é©¬
+#include "eval_è½¦çš„ç¬¬ä¸€æ¬¡è¯„ä¼°.h"	       // ç„¶åå¯è¯„ä¼°ä¸€ä¸‹åŒæ–¹çš„è½¦.è½¦çš„è¯„ä¼°è¦æ”¾åœ¨åé¢ã€‚
 
 Bitboard white_safe = m_not(m128_bb_or_bb(bitboard_occ_white,
-	POSITION->DYN->attack_black));  // ºì·½¿É°²È«×ßµ½µÄÆå¸ñ,»¹µÃ¼ÓÉÏpao_NULLÍÛ
+	POSITION->DYN->attack_black));  // çº¢æ–¹å¯å®‰å…¨èµ°åˆ°çš„æ£‹æ ¼,è¿˜å¾—åŠ ä¸Špao_NULLå“‡
 Bitboard black_safe = m_not(m128_bb_or_bb(bitboard_occ_black,
-	POSITION->DYN->attack_white));  // ºÚ·½¿É°²È«×ßµ½µÄÆå¸ñ
+	POSITION->DYN->attack_white));  // é»‘æ–¹å¯å®‰å…¨èµ°åˆ°çš„æ£‹æ ¼
 
-//ÏÂÃæÒÑµÃµ½ËùÓĞµÄattacter.
-#include "eval_ÅÚµÄµÚ¶ş´ÎÆÀ¹À.h"          // 
-#include "eval_½«µÄ»î¶¯Çé¿ö.h"            // ½«µÄ»î¶¯Çé¿ö
-#include "eval_³µµÄµÚ¶ş´ÎÆÀ¹À.h"	        // È»ºó¿ÉÆÀ¹ÀÒ»ÏÂË«·½µÄ³µ.³µµÄÆÀ¹ÀÒª·ÅÔÚºóÃæ¡£
-#include "eval_Ç£ÖÆĞÅÏ¢.h"               // Ç£ÖÆ·Ö
-#include "eval_¿ÕÖĞÅÚ¿Õµ×ÅÚ.h"            // ¿ÕÅÚ
-#include "eval_ÖĞÅÚµ×ÅÚ.h"               // ÖĞÅÚµ×ÅÚ
-#include "eval_ÂíµÄµÚ¶ş´ÎÆÀ¹À.h"          // ÂíµÄµÚ¶ş´ÎÆÀ¹À
-#include "eval_±øµÄµÚ¶ş´ÎÆÀ¹À.h"          // ¿´Ò»ÏÂ±øÄÜ²»ÄÜ½Ó½ü¶Ô·½µÄÀÏ½«
-#include "eval_ÉÙÊË.h"                   // ÎÒ·½ÉÙÊËµÄÇé¿ö
-#include "eval_ÉÙÏà.h"                   // ÎÒ·½ÉÙÊËµÄÇé¿ö
-#include "eval_1³µ1ÅÚX±ø.h"              // if(pMat->searchInfo16 & CK_R_Only_1Che1PaoxPawn){
-#include "get_check_history.h"          // µÃµ½Ë«·½µÄ½«¾üĞÅÏ¢
-#include "eval_×ÓÁ¦Æ½ºâ.h"                // Ë«·½ÇøÓòµÄ¶Ô·½µÄ×ÓÁ¦²î.
-#include "eval_ºì²»ÄÜ×ßÓëºÚ³é½«µÄ×Ó.h"      // ÆÀ¼ÛÒ»ÏÂ²»ÄÜ×ßÓë³é½«µÄÆå×Ó.
-#include "eval_ºÚ²»ÄÜ×ßÓëºì³é½«µÄ×Ó.h"      // ÆÀ¼ÛÒ»ÏÂ²»ÄÜ×ßÓë³é½«µÄÆå×Ó
-#include "eval_weak_piece.h"            // ÆÀ¼ÛË«·½µÄÈõ×Ó
-#include "eval_ÎÑĞÄÂí.h"                 // ÎÑĞÄÂí
-#include "eval_rking_safe.h"            // ÆÀ¼ÛºìË§µÄ°²È«ĞÔ
-#include "eval_bking_safe.h"            // ÆÀ¼ÛºÚ½«µÄ°²È«ĞÔ
+//ä¸‹é¢å·²å¾—åˆ°æ‰€æœ‰çš„attacter.
+#include "eval_ç‚®çš„ç¬¬äºŒæ¬¡è¯„ä¼°.h"          // 
+#include "eval_å°†çš„æ´»åŠ¨æƒ…å†µ.h"            // å°†çš„æ´»åŠ¨æƒ…å†µ
+#include "eval_è½¦çš„ç¬¬äºŒæ¬¡è¯„ä¼°.h"	        // ç„¶åå¯è¯„ä¼°ä¸€ä¸‹åŒæ–¹çš„è½¦.è½¦çš„è¯„ä¼°è¦æ”¾åœ¨åé¢ã€‚
+#include "eval_ç‰µåˆ¶ä¿¡æ¯.h"               // ç‰µåˆ¶åˆ†
+#include "eval_ç©ºä¸­ç‚®ç©ºåº•ç‚®.h"            // ç©ºç‚®
+#include "eval_ä¸­ç‚®åº•ç‚®.h"               // ä¸­ç‚®åº•ç‚®
+#include "eval_é©¬çš„ç¬¬äºŒæ¬¡è¯„ä¼°.h"          // é©¬çš„ç¬¬äºŒæ¬¡è¯„ä¼°
+#include "eval_å…µçš„ç¬¬äºŒæ¬¡è¯„ä¼°.h"          // çœ‹ä¸€ä¸‹å…µèƒ½ä¸èƒ½æ¥è¿‘å¯¹æ–¹çš„è€å°†
+#include "eval_å°‘ä»•.h"                   // æˆ‘æ–¹å°‘ä»•çš„æƒ…å†µ
+#include "eval_å°‘ç›¸.h"                   // æˆ‘æ–¹å°‘ä»•çš„æƒ…å†µ
+#include "eval_1è½¦1ç‚®Xå…µ.h"              // if(pMat->searchInfo16 & CK_R_Only_1Che1PaoxPawn){
+#include "get_check_history.h"          // å¾—åˆ°åŒæ–¹çš„å°†å†›ä¿¡æ¯
+#include "eval_å­åŠ›å¹³è¡¡.h"                // åŒæ–¹åŒºåŸŸçš„å¯¹æ–¹çš„å­åŠ›å·®.
+#include "eval_çº¢ä¸èƒ½èµ°ä¸é»‘æŠ½å°†çš„å­.h"      // è¯„ä»·ä¸€ä¸‹ä¸èƒ½èµ°ä¸æŠ½å°†çš„æ£‹å­.
+#include "eval_é»‘ä¸èƒ½èµ°ä¸çº¢æŠ½å°†çš„å­.h"      // è¯„ä»·ä¸€ä¸‹ä¸èƒ½èµ°ä¸æŠ½å°†çš„æ£‹å­
+#include "eval_weak_piece.h"            // è¯„ä»·åŒæ–¹çš„å¼±å­
+#include "eval_çªå¿ƒé©¬.h"                 // çªå¿ƒé©¬
+#include "eval_rking_safe.h"            // è¯„ä»·çº¢å¸…çš„å®‰å…¨æ€§
+#include "eval_bking_safe.h"            // è¯„ä»·é»‘å°†çš„å®‰å…¨æ€§
 
-	//valu += TwoCheFreeCheck[ei.rcy + ei.rcx];     //Ë«³µ´íÉ±µÄ·Ö
+	//valu += TwoCheFreeCheck[ei.rcy + ei.rcx];     //åŒè½¦é”™æ€çš„åˆ†
 	//valu -= TwoCheFreeCheck[ei.bcy + ei.bcx];     //
 	//***********************************************************
-	// ×ª»»·ÖÊı
+	// è½¬æ¢åˆ†æ•°
 	//***********************************************************
 	endgame = (sint16)(valu & 0xffff);
 	opening = (endgame < 0) + (sint16)((valu >> 16) & 0xffff);
@@ -219,7 +219,7 @@ Bitboard black_safe = m_not(m128_bb_or_bb(bitboard_occ_black,
 #endif
 
 	valu += ei.rattb_score - ei.battr_score;
-	// end           // ²Ğ¾Ö·ÖÊı
+	// end           // æ®‹å±€åˆ†æ•°
 	valu = (valu + ei.evscore + Material_value) * ei.mul / 16;
 
 #include "eval_random.h"
@@ -228,12 +228,12 @@ Bitboard black_safe = m_not(m128_bb_or_bb(bitboard_occ_black,
 	POSITION->DYN->valu_posizionale = valu - Material_value;  //POSITION->DYN->valu_posizionale = 0;	
 	POSITION->DYN->lazy = 0;
 #ifdef USE_EVAL_HASH 
-	 // ½«¹ÀÖµ±£´æÒ»ÏÂ.
-	 EvalHash[POSITION->DYN->HASH & HASH_MASK] =     // ½«¹ÀÖµ±£´æÒ»ÏÂ.
+	 // å°†ä¼°å€¼ä¿å­˜ä¸€ä¸‹.
+	 EvalHash[POSITION->DYN->HASH & HASH_MASK] =     // å°†ä¼°å€¼ä¿å­˜ä¸€ä¸‹.
 		(POSITION->DYN->HASH & 0xffffffffffff0000) | (POSITION->DYN->valu & 0xffff);
 #endif
 	if (mossa && !(POSITION->DYN - 1)->lazy){
-		POS_SIDE ?         // ÇÏÃÅ black 
+		POS_SIDE ?         // çªé—¨ black 
 		AdjustPositionalGainW (POSITION, mossa) : AdjustPositionalGainB (POSITION, mossa);
 	}
 }
@@ -292,7 +292,7 @@ Eval(const typePOS *POSITION, int minimo, int massimo, int mossa){
 		val_mir = 0;
 	}
 
-	board_red2black(mPOSITION,POSITION); // ºìºÚ½»»»Ò»ÏÂ
+	board_red2black(mPOSITION,POSITION); // çº¢é»‘äº¤æ¢ä¸€ä¸‹
 	val_r2b = mPOSITION->DYN->statico;
 	memcpy(mPOSITION->DYN_ROOT,POSITION->DYN-1,2*sizeof(typeDYNAMIC));
 	mPOSITION->DYN = mPOSITION->DYN_ROOT + 1;
@@ -301,11 +301,11 @@ Eval(const typePOS *POSITION, int minimo, int massimo, int mossa){
 	// POSITION->DYN->cattura  POSITION->DYN->statico
 	mPOSITION->DYN->catturaa = revertChess[POSITION->DYN->catturaa];
 	(mPOSITION->DYN - 1)->valu_posizionale = -(mPOSITION->DYN - 1)->valu_posizionale;
-	// Î»ÖÃ·ÖÒ²Òª·´Ò»·´ÍÛ
+	// ä½ç½®åˆ†ä¹Ÿè¦åä¸€åå“‡
 	if(mossa != 0){
 		move_new = MOVE_FromTo((89-from),(89-to));
 	}
-	// ÆÀ¹ÀºìºÚ½»»»¾ÖÃæ
+	// è¯„ä¼°çº¢é»‘äº¤æ¢å±€é¢
 	valutazione_debug(mPOSITION,minimo,massimo,move_new);
 
 	val_r2b = mPOSITION->DYN->valu; 

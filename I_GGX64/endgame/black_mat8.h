@@ -1,9 +1,9 @@
 
-//********************************************* 8 ¶Ô0********************
-//********************************************* 8 ¶Ô1********************
+//********************************************* 8 å¯¹0********************
+//********************************************* 8 å¯¹1********************
 #define my_m_MT_R_2pao_1ma5pawn_B_1che                           m_MT_B_2pao_1ma5pawn_R_1che  
 #define my_m_MT_R_1pao_2ma5pawn_B_1che   					     m_MT_B_1pao_2ma5pawn_R_1che   
-//********************************************* 8 ¶Ô2**********//********************************************* 8 ¶Ô2****************
+//********************************************* 8 å¯¹2**********//********************************************* 8 å¯¹2****************
 #define my_m_MT_R_2che1pao5pawn_B_2che   					     m_MT_B_2che1pao5pawn_R_2che   
 #define my_m_MT_R_2che1ma5pawn_B_2che   					     m_MT_B_2che1ma5pawn_R_2che   
 #define my_m_MT_R_1che1pao1ma5pawn_B_2che   				     m_MT_B_1che1pao1ma5pawn_R_2che   
@@ -13,7 +13,7 @@
 #define my_m_MT_R_1pao2ma5pawn_B_1che1ma   					     m_MT_B_1pao2ma5pawn_R_1che1ma   
 #define my_m_MT_R_2pao_1ma5pawn_B_1che1pawn   				     m_MT_B_2pao_1ma5pawn_R_1che1pawn   
 #define my_m_MT_R_1pao_2ma5pawn_B_1che1pawn   				     m_MT_B_1pao_2ma5pawn_R_1che1pawn   
-//********************************************* 8 ¶Ô3**********//********************************************* 8 ¶Ô3****************
+//********************************************* 8 å¯¹3**********//********************************************* 8 å¯¹3****************
 #define my_m_MT_R_2che1pao5pawn_B_2che1pao   				     m_MT_B_2che1pao5pawn_R_2che1pao   
 #define my_m_MT_R_2che1ma5pawn_B_2che1pao  					     m_MT_B_2che1ma5pawn_R_2che1pao  
 #define my_m_MT_R_2che1pao5pawn_B_2che1ma   				     m_MT_B_2che1pao5pawn_R_2che1ma   
@@ -34,7 +34,7 @@
 #define my_m_MT_R_2pao1ma5pawn_B_1pao2ma   					     m_MT_B_2pao1ma5pawn_R_1pao2ma   
 #define my_m_MT_R_1pao2ma5pawn_B_2pao1ma   					     m_MT_B_1pao2ma5pawn_R_2pao1ma   
 #define my_m_MT_R_1pao2ma5pawn_B_1pao2ma   					     m_MT_B_1pao2ma5pawn_R_1pao2ma   
-//********************************************* 8 ¶Ô4**********//********************************************* 8 ¶Ô4****************
+//********************************************* 8 å¯¹4**********//********************************************* 8 å¯¹4****************
 #define my_m_MT_R_1che1pao2ma4pawn_B_2che2pawn                   m_MT_B_1che1pao2ma4pawn_R_2che2pawn
 #define my_m_MT_R_1che2pao5pawn_B_1che1pao2ma   			     m_MT_B_1che2pao5pawn_R_1che1pao2ma   
 #define my_m_MT_R_1che1pao1ma5pawn_B_1che1pao2ma   			     m_MT_B_1che1pao1ma5pawn_R_1che1pao2ma   
@@ -45,12 +45,12 @@
 #define my_m_MT_R_1pao2ma5pawn_B_2pao1ma1pawn   			     m_MT_B_1pao2ma5pawn_R_2pao1ma1pawn   
 #define my_m_MT_R_1pao2ma5pawn_B_1pao2ma1pawn   			     m_MT_B_1pao2ma5pawn_R_1pao2ma1pawn   
 #define my_m_MT_R_1che1pao1ma5pawn_B_2che1pao1pawn               m_MT_B_1che1pao1ma5pawn_R_2che1pao1pawn
-//********************************************* 8 ¶Ô5**********//********************************************* 8 ¶Ô5****************
+//********************************************* 8 å¯¹5**********//********************************************* 8 å¯¹5****************
 #define my_m_MT_R_1che1pao1ma5pawn_B_2che1pao2pawn               m_MT_B_1che1pao1ma5pawn_R_2che1pao2pawn
 #define my_m_MT_R_2pao2ma4pawn_B_1che2pao2pawn                   m_MT_B_2pao2ma4pawn_R_1che2pao2pawn
 #define my_m_MT_R_2pao1ma5pawn_B_1che1ma3pawn                    m_MT_B_2pao1ma5pawn_R_1che1ma3pawn
 #define my_m_MT_R_1pao2ma5pawn_B_1che1ma3pawn                    m_MT_B_1pao2ma5pawn_R_1che1ma3pawn
-//********************************************* 8 ¶Ô6**********//********************************************* 8 ¶Ô6****************
+//********************************************* 8 å¯¹6**********//********************************************* 8 å¯¹6****************
 #define my_m_MT_R_1che1pao1ma5pawn_B_2che1pao3pawn               m_MT_B_1che1pao1ma5pawn_R_2che1pao3pawn
-//********************************************* 8 ¶Ô7**********//********************************************* 8 ¶Ô7****************
-//********************************************* 8 ¶Ô8**********//********************************************* 8 ¶Ô8****************
+//********************************************* 8 å¯¹7**********//********************************************* 8 å¯¹7****************
+//********************************************* 8 å¯¹8**********//********************************************* 8 å¯¹8****************

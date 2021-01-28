@@ -41,7 +41,7 @@ BOOL isWhiteGo_By_FaceInfo(uint8* f33) {
 	case '7':
 		return 0;
 	default:
-		LogOut(TEXT("\n±¸·ÝÆå¿â¾ÖÃæ³ö´í,ÍõµÄÎ»ÖÃÓÐ´í"));
+		LogOut(TEXT("\nå¤‡ä»½æ£‹åº“å±€é¢å‡ºé”™,çŽ‹çš„ä½ç½®æœ‰é”™"));
 		return 2;
 	}
 
@@ -58,7 +58,7 @@ BOOL is_book_face_ok(book_face_t *bft) {
 	return TRUE;
 }
 
-//µÃµ½µ±Ç°Æå¿âµÄÆå²½ÐÅÏ¢
+//å¾—åˆ°å½“å‰æ£‹åº“çš„æ£‹æ­¥ä¿¡æ¯
 int  bk_GetBookInfo(book_face_t* bft, DB *db) {
 	int ret;
 
@@ -87,24 +87,24 @@ int  bk_GetBookInfo(book_face_t* bft, DB *db) {
 	return ret;
 }
 
-//¸ù¾ÝÆå¿âµÄµÃ·Ö£¬µÃµ½½á¹û×Ö·û´®
+//æ ¹æ®æ£‹åº“çš„å¾—åˆ†ï¼Œå¾—åˆ°ç»“æžœå­—ç¬¦ä¸²
 TCHAR* BookScoreToChar(int score) {
 
 	switch (score) {
 	case BOOK_VERY_GOOD:
-		return _T("ºì´óÓÅ");
+		return _T("çº¢å¤§ä¼˜");
 		break;
 	case BOOK_LIT_GOOD:
-		return _T("ºìÂÔÓÅ");
+		return _T("çº¢ç•¥ä¼˜");
 		break;
 	case BOOK_BALANCE:
-		return _T("  ¾ùÊÆ");
+		return _T("  å‡åŠ¿");
 		break;
 	case BOOK_LIT_BAD:
-		return _T("ºÚÂÔÓÅ");
+		return _T("é»‘ç•¥ä¼˜");
 		break;
 	case BOOK_VERY_BAD:
-		return _T("ºÚ´óÓÅ");
+		return _T("é»‘å¤§ä¼˜");
 		break;
 	default:
 		return _T(" ");
@@ -161,19 +161,19 @@ void p90ToAsc(void) {
 	}
 }
 
-int BD_initEnv(STOCK_DBS* mst) {      //³õÊ¼»¯»·¾³
+int BD_initEnv(STOCK_DBS* mst) {      //åˆå§‹åŒ–çŽ¯å¢ƒ
 
 	p90ToAsc();
 
 	mst->Book_Init_Ok = FALSE;
 
-	LogOut(TEXT("ÕýÔÚ³õÊ¼»¯Æå¿âÊý¾Ý¿â¡£¡£¡£!\n"));
+	LogOut(TEXT("æ­£åœ¨åˆå§‹åŒ–æ£‹åº“æ•°æ®åº“ã€‚ã€‚ã€‚!\n"));
 
 	memset(mst, 0, sizeof(STOCK_DBS));
 
 	uint32 env_flag = DB_CREATE
-		| DB_INIT_MPOOL;      //³õÊ¼»¯in-memory cache
-							  //|DB_THREAD ;        //Êý¾Ý¿â¾ä±ú¿ÉÒÔ¸ø¶à¸öÏß³ÌÊ¹ÓÃ
+		| DB_INIT_MPOOL;      //åˆå§‹åŒ–in-memory cache
+							  //|DB_THREAD ;        //æ•°æ®åº“å¥æŸ„å¯ä»¥ç»™å¤šä¸ªçº¿ç¨‹ä½¿ç”¨
 
 	mst->book_db_name = "book.db";
 	// mst->good_db_name = "good.db";
@@ -209,7 +209,7 @@ int BD_initEnv(STOCK_DBS* mst) {      //³õÊ¼»¯»·¾³
 		return ret;
 	}
 
-	//½¨Á¢bookÊý¾Ý¿âÁ¬½Ó
+	//å»ºç«‹bookæ•°æ®åº“è¿žæŽ¥
 
 	ret = db_create(&mst->book, mst->Env, 0);
 
@@ -222,7 +222,7 @@ int BD_initEnv(STOCK_DBS* mst) {      //³õÊ¼»¯»·¾³
 	mst->book->set_errcall(mst->book, BD_my_error_handler);
 	mst->book->set_errpfx(mst->book, "book->");
 
-	//´ò¿ªbook Êý¾Ý¿â
+	//æ‰“å¼€book æ•°æ®åº“
 	ret = mst->book->open(mst->book,
 		NULL,
 		mst->book_db_name,
@@ -236,7 +236,7 @@ int BD_initEnv(STOCK_DBS* mst) {      //³õÊ¼»¯»·¾³
 		return ret;
 	}
 
-	LogOut(TEXT("³õÊ¼»¯Æå¿âÊý¾Ý¿â³É¹¦!\n"));
+	LogOut(TEXT("åˆå§‹åŒ–æ£‹åº“æ•°æ®åº“æˆåŠŸ!\n"));
 
 	mst->Book_Init_Ok = TRUE;
 
@@ -259,7 +259,7 @@ void strCopybyNum(char* dst, size_t num, char* src) {
 	for (i = 0; i < num; i++) {
 		dst[i] = src[i];
 	}
-	dst[i] = 0; //¼ÓÉÏ½áÎ²
+	dst[i] = 0; //åŠ ä¸Šç»“å°¾
 }
 
 int GetValByBookFaceInfo(book_face_info_t *pFinfo, Color side) {
@@ -289,7 +289,7 @@ void GetMirrorOnlyB33(Color sideToMove, Piece orgb90[90], uint8 b33[33], Move m)
 	orgb90[from] = EMPTY;
 	orgb90[to] = fromPiece;
 	
-	// ÏÈ°ÑÏÖÔÚµÄÆå×Ó»»³ÉÔ­À´µÄÆå×Ó
+	// å…ˆæŠŠçŽ°åœ¨çš„æ£‹å­æ¢æˆåŽŸæ¥çš„æ£‹å­
 	Piece b90[90];
 
 	for (int i = 0; i < 90; i++) {
@@ -404,7 +404,7 @@ UNMIROR:
 			}
 
 			switch (chess) {
-			case RKING:                          //ºìË§,Èç¹ûÊÇºì·½×ß,¾Íb33[16] == RKING
+			case RKING:                          //çº¢å¸…,å¦‚æžœæ˜¯çº¢æ–¹èµ°,å°±b33[16] == RKING
 				if (sideToMove == WHITE) {
 					b33[16] = P90ASC[sq];
 				}
@@ -542,10 +542,10 @@ UNMIROR:
 	}
 
 
-	b33[32] = 0;        //¼ÓÉÏ½áÎ²
+	b33[32] = 0;        //åŠ ä¸Šç»“å°¾
 
 
-	// »Ö¸´Ô­À´µÄÆå×Ó
+	// æ¢å¤åŽŸæ¥çš„æ£‹å­
 	orgb90[from] = fromPiece;
 	orgb90[to] = capPiece;
 

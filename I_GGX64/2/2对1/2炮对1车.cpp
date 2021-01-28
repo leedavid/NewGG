@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2ез╤т1Ё╣.cpp"
+#include "2Г┌╝Е╞╧1Х╫╕.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -22,7 +22,7 @@ void my_m_MT_R_2pao_B_1che(typePOS &POSITION, EvalInfo &ei){
 	Square mpao1 = S90_from_piecelist(POSITION,my_pao,0);
 	Square mpao2 = S90_from_piecelist(POSITION,my_pao,1);
 
-	// ╣╠ез╥╫ц╩сп2йк╩Р2оЮ╨С,╩╧спр╩╦Ж©и╨м╣дпн
+	// Е╫⌠Г┌╝Ф√╧Ф╡║Ф°┴2Д╩∙Ф┬√2Г⌡╦Е░▌,Х©≤Ф°┴Д╦─Д╦╙Е▐╞Е▓▄Г └Е╫╒
 	if(my_shi_num == 2 || my_xiang_num == 2){
 		RETRUN_MUL(2);
 	}

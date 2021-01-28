@@ -4,13 +4,13 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1±ø¶Ô1³µ.cpp"
+#include "1è½¦1å…µå¯¹1è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//ºì·½Ò»³µÒ»±ø, ºÚ·½Ò»³µ
+//çº¢æ–¹ä¸€è½¦ä¸€å…µ, é»‘æ–¹ä¸€è½¦
 void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
@@ -41,7 +41,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	// fen 3aka3/9/9/9/5r3/2B6/1p6R/4B4/4A4/3AK4 b - - 0 82 
 	MY_EV_ADD(your_shi_num * 64 + your_xiang_num * 64);
 	
-	// <<ÏóÆå²Ð¾ÖÀýµä>> page295 ³µ¸ß±øÊËÀýºÍ³µ2ÊË
+	// <<è±¡æ£‹æ®‹å±€ä¾‹å…¸>> page295 è½¦é«˜å…µä»•ä¾‹å’Œè½¦2ä»•
 	if(your_shi_num == 2){
 		if(StoY(yk) == MY_RANK0 
 			|| StoY(mpawn) MY_SMALL StoY(yk)){
@@ -59,7 +59,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	MY_EV_ADD(96);  // ÓÐ±ø·½µÄ¼Ó·Ö.
+	MY_EV_ADD(96);  // æœ‰å…µæ–¹çš„åŠ åˆ†.
 
 	// fen 2b6/4k4/4b4/1r2P4/9/2B1R4/9/9/9/2BAKA3 w - - 0 1
 	if(your_xiang_num == 2 && StoX(yk) == 0x4){
@@ -73,7 +73,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	if(your_shi_num >= 1 && your_xiang_num >= 1){
 		
 		// fen 3ak1b2/9/9/9/5r3/2P4R1/9/4B3B/4A4/4KA3 r 
-		// ¶Ô·½µÄ±øÃ»ÓÐ¹ýºÓ
+		// å¯¹æ–¹çš„å…µæ²¡æœ‰è¿‡æ²³
 		if(StoY(yk) == MY_RANK0){
 			if(StoY(mpawn) MY_LARGE MY_RANK4){
 				RETRUN_MUL(1);
@@ -81,7 +81,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 
 		// fen 4ka3/1P1r5/4b4/9/9/1R7/9/3A5/9/3K5 w - - 26 26
-		//³µ±ø¶Ô³µÊËÏó
+		//è½¦å…µå¯¹è½¦ä»•è±¡
 		if(your_king_pos == MY_SQ04){
 			if(StoY(mche) MY_LARGE StoY(yche)){
 				if((StoX(mpawn) <= 0x02 && PB90(MY_SQ05) == your_shi)
@@ -104,7 +104,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	} // if(your_shi_num >= 1 && your_xiang_num >= 1){
 
 	// fen 3k5/9/9/4R4/9/2B6/9/3A5/1r1K1p3/9 w - - 211 211
-	// µ¥³µÁì¸ßÊË
+	// å•è½¦é¢†é«˜ä»•
 	if(your_shi_num >= 1 && StoY(mpawn) MY_SMALL_EQL MY_RANK1 && my_shi_num == 0){
 		if(StoY(yche) MY_LARGE MY_RANK2){
 			// R
@@ -128,7 +128,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// ³µ±øÄÑÊ¤µ¥È±ÊË	
+	// è½¦å…µéš¾èƒœå•ç¼ºä»•	
 	if(your_xiang_num == 2 && your_shi_num >= 1 && StoY(yk) == MY_RANK0){
 		// fen 2b1k4/9/4b4/9/9/6R2/5r3/4B4/4A2p1/4K1B2 w - - 41 41  
 		if(abs(StoX(mpawn) - 0x4) > 2 || StoY(mpawn) != MY_RANK1){
@@ -176,7 +176,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 
 
-	}// ³µ±øÄÑÊ¤µ¥È±ÊË	
+	}// è½¦å…µéš¾èƒœå•ç¼ºä»•	
 
 	if(your_xiang_num == 2 && your_shi_num >= 1 && StoY(yk) MY_SMALL_EQL MY_RANK1){
 		// fen 5a3/4ak3/9/9/9/7r1/9/3R1A2B/3p1K3/2B6 w - - 0 0
@@ -208,12 +208,12 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//³µ±ø¶Ô1ÊË1Ïà
+	//è½¦å…µå¯¹1ä»•1ç›¸
 	if(your_shi_num >= 1 && your_xiang_num >= 1){
 		// fen 5a3/4k4/5a3/9/9/9/9/5A3/2p3R2/5KBr1 w - - 120 
 		if(StoY(yk) == MY_RANK0){
            if(StoY(mpawn) == MY_RANK1 && StoY(yche) == MY_RANK1){
-			   //¶þ¸ö³µÔÚÒ»±ß,³µÓë±ø²»ÔÚÒ»±ß
+			   //äºŒä¸ªè½¦åœ¨ä¸€è¾¹,è½¦ä¸Žå…µä¸åœ¨ä¸€è¾¹
 			   if(IsOnSameSide(mche,yche) && !IsOnSameSide(yche,mpawn)){
 				   if(PB90(MY_SQ06) == your_xiang && StoX(yche) == 0x6){
 					   RETRUN_MUL(1);
@@ -227,9 +227,9 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		if(StoY(mpawn) == MY_RANK0){
 			RETRUN_MUL(1);
 		}
-	} //³µ±ø¶Ô>1ÊË>1Ïà
+	} //è½¦å…µå¯¹>1ä»•>1ç›¸
 
-	// ºì³µ±ø¶Ô³µ,±ø¸øµ¹Ç£ÖÆÁËÒ²ÊÇºÍÆå
+	// çº¢è½¦å…µå¯¹è½¦,å…µç»™å€’ç‰µåˆ¶äº†ä¹Ÿæ˜¯å’Œæ£‹
 	// fen 3ak4/9/5a3/9/2b3b2/2R6/9/2p6/2r1AK3/9 w - - 130 130 
 	if(your_shi_num >= 1){
 		if(isstr){
@@ -242,7 +242,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 4k4/2R6/2P1b4/2r6/9/9/9/4B3B/4A4/3AK4 w - - 0 0
-	//¶Ô·½ÓÐÏà, ÇÒ±»·´Ç£ÖÆÁË
+	//å¯¹æ–¹æœ‰ç›¸, ä¸”è¢«åç‰µåˆ¶äº†
 	if(your_xiang_num >= 1){
 		if(StoY(mpawn) MY_SMALL_EQL MY_RANK2 && abs(StoX(mpawn) - 0x4) >= 2){
 			if(PB90(mpawn MY_SUB 9) == my_che && (StoX(mche) == 0x2 || StoX(mche) == 0x6)){
@@ -255,7 +255,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 
 	//
 	if(StoY(mpawn) == MY_RANK0){
-       // fen 4k1b2/9/3r5/9/5R3/9/9/5A3/3p5/5K3 b - - 115 115 ¸ßÊË, ³µ±£ÊË
+       // fen 4k1b2/9/3r5/9/5R3/9/9/5A3/3p5/5K3 b - - 115 115 é«˜ä»•, è½¦ä¿ä»•
 		if(StoY(yk) MY_SMALL_EQL MY_RANK1){
 			if(StoX(yk) <= 0x4){
 				if(PB90(MY_SQ15) == your_shi && StoX(mpawn) > 0x4){
@@ -273,7 +273,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 			}
 		}
 		/////////////////////////////////////////////////////////////////////////////////
-		// <<ÏóÆå²Ð¾ÖÀýµä>> page237 ³µµ×±øÀýºÍÒ»³µ 
+		// <<è±¡æ£‹æ®‹å±€ä¾‹å…¸>> page237 è½¦åº•å…µä¾‹å’Œä¸€è½¦ 
 		// fen 4k1P2/9/4r4/3R5/9/9/9/9/9/3K5 w
 		if(StoX(yche) == 0x4 && StoY(yche) MY_LARGE_EQL MY_RANK2){
 			RETRUN_MUL(1);
@@ -291,7 +291,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 			RETRUN_MUL(1);
 		}
 
-		// fen 9/3k1P3/3r1a3/9/9/4R4/9/9/4A4/4K4 w  //¸ßÊË,×ó±øÓÒ½« 
+		// fen 9/3k1P3/3r1a3/9/9/4R4/9/9/4A4/4K4 w  //é«˜ä»•,å·¦å…µå³å°† 
 		// fen 5k3/3P5/3a5/3R5/5r3/2B6/9/5A2B/4A4/4K4 b - - 134 134 
 		if(your_shi_num >= 1){
 			if(StoY(yk) MY_SMALL_EQL MY_RANK1){
@@ -305,9 +305,9 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 				}
 			}
 		}
-		//l <<ÏóÆå²Ð¾ÖÀýµä>> ³µµÍÊËÀýºÍ³µÊË 
-		//³µ,ÊËÀýºÍ³µµÍ±ø, ÊõÓï³ÆÎª:µ¥³µ±£½£»òµ¥³µÁìÊË
-		//1, ÐÎA , fen 3a5/3k1P3/9/9/4R4/3r5/9/9/4A4/4K4 w
+		//l <<è±¡æ£‹æ®‹å±€ä¾‹å…¸>> è½¦ä½Žä»•ä¾‹å’Œè½¦ä»• 
+		//è½¦,ä»•ä¾‹å’Œè½¦ä½Žå…µ, æœ¯è¯­ç§°ä¸º:å•è½¦ä¿å‰‘æˆ–å•è½¦é¢†ä»•
+		//1, å½¢A , fen 3a5/3k1P3/9/9/4R4/3r5/9/9/4A4/4K4 w
 		if(((MY_SQ0C == yk || (yk == MY_SQ15 && StoY(yche) != MY_RANK0)) && PB90(MY_SQ03) == your_shi 
 			&& StoX(mpawn) > 0x4)
 			|| ((MY_SQ0E == yk || (yk == MY_SQ17 && StoY(yche) != MY_RANK0)) && PB90(MY_SQ05) == your_shi 
@@ -321,9 +321,9 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	if(StoY(mpawn) == MY_RANK1){
 
 		if(your_shi_num >= 1){
-			//l <<ÏóÆå²Ð¾ÖÀýµä>> ³µµÍÊËÀýºÍ³µÊË 
-			//³µ,ÊËÀýºÍ³µµÍ±ø, ÊõÓï³ÆÎª:µ¥³µ±£½£»òµ¥³µÁìÊË
-			//1, ÐÎA , fen 3a5/3k1P3/9/9/4R4/3r5/9/9/4A4/4K4 w
+			//l <<è±¡æ£‹æ®‹å±€ä¾‹å…¸>> è½¦ä½Žä»•ä¾‹å’Œè½¦ä»• 
+			//è½¦,ä»•ä¾‹å’Œè½¦ä½Žå…µ, æœ¯è¯­ç§°ä¸º:å•è½¦ä¿å‰‘æˆ–å•è½¦é¢†ä»•
+			//1, å½¢A , fen 3a5/3k1P3/9/9/4R4/3r5/9/9/4A4/4K4 w
 			if(((MY_SQ0C == yk || (yk == MY_SQ15 && StoY(yche) != MY_RANK0)) && PB90(MY_SQ03) == your_shi 
 				&& StoX(mpawn) > 0x4)
 				|| ((MY_SQ0E == yk || (yk == MY_SQ17 && StoY(yche) != MY_RANK0)) && PB90(MY_SQ05) == your_shi 
@@ -332,7 +332,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 						RETRUN_MUL(1);
 					}
 			}
-			// fen 9/3k1P3/3r1a3/9/9/4R4/9/9/4A4/4K4 w  //¸ßÊË,×ó±øÓÒ½«
+			// fen 9/3k1P3/3r1a3/9/9/4R4/9/9/4A4/4K4 w  //é«˜ä»•,å·¦å…µå³å°†
 			if(StoY(yk) MY_SMALL_EQL MY_RANK1){
 				if(StoX(yk) <= 0x4){
 					if(PB90(MY_SQ17) == your_shi && StoX(mpawn) > 0x4){
@@ -355,7 +355,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 					}
 				}
 			}
-			// fen 4k1b2/9/3r5/9/5R3/9/9/5A3/3p5/5K3 b - - 115 115 ¸ßÊË, ³µ±£ÊË
+			// fen 4k1b2/9/3r5/9/5R3/9/9/5A3/3p5/5K3 b - - 115 115 é«˜ä»•, è½¦ä¿ä»•
 			if(StoY(yk) MY_SMALL_EQL MY_RANK1 && my_shi_num == 0){
 				if(StoX(yk) <= 0x4){
 					if(PB90(MY_SQ15) == your_shi && StoX(mpawn) > 0x4){
@@ -372,7 +372,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 					}
 				}
 			}
-			// fen 9/3kaRP2/9/9/3r5/9/9/9/4A4/4K4 w - - 6 6  //Õâ¸öÒ²ÊÇºÍÐÎ, ¶Ô·½³µ½«, ÎÒ·½²»µÃ²»ÉÏ½«
+			// fen 9/3kaRP2/9/9/3r5/9/9/9/4A4/4K4 w - - 6 6  //è¿™ä¸ªä¹Ÿæ˜¯å’Œå½¢, å¯¹æ–¹è½¦å°†, æˆ‘æ–¹ä¸å¾—ä¸ä¸Šå°†
 			if(PB90(MY_SQ0D) == your_shi && StoY(mche) == MY_RANK1){
 				if(StoY(yche) MY_LARGE StoY(yk) && StoX(yche) == StoX(yk)){
 					if(isStringByPao(POSITION,yk,mche,mpawn)){
@@ -385,7 +385,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 
 	if(my_shi_num == 0 && my_xiang_num == 0){
 		if(your_xiang_num >= 1 && StoY(mpawn) MY_SMALL_EQL MY_RANK1){
-			//<<ÏóÆå²Ð¾ÖÀýµä>> page249 ³µµÍ±øÀýºÍ³µÏó
+			//<<è±¡æ£‹æ®‹å±€ä¾‹å…¸>> page249 è½¦ä½Žå…µä¾‹å’Œè½¦è±¡
 			if(StoY(yk) == MY_RANK2 ){
 				if(StoX(yche) == 0x4 && StoY(yche) MY_LARGE MY_RANK2){
 					if(abs(StoX(mpawn) - StoX(yk)) != 1){
@@ -393,7 +393,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 					}
 
 					// fen 6b2/5P3/4k4/9/3R5/4r4/9/9/9/5K3 w - - 8 8 
-					//¶Ô·½µÄ³µ½«²»Í¬Ïß,ÇÒ³µÓëºÚ½«Ïà²îÒ»¸ñ,´ËÊ±³µÒ²Ã»ÓÐ°ì·¨½«
+					//å¯¹æ–¹çš„è½¦å°†ä¸åŒçº¿,ä¸”è½¦ä¸Žé»‘å°†ç›¸å·®ä¸€æ ¼,æ­¤æ—¶è½¦ä¹Ÿæ²¡æœ‰åŠžæ³•å°†
 					if(abs(StoX(mche) - StoX(yk)) == 1){
 						if(StoX(mche) != StoX(mk)){
 							RETRUN_MUL(1);
@@ -417,8 +417,8 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 			}
 
 			//3 
-			// <<ÏóÆå²Ð¾ÖÀýµä>> page250 ³µµÍ±øÀýºÍ³µÏó3
-			// Ïó²»¸ß·É,Óë½«Í¬Ò»²à fen 4k1b2/6P2/9/5R3/9/9/4r4/9/9/5K3 w
+			// <<è±¡æ£‹æ®‹å±€ä¾‹å…¸>> page250 è½¦ä½Žå…µä¾‹å’Œè½¦è±¡3
+			// è±¡ä¸é«˜é£ž,ä¸Žå°†åŒä¸€ä¾§ fen 4k1b2/6P2/9/5R3/9/9/4r4/9/9/5K3 w
 			if(StoX(yche) == 0x4 && StoY(yche) MY_LARGE_EQL MY_RANK2 && abs(StoY(yche) - StoY(mk)) >= 2){
 				if(StoX(mche) > 0x4){
 					if(PB90(MY_SQ06) == your_xiang){
@@ -469,7 +469,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	} //if(your_xiang_num >= 1){
 
 	// fen 3R5/4k4/4b4/9/4r4/6P2/9/4B4/4A4/4KAB2 w - - 1 1 
-	//Èç¹ûÊÇÈýÆßÂ·±ø, ÇÒ¶Ô·½ÓÐ
+	//å¦‚æžœæ˜¯ä¸‰ä¸ƒè·¯å…µ, ä¸”å¯¹æ–¹æœ‰
 	if(your_xiang_num >= 1 && PB90(MY_SQ16) == your_xiang && my_xiang_num == 0){
 		if(StoX(yche) == 0x4 && mcan == 0){
 			RETRUN_MUL(1);
@@ -489,7 +489,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//ºÚ³µºÚ±ø±»Ç£ÖÆÁË,²»ÄÜ¶¯ÁË,Ò²ÊÇºÍÆå
+	//é»‘è½¦é»‘å…µè¢«ç‰µåˆ¶äº†,ä¸èƒ½åŠ¨äº†,ä¹Ÿæ˜¯å’Œæ£‹
 	// fen 4kab2/4a4/4b4/9/4R4/9/9/4p4/4r4/5K3 b - - 123 123 
 	if(StoY(yk) == MY_RANK0 && PB90(MY_SQ0D) == my_che && MY_SQ16 == mpawn){
 		if(StoX(yche) == 0x4){
@@ -498,7 +498,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 4ka1R1/9/1r7/9/6b2/9/9/4B4/1p7/4KA3 w - - 153 153
-	// ±ø±»¶Ô·½×óÓÒÇ£ÖÆ×¡ÁË,Ò²ÊÇºÍÆå
+	// å…µè¢«å¯¹æ–¹å·¦å³ç‰µåˆ¶ä½äº†,ä¹Ÿæ˜¯å’Œæ£‹
 	if(your_shi_num >= 1 && your_xiang_num >= 1){
 		if(StoX(mpawn) == 0x8 && StoX(yche) == 0x8 && StoY(yche) == StoY(mpawn)){
 			RETRUN_MUL(1);
@@ -523,7 +523,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 
 	//========================================================================
 	// fen 2b1k4/4a4/9/4R4/4P4/2B1r1B2/9/9/5K3/9 w - - 201 201
-	//³µ±ø¸ø¶Ô·½ÔÚÖÐÏßÇ£ÖÆ×¡ÁË,·´ÃæÇ£ÖÆ×¡ÁË
+	//è½¦å…µç»™å¯¹æ–¹åœ¨ä¸­çº¿ç‰µåˆ¶ä½äº†,åé¢ç‰µåˆ¶ä½äº†
 	if(PB90(MY_SQ04) == your_king){
 		if(PB90(MY_SQ0D) == your_shi){
 			if(StoX(yche) == 0x4 && StoX(mche) == 0x4){
@@ -559,7 +559,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 3a5/3k5/5a3/9/9/9/9/1rp4R1/4AK3/9 w - - 123 123
-	//¶Ô·½µÄ³µ±ø±»Ç£ÖÆ×¡ÁË,ÇÒÎÒ·½µÄ½«ÔÚÒ»±ß, ¶Ô·½ÎÞ·¨½âÌ×.
+	//å¯¹æ–¹çš„è½¦å…µè¢«ç‰µåˆ¶ä½äº†,ä¸”æˆ‘æ–¹çš„å°†åœ¨ä¸€è¾¹, å¯¹æ–¹æ— æ³•è§£å¥—.
 	if(StoY(mche) == StoY(mpawn) && StoY(mche) == MY_RANK2 && isstr){
 		if(PB90(MY_SQ0D) == your_shi){
 			if(StoX(mche) < 0x4 && StoX(mpawn) < 0x3 && StoX(yche) > 0x3 && PB90(MY_SQ0E) == your_king){
@@ -583,7 +583,7 @@ void my_m_MT_R_1CHE1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 9/4k4/9/9/9/5r1p1/6R2/4B4/9/2B1K4 w - - 79 79
-	//Õâ¸ö±ø·½Ã»ÓÐÊËÏà, Ê¤ºì·½ÓÐ¶þ¸öÏàÒÔÉÏ
+	//è¿™ä¸ªå…µæ–¹æ²¡æœ‰ä»•ç›¸, èƒœçº¢æ–¹æœ‰äºŒä¸ªç›¸ä»¥ä¸Š
 	if(your_xiang_num == 2 && my_shi_num == 0 && my_xiang_num == 0){
 		if(StoY(yk) MY_SMALL_EQL MY_RANK1){
 			if(StoY(mpawn) MY_LARGE_EQL MY_RANK4){

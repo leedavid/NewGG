@@ -70,7 +70,7 @@ char* board_to_fen(const typePOS *POSITION, char *fen){
 
 void board_from_fen(const typePOS *POSITION, char *fen, bool iseval){
 	ReadFEN(POSITION,fen);
-	InitBitboards  (POSITION,iseval);  // 初始化一下位棋盘
+	InitBitboards  (POSITION,iseval);  // 鍒濆鍖栦竴涓嬩綅妫嬬洏
 }
 
 #endif

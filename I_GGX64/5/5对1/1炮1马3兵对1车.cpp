@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí3±ø¶Ô1³µ.cpp"
+#include "1ç‚®1é©¬3å…µå¯¹1è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -19,7 +19,7 @@ void my_m_MT_R_1pao1ma_3pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_ADD((sint16)count_1s(bmp) * ADD_1Pao1MaXPawn_To_1Che_PawnByShi[your_shi_num]);
 
 	Square mma = S90_from_piecelist(POSITION, my_ma, 0);
-	//Èç¹û¶Ô·½ÊÇÊËÏàÈ«£¬ÇÒÎÒ·½µÄ±øÃ»ÓÐ¹ýºÓ£¬Òª¼õ·Ö
+	//å¦‚æžœå¯¹æ–¹æ˜¯ä»•ç›¸å…¨ï¼Œä¸”æˆ‘æ–¹çš„å…µæ²¡æœ‰è¿‡æ²³ï¼Œè¦å‡åˆ†
 	// fen 3ak1b2/4a4/4b4/5r3/9/5CP1P/P3N4/4B4/4A4/2B1KA3 w - - 6 6
 	// SUB
 	if ((your_shi_num + your_xiang_num) == 4 && StoY(yk) == MY_RANK0){
@@ -91,7 +91,7 @@ void my_m_MT_R_1pao1ma_3pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	//Èç¹û¶Ô·½ÊÇÊËÏàÈ«£¬ÇÒÎÒ·½µÄ±øÃ»ÓÐ¹ýºÓ£¬Òª¼õ·Ö
+//	//å¦‚æžœå¯¹æ–¹æ˜¯ä»•ç›¸å…¨ï¼Œä¸”æˆ‘æ–¹çš„å…µæ²¡æœ‰è¿‡æ²³ï¼Œè¦å‡åˆ†
 //	// fen 3ak1b2/4a4/4b4/5r3/9/5CP1P/P3N4/4B4/4A4/2B1KA3 w - - 6 6
 //	if(board->R_shi == 2 && board->R_xiang == 2 && StoY(rk) == 0xc){
 //		for(int from = PieceListStart(board,BPAWN); from > 0x32; from = NextPiece(board,from)){

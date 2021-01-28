@@ -4,15 +4,15 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí1±ø¶Ô1ÅÚ1±ø.cpp"
+#include "1ç‚®1é©¬1å…µå¯¹1ç‚®1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 //
-//const int  ADD_MAPAO_Xpawn_To_PAO1Pawn[3]           = {96, 64, 32};            //ÂíÅÚ¶ÔÅÚµÄÓÅÊÆ·Ö
-//const int  ADD_PAO1Pawn_To_MAPAO_Xpawn[3]           = {96, 64, 32};            //ÂíÅÚ¶ÔÅÚµÄÓÅÊÆ·Ö
+//const int  ADD_MAPAO_Xpawn_To_PAO1Pawn[3]           = {96, 64, 32};            //é©¬ç‚®å¯¹ç‚®çš„ä¼˜åŠ¿åˆ†
+//const int  ADD_PAO1Pawn_To_MAPAO_Xpawn[3]           = {96, 64, 32};            //é©¬ç‚®å¯¹ç‚®çš„ä¼˜åŠ¿åˆ†
 
 
 void my_m_MT_R_1ma1pao1pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
@@ -36,7 +36,7 @@ void my_m_MT_R_1ma1pao1pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
 	Square mma   = S90_from_piecelist(POSITION,my_ma,0);
 
-	//Èç¹ûºÚ·½µÄÂíÅÚ¶¼²»ÄÜ¶¯ÁË, Ò²ÊÇºÍÆå.
+	//å¦‚æžœé»‘æ–¹çš„é©¬ç‚®éƒ½ä¸èƒ½åŠ¨äº†, ä¹Ÿæ˜¯å’Œæ£‹.
 	// fen 3aka3/4nP3/4b4/9/2b2c3/9/9/4C4/6p2/3A1K3 b - - 0 0
 	if(PB90(MY_SQ55) == my_king && PB90(MY_SQ54) == my_shi && PB90(MY_SQ56) == my_shi){
 		if(PB90(MY_SQ4C) == my_ma && isStringByPao(POSITION,ypao,Square(MY_SQ4C),Square(MY_SQ55))){
@@ -69,7 +69,7 @@ void my_m_MT_R_1ma1pao1pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// fen 3k2b2/4a4/2P1ba3/9/9/2c3Bp1/C8/5N2B/9/4K4 b - - 0 1 ¼õÒ»Ð©·Ö
+	// fen 3k2b2/4a4/2P1ba3/9/9/2c3Bp1/C8/5N2B/9/4K4 b - - 0 1 å‡ä¸€äº›åˆ†
 	if(your_shi_num == 2 && your_xiang_num == 2 && StoY(yk) == MY_RANK0){
 		if(StoY(ypawn) == MY_RANK5 || StoY(ypawn) == MY_RANK6){
 			MY_EV_SUB(64);
@@ -105,7 +105,7 @@ void my_m_MT_R_1ma1pao1pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 //
 //	}
 //
-//	//Èç¹ûºÚ·½µÄÂíÅÚ¶¼²»ÄÜ¶¯ÁË, Ò²ÊÇºÍÆå.
+//	//å¦‚æžœé»‘æ–¹çš„é©¬ç‚®éƒ½ä¸èƒ½åŠ¨äº†, ä¹Ÿæ˜¯å’Œæ£‹.
 //	// fen 3aka3/4nP3/4b4/9/2b2c3/9/9/4C4/6p2/3A1K3 b - - 0 0
 //	if(board->b256[0x37] == BKING && board->b256[0x36] == BSHI && board->b256[0x38] == BSHI){
 //		if(board->b256[0x47] == BMA && IsStringByPao(board,rpao,0x47,0x37)){
@@ -142,8 +142,8 @@ void my_m_MT_R_1ma1pao1pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 //
 //#include "..\\..\\endgame\mat.h"
 ////
-////const int  ADD_MAPAO_Xpawn_To_PAO1Pawn[3]           = {96, 64, 32};            //ÂíÅÚ¶ÔÅÚµÄÓÅÊÆ·Ö
-////const int  ADD_PAO1Pawn_To_MAPAO_Xpawn[3]           = {96, 64, 32};            //ÂíÅÚ¶ÔÅÚµÄÓÅÊÆ·Ö
+////const int  ADD_MAPAO_Xpawn_To_PAO1Pawn[3]           = {96, 64, 32};            //é©¬ç‚®å¯¹ç‚®çš„ä¼˜åŠ¿åˆ†
+////const int  ADD_PAO1Pawn_To_MAPAO_Xpawn[3]           = {96, 64, 32};            //é©¬ç‚®å¯¹ç‚®çš„ä¼˜åŠ¿åˆ†
 //
 //
 //void my_m_MT_R_1ma1pao2pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
@@ -168,7 +168,7 @@ void my_m_MT_R_1ma1pao1pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	//Èç¹ûºÚ·½µÄÂíÅÚ¶¼²»ÄÜ¶¯ÁË, Ò²ÊÇºÍÆå.
+//	//å¦‚æžœé»‘æ–¹çš„é©¬ç‚®éƒ½ä¸èƒ½åŠ¨äº†, ä¹Ÿæ˜¯å’Œæ£‹.
 //	// fen 3aka3/4nP3/4b4/9/2b1Cc3/9/9/9/3pA1p2/3A1K3 w - - 68 68
 //	if(board->b256[0xc7] == RKING && board->b256[0xc6] == RSHI && board->b256[0xc8] == RSHI){
 //		if(board->b256[0xb7] == RMA && IsStringByPao(board,bpao,0xb7,0xc7)){
@@ -210,7 +210,7 @@ void my_m_MT_R_1ma1pao1pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	//Èç¹ûºÚ·½µÄÂíÅÚ¶¼²»ÄÜ¶¯ÁË, Ò²ÊÇºÍÆå.
+//	//å¦‚æžœé»‘æ–¹çš„é©¬ç‚®éƒ½ä¸èƒ½åŠ¨äº†, ä¹Ÿæ˜¯å’Œæ£‹.
 //	// fen 3aka3/4nP3/4b4/9/2b1Cc3/9/9/9/3pA1p2/3A1K3 w - - 68 68
 //	if(board->b256[0x37] == BKING && board->b256[0x36] == BSHI && board->b256[0x38] == BSHI){
 //		if(board->b256[0x47] == BMA && IsStringByPao(board,rpao,0x47,0x37)){

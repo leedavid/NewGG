@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2±ø¶Ô2ÅÚ.cpp"
+#include "1ç‚®2å…µå¯¹2ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -34,7 +34,7 @@ void my_m_MT_R_1pao2pawn_B_2pao(typePOS &POSITION, EvalInfo &ei){
 	Square mpawn2 = S90_from_piecelist(POSITION,my_pawn,1);
 
 	// fen 9/3k5/5P3/9/5c1c1/P8/9/9/9/2C1K4 w - - 93 93
-	//ºì·½ÓÐÒ»¸ö±ø²»ÄÜ¹ýºÓ
+	//çº¢æ–¹æœ‰ä¸€ä¸ªå…µä¸èƒ½è¿‡æ²³
 	if(my_shi_num == 0 && my_xiang_num == 0){
 		Square p = SQ_END90 ;
 		if(StoY(mpawn1) MY_LARGE_EQL MY_RANK5 && StoY(mpawn2) MY_SMALL_EQL MY_RANK2){		
@@ -136,11 +136,11 @@ void my_m_MT_R_1pao2pawn_B_2pao(typePOS &POSITION, EvalInfo &ei){
 //	}
 //
 //	if(board->B_shi == 0){
-//		//ºÚ·½ÓÐÒ»¸ö±ø²»ÄÜ¹ýºÓ
+//		//é»‘æ–¹æœ‰ä¸€ä¸ªå…µä¸èƒ½è¿‡æ²³
 //		// fen 9/3k5/5P3/9/5c1c1/P8/9/9/9/2C1K4 w - - 93 93
 //		if(board->B_xiang == 0){			
 //			if(StoY(bpawn1) <= 0x7 && StoX(bpawn1) != 0x7){
-//				//Èç¹ûÓÐ±øÃ»ÓÐ¹ýºÓ
+//				//å¦‚æžœæœ‰å…µæ²¡æœ‰è¿‡æ²³
 //				if(StoY(rpao1) == 0x8 && StoY(rpao2) == 0x8){
 //					if(StoX(rpao1) > StoX(bpawn1) && StoX(rpao2) > StoX(bpawn1)){
 //						board->rsafe = TRUE;

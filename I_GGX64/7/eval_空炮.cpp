@@ -6,11 +6,11 @@ void KongPao_isKingCanLeftRight(const Position& pos, EvalInfo& ei){
 	//////////////////////////////////////////////////////////////////////////
 	const Color Them = (Us == WHITE ? BLACK : WHITE);
 	Square ksq = pos.king_square(Us);
-	/// ½«µÄ×óÓÒÆå²½.
+	/// å°†çš„å·¦å³æ£‹æ­¥.
 	Bitboard kcan = m_and(RankBB_A[StoY(ksq)],
 		(Us == WHITE ? one_rpawn_rk_attacks(ksq) : one_bpawn_bk_attacks(ksq)));
 	int orgatt = get_kong_pao_attack_point<Them>(pos,ei);
-	if(have_bit(kcan,ei.SafeBit[Us])){          // ¶Ô·½½«ÄÜ×óÓÒ×ß¶¯.
+	if(have_bit(kcan,ei.SafeBit[Us])){          // å¯¹æ–¹å°†èƒ½å·¦å³èµ°åŠ¨.
 		if(StoX(ksq) == 0x4){
 			ei.kongPaoAttpoint[Them]    += orgatt - 2;
 		}
@@ -36,11 +36,11 @@ void KongPao_isKingCanUpDown(const Position& pos, EvalInfo& ei){
 	//////////////////////////////////////////////////////////////////////////
 	const Color Them = (Us == WHITE ? BLACK : WHITE);
 	Square ksq = pos.king_square(Us);
-	/// ½«µÄÉÏÏÂÆå²½.
+	/// å°†çš„ä¸Šä¸‹æ£‹æ­¥.
 	Bitboard kcan = m_and(FileBB_A[StoX(ksq)],
 		(Us == WHITE ? one_rpawn_rk_attacks(ksq) : one_bpawn_bk_attacks(ksq)));
 	int orgatt = get_kong_pao_attack_point<Them>(pos,ei);
-	if(have_bit(kcan,ei.SafeBit[Us])){     //  ¶Ô·½ÄÜÉÏÏÂ×ß¶¯               
+	if(have_bit(kcan,ei.SafeBit[Us])){     //  å¯¹æ–¹èƒ½ä¸Šä¸‹èµ°åŠ¨               
 		if(Us == WHITE ? StoY(ksq) != 0x9 : StoY(ksq) != 0x0){
 			ei.kongPaoAttpoint[Them] += orgatt - 3;
 		}
@@ -48,16 +48,16 @@ void KongPao_isKingCanUpDown(const Position& pos, EvalInfo& ei){
 			ei.kongPaoAttpoint[Them] += orgatt - 4;
 		}
 	}
-	else{ // ¶Ô·½ÀÏ½«²»ÄÜÉÏÏÂÒÆ¶¯. 
-		if(Us == WHITE ? StoY(ksq) != 0x9 : StoY(ksq) != 0x0){ // ½«²»ÔÚµ×Ïß,¿ÕÅÚÒª¼õ·Ö
+	else{ // å¯¹æ–¹è€å°†ä¸èƒ½ä¸Šä¸‹ç§»åŠ¨. 
+		if(Us == WHITE ? StoY(ksq) != 0x9 : StoY(ksq) != 0x0){ // å°†ä¸åœ¨åº•çº¿,ç©ºç‚®è¦å‡åˆ†
 			ei.kongPaoAttpoint[Them] += orgatt - 4;
 			if(!m_have_bit(_mm_andnot_si128(ei.attacked_by(Them),kcan))){
 				ei.kongPaoAttpoint[Them] += 2; 
 			}
 		}
-		else{  // ¶Ô·½µÄ½«ÔÚµ×, ÎÒ·½ÓĞ¿ÕÅÚ, ÇÒ¶Ô·½µÄÀÏ½«²»ÄÜÉÏÏÂÒÆ¶¯
+		else{  // å¯¹æ–¹çš„å°†åœ¨åº•, æˆ‘æ–¹æœ‰ç©ºç‚®, ä¸”å¯¹æ–¹çš„è€å°†ä¸èƒ½ä¸Šä¸‹ç§»åŠ¨
 			ei.kongPaoAttpoint[Them] += orgatt - 1;
-			if(!m_have_bit(_mm_andnot_si128(ei.attacked_by(Them),kcan))){ // ×ßµÄ·½ÏòÓĞ¹¥»÷.
+			if(!m_have_bit(_mm_andnot_si128(ei.attacked_by(Them),kcan))){ // èµ°çš„æ–¹å‘æœ‰æ”»å‡».
 				ei.kongPaoAttpoint[Them] += 3; 
 			}
 		}
@@ -66,7 +66,7 @@ void KongPao_isKingCanUpDown(const Position& pos, EvalInfo& ei){
 }
 
 //////////////////////////////////////////////////////////////////////////
-/// ¿ÕÅÚµÄ¹¥»÷µãÊı
+/// ç©ºç‚®çš„æ”»å‡»ç‚¹æ•°
 template<Color Us>
 sint8 get_kong_pao_attack_point(const Position& pos, EvalInfo& ei){
 
@@ -86,9 +86,9 @@ sint8 get_kong_pao_attack_point(const Position& pos, EvalInfo& ei){
 	//	bonus  += make_score(16,0);
 	//}
 	//fen 1Cbak2C1/1R2a4/3r1r3/9/2n1p1b1p/2B6/6n1P/3R5/4A4/2B1KA3 w - - 0 1
-	//return  (count_1s(ei.attackKingBoard[Us]) - 1) * 3 // ***** ×î¶àÖ»ÄÜ¼õÒ»ÏÂÍÛ. 
-	//	+ (pos.piece_count(RCHE + delt)) * 4           // ´ó×ÓÊıÄ¿, Ã»ÓĞ³µÒª¼õ·Ö
-	//	+ (pos.piece_count(RPAO + delt)) * 2           // ***** ÅÚÒ²Ö»ÄÜ¼õÒ»ÏÂÍÛ.
+	//return  (count_1s(ei.attackKingBoard[Us]) - 1) * 3 // ***** æœ€å¤šåªèƒ½å‡ä¸€ä¸‹å“‡. 
+	//	+ (pos.piece_count(RCHE + delt)) * 4           // å¤§å­æ•°ç›®, æ²¡æœ‰è½¦è¦å‡åˆ†
+	//	+ (pos.piece_count(RPAO + delt)) * 2           // ***** ç‚®ä¹Ÿåªèƒ½å‡ä¸€ä¸‹å“‡.
 	//	+ pos.piece_count(RMA + delt) * 3;
 
 	return  (ei.att_che_num[Us] - 1) * 4 
@@ -98,11 +98,11 @@ sint8 get_kong_pao_attack_point(const Position& pos, EvalInfo& ei){
 		+  (pos.piece_count(RPAO + delt) - 1) * 3 
 		+  pos.piece_count(RMA + delt) * 1;
 
-	// ¿´Ò»ÏÂ¿ÉÒÔ¹¥»÷µÄÆå×ÓµÄÊıÁ¿.
+	// çœ‹ä¸€ä¸‹å¯ä»¥æ”»å‡»çš„æ£‹å­çš„æ•°é‡.
 }
 
 //////////////////////////////////////////////////////////////////////////
-/// ¿Õ_ÖĞÅÚµ×ÅÚµÄÆÀ¼Û
+/// ç©º_ä¸­ç‚®åº•ç‚®çš„è¯„ä»·
 template<Color Us>
 Score eval_kong_zhong_di_pao(const Position& pos, EvalInfo& ei){
 
@@ -118,10 +118,10 @@ Score eval_kong_zhong_di_pao(const Position& pos, EvalInfo& ei){
 		while(m_have_bit(bkp)){
 
 			const Square pao = pop_1st_bit(&bkp);
-			Bitboard pnull = BetweenBB[yk][pao];  //  ¶Ô·½µÄ½«£¬ÎÒ·½µÄÅÚ
+			Bitboard pnull = BetweenBB[yk][pao];  //  å¯¹æ–¹çš„å°†ï¼Œæˆ‘æ–¹çš„ç‚®
 
 			if(m_have_bit(bkp)){
-				// Èç¹ûÓĞ¶ş¸ö¿ÕÅÚ, Òª¼õ
+				// å¦‚æœæœ‰äºŒä¸ªç©ºç‚®, è¦å‡
 				// fen 5a1nN/1R2a4/C2k5/p7p/2p3n2/4p3P/Pc3r3/3CBA3/9/3A1KB2 b
 				ei.kongPaoAttpoint[Us] -= 8;
 				if(pos.piece_count(RCHE + delt) <= 1 && pos.piece_count(RMA + delt) == 0 ){
@@ -130,7 +130,7 @@ Score eval_kong_zhong_di_pao(const Position& pos, EvalInfo& ei){
 			}
 
 			//////////////////////////////////////////////////////////////////////////
-			/// ¿ÕÖĞÅÚ
+			/// ç©ºä¸­ç‚®
 			if(StoX(pao) == StoX(yk)){
 				if(Us == WHITE ? StoY(pao) <= 0x2 : StoY(pao) >= 0x7){
 					goto Next_Kong_Pao; //fen 3C2b2/3k4C/2N2n3/3P5/8P/4cn3/9/2pAB4/4A4/4K1B2 w - - 0 0
@@ -158,17 +158,17 @@ Score eval_kong_zhong_di_pao(const Position& pos, EvalInfo& ei){
 						}
 					}
 
-				    // Èç¹û¶Ô·½µÄ³µÄÜµşµ½ÅÚµÄÖĞ¼äÒª¼õÒ»Ğ©·Ö¡£
+				    // å¦‚æœå¯¹æ–¹çš„è½¦èƒ½å åˆ°ç‚®çš„ä¸­é—´è¦å‡ä¸€äº›åˆ†ã€‚
 					//if(have_bit())
 
-					//»¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÊÜµ½¶Ô·½µÄ¹¥»÷
+					//è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯å—åˆ°å¯¹æ–¹çš„æ”»å‡»
 					if(bit_is_set(ei.attacked_by(Them),pao)){
 						ei.attPoint[Us] -= 4;
 					}
 				}
 			}
 			//////////////////////////////////////////////////////////////////////////
-			/// ¿Õµ×ÅÚ
+			/// ç©ºåº•ç‚®
 			else{
 				if(ABS(StoX(pao) - 0x4) <= 1){
 					goto Next_Kong_Pao;
@@ -196,7 +196,7 @@ Score eval_kong_zhong_di_pao(const Position& pos, EvalInfo& ei){
 						}
 					}
 
-					// Èç¹ûÎÒ·½µÄ³µÖ»ÓĞÒ»¸ö,ÇÒ ½ø¹¥×ÓÖ»ÓĞ¶ş¸ö.
+					// å¦‚æœæˆ‘æ–¹çš„è½¦åªæœ‰ä¸€ä¸ª,ä¸” è¿›æ”»å­åªæœ‰äºŒä¸ª.
 					if(pos.piece_count(RCHE + delt) <= 1 && count_1s(ei.attackKingBoard[Us]) <= 2){
 						if(pos.piece_count(RMA + delt) == 0){
 							if(pos.piece_count(RPAO + delt) <= 1){
@@ -206,38 +206,38 @@ Score eval_kong_zhong_di_pao(const Position& pos, EvalInfo& ei){
 						}
 					}
 				}
-				//»¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÊÜµ½¶Ô·½µÄ¹¥»÷
+				//è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯å—åˆ°å¯¹æ–¹çš„æ”»å‡»
 				if(bit_is_set(ei.attacked_by(Them),pao)){
 					ei.attPoint[Us] -= 4;
 				}
 			}
 Next_Kong_Pao:
-			// ÔÙËãÒ»ÏÂÓĞÃ»ÓĞÉ±Æå·Ö
+			// å†ç®—ä¸€ä¸‹æœ‰æ²¡æœ‰æ€æ£‹åˆ†
 			if(ei.haveKillDanger[Us] == false){
 
 				// fen 3a1k3/4a4/7c1/7N1/p3PC3/2B6/1n7/9/4K4/7p1 b - - 0 1
-				//¡¡¿´Ò»ÏÂÊÇ²»ÊÇÓĞÂíºóÅÚÔÚ£¬¶øÇÒ¶Ô·½²»ÄÜ×ßµ½ÂíÅÚµÄÖĞ¼ä¡£
+				//ã€€çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯æœ‰é©¬åç‚®åœ¨ï¼Œè€Œä¸”å¯¹æ–¹ä¸èƒ½èµ°åˆ°é©¬ç‚®çš„ä¸­é—´ã€‚
 				if(have_bit(ei.attacked_by(RMA + delt),m_and(MaHouPaoByKing[yk],pnull))){
 					bonus += make_score(32,96);
 					ei.haveKillDanger[Us] = true;
 				}				
 
-				// ¿´Ò»ÏÂÃ»ÓĞÆå×Ó¹¥»÷µ½½«µÄ±ßÉÏÒ»¸ñ. 
+				// çœ‹ä¸€ä¸‹æ²¡æœ‰æ£‹å­æ”»å‡»åˆ°å°†çš„è¾¹ä¸Šä¸€æ ¼. 
 				Bitboard kingside = m_and(pnull,ei.attacked_by(BKING - delt));
 				if(have_bit(kingside, ei.attacked_by(Us))){
-					// 1. ¿´Ò»ÏÂÊÇ²»ÊÇ»¹ÓĞÆäËü×ÓÔÚ¹¥»÷, // fen 1C2ka3/4a4/n2R5/p2Rp3p/2b3p2/3nr1Pr1/P7P/B8/4A4/3AK4 r
+					// 1. çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯è¿˜æœ‰å…¶å®ƒå­åœ¨æ”»å‡», // fen 1C2ka3/4a4/n2R5/p2Rp3p/2b3p2/3nr1Pr1/P7P/B8/4A4/3AK4 r
 					if(have_bit(_mm_andnot_si128(kingside,pnull),ei.attacked_by(RCHE + delt))){
 
-						// ÎÒ·½µÄ½«²»ÄÜÉÏÏÂÔË¶¯, 1,¶Ô·½µÄ³µÊıÁ¿´óÓÚ2¸ö¡£
+						// æˆ‘æ–¹çš„å°†ä¸èƒ½ä¸Šä¸‹è¿åŠ¨, 1,å¯¹æ–¹çš„è½¦æ•°é‡å¤§äº2ä¸ªã€‚
 						//if(have_bit(ei.attacked_by()
 						if(pos.piece_count(RCHE + delt) == 2 || !have_bit(ei.attacked_by(BKING - delt),ei.SafeBit[Them])){
 							ei.haveKillDanger[Us] = true;
 							ei.attPoint[Us] += 4; // fen 1C2ka3/4a4/n2R5/p2Rp3p/2b3p2/3nr1Pr1/P7P/B8/4A4/3AK4 r
 							continue;	
 						}
-						//else{  // fen 2b1k2r1/4a4/n1N1ba3/2p3R1p/3PC4/5c3/9/2C1BA3/9/2BAK3c b - - 0 1 Õâ¸ö²»ÄÜËãÍÛ
-						//	//print_bb(kingside);  // ¶Ô·½µÄ½«µÄ°²È«Æå¸ñ
-						//	//print_bb(ei.SafeBit[Them]); // Ë«·½µÄ°²È«Æå¸ñ.)
+						//else{  // fen 2b1k2r1/4a4/n1N1ba3/2p3R1p/3PC4/5c3/9/2C1BA3/9/2BAK3c b - - 0 1 è¿™ä¸ªä¸èƒ½ç®—å“‡
+						//	//print_bb(kingside);  // å¯¹æ–¹çš„å°†çš„å®‰å…¨æ£‹æ ¼
+						//	//print_bb(ei.SafeBit[Them]); // åŒæ–¹çš„å®‰å…¨æ£‹æ ¼.)
 						//	//print_bb(ei.attacked_by(BKING - delt));
 						//	if(!have_bit(ei.attacked_by(BKING - delt),ei.SafeBit[Them])
 						//}
@@ -250,12 +250,12 @@ Next_Kong_Pao:
 						continue;
 					}
 					// fen 4ka3/4a4/7rb/p7p/1Rp1RN3/2P3B2/P3Pr2P/6n1N/4A4/3AK2c1 r
-					// ÊÇ²»ÊÇ¹¥»÷Õâ¸ökingside³¬¹ı¶ş¸öµã, ±ÈÈç. ³µ,³µ. ³µÂí. 
+					// æ˜¯ä¸æ˜¯æ”»å‡»è¿™ä¸ªkingsideè¶…è¿‡äºŒä¸ªç‚¹, æ¯”å¦‚. è½¦,è½¦. è½¦é©¬. 
 					if(have_bit(kingside,ei.attacked_by(RCHE + delt))){
 						int c = 0;
 						for(int i = 0; i < pos.piece_count(RCHE + delt); i++){
 							//Square s =  pos.piece_list(RCHE+ delt,i);
-							Bitboard A = ei.CheAtt[Us][i];                                // µÃµ½ÅÚµÄ¹¥»÷Î»ÆåÅÌ
+							Bitboard A = ei.CheAtt[Us][i];                                // å¾—åˆ°ç‚®çš„æ”»å‡»ä½æ£‹ç›˜
 							if(have_bit(A,kingside)){
 								c ++; 
 							}
@@ -265,7 +265,7 @@ Next_Kong_Pao:
 						}
 						for(int i = 0; i < pos.piece_count(RMA + delt); i++){
 							//Square s =  pos.piece_list(RMA + delt,i);
-							Bitboard A = ei.MaAtt[Us][i];                                // µÃµ½ÅÚµÄ¹¥»÷Î»ÆåÅÌ
+							Bitboard A = ei.MaAtt[Us][i];                                // å¾—åˆ°ç‚®çš„æ”»å‡»ä½æ£‹ç›˜
 							if(have_bit(A,kingside)){
 								c ++; 
 							}

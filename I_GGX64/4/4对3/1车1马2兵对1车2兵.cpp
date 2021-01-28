@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí2±ø¶Ô1³µ2±ø.cpp"
+#include "1è½¦1é©¬2å…µå¯¹1è½¦2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -71,7 +71,7 @@ void my_m_MT_R_1che1ma2pawn_B_1che2pawn(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_ADD(EV_MY_CAN * 32);
 
 	// fen 9/9/4k4/p1r1p4/9/8R/Pn6P/4B4/4A4/3AK1B2 w - - 0 1
-	// ºÚ·½¶ş¸ö±ø¶¼ÔÚ¼ÒÀï,Òª¿Û·Ö
+	// é»‘æ–¹äºŒä¸ªå…µéƒ½åœ¨å®¶é‡Œ,è¦æ‰£åˆ†
 	ymp = m_and(bb_your_pawn, MyUpBB[MY_RANK4]);
 	MY_EV_ADD(64 * count_1s(ymp));
 }

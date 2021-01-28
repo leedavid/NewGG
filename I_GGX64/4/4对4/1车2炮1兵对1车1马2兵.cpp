@@ -3,7 +3,7 @@
 #include "..\\..\\chess.h"
 #include "..\\..\\preGen.h"
 #include "..\\..\\endgame\mat.h"
-#include "1³µ2ÅÚ1±ø¶Ô1³µ1Âí2±ø.cpp"
+#include "1è½¦2ç‚®1å…µå¯¹1è½¦1é©¬2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"

@@ -1,8 +1,8 @@
 #include "eval_total.h"
 #pragma warning(disable : 4530)  
 
-const Score Che2_String_Pao[10] = {	   //ÎÒ·½ÓĞ¶ş³µÊ±£¬ÅÚ±»¶Ô·½Ç£ÖÆ¿Û·Ö
-	Score(((116) << 16) + (196)),     //0,  ³µÅÚ -- ³µµÄ×ÔÓÉ¶È
+const Score Che2_String_Pao[10] = {	   //æˆ‘æ–¹æœ‰äºŒè½¦æ—¶ï¼Œç‚®è¢«å¯¹æ–¹ç‰µåˆ¶æ‰£åˆ†
+	Score(((116) << 16) + (196)),     //0,  è½¦ç‚® -- è½¦çš„è‡ªç”±åº¦
 	Score(((108) << 16) + (186)),     //1,
 	Score(((100) << 16) + (178)),     //2,
 	Score((( 92) << 16) + (170)),     //3,
@@ -14,8 +14,8 @@ const Score Che2_String_Pao[10] = {	   //ÎÒ·½ÓĞ¶ş³µÊ±£¬ÅÚ±»¶Ô·½Ç£ÖÆ¿Û·Ö
 	Score((( 40) << 16) + (124)),     //9,	
 };
 
-const Score Che1_String_Pao[10] = {   //ÎÒ·½½öÒ»³µÊ±£¬ÅÚ±»¶Ô·½Ç£ÖÆ¿Û·Ö
-	Score(((168) << 16) + (196)),     //0,  ³µÅÚ -- ³µµÄ×ÔÓÉ¶È
+const Score Che1_String_Pao[10] = {   //æˆ‘æ–¹ä»…ä¸€è½¦æ—¶ï¼Œç‚®è¢«å¯¹æ–¹ç‰µåˆ¶æ‰£åˆ†
+	Score(((168) << 16) + (196)),     //0,  è½¦ç‚® -- è½¦çš„è‡ªç”±åº¦
 	Score(((160) << 16) + (186)),     //1,
 	Score(((152) << 16) + (178)),     //2,
 	Score(((144) << 16) + (170)),     //3,
@@ -29,7 +29,7 @@ const Score Che1_String_Pao[10] = {   //ÎÒ·½½öÒ»³µÊ±£¬ÅÚ±»¶Ô·½Ç£ÖÆ¿Û·Ö
 
 // fen 4kab2/4ac3/4b4/pR2p2P1/cn7/C8/2p1P4/4B1N1B/1r1N5/3AKA3 w - - 0 1
 const Score Che2_String_Ma[10] = {		
-	Score(((118) << 16) + (196)),     //0,  ³µÂí -- ³µµÄ×ÔÓÉ¶È
+	Score(((118) << 16) + (196)),     //0,  è½¦é©¬ -- è½¦çš„è‡ªç”±åº¦
 	Score(((110) << 16) + (186)),     //1,
 	Score(((102) << 16) + (178)),     //2,
 	Score((( 94) << 16) + (170)),     //3,
@@ -42,7 +42,7 @@ const Score Che2_String_Ma[10] = {
 };
 
 const Score Che1_String_Ma[10] = {
-	Score(((168) << 16) + (196)),     //0,  ³µÂí -- ³µµÄ×ÔÓÉ¶È
+	Score(((168) << 16) + (196)),     //0,  è½¦é©¬ -- è½¦çš„è‡ªç”±åº¦
 	Score(((160) << 16) + (186)),     //1,
 	Score(((152) << 16) + (178)),     //2,
 	Score(((144) << 16) + (170)),     //3,
@@ -57,7 +57,7 @@ const Score Che1_String_Ma[10] = {
 
 
 //////////////////////////////////////////////////////////////////////////
-/// ÆÀ¹ÀË«·½µÄÈõ×Ó
+/// è¯„ä¼°åŒæ–¹çš„å¼±å­
 
 template<Color Us>
 Score eval_weak_piece(Position& pos, EvalInfo& ei){
@@ -71,7 +71,7 @@ Score eval_weak_piece(Position& pos, EvalInfo& ei){
 		return SCORE_ZERO;
 	}
 
-	// ÏÈ¿´Ò»ÏÂÎÒ·½µÄÂí,ÅÚÊÇ²»ÊÇ¸ø¶Ô·½ÅÚ¹¥»÷, ³µ Âí(ÅÚ) ³µ£¬ 
+	// å…ˆçœ‹ä¸€ä¸‹æˆ‘æ–¹çš„é©¬,ç‚®æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹ç‚®æ”»å‡», è½¦ é©¬(ç‚®) è½¦ï¼Œ 
 	Bitboard str = m_and(ei.attacked_by(RCHE + delt), myMaPao);
 
 	Bitboard yourChePao = m_or(ei.attacked_by(BCHE - delt), ei.attacked_by(BPAO - delt));
@@ -79,20 +79,20 @@ Score eval_weak_piece(Position& pos, EvalInfo& ei){
 		return SCORE_ZERO;
 	}
 
-	// Èç¹û str ¸ø¶Ô·½µÄ£¨³µ£¬ÅÚ£©£¬Ö»ÓĞ³µÅÚ²ÅÄÜÇ£ÖÆÆå×Ó¹¥»÷ÁË
+	// å¦‚æœ str ç»™å¯¹æ–¹çš„ï¼ˆè½¦ï¼Œç‚®ï¼‰ï¼Œåªæœ‰è½¦ç‚®æ‰èƒ½ç‰µåˆ¶æ£‹å­æ”»å‡»äº†
 	str = m_and(str, yourChePao);
 
-	// Èç¹û¸ø×Ô¼ºµÄÏà£¬ÊË£¬±ø±£»¤Ò²£¬Ò²²»ËãÊÜ¹¥»÷µÄÈõ×Ó	((( »¹Òª¼ÓÉÏ×Ô¼ºµÄÅÚ£¬Âí±£»¤ÍÛ£©))
+	// å¦‚æœç»™è‡ªå·±çš„ç›¸ï¼Œä»•ï¼Œå…µä¿æŠ¤ä¹Ÿï¼Œä¹Ÿä¸ç®—å—æ”»å‡»çš„å¼±å­	((( è¿˜è¦åŠ ä¸Šè‡ªå·±çš„ç‚®ï¼Œé©¬ä¿æŠ¤å“‡ï¼‰))
 	str = _mm_andnot_si128(ei.pi->pawnshiXiang_attacks(Us), str);     //print_bb(str);
 	////////////////////////////////////////////////////////////////////////
-	// 2ÅÚÍ¬Ê±¸ø¶Ô·½2³µÇ£ÖÆÁË¡£
+	// 2ç‚®åŒæ—¶ç»™å¯¹æ–¹2è½¦ç‰µåˆ¶äº†ã€‚
 	if (pos.piece_count(RCHE + delt) == 2 
 		&& count_1s(str, pos.pieces(RPAO + delt)) == 2
-		&& !have_bit(pos.pieces(RCHE + delt), ei.attacked_by(Us))){  // ÎÒ·½µÄ³µÃ»ÓĞ±£»¤
+		&& !have_bit(pos.pieces(RCHE + delt), ei.attacked_by(Us))){  // æˆ‘æ–¹çš„è½¦æ²¡æœ‰ä¿æŠ¤
 		Bitboard str2pao2che = m_and(str, ei.attacked_by(BCHE - delt));
 		if (count_1s(str2pao2che) == 2 ){
-			if (have_bit(str2pao2che, ei.attacked_by(RPAO + delt))){  // 2ÅÚÏà»¥ÔÚ±£»¤×Å£¬
-				// ÔÙ¿´Ò»ÏÂÓĞÃ»ÓĞÆäËüµÄÆå×ÓÔÚ±£»¤¡£
+			if (have_bit(str2pao2che, ei.attacked_by(RPAO + delt))){  // 2ç‚®ç›¸äº’åœ¨ä¿æŠ¤ç€ï¼Œ
+				// å†çœ‹ä¸€ä¸‹æœ‰æ²¡æœ‰å…¶å®ƒçš„æ£‹å­åœ¨ä¿æŠ¤ã€‚
 				Bitboard bsxp_ma = m_or(ei.pi->pawnshiXiang_attacks(Us),
 					ei.attacked_by(RMA + delt));
 				if (!have_bit(bsxp_ma, str2pao2che)){
@@ -102,7 +102,7 @@ Score eval_weak_piece(Position& pos, EvalInfo& ei){
 		}
 	}
 	////////////////////////////////////////////////////////////////////////		
-	// È¥ÁËÖĞ¼äÊÜ±£»¤µÄÆå×Ó
+	// å»äº†ä¸­é—´å—ä¿æŠ¤çš„æ£‹å­
 	str = _mm_andnot_si128(m_or(ei.attacked_by(RMA + delt), ei.attacked_by(RPAO + delt)), str);    
 	Square sqStr;
 	while (pop_1st_bit_sq(str, sqStr)) {
@@ -110,28 +110,28 @@ Score eval_weak_piece(Position& pos, EvalInfo& ei){
 		Piece  strPiece = pos.piece_on(sqStr);
 
 		// fen 2ba2RN1/4a2r1/2C1k4/c2n5/5n2P/3p2p2/2P6/4B4/1C2A4/4KAB2 w - - 0 1 
-		// Ñ¹ËÀÂíÁË¡£
+		// å‹æ­»é©¬äº†ã€‚
 		if (strPiece == (RMA + delt)){
 			if (have_bit(CheYaMa[sqStr], pos.pieces(BCHE - delt))){
 				bonus -= Score(((48) << 16) + (118));     //9,	
 			}
 		}
 
-		// ÏÈÕÒ³ö±£»¤×Ô¼ºµÄ³µ£¬ÔÙÕÒ³ö¹¥»÷×Ô¼ºµÄ³µ£¬»òÅÚ
+		// å…ˆæ‰¾å‡ºä¿æŠ¤è‡ªå·±çš„è½¦ï¼Œå†æ‰¾å‡ºæ”»å‡»è‡ªå·±çš„è½¦ï¼Œæˆ–ç‚®
 		Bitboard cheAtt = pos.Rook_attacks_bb(sqStr);
 		Bitboard mc = m_and(pos.pieces(RCHE + delt), cheAtt);
 		Square sqMche;
 		while (pop_1st_bit_sq(mc, sqMche)) {
-			// ÕÒµ½¶Ô·½µÄ³µ
+			// æ‰¾åˆ°å¯¹æ–¹çš„è½¦
 			Bitboard mask = StoX(sqMche) == StoX(sqStr) ?
 				FileBB_A[StoX(sqStr)] : RankBB_A[StoY(sqStr)];
 
-			// Èç¹û³µÓĞ±£»¤£¬Ò²ÒªÈ¥ÁË¡£
+			// å¦‚æœè½¦æœ‰ä¿æŠ¤ï¼Œä¹Ÿè¦å»äº†ã€‚
 			if (bit_is_set(ei.attacked_by(Us), sqMche)){
 			}
 			else if (have_bit(cheAtt, m_and(mask, pos.pieces(BCHE - delt)))){
-				// Õâ¸öÊÇÎÒ·½µÄÂí£¬»òÅÚ¸ø¶Ô·½µÄ³µÇ£ÖÆÁË
-				// nbet ºÜÖØÒª£¬Ö÷ÒªÊÇËãÒ»ÏÂÎÒ·½³µµÄ×ÔÓÉ¶È£¬Ò²¾ÍÊÇ±»Ç£ÖÆ·½µÄ³µµÄ×ÔÓÉ¶È
+				// è¿™ä¸ªæ˜¯æˆ‘æ–¹çš„é©¬ï¼Œæˆ–ç‚®ç»™å¯¹æ–¹çš„è½¦ç‰µåˆ¶äº†
+				// nbet å¾ˆé‡è¦ï¼Œä¸»è¦æ˜¯ç®—ä¸€ä¸‹æˆ‘æ–¹è½¦çš„è‡ªç”±åº¦ï¼Œä¹Ÿå°±æ˜¯è¢«ç‰µåˆ¶æ–¹çš„è½¦çš„è‡ªç”±åº¦
 				int nbet = (int)count_1s(mask, pos.Rook_attacks_bb(sqMche));
 				// fen 1r1ak4/cC2anC2/1Rn1b4/p8/2p1p1b2/5N3/P1c1P4/2N1B4/9/3AKAB2 b - - 0 1	
 				if (pos.piece_count(RCHE + delt) == 2){
@@ -152,10 +152,10 @@ Score eval_weak_piece(Position& pos, EvalInfo& ei){
 				}
 			}
 			//////////////////////////////////////////////////////////////////////////
-			// »¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇ¸ø¶Ô·½µÄÅÚÇ£ÖÆÁË£¬ mChe sqStr X ÅÚ
+			// è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ç‚®ç‰µåˆ¶äº†ï¼Œ mChe sqStr X ç‚®
 			if (strPiece == (RMA + delt) && bit_is_set(ei.attacked_by(BPAO - delt), sqStr)){
 				Bitboard paoAtt = m_and(pos.Pao_Eat_bb(sqStr), pos.pieces(BPAO - delt));
-				// ÒªÈ¥ÁË ÅÚ ³µ X
+				// è¦å»äº† ç‚® è½¦ X
 				paoAtt = _mm_andnot_si128(pos.Rook_attacks_bb(sqMche), paoAtt); // pos.board_display("");
 				if (have_bit(paoAtt, mask)){
 					bonus -= make_score(64, 168);
