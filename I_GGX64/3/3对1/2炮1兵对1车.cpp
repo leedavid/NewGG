@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2ÅÚ1±ø¶Ô1³µ.cpp"
+#include "2ç‚®1å…µå¯¹1è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -35,7 +35,7 @@ void my_m_MT_R_2pao_1pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//ºÚ·½³µ·½ÓÐÈý¸öÒÔÉÏµÄ¶«¶«
+	//é»‘æ–¹è½¦æ–¹æœ‰ä¸‰ä¸ªä»¥ä¸Šçš„ä¸œä¸œ
 	if((your_shi_num + your_xiang_num) >= 3){
 		EV_YOUR_SAFE = TRUE;
 	}

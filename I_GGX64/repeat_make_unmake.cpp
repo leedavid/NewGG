@@ -37,8 +37,8 @@ void repeat_make_white(const typePOS *POSITION){
 
 
 		if(cattura != EMPTY){
-			clear_bit(POSITION->byChessBB[cattura],ai);      // ±»³ÔµÄÆå×ÓµÄÎ»ÆåÅÌÇå³ı
-			clear_bit(bitboard_occ_black,ai);                 // ¶Ô·½ÑÕÉ«µÄÎ»ÆåÅÌ
+			clear_bit(POSITION->byChessBB[cattura],ai);      // è¢«åƒçš„æ£‹å­çš„ä½æ£‹ç›˜æ¸…é™¤
+			clear_bit(bitboard_occ_black,ai);                 // å¯¹æ–¹é¢œè‰²çš„ä½æ£‹ç›˜
 
 			// piece count
 			POSITION->pieceCount[cattura] --;
@@ -103,8 +103,8 @@ void repeat_make_black(const typePOS *POSITION){
 
 
 	if(cattura != EMPTY){
-		clear_bit(POSITION->byChessBB[cattura],ai);      // ±»³ÔµÄÆå×ÓµÄÎ»ÆåÅÌÇå³ı
-		clear_bit(bitboard_occ_white,ai);                  // ¶Ô·½ÑÕÉ«µÄÎ»ÆåÅÌ
+		clear_bit(POSITION->byChessBB[cattura],ai);      // è¢«åƒçš„æ£‹å­çš„ä½æ£‹ç›˜æ¸…é™¤
+		clear_bit(bitboard_occ_white,ai);                  // å¯¹æ–¹é¢œè‰²çš„ä½æ£‹ç›˜
 
 		// piece count
 		POSITION->pieceCount[cattura] --;
@@ -169,7 +169,7 @@ void repeat_unmake_white(const typePOS *POSITION){
 	POSITION->index[di] = POSITION->index[ai];
 
 	//cattura = POSITION->DYN->cattura;
-	if (cattura)  // ³ÔµÄ×Ó
+	if (cattura)  // åƒçš„å­
 	{
 		// bitboard
 		set_bit(bitboard_occ_black,ai);
@@ -232,7 +232,7 @@ void repeat_unmake_black(const typePOS *POSITION){
 	POSITION->index[di] = POSITION->index[ai];
 
 	//cattura = POSITION->DYN->cattura;
-	if (cattura)  // ³ÔµÄ×Ó
+	if (cattura)  // åƒçš„å­
 	{
 		// bitboard
 		set_bit(bitboard_occ_white,ai);

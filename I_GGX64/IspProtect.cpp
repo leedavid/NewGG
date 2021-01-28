@@ -11,7 +11,7 @@ bool isPretecte_TrueCap(const typePOS *POSITION, int side, int sqDst){
 	int from;
 	Bitboard att = sq_attacked_by_color(POSITION,sqDst,side);
 
-	while(m128_is_have_bit(att)){  //µ±ÓĞ±£»¤´æÔÚ
+	while(m128_is_have_bit(att)){  //å½“æœ‰ä¿æŠ¤å­˜åœ¨
 		from = pop_1st_bit(&att);
 		//if(Is_Can_Move_To_Eat(board,from,sqDst)) return TRUE;
 		if(pseudo_is_legal(MOVE_FromTo(from,sqDst),POSITION) == TRUE){
@@ -21,7 +21,7 @@ bool isPretecte_TrueCap(const typePOS *POSITION, int side, int sqDst){
 
 	return FALSE;
 
-	////×ß×Ó·½ÊÇ²»ÊÇÓĞÆå×ÓÔÚ±£»¤sqDst;
+	////èµ°å­æ–¹æ˜¯ä¸æ˜¯æœ‰æ£‹å­åœ¨ä¿æŠ¤sqDst;
 
 	////
 	//if(side == WHITE){
@@ -29,40 +29,40 @@ bool isPretecte_TrueCap(const typePOS *POSITION, int side, int sqDst){
 
 	//	attack
 
-	//	//1, ÊÇ²»ÊÇÊÜºì³µ±£»¤
+	//	//1, æ˜¯ä¸æ˜¯å—çº¢è½¦ä¿æŠ¤
 	//	rook_attacks(bb,board,sqDst);
 	//	BB_and_BB(bb,board->byChessBB[RCHE]);
 
-	//	while(m128_is_have_bit(bb)){  //µ±ÓĞ³µ´æÔÚ
+	//	while(m128_is_have_bit(bb)){  //å½“æœ‰è½¦å­˜åœ¨
  //            int from = pop_1st_bit(&att);
 	//		 if(Is_Can_Move_To_Eat(board,from,sqDst)) return TRUE;
 	//	}
 
-	//	//2, ÊÇ²»ÊÇÊÜºìÂí±£»¤
+	//	//2, æ˜¯ä¸æ˜¯å—çº¢é©¬ä¿æŠ¤
 	//	king_to_ma_attacks(bb,board,sqDst);
 	//	BB_and_BB(bb,board->byChessBB[RMA]);
 
-	//	while(m128_is_have_bit(bb)){  //µ±ÓĞÂí´æÔÚ
+	//	while(m128_is_have_bit(bb)){  //å½“æœ‰é©¬å­˜åœ¨
  //            int from = pop_1st_bit(&att);
 	//		 if(Is_Can_Move_To_Eat(board,from,sqDst)) return TRUE;
 	//	}
 
-	//	//3, ÊÇ²»ÊÇÊÜºìÅÚµÄ±£»¤
+	//	//3, æ˜¯ä¸æ˜¯å—çº¢ç‚®çš„ä¿æŠ¤
 	//	pao_eat_attacks(bb,board,sqDst);
 	//	BB_and_BB(bb,board->byChessBB[RPAO]);
 
-	//	while(m128_is_have_bit(bb)){  //µ±ÓĞÅÚ´æÔÚ
+	//	while(m128_is_have_bit(bb)){  //å½“æœ‰ç‚®å­˜åœ¨
  //            int from = pop_1st_bit(&att);
 	//		 if(Is_Can_Move_To_Eat(board,from,sqDst)) return TRUE;
 	//	}
 
-	//	//4, ÊÇ²»ÊÇÊÜ
+	//	//4, æ˜¯ä¸æ˜¯å—
 	//}
 	//else{
 	//}
 }
 
-//ÉÏ´ÎÕâ¸ö×ÓÊÇ²»ÊÇÌá¹©ÁË±£»¤.
+//ä¸Šæ¬¡è¿™ä¸ªå­æ˜¯ä¸æ˜¯æä¾›äº†ä¿æŠ¤.
 //bool isCanProtect_Last_Move(const typePOS *POSITION, int side, int from, int to){
 //
 //	int piece = PB90(from);
@@ -109,7 +109,7 @@ bool isPretecte_TrueCap(const typePOS *POSITION, int side, int sqDst){
 //	switch(piece){
 //		case RMA:
 //		case BMA:{
-//			//µÃµ½ÂíµÄËùÓĞ×ß²½			
+//			//å¾—åˆ°é©¬çš„æ‰€æœ‰èµ°æ­¥			
 //			king_to_ma_attacks(att,board,to); 
 //			return (bit_is_set(att,from) !=0);
 //				 }
@@ -127,13 +127,13 @@ bool isPretecte_TrueCap(const typePOS *POSITION, int side, int sqDst){
 //				  }
 //			break;
 //		case RCHE:
-//		case BCHE:{ //²»³Ô×ÓÓë³Ô×Ó
+//		case BCHE:{ //ä¸åƒå­ä¸åƒå­
 //			rook_attacks(att,board,to); 
 //			return (bit_is_set(att,from) !=0);
 //				  }
 //			break;
 //		case RPAO:
-//		case BPAO:{//²»³Ô×Ó
+//		case BPAO:{//ä¸åƒå­
 //			if(cap == EMPTY16){
 //				rook_attacks(att,board,to); 
 //				return (bit_is_set(att,from) !=0);

@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
 
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ2±ø¶Ô1³µ1ÅÚ1±ø.cpp"
+#include "1è½¦1ç‚®2å…µå¯¹1è½¦1ç‚®1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -105,7 +105,7 @@ void my_m_MT_R_1che1pao2pawn_B_1che1pao1pawn(typePOS &POSITION, EvalInfo &ei) {
 	MY_EV_ADD(EV_MY_CAN * 16);
 
 	// fen 2b2k3/5c3/9/8p/5R3/5C2P/5r3/9/2p1A4/2B1KAB2 w - - 0 1
-	//Èç¹ûÎÒµÄ³µÅÚ±»Ç£ÖÆÁË£¬ÇÒÃ»ÓĞ±ø¿É¹ıºÓ£¬¾ÍÒª¼õ·Ö¡£
+	//å¦‚æœæˆ‘çš„è½¦ç‚®è¢«ç‰µåˆ¶äº†ï¼Œä¸”æ²¡æœ‰å…µå¯è¿‡æ²³ï¼Œå°±è¦å‡åˆ†ã€‚
 	if(isStringByChe(POSITION,mche,ypao,yche)){
 		if(!bit_is_set(_mm_andnot_si128(ei.attacked_by(your_che),YOUR_ATTACK),ypao)){
 			MY_EV_ADD(32);
@@ -133,7 +133,7 @@ void my_m_MT_R_1che1pao2pawn_B_1che1pao1pawn(typePOS &POSITION, EvalInfo &ei) {
 		if(isStringByChe(POSITION,yche,ypao,mche)){
 			if(abs(StoX(mche) - 0x4) == 4){
 				MY_EV_SUB(64);
-				//µÃµ½ÎÒ·½µÄ¹ıºÓ±ø£¬
+				//å¾—åˆ°æˆ‘æ–¹çš„è¿‡æ²³å…µï¼Œ
 				Bitboard ghp = m_and(bb_my_pawn,MyUpBB[MY_RANK2]);
 				if(count_1s(ghp) == 1){
 					Square mp = pop_1st_bit_sq(ghp);

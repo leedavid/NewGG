@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Âí1±ø¶Ô1Âí.cpp"
+#include "1é©¬1å…µå¯¹1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
-//const int ADD_1Âí±ø¶Ô1Âí±ø_by_Pawn  = 20;
+//const int ADD_1é©¬å…µå¯¹1é©¬å…µ_by_Pawn  = 20;
 
-//ÎÒ·½Ò»ÂíÒ»±ø£¬¶Ô·½Ò»Âí
+//æˆ‘æ–¹ä¸€é©¬ä¸€å…µï¼Œå¯¹æ–¹ä¸€é©¬
 void my_m_MT_R_1MA1PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei){
 
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
@@ -32,22 +32,22 @@ void my_m_MT_R_1MA1PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 	
-	//ºì±øµ½µ×ÁË
+	//çº¢å…µåˆ°åº•äº†
 	if(StoY(mpawn) == MY_RANK0){
 		RETRUN_MUL(1);
 	}
 	// fen 2ba1k3/4a4/4b4/9/5N3/9/3n5/3AB1p2/4A4/4K4 w
 	//RETRUN_MUL(1);
 
-	//Âí¸ß±øÀýºÍÂíÏó //ÏóÆåšˆ¾ÖÀýµä 22¾Ö, 85Ò³
+	//é©¬é«˜å…µä¾‹å’Œé©¬è±¡ //è±¡æ£‹æ®˜å±€ä¾‹å…¸ 22å±€, 85é¡µ
 	if(your_xiang_num >= 1 && StoY(yma) MY_SMALL_EQL MY_RANK4){
 		RETRUN_MUL(2);
 	}
-	//¶Ô·½ÓÐ2ÊË
+	//å¯¹æ–¹æœ‰2ä»•
 	if(your_shi_num == 2){
 		RETRUN_MUL(2);
 	}
-	// ÂíµÍ±øÀýºÍÂíÊË //ÏóÆåšˆ¾ÖÀýµä 22¾Ö, 67Ò³
+	// é©¬ä½Žå…µä¾‹å’Œé©¬ä»• //è±¡æ£‹æ®˜å±€ä¾‹å…¸ 22å±€, 67é¡µ
 	// fen 3a1k3/2P6/9/2N1n4/9/9/9/9/9/4K4 w 
 	if(your_shi_num != 0 && StoY(mpawn) MY_SMALL MY_RANK2 && StoY(yma) MY_SMALL_EQL MY_RANK4){
 		RETRUN_MUL(2);

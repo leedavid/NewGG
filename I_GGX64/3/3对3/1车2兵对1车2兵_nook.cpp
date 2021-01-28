@@ -3,11 +3,11 @@
 #include "..\\..\\preGen.h"
 #include "..\\..\\endgame\mat.h"
 //fen 4kab2/4a4/4b4/9/2r1P4/p5B2/4R4/4B4/4K4/9 b - - 0 0
-//Âí±ø±ø¶ÔÂí±ø±ø
+//é©¬å…µå…µå¯¹é©¬å…µå…µ
 void m_MT_1che2pawn_1che2pawn(typePOS *POSITION, EvalInfo *ei){
 
 	//fen 3R5/5k3/5a3/p3r3p/9/9/P7P/4B4/4A4/4KAB2 w - - 1 1 
-    //Èç¹ûË«·½µÄ±ø¶¼Ã»ÓÐ¹ýºÓ,ÇÒÒ»·½µÄ±øÔÚÒ»Ïß,Óë³µÔÚÒ»Ïß,¾ÍÊÇºÍÁË,
+    //å¦‚æžœåŒæ–¹çš„å…µéƒ½æ²¡æœ‰è¿‡æ²³,ä¸”ä¸€æ–¹çš„å…µåœ¨ä¸€çº¿,ä¸Žè½¦åœ¨ä¸€çº¿,å°±æ˜¯å’Œäº†,
 
 	int rpawn1 = S90_from_piecelist(POSITION,RPAWN,0);
 	int rpawn2 = S90_from_piecelist(POSITION,RPAWN,1);
@@ -27,9 +27,9 @@ void m_MT_1che2pawn_1che2pawn(typePOS *POSITION, EvalInfo *ei){
 	int rche = S90_from_piecelist(POSITION,RCHE,0);
 	int bche = S90_from_piecelist(POSITION,BCHE,0);
 
-	if(rpawn1 > 0x2c && rpawn2 > 0x2c && bpawn1 < 0x2d && bpawn2 < 0x2d){ //¶þ¸ö±øÈ«¶¥×¡ÁË
+	if(rpawn1 > 0x2c && rpawn2 > 0x2c && bpawn1 < 0x2d && bpawn2 < 0x2d){ //äºŒä¸ªå…µå…¨é¡¶ä½äº†
 
-		//»¹Òª¿´Ò»ÏÂ,ÊÇ²»ÊÇ±øÈ«¶¥×¡ÁË,²»ÄÜ¹ýºÓ
+		//è¿˜è¦çœ‹ä¸€ä¸‹,æ˜¯ä¸æ˜¯å…µå…¨é¡¶ä½äº†,ä¸èƒ½è¿‡æ²³
 
         if(    (StoX(rpawn1) == StoX(bpawn1) && StoX(rpawn2) == StoX(bpawn2))
 			|| (StoX(rpawn1) == StoX(bpawn2) && StoX(rpawn2) == StoX(bpawn1)) ){
@@ -64,8 +64,8 @@ void m_MT_1che2pawn_1che2pawn(typePOS *POSITION, EvalInfo *ei){
 	}
 
 	//fen 2bak1b2/4a4/9/r4PP2/9/9/9/5A3/1pp1A4/3RK4 w - - 58 58
-	//ºÚ·½ÓÐ¶þ¸ö±øÔÚÒ»±ß
-	//Èç¹ûºì·½ÊÇÁ¬±ø
+	//é»‘æ–¹æœ‰äºŒä¸ªå…µåœ¨ä¸€è¾¹
+	//å¦‚æžœçº¢æ–¹æ˜¯è¿žå…µ
 	Bitboard rlp = White_get_connect_Pawn(POSITION);
 	Bitboard blp = Black_get_connect_Pawn(POSITION);
 
@@ -105,7 +105,7 @@ void m_MT_1che2pawn_1che2pawn(typePOS *POSITION, EvalInfo *ei){
 
 
 	//fen 3ak4/3r2P2/4b4/6R2/8p/9/8P/4BA3/3pAK3/9 w - - 123 123
-    //ºì±ø¸øÇ£ÖÆ×¡ÁË, ÁíÒ»¸ö±ø¸ø¶¥×¡ÁË.
+    //çº¢å…µç»™ç‰µåˆ¶ä½äº†, å¦ä¸€ä¸ªå…µç»™é¡¶ä½äº†.
 	//if(board->
 
 	//fen 2ba1a3/4k4/4b4/4PP3/9/2r6/9/5R3/4A1pp1/3AK4 w - - 0 0

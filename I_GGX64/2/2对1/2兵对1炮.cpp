@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2±ø¶Ô1ÅÚ.cpp"
+#include "2å…µå¯¹1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -27,7 +27,7 @@ void my_m_MT_R_2pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_ADD((sint16)count_1s(bb) * ADD_XPawnToPao_ByPawnShi[your_shi_num]);
 
 	// fen 3k2b2/9/9/9/9/9/3C5/3A5/2p2p3/4K1B2 b - - 0 0
-	//	ºÚ·½¶þ¸ö±ø²»ÔÚÒ»±ß,¿ÉÄÜ¸ø³ÔÁË
+	//	é»‘æ–¹äºŒä¸ªå…µä¸åœ¨ä¸€è¾¹,å¯èƒ½ç»™åƒäº†
 	if(your_shi_num != 0){
 		if(StoY(mpawn1) MY_SMALL_EQL MY_RANK1 && StoY(mpawn2) MY_SMALL_EQL MY_RANK1){
 			if(!IsOnSameSide(mpawn1,mpawn2)){
@@ -35,7 +35,7 @@ void my_m_MT_R_2pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 			}
 		}
 	}
-	// ºì·½ÓÐ¶þ¸öÏà,
+	// çº¢æ–¹æœ‰äºŒä¸ªç›¸,
 	if(my_xiang_num == 2){
 		EV_MY_SAFE = TRUE;
 	}
@@ -43,14 +43,14 @@ void my_m_MT_R_2pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 	if(my_xiang_num >= 1 && my_shi_num != 0){
 		EV_MY_SAFE = TRUE;
 	}
-	// ¶Ô·½Ò²Ã»ÓÐÊË,¾ÍºÍÁË
+	// å¯¹æ–¹ä¹Ÿæ²¡æœ‰ä»•,å°±å’Œäº†
 	if(your_shi_num == 0){
 		EV_MY_SAFE = TRUE;
 	}
 
 	if(your_shi_num == 1){
-		//<<ÏóÆå²Ð¾ÖÀýµä>>£¬µÚ5¾Ö  µÍ±øÀýºÍÊË
-		//Ë«µ×±øÀýºÍÅÚÊË fen 3P1P3/8c/3a1k3/9/9/9/9/9/9/4K4 w
+		//<<è±¡æ£‹æ®‹å±€ä¾‹å…¸>>ï¼Œç¬¬5å±€  ä½Žå…µä¾‹å’Œä»•
+		//åŒåº•å…µä¾‹å’Œç‚®ä»• fen 3P1P3/8c/3a1k3/9/9/9/9/9/9/4K4 w
 		if(PB90(MY_SQ04) == my_pawn && StoX(mk) == 0x4){
 			if(PB90(MY_SQ03) == my_pawn || PB90(MY_SQ05) == my_pawn){
 				EV_MY_SAFE = TRUE;
@@ -66,8 +66,8 @@ void my_m_MT_R_2pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 		EV_YOUR_SAFE = TRUE;
 	}
 
-	// fen 9/3k5/9/7C1/9/2B3B2/9/4K4/2ppA4/3A5 w - - 97 97Õâ¸ö²»ºÍ
-	// ºì·½¶þ¸ö±ø,ºÚ·½Ò»¸öÅÚ
+	// fen 9/3k5/9/7C1/9/2B3B2/9/4K4/2ppA4/3A5 w - - 97 97è¿™ä¸ªä¸å’Œ
+	// çº¢æ–¹äºŒä¸ªå…µ,é»‘æ–¹ä¸€ä¸ªç‚®
 	if(StoY(mpawn1) == StoY(mpawn2) && StoY(mpawn1) MY_LARGE_EQL MY_RANK3){
 		if(abs(StoX(mpawn1) - StoX(mpawn2)) == 1){
 			EV_MY_SAFE = TRUE;

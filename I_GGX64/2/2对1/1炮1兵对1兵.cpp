@@ -3,7 +3,7 @@
 #include "..\\..\\chess.h"
 #include "..\\..\\preGen.h" 
 #include "..\\..\\endgame\mat.h"
-#include "1ез1╠Ь╤т1╠Ь.cpp"
+#include "1Г┌╝1Е┘╣Е╞╧1Е┘╣.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -12,7 +12,7 @@
 //const int PaoXsamePawn   =   32;
                      //0,1,2,3,4,5,6,7,8,9
 
-//нр╥╫йгез╠Ьё╛╤т╥╫р╩╦Ж╠Ь
+//Ф┬▒Ф√╧Ф≤╞Г┌╝Е┘╣О╪▄Е╞╧Ф√╧Д╦─Д╦╙Е┘╣
 void my_m_MT_R_1PAO1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
@@ -22,7 +22,7 @@ void my_m_MT_R_1PAO1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 
 	int mcan = EV_MY_CAN;
 
-	// ез╠Ь╥╫╣д╠ПмБ╪с╥ж
+	// Г┌╝Е┘╣Ф√╧Г └Е┬╚Е╓√Е┼═Е┬├
 	MY_EV_ADD(ADD_1PaoXPawn_1Pawn);
 
 	// fen 3k5/4aP3/4ba3/9/2b6/2B3C2/9/3A1A3/4p4/5K3 b - - 0 1
@@ -49,7 +49,7 @@ void my_m_MT_R_1PAO1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 			}
 		}
 	}
-	// ез╠Ь╥╫╣д╠Ь╡╩дэ╧Щ╨с
+	// Г┌╝Е┘╣Ф√╧Г └Е┘╣Д╦█Х┐╫Х©┤Ф╡Ё
 	// fen 3k1a3/9/5a2b/4c1p2/2b6/6P2/9/B3B4/4A4/4K4 b - - 0 0
 	if(your_shi_num >= 1 && your_xiang_num == 2){
 		if(StoY(yk) == MY_RANK0){
@@ -62,7 +62,7 @@ void my_m_MT_R_1PAO1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//хГ╧Ш╤т╥╫йгйкоЮх╚,╦ъ╠Ь,╬м╨мак
+	//Е╕┌Ф·°Е╞╧Ф√╧Ф≤╞Д╩∙Г⌡╦Е┘╗,И╚≤Е┘╣,Е╟╠Е▓▄Д╨├
 	// fen 1C2ka3/4a4/4b4/9/p1b6/6B2/P8/9/9/2BAKA3 w - - 3 3
 	//not he
 	if(your_shi_num == 2 && your_xiang_num == 2){
@@ -77,29 +77,29 @@ void my_m_MT_R_1PAO1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 	if(FALSE){
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//ез╥╫ц╩спйк
+	//Г┌╝Ф√╧Ф╡║Ф°┴Д╩∙
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	else if(my_shi_num == 0){
 		//*************************************************************************
-		//1, хГ╧Шнр╥╫╣д╠Ь╣╫╣вак╬м╨мак
+		//1, Е╕┌Ф·°Ф┬▒Ф√╧Г └Е┘╣Е┬╟Е╨∙Д╨├Е╟╠Е▓▄Д╨├
 		if(StoY(mpawn) MY_SMALL MY_RANK1){
 			RETRUN_MUL(1);
 		}
 		//*************************************************************************
-		//2,хГ╧Ш╤т╥╫йгспк╚йк,╦ъ╠Ь,тРдяй╓
+		//2,Е╕┌Ф·°Е╞╧Ф√╧Ф≤╞Ф°┴Е▐▄Д╩∙,И╚≤Е┘╣,Е┬≥И ╬Х┐°
 		if(your_shi_num == 2){
 			if(StoY(ypawn) == MY_RANK5 || StoY(ypawn) == MY_RANK6){
 				RETRUN_MUL(1);
 			}
 		}
-		//<<оСфЕ╡п╬жюЩ╣Д>> ез╦ъ╠ЬюЩ╨мк╚оС 121
+		//<<Х╠║Фё▀Ф╝▀Е╠─Д╬▀Е┘╦>> Г┌╝И╚≤Е┘╣Д╬▀Е▓▄Е▐▄Х╠║ 121
 		if(your_xiang_num == 2){
 			if(my_xiang_num == 0){
 				RETRUN_MUL(1);
 			}
 		}
 		// fen 2C6/3P5/b4k3/9/9/9/9/9/4K4/4p4 w - - 104 104
-		//ез╠Ь╣д╠Ь╣╫ак╤т╥╫╫╚╣добцФ
+		//Г┌╝Е┘╣Г └Е┘╣Е┬╟Д╨├Е╞╧Ф√╧Е╟├Г └Д╦▀И²╒
 		if(StoY(yk) MY_LARGE StoY(mpawn)){
 			if(your_xiang_num != 0){
 				RETRUN_MUL(1);
@@ -131,11 +131,11 @@ void my_m_MT_R_1PAO1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 		
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//ез╥╫сп1йк
+	//Г┌╝Ф√╧Ф°┴1Д╩∙
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	else if(my_shi_num == 1){
 		// fen 5kC2/4P4/9/9/2b6/9/9/9/5p3/3AK4 w - - 0 0
-		// хГ╧Шез╠Ь╥╫ж╩спр╩╦Жйк,гр╠╩╠Ь╥╫╣д╠Ь©ьжфв║ак, ╤Ьгр╠Ь╥╫спфДкЭ╣дфЕвс©ивъ!! ╨Л╥╫ез╠Ь,╨з╥╫╠Ь
+		// Е╕┌Ф·°Г┌╝Е┘╣Ф√╧Е▐╙Ф°┴Д╦─Д╦╙Д╩∙,Д╦■Х╒╚Е┘╣Ф√╧Г └Е┘╣Ф▌╖Е┬╤Д╫▐Д╨├, Х─▄Д╦■Е┘╣Ф√╧Ф°┴Е┘╤Е╝┐Г └Фё▀Е╜░Е▐╞Х╣╟!! Г╨╒Ф√╧Г┌╝Е┘╣,И╩▒Ф√╧Е┘╣
 		if(your_xiang_num != 0){
 			if(MY_SQ4B == ypawn || MY_SQ4D == ypawn){
 				if(StoY(my_king_pos) == MY_RANK9){
@@ -152,7 +152,7 @@ void my_m_MT_R_1PAO1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 3ak4/5c3/3ab4/6P2/2b6/2B6/9/4B4/5K3/3p5 w - - 120 120
 	// fen 5P3/3k5/4b4/9/6b2/6B2/2p6/4BA3/3C5/4KA3 b
-	// р╩╦Ж╨мпн ╨Л╥╫╠Ь╣╫╣вак
+	// Д╦─Д╦╙Е▓▄Е╫╒ Г╨╒Ф√╧Е┘╣Е┬╟Е╨∙Д╨├
 	 if(StoY(mpawn) == MY_RANK0){
 		 if(your_xiang_num == 2){
 			 if(StoY(ypawn) == MY_RANK5 || StoY(ypawn) == MY_RANK6){
@@ -353,7 +353,7 @@ void my_m_MT_R_1PAO1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//хГ╧Ш╤т╥╫йгйкоЮх╚,╦ъ╠Ь,╬м╨мак
+	//Е╕┌Ф·°Е╞╧Ф√╧Ф≤╞Д╩∙Г⌡╦Е┘╗,И╚≤Е┘╣,Е╟╠Е▓▄Д╨├
 	// fen 1C2ka3/4a4/4b4/9/p1b6/6B2/P8/9/9/2BAKA3 w - - 3 3
 	//not he
 	if(your_shi_num == 2 && your_xiang_num == 2){
@@ -379,7 +379,7 @@ void my_m_MT_R_1PAO1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 	if (my_shi_num == 0 && your_shi_num >= 1 && your_xiang_num >= 1){
 		if (StoY(ypawn) == MY_RANK6){
 			// if (StoY(mpawn) MY_LARGE_EQL MY_RANK3){
-			// ╤т╥╫╣доЮц╩сп╦Ь©╢в║
+			// Е╞╧Ф√╧Г └Г⌡╦Ф╡║Ф°┴Г╩≥Г°▀Д╫▐
 			if (!have_bit(EV_MY_XBIT, bb_your_xiang)){
 				if (StoX(yk) == 0x5 && !have_bit(bb_your_shi, RightBB[0x4])){
 					RETRUN_MUL(8);

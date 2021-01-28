@@ -4,26 +4,26 @@
 #include "..\\..\\chess.h"
 #include "..\\..\\preGen.h"
  
-#include "1ÅÚ¶Ô1Âí.cpp"
+#include "1ç‚®å¯¹1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
-//ºì·½Ò»¸öÅÚ, ºÚ·½Ò»¸öÂí //Ò»ÂíºÍÅÚË«Ê¿ 
+//çº¢æ–¹ä¸€ä¸ªç‚®, é»‘æ–¹ä¸€ä¸ªé©¬ //ä¸€é©¬å’Œç‚®åŒå£« 
 void my_m_MT_R_1PAO_B_1MA(typePOS &POSITION, EvalInfo &ei){
 
 	if(my_shi_num == 0){
 		RETRUN_MUL(1);
 	}
 
-	//Èç¹ûÂí·½ÓÐÊ²»òÏà£¬ºÍ
+	//å¦‚æžœé©¬æ–¹æœ‰ä»€æˆ–ç›¸ï¼Œå’Œ
 	if(your_shi_num > 0 || your_xiang_num > 0){
 		RETRUN_MUL(2);
 	}
 
-	//<<ÏóÆå²Ð¾ÖÀýµä>>£¬µÚ16¾Ö  Ò»ÂíÀýºÍÅÚÊËÏàÈ«
-	//¿´ÅÚ·½ÄÜ²»ÄÜÊ¤
-	//if((Info16 & (CK_R_1x + CK_R_2x)) == 0){		//ÅÚ·½Ã»ÓÐÏà
+	//<<è±¡æ£‹æ®‹å±€ä¾‹å…¸>>ï¼Œç¬¬16å±€  ä¸€é©¬ä¾‹å’Œç‚®ä»•ç›¸å…¨
+	//çœ‹ç‚®æ–¹èƒ½ä¸èƒ½èƒœ
+	//if((Info16 & (CK_R_1x + CK_R_2x)) == 0){		//ç‚®æ–¹æ²¡æœ‰ç›¸
 	Square yma  = S90_from_piecelist(POSITION,your_ma,0);
 	Square mpao = S90_from_piecelist(POSITION,my_pao,0);
 	if(StoY(yma) MY_LARGE MY_RANK4){

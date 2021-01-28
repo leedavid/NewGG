@@ -23,10 +23,10 @@ using std::string;
 /// Position::flipped_copy() makes a copy of the input position, but with
 /// the white and black sides reversed. This is only useful for debugging,
 /// especially for finding evaluation symmetry bugs.
-/// ºìºÚË«½»»»Ò»ÏÂ, Ö÷ÒªÊÇÓÃÀ´µ÷ÊÔÓÃµÄ. 
+/// çº¢é»‘åŒäº¤æ¢ä¸€ä¸‹, ä¸»è¦æ˜¯ç”¨æ¥è°ƒè¯•ç”¨çš„. 
 
 static const  Piece r2b_chess[16] = {
-	EMPTY,  //Õâ¸ö²»ÓÃÁË
+	EMPTY,  //è¿™ä¸ªä¸ç”¨äº†
 	BKING,BSHI,BXIANG,BMA,BCHE,BPAO,BPAWN,
 	_X_X,		
 	RKING,RSHI,RXIANG,RMA,RCHE,RPAO,RPAWN,
@@ -129,7 +129,7 @@ bool Position::pos_is_ok(int* failedStep) {
 		return false;
 
 	// Are the king squares in the position correct?
-	if (failedStep) (*failedStep)++;  // µÚ¼¸²½´íÁË. 
+	if (failedStep) (*failedStep)++;  // ç¬¬å‡ æ­¥é”™äº†. 
 	//if (piece_on(king_square(WHITE)) != WK)
 	//	return false;
 
@@ -171,7 +171,7 @@ bool Position::pos_is_ok(int* failedStep) {
 		Square ksq = king_square(them);
 		if (m_have_bit(
 			m_and(attackers_to(ksq),pieces_of_color(us)))){
-			board_display("ÎÒ·½¿É³Ô¶Ô·½ÀÏ½«ÁË£¡£¡");
+			board_display("æˆ‘æ–¹å¯åƒå¯¹æ–¹è€å°†äº†ï¼ï¼");
 			return false;
 		}
 	}
@@ -179,7 +179,7 @@ bool Position::pos_is_ok(int* failedStep) {
 	// Is there more than 2 checkers?
 	if (failedStep) (*failedStep)++;
 	if (debugCheckerCount && count_1s(st->checkersBB) > 3){
-		return false;  // Õâ¸öºÃÏóÖĞÏó¿ÉÒÔÍÛ.
+		return false;  // è¿™ä¸ªå¥½è±¡ä¸­è±¡å¯ä»¥å“‡.
 	}
 
 	// Bitboards OK?
@@ -229,7 +229,7 @@ bool Position::pos_is_ok(int* failedStep) {
 
 		//#define S90_from_piecelist(POSITION,piece,index)  (POSITION.pieceList[piece][index])
 
-		// ²»Í¬µÄÆå×ÓÖ®Ç°µÄÎ»ÆåÅÌ±ØĞë²»Í¬.
+		// ä¸åŒçš„æ£‹å­ä¹‹å‰çš„ä½æ£‹ç›˜å¿…é¡»ä¸åŒ.
 
 	}
 

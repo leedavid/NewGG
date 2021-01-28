@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2³µ2±ø¶Ô2³µ1±ø.cpp"
+#include "2è½¦2å…µå¯¹2è½¦1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -72,8 +72,8 @@ void my_m_MT_R_2che2pawn_B_2che1pawn(typePOS &POSITION, EvalInfo &ei){
 		if(your_shi_num == 2 && your_xiang_num >= 1 && yk == MY_SQ04){
 			if(PB90(MY_SQ31) == my_pawn && (PB90(MY_SQ3A) == my_che || PB90(MY_SQ43) == my_che)){
 				Bitboard rook = POSITION.Rook_attacks_bb(Square(MY_SQ28));
-				if(count_1s(rook,bb_your_che) == 2){ // ¶ş¸ö³µ·â×¡ÁË±øµÄÇ°½øÖ®Â·
-					// ÕÒµ½¹ıºÓ±ø.
+				if(count_1s(rook,bb_your_che) == 2){ // äºŒä¸ªè½¦å°ä½äº†å…µçš„å‰è¿›ä¹‹è·¯
+					// æ‰¾åˆ°è¿‡æ²³å…µ.
 					Bitboard ghp = m_and(bb_my_pawn,MyUpBB[MY_RANK2]);
 					if(m_have_bit(ghp)){
 						Square p = pop_1st_bit_sq(ghp);

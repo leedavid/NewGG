@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
 
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí3±ø¶Ô1³µ1ÅÚ2±ø.cpp"
+#include "1è½¦1é©¬3å…µå¯¹1è½¦1ç‚®2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -32,7 +32,7 @@ void my_m_MT_R_1che1ma3pawn_B_1che1pao2pawn(typePOS &POSITION, EvalInfo &ei){
 		if(EV_YOUR_CAN <= 1){
 			if(StoY(ypao) MY_SMALL_EQL MY_RANK4){
 				MY_EV_ADD(EV_MY_CAN * 16);
-				//// Èç¹ûÎÒ·½µÄ½«ÄÜ¶¯
+				//// å¦‚æžœæˆ‘æ–¹çš„å°†èƒ½åŠ¨
 				//print_bb(MY_SAFE_BIT); 
 				//print_bb(ei.attacked_by(my_king));
 				//if(have_bit(MY_SAFE_BIT,ei.attacked_by(my_king))){ 

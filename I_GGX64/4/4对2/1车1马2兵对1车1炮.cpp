@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí2±ø¶Ô1³µ1ÅÚ.cpp"
+#include "1è½¦1é©¬2å…µå¯¹1è½¦1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -20,7 +20,7 @@ void my_m_MT_R_1che1ma2pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 	int pmok = (int)count_1s(bmp);
 	MY_EV_ADD(pmok * ADD_CheMaPawn_ChePao_ByPawnByShi[your_shi_num]);
 
-	//Èç¹û¶Ô·½ÊÇÊËÏàÈ«£¬Ôò
+	//å¦‚æœå¯¹æ–¹æ˜¯ä»•ç›¸å…¨ï¼Œåˆ™
 
 	Square mpawn1 = S90_from_piecelist(POSITION,my_pawn,0);
 	Square mpawn2 = S90_from_piecelist(POSITION,my_pawn,1);
@@ -36,7 +36,7 @@ void my_m_MT_R_1che1ma2pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 			}
 		}
 	}
-	//ºì·½ÓĞÁ¬±øÒª¼Ó·Ö
+	//çº¢æ–¹æœ‰è¿å…µè¦åŠ åˆ†
 	// fen 3k1ab2/4a4/6c1b/3PP4/6r2/4R4/4N4/9/4K4/9 w - - 0 1
 	Bitboard mlp = My_get_connect_Pawn(POSITION);
 	if(have_bit(mlp,RankBB_A[MY_RANK3])){
@@ -74,13 +74,13 @@ void my_m_MT_R_1che1ma2pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 3ckab2/4aP3/1R2b4/9/3rNP3/9/9/4BA3/4A4/2B2K3 b
-	//¶Ô·½×é³ÉÁËÓĞĞ§·ÀÊØ
+	//å¯¹æ–¹ç»„æˆäº†æœ‰æ•ˆé˜²å®ˆ
 	if((your_shi_num + your_xiang_num) == 4 && yk == MY_SQ04){
 		if(PB90(MY_SQ28) == my_ma && StoY(ypao) == MY_RANK0){
 		    Bitboard pb = m_and(bb_my_pawn,MyUpBB[MY_RANK2]);
 			if(StoX(ypao) < 0x4){
 				if(PB90(MY_SQ29) == my_pawn && PB90(MY_SQ27) == your_che){
-					//¿´Ò»ÏÂÓÒ±ß¶şÒ»ÏßÉÏÊÇ²»ÊÇÓĞÎÒ·½µÄ±ø
+					//çœ‹ä¸€ä¸‹å³è¾¹äºŒä¸€çº¿ä¸Šæ˜¯ä¸æ˜¯æœ‰æˆ‘æ–¹çš„å…µ
 					if(count_1s(pb,RightBB[0x4]) == 1){
 						MY_EV_SUB(256);
 					}
@@ -88,7 +88,7 @@ void my_m_MT_R_1che1ma2pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 			}
 			if(StoX(ypao) > 0x4){
 				if(PB90(MY_SQ27) == my_pawn && PB90(MY_SQ29) == your_che){
-					//¿´Ò»ÏÂÓÒ±ß¶şÒ»ÏßÉÏÊÇ²»ÊÇÓĞÎÒ·½µÄ±ø
+					//çœ‹ä¸€ä¸‹å³è¾¹äºŒä¸€çº¿ä¸Šæ˜¯ä¸æ˜¯æœ‰æˆ‘æ–¹çš„å…µ
 					if(count_1s(pb,LeftBB[0x4]) == 1){
 						MY_EV_SUB(256);
 					}
@@ -114,7 +114,7 @@ void my_m_MT_R_1che1ma2pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	//Èç¹û¶Ô·½ÊÇÊËÏàÈ«£¬Ôò
+//	//å¦‚æœå¯¹æ–¹æ˜¯ä»•ç›¸å…¨ï¼Œåˆ™
 //
 //	//premat_t* pMat = board->pMat;
 //	//uint16 cInfo16 = pMat->sixiangInfo8;
@@ -144,7 +144,7 @@ void my_m_MT_R_1che1ma2pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	//if((cInfo16 & CK_R_2s) && (cInfo16 & CK_R_2x)){		//¶Ô·½ÊËÏàÈ«
+//	//if((cInfo16 & CK_R_2s) && (cInfo16 & CK_R_2x)){		//å¯¹æ–¹ä»•ç›¸å…¨
 //	if(board->R_shi == 2 && board->R_xiang == 2 && (board->B_xiang + board->B_shi) >= 2){
 //		if(rk == 0xc7){
 //			return 8;

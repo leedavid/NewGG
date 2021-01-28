@@ -38,7 +38,7 @@ const uint8 V16_4[] = {
 };
 
 
-//const int ´óÓÚÕâ¸ö×Ó²»Ëã = 4;
+//const int å¤§äºè¿™ä¸ªå­ä¸ç®— = 4;
 void init_MaterialTotalOver(void){
 	//MaterialTotalOver[16][16]; 
 	//ei.Rattack_B_Count = MaterialTotalOver[iwo][ibo];

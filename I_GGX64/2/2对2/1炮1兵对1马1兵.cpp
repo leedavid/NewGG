@@ -4,13 +4,13 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1±ø¶Ô1Âí1±ø.cpp"
+#include "1ç‚®1å…µå¯¹1é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//ÅÚ±ø¶ÔÂí±ø
+//ç‚®å…µå¯¹é©¬å…µ
 //const int PaoPawn_MaPawn_PaoNoShi = 128;
 
 void my_m_MT_R_1pao1pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
@@ -94,7 +94,7 @@ void my_m_MT_R_1pao1pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 4k4/9/6N2/9/9/5p2c/P8/9/3K5/3A1A3 w - - 202 202
 	// fen 3a1a3/5k3/9/8p/C2P5/9/9/2n6/9/4K4 w
-	// ¶Ô·½µÄ ±ø²»ÄÜ¹ıºÓ
+	// å¯¹æ–¹çš„ å…µä¸èƒ½è¿‡æ²³
 	if(StoY(ypawn) == MY_RANK3 && StoY(mpawn) == MY_RANK4){
 		if(your_xiang_num == 0){
 			Bitboard peat = POSITION.Pao_Eat_bb(mpao);

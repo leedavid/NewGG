@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Âí5±ø¶Ô1ÅÚ.cpp"
+#include "1é©¬5å…µå¯¹1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -19,7 +19,7 @@ void my_m_MT_R_1ma5pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 
 	// ADD
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
-	MY_EV_ADD((sint16)count_1s(bmp) * ADD_1Âí±ø¶Ô1ÅÚ_by_Pawn_By_Shi[your_shi_num]);
+	MY_EV_ADD((sint16)count_1s(bmp) * ADD_1é©¬å…µå¯¹1ç‚®_by_Pawn_By_Shi[your_shi_num]);
 
 }
 
@@ -29,7 +29,7 @@ void my_m_MT_R_1ma5pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 //
 //	for(int from = PieceListStart(board,BPAWN); from > 0x32; from = NextPiece(board,from)){
 //		if(StoY(from) < StoY(rk)){
-//			board->mulScore -=  ADD_1Âí±ø¶Ô1ÅÚ_by_Pawn_By_Shi[board->R_shi];
+//			board->mulScore -=  ADD_1é©¬å…µå¯¹1ç‚®_by_Pawn_By_Shi[board->R_shi];
 //		}
 //	}
 //

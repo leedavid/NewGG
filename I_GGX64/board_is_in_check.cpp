@@ -10,44 +10,44 @@ bool board_is_incheck(const typePOS *POSITION, int white_to_move){
 	Bitboard occ = POSITION->byWhiteBlack;
 	int k;
 
-	if(white_to_move){   //ºì½«ÊÇ²»ÊÇ¸øºÚ·½½«¾üÁË
+	if(white_to_move){   //çº¢å°†æ˜¯ä¸æ˜¯ç»™é»‘æ–¹å°†å†›äº†
 		k = RKpos();
 
 
-		//ÊÇ²»ÊÇ¸ø¶Ô·½µÄ³µ, ½«, ½«¾ü, ¸ø¶Ô·½µÄ½«,½«¾ü²»Ëã.
+		//æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„è½¦, å°†, å°†å†›, ç»™å¯¹æ–¹çš„å°†,å°†å†›ä¸ç®—.
 		//if(m128_is_have_bit(m_and(m_or(board->byChessBB[BKING],board->byChessBB[BCHE]),
 		if(m128_is_have_bit(m_and(POSITION->byChessBB[BCHE],
 			rook_attacks_bb(k,occ)))) return TRUE;
 
-		//3,×ß×Ó·½ÊÇ²»ÊÇ¸ø¶Ô·½µÄÅÚ½«¾ü
+		//3,èµ°å­æ–¹æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ç‚®å°†å†›
 		if(m128_is_have_bit(m_and(POSITION->byChessBB[BPAO],
 			pao_eat_attacks_bb(k,occ)))) return TRUE;
 
 
-		//4,×ß×Ó·½ÊÇ²»ÊÇ¸ø¶Ô·½µÄÂí½«¾ü	
+		//4,èµ°å­æ–¹æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„é©¬å°†å†›	
 		if(m128_is_have_bit(m_and(POSITION->byChessBB[BMA],
 			king_to_ma_attacks_bb(k,occ)))) return TRUE;
 
-		//1,×ß×Ó·½ÊÇ²»ÊÇ¸ø¶Ô·½µÄ±ø½«¾ü
+		//1,èµ°å­æ–¹æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„å…µå°†å†›
 		if(m128_is_have_bit(m_and(Attack_By_Bpawn_Bking[k],POSITION->byChessBB[BPAWN]))) 
 			return TRUE;
 	}
 	else{ // side == BLACK
 		k = BKpos();
 
-		//ÊÇ²»ÊÇ¸ø¶Ô·½µÄ³µ, ½«, ½«¾ü ,¸ø¶Ô·½µÄ½«,½«¾ü²»Ëã.
+		//æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„è½¦, å°†, å°†å†› ,ç»™å¯¹æ–¹çš„å°†,å°†å†›ä¸ç®—.
 		if(m128_is_have_bit(m_and(POSITION->byChessBB[RCHE],
 			rook_attacks_bb(k,occ)))) return TRUE;
 
-		//3,×ß×Ó·½ÊÇ²»ÊÇ¸ø¶Ô·½µÄÅÚ½«¾ü
+		//3,èµ°å­æ–¹æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ç‚®å°†å†›
 		if(m128_is_have_bit(m_and(POSITION->byChessBB[RPAO],
 			pao_eat_attacks_bb(k,occ)))) return TRUE;
 
-		//4,×ß×Ó·½ÊÇ²»ÊÇ¸ø¶Ô·½µÄÂí½«¾ü	
+		//4,èµ°å­æ–¹æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„é©¬å°†å†›	
 		if(m128_is_have_bit(m_and(POSITION->byChessBB[RMA],
 			king_to_ma_attacks_bb(k,occ)))) return TRUE;
 
-		//1,×ß×Ó·½ÊÇ²»ÊÇ¸ø¶Ô·½µÄ±ø½«¾ü
+		//1,èµ°å­æ–¹æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„å…µå°†å†›
 		if(m128_is_have_bit(m_and(Attack_By_Rpawn_Rking[k],POSITION->byChessBB[RPAWN]))) 
 			return TRUE;
 	} 

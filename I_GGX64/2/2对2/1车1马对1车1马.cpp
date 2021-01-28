@@ -3,7 +3,7 @@
 #include "..\\..\\preGen.h"
 
 
-//³µÂí¶Ô³µÂí
+//è½¦é©¬å¯¹è½¦é©¬
 // fen 2bak4/4a4/9/9/6b2/9/5r1n1/7R1/3NA4/3AK4 b - - 155 155
 void m_MT_1che1ma_1che1ma(typePOS &POSITION, EvalInfo &ei){
 
@@ -78,7 +78,7 @@ void m_MT_1che1ma_1che1ma(typePOS &POSITION, EvalInfo &ei){
 	// fen 3ak1b2/9/3ab4/9/9/9/N4R3/9/3K5/3n4r w - - 0 1
 	if(ei.bsafe){
 		if(StoY(rk) == 0x8 && PB90(XYtoS(StoX(rk),9)) == BMA && StoY(bche) >= 0x8){
-			// ¶Ô·½ÂíµÄËùÓĞ²½×Ó£¬¶¼±»¿ØÖÆÁË
+			// å¯¹æ–¹é©¬çš„æ‰€æœ‰æ­¥å­ï¼Œéƒ½è¢«æ§åˆ¶äº†
 			if(!m_have_bit(_mm_andnot_si128(ei.attacked_by(WHITE),ei.attacked_by(BMA)))){
 				RETRUN_MUL(4);
 			}
@@ -86,7 +86,7 @@ void m_MT_1che1ma_1che1ma(typePOS &POSITION, EvalInfo &ei){
 	}
 	if(ei.rsafe){
 		if(StoY(bk) == 0x1 && PB90(XYtoS(StoX(bk),0)) == RMA && StoY(rche) <= 0x1){
-			// ¶Ô·½ÂíµÄËùÓĞ²½×Ó£¬¶¼±»¿ØÖÆÁË
+			// å¯¹æ–¹é©¬çš„æ‰€æœ‰æ­¥å­ï¼Œéƒ½è¢«æ§åˆ¶äº†
 			if(!m_have_bit(_mm_andnot_si128(ei.attacked_by(BLACK),ei.attacked_by(RMA)))){
 				RETRUN_MUL(4);
 			}
@@ -109,7 +109,7 @@ void m_MT_1che1ma_1che1ma(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 4k4/8R/3a4N/5r3/2n6/9/9/3AB4/9/3AK4 b - - 0 1
-	if(ei.rsafe && StoY(bma) <= 0x5){ // ¶Ô·½µÄÂíÔÚÊØ
+	if(ei.rsafe && StoY(bma) <= 0x5){ // å¯¹æ–¹çš„é©¬åœ¨å®ˆ
 		if(StoY(bk) <= 0x1 && (BShi_num() + BXiang_num()) >= 1){
 
 			// fen 4k4/4a4/4b4/4r4/3RN4/8n/9/4BA3/4A4/4K1B2 w - - 0 1

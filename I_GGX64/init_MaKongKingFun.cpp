@@ -21,7 +21,7 @@ static const char _MaKing[90] = {
 void init_MaKongKing(){
 	                            //0 1,2,3,4,0
 	const uint8 att_by_kcan[] = { 6,4,2,1,0,0 };
-	const uint8 ma_can_check  = 2;              //ÂíÄÜ½«¾üÊ±¼ÓµÄµã
+	const uint8 ma_can_check  = 2;              //é©¬èƒ½å°†å†›æ—¶åŠ çš„ç‚¹
 	const uint8 sameside      = 2;
 	const uint8 wocaoma       = 6;
 	for(int ma = 0; ma < 90; ma++){
@@ -44,7 +44,7 @@ void init_MaKongKing(){
 				//	ma = ma;
 				//}
 
-				// ±ØÐëÊÇÂí¿É¹¥»÷²ÅÄÜËãÓÐÍÛ
+				// å¿…é¡»æ˜¯é©¬å¯æ”»å‡»æ‰èƒ½ç®—æœ‰å“‡
 				att += _MaKing[k];
 				// isSameSide?
 				if(IsOnSameSide(ma,k) && StoX(k) != 0x4){
@@ -58,7 +58,7 @@ void init_MaKongKing(){
 				}
 
 				Bitboard kcan = _mm_setzero_si128();
-				// king µÄ×ß²½
+				// king çš„èµ°æ­¥
 				if(StoY(k) <= 0x2){
 					kcan = OneBpawnOrBking_AttackBB[k];
 				}
@@ -69,13 +69,13 @@ void init_MaKongKing(){
 				int can = count_1s(kcan);
 				att += att_by_kcan[can];
 
-				// ÌØÊâµÄ£¬ÎÔÂíÒª¼Ó
+				// ç‰¹æ®Šçš„ï¼Œå§é©¬è¦åŠ 
 				if(k == 0x54 || k == 0x56){
 					if(ma == 0x4A || ma == 0x4E){
 						att += wocaoma;
 					}
 				}
-				// ÌØÊâµÄ£¬ÎÔÂíÒª¼Ó
+				// ç‰¹æ®Šçš„ï¼Œå§é©¬è¦åŠ 
 				if(k == 0x03 || k == 0x05){
 					if(ma == 0x0B || ma == 0x0F){
 						att += wocaoma;

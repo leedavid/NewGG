@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Âí3±ø¶Ô2ÅÚ.cpp"
+#include "1é©¬3å…µå¯¹2ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -13,7 +13,7 @@
 //
 
 
-// 1Âí3±ø¶ÔÅÚÂí
+// 1é©¬3å…µå¯¹ç‚®é©¬
 void my_m_MT_R_1ma3pawn_B_2pao(typePOS &POSITION, EvalInfo &ei){
 
 	// ADD_MY

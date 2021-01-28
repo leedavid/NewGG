@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Âí2±ø¶Ô1Âí1ÅÚ.cpp"
+#include "1é©¬2å…µå¯¹1é©¬1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -16,7 +16,7 @@
 ////const int ADD_MAT_R_1ma2pawn_B_1pao1ma = 96;
 
 
-// 1Âí2±ø¶ÔÅÚÂí
+// 1é©¬2å…µå¯¹ç‚®é©¬
 void my_m_MT_R_1ma2pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 	// ADD
 	Square yk = your_king_pos;
@@ -119,7 +119,7 @@ void my_m_MT_R_1ma2pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 7P1/2P1a4/3a1k3/9/3c1N3/5n3/9/9/4K4/9 b - - 0 1
     if(your_xiang_num == 0 && your_shi_num >= 1){
-		if(!have_bit(bb_my_pawn,MyLowBB[MY_RANK4])){  // ¶þ¸ö±ø¶¼¹ýºÓÁË
+		if(!have_bit(bb_my_pawn,MyLowBB[MY_RANK4])){  // äºŒä¸ªå…µéƒ½è¿‡æ²³äº†
 			if(have_bit(bb_my_pawn,RankBB_A[MY_RANK1])){
 				RETRUN_MUL(8);
 			}

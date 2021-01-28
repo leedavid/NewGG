@@ -9,12 +9,12 @@ static INLINE void MakeNull (typePOS* POSITION)         // null_do(
   POSITION->DYN->SAVED_FLAGS = POSITION->DYN->flags;
   memcpy (POSITION->DYN + 1, POSITION->DYN, sizeof(DYN_size64)); // 64
   POSITION->DYN++;
-  POSITION->DYN->HASH ^= ZOBRIST_side;             // zobrist_mossa_bianca;     // ×ß×Ó·½HASH
+  POSITION->DYN->HASH ^= ZOBRIST_side;             // zobrist_mossa_bianca;     // èµ°å­æ–¹HASH
   POS_SIDE ^= 1;
   POSITION->height++;
-  //POSITION->DYN->mossa50 ++;      // Õâ¸ö²»ÄÜ¼Ó.
+  //POSITION->DYN->mossa50 ++;      // è¿™ä¸ªä¸èƒ½åŠ .
   POSITION->DYN->mossa50 = 0;
-  POSITION->DYN->valu = -((POSITION->DYN - 1)->valu + TempoValue);    // ÏÈÊÖ·Ö
+  POSITION->DYN->valu = -((POSITION->DYN - 1)->valu + TempoValue);    // å…ˆæ‰‹åˆ†
   POSITION->DYN->valu_posizionale = (POSITION->DYN - 1)->valu_posizionale;
   POSITION->DYN->lazy = (POSITION->DYN - 1)->lazy;
   POSITION->DYN->flags &= ~3;

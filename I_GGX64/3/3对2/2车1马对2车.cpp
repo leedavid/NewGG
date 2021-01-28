@@ -3,7 +3,7 @@
 #include "..\\..\\chess.h"
 #include "..\\..\\preGen.h"
 #include "..\\..\\endgame\mat.h"
-#include "2³µ1Âí¶Ô2³µ.cpp"
+#include "2è½¦1é©¬å¯¹2è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -13,7 +13,7 @@
 //const int const_Shi_add[3] = {128,48,0};
 //const int const_Pawn_add   =  48;
 
-//2³µ1±ø¶Ô2³µ
+//2è½¦1å…µå¯¹2è½¦
 void my_m_MT_R_2che1ma_B_2che(typePOS &POSITION, EvalInfo &ei){
 
 

@@ -14,7 +14,7 @@
 
 #define Che_Ding_ByPao    point(32,-64)
 //
-//const static int MidgameRookMobilityBonus[] = {                  // ³µµÄÒÆ¶¯ÐÔ½±Àø.
+//const static int MidgameRookMobilityBonus[] = {                  // è½¦çš„ç§»åŠ¨æ€§å¥–åŠ±.
 //	//0    1    2    3    4   5    6   7   8   9
 //	-80, -64, -48, -32, -16, -8,   0,  1,  2,  3,
 //	//10, 11,  12,  13,  14, 15,  16, 17, 18,  19
@@ -54,7 +54,7 @@ const int f_CheMove[]  = {
 
 const static int TwoCheFreeCheck[] = {
 	//point(0,0), point(0,0), point(64,512)
-	(((0) << 16) + (0)),     // 0             // Y ·½ÏòË«³µ´íÉ±
+	(((0) << 16) + (0)),     // 0             // Y æ–¹å‘åŒè½¦é”™æ€
 	(((0) << 16) + (0)),     // 1
 	(((0) << 16) + (0)),     // 2
 	(((16) << 16) + (64)),   // 3
@@ -70,7 +70,7 @@ const static int TwoCheFreeCheck[] = {
 };
 
 //const static int MaControlByPawn[] = {
-//	(((0) << 16) +  (0)),    // 0             // Y ·½ÏòË«³µ´íÉ±
+//	(((0) << 16) +  (0)),    // 0             // Y æ–¹å‘åŒè½¦é”™æ€
 //	(((36) << 16) + (36)),    // 1
 //	(((48) << 16) + (48)),    // 2
 //	(((48) << 16) + (48)),    // 3
@@ -100,21 +100,21 @@ const __int16 MaMoveAddNoProtect[12]   =  {-64, -24,  8,  8,  8,  8,  8, 8, 8, 8
 const __int16 PAWN_NUM_OVER_RIVER[6]   =  { 0, 16, 64,  80, 116, 124};
 extern int PAWN_NUM_OVER_RIVER_point[8];      //       point(t,t);
 
-extern int Point_StringScoreByChe[16];    // ³µÇ£ÖÆ×Ô¼ºµÄÆå×ÓµÄµÃ·Ö
+extern int Point_StringScoreByChe[16];    // è½¦ç‰µåˆ¶è‡ªå·±çš„æ£‹å­çš„å¾—åˆ†
 
-extern int Point_R_XianProtectPoint[16];  // Ïà±£»¤×Ô¼ºÆå×ÓµÄµÃ·Ö
+extern int Point_R_XianProtectPoint[16];  // ç›¸ä¿æŠ¤è‡ªå·±æ£‹å­çš„å¾—åˆ†
 extern int Point_B_XianProtectPoint[16];
 
-extern int Point_R_ma_Att_Score[16];    // Âí±£»¤×Ô¼ºÆå×ÓµÄµÃ·Ö
+extern int Point_R_ma_Att_Score[16];    // é©¬ä¿æŠ¤è‡ªå·±æ£‹å­çš„å¾—åˆ†
 extern int Point_B_ma_Att_Score[16];
 
-extern int point_R_CheProtectPoint[16];  // °ÔÍõ³µµÄ·ÖÊý
+extern int point_R_CheProtectPoint[16];  // éœ¸çŽ‹è½¦çš„åˆ†æ•°
 extern int point_B_CheProtectPoint[16];  
 
-extern int Point_R_ShiProtectPoint[16]; // ÊË±£»¤×Ô¼ºÆå×ÓµÄµÃ·Ö
+extern int Point_R_ShiProtectPoint[16]; // ä»•ä¿æŠ¤è‡ªå·±æ£‹å­çš„å¾—åˆ†
 extern int Point_B_ShiProtectPoint[16];
 
-extern int Point_R_pawn_Att_Score[16];  // ×ä±£»¤×Ô¼ºÆå×ÓµÄµÃ·Ö
+extern int Point_R_pawn_Att_Score[16];  // å’ä¿æŠ¤è‡ªå·±æ£‹å­çš„å¾—åˆ†
 extern int Point_B_pawn_Att_Score[16];
 
 static const int PawnNotOnSameSide[] = {
@@ -141,15 +141,15 @@ static const int my_che_open_score = (((32) << 16)  + (32));
 
 #define Rook_CanNotMove_Att                  5
 
-#define PaoCan_Eat_Check                      3     //ÅÚÄÜ³Ô×Ó½«.
+#define PaoCan_Eat_Check                      3     //ç‚®èƒ½åƒå­å°†.
 #define PaoCan_Safe_Eat_Check                 4    
-#define PaoCan_Direct_Check                   3     //ÅÚÖ±½Ó½«.
-#define PaoCan_Safe_Direct_Check              3     //ÅÚÖ±½Ó½«.
-#define PaoCan_TwoPao_Check                   3     //ÅÚÄÜÀÝ½«
+#define PaoCan_Direct_Check                   3     //ç‚®ç›´æŽ¥å°†.
+#define PaoCan_Safe_Direct_Check              3     //ç‚®ç›´æŽ¥å°†.
+#define PaoCan_TwoPao_Check                   3     //ç‚®èƒ½åž’å°†
 
 #define KongPao_kingAdjacentZoneAttacksCount  2
 
-#define Ma_KongPao_Check                      6     // Âíµ½¿ÕÅÚ½«¾ü
+#define Ma_KongPao_Check                      6     // é©¬åˆ°ç©ºç‚®å°†å†›
  
 #define PaoCanAttackPoint                     4
 #define PaoGuardtheKingOut                    3     //
@@ -161,7 +161,7 @@ static const int my_che_open_score = (((32) << 16)  + (32));
 #define MaCanCHeckPoint                       8 
 #define MaCanPaoNullCHeckPoint                8
 
-#define CheCanPaoNullCHeckPoint               6   // ³µÄÜÀÝ½«.
+#define CheCanPaoNullCHeckPoint               6   // è½¦èƒ½åž’å°†.
 
 //#define Pawn_Can_Check_Ponit                  5
 
@@ -169,19 +169,19 @@ static const int my_che_open_score = (((32) << 16)  + (32));
 
 #define MaCanAttackPoint                      3
 
-#define CheOpenAtt                            6       // ³µÒÑ¿ª·ÅºóµÄ¹¥»÷ÄÜÁ¦
+#define CheOpenAtt                            6       // è½¦å·²å¼€æ”¾åŽçš„æ”»å‡»èƒ½åŠ›
 #define CheCanCheck                           2
-#define RookSafeCheckBonus                    4       //¶Ô·½µÄ³µÄÜ×ÔÓÉ½«
+#define RookSafeCheckBonus                    4       //å¯¹æ–¹çš„è½¦èƒ½è‡ªç”±å°†
 
 
-#define Other_Che_Can_Not_back                4       //¶Ô·½µÄ³µ²»ÄÜ»Ø¼ÒÊØÎÀ
-#define King_CheSameLineAtt                   6       //½«±øÒ»ÏßµÄµÃ·Ö
+#define Other_Che_Can_Not_back                4       //å¯¹æ–¹çš„è½¦ä¸èƒ½å›žå®¶å®ˆå«
+#define King_CheSameLineAtt                   6       //å°†å…µä¸€çº¿çš„å¾—åˆ†
 
 
-#define MaSafeCheckBonus                      6       //¶Ô·½µÄÂíÄÜ×ÔÓÉ½«
+#define MaSafeCheckBonus                      6       //å¯¹æ–¹çš„é©¬èƒ½è‡ªç”±å°†
 
-//#define Ma_at_Mid_must_SUB_Point            8      //ÂíÔÚÖÐ¼ä,Òª¼õÒ»ÏÂ,ÒòÎªËã¶þ±ßÓÐÂíÁË
-#define Ma_Not_Good_Move_to_Attack            4      //ÂíÃ»ÓÐºÃµÄ½ø¹¥²½ÁË
+//#define Ma_at_Mid_must_SUB_Point            8      //é©¬åœ¨ä¸­é—´,è¦å‡ä¸€ä¸‹,å› ä¸ºç®—äºŒè¾¹æœ‰é©¬äº†
+#define Ma_Not_Good_Move_to_Attack            4      //é©¬æ²¡æœ‰å¥½çš„è¿›æ”»æ­¥äº†
 //#define Che_at_Mid_Must_SuB_Point           10
 #define Che_At_mid_contor_King                8
 
@@ -195,50 +195,50 @@ static const int my_che_open_score = (((32) << 16)  + (32));
 #define X_Have_Che_Protect     5
 #define X_Have_Pao_Protect     4
 
-const int att_ºÚ³µ_ºìÂí_ºìË§_string = 4; 
-const int att_ºÚÅÚ_ºìÂí_ºìË§_string = 6;
-const int att_ºÚÂí_ºìÂí_ºìË§_string = 8;
+const int att_é»‘è½¦_çº¢é©¬_çº¢å¸…_string = 4; 
+const int att_é»‘ç‚®_çº¢é©¬_çº¢å¸…_string = 6;
+const int att_é»‘é©¬_çº¢é©¬_çº¢å¸…_string = 8;
 
-const int att_ºÚ³µ_ºìÅÚ_ºìË§_string = 3;
-const int att_ºÚÅÚ_ºìÅÚ_ºìË§_string = 3;
-const int att_ºÚÂí_ºìÅÚ_ºìË§_string = 8;
+const int att_é»‘è½¦_çº¢ç‚®_çº¢å¸…_string = 3;
+const int att_é»‘ç‚®_çº¢ç‚®_çº¢å¸…_string = 3;
+const int att_é»‘é©¬_çº¢ç‚®_çº¢å¸…_string = 8;
 
-const int att_ºÚ³µ_ºì³µ_ºìË§_string = 2;
-const int att_ºÚÅÚ_ºì³µ_ºìË§_string = 8;
-const int att_ºÚÂí_ºì³µ_ºìË§_string = 12;
+const int att_é»‘è½¦_çº¢è½¦_çº¢å¸…_string = 2;
+const int att_é»‘ç‚®_çº¢è½¦_çº¢å¸…_string = 8;
+const int att_é»‘é©¬_çº¢è½¦_çº¢å¸…_string = 12;
 
-const int att_ºÚ³µ_ºìÏà_ºìË§_string = 4;
-const int att_ºÚÅÚ_ºìÏà_ºìË§_string = 1;
-const int att_ºÚÂí_ºìÏà_ºìË§_string = 4;
+const int att_é»‘è½¦_çº¢ç›¸_çº¢å¸…_string = 4;
+const int att_é»‘ç‚®_çº¢ç›¸_çº¢å¸…_string = 1;
+const int att_é»‘é©¬_çº¢ç›¸_çº¢å¸…_string = 4;
 
-const int att_ºÚ³µ_ºìÊË_ºìË§_string = 4;
-const int att_ºÚÅÚ_ºìÊË_ºìË§_string = 1;
-const int att_ºÚÂí_ºìÊË_ºìË§_string = 4;
+const int att_é»‘è½¦_çº¢ä»•_çº¢å¸…_string = 4;
+const int att_é»‘ç‚®_çº¢ä»•_çº¢å¸…_string = 1;
+const int att_é»‘é©¬_çº¢ä»•_çº¢å¸…_string = 4;
 
 // ==========================================================
-const int att_ºÚ³µ_ºÚ×ä_ºìË§_zhou   = 6;
-const int att_ºÚÅÚ_ºÚ×ä_ºìË§_zhou   = 6;
-const int att_ºÚÂí_ºÚ×ä_ºìË§_zhou   = 8;
+const int att_é»‘è½¦_é»‘å’_çº¢å¸…_zhou   = 6;
+const int att_é»‘ç‚®_é»‘å’_çº¢å¸…_zhou   = 6;
+const int att_é»‘é©¬_é»‘å’_çº¢å¸…_zhou   = 8;
 
-const int att_ºÚ³µ_ºÚ³µ_ºìË§_zhou   =  0;
-const int att_ºÚÅÚ_ºÚ³µ_ºìË§_zhou   = 14;
-const int att_ºÚÂí_ºÚ³µ_ºìË§_zhou   = 20;
+const int att_é»‘è½¦_é»‘è½¦_çº¢å¸…_zhou   =  0;
+const int att_é»‘ç‚®_é»‘è½¦_çº¢å¸…_zhou   = 14;
+const int att_é»‘é©¬_é»‘è½¦_çº¢å¸…_zhou   = 20;
 
-const int att_ºÚ³µ_ºÚÂí_ºìË§_zhou   = 16;
-const int att_ºÚÅÚ_ºÚÂí_ºìË§_zhou   = 12;
-const int att_ºÚÂí_ºÚÂí_ºìË§_zhou   = 20;
+const int att_é»‘è½¦_é»‘é©¬_çº¢å¸…_zhou   = 16;
+const int att_é»‘ç‚®_é»‘é©¬_çº¢å¸…_zhou   = 12;
+const int att_é»‘é©¬_é»‘é©¬_çº¢å¸…_zhou   = 20;
 
-const int att_ºÚ³µ_ºÚÅÚ_ºìË§_zhou   = 16;
-const int att_ºÚÅÚ_ºÚÅÚ_ºìË§_zhou   = 16;
-const int att_ºÚÂí_ºÚÅÚ_ºìË§_zhou   = 16;
+const int att_é»‘è½¦_é»‘ç‚®_çº¢å¸…_zhou   = 16;
+const int att_é»‘ç‚®_é»‘ç‚®_çº¢å¸…_zhou   = 16;
+const int att_é»‘é©¬_é»‘ç‚®_çº¢å¸…_zhou   = 16;
 
-const int att_ºÚ³µ_ºÚÏó_ºìË§_zhou   =  8;
-const int att_ºÚÅÚ_ºÚÏó_ºìË§_zhou   =  4;
-const int att_ºÚÂí_ºÚÏó_ºìË§_zhou   =  0;
+const int att_é»‘è½¦_é»‘è±¡_çº¢å¸…_zhou   =  8;
+const int att_é»‘ç‚®_é»‘è±¡_çº¢å¸…_zhou   =  4;
+const int att_é»‘é©¬_é»‘è±¡_çº¢å¸…_zhou   =  0;
 
-const int att_ºÚ³µ_ºÚÊ¿_ºìË§_zhou   =  8;
-const int att_ºÚÅÚ_ºÚÊ¿_ºìË§_zhou   =  4;
-const int att_ºÚÂí_ºÚÊ¿_ºìË§_zhou   =  0;
+const int att_é»‘è½¦_é»‘å£«_çº¢å¸…_zhou   =  8;
+const int att_é»‘ç‚®_é»‘å£«_çº¢å¸…_zhou   =  4;
+const int att_é»‘é©¬_é»‘å£«_çº¢å¸…_zhou   =  0;
 
 const int Zhou_Chess_Att_By_Other_sub = 4;
 
@@ -247,7 +247,7 @@ const int att_Ma_String[12]  = {
 	   0, 8,10,12,14,15,16,17,18,19,20
 };
 
-// ÔÙ¼ÓÐ©·Ö,ÂíÇ£ÖÆÆå,¶ÔÇ£ÖÆµÄ¹¥»÷ÔÙ¼ÓÐ©·Ö
+// å†åŠ äº›åˆ†,é©¬ç‰µåˆ¶æ£‹,å¯¹ç‰µåˆ¶çš„æ”»å‡»å†åŠ äº›åˆ†
 const int att_Ma_String_Valu[12] = {
 	(((0)      << 16)   + (0)),                   // 00
 	(((64)     << 16)   + (96)),                  // 01
@@ -269,12 +269,12 @@ const int att_Pao_String[]  = {
 	//00 01 02 03 04 05 06 07 08 09 10 11 
 	   0, 1, 3, 5, 7, 9,10,11,12,13,14,15
 };
-const int att_Che_String[]  = { // 12 ¹»ÁË
+const int att_Che_String[]  = { // 12 å¤Ÿäº†
 	//00 01 02 03 04 05 06 07 08 09 10 11
 	   0, 0, 4, 6, 8,12,13,14,15,16,17,18
 };
 
-//Óë³µµÄÊýÁ¿¹ÒÒ»ÏÂ¹³
+//ä¸Žè½¦çš„æ•°é‡æŒ‚ä¸€ä¸‹é’©
 const static __int8 KongPao_att_point[] = {
 	12,        // 0 che
 	16,        // 1 che
@@ -338,7 +338,7 @@ const int Only_1Che1PaoxPawn_Your_Ma_add[] = {
 
 //typedef enum
 //{
-//	EMPTY=0,  // Õâ¸ö²»ÓÃÁË
+//	EMPTY=0,  // è¿™ä¸ªä¸ç”¨äº†
 //	RKING=1,  RSHI=2, RXIANG=3, RMA=4, RCHE=5, RPAO=6, RPAWN=7,
 //	_X_X =8,
 //	BKING=9,  BSHI=10,BXIANG=11,BMA=12,BCHE=13,BPAO=14,BPAWN=15,   

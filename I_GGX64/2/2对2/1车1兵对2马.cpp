@@ -4,16 +4,16 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1±ø¶Ô2Âí.cpp"
+#include "1è½¦1å…µå¯¹2é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//#define ADD_ChePawn_To_MaPao_By_Panw   128              //³µ±ø¶ÔÂíÅÚ,³µ±ø·½±øÒª¼Ó·Ö,ÒòÎªÂíÅÚÌ«ÄÑÉ±¶Ô·½ÁË
-//#define ADD_ChePawn_To_MaPao_By_Che    128              //³µ±ø¶ÔÂíÅÚ,³µ±ø·½³µÒª¼Ó·Ö,ÒòÎªÂíÅÚÌ«ÄÑÉ±¶Ô·½ÁË
+//#define ADD_ChePawn_To_MaPao_By_Panw   128              //è½¦å…µå¯¹é©¬ç‚®,è½¦å…µæ–¹å…µè¦åŠ åˆ†,å› ä¸ºé©¬ç‚®å¤ªéš¾æ€å¯¹æ–¹äº†
+//#define ADD_ChePawn_To_MaPao_By_Che    128              //è½¦å…µå¯¹é©¬ç‚®,è½¦å…µæ–¹è½¦è¦åŠ åˆ†,å› ä¸ºé©¬ç‚®å¤ªéš¾æ€å¯¹æ–¹äº†
 
-//ÎÒ·½1³µ1±ø,¶Ô·½ÊÇÂíÅÚ
+//æˆ‘æ–¹1è½¦1å…µ,å¯¹æ–¹æ˜¯é©¬ç‚®
 void my_m_MT_R_1che1pawn_B_2ma(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk    = your_king_pos;
@@ -34,7 +34,7 @@ void my_m_MT_R_1che1pawn_B_2ma(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 3k5/9/4b4/9/6b2/7p1/9/4BN3/2r1A4/2N1K1B2 w - - 121 121
 	if(your_shi_num >= 1 && your_xiang_num == 2 && PB90(MY_SQ16) == your_xiang){
-		// ¶þ¸öÂí¶¼ÔÚ¼ÒÀï
+		// äºŒä¸ªé©¬éƒ½åœ¨å®¶é‡Œ
 		if(count_1s(bb_your_ma,MyUpBB[MY_RANK7]) == 2){
 		    if(mcan == 0) {
 				RETRUN_MUL(2);

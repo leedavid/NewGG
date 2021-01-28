@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "5±ø¶Ô1ÅÚ1±ø.cpp"
+#include "5å…µå¯¹1ç‚®1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -29,7 +29,7 @@ void my_m_MT_R_5pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 
 //void m_MT_B_5pawn_R_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 ///*
-//	//int connectPawn = 0;                  //Á¬±øµÄÊıÁ¿
+//	//int connectPawn = 0;                  //è¿å…µçš„æ•°é‡
 //	
 //	Square rk = PieceListStart(board,RKING);
 //	Square bk = PieceListStart(board,BKING);
@@ -38,7 +38,7 @@ void my_m_MT_R_5pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 //		if(StoY(from) < StoY(rk)){
 //			board->mulScore -=  ADD_3pawn_PaoXPawn_ShiAdd[board->R_shi];
 //
-//			//if(StoX(from) == 0x7){  //±øÔÚÖĞÏß
+//			//if(StoX(from) == 0x7){  //å…µåœ¨ä¸­çº¿
 //			//	if(board->b256[from+1] == BPAWN){
 //			//		connectPawn ++;
 //			//	}

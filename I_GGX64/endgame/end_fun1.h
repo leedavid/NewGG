@@ -1,4 +1,4 @@
-//********************************************* Ò»¶ÔÎÞ********************
+//********************************************* ä¸€å¯¹æ— ********************
  extern void m_MT_NONE_16(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_MUST_DRAW(typePOS &POSITION, EvalInfo &ei);
 
@@ -17,11 +17,11 @@
  extern void m_MT_R_1PAWN(typePOS &POSITION, EvalInfo &ei);
 
  extern void m_MT_B_1PAWN(typePOS &POSITION, EvalInfo &ei);
-//********************************************* Ò»¶ÔÒ»********************
+//********************************************* ä¸€å¯¹ä¸€********************
 
  extern void m_MT_1CHE_TO_1CHE(typePOS &POSITION, EvalInfo &ei);
 
- extern void m_MT_R_1CHE_B_1PAO(typePOS &POSITION, EvalInfo &ei);		 //ºìÒ»³µºÚÒ»ÅÚ	
+ extern void m_MT_R_1CHE_B_1PAO(typePOS &POSITION, EvalInfo &ei);		 //çº¢ä¸€è½¦é»‘ä¸€ç‚®	
 
  extern void m_MT_B_1CHE_R_1PAO(typePOS &POSITION, EvalInfo &ei);
 
@@ -39,9 +39,9 @@
 
  extern void m_MT_B_1PAO_R_1MA(typePOS &POSITION, EvalInfo &ei);
 
- extern void m_MT_R_1PAO_B_1PAWN(typePOS &POSITION, EvalInfo &ei);	//ºìÒ»ÅÚºÚÒ»±ø
+ extern void m_MT_R_1PAO_B_1PAWN(typePOS &POSITION, EvalInfo &ei);	//çº¢ä¸€ç‚®é»‘ä¸€å…µ
 
- extern void m_MT_B_1PAO_R_1PAWN(typePOS &POSITION, EvalInfo &ei);	//ºÚÒ»ÅÚºìÒ»±ø
+ extern void m_MT_B_1PAO_R_1PAWN(typePOS &POSITION, EvalInfo &ei);	//é»‘ä¸€ç‚®çº¢ä¸€å…µ
 
 // extern void m_MT_R_1MA_B_1MA(typePOS &POSITION, EvalInfo &ei);
 //
@@ -49,9 +49,9 @@
 
  extern void m_MT_1MA_1MA(typePOS &POSITION, EvalInfo &ei);
 
- extern void m_MT_R_1MA_B_1PAWN(typePOS &POSITION, EvalInfo &ei);	//ºìÒ»ÂíºÚÒ»±ø
+ extern void m_MT_R_1MA_B_1PAWN(typePOS &POSITION, EvalInfo &ei);	//çº¢ä¸€é©¬é»‘ä¸€å…µ
 
  extern void m_MT_B_1MA_R_1PAWN(typePOS &POSITION, EvalInfo &ei);
 
- extern void m_MT_PAWN_TO_PAWN(typePOS &POSITION, EvalInfo &ei);     //´ó¼ÒÒ»±ø
+ extern void m_MT_PAWN_TO_PAWN(typePOS &POSITION, EvalInfo &ei);     //å¤§å®¶ä¸€å…µ
 

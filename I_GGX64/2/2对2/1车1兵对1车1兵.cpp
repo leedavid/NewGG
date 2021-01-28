@@ -6,7 +6,7 @@
 
 //const int ADD_byShi[3]   = {196,64,32};
 
-//�����Գ���
+//车兵对车兵
 void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 
 	Square rpawn = S90_from_piecelist(POSITION,RPAWN,0);
@@ -37,7 +37,7 @@ void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//���һ���ǵͱ�����Ҫ����
+	//如果一方是低兵，则要减分
 	if(StoY(bpawn) == 0x9){
 		ei.evscore += 32;
 	}
@@ -58,7 +58,7 @@ void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 	if(StoX(bche) == 0x4){
 		ei.evscore -= 32;
 	}
-	//���һ���Ľ���Է��ı���ͬһ��,Ҫ����
+	//如果一方的将与对方的兵在同一边,要减分
 	if(King_4_Side(rk) == King_4_Side(bpawn)){
 		if(StoY(bpawn) == 0x9){
 			ei.evscore -= 24;
@@ -75,7 +75,7 @@ void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 			ei.evscore += 64;
 		}
 	}
-    // ˫������������
+    // 双方都有两个仕
 	if(BShi_num() == 2 && StoY(bk) <= 1){
 		ei.bsafe = TRUE;
 	}
@@ -189,7 +189,7 @@ void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 		ei.evscore -= ADD_CheXPawn_To_Che_ByShi[RShi_num()];
 	}
 
-	//���˫���ı���û�й���,����һ������,��ֻҪһ���г��ڱ������Ǻ��� 
+	//如果双方的兵都没有过河,且在一条列线,则只要一方有车在保兵就是和棋 
 	if(StoY(rpawn) > 0x4 && StoY(bpawn) < 0x5 && StoX(rpawn) == StoX(bpawn)){
 		if(StoY(rche) == StoY(rpawn)){
 			RETRUN_MUL(2);
@@ -264,7 +264,7 @@ void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 2R3b2/3ka4/9/2P6/2r6/4p1B2/9/9/4A4/3AK4 w - - 6 6
-    //�ڷ�Ҳ��ȫ��,������ǣ����
+    //黑方也安全了,车兵被牵制了
 	if(BShi_num() >= 1 && BXiang_num() >= 1){
 		if(PB90(0x0D) == BSHI ){
 			if(StoX(bche) == StoX(rche) && StoY(bche) > StoY(rche) && StoY(rpawn) <= 0x3){
@@ -281,7 +281,7 @@ void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 	}
 	// fen 2R6/3ka4/4b4/2P6/2r6/4p1B2/9/9/4A4/3AK4 w
 	// fen 2R3b2/3ka4/9/2P6/2r6/4p1B2/9/9/4A4/3AK4 w - - 6 6
-    //�ڷ�Ҳ��ȫ��,������ǣ����
+    //黑方也安全了,车兵被牵制了
 	if(RShi_num() >= 1 && RXiang_num()  >= 1){
 		if(PB90(0x4C) == RSHI ){
 			if(StoX(bche) == StoX(rche) && StoY(bche) > StoY(rche) && StoY(bpawn) >= 0x6){
@@ -305,7 +305,7 @@ void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 			if(rcan  == 0){
 				ei.bsafe = true;
 			}
-			if(StoY(rpawn) >= 0x5){  //û�й���
+			if(StoY(rpawn) >= 0x5){  //没有过河
 				if(PB90(0x28) == BCHE){
 					ei.bsafe = true;
 				}
@@ -318,7 +318,7 @@ void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 			if(bcan  == 0){
 				ei.rsafe = true;
 			}
-			if(StoY(bpawn) <= 0x4){  //û�й���
+			if(StoY(bpawn) <= 0x4){  //没有过河
 				if(PB90(0x31) == RCHE){
 					ei.rsafe = true;
 				}

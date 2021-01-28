@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ5±ø¶Ô1Âí1±ø.cpp"
+#include "1è½¦5å…µå¯¹1é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -13,9 +13,9 @@
 
 // fen 9/3P5/4k4/9/2b3b2/6B2/9/3AB4/r3Ap3/C3K4 w - - 44 44
 
-//const int ADD_PaoXPawn_To_ChePawnByShi_WpaoSafe[3]  =  { 80, 48, 16};  //ÅÚ±ø¶Ô³µ±ø,ÅÚ·½°²È«ºó,ÓĞ±øµÄ¼Ó·Ö 
+//const int ADD_PaoXPawn_To_ChePawnByShi_WpaoSafe[3]  =  { 80, 48, 16};  //ç‚®å…µå¯¹è½¦å…µ,ç‚®æ–¹å®‰å…¨å,æœ‰å…µçš„åŠ åˆ† 
 
-//³µ±ø¶ÔÂí±ø
+//è½¦å…µå¯¹é©¬å…µ
 void my_m_MT_R_1che5pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
@@ -26,7 +26,7 @@ void my_m_MT_R_1che5pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_ADD(ADD_CheXPawn_To_MaPawn);
 }
 
-//const int ADD_CheXPawn_To_PaoPawn                   =  128;             //³µ±ø¶ÔÅÚ±ø,³µ·½µÄ¼Ó·Ö
+//const int ADD_CheXPawn_To_PaoPawn                   =  128;             //è½¦å…µå¯¹ç‚®å…µ,è½¦æ–¹çš„åŠ åˆ†
 //const int ADD_CheXPawn_To_PaoPawn_PawnByShi[3]      =  {168,128, 64};
 
 //void m_MT_B_1che5pawn_R_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
@@ -35,7 +35,7 @@ void my_m_MT_R_1che5pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 //
 //	////if(board->R_shi == 2 && board->R_xiang == 2){
 //	////	if(board->b256[0xa7] == RXIANG){
-//	////		if(StoY(rpao) >= 0xa){       //ÅÚ¿É»Ø¼Ò
+//	////		if(StoY(rpao) >= 0xa){       //ç‚®å¯å›å®¶
 //	////			return 1;
 //	////		}
 //	////	}

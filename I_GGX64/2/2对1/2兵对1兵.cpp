@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2±ø¶Ô1±ø.cpp"
+#include "2å…µå¯¹1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -16,7 +16,7 @@
 //const int My_Add             =  24;
 //const int My_Pawn_Shi_Add[3] = {64,32,16};
 
-//ºì·½Á½¸ö±ø£¬ºÚ·½Ò»¸ö±ø
+//çº¢æ–¹ä¸¤ä¸ªå…µï¼Œé»‘æ–¹ä¸€ä¸ªå…µ
 void my_m_MT_R_2pawn_B_1pawn(typePOS &POSITION, EvalInfo &ei) {
 
 	Square mk = my_king_pos;
@@ -80,7 +80,7 @@ void my_m_MT_R_2pawn_B_1pawn(typePOS &POSITION, EvalInfo &ei) {
 	}
 
 	// fen 3P5/9/4k4/8p/9/8P/9/4BA3/3K5/2B2A3 b - - 122 122 
-	//Ò»¸ö±øÃ»ÓÐ¹ýºÓ,Ò»¸ö±øµ½ÁË½«ÏÂÃæ,Ò²ÊÇºÍÆå
+	//ä¸€ä¸ªå…µæ²¡æœ‰è¿‡æ²³,ä¸€ä¸ªå…µåˆ°äº†å°†ä¸‹é¢,ä¹Ÿæ˜¯å’Œæ£‹
 	if (count_1s(bb_my_pawn, RankBB_A[MY_RANK0]) >= 1) {
 		RETRUN_MUL(2);
 	}
@@ -336,7 +336,7 @@ void my_m_MT_R_2pawn_B_1pawn(typePOS &POSITION, EvalInfo &ei) {
 			if (pn == 2 && EV_YOUR_CAN >= 1) {
 				RETRUN_MUL(2);
 			}
-			if (pn == 1) { // Ò»¸ö¸ß±øÔÚÏàÏß,ÇÒÓë½«²»ÔÚÒ»±ß,
+			if (pn == 1) { // ä¸€ä¸ªé«˜å…µåœ¨ç›¸çº¿,ä¸”ä¸Žå°†ä¸åœ¨ä¸€è¾¹,
 				if (StoY(yk) == MY_RANK2) {
 					byp = m_and(bb_my_pawn, RankBB_A[MY_RANK2]);
 					Square ps;
@@ -447,7 +447,7 @@ void my_m_MT_R_2pawn_B_1pawn(typePOS &POSITION, EvalInfo &ei) {
 
 	// fen 4P4/9/4k4/9/9/9/9/B1p3p2/4A4/3K5 b - - 0 1
 	if (your_shi_num >= 1 && your_xiang_num >= 1) {
-		if (StoY(ypawn) MY_LARGE_EQL MY_RANK5) { // ¶Ô·½µÄ±øÒÑ¹ýºÓ
+		if (StoY(ypawn) MY_LARGE_EQL MY_RANK5) { // å¯¹æ–¹çš„å…µå·²è¿‡æ²³
 			if (StoY(mpawn1) MY_SMALL_EQL MY_RANK2 && StoY(mpawn2) MY_SMALL_EQL MY_RANK2) {
 				MY_EV_SUB(64);
 				if (abs(StoX(mpawn1) - 0x4) >= 2 && abs(StoX(mpawn2) - 0x4) >= 2) {

@@ -60,14 +60,14 @@ int main(int argc, char *argv[]) {
 		*filepart = 0;
 	}
 	else{
-		GetCurrentDirectory(MAX_PATH, (installDir));			//µÃµ½Èí¼şÔËĞĞÄ¿Â¼
+		GetCurrentDirectory(MAX_PATH, (installDir));			//å¾—åˆ°è½¯ä»¶è¿è¡Œç›®å½•
 	}
 #else
 	if(SearchPath(NULL,(L"NewGG.exe"),NULL,MAX_PATH, installDir, &filepart)){
 		*filepart = 0;
 	}
 	else{
-		GetCurrentDirectory(MAX_PATH, (installDir));			//µÃµ½Èí¼şÔËĞĞÄ¿Â¼
+		GetCurrentDirectory(MAX_PATH, (installDir));			//å¾—åˆ°è½¯ä»¶è¿è¡Œç›®å½•
 	}
 #endif
 
@@ -78,14 +78,14 @@ int main(int argc, char *argv[]) {
 	Open_Log_File();
 #endif
 
-	// ½«µ±Ç°Ïß³ÌµÄÓÅÏÈ¼¶½µÒ»ÏÂ
+	// å°†å½“å‰çº¿ç¨‹çš„ä¼˜å…ˆçº§é™ä¸€ä¸‹
 	//HANDLE hProcess = GetCurrentProcess();
 	//SetPriorityClass(hProcess, IDLE_PRIORITY_CLASS);  //BELOW_NORMAL_PRIORITY_CLASS  IDLE_PRIORITY_CLASS
 
 	// Initialization through global resources manager
 	initTOTAL();  
 
-	MessageBox(NULL,  _T("ÖĞ¹úÏóÆåµÄ AlphaZero\nhttp:\\www.lcchess.com\nQQÈº£º779375937 \n\nÆÚ´ıÄúµÄ¼ÓÈë£¡\n\n20180507"), _T("»¶Ó­Ê¹ÓÃ¼Ñ¼ÑÏóÆå"), MB_OK);
+	MessageBox(NULL,  _T("ä¸­å›½è±¡æ£‹çš„ AlphaZero\nhttp:\\www.lcchess.com\nQQç¾¤ï¼š779375937 \n\næœŸå¾…æ‚¨çš„åŠ å…¥ï¼\n\n20180507"), _T("æ¬¢è¿ä½¿ç”¨ä½³ä½³è±¡æ£‹"), MB_OK);
 
 #ifdef USE_OPENBOOK
 	BD_initEnv(MST);

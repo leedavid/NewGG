@@ -11,7 +11,7 @@ Score eval_Only_1chexPaoxPawnNoshi(Position& pos, EvalInfo& ei){
 	//const Piece delt = COLOR_BY_SIDE_ADD[Us];
 	const Color Them = (Us == WHITE ? BLACK : WHITE);
 
-	//if(ei.att_pawn_num[Us] >= 1){   // ÎÒ·½Ò²ÓÐ±ø¹ýºÓÁË¡£
+	//if(ei.att_pawn_num[Us] >= 1){   // æˆ‘æ–¹ä¹Ÿæœ‰å…µè¿‡æ²³äº†ã€‚
 	//	return bonus;
 	//}
 
@@ -23,7 +23,7 @@ Score eval_Only_1chexPaoxPawnNoshi(Position& pos, EvalInfo& ei){
 
 	bonus -= yalr * make_score(16,32);
 
-	// Èç¹û¶Ô·½ÓÐ±øÔÚ¹¥»÷ÁË£¬¾ÍÒª¼Ó·Ö¡£
+	// å¦‚æžœå¯¹æ–¹æœ‰å…µåœ¨æ”»å‡»äº†ï¼Œå°±è¦åŠ åˆ†ã€‚
 	//if(yalr >= 1){
 	//	Bitboard byp = m_and(pos.pieces(BPAWN - delt), Us == WHITE ? 
 	//}

@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2ÅÚ¶ÔÎŞ.cpp"
+#include "2ç‚®å¯¹æ— .cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -16,8 +16,8 @@ void my_m_MT_R_2pao_B_NO(typePOS &POSITION, EvalInfo &ei){
 	// fen 2bak4/4a4/4b4/9/9/2B6/1C7/9/4K3C/9 b
 	if(my_shi_num == 0 && my_xiang_num == 0){
 		// fen 2b2k3/9/4b4/9/9/3C5/9/4K4/4C4/9 w
-		// Ë«ÅÚÀıºÍË«Ïó
-		// Ë«ÏóÁ¬»·,ÑÚ»¤ÖĞÓª,Ë«ÅÚÎŞ·¨È¡Ê¤
+		// åŒç‚®ä¾‹å’ŒåŒè±¡
+		// åŒè±¡è¿ç¯,æ©æŠ¤ä¸­è¥,åŒç‚®æ— æ³•å–èƒœ
 		if(your_xiang_num == 2 && PB90(MY_SQ16) == your_xiang){
 			RETRUN_MUL(1);
 		}

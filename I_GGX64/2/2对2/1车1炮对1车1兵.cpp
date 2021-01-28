@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Ё╣1ез╤т1Ё╣1╠Ь.cpp"
+#include "1Х╫╕1Г┌╝Е╞╧1Х╫╕1Е┘╣.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//нр╥╫р╩Ё╣р╩ез, ╤т╥╫р╩Ё╣р╩╠Ь
+//Ф┬▒Ф√╧Д╦─Х╫╕Д╦─Г┌╝, Е╞╧Ф√╧Д╦─Х╫╕Д╦─Е┘╣
 void my_m_MT_R_1CHE1PAO_B_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 
 	static const sint16 PawnShiAdd[3] = {96, 32, 0};
@@ -134,7 +134,7 @@ void my_m_MT_R_1CHE1PAO_B_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 	}
 	else if(my_shi_num == 0){
 		if(your_shi_num == 0 && your_xiang_num == 0){
-			//ез╥╫╣дЁ╣йьакжпоъ, тзуБ╤ЫвВ╨ё╣вб╖тб╣деп╤о
+			//Г┌╝Ф√╧Г └Х╫╕Е╝┬Д╨├Д╦╜Г╨©, Е°╗Х©≥Е└©Д╫°Ф╣╥Е╨∙Ф░┌Ф°┬Г └Е┬╓Ф√╜
 			if(StoX(mche) == 0x4){
 				MY_EV_ADD(96);
 				if(IsOnSameSide(yk,mpao)){
@@ -150,8 +150,8 @@ void my_m_MT_R_1CHE1PAO_B_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 		}
 
 		//************************************************************************************************
-		//1, хГ╧Ш╤т╥╫спйкоЮё╛╤Ьез╥╫ц╩спё╛тР╤т╥╫╨ц
-		//╠Ь╥╫╣дЁ╣йьжпак
+		//1, Е╕┌Ф·°Е╞╧Ф√╧Ф°┴Д╩∙Г⌡╦О╪▄Х─▄Г┌╝Ф√╧Ф╡║Ф°┴О╪▄Е┬≥Е╞╧Ф√╧Е╔╫
+		//Е┘╣Ф√╧Г └Х╫╕Е╝┬Д╦╜Д╨├
 		if(StoX(yche) == 0x4){
             if(StoY(ypawn) == MY_RANK9){
 				RETRUN_MUL(2);
@@ -159,7 +159,7 @@ void my_m_MT_R_1CHE1PAO_B_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 			MY_EV_SUB(64);
 		}
 
-		//2, ╩╧спр╩жжгИ©Ж, Ё╣езтзр╩оъ,╤т╥╫╣д╠Ь╬м╡╩дэобю╢	
+		//2, Х©≤Ф°┴Д╦─Г╖█Ф┐┘Е├╣, Х╫╕Г┌╝Е°╗Д╦─Г╨©,Е╞╧Ф√╧Г └Е┘╣Е╟╠Д╦█Х┐╫Д╦▀Ф²╔	
 		if(StoY(ypawn) MY_SMALL StoY(mk)){
 			if(StoY(mche) MY_LARGE StoY(ypawn)){
 				if(StoY(mche) == StoY(mpao) && StoY(mche) MY_SMALL StoY(mk)){

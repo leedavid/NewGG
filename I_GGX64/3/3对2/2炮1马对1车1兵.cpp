@@ -4,23 +4,23 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2ÅÚ1Âí¶Ô1³µ1±ø.cpp"
+#include "2ç‚®1é©¬å¯¹1è½¦1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//2ÅÚ1Âí¶Ô1³µ, ÅÚÂí·½Òª¼Ó·Ö
+//2ç‚®1é©¬å¯¹1è½¦, ç‚®é©¬æ–¹è¦åŠ åˆ†
 
 void my_m_MT_R_2pao_1ma_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 
 
-	//Èç¹ûÃ»ÓÐ¹ýºÓ,»òÕßÂíÅÚ·½ÓÐÊË
+	//å¦‚æžœæ²¡æœ‰è¿‡æ²³,æˆ–è€…é©¬ç‚®æ–¹æœ‰ä»•
 	Square ypawn = S90_from_piecelist(POSITION,your_pawn,0);
 
 	if(EV_YOUR_CAN == 0 || my_shi_num >= 1){
-		MY_EV_ADD(Add_1ÅÚ2Âí¶Ô1³µ1±ø);
+		MY_EV_ADD(Add_1ç‚®2é©¬å¯¹1è½¦1å…µ);
 	}
 
 	// fen 2bak4/4a4/4b4/8N/9/p7r/9/2N1BC3/9/2B2K3 w - - 0 1
@@ -31,7 +31,7 @@ void my_m_MT_R_2pao_1ma_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	// SUB
 	Bitboard ymp = m_and(bb_your_pawn,MyUpBB[StoY(my_king_pos)]);
 	int pyok = (int)count_1s(ymp);
-	MY_EV_SUB(pyok * Add_2ÅÚ1Âí¶Ô1³µ1±ø_byPawn_Shi[my_shi_num]);
+	MY_EV_SUB(pyok * Add_2ç‚®1é©¬å¯¹1è½¦1å…µ_byPawn_Shi[my_shi_num]);
 
 }
 

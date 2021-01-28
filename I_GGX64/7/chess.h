@@ -8,15 +8,15 @@
 #define MAX_CPUS                 12               /* vary for increase */
 #define VERSION         "11.0619.02"
 #define USE_I7_MACHINE                            // _mm_popcnt_u64
-//#define USE_ST_180_MARGIN                         // Õâ¸öÉÏ²ã¿ìÒ»Ð©. 
+//#define USE_ST_180_MARGIN                         // è¿™ä¸ªä¸Šå±‚å¿«ä¸€äº›. 
 //#define USE_LOG_FILE
 
-#define ¹Ò»úÄ£Ê½
+#define æŒ‚æœºæ¨¡å¼
 
 //////////////////////////////////////////////////////////////////////////
 #ifdef NDEBUG      
 #define  USE_CYCLONE_UCI
-//#define  USE_VP_PROTECT                            // Ê¹ÓÃVMP ¼ÓÃÜ
+//#define  USE_VP_PROTECT                            // ä½¿ç”¨VMP åŠ å¯†
 #endif
 
 //#define NOT_STORE_TT_DEPTH_TO_TT (bestValue > (VALUE_BAN_CHECK - 202)  && bestValue <= VALUE_BAN_CHECK)
@@ -28,7 +28,7 @@
 #define SEARCH_REPEAT_PLY_120  128                      // was 120
 
 #ifdef  USE_CYCLONE_UCI
-#ifdef USE_VP_PROTECT                                 // Ê¹ÓÃVMP¼ÓÃÜ
+#ifdef USE_VP_PROTECT                                 // ä½¿ç”¨VMPåŠ å¯†
 #if MAX_CPUS > 12
 #define CYCLONE_SUB_DEPTH  0
 #else
@@ -97,9 +97,9 @@
 
 // Evaluation grain size, must be a power of 2
 #ifdef DEBUG_EVAL_OPP_SIDE_IS_SAME
-const int GrainSize = 1;  // È¥µôÒ»Ð©Ï¸Î¢µÄ²îÒì?? 
+const int GrainSize = 1;  // åŽ»æŽ‰ä¸€äº›ç»†å¾®çš„å·®å¼‚?? 
 #else
-const int GrainSize = 4;  // È¥µôÒ»Ð©Ï¸Î¢µÄ²îÒì?? 
+const int GrainSize = 4;  // åŽ»æŽ‰ä¸€äº›ç»†å¾®çš„å·®å¼‚?? 
 #endif
 
 #endif

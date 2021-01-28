@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1±ø¶Ô1³µ.cpp"
+#include "1è½¦1ç‚®1å…µå¯¹1è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -102,7 +102,7 @@ void my_m_MT_R_1che_1pao_1pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 
 //void m_MT_B_1che_1pao_1pawn_R_1che(typePOS &POSITION, EvalInfo &ei){
 ///*
-//	//±ø²»ÄÜ¹ıºÓ,Âí±»Ç£ÖÆÁË,¶Ô·½ÊÇÊËÏàÈ«,Ò²ÊÇºÍÆå
+//	//å…µä¸èƒ½è¿‡æ²³,é©¬è¢«ç‰µåˆ¶äº†,å¯¹æ–¹æ˜¯ä»•ç›¸å…¨,ä¹Ÿæ˜¯å’Œæ£‹
 //    // fen 2b1kab2/9/3a5/9/6p2/2B4R1/7n1/4B4/3KA2r1/5A3 w - - 120 120
 //
 //	int bche  = PieceListStart(board,BCHE);

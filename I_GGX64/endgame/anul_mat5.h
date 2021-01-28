@@ -1,8 +1,8 @@
 
 
-//********************************************* 5¶Ô0********************
+//********************************************* 5å¯¹0********************
 #undef my_m_MT_R_5pawn  
-//********************************************* 5¶Ô1********************
+//********************************************* 5å¯¹1********************
 #undef my_m_MT_R_1CHE_4PAWN_B_1CHE  
 #undef my_m_MT_R_1che4pawn_B_1pao  
 #undef my_m_MT_R_1che4pawn_B_1ma  
@@ -33,7 +33,7 @@
 #undef my_m_MT_R_1ma4pawn_B_1ma   
 #undef my_m_MT_R_5pawn_B_1ma   
 #undef my_m_MT_R_5pawn_B_1pawn   
-//********************************************* 5¶Ô2********************
+//********************************************* 5å¯¹2********************
 #undef my_m_MT_R_2che1pao2pawn_B_2che   
 #undef my_m_MT_R_2che1ma2pawn_B_2che   
 #undef my_m_MT_R_2che3pawn_B_2che   
@@ -100,7 +100,7 @@
 #undef my_m_MT_R_5pawn_B_1pao1pawn   
 #undef my_m_MT_R_5pawn_B_1ma1pawn   
 #undef my_m_MT_R_5pawn_B_2pawn   
-//********************************************* 5¶Ô3********************
+//********************************************* 5å¯¹3********************
 #undef my_m_MT_R_2che1pao2pawn_B_2che1pao   
 #undef my_m_MT_R_2che1ma2pawn_B_2che1pao   
 #undef my_m_MT_R_2che1pao2pawn_B_2che1ma   
@@ -214,7 +214,7 @@
 #undef my_m_MT_R_5pawn_B_1pao2pawn   
 #undef my_m_MT_R_5pawn_B_1ma2pawn   
 #undef my_m_MT_R_5pawn_B_3pawn   
-//********************************************* 5¶Ô4********************
+//********************************************* 5å¯¹4********************
 #undef my_m_MT_R_2che3pawn_B_2che1ma1pawn  
 #undef my_m_MT_R_2che1pao2pawn_B_2che1pao1pawn 
 #undef my_m_MT_R_2che3pawn_B_1che1pao1ma1pawn   
@@ -289,7 +289,7 @@
 #undef my_m_MT_R_5pawn_B_1pao3pawn   
 #undef my_m_MT_R_5pawn_B_1ma3pawn   
 #undef my_m_MT_R_5pawn_B_4pawn   
-//********************************************* 5¶Ô5********************
+//********************************************* 5å¯¹5********************
 #undef my_m_MT_R_2che3pawn_B_1che2pao1ma1pawn   
 #undef my_m_MT_R_2che3pawn_B_1che1pao2ma1pawn 
 #undef my_m_MT_R_2che3pawn_B_1che2pao2pawn      

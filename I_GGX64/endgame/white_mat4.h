@@ -1,8 +1,8 @@
 
 
-//********************************************* 4¶Ô0********************
+//********************************************* 4å¯¹0********************
 #define my_m_MT_R_4pawn                          m_MT_R_4pawn  
-//********************************************* *************************************** 4¶Ô1*******4¶Ô1********************
+//********************************************* *************************************** 4å¯¹1*******4å¯¹1********************
 #define my_m_MT_R_1CHE_3PAWN_B_1CHE  			 m_MT_R_1CHE_3PAWN_B_1CHE  
 #define my_m_MT_R_1che3pawn_B_1pao  			 m_MT_R_1che3pawn_B_1pao  
 #define my_m_MT_R_1che3pawn_B_1ma 				 m_MT_R_1che3pawn_B_1ma 
@@ -33,7 +33,7 @@
 #define my_m_MT_R_4pawn_B_1pao 					 m_MT_R_4pawn_B_1pao 
 #define my_m_MT_R_4pawn_B_1ma  					 m_MT_R_4pawn_B_1ma  
 #define my_m_MT_R_4pawn_B_1pawn  				 m_MT_R_4pawn_B_1pawn  
-//********************************************* *************************************** 4 ¶Ô 2*****4 ¶Ô 2********************
+//********************************************* *************************************** 4 å¯¹ 2*****4 å¯¹ 2********************
 #define my_m_MT_R_2che1pao1pawn_B_2che  		 m_MT_R_2che1pao1pawn_B_2che  
 #define my_m_MT_R_2che1ma1pawn_B_2che  			 m_MT_R_2che1ma1pawn_B_2che  
 #define my_m_MT_R_2che2pawn_B_2che  			 m_MT_R_2che2pawn_B_2che  
@@ -103,7 +103,7 @@
 #define my_m_MT_R_4pawn_B_1pao1pawn  			 m_MT_R_4pawn_B_1pao1pawn  
 #define my_m_MT_R_4pawn_B_1ma1pawn  			 m_MT_R_4pawn_B_1ma1pawn  
 #define my_m_MT_R_4pawn_B_2pawn  				 m_MT_R_4pawn_B_2pawn  
-//********************************************* *************************************** 4 ¶Ô 3*****4 ¶Ô 3********************
+//********************************************* *************************************** 4 å¯¹ 3*****4 å¯¹ 3********************
 #define my_m_MT_R_2che1pao1pawn_B_2che1pao  	 m_MT_R_2che1pao1pawn_B_2che1pao  
 #define my_m_MT_R_2che1ma1pawn_B_2che1pao  		 m_MT_R_2che1ma1pawn_B_2che1pao  
 #define my_m_MT_R_2che1pao1pawn_B_2che1ma 		 m_MT_R_2che1pao1pawn_B_2che1ma 
@@ -226,7 +226,7 @@
 #define my_m_MT_R_4pawn_B_1pao2pawn  			 m_MT_R_4pawn_B_1pao2pawn  
 #define my_m_MT_R_4pawn_B_1ma2pawn  			 m_MT_R_4pawn_B_1ma2pawn  
 #define my_m_MT_R_4pawn_B_3pawn  				 m_MT_R_4pawn_B_3pawn  
-//********************************************* *************************************** 4 ¶Ô 4*****4 ¶Ô 4********************
+//********************************************* *************************************** 4 å¯¹ 4*****4 å¯¹ 4********************
 #define my_m_MT_R_2che2ma_B_2che2pawn            m_MT_R_2che2ma_B_2che2pawn
 #define my_m_MT_R_2che2pawn_B_1che1pao1ma1pawn   m_MT_R_2che2pawn_B_1che1pao1ma1pawn  
 #define my_m_MT_R_2che2pawn_B_1che1ma2pawn       m_MT_R_2che2pawn_B_1che1ma2pawn

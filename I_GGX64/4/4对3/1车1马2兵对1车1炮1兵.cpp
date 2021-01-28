@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí2±ø¶Ô1³µ1ÅÚ1±ø.cpp"
+#include "1è½¦1é©¬2å…µå¯¹1è½¦1ç‚®1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -23,7 +23,7 @@ void my_m_MT_R_1che1ma2pawn_B_1che1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_SUB(pyok * ADD_ChePaoPawn_ChePao1pawn_ByPawnByShi[my_shi_num]);
 	
 
-	//Èç¹ûÅÚ·½µÄ±ø²»ÄÜ¹ýºÓ,Ò²Òª¼õ·Ö'
+	//å¦‚æžœç‚®æ–¹çš„å…µä¸èƒ½è¿‡æ²³,ä¹Ÿè¦å‡åˆ†'
 	// fen 6b2/4k4/9/p6C1/8r/5R3/P8/4B4/2n1A1p2/3A1KB2 w - - 7 7
 	int mcan = EV_MY_CAN;
 	int ycan = EV_YOUR_CAN;
@@ -119,7 +119,7 @@ void my_m_MT_R_1che1ma2pawn_B_1che1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 2bak4/4a4/4b4/8R/2cNp4/6P2/4Pr3/4B4/4A4/2BAK4 w - - 4 4
-    //Èç¹û¶à±ø·½µÄ±ø²»ÄÜÒ»ÉÏÒ²ÄÜ¹ýºÓ,Ò²ÊÇºÍÆå
+    //å¦‚æžœå¤šå…µæ–¹çš„å…µä¸èƒ½ä¸€ä¸Šä¹Ÿèƒ½è¿‡æ²³,ä¹Ÿæ˜¯å’Œæ£‹
 	if(mcan == 0 && ycan == 0){
 		if((my_shi_num + my_xiang_num) == 4 && (your_shi_num + your_xiang_num) == 4){
 			RETRUN_MUL(4);
@@ -181,17 +181,17 @@ void my_m_MT_R_1che1ma2pawn_B_1che1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	//Èç¹ûÅÚ·½µÄ±ø²»ÄÜ¹ýºÓ,Ò²Òª¼õ·Ö'
+//	//å¦‚æžœç‚®æ–¹çš„å…µä¸èƒ½è¿‡æ²³,ä¹Ÿè¦å‡åˆ†'
 //	// fen 6b2/4k4/9/p6C1/8r/5R3/P8/4B4/2n1A1p2/3A1KB2 w - - 7 7
 //	Square rpawn = PieceListStart(board,RPAWN);
 //	if(board->b256[rpawn - 0x20] == BPAWN || board->b256[rpawn - 0x30] == BPAWN){
 //		board->mulScore -= 96;
 //	}
 //
-//	//ºì·½µÄÅÚÔÚµ×Ïß, ¶øÇÒ±øÒ²ÔÚÍ¬Ò»Ïß,¾Í²»Ì«ºÃ½ø¹¥
+//	//çº¢æ–¹çš„ç‚®åœ¨åº•çº¿, è€Œä¸”å…µä¹Ÿåœ¨åŒä¸€çº¿,å°±ä¸å¤ªå¥½è¿›æ”»
 //
 //	// fen 2bak4/4a4/4b4/8R/2cNp4/6P2/4Pr3/4B4/4A4/2BAK4 w - - 4 4
-//    //Èç¹û¶à±ø·½µÄ±ø²»ÄÜÒ»ÉÏÒ²ÄÜ¹ýºÓ,Ò²ÊÇºÍÆå
+//    //å¦‚æžœå¤šå…µæ–¹çš„å…µä¸èƒ½ä¸€ä¸Šä¹Ÿèƒ½è¿‡æ²³,ä¹Ÿæ˜¯å’Œæ£‹
 //	if(rcan == 0 && bcan == 0){
 //		if(board->B_shi == 2 && board->B_xiang == 2){
 //			if(board->R_shi == 2 && board->R_xiang == 2){

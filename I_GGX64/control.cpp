@@ -276,7 +276,7 @@ static uint32 numeric_move (typePOS* POSITION, char* str)
 
 /********************************/ /********************************/
 
-void TimeManagerAlternative //¿ÉÑ¡ÔñµÄ 
+void TimeManagerAlternative //å¯é€‰æ‹©çš„ 
 	(sint64 TOTAL_TIME, sint64 TIME, sint64 INCREMENT, int mtg)
 {
 	TIME = MAX (TIME - 500000, (9 * TIME) / 10);

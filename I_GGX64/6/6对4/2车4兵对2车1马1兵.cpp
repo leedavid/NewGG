@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
 
 #include "..\\..\\endgame\mat.h"
-#include "2³µ4±ø¶Ô2³µ1Âí1±ø.cpp"
+#include "2è½¦4å…µå¯¹2è½¦1é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -23,7 +23,7 @@ void my_m_MT_R_2che4pawn_B_2che1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 			if(StoY(yma) MY_SMALL_EQL MY_RANK2){
 				MY_EV_ADD(EV_MY_CAN * 16);
 				Bitboard bmp = m_and(bb_my_pawn,MyUpBB[MY_RANK4]);
-				// ÂíÄÇ±ßÓÐ±ø
+				// é©¬é‚£è¾¹æœ‰å…µ
 				if(StoX(yma) >= 0x4 && have_bit(bmp,RightBB[0x4])){
 					MY_EV_ADD(EV_MY_CAN * 16);
 				}

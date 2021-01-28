@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ3±ø¶Ô1³µ1±ø.cpp"
+#include "1è½¦3å…µå¯¹1è½¦1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -89,7 +89,7 @@ void my_m_MT_R_1che3pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	int malr = My_pawn_already_over_river(POSITION);
-	//Èç¹ûºì·½Èý¸ö±ø¶¼Ã»ÓÐ¹ýºÓ,ºì·½ÊÇÊËÏàÈ«,¾ÍÊÇºÍÆå
+	//å¦‚æžœçº¢æ–¹ä¸‰ä¸ªå…µéƒ½æ²¡æœ‰è¿‡æ²³,çº¢æ–¹æ˜¯ä»•ç›¸å…¨,å°±æ˜¯å’Œæ£‹
 	// fen 4k1b2/4a4/4ba3/9/2p3p1p/9/4R3P/4B4/4A3r/2B1KA3 w - - 0 0
 	if((your_shi_num + your_xiang_num) == 4 && StoY(yk) == MY_RANK0){
 		if(mcan == 0){
@@ -102,7 +102,7 @@ void my_m_MT_R_1che3pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 				RETRUN_MUL(2);
 			}			
 		}
-		//Ö»ÓÐ2¸ö±øÄÜ¹ýºÓ, µ«¶Ô·½µÄ±ø¶¼ÔÚ¼ÒÀï
+		//åªæœ‰2ä¸ªå…µèƒ½è¿‡æ²³, ä½†å¯¹æ–¹çš„å…µéƒ½åœ¨å®¶é‡Œ
 		if(mcan == 2){			
 			if(ycan == 0 || my_shi_num >= 1){
 				if(malr == 0){
@@ -112,7 +112,7 @@ void my_m_MT_R_1che3pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 		}
 
 		// fen 4kab2/4a4/4b4/r3P4/8p/9/P3R3P/4B4/9/2BAKA3 w - - 9 9
-		//³µ±ø±ø¶Ô³µ×é³ÉÁËÒ»¸öÊ®×Ö,ÇÒÁíÒ»¸ö±ø³É¶ÔÍ·
+		//è½¦å…µå…µå¯¹è½¦ç»„æˆäº†ä¸€ä¸ªåå­—,ä¸”å¦ä¸€ä¸ªå…µæˆå¯¹å¤´
 		if(mcan <= 2){
 			int x1 = XYtoS(StoX(mche),StoY(yche));
 			int x2 = XYtoS(StoX(yche),StoY(mche));

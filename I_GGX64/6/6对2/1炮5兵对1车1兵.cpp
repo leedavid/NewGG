@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ез5╠Ь╤т1Ё╣1╠Ь.cpp"
+#include "1Г┌╝5Е┘╣Е╞╧1Х╫╕1Е┘╣.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//1ез2╠Ь╤т1Ё╣1╠Ь, езбМ╥╫р╙╪с╥ж
+//1Г┌╝2Е┘╣Е╞╧1Х╫╕1Е┘╣, Г┌╝И╘╛Ф√╧Х╕│Е┼═Е┬├
 
 void my_m_MT_R_1pao5pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 

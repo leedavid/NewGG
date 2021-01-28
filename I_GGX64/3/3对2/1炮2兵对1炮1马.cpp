@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2±ø¶Ô1ÅÚ1Âí.cpp"
+#include "1ç‚®2å…µå¯¹1ç‚®1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-// ÅÚ2±ø¶ÔÅÚÂí
+// ç‚®2å…µå¯¹ç‚®é©¬
 void my_m_MT_R_1pao2pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 
 	// ADD
@@ -48,7 +48,7 @@ void my_m_MT_R_1pao2pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 3a5/4ak3/2P6/4P4/2b6/9/5C3/B4An2/3KA4/2B5c b - - 126 126
-    //Èç¹ûÅÚ·½ÊÇÊËÏàÈ«£¬ÇÒÅÚÔÚ¶þÏßÒÔÏÂ£¬¾ÍÒª¼Ó·Ö
+    //å¦‚æžœç‚®æ–¹æ˜¯ä»•ç›¸å…¨ï¼Œä¸”ç‚®åœ¨äºŒçº¿ä»¥ä¸‹ï¼Œå°±è¦åŠ åˆ†
 	if(my_shi_num == 2 && my_xiang_num == 2 && StoY(mk) == MY_RANK9){
 		if(StoY(mpao) MY_LARGE_EQL MY_RANK5){
 		   EV_MY_SAFE = TRUE;
@@ -66,7 +66,7 @@ void my_m_MT_R_1pao2pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 	Bitboard lp = My_get_connect_Pawn(POSITION);
 	// fen 2ba1k3/4a4/9/3PP4/2b6/2B1n4/4C2c1/5A2B/4A4/4K4 b - - 120 120
 	if(my_shi_num == 2 && my_xiang_num == 2 && StoY(mk) MY_LARGE_EQL MY_RANK8){		
-		//ÓÐÁ¬±ø,¾ÍÒª¼Ó·Ö
+		//æœ‰è¿žå…µ,å°±è¦åŠ åˆ†
 		if(m_have_bit(lp)){
 			MY_EV_ADD(128);
 		}
@@ -114,13 +114,13 @@ void my_m_MT_R_1pao2pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 9/3k5/9/6N2/8c/9/4C4/4K4/5ppp1/2B6 b - - 0 1
-	// Èç¹û¶à·½µÄ±øÈ«ÔÚ¶Ô·½µÄ½«ÏÂÃæ,Òª´ó´óµÄ¼õ·Ö
+	// å¦‚æžœå¤šæ–¹çš„å…µå…¨åœ¨å¯¹æ–¹çš„å°†ä¸‹é¢,è¦å¤§å¤§çš„å‡åˆ†
 	if(pmok == 0){
 		MY_EV_SUB(128);
 	}
 
 	// fen 2bk5/4a4/4ba3/3PP4/3c5/9/2n6/3K5/4A4/7C1 w - - 0 131
-	//ÎÒ·½ÓÐ¶þ¸ö±øÏàÁ¬
+	//æˆ‘æ–¹æœ‰äºŒä¸ªå…µç›¸è¿ž
 	if(m_have_bit(lp) && (PB90(MY_SQ1F) == my_pawn || PB90(MY_SQ28) == my_pawn)){
 		if(my_shi_num >= 1 || my_xiang_num >= 1){
 			RETRUN_MUL(4);

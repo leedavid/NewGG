@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2ез╤т1ез1╠Ь.cpp"
+#include "2Г┌╝Е╞╧1Г┌╝1Е┘╣.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -36,7 +36,7 @@ void my_m_MT_R_2pao_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 		EV_MY_SAFE = TRUE;
 	}
 
-	//╩╧спр╩╦ЖгИ©Ж,нр╥╫╣дез╠╩ю╖в║ак,╡╩дэ╤╞ак,р╡йг╨мфЕ
+	//Х©≤Ф°┴Д╦─Д╦╙Ф┐┘Е├╣,Ф┬▒Ф√╧Г └Г┌╝Х╒╚Е⌡╟Д╫▐Д╨├,Д╦█Х┐╫Е┼╗Д╨├,Д╧÷Ф≤╞Е▓▄Фё▀
     // fen C1bCk4/3c5/4b4/9/9/6B2/2p6/5A3/9/2B1KA3 b - - 120 120
 	if(your_xiang_num != 0){
 		if(PB90(MY_SQ03) == my_pao){

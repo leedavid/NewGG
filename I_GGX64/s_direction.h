@@ -14,7 +14,7 @@
 ////
 
 enum Direction {
-	DIR_вСср = 0, DIR_иооб = 1, DIR_бМ = 2, DIR_оЮ = 3, DIR_йк = 4, DIR_NONE = 5,
+	DIR_Е╥╕Е▐Ё = 0, DIR_Д╦┼Д╦▀ = 1, DIR_И╘╛ = 2, DIR_Г⌡╦ = 3, DIR_Д╩∙ = 4, DIR_NONE = 5,
 };
 
 ////

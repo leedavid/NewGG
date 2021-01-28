@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1±ø¶Ô1³µ2±ø.cpp"
+#include "1è½¦1ç‚®1å…µå¯¹1è½¦2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -124,7 +124,7 @@ void my_m_MT_R_1che1pao1pawn_B_1che2pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 4k4/9/4b4/8p/9/2B5P/4rCR2/4BA3/3pAK3/9 b - - 120 120
-	//³µÅÚ¸øÇ£ÖÆ×¡ÁË.
+	//è½¦ç‚®ç»™ç‰µåˆ¶ä½äº†.
 	if(your_shi_num > 0 || your_xiang_num > 0 && StoY(yk) MY_SMALL_EQL MY_RANK1){
 		if(mcan == 0 && EV_MY_SAFE){
 			if(isStringByChe(POSITION,mche,mpao,yche)){

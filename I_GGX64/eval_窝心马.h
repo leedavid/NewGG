@@ -1,13 +1,13 @@
-// ÎÑĞÄÂíµÄÆÀ¹À
+// çªå¿ƒé©¬çš„è¯„ä¼°
 
 if(PB90(0x0d) == BMA){
 	ei.attPoint[WHITECOLOR] += Ma_at_WoXing_point;
 	bool iswoxin = false;
-	//¿´Ò»ÏÂÊÇ²»ÊÇÉÏ·½ÓĞ³µ
+	//çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯ä¸Šæ–¹æœ‰è½¦
 	if(PB90(0x04) == BKING){
 		if(PB90(0x03) == BSHI && PB90(0x05) == BSHI){
 			if(BXiang_num() == 0){
-				// ¿´Ò»ÏÂÉÏ·½ÓĞÃ»ÓĞ³µ
+				// çœ‹ä¸€ä¸‹ä¸Šæ–¹æœ‰æ²¡æœ‰è½¦
 				Bitboard att = m_and(bitboard_white_che,ei.attackKingPaoCan[BLACKCOLOR]);
 				att = m_and(FileBB_A[StoX(bk)],att);
 				if(m128_is_have_bit(att)){
@@ -33,11 +33,11 @@ if(PB90(0x0d) == BMA){
 if(PB90(0x4c) == RMA){
 	ei.attPoint[BLACKCOLOR] += Ma_at_WoXing_point;
 	bool iswoxin = false;
-	//¿´Ò»ÏÂÊÇ²»ÊÇÉÏ·½ÓĞ³µ
+	//çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯ä¸Šæ–¹æœ‰è½¦
 	if(PB90(0x55) == RKING){
 		if(PB90(0x54) == RSHI && PB90(0x56) == RSHI){
 			if(RXiang_num() == 0){
-				// ¿´Ò»ÏÂÉÏ·½ÓĞÃ»ÓĞ³µ
+				// çœ‹ä¸€ä¸‹ä¸Šæ–¹æœ‰æ²¡æœ‰è½¦
 				Bitboard att = m_and(bitboard_black_che,ei.attackKingPaoCan[WHITECOLOR]);
 				att = m_and(FileBB_A[StoX(rk)],att);
 				if(m128_is_have_bit(att)){
@@ -62,9 +62,9 @@ if(PB90(0x4c) == RMA){
 
 //BString = m_and(pao_super_attacks_bb(bk,occ), bitboard_white_pao);
 
-//if(ei.ev_stat & EV_STAT_Bwoxin_By_R){   // ºÚ·½±»ÎÑĞÄÂí
+//if(ei.ev_stat & EV_STAT_Bwoxin_By_R){   // é»‘æ–¹è¢«çªå¿ƒé©¬
 //	ei.Rattack_B_Count += Wo_Xing_Ma_att_point; // 
 //	 valu += point(64,512);
 //}
 //fen 3a3CC/4k4/bc3ac2/1R6p/6b2/2P2p3/P3r3P/9/4N4/3AKA3 w - - 16 16
-//¼ÓÉÏÅÚµÄ¿ÉÄÜ½«¾ü·Ö£¬
+//åŠ ä¸Šç‚®çš„å¯èƒ½å°†å†›åˆ†ï¼Œ

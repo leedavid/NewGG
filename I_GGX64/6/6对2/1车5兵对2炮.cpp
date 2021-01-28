@@ -4,17 +4,17 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ5±ø¶Ô2ÅÚ.cpp"
+#include "1è½¦5å…µå¯¹2ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//#define ADD_ChePawn_To_MaPao_By_Panw   128              //³µ±ø¶ÔÂíÅÚ,³µ±ø·½±øÒª¼Ó·Ö,ÒòÎªÂíÅÚÌ«ÄÑÉ±¶Ô·½ÁË
-//#define ADD_ChePawn_To_MaPao_By_Che    128              //³µ±ø¶ÔÂíÅÚ,³µ±ø·½³µÒª¼Ó·Ö,ÒòÎªÂíÅÚÌ«ÄÑÉ±¶Ô·½ÁË
+//#define ADD_ChePawn_To_MaPao_By_Panw   128              //è½¦å…µå¯¹é©¬ç‚®,è½¦å…µæ–¹å…µè¦åŠ åˆ†,å› ä¸ºé©¬ç‚®å¤ªéš¾æ€å¯¹æ–¹äº†
+//#define ADD_ChePawn_To_MaPao_By_Che    128              //è½¦å…µå¯¹é©¬ç‚®,è½¦å…µæ–¹è½¦è¦åŠ åˆ†,å› ä¸ºé©¬ç‚®å¤ªéš¾æ€å¯¹æ–¹äº†
 
-//ÎÒ·½1³µ1±ø,¶Ô·½ÊÇ2ÅÚ
+//æˆ‘æ–¹1è½¦1å…µ,å¯¹æ–¹æ˜¯2ç‚®
 void my_m_MT_R_1che5pawn_B_2pao(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;

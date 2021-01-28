@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
 
 #include "..\\..\\endgame\mat.h"
-#include "2³µ2±ø¶Ô1³µ1Âí2±ø.cpp"
+#include "2è½¦2å…µå¯¹1è½¦1é©¬2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//const int ADD_2CheXPawn_1Che1Pao1Ma1Pawn_ByPawnShi[3]    = {96, 64, 32};            //2³µx±ø¶Ô1³µ1ÅÚ1Âí1±ø, ±ø·½µÄ¼Ó·Ö
-//const int ADD_1Che1Pao1Ma1Pawn_2CheXPawn_ByPawnShi[3]    = {96, 64, 32};            //1³µ1ÅÚ1Âí1±ø¶Ô2³µx±ø, ±ø·½µÄ¼Ó·Ö
+//const int ADD_2CheXPawn_1Che1Pao1Ma1Pawn_ByPawnShi[3]    = {96, 64, 32};            //2è½¦xå…µå¯¹1è½¦1ç‚®1é©¬1å…µ, å…µæ–¹çš„åŠ åˆ†
+//const int ADD_1Che1Pao1Ma1Pawn_2CheXPawn_ByPawnShi[3]    = {96, 64, 32};            //1è½¦1ç‚®1é©¬1å…µå¯¹2è½¦xå…µ, å…µæ–¹çš„åŠ åˆ†
 
 void my_m_MT_R_2che2pawn_B_1che1ma2pawn(typePOS &POSITION, EvalInfo &ei){
 

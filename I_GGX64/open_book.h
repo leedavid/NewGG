@@ -29,9 +29,9 @@
 
 struct book_face_info_t {
 	sint8 result;         // 2,1,0,-1,-2;
-	uint8 dummy1;         // Æå²½£¬×î´ó£²£µ£µ       
-	uint8 dummy2;         // ±ÈÖØ£¬£°¡«£±£°£°£¥
-	uint8 isuse;          // ÊÇ²»ÊÇÔÊĞíÊ¹ÓÃ±¾Æå²½
+	uint8 dummy1;         // æ£‹æ­¥ï¼Œæœ€å¤§ï¼’ï¼•ï¼•       
+	uint8 dummy2;         // æ¯”é‡ï¼Œï¼ï½ï¼‘ï¼ï¼ï¼…
+	uint8 isuse;          // æ˜¯ä¸æ˜¯å…è®¸ä½¿ç”¨æœ¬æ£‹æ­¥
 };
 
 struct book_face_t {
@@ -39,7 +39,7 @@ struct book_face_t {
 	book_face_info_t info[1];
 };
 
-//Æå¿âµÃ·Ö
+//æ£‹åº“å¾—åˆ†
 typedef enum {
 	BOOK_VERY_BAD   = -2,
 	BOOK_LIT_BAD    = -1,
@@ -57,8 +57,8 @@ typedef struct stock_dbs_t {
 
 	DB_ENV *Env;
 
-	DB *book;			//ÕâÊÇµ±Ç°Ê¹ÓÃµÄµÄbook;
-	//DB *back_db;           //Õâ¸öÊÇÏµÍ³È±Ê¡µÄbook;
+	DB *book;			//è¿™æ˜¯å½“å‰ä½¿ç”¨çš„çš„book;
+	//DB *back_db;           //è¿™ä¸ªæ˜¯ç³»ç»Ÿç¼ºçœçš„book;
 
 	char *book_db_name;
 	//char *good_db_name;
@@ -69,7 +69,7 @@ typedef struct stock_dbs_t {
 
 extern STOCK_DBS    MST[1];
 
-extern int BD_initEnv(STOCK_DBS* mst);     //³õÊ¼»¯»·¾³
+extern int BD_initEnv(STOCK_DBS* mst);     //åˆå§‹åŒ–ç¯å¢ƒ
 extern void BerKeley_DB_EXIT(STOCK_DBS *mst);
 
 //extern int  GetPosBookScoreByAllNextPos(DB *db);

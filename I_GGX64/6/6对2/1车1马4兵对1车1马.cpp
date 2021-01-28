@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí4±ø¶Ô1³µ1Âí.cpp"
+#include "1è½¦1é©¬4å…µå¯¹1è½¦1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -14,7 +14,7 @@
 
 //const int PawnAdd = 32;
 
-//ÎÒ·½1³µ1Âí4±ø£¬¶Ô·½1³µ1Âí
+//æˆ‘æ–¹1è½¦1é©¬4å…µï¼Œå¯¹æ–¹1è½¦1é©¬
 void my_m_MT_R_1che1ma4pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;

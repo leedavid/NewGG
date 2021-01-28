@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2ÅÚ2±ø¶Ô1³µ1±ø.cpp"
+#include "2ç‚®2å…µå¯¹1è½¦1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -12,7 +12,7 @@
 
 //Add_MAT_B_1ma1pao1pawn_R_1che1pawn_ByShi
 
-// ºì·½2ÅÚ±ø,ºÚ·½³µ±ø
+// çº¢æ–¹2ç‚®å…µ,é»‘æ–¹è½¦å…µ
 void my_m_MT_R_2pao2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// ADD_MY

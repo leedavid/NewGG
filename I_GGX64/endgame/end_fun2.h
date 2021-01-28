@@ -1,6 +1,6 @@
 
 
-//********************************************* ¶þ¶ÔÎÞ********************
+//********************************************* äºŒå¯¹æ— ********************
  extern void m_MT_R_2pao_B_NO(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_2pao_R_NO(typePOS &POSITION, EvalInfo &ei);
 
@@ -15,10 +15,10 @@
 
  extern void m_MT_R_1MA1PAWN_B_NO(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_1MA1PAWN_R_NO(typePOS &POSITION, EvalInfo &ei);
-//ºì·½¶þ±ø
+//çº¢æ–¹äºŒå…µ
  extern void m_MT_R_2PAWN(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_2PAWN(typePOS &POSITION, EvalInfo &ei);
-//********************************************* ¶þ¶ÔÒ»********************
+//********************************************* äºŒå¯¹ä¸€********************
 
  extern void m_MT_R_2CHE_B_1CHE(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_2CHE_R_1CHE(typePOS &POSITION, EvalInfo &ei);
@@ -83,13 +83,13 @@
  extern void m_MT_R_1PAO1PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei);
 
  extern void m_MT_B_1PAO1PAWN_R_1PAO(typePOS &POSITION, EvalInfo &ei);
-//ºì·½ÅÚ±ø£¬ºÚ·½Ò»Âí
+//çº¢æ–¹ç‚®å…µï¼Œé»‘æ–¹ä¸€é©¬
  extern void m_MT_R_1PAO1PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei);
-//ºÚ·½ÅÚ±ø£¬ºì·½Ò»Âí
+//é»‘æ–¹ç‚®å…µï¼Œçº¢æ–¹ä¸€é©¬
  extern void m_MT_B_1PAO1PAWN_R_1MA(typePOS &POSITION, EvalInfo &ei);
-//ºì·½ÅÚ±ø£¬ºÚ·½Ò»±ø
+//çº¢æ–¹ç‚®å…µï¼Œé»‘æ–¹ä¸€å…µ
  extern void m_MT_R_1PAO1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei);
-//ºÚ·½ÅÚ±ø£¬ºì·½Ò»±ø
+//é»‘æ–¹ç‚®å…µï¼Œçº¢æ–¹ä¸€å…µ
  extern void m_MT_B_1PAO1PAWN_R_1PAWN(typePOS &POSITION, EvalInfo &ei);
 
  extern void m_MT_R_1MA1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei);
@@ -115,14 +115,14 @@
  extern void m_MT_R_2pawn_B_1pao(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_2pawn_R_1pao(typePOS &POSITION, EvalInfo &ei);
 
- extern void m_MT_R_2PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei);   //¶þ±ø¶ÔÒ»Âí
+ extern void m_MT_R_2PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei);   //äºŒå…µå¯¹ä¸€é©¬
  extern void m_MT_B_2PAWN_R_1MA(typePOS &POSITION, EvalInfo &ei); 
 
- extern void m_MT_R_2pawn_B_1pawn(typePOS &POSITION, EvalInfo &ei);	//¶þ±ø¶ÔÒ»Âí
+ extern void m_MT_R_2pawn_B_1pawn(typePOS &POSITION, EvalInfo &ei);	//äºŒå…µå¯¹ä¸€é©¬
  extern void m_MT_B_2pawn_R_1pawn(typePOS &POSITION, EvalInfo &ei);
 
-//********************************************* ¶þ¶Ô¶þ********************
- extern void m_MT_2che_2che(typePOS &POSITION, EvalInfo &ei);             //2³µ¶Ô2³µ
+//********************************************* äºŒå¯¹äºŒ********************
+ extern void m_MT_2che_2che(typePOS &POSITION, EvalInfo &ei);             //2è½¦å¯¹2è½¦
 
  extern void m_MT_R_2CHE_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei);
 
@@ -227,9 +227,9 @@
  extern void m_MT_R_2ma_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_2ma_R_1ma1pawn(typePOS &POSITION, EvalInfo &ei);
 
- extern void m_MT_PaoPawn_To_PaoPawn(typePOS &POSITION, EvalInfo &ei);  //ÅÚ±ø¶ÔÅÚ±ø
+ extern void m_MT_PaoPawn_To_PaoPawn(typePOS &POSITION, EvalInfo &ei);  //ç‚®å…µå¯¹ç‚®å…µ
 
- extern void m_MT_R_1pao1pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei);	//ÅÚ±ø¶ÔÂí±ø
+ extern void m_MT_R_1pao1pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei);	//ç‚®å…µå¯¹é©¬å…µ
  extern void m_MT_B_1pao1pawn_R_1ma1pawn(typePOS &POSITION, EvalInfo &ei);
 
  extern void m_MT_R_1pao1pawn_B_2pawn(typePOS &POSITION, EvalInfo &ei);

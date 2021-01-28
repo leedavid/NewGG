@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "3±ø¶Ô1ÅÚ.cpp"
+#include "3å…µå¯¹1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -30,7 +30,7 @@ void my_m_MT_R_3pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 		EV_YOUR_SAFE = TRUE;
 	}
 
-	if(your_shi_num == 0){ //¶Ô·½Ò²Ã»ÓÐÊË,¾ÍºÍÁË
+	if(your_shi_num == 0){ //å¯¹æ–¹ä¹Ÿæ²¡æœ‰ä»•,å°±å’Œäº†
 		EV_MY_SAFE = TRUE;
 	}
 
@@ -93,7 +93,7 @@ void my_m_MT_R_3pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 3k1P3/2P2P3/5a2b/3c5/9/9/9/9/3K5/5A3 b - - 0 1
 	if(your_shi_num >= 1 && your_xiang_num >= 1 && !have_bit(bb_my_pawn,MyLowBB[MY_RANK1])){
-		if(have_bit(bb_my_pawn,MyUpBB[MY_RANK1])){  // ÓÐµ×Ïß±ø
+		if(have_bit(bb_my_pawn,MyUpBB[MY_RANK1])){  // æœ‰åº•çº¿å…µ
 			//if(StoX(ypao) == StoX(mk)){
 			//if(StoX(yk) != 0x4){
 				if(StoX(yk) == 0x3 && count_1s(bb_my_pawn,RightBB[0x4]) == 2){
@@ -117,7 +117,7 @@ void my_m_MT_R_3pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 //		if(StoY(from) < StoY(rk)){
 //			board->mulScore -=  ADD_XPawnToPao_ByPawnShi[board->R_shi];
 //
-//			//if(StoX(from) == 0x7){  //±øÔÚÖÐÏß
+//			//if(StoX(from) == 0x7){  //å…µåœ¨ä¸­çº¿
 //			//	if(board->b256[from+1] == RPAWN || board->b256[
 //			//}
 //		}
@@ -127,13 +127,13 @@ void my_m_MT_R_3pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 //
 //	// fen 3a1kb2/1P5P1/3a5/4P4/9/2B3B2/6c2/9/3K5/9 b - - 62 62
 //	if(board->R_shi == 2 && board->R_xiang >= 1){
-//		//Èç¹û½«ÔÚÍâÃæ,ÔòÊÇºÍÆå
+//		//å¦‚æžœå°†åœ¨å¤–é¢,åˆ™æ˜¯å’Œæ£‹
 //		if(StoY(rk) == 0xc){
 //			board->rsafe = TRUE;
 //		}
 //	}
 //
-//	if(board->R_shi == 0){						//¶Ô·½Ò²Ã»ÓÐÊË,¾ÍºÍÁË
+//	if(board->R_shi == 0){						//å¯¹æ–¹ä¹Ÿæ²¡æœ‰ä»•,å°±å’Œäº†
 //		board->bsafe = TRUE;
 //	}
 //

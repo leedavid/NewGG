@@ -1,4 +1,4 @@
-#ifdef GG_TEST_MODE   // ¼Ñ¼Ñ²âÊÔÄ£Ê½Õâ¸ö²»ÄÜÓÃ.
+#ifdef GG_TEST_MODE   // ä½³ä½³æµ‹è¯•æ¨¡å¼è¿™ä¸ªä¸èƒ½ç”¨.
 #else
 // advance draw score
 if(POSITION->DYN->mossa50 > (REPEAT_DRAW_STEP/2)){

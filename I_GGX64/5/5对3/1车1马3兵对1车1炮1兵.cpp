@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí3±ø¶Ô1³µ1ÅÚ1±ø.cpp"
+#include "1è½¦1é©¬3å…µå¯¹1è½¦1ç‚®1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -52,7 +52,7 @@ void my_m_MT_R_1che1ma3pawn_B_1che1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 3akab2/9/4b1n2/p3p4/2r5p/P2R5/9/4BC3/4A4/2B1KA3 w - - 0 1
-	// Èç¹û¶Ô·½4SX,ÎÒ·½Ö»ÓĞ2can, ÇÒÃ»ÓĞÒ»¸ö±ø¹ıºÓ,Òª¼õÒ»ÏÂ·Ö
+	// å¦‚æœå¯¹æ–¹4SX,æˆ‘æ–¹åªæœ‰2can, ä¸”æ²¡æœ‰ä¸€ä¸ªå…µè¿‡æ²³,è¦å‡ä¸€ä¸‹åˆ†
 	// Square yk = your_king_pos;
 	 if(your_shi_num == 2 && your_xiang_num == 2 && StoY(yk) == MY_RANK0){
 		 if(EV_MY_CAN <= 2){

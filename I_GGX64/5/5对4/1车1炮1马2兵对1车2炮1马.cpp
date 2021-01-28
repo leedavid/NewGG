@@ -3,14 +3,14 @@
 #include "..\\..\\chess.h"
 #include "..\\..\\preGen.h"
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1Âí2±ø¶Ô1³µ2ÅÚ1Âí.cpp"
+#include "1è½¦1ç‚®1é©¬2å…µå¯¹1è½¦2ç‚®1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//const int ADD_2CheXPawn_1Che3PaoMa1Pawn_2ChePawnCan      =  32;                     //2³µ·½ÓĞ±ø¿É¹ıºÓ£¬
+//const int ADD_2CheXPawn_1Che3PaoMa1Pawn_2ChePawnCan      =  32;                     //2è½¦æ–¹æœ‰å…µå¯è¿‡æ²³ï¼Œ
 
 
 void my_m_MT_R_1che1pao1ma2pawn_B_1che2pao1ma(typePOS &POSITION, EvalInfo &ei){
@@ -25,7 +25,7 @@ void my_m_MT_R_1che1pao1ma2pawn_B_1che2pao1ma(typePOS &POSITION, EvalInfo &ei){
 			if(!have_bit(bb_my_pawn,MyUpBB[MY_RANK3])){
 				MY_EV_SUB(32);
 			}
-			// Èç¹ûÓĞ±ß±ø
+			// å¦‚æœæœ‰è¾¹å…µ
 		    Bitboard sidepanw = m_and(bb_my_pawn,m_or(FileBB_A[0x0],FileBB_A[0x8]));
 			MY_EV_SUB((sint16)count_1s(sidepanw) * 32);
 		}

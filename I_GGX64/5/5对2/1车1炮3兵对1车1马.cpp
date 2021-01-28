@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ3±ø¶Ô1³µ1Âí.cpp"
+#include "1è½¦1ç‚®3å…µå¯¹1è½¦1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -37,7 +37,7 @@ void my_m_MT_R_1che1pao3pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// Èç¹ûÎÒ·½ÓĞÁ¬±ø£¬Ò²Òª¼Ó·Ö, Ö÷ÒªÊÇ¿ÉÒÔÒÔ³µ»»Âí
+	// å¦‚æœæˆ‘æ–¹æœ‰è¿å…µï¼Œä¹Ÿè¦åŠ åˆ†, ä¸»è¦æ˜¯å¯ä»¥ä»¥è½¦æ¢é©¬
 	// fen 2b1ka3/4a4/4b4/9/3PPP3/3r5/1R3n3/5C3/4K4/9 b - - 0 1
 	Bitboard lp = My_get_connect_Pawn(POSITION);
 	if(bit_is_set(lp,MY_SQ28) || bit_is_set(lp,MY_SQ1F)){

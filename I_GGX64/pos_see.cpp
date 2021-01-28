@@ -20,7 +20,7 @@
 
 //enum Piece
 //{
-//	EMPTY = 0,  // Õâ¸ö²»ÓÃÁË
+//	EMPTY = 0,  // è¿™ä¸ªä¸ç”¨äº†
 //	RKING = 1, RSHI = 2, RXIANG = 3, RMA = 4, RCHE = 5, RPAO = 6, RPAWN = 7,
 //	_X_X = 8,
 //	BKING = 9, BSHI = 10, BXIANG = 11, BMA = 12, BCHE = 13, BPAO = 14, BPAWN = 15,
@@ -61,12 +61,12 @@ PieceType Position::min_attacker(const Bitboard* bb, Square to, Bitboard stmAtta
 	case CHE:
 	case PAO:
 	case PAWN:
-		// ÅÚ
+		// ç‚®
 		attackers = m_or(attackers,
 			m_and(Pao_Eat_bb(to, occupied),
 				m_or(pieces(RPAO), pieces(BPAO))));
 
-		// ³µ
+		// è½¦
 		attackers = m_or(attackers,
 			m_and(Rook_attacks_bb(to, occupied),
 				m_or(pieces(RCHE), pieces(BCHE))));
@@ -123,7 +123,7 @@ bool Position::see_ge(Move m, Value v){
 
 	balance -= PieceValueMidgame[nextVictim];
 
-	if (balance >= v)             // Ğ¡×Ó³Ô´ó×Ó£¬»òÆ½×ÖÏà»¥³Ô£¬¾Í»ù±¾OKÁË
+	if (balance >= v)             // å°å­åƒå¤§å­ï¼Œæˆ–å¹³å­—ç›¸äº’åƒï¼Œå°±åŸºæœ¬OKäº†
 		return true;
 
 	bool relativeStm = true; // True if the opponent is to move
@@ -157,7 +157,7 @@ bool Position::see_ge(Move m, Value v){
 		Piece delta = COLOR_BY_SIDE_ADD[stm];
 
 		// Don't allow pinned pieces to attack pieces except the king as long all
-		// pinners are on their original square. µÃÈ¥ÁË²»ÄÜ×ßµÄÆå×Ó 
+		// pinners are on their original square. å¾—å»äº†ä¸èƒ½èµ°çš„æ£‹å­ 
 		//if (!(st->pinnersForKing[stm] & ~occupied))
 		//	stmAttackers &= ~st->blockersForKing[stm];		
 
@@ -207,7 +207,7 @@ Value Position::see_sign(Move m) {
 
 
 
-// È¥ÁËË«·½µÄ½«£¬ÕâÑù»á¿ìÒ»Ğ©¡£
+// å»äº†åŒæ–¹çš„å°†ï¼Œè¿™æ ·ä¼šå¿«ä¸€äº›ã€‚
 Value Position::see(Move m)  {
 
 	Square from = from_sq(m);
@@ -233,8 +233,8 @@ Value Position::see(Move m)  {
 
 	//////////////////////////////////////////////////////////////////////////	
 
-	// µÃµ½¶Ô·½µÄ±ø,½«µÄ¹¥»÷Çé¿ö, ±ø½«¿ÉÒ»ÆğµÃµ½£¬Õâ¶ù²»ÒªËãË«·½µÄ½«ÁË£¬ÕâÑù¼òµ¥Ò»Ğ©
-	// ºì±ø
+	// å¾—åˆ°å¯¹æ–¹çš„å…µ,å°†çš„æ”»å‡»æƒ…å†µ, å…µå°†å¯ä¸€èµ·å¾—åˆ°ï¼Œè¿™å„¿ä¸è¦ç®—åŒæ–¹çš„å°†äº†ï¼Œè¿™æ ·ç®€å•ä¸€äº›
+	// çº¢å…µ
 	attackers = m_or(m_and(attacks_by_rpawn_rk(to),pieces(RPAWN)),
 		        m_or(m_and(attacks_by_bpawn_bk(to),pieces(BPAWN)),
 				m_or(m_and(shi_attacks(to),m_or(pieces(RSHI),pieces(BSHI))),
@@ -266,43 +266,43 @@ Value Position::see(Move m)  {
 
 		 Piece delta = COLOR_BY_SIDE_ADD[stm];
 
-		 // ±ø
+		 // å…µ
 		 Piece pc = RPAWN + delta; 
 		 if(have_bit(stmAttackers, pieces(pc))){
 			 goto S_SEE_NEXT_A;
 		 }
 
-		 // ÊË
+		 // ä»•
 		 pc = RSHI + delta;
 		 if(have_bit(stmAttackers, pieces(pc))){
 			 goto S_SEE_NEXT_A;
 		 }
 
-		 // Ïà
+		 // ç›¸
 		 pc = RXIANG + delta;
 		 if(have_bit(stmAttackers, pieces(pc))){
 			 goto S_SEE_NEXT_A;
 		 }
 
-		 // Âí
+		 // é©¬
 		 pc = RMA + delta;
 		 if(have_bit(stmAttackers, pieces(pc))){
 			 goto S_SEE_NEXT_A;
 		 }
 
-		 // ÅÚ
+		 // ç‚®
 		 pc = RPAO + delta;
 		 if(have_bit(stmAttackers, pieces(pc))){
 			 goto S_SEE_NEXT_A;		 
 		 }
 
-		 // ³µ
+		 // è½¦
 		 pc = RCHE + delta;
 		 if(have_bit(stmAttackers, pieces(pc))){
 			 goto S_SEE_NEXT_A;
 		 }
 
-		 //// ½«
+		 //// å°†
 		 pc = RKING + delta;
 		 //if(have_bit(stmAttackers, pieces(pc))){
 			// goto S_SEE_NEXT_A;
@@ -310,7 +310,7 @@ Value Position::see(Move m)  {
 
 S_SEE_NEXT_A:
 
-		b = m_and(stmAttackers,pieces(pc));  // µÃµ½ÕâÖÖ³Ô¶Ô·½µÄÆå×ÓµÄËùÓĞÎ»ÆåÅÌ
+		b = m_and(stmAttackers,pieces(pc));  // å¾—åˆ°è¿™ç§åƒå¯¹æ–¹çš„æ£‹å­çš„æ‰€æœ‰ä½æ£‹ç›˜
 		Square sq = first_1(b);
 		clear_bit(scc,sq);
 
@@ -320,30 +320,30 @@ S_SEE_NEXT_A:
 		//occ ^= (b & (~b + 1));
 
 
-		// ÔÙ¼ÓÉÏ¿ÉÄÜ³öÏÖµÄÆäËüÆå×Ó,ÓĞ¿ÉÄÜÊÇÂí,ÅÚ,³µ//
+		// å†åŠ ä¸Šå¯èƒ½å‡ºç°çš„å…¶å®ƒæ£‹å­,æœ‰å¯èƒ½æ˜¯é©¬,ç‚®,è½¦//
 		//attackers |=  (rook_attacks_bb(to, occ)   & pieces(ROOK, QUEEN))
 		// | (bishop_attacks_bb(to, occ) & pieces(BISHOP, QUEEN));
-		// Âí
+		// é©¬
 		switch(type_of(pc)){
 		case CHE:
 		case PAO:
 		case PAWN:
-			// ÅÚ
+			// ç‚®
 			attackers = m_or(attackers,
 				m_and(Pao_Eat_bb(to,scc),
 				m_or(pieces(RPAO),pieces(BPAO))));
 
-			// ³µ
+			// è½¦
 			attackers = m_or(attackers,
 				m_and(Rook_attacks_bb(to,scc),
 				m_or(pieces(RCHE),pieces(BCHE))));
-			//attackers = _mm_andnot_si128(canNotMove,attackers);  // È¥ÁË²»ÄÜ×ßµÄÆå
+			//attackers = _mm_andnot_si128(canNotMove,attackers);  // å»äº†ä¸èƒ½èµ°çš„æ£‹
 			break;
 		case SHI: // 
 			attackers = m_or(attackers,
 				m_and(king_to_ma_attacks_bb(to,scc),
 				m_or(pieces(RMA),pieces(BMA))));
-			//attackers = _mm_andnot_si128(canNotMove,attackers);  // È¥ÁË²»ÄÜ×ßµÄÆå
+			//attackers = _mm_andnot_si128(canNotMove,attackers);  // å»äº†ä¸èƒ½èµ°çš„æ£‹
 			break;
 		default:
 			break;

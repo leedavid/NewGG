@@ -6,7 +6,7 @@
 #ifdef USE_STOCK_FISH_FILE
 #else
 
-void   // ÒÆ¶¯ĞÔÆÀ¹À, Ö÷ÒªÊÇ¼ÓÈë½«µÄ¹¥»÷,°üÀ¨¶Ô·½µÄ½«ÔÚ¹¥»÷ÎÒµÄ½«.
+void   // ç§»åŠ¨æ€§è¯„ä¼°, ä¸»è¦æ˜¯åŠ å…¥å°†çš„æ”»å‡»,åŒ…æ‹¬å¯¹æ–¹çš„å°†åœ¨æ”»å‡»æˆ‘çš„å°†.
 Mobility (const typePOS *POSITION)
 {
 	Bitboard A;
@@ -34,15 +34,15 @@ Mobility (const typePOS *POSITION)
 
 	POSITION->DYN->black_king_check = _mm_setzero_si128();
 	POSITION->DYN->white_king_check = _mm_setzero_si128();
-	//if(StoX(rk) == StoX(bk)){         // ÓĞ¿ÉÄÜÊÇ¶Ô½«,ÒªÈ¥ÁË.		
+	//if(StoX(rk) == StoX(bk)){         // æœ‰å¯èƒ½æ˜¯å¯¹å°†,è¦å»äº†.		
 	//	T = m_and(BetweenBB[rk][bk],occ);
 	//	if(m128_is_have_bit(T)){
-	//		if(count_1s(T) == 1){     // ½»²æµãÉÏµÄÆå×Ó²»ÄÜ×ßÍÛ
-	//			// *********************** ÔİÊ±²»·ÅÁË
+	//		if(count_1s(T) == 1){     // äº¤å‰ç‚¹ä¸Šçš„æ£‹å­ä¸èƒ½èµ°å“‡
+	//			// *********************** æš‚æ—¶ä¸æ”¾äº†
 	//		}
 	//	}
 	//	else{
-	//		POSITION->DYN->black_king_check = bit_rk;  // ¶Ô½«
+	//		POSITION->DYN->black_king_check = bit_rk;  // å¯¹å°†
 	//		POSITION->DYN->white_king_check = bit_bk;
 	//		POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,
 	//			bit_bk);
@@ -50,16 +50,16 @@ Mobility (const typePOS *POSITION)
 	//			bit_rk);
 	//	}
 	//}
-	// ºì½«
-	A = rook_attacks_bb(rk,occ);  // ºì½«µÄ³µ¹¥»÷Î»ÆåÅÌ	
-	if(m128_is_have_bit(m_and(A,bit_bk))){ // ¿´Ò»ÏÂÊÇ²»ÊÇ¶Ô½«ÁË
-		POSITION->DYN->black_king_check = bit_rk;  // ¶Ô½«
+	// çº¢å°†
+	A = rook_attacks_bb(rk,occ);  // çº¢å°†çš„è½¦æ”»å‡»ä½æ£‹ç›˜	
+	if(m128_is_have_bit(m_and(A,bit_bk))){ // çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯å¯¹å°†äº†
+		POSITION->DYN->black_king_check = bit_rk;  // å¯¹å°†
 		POSITION->DYN->white_king_check = bit_bk;
 	}
 	POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,
 		m_and(A,KingKingAttBB[bk]));	
 
-	// ÔÙ¿´Ò»ÏÂÊÇ²»ÊÇÓĞºÚÅÚ£¬ÒòÎª¿ÉÒÔµş½«£¬µş½«Ò²ÄÜÇ¿´óÍÛ
+	// å†çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯æœ‰é»‘ç‚®ï¼Œå› ä¸ºå¯ä»¥å å°†ï¼Œå å°†ä¹Ÿèƒ½å¼ºå¤§å“‡
 	A = m_and(A,bitboard_black_pao);
 	while(m128_is_have_bit(A)){
 		int pao = pop_1st_bit(&A);
@@ -67,12 +67,12 @@ Mobility (const typePOS *POSITION)
 			BetweenBB[pao][rk]);
 	}
 
-	// ºÚ½«
+	// é»‘å°†
 	A = rook_attacks_bb(bk,occ);
 	POSITION->DYN->attack_black = m128_bb_or_bb(POSITION->DYN->attack_black,
 		m_and(A,KingKingAttBB[rk]));
 
-	// ÔÙ¿´Ò»ÏÂÊÇ²»ÊÇÓĞºìÅÚ£¬ÒòÎª¿ÉÒÔµş½«£¬µş½«Ò²ÄÜÇ¿´óÍÛ
+	// å†çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯æœ‰çº¢ç‚®ï¼Œå› ä¸ºå¯ä»¥å å°†ï¼Œå å°†ä¹Ÿèƒ½å¼ºå¤§å“‡
 	A = m_and(A,bitboard_white_pao);
 	while(m128_is_have_bit(A)){
 		int pao = pop_1st_bit(&A);
@@ -80,15 +80,15 @@ Mobility (const typePOS *POSITION)
 			BetweenBB[pao][bk]);
 	}
 
-	// ³µ
+	// è½¦
 	for(i = 0; i < RChe_num(); i++){
 		s = S90_from_piecelist(POSITION,RCHE,i);
         A = rook_attacks_bb(s,occ);
 		POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,A);
 		if(have_bit(A,bit_bk)){
-			set_bit(POSITION->DYN->black_king_check,s);        // ÔÚ½«¾ü
+			set_bit(POSITION->DYN->black_king_check,s);        // åœ¨å°†å†›
 		}
-		else if(have_bit(bit_bk,ChePseudoMask_FR[s])){    // ¶Ô·½µÄÍõÔÚÒ»ÌõÏßÉÏ.
+		else if(have_bit(bit_bk,ChePseudoMask_FR[s])){    // å¯¹æ–¹çš„ç‹åœ¨ä¸€æ¡çº¿ä¸Š.
 		    T = m_and(rook_attacks_bb(bk,occ),A);
 			POSITION->DYN->white_xray = m128_bb_or_bb(POSITION->DYN->white_xray,T);
 			if(m128_is_have_bit(T)){
@@ -96,33 +96,33 @@ Mobility (const typePOS *POSITION)
 			}
 		}
 	}
-	// ÅÚ
+	// ç‚®
 	for(i = 0; i < RPao_num(); i++){
 		s = S90_from_piecelist(POSITION,RPAO,i);
 		A = pao_eat_attacks_bb(s,occ);  
 		POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,A); 
 		if(have_bit(A,bit_bk)){
-			set_bit(POSITION->DYN->black_king_check,s);      // ÔÚ½«¾ü
+			set_bit(POSITION->DYN->black_king_check,s);      // åœ¨å°†å†›
 		}
-		else if(have_bit(bit_bk,ChePseudoMask_FR[s])){  // ¶Ô·½µÄÍõÔÚÒ»ÌõÏßÉÏ.
+		else if(have_bit(bit_bk,ChePseudoMask_FR[s])){  // å¯¹æ–¹çš„ç‹åœ¨ä¸€æ¡çº¿ä¸Š.
 			T = m_and(BetweenBB[bk][s],occ);
-		    if(count_1s(T) == 2){     // ½»²æµãÉÏµÄÆå×Ó²»ÄÜ×ßÍÛ
+		    if(count_1s(T) == 2){     // äº¤å‰ç‚¹ä¸Šçš„æ£‹å­ä¸èƒ½èµ°å“‡
 			    POSITION->DYN->white_xray = m128_bb_or_bb(POSITION->DYN->white_xray,T);
-				while(m128_is_have_bit(T)){                 // Õâ¶ùÓĞ¶ş¸öÆå×Ó
+				while(m128_is_have_bit(T)){                 // è¿™å„¿æœ‰äºŒä¸ªæ£‹å­
 					xray_white_list[pop_1st_bit(&T)] = s;   // this is only use in see
 				}
 			}
 		}
 	}
-	// Âí
+	// é©¬
 	for(i = 0; i < RMa_num(); i++){
 		s = S90_from_piecelist(POSITION,RMA,i);
         A =  ma_to_king_attacks_bb(s,occ);
 		POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,A); 
 		if(have_bit(A,bit_bk)){
-			set_bit(POSITION->DYN->black_king_check,s);      // ÔÚ½«¾ü
+			set_bit(POSITION->DYN->black_king_check,s);      // åœ¨å°†å†›
 		}
-		else{ // µÃµ½ÂíÍÈÉÏµÄÆå×Ó.
+		else{ // å¾—åˆ°é©¬è…¿ä¸Šçš„æ£‹å­.
 			if(have_bit(Ma_Pseudo_Att[s],bit_bk)){
 			    leg = maleg(s,bk);
 				set_bit(POSITION->DYN->white_xray,leg);
@@ -130,55 +130,55 @@ Mobility (const typePOS *POSITION)
 			}
 		}
 	}
-	// ±ø
+	// å…µ
 	p = bitboard_white_pawn;
 	A = p;
 	A = _mm_andnot_si128(_mm_load_si128((__m128i*)Rank0BB),A);
-	// ÏòÇ°Ò»²½.
+	// å‘å‰ä¸€æ­¥.
 	m_Rsf(A,9);
 	POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,A);
 	A = m_and(A,bit_bk);
 	m_Lsf(A,9);
 	POSITION->DYN->black_king_check = m128_bb_or_bb(POSITION->DYN->black_king_check,A);
-    // ¹ıºÓ±ø	
+    // è¿‡æ²³å…µ	
 	if(have_bit(p,_mm_load_si128((__m128i*)RpawnOverBB))){
 		p = m_and(p,_mm_load_si128((__m128i*)RpawnOverBB));
 		//
 		A = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB),p);
-		m_Rsf(A,1);                   //ËùÓĞºì±øÏò×óÒ»²½
+		m_Rsf(A,1);                   //æ‰€æœ‰çº¢å…µå‘å·¦ä¸€æ­¥
 		POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,A);
 	    A = m_and(A,bit_bk);
 		m_Lsf(A,1);
 	    POSITION->DYN->black_king_check = m128_bb_or_bb(POSITION->DYN->black_king_check,A);
 		//
 		A = _mm_andnot_si128(_mm_load_si128((__m128i*)File8BB),p);
-		m_Lsf(A,1);                   //ËùÓĞºì±øÏòÓÒÒ»²½
+		m_Lsf(A,1);                   //æ‰€æœ‰çº¢å…µå‘å³ä¸€æ­¥
 		POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,A);
 	    A = m_and(A,bit_bk);
 		m_Rsf(A,1);
 	    POSITION->DYN->black_king_check = m128_bb_or_bb(POSITION->DYN->black_king_check,A);
 	}
-	// Ïà
+	// ç›¸
 	for(i = 0; i < RXiang_num(); i++){
 		s = S90_from_piecelist(POSITION,RXIANG,i);
 		POSITION->DYN->attack_white 
 			= m128_bb_or_bb(POSITION->DYN->attack_white,xiang_attacks_bb(s,occ)); 
 	}
-	// ÊË
+	// ä»•
 	for(i = 0; i < RShi_num(); i++){
 		s = S90_from_piecelist(POSITION,RSHI,i);
 		POSITION->DYN->attack_white 
 			= m128_bb_or_bb(POSITION->DYN->attack_white,shi_attacks(s)); 
 	}
-	// black ³µ
+	// black è½¦
 	for(i = 0; i < BChe_num(); i++){
 		s = S90_from_piecelist(POSITION,BCHE,i);
         A = rook_attacks_bb(s,occ);
 		POSITION->DYN->attack_black = m128_bb_or_bb(POSITION->DYN->attack_black,A);
 		if(have_bit(A,bit_rk)){
-			set_bit(POSITION->DYN->white_king_check,s);        // ÔÚ½«¾ü
+			set_bit(POSITION->DYN->white_king_check,s);        // åœ¨å°†å†›
 		}
-		else if(have_bit(bit_rk,ChePseudoMask_FR[s])){    // ¶Ô·½µÄÍõÔÚÒ»ÌõÏßÉÏ.
+		else if(have_bit(bit_rk,ChePseudoMask_FR[s])){    // å¯¹æ–¹çš„ç‹åœ¨ä¸€æ¡çº¿ä¸Š.
 		    T = m_and(rook_attacks_bb(rk,occ),A);
 			POSITION->DYN->black_xray = m128_bb_or_bb(POSITION->DYN->black_xray,T);
 			if(m128_is_have_bit(T)){
@@ -186,33 +186,33 @@ Mobility (const typePOS *POSITION)
 			}
 		}
 	}
-	// ÅÚ
+	// ç‚®
 	for(i = 0; i < BPao_num(); i++){
 		s = S90_from_piecelist(POSITION,BPAO,i);
 		A = pao_eat_attacks_bb(s,occ);  
 		POSITION->DYN->attack_black = m128_bb_or_bb(POSITION->DYN->attack_black,A); 
 		if(have_bit(A,bit_rk)){
-			set_bit(POSITION->DYN->white_king_check,s);      // ÔÚ½«¾ü
+			set_bit(POSITION->DYN->white_king_check,s);      // åœ¨å°†å†›
 		}
-		else if(have_bit(bit_rk,ChePseudoMask_FR[s])){  // ¶Ô·½µÄÍõÔÚÒ»ÌõÏßÉÏ.
+		else if(have_bit(bit_rk,ChePseudoMask_FR[s])){  // å¯¹æ–¹çš„ç‹åœ¨ä¸€æ¡çº¿ä¸Š.
 			T = m_and(BetweenBB[rk][s],occ);
-		    if(count_1s(T) == 2){     // ½»²æµãÉÏµÄÆå×Ó²»ÄÜ×ßÍÛ
+		    if(count_1s(T) == 2){     // äº¤å‰ç‚¹ä¸Šçš„æ£‹å­ä¸èƒ½èµ°å“‡
 			    POSITION->DYN->black_xray = m128_bb_or_bb(POSITION->DYN->black_xray,T);
-				while(m128_is_have_bit(T)){                 // Õâ¶ùÓĞ¶ş¸öÆå×Ó
+				while(m128_is_have_bit(T)){                 // è¿™å„¿æœ‰äºŒä¸ªæ£‹å­
 					xray_black_list[pop_1st_bit(&T)] = s;   // this is only use in see
 				}
 			}
 		}
 	}
-	// Âí
+	// é©¬
 	for(i = 0; i < BMa_num(); i++){
 		s = S90_from_piecelist(POSITION,BMA,i);
         A =  ma_to_king_attacks_bb(s,occ);
 		POSITION->DYN->attack_black = m128_bb_or_bb(POSITION->DYN->attack_black,A); 
 		if(have_bit(A,bit_rk)){
-			set_bit(POSITION->DYN->white_king_check,s);      // ÔÚ½«¾ü
+			set_bit(POSITION->DYN->white_king_check,s);      // åœ¨å°†å†›
 		}
-		else{ // µÃµ½ÂíÍÈÉÏµÄÆå×Ó.
+		else{ // å¾—åˆ°é©¬è…¿ä¸Šçš„æ£‹å­.
 			if(have_bit(Ma_Pseudo_Att[s],bit_rk)){
 			    leg = maleg(s,rk);
 				set_bit(POSITION->DYN->black_xray,leg);
@@ -220,41 +220,41 @@ Mobility (const typePOS *POSITION)
 			}
 		}
 	}
-	// black ±ø
+	// black å…µ
 	p = bitboard_black_pawn;
 	A = p;
-	// ÏòÇ°Ò»²½.
+	// å‘å‰ä¸€æ­¥.
 	A = _mm_andnot_si128(_mm_load_si128((__m128i*)Rank9BB),A);
 	m_Lsf(A,9);
 	POSITION->DYN->attack_black = m128_bb_or_bb(POSITION->DYN->attack_black,A);
 	A = m_and(A,bit_rk);
 	m_Rsf(A,9);
 	POSITION->DYN->white_king_check = m128_bb_or_bb(POSITION->DYN->white_king_check,A);
-    // ¹ıºÓ±ø	
+    // è¿‡æ²³å…µ	
 	if(have_bit(p,_mm_load_si128((__m128i*)BpawnOverBB))){
 		p = m_and(p,_mm_load_si128((__m128i*)BpawnOverBB));
 		//
 		A = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB),p);
-		m_Rsf(A,1);                   //ËùÓĞºì±øÏò×óÒ»²½
+		m_Rsf(A,1);                   //æ‰€æœ‰çº¢å…µå‘å·¦ä¸€æ­¥
 		POSITION->DYN->attack_black = m128_bb_or_bb(POSITION->DYN->attack_black,A);
 	    A = m_and(A,bit_rk);
 		m_Lsf(A,1);
 	    POSITION->DYN->white_king_check = m128_bb_or_bb(POSITION->DYN->white_king_check,A);
 		//
 		A = _mm_andnot_si128(_mm_load_si128((__m128i*)File8BB),p);
-		m_Lsf(A,1);                   //ËùÓĞºì±øÏòÓÒÒ»²½
+		m_Lsf(A,1);                   //æ‰€æœ‰çº¢å…µå‘å³ä¸€æ­¥
 		POSITION->DYN->attack_black = m128_bb_or_bb(POSITION->DYN->attack_black,A);
 	    A = m_and(A,bit_rk);
 		m_Rsf(A,1);
 	    POSITION->DYN->white_king_check = m128_bb_or_bb(POSITION->DYN->white_king_check,A);
 	}
-	// black Ïà
+	// black ç›¸
 	for(i = 0; i < BXiang_num(); i++){
 		s = S90_from_piecelist(POSITION,BXIANG,i);
 		POSITION->DYN->attack_black 
 			= m128_bb_or_bb(POSITION->DYN->attack_black,xiang_attacks_bb(s,occ)); 
 	}
-	// black ÊË
+	// black ä»•
 	for(i = 0; i < BShi_num(); i++){
 		s = S90_from_piecelist(POSITION,BSHI,i);
 		POSITION->DYN->attack_black 

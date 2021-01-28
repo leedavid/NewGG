@@ -14,20 +14,20 @@ extern uint8  _MaLegTable[90][90];                 //
 
 #define TOTAL_SAFE_POINT  512
 #define MIN_ZEOR_SAFE_POINT 64
-extern Score  SafetyTable[TOTAL_SAFE_POINT];                  //°²È«·Ö
+extern Score  SafetyTable[TOTAL_SAFE_POINT];                  //å®‰å…¨åˆ†
 extern uint8  KposSafe[90];
 
-extern TCHAR installDir[512];			   //Èí¼şÔËĞĞÄ¿Â¼
+extern TCHAR installDir[512];			   //è½¯ä»¶è¿è¡Œç›®å½•
 #ifdef  USE_LOG_FILE
 extern TCHAR  log_path[512];
 extern FILE*   llog_file;
 #endif
 
-extern Bitboard PaoCanAttKing[90];					   // ÅĞ¶ÏÒ»ÏÂÅÚÄÜÀ´ÄÜ
-extern Bitboard BitMaGooDMove[2];                      // ÂíÓĞºÃ²½×Ó¿É×ß
+extern Bitboard PaoCanAttKing[90];					   // åˆ¤æ–­ä¸€ä¸‹ç‚®èƒ½æ¥èƒ½
+extern Bitboard BitMaGooDMove[2];                      // é©¬æœ‰å¥½æ­¥å­å¯èµ°
 
-extern Score PrePawnAttKingMul_Safe[3][90][90];        // ±øÄÜ¹¥»÷½«µÄÄÜÁ¦ 
-extern Score point_R_01Shi_B_Pawn90[3][90];            // ¶Ô·½È±ÊËÊ±±øµÄÎ»ÖÃ·Ö
+extern Score PrePawnAttKingMul_Safe[3][90][90];        // å…µèƒ½æ”»å‡»å°†çš„èƒ½åŠ› 
+extern Score point_R_01Shi_B_Pawn90[3][90];            // å¯¹æ–¹ç¼ºä»•æ—¶å…µçš„ä½ç½®åˆ†
 extern Score point_B_01Shi_R_Pawn90[3][90];
 
 extern Bitboard CheYaMa[90];

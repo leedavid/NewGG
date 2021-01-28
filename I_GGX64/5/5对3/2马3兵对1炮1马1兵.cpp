@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2Âí3±ø¶Ô1ÅÚ1Âí1±ø.cpp"
+#include "2é©¬3å…µå¯¹1ç‚®1é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 //
-//const int  ADD_2MaXPawn_2Pao1Pawn_ByPawn[3]         = {96, 64, 32};            //2Âíx±ø¶Ô1ÅÚ2±ø, ¶à±øµÄ¼Ó·Ö
-//const int  ADD_2Pao1Pawn_2MaXPawn_ByPawn[3]         = {96, 64, 32};            //1ÅÚ2±ø¶Ô2Âíx±ø, ¶à±øµÄ¼Ó·Ö
+//const int  ADD_2MaXPawn_2Pao1Pawn_ByPawn[3]         = {96, 64, 32};            //2é©¬xå…µå¯¹1ç‚®2å…µ, å¤šå…µçš„åŠ åˆ†
+//const int  ADD_2Pao1Pawn_2MaXPawn_ByPawn[3]         = {96, 64, 32};            //1ç‚®2å…µå¯¹2é©¬xå…µ, å¤šå…µçš„åŠ åˆ†
 
 
 
@@ -31,7 +31,7 @@ void my_m_MT_R_2ma3pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square ypawn = S90_from_piecelist(POSITION,your_pawn,0);
 
 	// fen 2b1ka3/4a4/4b4/4nc3/P8/1NP1p4/8P/2N1B4/9/3AKA3 w - - 2 2
-	//Èç¹ûÂí·½ÊËÏà²»È«,Ò²Òª¿Û·Ö
+	//å¦‚æžœé©¬æ–¹ä»•ç›¸ä¸å…¨,ä¹Ÿè¦æ‰£åˆ†
 
 	MY_EV_SUB((4 - (my_shi_num + my_xiang_num)) * 32); 
 
@@ -70,7 +70,7 @@ void my_m_MT_R_2ma3pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 //	}
 //
 //	// fen 2b1ka3/4a4/4b4/4nc3/P8/1NP1p4/8P/2N1B4/9/3AKA3 w - - 2 2
-//	//Èç¹ûÂí·½ÊËÏà²»È«,Ò²Òª¿Û·Ö
+//	//å¦‚æžœé©¬æ–¹ä»•ç›¸ä¸å…¨,ä¹Ÿè¦æ‰£åˆ†
 //	int nsx = board->B_shi + board->B_xiang; 
 //	board->mulScore += (4 - nsx) * 32;
 //

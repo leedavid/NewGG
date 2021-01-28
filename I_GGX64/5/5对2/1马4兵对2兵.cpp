@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Âí4±ø¶Ô2±ø.cpp"
+#include "1é©¬4å…µå¯¹2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//const int  ADD_1MaXPawn_2Pawn                       = 128;              //1Âíx±ø¶Ô2±øµÄ¼Ó·Ö 
+//const int  ADD_1MaXPawn_2Pawn                       = 128;              //1é©¬xå…µå¯¹2å…µçš„åŠ åˆ† 
 //const int  ADD_1MaXPawn_To_2Pawn_ByMaPawn[3]        = {96,  64, 32};
 //const int  ADD_1MaXPawn_To_2Pawn_ByPawnSide[3]      = {80,  48, 16};
 

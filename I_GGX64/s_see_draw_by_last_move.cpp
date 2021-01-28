@@ -38,7 +38,7 @@ bool Position::see_draw_by_last_move(Square mfrom, Square mto, Square ofrom, Squ
 	int last_num;
 	Piece to_id;
 
-	TRUECap->cap_num[0][which] = 0; // ±¾´Î×½µÄ´ÎÊý.
+	TRUECap->cap_num[0][which] = 0; // æœ¬æ¬¡æ‰çš„æ¬¡æ•°.
 	TRUECap->isTrueCap = false;
 
 	last = cattura_not_include_pawn_king(mlist,~sideToMove); // 
@@ -68,30 +68,30 @@ bool Position::see_draw_by_last_move(Square mfrom, Square mto, Square ofrom, Squ
 		//		cur->move = MOVE_NONE;
 		//	}
 		//}
-		// 2, ÉÏ´ÎÕâ¸öÆå×ÓÊÇ²»ÊÇÒÑÔÚ×½ÁË.
+		// 2, ä¸Šæ¬¡è¿™ä¸ªæ£‹å­æ˜¯ä¸æ˜¯å·²åœ¨æ‰äº†.
 		if(TO(undo_m) == FROM(m)){  			
 
 			//board_display(POSITION,"cap not exit");
-			if(pseudo_legal(MOVE_FromTo(FROM(undo_m),becap)) == false){ //ÉÏÒ»´Î²»´æÔÚÕâ¸ö×½
+			if(pseudo_legal(MOVE_FromTo(FROM(undo_m),becap)) == false){ //ä¸Šä¸€æ¬¡ä¸å­˜åœ¨è¿™ä¸ªæ‰
 				//board_display(POSITION,"cap not exit");
-				// Õâ´ÎÊÇ×ßµÄÆå×ÓÔÚ×½,µ«ÉÏ´Î²»ÊÇÕâ¸öÆå×ÓÔÚ×½.ÄÇ¾Í²»ÊÇ×½.
+				// è¿™æ¬¡æ˜¯èµ°çš„æ£‹å­åœ¨æ‰,ä½†ä¸Šæ¬¡ä¸æ˜¯è¿™ä¸ªæ£‹å­åœ¨æ‰.é‚£å°±ä¸æ˜¯æ‰.
 			}
 			else if(test_Is_True_Cap(FROM(undo_m),becap,~sideToMove)){
 				cur->move = MOVE_NONE;
 			}
 		}
 		else{
-			// 1, ÉÏ´ÎÕâ¸öÆå×Ó²»ÄÜ×ßµ½ÄÇ¶ùÈ¥×½, 1, ÊÇ×ß²»µ½£¬2£¬ÊÇ²»ÄÜ×ß£¬×ßÁË¾ÍÊÇËÍ½«ÁË
-			if(pseudo_legal(m) == false){ //ÉÏÒ»´Î²»´æÔÚÕâ¸ö×½
+			// 1, ä¸Šæ¬¡è¿™ä¸ªæ£‹å­ä¸èƒ½èµ°åˆ°é‚£å„¿åŽ»æ‰, 1, æ˜¯èµ°ä¸åˆ°ï¼Œ2ï¼Œæ˜¯ä¸èƒ½èµ°ï¼Œèµ°äº†å°±æ˜¯é€å°†äº†
+			if(pseudo_legal(m) == false){ //ä¸Šä¸€æ¬¡ä¸å­˜åœ¨è¿™ä¸ªæ‰
 				//board_display(POSITION,"cap not exit");
 			}
 			else if(legal(m) == false){
 				//legal
 				// fen CR1akab1r/9/2n1b1n2/2p5p/6p2/2P6/r3P1P1P/4CcN2/9/2BAK1BR1 w - - 0 1 moves b9c9 c7e6 c9b9 e6c7 
 			}
-			// 2,  Õâ¸öÆå×ÓÊÇ¿ÉÄÜ×½¶Ô·½, µ«Ëû±¾Éí²»ÄÜ³Ô¶Ô·½. 
+			// 2,  è¿™ä¸ªæ£‹å­æ˜¯å¯èƒ½æ‰å¯¹æ–¹, ä½†ä»–æœ¬èº«ä¸èƒ½åƒå¯¹æ–¹. 
 			else if(test_Is_True_Cap(cap,becap,~sideToMove)){
-				//this_move->move[i] = 0;  //×öÒ»¸ö±êÖ¾.
+				//this_move->move[i] = 0;  //åšä¸€ä¸ªæ ‡å¿—.
 				cur->move = MOVE_NONE;
 			}
 		}	
@@ -102,12 +102,12 @@ bool Position::see_draw_by_last_move(Square mfrom, Square mto, Square ofrom, Squ
 //#endif
 	move_do_test(undo_m, &undo_capture); 
 
-	//ÓàÏÂµÄÊÇÐÂ²úÉúµÄ×½, Èç¹ûÉÏ´ÎÊÇÔ­À´´æÔÚµÄ×½,¾Í²»ÒªÔÙÅÐ¶ÏÁË
+	//ä½™ä¸‹çš„æ˜¯æ–°äº§ç”Ÿçš„æ‰, å¦‚æžœä¸Šæ¬¡æ˜¯åŽŸæ¥å­˜åœ¨çš„æ‰,å°±ä¸è¦å†åˆ¤æ–­äº†
 	for (cur = mlist; cur != last; cur++){	
 		m = cur->move;
 
 		if(m == MOVE_NONE){
-			continue;    // ×öÒ»¸ö±êÖ¾.
+			continue;    // åšä¸€ä¸ªæ ‡å¿—.
 		}
 		// fen 2N2Rb2/3k5/2ra5/p5n2/4C4/P4n3/4c4/4N2CB/3KA4/5A3 b - - 0 1 moves c7c5 c9b7 c5c7 b7c9 c7c5
 		if(incheck){
@@ -116,10 +116,10 @@ bool Position::see_draw_by_last_move(Square mfrom, Square mto, Square ofrom, Squ
 			}
 		}
 
-		// Èç¹ûÕâ¸öTO»¹ÓÐÆäËüµÄÆå×ÓÔÚ¹¥»÷£¬ÔòÒ²²»Ëã×½¡£
+		// å¦‚æžœè¿™ä¸ªTOè¿˜æœ‰å…¶å®ƒçš„æ£‹å­åœ¨æ”»å‡»ï¼Œåˆ™ä¹Ÿä¸ç®—æ‰ã€‚
 
-		// fen 4ca3/3k5/3a5/R8/2r6/4C4/P3P3P/4B4/4A4/4KAB2 w moves  ¶¯½«³ÔÅÚ
-		// 1, ³£×½²»¹ýºÓ±ø²»Ëã×½
+		// fen 4ca3/3k5/3a5/R8/2r6/4C4/P3P3P/4B4/4A4/4KAB2 w moves  åŠ¨å°†åƒç‚®
+		// 1, å¸¸æ‰ä¸è¿‡æ²³å…µä¸ç®—æ‰
 		if(b90[TO(m)] == RPAWN && StoY(TO(m)) >= 0x5){
 			continue;
 		}
@@ -134,54 +134,54 @@ bool Position::see_draw_by_last_move(Square mfrom, Square mto, Square ofrom, Squ
 		}
 		if(!legal(m)){
 			continue;
-		}  // Õâ¸ö¿ÉÒÔ·ÅÔÚÇ°ÃæµÄÅÐ¶ÏÖÐ£¬Ò²¾ÍÊÇÕâ¸öfor·Åµ½Ç°Ãæ
+		}  // è¿™ä¸ªå¯ä»¥æ”¾åœ¨å‰é¢çš„åˆ¤æ–­ä¸­ï¼Œä¹Ÿå°±æ˜¯è¿™ä¸ªforæ”¾åˆ°å‰é¢
 
 		if(test_Is_True_Cap(FROM(m),TO(m),which)){ // from,to,side)){ //TRUECap)){ // test_Is_True_Cap(board,cap,becap,from,to,which,TRUECap); 
 			
-			//±£´æ±¾´ÎµÄ×½
+			//ä¿å­˜æœ¬æ¬¡çš„æ‰
 			to_id = b90[TO(m)];
-			int num   = TRUECap->cap_num[0][which];                // ¹²ÓÐ¶àÉÙÓÐ³Ô×Ó²½.
-			TRUECap->LastCapChess[num][0][which]      = to_id;     // ±»×½µÄÆå×Ó.            1. Õâ¸öÆå×ÓÊÇÅÜµÄ. 2. Õâ¸öÆå×ÓÊÇ²»¶¯µÄ. 
-			TRUECap->last_to[num][0][which]           = TO(m);     // ×½×Ó·½µÄ³Ô×Ó²½µÄto
-			TRUECap->last_ot_from[num][0][which]      = ofrom;     // ±»×½×Ó·½×ßµÄfrom 
+			int num   = TRUECap->cap_num[0][which];                // å…±æœ‰å¤šå°‘æœ‰åƒå­æ­¥.
+			TRUECap->LastCapChess[num][0][which]      = to_id;     // è¢«æ‰çš„æ£‹å­.            1. è¿™ä¸ªæ£‹å­æ˜¯è·‘çš„. 2. è¿™ä¸ªæ£‹å­æ˜¯ä¸åŠ¨çš„. 
+			TRUECap->last_to[num][0][which]           = TO(m);     // æ‰å­æ–¹çš„åƒå­æ­¥çš„to
+			TRUECap->last_ot_from[num][0][which]      = ofrom;     // è¢«æ‰å­æ–¹èµ°çš„from 
 			TRUECap->last_ot_to[num][0][which]        = oto;
-			if(num < MAX_REAL_CAP_NUM - 1){   //×î¶àÍ¬Ê±ÅÐ¶ÏÈý¸ö³£×½
+			if(num < MAX_REAL_CAP_NUM - 1){   //æœ€å¤šåŒæ—¶åˆ¤æ–­ä¸‰ä¸ªå¸¸æ‰
 				TRUECap->cap_num[0][which]++;
 			}
 		}
 	}
 
 	//**************************************************************************************************
-	//ËùÓÐµÄ×½ÓÐÁÐ±íÁË, ÓëÉÏ´ÎµÄËùÓÐµÄ×½±È¶ÔÒ»ÏÂ, Èç¹ûÓÐ¶ÔÍ¬Ò»¸öIDµÄ,¾ÍÊÇ×½.
-	//Õâ¸öÓÐ¶þ¸ö³£×½ÔÚ, Òª¶þ´ÎÅÐ¶ÏÄÇ¸ö×½, ËùÒÔÕâ¸ö×î¸´ÔÓ.
+	//æ‰€æœ‰çš„æ‰æœ‰åˆ—è¡¨äº†, ä¸Žä¸Šæ¬¡çš„æ‰€æœ‰çš„æ‰æ¯”å¯¹ä¸€ä¸‹, å¦‚æžœæœ‰å¯¹åŒä¸€ä¸ªIDçš„,å°±æ˜¯æ‰.
+	//è¿™ä¸ªæœ‰äºŒä¸ªå¸¸æ‰åœ¨, è¦äºŒæ¬¡åˆ¤æ–­é‚£ä¸ªæ‰, æ‰€ä»¥è¿™ä¸ªæœ€å¤æ‚.
 	// fen 3a1kb2/2r6/4ba3/p6Np/9/P3p1RcP/9/4B4/4A4/2BK1A3 b - - 53 53 
 	// fen r2akab2/1c7/2n1b1c2/p1R1p3p/5nr2/9/P3P2NP/1CN1C4/5R3/2BAKAB2 b - - 16 16 
 	this_num = TRUECap->cap_num[0][which];
-	while(this_num > 0 && TRUECap->isTrueCap == false){  //±¾´ÎÓÐ×½
+	while(this_num > 0 && TRUECap->isTrueCap == false){  //æœ¬æ¬¡æœ‰æ‰
 		this_num --;
 		n_to_id        = TRUECap->LastCapChess   [this_num][0][which];
 
-		TRUECap->capture_chess[which] = type_of(n_to_id);  // ±£´æ×½µÄÆå×Ó
+		TRUECap->capture_chess[which] = type_of(n_to_id);  // ä¿å­˜æ‰çš„æ£‹å­
 
 		n_last_cap_to  = TRUECap->last_to        [this_num][0][which];
 		last_num   = TRUECap->cap_num[1][which];
-		if(last_num == 0){                                               // Èç¹ûÉÏ´ÎÃ»ÓÐ×½,Õâ¸ö¿Ï¶¨ÊÇ×½
+		if(last_num == 0){                                               // å¦‚æžœä¸Šæ¬¡æ²¡æœ‰æ‰,è¿™ä¸ªè‚¯å®šæ˜¯æ‰
 			TRUECap->isTrueCap = true;			
 		}
 		else{
 			while(last_num > 0){
 				last_num --;
-				if(TRUECap->LastCapChess[last_num][1][which] == n_to_id){         // Õâ¸ö¶þ¸ö×½µÄÊÇÍ¬Ò»ÀàÆå×Ó. µ«¿ÉÄÜÊÇ²»Í¬µÄÆå×Ó. 
+				if(TRUECap->LastCapChess[last_num][1][which] == n_to_id){         // è¿™ä¸ªäºŒä¸ªæ‰çš„æ˜¯åŒä¸€ç±»æ£‹å­. ä½†å¯èƒ½æ˜¯ä¸åŒçš„æ£‹å­. 
 					
 					// fen 3ak1b2/4a4/4b4/8R/6r2/p3P3p/9/4B4/4A4/4KAB2 b - - 0 1
-					// ×½²»Í¬µÄÆå×ÓÔõÑùÅÐ¶Ï
+					// æ‰ä¸åŒçš„æ£‹å­æ€Žæ ·åˆ¤æ–­
 					// fen 3ak1b2/4a4/4b4/8R/6r2/p3P2p1/9/4B4/4A4/4KAB2 w - - 0 1 moves i6h6 h4i4 h6a6 a4b4 a6i6 i4h4 i6b6 b4a4 b6h6 h4i4 h6a6 a4b4 a6i6 i4h4 i6b6 b4a4 b6h6
 
 					// fen 3a5/9/4k4/3N1n3/9/3C2B2/3c5/4B4/2C1A4/4K4 w - - 13 13 3ak1b2/4a4/4b4/8R/6r2/p3P2p1/9/4B4/4A4/4KAB2 w - - 0 1 i6h6
-					if(TRUECap->last_to[last_num][1][which] == n_last_cap_to){    // 0x09 Ä¿±êÆå¸ñÃ»ÓÐ¶¯¹ý¡£
-						TRUECap->isTrueCap = true;                                // Õâ¸öÒ»°ãÊÇÈÃ¿ªÅÚµÄ×½						
+					if(TRUECap->last_to[last_num][1][which] == n_last_cap_to){    // 0x09 ç›®æ ‡æ£‹æ ¼æ²¡æœ‰åŠ¨è¿‡ã€‚
+						TRUECap->isTrueCap = true;                                // è¿™ä¸ªä¸€èˆ¬æ˜¯è®©å¼€ç‚®çš„æ‰						
 					}
-					//if(TRUECap->last_to[last_num][1][which] == n_last_op_from){   // Õâ¸öÊÇ¸ú×Å×½
+					//if(TRUECap->last_to[last_num][1][which] == n_last_op_from){   // è¿™ä¸ªæ˜¯è·Ÿç€æ‰
 					//	TRUECap->isTrueCap = true;						  
 					//}
 					// fen 3ak1b2/4a4/4b4/8R/6r2/p3P2p1/9/4B4/4A4/4KAB2 w - - 0 1 moves i6h6 h4i4 h6i6 i4h4 i6h6
@@ -202,7 +202,7 @@ bool Position::see_draw_by_last_move(Square mfrom, Square mto, Square ofrom, Squ
 		TRUECap->last_ot_to[i][1][which]      = TRUECap->last_ot_to[i][0][which];
 		TRUECap->last_to     [i][1][which]    = TRUECap->last_to     [i][0][which];
 	}
-	TRUECap->cap_num[1][which] = TRUECap->cap_num[0][which];  // ÉÏ´Î¹²ÓÐ¶àÉÙ´Î×½µÄ×ß²½. 
+	TRUECap->cap_num[1][which] = TRUECap->cap_num[0][which];  // ä¸Šæ¬¡å…±æœ‰å¤šå°‘æ¬¡æ‰çš„èµ°æ­¥. 
 	return TRUECap->isTrueCap;
 }
 

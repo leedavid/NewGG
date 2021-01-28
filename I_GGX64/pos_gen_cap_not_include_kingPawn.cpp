@@ -22,16 +22,16 @@ using std::string;
 
 #define SERIALIZE_MOVES(from,to)  (*mlist++).move = make_move(from, to);
 
-/// ²úÉú²»°üÀ¨±øºÍ½«ÒÆ¶¯µÄ³Ô×Ó²½
+/// äº§ç”Ÿä¸åŒ…æ‹¬å…µå’Œå°†ç§»åŠ¨çš„åƒå­æ­¥
 
 ExtMove* Position::cattura_not_include_pawn_king(ExtMove* mlist, Color c) {
 	
 	Piece delt = COLOR_BY_SIDE_ADD[c];
-	Bitboard cel = byChessBB[_X_X - delt]; // ¶Ô·½µÄÆå¸ñ bitboard_occ_black
+	Bitboard cel = byChessBB[_X_X - delt]; // å¯¹æ–¹çš„æ£‹æ ¼ bitboard_occ_black
 
 	Bitboard pawnKingAtt;  //  = _mm_setzero_si128();
 
-	// ½«£¬±ø¿É³ÔµÄÎ»ÆåÅÌ
+	// å°†ï¼Œå…µå¯åƒçš„ä½æ£‹ç›˜
 	if (c == WHITE){
 		pawnKingAtt = OneRpawnOrRking_AttackBB[piece_list(RKING, 0)];
 
@@ -39,15 +39,15 @@ ExtMove* Position::cattura_not_include_pawn_king(ExtMove* mlist, Color c) {
 		//
 		Bitboard btmp = bbMyPawn;
 		btmp = _mm_andnot_si128(_mm_load_si128((__m128i*)Rank0BB), btmp);
-		m_Rsf(btmp, 9); //ËùÓĞ±øÏòÇ°Ò»²½
+		m_Rsf(btmp, 9); //æ‰€æœ‰å…µå‘å‰ä¸€æ­¥
 		pawnKingAtt = m_or(pawnKingAtt, btmp);
-		Bitboard ghp = m_and(bbMyPawn, _mm_load_si128((__m128i*)RpawnOverBB));// µÃµ½¹ıºÓ±ø
+		Bitboard ghp = m_and(bbMyPawn, _mm_load_si128((__m128i*)RpawnOverBB));// å¾—åˆ°è¿‡æ²³å…µ
 		if (m_have_bit(ghp)){
-			btmp = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB), ghp);  //È¥ÁË×î×óÃæµÄ±ø	
-			m_Rsf(btmp, 1);                                         //ËùÓĞºì±øÏò×óÒ»²½			
+			btmp = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB), ghp);  //å»äº†æœ€å·¦é¢çš„å…µ	
+			m_Rsf(btmp, 1);                                         //æ‰€æœ‰çº¢å…µå‘å·¦ä¸€æ­¥			
 			pawnKingAtt = m_or(pawnKingAtt, btmp);
-			btmp = _mm_andnot_si128(_mm_load_si128((__m128i*)File8BB), ghp);  //È¥ÁË×îÓÒÃæµÄ±ø
-			m_Lsf(btmp, 1);                                               //ËùÓĞºì±øÏòÓÒÒ»²½	
+			btmp = _mm_andnot_si128(_mm_load_si128((__m128i*)File8BB), ghp);  //å»äº†æœ€å³é¢çš„å…µ
+			m_Lsf(btmp, 1);                                               //æ‰€æœ‰çº¢å…µå‘å³ä¸€æ­¥	
 			pawnKingAtt = m_or(pawnKingAtt, btmp);
 		}
 	}
@@ -58,22 +58,22 @@ ExtMove* Position::cattura_not_include_pawn_king(ExtMove* mlist, Color c) {
 		//
 		Bitboard btmp = bbMyPawn;
 		btmp = _mm_andnot_si128(_mm_load_si128((__m128i*)Rank9BB), btmp);
-		m_Lsf(btmp, 9); //ËùÓĞ±øÏòÇ°Ò»²½
+		m_Lsf(btmp, 9); //æ‰€æœ‰å…µå‘å‰ä¸€æ­¥
 		pawnKingAtt = m_or(pawnKingAtt, btmp);
-		Bitboard ghp = m_and(bbMyPawn, _mm_load_si128((__m128i*)BpawnOverBB));// µÃµ½¹ıºÓ±ø
+		Bitboard ghp = m_and(bbMyPawn, _mm_load_si128((__m128i*)BpawnOverBB));// å¾—åˆ°è¿‡æ²³å…µ
 		if (m_have_bit(ghp)){
-			btmp = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB), ghp);  //È¥ÁË×î×óÃæµÄ±ø	
-			m_Rsf(btmp, 1);                                         //ËùÓĞºì±øÏò×óÒ»²½			
+			btmp = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB), ghp);  //å»äº†æœ€å·¦é¢çš„å…µ	
+			m_Rsf(btmp, 1);                                         //æ‰€æœ‰çº¢å…µå‘å·¦ä¸€æ­¥			
 			pawnKingAtt = m_or(pawnKingAtt, btmp);
-			btmp = _mm_andnot_si128(_mm_load_si128((__m128i*)File8BB), ghp);  //È¥ÁË×îÓÒÃæµÄ±ø
-			m_Lsf(btmp, 1);                                               //ËùÓĞºì±øÏòÓÒÒ»²½	
+			btmp = _mm_andnot_si128(_mm_load_si128((__m128i*)File8BB), ghp);  //å»äº†æœ€å³é¢çš„å…µ
+			m_Lsf(btmp, 1);                                               //æ‰€æœ‰çº¢å…µå‘å³ä¸€æ­¥	
 			pawnKingAtt = m_or(pawnKingAtt, btmp);
 		}
 	}
 
 
 	//***********************************************************
-	// ²úÉúËùÓĞÏàµÄ³Ô×Ó×ß²½
+	// äº§ç”Ÿæ‰€æœ‰ç›¸çš„åƒå­èµ°æ­¥
 	//***********************************************************
 	for(int i = 0; i < piece_count(RXIANG + delt); i++){
 		Square from = piece_list(RXIANG + delt,i);	
@@ -85,7 +85,7 @@ ExtMove* Position::cattura_not_include_pawn_king(ExtMove* mlist, Color c) {
 		}
 	}
 	//***********************************************************
-	// ²úÉúËùÓĞºìÊËµÄ³Ô×Ó×ß²½
+	// äº§ç”Ÿæ‰€æœ‰çº¢ä»•çš„åƒå­èµ°æ­¥
 	//***********************************************************
 	for(int i = 0; i < piece_count(RSHI + delt); i++){
 		Square from = piece_list(RSHI + delt,i);	
@@ -97,7 +97,7 @@ ExtMove* Position::cattura_not_include_pawn_king(ExtMove* mlist, Color c) {
 		}
 	}
 	//***********************************************************
-	// ²úÉúËùÓĞÅÚµÄ³Ô×Ó×ß²½
+	// äº§ç”Ÿæ‰€æœ‰ç‚®çš„åƒå­èµ°æ­¥
 	//***********************************************************
 	for(int i = 0; i < piece_count(RPAO + delt); i++){
 		Square from = piece_list(RPAO + delt,i);	
@@ -109,7 +109,7 @@ ExtMove* Position::cattura_not_include_pawn_king(ExtMove* mlist, Color c) {
 		}
 	}
 	//***********************************************************
-	// ²úÉúËùÓĞÂíµÄ³Ô×Ó×ß²½
+	// äº§ç”Ÿæ‰€æœ‰é©¬çš„åƒå­èµ°æ­¥
 	//***********************************************************
 	for(int i = 0; i < piece_count(RMA + delt); i++){
 		Square from = piece_list(RMA + delt,i);	
@@ -122,7 +122,7 @@ ExtMove* Position::cattura_not_include_pawn_king(ExtMove* mlist, Color c) {
 	}
 
 	//***********************************************************
-	// ²úÉúËùÓĞ³µµÄ³Ô×Ó×ß²½
+	// äº§ç”Ÿæ‰€æœ‰è½¦çš„åƒå­èµ°æ­¥
 	//***********************************************************
 	for(int i = 0; i < piece_count(RCHE + delt); i++){
 		Square from = piece_list(RCHE + delt,i);	

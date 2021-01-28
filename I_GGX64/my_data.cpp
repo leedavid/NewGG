@@ -10,28 +10,28 @@ int      MatAddress[16];
 
 //#define maleg(from,to) _MaLegTable[from][to]
 uint8  _MaLegTable[90][90];                 //
-Score  SafetyTable[TOTAL_SAFE_POINT];                  //°²È«·Ö
+Score  SafetyTable[TOTAL_SAFE_POINT];                  //å®‰å…¨åˆ†
 uint8  KposSafe[90];
 
-TCHAR installDir[512];			   //Èí¼şÔËĞĞÄ¿Â¼
+TCHAR installDir[512];			   //è½¯ä»¶è¿è¡Œç›®å½•
 #ifdef  USE_LOG_FILE
 TCHAR  log_path[512];
 FILE*   llog_file;
 #endif
 
 #ifdef USE_RPPAWN_GOOD_MOVE
-Bitboard RPawnGoodMove[90];     // Ö»ÓĞÏòÖĞ¼ä×ßµÄ²½ÊÇºÃ²½.
+Bitboard RPawnGoodMove[90];     // åªæœ‰å‘ä¸­é—´èµ°çš„æ­¥æ˜¯å¥½æ­¥.
 Bitboard BPawnGoodMove[90];
 #endif
 
 
-Bitboard PaoCanAttKing[90];     // ÅĞ¶ÏÒ»ÏÂÅÚÄÜÀ´ÄÜ
+Bitboard PaoCanAttKing[90];     // åˆ¤æ–­ä¸€ä¸‹ç‚®èƒ½æ¥èƒ½
 
-Score PrePawnAttKingMul_Safe[3][90][90]; // ±øÄÜ¹¥»÷½«µÄÄÜÁ¦ 
-Score point_R_01Shi_B_Pawn90[3][90];           // ¶Ô·½È±ÊËÊ±±øµÄÎ»ÖÃ·Ö
+Score PrePawnAttKingMul_Safe[3][90][90]; // å…µèƒ½æ”»å‡»å°†çš„èƒ½åŠ› 
+Score point_R_01Shi_B_Pawn90[3][90];           // å¯¹æ–¹ç¼ºä»•æ—¶å…µçš„ä½ç½®åˆ†
 Score point_B_01Shi_R_Pawn90[3][90];
 
 bool MustOuPutEvalInf;
 
-void (*funMat[26244])	(typePOS &board, EvalInfo &ei);  //ÓÃÀ´ÆÀ¹ÀµÄº¯ÊıÖ¸Õë
+void (*funMat[26244])	(typePOS &board, EvalInfo &ei);  //ç”¨æ¥è¯„ä¼°çš„å‡½æ•°æŒ‡é’ˆ
 

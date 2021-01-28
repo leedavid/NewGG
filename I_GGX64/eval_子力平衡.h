@@ -1,5 +1,5 @@
 
-// ¼ÆËãË«·½Æå×ÓµÄ×ÓÁ¦Æ½ºâ
+// è®¡ç®—åŒæ–¹æ£‹å­çš„å­åŠ›å¹³è¡¡
 //Bitboard b_white_over = m_and(bitboard_occ_white,UpBB[5]);
 //Bitboard b_black_over = m_and(bitboard_occ_black,LowBB[4]);
 //

@@ -338,7 +338,7 @@ int MyQsearchCheck (typePOS* POSITION, int VALUE, int depth)
 			v = -OppQsearchCheck (POSITION, 1 - VALUE, depth);
 		}
 		else{
-			v = -OppQsearchEvasion (POSITION, 1 - VALUE, depth);  //½â½«²½Ò»¶¨ÒªÑÓÉì
+			v = -OppQsearchEvasion (POSITION, 1 - VALUE, depth);  //è§£å°†æ­¥ä¸€å®šè¦å»¶ä¼¸
 		}
 		UNDO (POSITION, move);
 		CHECK_HALT ();
@@ -357,7 +357,7 @@ int MyQsearchCheck (typePOS* POSITION, int VALUE, int depth)
 	HashUpper (POSITION->DYN->HASH, 1, best_value);
 	RETURN (best_value);
 }
-// ½â½«²½??
+// è§£å°†æ­¥??
 int MyQsearchEvasion (typePOS* POSITION, int VALUE, int depth)
 {
 	Bitboard TARGET;

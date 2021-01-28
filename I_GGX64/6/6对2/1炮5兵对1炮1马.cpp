@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ез5╠Ь╤т1ез1бМ.cpp"
+#include "1Г┌╝5Е┘╣Е╞╧1Г┌╝1И╘╛.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-// ез5╠Ь╤тезбМ
+// Г┌╝5Е┘╣Е╞╧Г┌╝И╘╛
 void my_m_MT_R_1pao5pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
@@ -25,7 +25,7 @@ void my_m_MT_R_1pao5pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 		MY_EV_ADD(EV_MY_CAN * 32);
 	}
 	// fen 3a5/4ak3/2P6/4P4/2b6/9/5C3/B4An2/3KA4/2B5c b - - 126 126
-    //хГ╧Шез╥╫йгйкоЮх╚ё╛грезтз╤Чоъртобё╛╬мр╙╪с╥ж
+    //Е╕┌Ф·°Г┌╝Ф√╧Ф≤╞Д╩∙Г⌡╦Е┘╗О╪▄Д╦■Г┌╝Е°╗Д╨▄Г╨©Д╩╔Д╦▀О╪▄Е╟╠Х╕│Е┼═Е┬├
 }
 
 //void m_MT_B_1pao5pawn_R_1pao1ma(typePOS &POSITION, EvalInfo &ei){

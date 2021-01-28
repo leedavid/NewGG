@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Âí2±ø¶Ô1ÅÚ.cpp"
+#include "1é©¬2å…µå¯¹1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -18,7 +18,7 @@ void my_m_MT_R_1ma2pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	// ADD
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
-	MY_EV_ADD((sint16)count_1s(bmp) * ADD_1Âí±ø¶Ô1ÅÚ_by_Pawn_By_Shi[your_shi_num]);
+	MY_EV_ADD((sint16)count_1s(bmp) * ADD_1é©¬å…µå¯¹1ç‚®_by_Pawn_By_Shi[your_shi_num]);
 
 	//Square yk   = your_king_pos;
 	Square ypao = S90_from_piecelist(POSITION,your_pao,0);
@@ -65,7 +65,7 @@ void my_m_MT_R_1ma2pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 	   }
    }
 
-	//Èç¹ûÓÐÎÑÐÄÂíÔÚ,¾Í¿ÉÄÜÊÇºÍÆå
+	//å¦‚æžœæœ‰çªå¿ƒé©¬åœ¨,å°±å¯èƒ½æ˜¯å’Œæ£‹
 	// fen 3aka3/4n4/b3b4/9/9/4C1B2/9/5p3/2p1K4/3p5 w - - 14 14
    // fen 9/4k1P2/b8/9/4c4/2P6/9/4B3B/4N4/3AKA3 w
    if(PB90(MY_SQ4C) == my_ma && PB90(MY_SQ54) == my_shi && PB90(MY_SQ56) == my_shi
@@ -157,14 +157,14 @@ void my_m_MT_R_1ma2pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
    if (your_shi_num == 2 && your_xiang_num >= 1 && StoY(ypao) MY_SMALL_EQL MY_RANK4){
 	   if (!have_bit(bb_my_pawn, MyLowBB[MY_RANK2]) && StoY(yk) == MY_RANK2){
 		   if (PB90(MY_SQ17) != your_shi && have_bit(bb_my_pawn, LeftBB[0x4])){ 
-			   // ×ó±ßÓÐÒ»¸ö·Ï±ø
+			   // å·¦è¾¹æœ‰ä¸€ä¸ªåºŸå…µ
 			   Bitboard op = m_and(bb_my_pawn, RightBB[0x5]);
 			   if (have_bit(op, MyUpBB[MY_RANK2])){
 				   RETRUN_MUL(4);
 			   }
 		   }
 		   if (PB90(MY_SQ15) != your_shi && have_bit(bb_my_pawn, RightBB[0x4])){
-			   // ×ó±ßÓÐÒ»¸ö·Ï±ø
+			   // å·¦è¾¹æœ‰ä¸€ä¸ªåºŸå…µ
 			   Bitboard op = m_and(bb_my_pawn, LeftBB[0x3]);
 			   if (have_bit(op, MyUpBB[MY_RANK2])){
 				   RETRUN_MUL(4);
@@ -263,7 +263,7 @@ void my_m_MT_R_1ma2pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
  
 
 	// fen 4k4/3Pa2P1/4b4/9/4N1b2/9/6c2/9/5K3/9 b - - 120 120
-	//Ò»¸öºì±øÔÚÍâÃæ£¬¸øÅÚ¿ØÖÆÁË
+	//ä¸€ä¸ªçº¢å…µåœ¨å¤–é¢ï¼Œç»™ç‚®æŽ§åˆ¶äº†
     if(my_xiang_num == 0){
 		if(your_xiang_num == 2 && your_shi_num >= 1 && StoY(yk) == MY_RANK0){
 			if(StoY(mpawn1) MY_SMALL_EQL MY_RANK1 && StoY(mpawn2) MY_SMALL_EQL MY_RANK1){

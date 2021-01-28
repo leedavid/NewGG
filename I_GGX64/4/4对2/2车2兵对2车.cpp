@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2³µ2±ø¶Ô2³µ.cpp"
+#include "2è½¦2å…µå¯¹2è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -18,7 +18,7 @@ void my_m_MT_R_2che2pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	Square mk = my_king_pos;
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
-	MY_EV_ADD((sint16)count_1s(bmp) * ADD_2³µx±ø¶Ô2³µ_byPawn[your_shi_num]);
+	MY_EV_ADD((sint16)count_1s(bmp) * ADD_2è½¦xå…µå¯¹2è½¦_byPawn[your_shi_num]);
 
 	// fen 2b1ka3/4a4/4b4/3r5/PR3P3/1R7/5r3/9/4A4/4KA3 w - - 0 1
 	if(my_shi_num == 2 && mk == MY_SQ55){

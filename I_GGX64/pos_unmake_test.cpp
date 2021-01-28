@@ -25,7 +25,7 @@ void Position::move_do_test(Move m, Piece* capture){
 	Square from    = from_sq(m);
 	Square to      = to_sq(m);
 	Piece  piece   = b90[from];
-	*capture       = b90[to];     // ±£´æ¸Õ²Å³ÔµÄ×Ó.
+	*capture       = b90[to];     // ä¿å­˜åˆšæ‰åƒçš„å­.
 
 	ASSERT(sideToMove == color_of(piece));
 	ASSERT(piece != EMPTY);
@@ -109,7 +109,7 @@ void Position:: move_undo_test(Move m, Piece capture){
 	pieceList[piece][index[to]] = from;
 	index[from] = index[to];
 
-	if (capture)  // Èç¹ûÓĞ³Ô×ÓÁË. 
+	if (capture)  // å¦‚æœæœ‰åƒå­äº†. 
 	{
 		//Square capsq = to;
 
@@ -120,7 +120,7 @@ void Position:: move_undo_test(Move m, Piece capture){
 		set_bit(byChessBB[COLOR_BY_SIDE_ADD[them]],to);
 		set_bit(byChessBB[capture],to);
 
-		b90[to] = capture;  // Õâ¸ö¼ÓÉÏ,°²È«Ğ©		
+		b90[to] = capture;  // è¿™ä¸ªåŠ ä¸Š,å®‰å…¨äº›		
 
 		// Update piece list, add a new captured piece in capsq square
 		pieceList[capture][pieceCount[capture]] = to;

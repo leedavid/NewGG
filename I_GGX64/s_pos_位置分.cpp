@@ -48,7 +48,7 @@ const sint16 End_2_Shi_Pawn45[50] = {
 	0,   0,   0,   0,    0,        //c
 };
 
-// //1Shi_B_Pawn256[256];  //Ö»ÓĞÒ»¸öÊ¿ºó,¶Ô·½±øµÄ¼Ó·Ö
+// //1Shi_B_Pawn256[256];  //åªæœ‰ä¸€ä¸ªå£«å,å¯¹æ–¹å…µçš„åŠ åˆ†
 const sint16 Open_1_Shi_Pawn45[50] = {
 	0,   0,   0,   0,    0,        //3
 	15,  15,  48,  64,   96,        //4
@@ -62,7 +62,7 @@ const sint16 Open_1_Shi_Pawn45[50] = {
 	0,   0,   0,   0,    0,        //c
 };
 
-// //1Shi_B_Pawn256[256];  //Ö»ÓĞÒ»¸öÊ¿ºó,¶Ô·½±øµÄ¼Ó·Ö
+// //1Shi_B_Pawn256[256];  //åªæœ‰ä¸€ä¸ªå£«å,å¯¹æ–¹å…µçš„åŠ åˆ†
 const sint16 End_1_Shi_Pawn45[50] = {
 	0,   0,   0,   0,    0,        //3
 	15,  15,  48,  64,   96,        //4
@@ -102,7 +102,7 @@ const sint16 End_0_Shi_Pawn45[50] = {
 	0,   0,   0,   0,    0,        //c
 };
 
-const sint16 OpeningKing45[50] = {  //¿ª¾ÖµÄ½«µÄÎ»ÖÃ·Ö
+const sint16 OpeningKing45[50] = {  //å¼€å±€çš„å°†çš„ä½ç½®åˆ†
 	0,    0,   0,   0,    0,
 	0,    0,   0,   0,    0,
 	0,    0,   0,   0,    0,
@@ -128,7 +128,7 @@ const sint16 EndgameKing45[50] = {
 	0,    0,   0,   0,    0,
 };
 
-const sint16 OpeningPawn45[50] = {	//Ææ±øµÄ¿ª¾ÖµÄ±ø
+const sint16 OpeningPawn45[50] = {	//å¥‡å…µçš„å¼€å±€çš„å…µ
 	-60,  -50, -40,  -30,  -55,
 	80,  140, 155,  180,  270,
 	67,  110, 135,  160,  190,
@@ -141,7 +141,7 @@ const sint16 OpeningPawn45[50] = {	//Ææ±øµÄ¿ª¾ÖµÄ±ø
 	0,    0,   0,    0,     0,
 };
 
-//const sint16 EndgamePawn45[50] = {	//Ææ±øµÄ²Ğ¾ÖµÄ±ø
+//const sint16 EndgamePawn45[50] = {	//å¥‡å…µçš„æ®‹å±€çš„å…µ
 //   -60,  -50, -40,  -30,  -55,
 //    76,   95, 115,  125,  145,
 //    67,   85, 105,  115,  125,
@@ -153,9 +153,9 @@ const sint16 OpeningPawn45[50] = {	//Ææ±øµÄ¿ª¾ÖµÄ±ø
 //    0,    0,   0,    0,     0,
 //    0,    0,   0,    0,     0,
 //};
-//Ã»ÓĞ¹ıºÓµÄ±øÒª½µ·Ö£¬²Ğ¾ÖÊ±£®
+//æ²¡æœ‰è¿‡æ²³çš„å…µè¦é™åˆ†ï¼Œæ®‹å±€æ—¶ï¼
 //fen 3k1ab2/3n5/4ba3/3PC3p/p1p6/6B2/3C4c/4B4/3NA4/3AK2c1 w
-const sint16 EndgamePawn45[50] = {	//Ææ±øµÄ²Ğ¾ÖµÄ±ø
+const sint16 EndgamePawn45[50] = {	//å¥‡å…µçš„æ®‹å±€çš„å…µ
 	-60,  -50, -40,  -30,  -55,
 	76,   95, 115,  125,  145,
 	67,   85, 105,  115,  125,
@@ -193,7 +193,7 @@ const sint16 EndgameShiXiang45[50] = {
 	0,   0,   8,   0,    0,
 };
 
-const sint16 OpeningPao45[50] = {	//Ææ±øµÄ¿ª¾ÖµÄÅÚ
+const sint16 OpeningPao45[50] = {	//å¥‡å…µçš„å¼€å±€çš„ç‚®
 	85,  70,  60,  55,  40,
 	65,  75,  50,  50,  40,
 	65,  75,  30,  50,  50,
@@ -232,7 +232,7 @@ const sint16 EndgamePao45[50] = {
 //    80, 80,   80, 108,  0,
 //};
 
-//²Ğ¾ÖÂíÔÚ¼ÒÒªºÃÒ»Ğ©
+//æ®‹å±€é©¬åœ¨å®¶è¦å¥½ä¸€äº›
 const sint16 EndgameMa45[50] = {
 	48,  45,  55,  60,   25,
 	62,  55,  88,  70,   59,
@@ -246,7 +246,7 @@ const sint16 EndgameMa45[50] = {
 	-30, -17, 32,  25,  -55,
 };
 
-const sint16 OpeningMa45[50] = {	  //Ææ±øµÄÂí
+const sint16 OpeningMa45[50] = {	  //å¥‡å…µçš„é©¬
 	48,  35,  55,  60,   35,
 	72,  75,  88,  70,   59,
 	95,  96,  85,  96,  110,
@@ -259,7 +259,7 @@ const sint16 OpeningMa45[50] = {	  //Ææ±øµÄÂí
 	-30, -17,  18, -5,  -55,
 };
 
-const sint16 EndgameChe45[50] = {	//Ææ±øµÄ³µ
+const sint16 EndgameChe45[50] = {	//å¥‡å…µçš„è½¦
 	44,  69,  54, 104,   89,
 	64,  79,  74,  99,  112,
 	54,  74,  54, 104,  109,
@@ -291,15 +291,15 @@ static void init_PrePawnAttKingMul_Safe(){
 
 	static const uint8 const_PawnAtt_X[3][10] =  {
 		// 0   1   2   3   4   5  6    7   8   9
-		{ 16, 32, 28, 24, 20, 16, 12,  8,  4,  0,  },  //0¸öÊË
-		{  8, 16, 12,  8,  0,  0,  0,  0,  0, 0,  },   //1¸öÊË
-		{  4,  8,  4,  0,  0,  0,  0,  0,  0, 0,  },   //2¸öÊË
+		{ 16, 32, 28, 24, 20, 16, 12,  8,  4,  0,  },  //0ä¸ªä»•
+		{  8, 16, 12,  8,  0,  0,  0,  0,  0, 0,  },   //1ä¸ªä»•
+		{  4,  8,  4,  0,  0,  0,  0,  0,  0, 0,  },   //2ä¸ªä»•
 	};
 	static const uint8 const_PawnAtt_Y[3][10] =  {
 		// 0   1   2   3   4   5  6    7   8   9
-		{ 16, 32, 28, 24, 16,  12, 0,  0,  0, 0,  },   //0¸öÊË
-		{  8, 16, 12,  8,  0,  0,  0,  0,  0, 0,  },   //1¸öÊË
-		{  4,  8,  4,  0,  0,  0,  0,  0,  0, 0,  },   //2¸öÊË
+		{ 16, 32, 28, 24, 16,  12, 0,  0,  0, 0,  },   //0ä¸ªä»•
+		{  8, 16, 12,  8,  0,  0,  0,  0,  0, 0,  },   //1ä¸ªä»•
+		{  4,  8,  4,  0,  0,  0,  0,  0,  0, 0,  },   //2ä¸ªä»•
 	};
 	static const char PawnKing[90] = {
 		0,   0,   0,  16,  12,  16,   0,   0,   0,   
@@ -314,7 +314,7 @@ static void init_PrePawnAttKingMul_Safe(){
 		0,   0,   0,  16,  12,  16,   0,   0,   0,   	
 	};
 
-	// Ö÷ÒªÊÇ¿´±øÓë½«µÄÏà¶ÔÎ»ÖÃ, Õâ¶ù×ª»¯³É¹¥»÷µãºÃÒ»Ğ©¡£
+	// ä¸»è¦æ˜¯çœ‹å…µä¸å°†çš„ç›¸å¯¹ä½ç½®, è¿™å„¿è½¬åŒ–æˆæ”»å‡»ç‚¹å¥½ä¸€äº›ã€‚
 	for(int shi = 0; shi < 3; shi++){
 		for(int p = 0; p < 90; p++){
 			for(int k = 0; k < 90; k++){
@@ -326,7 +326,7 @@ static void init_PrePawnAttKingMul_Safe(){
 				int score = 0;
 				int offx = ABS(StoX(k) - StoX(p));
 				int offy = ABS(StoY(k) - StoY(p));
-				if(offx <= 4 && offy <= 4){ // ×îÉÙÒªÔÚ3²½ÄÚ²ÅÓĞÍşĞ²ÍÛ
+				if(offx <= 4 && offy <= 4){ // æœ€å°‘è¦åœ¨3æ­¥å†…æ‰æœ‰å¨èƒå“‡
 
 					if(shi >= 1 && offy >= 4){
 						continue;						
@@ -338,7 +338,7 @@ static void init_PrePawnAttKingMul_Safe(){
 						continue;
 					}
 
-					// ±øÔÚ½«ÉÏÃæ
+					// å…µåœ¨å°†ä¸Šé¢
 					if(  (StoY(k) <= 2 && StoY(p) >= StoY(k))
 						||(StoY(k) >= 7 && StoY(p) <= StoY(k))){
 							score += const_PawnAtt_X[shi][offx];
@@ -366,9 +366,9 @@ static void init_PrePawnAttKingMul_Safe(){
 					}
 				}
 
-				//Èç¹û±øÔÚ±ßÉÏ,Ò²ÒªËãĞ¡Ò»Ğ©
+				//å¦‚æœå…µåœ¨è¾¹ä¸Š,ä¹Ÿè¦ç®—å°ä¸€äº›
 				if(StoX(p) == 0x0 || StoX(p) == 0x8){
-					score /= 2;  //ÒòÎª±øÔÚÖĞ¼äÊÇ¶ş±ßËãµÄ
+					score /= 2;  //å› ä¸ºå…µåœ¨ä¸­é—´æ˜¯äºŒè¾¹ç®—çš„
 				}
 				if(score != 0){
 					score = score * PawnKing[k] / 16;
@@ -378,7 +378,7 @@ static void init_PrePawnAttKingMul_Safe(){
 						score /= 2;
 					}
 				}
-				//Èç¹û½«ÔÚ¶şÏß£¬Ò²Òª½µ·ÖÍÛ
+				//å¦‚æœå°†åœ¨äºŒçº¿ï¼Œä¹Ÿè¦é™åˆ†å“‡
 				//fen 3k1ab2/4a4/4b4/p3C4/c1p1P3p/3N1R2P/P2r1p3/1R3C2B/4AK2c/3A3r1 b - - 11 11
 				if((StoY(k) == 0x1 && StoY(p) >= 0x3) || (StoY(k) == 0x8 && StoY(p) <= 0x6)){
 					if(shi == 2){
@@ -386,7 +386,7 @@ static void init_PrePawnAttKingMul_Safe(){
 					}
 				}
 				//fen 4k1br1/2R1a4/3ab4/2N3R1C/4p4/1N2c1B2/6n1P/4B1p2/3KA4/r4A3 w - - 0 0
-				//Èç¹û½«£¬±øÔÚÁíÒ»±ß£¬ÇÒÓĞ£²¸öÊË
+				//å¦‚æœå°†ï¼Œå…µåœ¨å¦ä¸€è¾¹ï¼Œä¸”æœ‰ï¼’ä¸ªä»•
 				if(shi >= 1){
 					if(    (StoX(k) == 0x3 && StoX(p) > 0x4) 
 						|| (StoX(k) == 0x5 && StoX(p) < 0x4)){
@@ -411,7 +411,7 @@ static void init_PrePawnAttKingMul_Safe(){
 					score = MAX_PrePawnAttKingMul_Safe;
 				}
 
-				// Èç¹û±øÄÜ½«¾ü,ÖÁÉÙ¼ÓÒ»·Ö
+				// å¦‚æœå…µèƒ½å°†å†›,è‡³å°‘åŠ ä¸€åˆ†
 				if(StoY(p) == StoY(k)){
 					if(ABS(StoX(p) - StoX(k)) == 2){
 						score += 1;
@@ -460,7 +460,7 @@ static void from50to90_OE(
 		white90[0] = Score(0);
 		black90[0] = Score(0);
 
-		int r = get_option_value_int("Randomness"); // ¼ÓÒ»Ğ©Ëæ»ú·ÖÔÚÀïÃæ. 
+		int r = get_option_value_int("Randomness"); // åŠ ä¸€äº›éšæœºåˆ†åœ¨é‡Œé¢. 
 
 		for(i = 0; i < 90; i++){
 
@@ -488,10 +488,10 @@ static void from50to90_OE(
 /// added to each entry if the "Randomness" UCI parameter is non-zero.
 /// Second, the black halves of the tables are initialized by mirroring
 /// and changing the sign of the corresponding white scores.
-/// Î»ÖÃ·Ö
+/// ä½ç½®åˆ†
 void Position::init_piece_square_tables() {
 
-	//int r = get_option_value_int("Randomness"), i; // ¼ÓÒ»Ğ©Ëæ»ú·ÖÔÚÀïÃæ. 
+	//int r = get_option_value_int("Randomness"), i; // åŠ ä¸€äº›éšæœºåˆ†åœ¨é‡Œé¢. 
 
 
 	//for (Square s = SQ_A1; s <= SQ_H8; s++){
@@ -509,12 +509,12 @@ void Position::init_piece_square_tables() {
 	//}
 
 	//
-	init_PrePawnAttKingMul_Safe();  // ±øÄÜ¹¥»÷½«µÄÄÜÁ¦ 
+	init_PrePawnAttKingMul_Safe();  // å…µèƒ½æ”»å‡»å°†çš„èƒ½åŠ› 
 
 	from50to90_OE(point_B_01Shi_R_Pawn90_My_CheOpen, point_R_01Shi_B_Pawn90_My_CheOpen, 		
 		Open_0_Shi_Pawn45, End_0_Shi_Pawn45,  80,60,FALSE);
 
-	// ¶Ô·½È±ÊËÊ±±øµÄÎ»ÖÃ·Ö //point_B_01Shi_R_Pawn90[pnum++][yshi][pawn];
+	// å¯¹æ–¹ç¼ºä»•æ—¶å…µçš„ä½ç½®åˆ† //point_B_01Shi_R_Pawn90[pnum++][yshi][pawn];
 	from50to90_OE(point_B_01Shi_R_Pawn90[2], point_R_01Shi_B_Pawn90[2],  
 		Open_2_Shi_Pawn45, End_2_Shi_Pawn45,  60,60,FALSE);
 

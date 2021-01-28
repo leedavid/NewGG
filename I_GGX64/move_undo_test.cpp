@@ -36,7 +36,7 @@ void move_undo_test_white(const typePOS *POSITION, int m, int cattura){
 	POSITION->index[di] = POSITION->index[ai];
 
 	//cattura = POSITION->DYN->cattura;
-	if (cattura)  // ³ÔµÄ×Ó
+	if (cattura)  // åƒçš„å­
 	{
 		// bitboard
 		set_bit(bitboard_occ_black,ai);
@@ -89,7 +89,7 @@ void move_undo_test_black(const typePOS *POSITION, int m, int cattura){
 	POSITION->index[di] = POSITION->index[ai];
 
 	//cattura = POSITION->DYN->cattura;
-	if (cattura)  // ³ÔµÄ×Ó
+	if (cattura)  // åƒçš„å­
 	{
 		// bitboard
 		set_bit(bitboard_occ_white,ai);

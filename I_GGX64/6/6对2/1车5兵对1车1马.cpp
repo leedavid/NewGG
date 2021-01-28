@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ5±ø¶Ô1³µ1Âí.cpp"
+#include "1è½¦5å…µå¯¹1è½¦1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -38,13 +38,13 @@ void my_m_MT_R_1che5pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	//Èç¹û±ø·½Ò»¸ö×ÓÒ²Ã»ÓÐÁË
+//	//å¦‚æžœå…µæ–¹ä¸€ä¸ªå­ä¹Ÿæ²¡æœ‰äº†
 //	if((board->B_shi + board->B_xiang)<= 1){
 //		board->mulScore += ADD_ChePawn_To_CheMa_Pawn_SX_LessOne ;
 //	}
 //
 //	Square bk = PieceListStart(board,BKING);
-//	if((board->B_shi + board->B_xiang) >= 3 && StoY(bk) != 0x5 ){   //±ø·½°²È«ÁË
+//	if((board->B_shi + board->B_xiang) >= 3 && StoY(bk) != 0x5 ){   //å…µæ–¹å®‰å…¨äº†
 //		board->mulScore -= 128;
 //	}
 //

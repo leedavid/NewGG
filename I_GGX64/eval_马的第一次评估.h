@@ -1,43 +1,43 @@
 
-    // ºìÂí
+    // çº¢é©¬
 	for(int i = 0; i < RMa_num(); i++){
 		int s = S90_from_piecelist(POSITION,RMA,i);		
         Bitboard A =  ma_to_king_attacks_bb(s,occ);
 		ei.RmaAtt[i] = A;
 		POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,A); 
 		if(have_bit(A,bit_bk)){
-			set_bit(POSITION->DYN->black_king_check,s);      // ÔÚ½«¾ü
+			set_bit(POSITION->DYN->black_king_check,s);      // åœ¨å°†å†›
 		}
-		else{ // µÃµ½ÂíÍÈÉÏµÄÆå×Ó.
+		else{ // å¾—åˆ°é©¬è…¿ä¸Šçš„æ£‹å­.
 			if(have_bit(Ma_Pseudo_Att[s],bit_bk)){
 			    int leg = maleg(s,bk);
 				set_bit(POSITION->DYN->white_xray,leg);
-				xray_white_list[leg] = s;	// Õâ¶ùÒÑ¼ÇÂ¼ÏÂÁË¹¥»÷ÂíµÄÎ»ÖÃ
+				xray_white_list[leg] = s;	// è¿™å„¿å·²è®°å½•ä¸‹äº†æ”»å‡»é©¬çš„ä½ç½®
 			}
 		}
 
 		
 
-//#ifdef USE_Æå×ÓµÄ±£»¤·Ö
+//#ifdef USE_æ£‹å­çš„ä¿æŠ¤åˆ†
 		A = m_and(A,occ);
 		while(m128_is_have_bit(A)){
 			int t = pop_1st_bit(&A);
-			valu += Point_R_ma_Att_Score[PB90(t)]; // Âí±£»¤×Ô¼ºµÄÆå×ÓµÄµÃ·Ö
+			valu += Point_R_ma_Att_Score[PB90(t)]; // é©¬ä¿æŠ¤è‡ªå·±çš„æ£‹å­çš„å¾—åˆ†
 		}
 //#endif
 	}
 
 
-	// ºÚÂí
+	// é»‘é©¬
 	for(int i = 0; i < BMa_num(); i++){
 		int s = S90_from_piecelist(POSITION,BMA,i);
 		Bitboard A =  ma_to_king_attacks_bb(s,occ);
 		ei.BmaAtt[i] = A;
 		POSITION->DYN->attack_black = m128_bb_or_bb(POSITION->DYN->attack_black,A); 
 		if(have_bit(A,bit_rk)){
-			set_bit(POSITION->DYN->white_king_check,s);      // ÔÚ½«¾ü
+			set_bit(POSITION->DYN->white_king_check,s);      // åœ¨å°†å†›
 		}
-		else{ // µÃµ½ÂíÍÈÉÏµÄÆå×Ó.
+		else{ // å¾—åˆ°é©¬è…¿ä¸Šçš„æ£‹å­.
 			if(have_bit(Ma_Pseudo_Att[s],bit_rk)){
 				int leg = maleg(s,rk);
 				set_bit(POSITION->DYN->black_xray,leg);
@@ -47,11 +47,11 @@
 
 		// 
 
-//#ifdef USE_Æå×ÓµÄ±£»¤·Ö
+//#ifdef USE_æ£‹å­çš„ä¿æŠ¤åˆ†
 		A = m_and(A,occ);
 		while(m128_is_have_bit(A)){
 			int t = pop_1st_bit(&A);
-			valu -= Point_B_ma_Att_Score[PB90(t)]; // Âí±£»¤×Ô¼ºµÄÆå×ÓµÄµÃ·Ö
+			valu -= Point_B_ma_Att_Score[PB90(t)]; // é©¬ä¿æŠ¤è‡ªå·±çš„æ£‹å­çš„å¾—åˆ†
 		}
 //#endif
 

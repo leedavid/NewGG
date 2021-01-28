@@ -3,16 +3,16 @@
 #include "..\\..\\chess.h"
 #include "..\\..\\preGen.h"
  
-#include "1³µ¶Ô1Âí.cpp"
+#include "1è½¦å¯¹1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//const int MaNotShi   = 128;          //Âí²»ÔÚÊËµÄÒ»±ß
-//const int MyKingOpen =  96;			 //ÎÒµÄ½«¿ª·ÅÁË
+//const int MaNotShi   = 128;          //é©¬ä¸åœ¨ä»•çš„ä¸€è¾¹
+//const int MyKingOpen =  96;			 //æˆ‘çš„å°†å¼€æ”¾äº†
 
-//ºì·½Ò»¸ö³µ£¬ºÚ·½Ò»¸öÂí
+//çº¢æ–¹ä¸€ä¸ªè½¦ï¼Œé»‘æ–¹ä¸€ä¸ªé©¬
 void my_m_MT_R_1CHE_B_1MA(typePOS &POSITION, EvalInfo &ei){
 
 	MY_EV_ADD(32);
@@ -36,7 +36,7 @@ void my_m_MT_R_1CHE_B_1MA(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// ¶Ô·½Ë«Ïà
+	// å¯¹æ–¹åŒç›¸
 	if(your_xiang_num == 2){
 		if(your_shi_num == 2){
 			if(yk == MY_SQ04){
@@ -62,15 +62,15 @@ void my_m_MT_R_1CHE_B_1MA(typePOS &POSITION, EvalInfo &ei){
 				}
 			}
 		}
-		//¶Ô·½Ö»ÓĞ¶ş¸öÏàÁË //<<ÏóÆå²Ğ¾ÖÀıµä>> 4 ÂíË«Ïó 
-		//µÚ1¾Ö Ò»³µÀıºÍÂíË«Ïó
-		// fen 2bk5/9/4n4/9/2b6/4R4/9/9/9/4K4 w  //Ö»ÓĞÕâÖÖºÍĞÎ ÖĞÂí,¸ßÏóÁ¬»·
+		//å¯¹æ–¹åªæœ‰äºŒä¸ªç›¸äº† //<<è±¡æ£‹æ®‹å±€ä¾‹å…¸>> 4 é©¬åŒè±¡ 
+		//ç¬¬1å±€ ä¸€è½¦ä¾‹å’Œé©¬åŒè±¡
+		// fen 2bk5/9/4n4/9/2b6/4R4/9/9/9/4K4 w  //åªæœ‰è¿™ç§å’Œå½¢ ä¸­é©¬,é«˜è±¡è¿ç¯
 		if(PB90(MY_SQ26) == your_xiang || PB90(MY_SQ2A) == your_xiang){
 			int yx1 = S90_from_piecelist(POSITION,your_xiang,0);
 			int yx2 = S90_from_piecelist(POSITION,your_xiang,1);
 
 			 if(IsOnSameSide(yx1,yx2)){
-				 //ÂíÄÜ×ßµ½ÖĞ¼ä,»òÂíÔÚÖĞ¼ä
+				 //é©¬èƒ½èµ°åˆ°ä¸­é—´,æˆ–é©¬åœ¨ä¸­é—´
 				 if(MY_SQ16 == yma){
 					 RETRUN_MUL(2);
 				 }
@@ -82,12 +82,12 @@ void my_m_MT_R_1CHE_B_1MA(typePOS &POSITION, EvalInfo &ei){
 
 		}
 	}
-	//¶Ô·½Ë«ÊË
+	//å¯¹æ–¹åŒä»•
 	if(your_shi_num == 2){
-		//<<ÏóÆå²Ğ¾ÖÀıµä>> page 203 //Ò»³µÀıºÍÂíµ¥È±Ïó
+		//<<è±¡æ£‹æ®‹å±€ä¾‹å…¸>> page 203 //ä¸€è½¦ä¾‹å’Œé©¬å•ç¼ºè±¡
 		// fen 3ak1b2/4a4/5n3/1R7/9/9/9/9/9/4K4 w
 		if(your_xiang_num >= 1){
-			//1, ½«ÔÚµÍÏß
+			//1, å°†åœ¨ä½çº¿
 			// fen 3k1a3/4a4/1R1nb4/9/9/9/9/B3K4/9/6B2 w - - 0 115
 			if(StoY(yk) == MY_RANK0 && PB90(MY_SQ0D) == your_shi){
 				if(PB90(MY_SQ15) == your_ma && PB90(MY_SQ05) == your_shi){
@@ -109,7 +109,7 @@ void my_m_MT_R_1CHE_B_1MA(typePOS &POSITION, EvalInfo &ei){
 						RETRUN_MUL(2);
 					}
 				}
-				//2, ÊË½áÁ¬»·
+				//2, ä»•ç»“è¿ç¯
 				if(PB90(MY_SQ03) == your_shi){
 					if(MY_SQ17 == yma && StoX(yk) >= 0x4){
 						RETRUN_MUL(2);
@@ -181,7 +181,7 @@ void my_m_MT_R_1CHE_B_1MA(typePOS &POSITION, EvalInfo &ei){
 
 	
 
-	//Ò»³µ±ØÊ¤Âí,Ë«ÊË,¹Ø¼üÊÇ±ÆÂíµ½ÎŞÊËµÄÒ»±ß,²¢ÓÃË§Öú¹¥
+	//ä¸€è½¦å¿…èƒœé©¬,åŒä»•,å…³é”®æ˜¯é€¼é©¬åˆ°æ— ä»•çš„ä¸€è¾¹,å¹¶ç”¨å¸…åŠ©æ”»
 	Bitboard mkatt = POSITION.Rook_attacks_bb(my_king_pos); // rook_attacks_bb(my_king_pos,BitboardOCC);
 	if(m_have_bit(m_and(mkatt,MyUpBB[MY_RANK2]))){
 		MY_EV_ADD(32);

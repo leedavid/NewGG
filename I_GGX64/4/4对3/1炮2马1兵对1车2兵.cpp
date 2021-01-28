@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
 
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2Âí1±ø¶Ô1³µ2±ø.cpp"
+#include "1ç‚®2é©¬1å…µå¯¹1è½¦2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -22,8 +22,8 @@ void my_m_MT_R_1pao2ma1pawn_B_1che2pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 6P2/5k3/3ab1N2/p8/5N3/3C1r3/9/9/3KA4/5p3 w - - 0 1
 	if(my_shi_num >= 1){
-		if(have_bit(bb_your_pawn,RankBB_A[MY_RANK9])){  // Ò»¸ö±øµ½ÁËµ×Ïß
-			// µÃµ½ÁíÒ»¸ö±ø
+		if(have_bit(bb_your_pawn,RankBB_A[MY_RANK9])){  // ä¸€ä¸ªå…µåˆ°äº†åº•çº¿
+			// å¾—åˆ°å¦ä¸€ä¸ªå…µ
 			Bitboard op = m_and(bb_your_pawn,MyUpBB[MY_RANK5]);
 			if(m_have_bit(op)){
 				MY_EV_ADD(32);

@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí2±ø¶Ô2Âí1±ø.cpp"
+#include "1ç‚®1é©¬2å…µå¯¹2é©¬1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -39,7 +39,7 @@ void my_m_MT_R_1pao1ma2pawn_B_2ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 2bak4/4a4/2n5b/p4C2N/9/4P4/8P/1n7/4A4/2B1K1B2 b - - 0 1
-	// ÓĞ±ß±øÒ²Òª¼õ·Ö
+	// æœ‰è¾¹å…µä¹Ÿè¦å‡åˆ†
 	if(have_bit(bb_your_pawn,LeftBB[0x1])){
 		MY_EV_ADD(EV_MY_CAN * 16);		
 	}
@@ -99,7 +99,7 @@ void my_m_MT_R_1pao1ma2pawn_B_2ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 2ba1k3/4a2P1/4b4/7np/7N1/6B1P/9/5A1nB/4A3C/4K4 w - - 0 1
-	//  ³ÔËÀÒ»¸ö±ø
+	//  åƒæ­»ä¸€ä¸ªå…µ
 	if (your_shi_num == 2 && your_xiang_num == 2 && StoY(yk) MY_SMALL_EQL MY_RANK1){
 		if (EV_MY_CAN <= 1){
 			MY_EV_SUB(32);

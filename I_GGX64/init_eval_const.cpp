@@ -6,128 +6,128 @@
 #include "preGen.h"
 #include "eval_const_h.h"
 
-int Point_StringScoreByChe[16];  // ³µÇ£ÖÆÂíÅÚµÄµÃ·Ö
+int Point_StringScoreByChe[16];  // è½¦ç‰µåˆ¶é©¬ç‚®çš„å¾—åˆ†
 
-int Point_R_XianProtectPoint[16]; // Ïó±£»¤×Ô¼ºÆå×ÓµÄµÃ·Ö
+int Point_R_XianProtectPoint[16]; // è±¡ä¿æŠ¤è‡ªå·±æ£‹å­çš„å¾—åˆ†
 int Point_B_XianProtectPoint[16];
 
-int Point_R_ShiProtectPoint[16];  // ÊË±£»¤×Ô¼ºÆå×ÓµÄµÃ·Ö
+int Point_R_ShiProtectPoint[16];  // ä»•ä¿æŠ¤è‡ªå·±æ£‹å­çš„å¾—åˆ†
 int Point_B_ShiProtectPoint[16];
 
-int point_R_CheProtectPoint[16];  // °ÔÍõ³µµÄ·ÖÊı
+int point_R_CheProtectPoint[16];  // éœ¸ç‹è½¦çš„åˆ†æ•°
 int point_B_CheProtectPoint[16];  
 
-int Point_R_ma_Att_Score[16]; // Âí±£»¤×Ô¼ºÆå×ÓµÄµÃ·Ö
+int Point_R_ma_Att_Score[16]; // é©¬ä¿æŠ¤è‡ªå·±æ£‹å­çš„å¾—åˆ†
 int Point_B_ma_Att_Score[16];
 
-int Point_R_pawn_Att_Score[16]; // ±ø±£»¤×Ô¼ºÆå×ÓµÄµÃ·Ö
+int Point_R_pawn_Att_Score[16]; // å…µä¿æŠ¤è‡ªå·±æ£‹å­çš„å¾—åˆ†
 int Point_B_pawn_Att_Score[16];
 
 int PAWN_NUM_OVER_RIVER_point[8];      //       point(t,t);
 
 //fen 2b1k2r1/3Ra4/2c6/p3p1n1p/2pn5/8P/P2rP4/2N2R2N/4A4/2B1KAB2 w - - 0 
-//Õâ¸öÇ£ÖÆÂíÔÚ74·Ö×óÓÒ£®
-// ---------------------------------------------------------------------- ³µÇ£ÖÆÂíÅÚ
+//è¿™ä¸ªç‰µåˆ¶é©¬åœ¨74åˆ†å·¦å³ï¼
+// ---------------------------------------------------------------------- è½¦ç‰µåˆ¶é©¬ç‚®
 const static sint16 opening_stringbyche[16]  = { 
 	0,
-//  ½«	 ÊË	  Ïà   Âí   ³µ   ÅÚ	 ±ø   
-	0,   0,   0,  16,  0,   0,   0,     // ºìÆå, ³éŒ¢
+//  å°†	 ä»•	  ç›¸   é©¬   è½¦   ç‚®	 å…µ   
+	0,   0,   0,  16,  0,   0,   0,     // çº¢æ£‹, æŠ½å°‡
 	0,
-	0,   0,   0, -16,  0,  -0,   0,     // ºÚÆå
+	0,   0,   0, -16,  0,  -0,   0,     // é»‘æ£‹
 };
 const static sint16 endgame_stringbyche[16]  = { 
 	0,
-//  ½«	 ÊË	  Ïà   Âí   ³µ   ÅÚ	  ±ø   
-	0,   0,   0, 168,  0,  196,   0,     // ºìÆå, ³éŒ¢
+//  å°†	 ä»•	  ç›¸   é©¬   è½¦   ç‚®	  å…µ   
+	0,   0,   0, 168,  0,  196,   0,     // çº¢æ£‹, æŠ½å°‡
 	0,
-	0,   0,   0,-168,  0, -196,   0,     // ºÚÆå
+	0,   0,   0,-168,  0, -196,   0,     // é»‘æ£‹
 };
-// ---------------------------------------------------------------------- Âí±£»¤×Ô¼ºµÄÆå×Ó
+// ---------------------------------------------------------------------- é©¬ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 const static sint16 opening_Rche_Att_Score[16]  = { 
 	0,
-//  ½«	 ÊË	  Ïà   Âí   ³µ    ÅÚ	   ±ø   
-	16,  0,   0,   0,  16,   8,    0,     // ºìÆå, //ÒòÎªÂí±£ÂíÊÇË«·½µÄ£¬ËùÒÔµÃ¼õ°ëÍÛ
+//  å°†	 ä»•	  ç›¸   é©¬   è½¦    ç‚®	   å…µ   
+	16,  0,   0,   0,  16,   8,    0,     // çº¢æ£‹, //å› ä¸ºé©¬ä¿é©¬æ˜¯åŒæ–¹çš„ï¼Œæ‰€ä»¥å¾—å‡åŠå“‡
 	0,
-	0,   0,   0,  16,   0,    0,   0,     // ºÚÆå
+	0,   0,   0,  16,   0,    0,   0,     // é»‘æ£‹
 };
 
 
 const static sint16 endgame_Rche_Att_Score[16]  = { 
 	0,
-//  ½«	 ÊË	  Ïà   Âí   ³µ    ÅÚ	   ±ø   
-	0,   8,   8,  12,  32,   16,   4,     // ºìÆå, ³éŒ¢
+//  å°†	 ä»•	  ç›¸   é©¬   è½¦    ç‚®	   å…µ   
+	0,   8,   8,  12,  32,   16,   4,     // çº¢æ£‹, æŠ½å°‡
 	0,
-	0,   8,   8,  32,   0,   32,   16,     // ºÚÆå
+	0,   8,   8,  32,   0,   32,   16,     // é»‘æ£‹
 };
 
 
 const static sint16 opening_Rma_Att_Score[16]  = { 
 	0,
-//  ½«	 ÊË	  Ïà   Âí   ³µ    ÅÚ	   ±ø   
-	0,   8,   8,  12,  16,   16,   8,     // ºìÆå, //ÒòÎªÂí±£ÂíÊÇË«·½µÄ£¬ËùÒÔµÃ¼õ°ëÍÛ
+//  å°†	 ä»•	  ç›¸   é©¬   è½¦    ç‚®	   å…µ   
+	0,   8,   8,  12,  16,   16,   8,     // çº¢æ£‹, //å› ä¸ºé©¬ä¿é©¬æ˜¯åŒæ–¹çš„ï¼Œæ‰€ä»¥å¾—å‡åŠå“‡
 	0,
-	0,  16,  16,  16,  32,   16,   8,     // ºÚÆå
+	0,  16,  16,  16,  32,   16,   8,     // é»‘æ£‹
 };
 
 
 const static sint16 endgame_Rma_Att_Score[16]  = { 
 	0,
-//  ½«	 ÊË	  Ïà   Âí   ³µ    ÅÚ	   ±ø   
-	0,   8,   8,  12,  16,   16,  16,     // ºìÆå, ³éŒ¢
+//  å°†	 ä»•	  ç›¸   é©¬   è½¦    ç‚®	   å…µ   
+	0,   8,   8,  12,  16,   16,  16,     // çº¢æ£‹, æŠ½å°‡
 	0,
-	0,  16,  16,  16,  32,   16,   8,     // ºÚÆå
+	0,  16,  16,  16,  32,   16,   8,     // é»‘æ£‹
 };
 
-// ---------------------------------------------------------------------- ÊË±£»¤×Ô¼ºµÄÆå×Ó
+// ---------------------------------------------------------------------- ä»•ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 const static sint16 opening_Rshi_Att_Score[16]  = { 
 	0,
-//  ½«	 ÊË	  Ïà   Âí   ³µ    ÅÚ	   ±ø   
-	0,   8,   0,  12,  16,   16,   0,     // ºìÆå,      // ÒòÎªÊË±£ÊËÊÇË«·½µÄ£¬ËùÒÔµÃ¼õ°ëÍÛ
+//  å°†	 ä»•	  ç›¸   é©¬   è½¦    ç‚®	   å…µ   
+	0,   8,   0,  12,  16,   16,   0,     // çº¢æ£‹,      // å› ä¸ºä»•ä¿ä»•æ˜¯åŒæ–¹çš„ï¼Œæ‰€ä»¥å¾—å‡åŠå“‡
 	0,
-	0,   0,   0,  32,  64,   32,   8,     // ºÚÆå
+	0,   0,   0,  32,  64,   32,   8,     // é»‘æ£‹
 };
 
 const static sint16 endgame_Rshi_Att_Score[16]  = { 
 	0,
-//  ½«	 ÊË	  Ïà   Âí    ³µ    ÅÚ	   ±ø   
-	0,   8,   0,  12,  16,   16,   0,     // ºìÆå, ³éŒ¢
+//  å°†	 ä»•	  ç›¸   é©¬    è½¦    ç‚®	   å…µ   
+	0,   8,   0,  12,  16,   16,   0,     // çº¢æ£‹, æŠ½å°‡
 	0,
-	0,   0,   0,  32,  64,   32,   8,     // ºÚÆå
+	0,   0,   0,  32,  64,   32,   8,     // é»‘æ£‹
 };
 
-// ---------------------------------------------------------------------- Ïà
+// ---------------------------------------------------------------------- ç›¸
 const static sint16 opening_Rxiang_Att_Score[16]  = { 
 	0,
-//  ½«	 ÊË	  Ïà   Âí   ³µ    ÅÚ	   ±ø   
-	0,   0,   8,  12,  16,   16,   16,     // ºìÆå, //ÒòÎªÏà±£ÏàÊÇË«·½µÄ£¬ËùÒÔµÃ¼õ°ëÍÛ
+//  å°†	 ä»•	  ç›¸   é©¬   è½¦    ç‚®	   å…µ   
+	0,   0,   8,  12,  16,   16,   16,     // çº¢æ£‹, //å› ä¸ºç›¸ä¿ç›¸æ˜¯åŒæ–¹çš„ï¼Œæ‰€ä»¥å¾—å‡åŠå“‡
 	0,
-	0,   0,   0,  32,  64,   32,   8,      // ºÚÆå
+	0,   0,   0,  32,  64,   32,   8,      // é»‘æ£‹
 };
 
 const static sint16 endgame_Rxiang_Att_Score[16]  = { 
 	0,
-//  ½«	 ÊË	  Ïà   Âí    ³µ    ÅÚ	   ±ø   
-	0,   0,   8,  12,  16,   16,   16,     // ºìÆå, 
+//  å°†	 ä»•	  ç›¸   é©¬    è½¦    ç‚®	   å…µ   
+	0,   0,   8,  12,  16,   16,   16,     // çº¢æ£‹, 
 	0,
-	0,   0,   0,  32,  64,   32,   8,      // ºÚÆå
+	0,   0,   0,  32,  64,   32,   8,      // é»‘æ£‹
 };
 
-// ---------------------------------------------------------------------- ±ø±£»¤×Ô¼ºµÄÆå×ÓµÄµÃ·Ö
+// ---------------------------------------------------------------------- å…µä¿æŠ¤è‡ªå·±çš„æ£‹å­çš„å¾—åˆ†
 const static sint16 opening_Rpawn_Att_Score[16]  = { 
 	0,
-//  ½«	 ÊË	  Ïà   Âí    ³µ    ÅÚ	   ±ø   
-	0,   0,   0,  24,  16,   16,   16,      // ºìÆå, //ÒòÎªÏà±£ÏàÊÇË«·½µÄ£¬ËùÒÔµÃ¼õ°ëÍÛ
+//  å°†	 ä»•	  ç›¸   é©¬    è½¦    ç‚®	   å…µ   
+	0,   0,   0,  24,  16,   16,   16,      // çº¢æ£‹, //å› ä¸ºç›¸ä¿ç›¸æ˜¯åŒæ–¹çš„ï¼Œæ‰€ä»¥å¾—å‡åŠå“‡
 	0,
-	0,  24,  24,  32,  64,   32,   16,      // ºÚÆå
+	0,  24,  24,  32,  64,   32,   16,      // é»‘æ£‹
 };
 
 
 const static sint16 endgame_Rpawn_Att_Score[16]  = { 
 	0,
-//  ½«	 ÊË	  Ïà   Âí    ³µ    ÅÚ	   ±ø   
-	0,   0,   0,  16,  16,   16,   16,     // ºìÆå, 
+//  å°†	 ä»•	  ç›¸   é©¬    è½¦    ç‚®	   å…µ   
+	0,   0,   0,  16,  16,   16,   16,     // çº¢æ£‹, 
 	0,
-	0,  36,  24,  32,  64,   32,   16,      // ºÚÆå
+	0,  36,  24,  32,  64,   32,   16,      // é»‘æ£‹
 };
 
 // --------------------------------------------------------------------------------------
@@ -146,51 +146,51 @@ static void initPointbyOpenEnd(int PointArr[], const sint16 openArr[], const sin
 void eval_const_int(void){
 
 	initPointbyOpenEnd(Point_StringScoreByChe,
-		opening_stringbyche,endgame_stringbyche,FALSE);    // ³µÇ£ÖÆ
+		opening_stringbyche,endgame_stringbyche,FALSE);    // è½¦ç‰µåˆ¶
 
-	//extern int point_R_CheProtectPoint[16];  // °ÔÍõ³µµÄ·ÖÊı
+	//extern int point_R_CheProtectPoint[16];  // éœ¸ç‹è½¦çš„åˆ†æ•°
 	//extern int point_B_CheProtectPoint[16]; 
 
 	initPointbyOpenEnd(point_R_CheProtectPoint,
-		opening_Rche_Att_Score,endgame_Rche_Att_Score,FALSE);  // ºì³µ±£»¤×Ô¼ºµÄÆå×Ó
+		opening_Rche_Att_Score,endgame_Rche_Att_Score,FALSE);  // çº¢è½¦ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 	initPointbyOpenEnd(point_B_CheProtectPoint,
-		opening_Rche_Att_Score,endgame_Rche_Att_Score,TRUE);  // ºÚ³µ±£»¤×Ô¼ºµÄÆå×Ó
+		opening_Rche_Att_Score,endgame_Rche_Att_Score,TRUE);  // é»‘è½¦ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 
 	//initPointbyOpenEnd(point_B_CheProtectPoint,
-	//	opening_Bche_Att_Score,endgame_Bche_Att_Score);  // ºÚ³µ±£»¤×Ô¼ºµÄÆå×Ó
+	//	opening_Bche_Att_Score,endgame_Bche_Att_Score);  // é»‘è½¦ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 
 	initPointbyOpenEnd(Point_R_ma_Att_Score,
-		opening_Rma_Att_Score,endgame_Rma_Att_Score,FALSE);  // ºìÂí±£»¤×Ô¼ºµÄÆå×Ó
+		opening_Rma_Att_Score,endgame_Rma_Att_Score,FALSE);  // çº¢é©¬ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 	initPointbyOpenEnd(Point_B_ma_Att_Score,
-		opening_Rma_Att_Score,endgame_Rma_Att_Score,TRUE);  // ºÚÂí±£»¤×Ô¼ºµÄÆå×Ó
+		opening_Rma_Att_Score,endgame_Rma_Att_Score,TRUE);  // é»‘é©¬ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 
 	//initPointbyOpenEnd(Point_B_ma_Att_Score,
-	//	opening_Bma_Att_Score,endgame_Bma_Att_Score);  // ºÚÂí±£»¤×Ô¼ºµÄÆå×Ó
+	//	opening_Bma_Att_Score,endgame_Bma_Att_Score);  // é»‘é©¬ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 
 	initPointbyOpenEnd(Point_R_XianProtectPoint,
-		opening_Rxiang_Att_Score,endgame_Rxiang_Att_Score,FALSE);  // ºìÏó±£»¤×Ô¼ºµÄÆå×Ó
+		opening_Rxiang_Att_Score,endgame_Rxiang_Att_Score,FALSE);  // çº¢è±¡ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 	initPointbyOpenEnd(Point_B_XianProtectPoint,
-		opening_Rxiang_Att_Score,endgame_Rxiang_Att_Score,TRUE);  // ºÚÏó±£»¤×Ô¼ºµÄÆå×Ó
+		opening_Rxiang_Att_Score,endgame_Rxiang_Att_Score,TRUE);  // é»‘è±¡ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 
 	//initPointbyOpenEnd(Point_B_XianProtectPoint,
-	//	opening_Bxiang_Att_Score,endgame_Bxiang_Att_Score);  // ºÚÏó±£»¤×Ô¼ºµÄÆå×Ó
+	//	opening_Bxiang_Att_Score,endgame_Bxiang_Att_Score);  // é»‘è±¡ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 
 	initPointbyOpenEnd(Point_R_ShiProtectPoint,
-		opening_Rshi_Att_Score,endgame_Rshi_Att_Score,FALSE);  // ºìÊË±£»¤×Ô¼ºµÄÆå×Ó
+		opening_Rshi_Att_Score,endgame_Rshi_Att_Score,FALSE);  // çº¢ä»•ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 
 	initPointbyOpenEnd(Point_B_ShiProtectPoint,
-		opening_Rshi_Att_Score,endgame_Rshi_Att_Score,TRUE);  // ºÚÊË±£»¤×Ô¼ºµÄÆå×Ó
+		opening_Rshi_Att_Score,endgame_Rshi_Att_Score,TRUE);  // é»‘ä»•ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 
 	//initPointbyOpenEnd(Point_B_ShiProtectPoint,
-	//	opening_Bshi_Att_Score,endgame_Bshi_Att_Score);  // ºÚÊË±£»¤×Ô¼ºµÄÆå×Ó
+	//	opening_Bshi_Att_Score,endgame_Bshi_Att_Score);  // é»‘ä»•ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 
 	initPointbyOpenEnd(Point_R_pawn_Att_Score,
-		opening_Rpawn_Att_Score,endgame_Rpawn_Att_Score,FALSE);  // ºì×ä±£»¤×Ô¼ºµÄÆå×Ó
+		opening_Rpawn_Att_Score,endgame_Rpawn_Att_Score,FALSE);  // çº¢å’ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 	initPointbyOpenEnd(Point_B_pawn_Att_Score,
-		opening_Rpawn_Att_Score,endgame_Rpawn_Att_Score,TRUE);  // ºÚ×ä±£»¤×Ô¼ºµÄÆå×Ó
+		opening_Rpawn_Att_Score,endgame_Rpawn_Att_Score,TRUE);  // é»‘å’ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 
 	//initPointbyOpenEnd(Point_B_pawn_Att_Score,
-	//	opening_Bpawn_Att_Score,endgame_Bpawn_Att_Score);  // ºÚ×ä±£»¤×Ô¼ºµÄÆå×Ó
+	//	opening_Bpawn_Att_Score,endgame_Bpawn_Att_Score);  // é»‘å’ä¿æŠ¤è‡ªå·±çš„æ£‹å­
 
 	//const static sint16 PAWN_NUM_OVER_RIVER[6] =   {0, 16, 96, 108, 116, 124};
 	//extern int PAWN_NUM_OVER_RIVER_point[16];      //       point(t,t);

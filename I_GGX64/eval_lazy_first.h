@@ -26,7 +26,7 @@
 				int to = TO(mossa);  // to
 				la_valu = statico_valu[PB90(to)][to] - statico_valu[PB90(to)][FROM(mossa)];
 				if(capture){
-					la_valu -= statico_valu[capture][to];  // Î»ÖÃ·Ö°üÀ¨¿ª¾Ö·ÖÓë²Ğ¾Ö·Ö.
+					la_valu -= statico_valu[capture][to];  // ä½ç½®åˆ†åŒ…æ‹¬å¼€å±€åˆ†ä¸æ®‹å±€åˆ†.
 				}
 				endgame = (sint16)(la_valu & 0xffff);
 				opening = (endgame < 0) + (sint16)((la_valu >> 16) & 0xffff);
@@ -57,7 +57,7 @@
 				int to = TO(mossa);  // to
 				la_valu = statico_valu[PB90(to)][to] - statico_valu[PB90(to)][FROM(mossa)];
 				if(capture){
-					la_valu -= statico_valu[capture][to];  // Î»ÖÃ·Ö°üÀ¨¿ª¾Ö·ÖÓë²Ğ¾Ö·Ö.
+					la_valu -= statico_valu[capture][to];  // ä½ç½®åˆ†åŒ…æ‹¬å¼€å±€åˆ†ä¸æ®‹å±€åˆ†.
 				}			
 				endgame = (sint16)(la_valu & 0xffff);
 				opening = (endgame < 0) + (sint16)((la_valu >> 16) & 0xffff);
@@ -74,7 +74,7 @@
 				POSITION->DYN->lazy = (POSITION->DYN - 1)->lazy + 1;
 				POSITION->DYN->valu = -v;
 				POSITION->DYN->valu_posizionale = posizionale;
-				Mobility (POSITION);  // ÍõµÄ¹¥»÷ĞÔ
+				Mobility (POSITION);  // ç‹çš„æ”»å‡»æ€§
 				return;
 			}
 		}

@@ -5,7 +5,7 @@
  
 #include "preGen.h"
 
-//ËùÓÐµÄ×ß²½ÊÇ²»ÊÇ¿ÉÒÔ×ß
+//æ‰€æœ‰çš„èµ°æ­¥æ˜¯ä¸æ˜¯å¯ä»¥èµ°
 bool move_is_pseudo(int move, typePOS *POSITION) {
 
 	int from  = FROM(move);
@@ -13,7 +13,7 @@ bool move_is_pseudo(int move, typePOS *POSITION) {
 	int piece = PB90(from);
 	int cap   = PB90(to);
 
-	if(PIECE_SIDE(piece) != POS_SIDE){  // Õâ¸öÒòÎªÏà·´,ËùÒÔÒªÕâÑù.
+	if(PIECE_SIDE(piece) != POS_SIDE){  // è¿™ä¸ªå› ä¸ºç›¸å,æ‰€ä»¥è¦è¿™æ ·.
 		return FALSE;
 	}
 
@@ -26,7 +26,7 @@ bool move_is_pseudo(int move, typePOS *POSITION) {
 	switch(piece){
 		case RMA:
 		case BMA:{
-			//µÃµ½ÂíµÄËùÓÐ×ß²½			
+			//å¾—åˆ°é©¬çš„æ‰€æœ‰èµ°æ­¥			
 			return (bit_is_set(king_to_ma_attacks_bb(to,POSITION->byWhiteBlack),from) !=0);
 				 }
 			break;
@@ -41,12 +41,12 @@ bool move_is_pseudo(int move, typePOS *POSITION) {
 				  }
 			break;
 		case RCHE:
-		case BCHE:{ //²»³Ô×ÓÓë³Ô×Ó
+		case BCHE:{ //ä¸åƒå­ä¸Žåƒå­
 			return (bit_is_set(rook_attacks_bb(to,POSITION->byWhiteBlack),from) !=0);
 				  }
 			break;
 		case RPAO:
-		case BPAO:{//²»³Ô×Ó
+		case BPAO:{//ä¸åƒå­
 			if(cap == EMPTY){
 				return (bit_is_set(rook_attacks_bb(to,POSITION->byWhiteBlack),from) !=0);
 			}
@@ -80,15 +80,15 @@ bool move_is_pseudo(int move, typePOS *POSITION) {
 }
 
   //switch(piece){
-  //case my_ma: //µÃµ½ÂíµÄËùÓÐ×ß²½		  		
+  //case my_ma: //å¾—åˆ°é©¬çš„æ‰€æœ‰èµ°æ­¥		  		
 	 // return (bit_is_set(king_to_ma_attacks_bb(to,POSITION->byWhiteBlack),from) !=0);
   //case my_xiang:
 	 // return (bit_is_set(xiang_attacks_bb(to,POSITION->byWhiteBlack),from) !=0);
   //case my_shi:
 	 // return (bit_is_set(shi_attacks(to),from) !=0);
-  //case my_che: //²»³Ô×ÓÓë³Ô×Ó
+  //case my_che: //ä¸åƒå­ä¸Žåƒå­
 	 // return (bit_is_set(rook_attacks_bb(to,POSITION->byWhiteBlack),from) !=0);
-  //case my_pao://²»³Ô×Ó
+  //case my_pao://ä¸åƒå­
 	 // if(capture == EMPTY){
 		//  return (bit_is_set(rook_attacks_bb(to,POSITION->byWhiteBlack),from) !=0);
 	 // }

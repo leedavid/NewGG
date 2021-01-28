@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2Âí1±ø¶Ô1³µ1±ø.cpp"
+#include "2é©¬1å…µå¯¹1è½¦1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -14,7 +14,7 @@
 
 //Add_MAT_B_1ma1pao1pawn_R_1che1pawn_ByShi
 
-// ºì·½ÂíÅÚ±ø,ºÚ·½³µ±ø
+// çº¢æ–¹é©¬ç‚®å…µ,é»‘æ–¹è½¦å…µ
 void my_m_MT_R_2ma1pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
@@ -27,7 +27,7 @@ void my_m_MT_R_2ma1pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	int pyok = (int)count_1s(ymp);
 	MY_EV_SUB(pyok * Add_MAT_B_1che1pawn_R_2ma1pawn_ByShi[my_shi_num]);
 
-	//Èç¹ûºÚ·½µÄ±ø²»ÄÜ¹ýºÓ,Òª¼õ·Ö
+	//å¦‚æžœé»‘æ–¹çš„å…µä¸èƒ½è¿‡æ²³,è¦å‡åˆ†
 	//if((board->R_shi + board->R_xiang) >= 3){
 	//	//if(bcan == 0){
 	//	//	board->mulScore += Add_2ma1pawn_1che1pawn_chePawnCan0;

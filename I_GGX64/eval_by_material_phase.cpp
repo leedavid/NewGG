@@ -1,7 +1,7 @@
 #include "eval_total.h"
 #pragma warning(disable : 4100) 
 //////////////////////////////////////////////////////////////////////////
-/// 过河兵的数量
+/// 杩囨渤鍏电殑鏁伴噺
 template<Color Us>
 int PawnOverRiver(Position& pos, EvalInfo& ei){
 	Bitboard pawn;
@@ -17,7 +17,7 @@ int PawnOverRiver(Position& pos, EvalInfo& ei){
 }
 
 //////////////////////////////////////////////////////////////////////////
-// 根据子力的特殊性的专用评估
+// 鏍规嵁瀛愬姏鐨勭壒娈婃�х殑涓撶敤璇勪及
 template<Color Us>
 Score eval_Only_1Che1PaoxPawn(Position& pos, EvalInfo& ei){
 
@@ -56,7 +56,7 @@ Score eval_Only_1Che1PaoxPawn(Position& pos, EvalInfo& ei){
 
 	// fen 7r1/4k4/5a2b/p7p/6p2/3N5/P6cP/B3B4/4A4/4KR3 b - - 0 0
 	// fen 3k1ab2/4a4/4b4/C3R4/1r7/P8/8P/3A5/3KA1n2/9 b - - 0 1
-	// 对方有马
+	// 瀵规柟鏈夐┈
 	if(pos.piece_count(BMA - delt) >= 0){
 		if(pos.piece_count(RXIANG + delt) <= 1 
 			&& pos.piece_count(RSHI + delt) <= 1){

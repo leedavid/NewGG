@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2±ø¶Ô1Âí.cpp"
+#include "1ç‚®2å…µå¯¹1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -14,12 +14,12 @@
 //const int Panw_Add = 96;
 //ADD_1PaoXPawn_1Ma_ByPawn
 
-//ÎÒ·½Ò»ÅÚ¶ş±ø£¬¶Ô·½Ò»Âí
+//æˆ‘æ–¹ä¸€ç‚®äºŒå…µï¼Œå¯¹æ–¹ä¸€é©¬
 void my_m_MT_R_1PAO2PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
 	// fen 5k3/4c4/9/9/2N6/9/9/4K3B/1p7/7p1 w - - 0 0
-	// ¶ş±øµ½½«ÏÂÃæ£¬ÇÒÃ»ÓĞÊË¡£ 
+	// äºŒå…µåˆ°å°†ä¸‹é¢ï¼Œä¸”æ²¡æœ‰ä»•ã€‚ 
 	if(my_shi_num == 0){
 		//if(!m_have_bit(m_and(MyLowBB[StoY(yk) my_sub],bb_my_pawn))){
 		//	RETRUN_MUL(2);

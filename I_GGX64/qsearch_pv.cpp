@@ -87,7 +87,7 @@ int MyPVQsearch (typePOS* POSITION, int ALPHA, int BETA, int depth)
 		RETURN (best_value);
 	}
 	else if (best_value > ALPHA){
-		//╩╧р╙ио╢н╡╩йг╫╚╬Эё╛╡екЦ║ё
+		//Х©≤Х╕│Д╦┼Ф╛║Д╦█Ф≤╞Е╟├Е├⌡О╪▄Ф┴█Г╝≈Ц─┌
 		//if(POSITION->STACKst[POSITION->StackHeight-1].check == FALSE){
 		ALPHA = best_value;
 		//}
@@ -114,7 +114,7 @@ int MyPVQsearch (typePOS* POSITION, int ALPHA, int BETA, int depth)
 	
 
 	
-	list = MyCapture (POSITION, LIST, TARGET); //ох╡ЗиЗЁтвс╡╫ё©
+	list = MyCapture (POSITION, LIST, TARGET); //Е┘┬Д╨╖Г■÷Е░┐Е╜░Ф╜╔О╪÷
 	p = LIST;
 	while (p->move)
 	{
@@ -179,7 +179,7 @@ int MyPVQsearch (typePOS* POSITION, int ALPHA, int BETA, int depth)
 		else
 			BAD_CAPS[bc++] = move;
 	}
-	if (depth > 0) {                       // хГ╧Ш╩╧спиН╤хё╛╬мкякВ╩╣╣дЁтвс╡╫
+	if (depth > 0) {                       // Е╕┌Ф·°Х©≤Ф°┴Ф╥╠Е╨╕О╪▄Е╟╠Ф░°Г╢╒Е²▐Г └Е░┐Е╜░Ф╜╔
 		for (i = 0; i < bc; i++)
 		{
 			move = BAD_CAPS[i] & 0x7fff;
@@ -222,7 +222,7 @@ int MyPVQsearch (typePOS* POSITION, int ALPHA, int BETA, int depth)
 
 	if (depth >= -2 && POS0->valu >= ALPHA - (100 + (12 << (depth + 5))))
 	{
-		list = MyQuietChecks (POSITION, LIST, TARGET);  // ╡ЗиЗ╡╩Ётвс╣д╫╚╬Э╡╫
+		list = MyQuietChecks (POSITION, LIST, TARGET);  // Д╨╖Г■÷Д╦█Е░┐Е╜░Г └Е╟├Е├⌡Ф╜╔
 		for (i = 0; i < list - LIST; i++)
 		{
 			move = LIST[i].move & 0x7fff;
@@ -313,7 +313,7 @@ int MyPVQsearch (typePOS* POSITION, int ALPHA, int BETA, int depth)
 	HashUpper (POSITION->DYN->HASH, 1, best_value);
 	RETURN (best_value);
 }
-// PV_╤т╥╫╫╚╬Эё╛нр╥╫╣дкякВ
+// PV_Е╞╧Ф√╧Е╟├Е├⌡О╪▄Ф┬▒Ф√╧Г └Ф░°Г╢╒
 int MyPVQsearchCheck (typePOS* POSITION, int ALPHA, int BETA, int depth)
 {
 	
@@ -432,7 +432,7 @@ int MyPVQsearchCheck (typePOS* POSITION, int ALPHA, int BETA, int depth)
 			v = -OppPVQsearchCheck (POSITION, -BETA, -ALPHA, depth);
 		}
 		else{
-			v = -OppPVQsearchEvasion (POSITION, -BETA, -ALPHA, depth);  // ц©╢н╫╚╬Эр╙╪У╥ж
+			v = -OppPVQsearchEvasion (POSITION, -BETA, -ALPHA, depth);  // Ф╞▐Ф╛║Е╟├Е├⌡Х╕│Е┤▐Е┬├
 		}
 		UNDO (POSITION, move);
 		CHECK_HALT ();
@@ -543,7 +543,7 @@ int MyPVQsearchEvasion (typePOS* POSITION, int ALPHA, int BETA, int depth)
 		}
 	}
 
-	list = MyCapture (POSITION, LIST, TARGET); //ох╡ЗиЗЁтвс╡╫ё©
+	list = MyCapture (POSITION, LIST, TARGET); //Е┘┬Д╨╖Г■÷Е░┐Е╜░Ф╜╔О╪÷
 	p = LIST;
 	while (p->move)
 	{
@@ -608,7 +608,7 @@ int MyPVQsearchEvasion (typePOS* POSITION, int ALPHA, int BETA, int depth)
 		else
 			BAD_CAPS[bc++] = move;
 	}
-	if (depth > 0) {                       // хГ╧Ш╩╧спиН╤хё╛╬мкякВ╩╣╣дЁтвс╡╫
+	if (depth > 0) {                       // Е╕┌Ф·°Х©≤Ф°┴Ф╥╠Е╨╕О╪▄Е╟╠Ф░°Г╢╒Е²▐Г └Е░┐Е╜░Ф╜╔
 		for (i = 0; i < bc; i++)
 		{
 			move = BAD_CAPS[i] & 0x7fff;
@@ -650,7 +650,7 @@ int MyPVQsearchEvasion (typePOS* POSITION, int ALPHA, int BETA, int depth)
 
 	if (depth >= -2 && POS0->valu >= ALPHA - (100 + (12 << (depth + 5))))
 	{
-		list = MyQuietChecks (POSITION, LIST, TARGET);  // ╡ЗиЗ╡╩Ётвс╣д╫╚╬Э╡╫
+		list = MyQuietChecks (POSITION, LIST, TARGET);  // Д╨╖Г■÷Д╦█Е░┐Е╜░Г └Е╟├Е├⌡Ф╜╔
 		for (i = 0; i < list - LIST; i++)
 		{
 			move = LIST[i].move & 0x7fff;

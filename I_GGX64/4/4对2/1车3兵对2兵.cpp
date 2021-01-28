@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ3±ø¶Ô2±ø.cpp"
+#include "1è½¦3å…µå¯¹2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -26,11 +26,11 @@ void my_m_MT_R_1che3pawn_B_2pawn(typePOS &POSITION, EvalInfo &ei){
 //	//Square bk = PieceListStart(board,BKING);
 //	//Square rk = PieceListStart(board,RKING);
 //
-//	////±ø·½ÒªÊËÏàÈ«, ÇÒ±øÁ¬³ÉÏßÁË
+//	////å…µæ–¹è¦ä»•ç›¸å…¨, ä¸”å…µè¿žæˆçº¿äº†
 //	//if(board->R_shi == 2 && board->R_xiang == 2){
 //	//	if(board->b256[0xa7] == RXIANG && StoY(rk) == 0xc){
-//	//		//ÔÙ¿´Ò»ÏÂÓÐÃ»ÓÐÁ¬±ø ÔÚ5Ïß 
-//	//		//ÔÙ¿´Ò»ÏÂ ºÚ·½ÓÐÃ»ÓÐÁ¬±ø ÔÚ5Ïß 
+//	//		//å†çœ‹ä¸€ä¸‹æœ‰æ²¡æœ‰è¿žå…µ åœ¨5çº¿ 
+//	//		//å†çœ‹ä¸€ä¸‹ é»‘æ–¹æœ‰æ²¡æœ‰è¿žå…µ åœ¨5çº¿ 
 //	//		for(int from = PieceListStart(board,RPAWN); from > 0x32; from = NextPiece(board,from)){
 //	//			if(StoX(from) == 0x7 && StoY(from) > StoY(bk)){
 //	//				if(board->b256[from+1] == RPAWN || board->b256[from-1] == RPAWN){

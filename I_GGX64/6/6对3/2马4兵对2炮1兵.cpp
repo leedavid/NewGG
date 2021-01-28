@@ -4,15 +4,15 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2Âí4±ø¶Ô2ÅÚ1±ø.cpp"
+#include "2é©¬4å…µå¯¹2ç‚®1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 //
-//const int  ADD_2MaXPawn_2Pao1Pawn_ByPawn[3]         = {96, 64, 32};            //2Âíx±ø¶Ô1ÅÚ2±ø, ¶à±øµÄ¼Ó·Ö
-//const int  ADD_2Pao1Pawn_2MaXPawn_ByPawn[3]         = {96, 64, 32};            //1ÅÚ2±ø¶Ô2Âíx±ø, ¶à±øµÄ¼Ó·Ö
+//const int  ADD_2MaXPawn_2Pao1Pawn_ByPawn[3]         = {96, 64, 32};            //2é©¬xå…µå¯¹1ç‚®2å…µ, å¤šå…µçš„åŠ åˆ†
+//const int  ADD_2Pao1Pawn_2MaXPawn_ByPawn[3]         = {96, 64, 32};            //1ç‚®2å…µå¯¹2é©¬xå…µ, å¤šå…µçš„åŠ åˆ†
 
 
 
@@ -28,7 +28,7 @@ void my_m_MT_R_2ma4pawn_B_2pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_SUB((sint16)count_1s(ymp) * ADD_2Pao1Pawn_2MaXPawn_ByPawn[my_shi_num]);
 
     // fen 3aka3/4n4/9/6p1p/4n4/p8/2p5P/4C4/4A4/2C1KAB2 b - - 1 1
-    //Èç¹û1ÅÚ¿ØÖÆÁË¶þÂí,¾ÍÊÇºÜ´óµÄÓÅÊÆ. 
+    //å¦‚æžœ1ç‚®æŽ§åˆ¶äº†äºŒé©¬,å°±æ˜¯å¾ˆå¤§çš„ä¼˜åŠ¿. 
 
 	Square mk = my_king_pos;
 	Bitboard bsuper = POSITION.Pao_Super_bb(mk);

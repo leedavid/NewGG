@@ -4,13 +4,13 @@
 #include "..\\..\\preGen.h"
 
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí¶Ô2ÅÚ.cpp"
+#include "1è½¦1é©¬å¯¹2ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//³µÅÚ¶Ô1Âí1ÅÚ
+//è½¦ç‚®å¯¹1é©¬1ç‚®
 
 void my_m_MT_R_1che1ma_B_2pao(typePOS &POSITION, EvalInfo &ei){
 

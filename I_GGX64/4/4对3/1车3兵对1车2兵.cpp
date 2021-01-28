@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ3±ø¶Ô1³µ2±ø.cpp"
+#include "1è½¦3å…µå¯¹1è½¦2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -33,7 +33,7 @@ void my_m_MT_R_1che3pawn_B_1che2pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	
-	//ºÚ·½°²È«
+	//é»‘æ–¹å®‰å…¨
 	if(your_shi_num == 2 && StoY(yk) == MY_RANK0){
 		if(mcan <= 1){
 			EV_YOUR_SAFE = TRUE;
@@ -49,7 +49,7 @@ void my_m_MT_R_1che3pawn_B_1che2pawn(typePOS &POSITION, EvalInfo &ei){
 	int malr = My_pawn_already_over_river(POSITION);
 	int yalr = Your_pawn_already_over_river(POSITION);
 
-	//1, ºì·½Ö»ÓÐÒ»¸ö±ø¿É¹ýºÓ£® 2,ÇÒÖ»¹ýºÓÁËÒ»¸ö±ø 3,ºÚ·½Ö»ÓÐÒ»¸ö±ø¿É¹ýºÓ£¬¾ÍÊÇºÍÆå
+	//1, çº¢æ–¹åªæœ‰ä¸€ä¸ªå…µå¯è¿‡æ²³ï¼Ž 2,ä¸”åªè¿‡æ²³äº†ä¸€ä¸ªå…µ 3,é»‘æ–¹åªæœ‰ä¸€ä¸ªå…µå¯è¿‡æ²³ï¼Œå°±æ˜¯å’Œæ£‹
 	// fen 2bak4/4a4/2P1b4/p6rp/4p4/2R5P/P5P2/4B4/9/3AKAB2 w - - 3 3
 	if(mcan <= 1 && malr <= 1){
 		if(your_shi_num == 2 && your_xiang_num == 2 && StoY(yk) == MY_RANK0){
@@ -127,7 +127,7 @@ void my_m_MT_R_1che3pawn_B_1che2pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 3k1a3/4a4/8b/4P4/p2r2b1p/9/P3R3P/9/9/4K4 w - - 142 142
 	if(your_shi_num == 2 && StoY(yk) MY_SMALL_EQL MY_RANK1 && mcan <= 1){
-		// ¶¥ËÀ¶þ¸ö±ø
+		// é¡¶æ­»äºŒä¸ªå…µ
 		if(StoY(mche) == MY_RANK6){
 			Bitboard b1 = m_and(bb_my_pawn,RankBB_A[MY_RANK6]);
 			if(count_1s(b1) == 2){
@@ -156,7 +156,7 @@ void my_m_MT_R_1che3pawn_B_1che2pawn(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 1R1ak1b2/4a4/4b4/p4P2p/4r4/6P2/8P/4B4/4A4/3AK1B2 w - - 3 3
-	//ÎÒ·½Ö»¿É¹ý¶þ±ø,
+	//æˆ‘æ–¹åªå¯è¿‡äºŒå…µ,
 	if(EV_MY_SAFE){
 		if(mcan <= 2 && malr <= 1){
 			if((your_shi_num + your_xiang_num) == 4 && StoY(yk) == MY_RANK0){

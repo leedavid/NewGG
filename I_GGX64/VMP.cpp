@@ -89,10 +89,10 @@ bool is_registered(){
 	char cMonth[64];
 	T_DEVICE_PROPERTY idp[WMI_QUERY_TYPENUM][WMI_QUERY_NUM];
 
-	//  µÃµ½µ±Ç°µÄ×¢²áÎÄ¼şÖĞµÄĞÅÏ¢¡£
+	//  å¾—åˆ°å½“å‰çš„æ³¨å†Œæ–‡ä»¶ä¸­çš„ä¿¡æ¯ã€‚
 	char* pser = read_serial();
 	if (pser != NULL){
-		// ½âÂëÒ»ÏÂ¡£
+		// è§£ç ä¸€ä¸‹ã€‚
 		char dstr[2048];
 		char DeKey[2048];
 		unsigned char key[] = "efaeaffearfefeetet345fe3rfeffaaf";
@@ -108,7 +108,7 @@ bool is_registered(){
 		memset(cName, 0, 64);
 		memset(cDate, 0, 64);
 		memset(cMonth, 0, 64);
-		// µÃµ½ÓÃ»§Ãû;
+		// å¾—åˆ°ç”¨æˆ·å;
 		char* p1 = strstr(DeKey, "name:");
 		p2 = strstr(DeKey, " date:");
 		if (p1 == NULL || p2 == NULL){
@@ -116,7 +116,7 @@ bool is_registered(){
 		}
 		p1 += 5;
 		memcpy(cName, p1, p2 - p1);
-		// µÃµ½×¢²áÈÕÆÚ;
+		// å¾—åˆ°æ³¨å†Œæ—¥æœŸ;
 		p1 = strstr(DeKey, " date:");
 		p2 = strstr(DeKey, " Month:");
 		if (p1 == NULL || p2 == NULL){
@@ -124,7 +124,7 @@ bool is_registered(){
 		}
 		p1 += 6;
 		memcpy(cDate, p1, p2 - p1);
-		// µÃµ½¿ÉÉı¼¶ÔÂÊı;
+		// å¾—åˆ°å¯å‡çº§æœˆæ•°;
 		p1 = strstr(DeKey, " Month:");
 		p2 = strstr(DeKey, " (End)");
 		if (p1 == NULL || p2 == NULL){
@@ -133,16 +133,16 @@ bool is_registered(){
 		p1 += 7;
 		memcpy(cMonth, p1, p2 - p1);
 
-		p2 += 6; // p2 Ö¸ÏòÁË»úÆ÷Âë
+		p2 += 6; // p2 æŒ‡å‘äº†æœºå™¨ç 
 	}
 
-	// ¶ÁÈ¡µ±Ç°µÄ»úÆ÷Âë
-	// ¶Áµ½ÏµÍ³µÄÓ²¼şrxĞÅÏ¢¡£
+	// è¯»å–å½“å‰çš„æœºå™¨ç 
+	// è¯»åˆ°ç³»ç»Ÿçš„ç¡¬ä»¶rxä¿¡æ¯ã€‚
 	for (int i = 0; i < WMI_QUERY_TYPENUM; i++){
 		WMI_DeviceQuery(i, idp[i], WMI_QUERY_NUM);
 	}
 
-	// ½«Ó²¼şĞÅÏ¢Ğ´µ½ÎÄ¼şÖĞÈ¥
+	// å°†ç¡¬ä»¶ä¿¡æ¯å†™åˆ°æ–‡ä»¶ä¸­å»
 	TCHAR HdidFileName[1024];
 
 	swprintf_s(HdidFileName, sizeof(HdidFileName) / sizeof(TCHAR), L"%s\\HWID.txt", installDir);
@@ -177,14 +177,14 @@ bool is_registered(){
 	char* base64 = base64Encode(str, len);
 	aes1.Cipher(base64, strhex);
 
-//0£ºÍø¿¨Ô­ÉúMACµØÖ·
-//1£ºÓ²ÅÌĞòÁĞºÅ
-//2£ºÖ÷°åĞòÁĞºÅ
-//3£ºCPU ID
-//4£ºBIOSĞòÁĞºÅ
-//5£ºÖ÷°åĞÍºÅ
-//6£ºÍø¿¨µ±Ç°MACµØÖ·
-		// ÏÂÃæ±È½Ï buf ºÍ P2
+//0ï¼šç½‘å¡åŸç”ŸMACåœ°å€
+//1ï¼šç¡¬ç›˜åºåˆ—å·
+//2ï¼šä¸»æ¿åºåˆ—å·
+//3ï¼šCPU ID
+//4ï¼šBIOSåºåˆ—å·
+//5ï¼šä¸»æ¿å‹å·
+//6ï¼šç½‘å¡å½“å‰MACåœ°å€
+		// ä¸‹é¢æ¯”è¾ƒ buf å’Œ P2
 	if (pser != NULL){
 		res = 1;
 		for (int i = 0; i < 32 * 5; i++){
@@ -195,7 +195,7 @@ bool is_registered(){
 		}
 	}
 
-	// Èç¹ûÃ»ÓĞ×¢²á³É¹¦£¬¾Í¶Á³öµ±Ç°µÄĞÅÏ¢£¬²¢¼ÓÃÜĞ´Èëµ½ÎÄ¼şÖĞÈ¥¡£
+	// å¦‚æœæ²¡æœ‰æ³¨å†ŒæˆåŠŸï¼Œå°±è¯»å‡ºå½“å‰çš„ä¿¡æ¯ï¼Œå¹¶åŠ å¯†å†™å…¥åˆ°æ–‡ä»¶ä¸­å»ã€‚
 	if (res == 0){
 		
 		fprintf_s(f, strhex);
@@ -203,7 +203,7 @@ bool is_registered(){
 		MessageBox(NULL, L"Please send \"HWID.txt\" file to the agent \nwhich under ggchess engine catalog.",
 			L"Sorry not registe now!\nwww.ggchess.com", MB_OK);
 	}
-	else{ // ×¢²á³É¹¦ÁË
+	else{ // æ³¨å†ŒæˆåŠŸäº†
 		printf("info register ok! thank you!\n");
 		printf("regName: %s, regDate: %s, Update Month %s\n", cName, cDate, cMonth);
 		frist_init();
@@ -233,7 +233,7 @@ bool is_registered(){
 //		}
 //		if(res != 0){
 //
-//			// Ò²ÓĞ¿ÉÄÜ²»ÄÜÉı¼¶ÁË£¬
+//			// ä¹Ÿæœ‰å¯èƒ½ä¸èƒ½å‡çº§äº†ï¼Œ
 //			if(res == SERIAL_STATE_FLAG_MAX_BUILD_EXPIRED){
 //				VMProtectSerialNumberData sd = {0};
 //				VMProtectGetSerialNumberData(&sd, sizeof(sd));
@@ -254,7 +254,7 @@ bool is_registered(){
 //			if (0 != _wfopen_s(&f, HdidFileName, L"w")){
 //				return false;
 //			}
-//			//µÃµ½×¢²áµÄÊ±¼ä
+//			//å¾—åˆ°æ³¨å†Œçš„æ—¶é—´
 //#define SIZE 256
 //			time_t ltime;
 //			char buf[SIZE];
@@ -267,7 +267,7 @@ bool is_registered(){
 //			delete [] pBuf; // release buffer
 //
 //			///////////////////////////////////////////////////////////////////////////
-//			// ÔÙ¼ÓÉÏ×Ô¼º¶ÁµÄÒ»Ğ©ĞÅÏ¢¡£
+//			// å†åŠ ä¸Šè‡ªå·±è¯»çš„ä¸€äº›ä¿¡æ¯ã€‚
 //			T_DEVICE_PROPERTY idp[WMI_QUERY_TYPENUM][8];
 //			for (int i = 0; i < WMI_QUERY_TYPENUM; i++){
 //				WMI_DeviceQuery(i, idp[i], 8);
@@ -278,9 +278,9 @@ bool is_registered(){
 //			return false;
 //		}
 //		else{
-//			// µÃµ½ÓÃ»§µÄ×¢²áÃû³Æ
+//			// å¾—åˆ°ç”¨æˆ·çš„æ³¨å†Œåç§°
 //			printf("info register ok! thank you!\n");
-//			// µÃµ½×îÖÕ¿ÉÉı¼¶°æ±¾µÄÊ±¼ä
+//			// å¾—åˆ°æœ€ç»ˆå¯å‡çº§ç‰ˆæœ¬çš„æ—¶é—´
 //			VMProtectSerialNumberData sd = {0};
 //			VMProtectGetSerialNumberData(&sd, sizeof(sd));
 //			printf("info you can update until y = %d, m = %d, d = %d\n", sd.dtMaxBuild.wYear, sd.dtMaxBuild.bMonth, sd.dtMaxBuild.bDay);

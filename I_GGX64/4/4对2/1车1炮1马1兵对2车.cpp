@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1Âí1±ø¶Ô2³µ.cpp"
+#include "1è½¦1ç‚®1é©¬1å…µå¯¹2è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -185,23 +185,23 @@ void my_m_MT_R_1che1pao1ma1pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 //			if(FALSE){
 //			}
 //		    else if(board->b256[0x36] == BSHI){
-//				//³µ°²È«
+//				//è½¦å®‰å…¨
 //				if(IsCheCanToOrAt(board,bche,0x38)){
 //					board->bsafe = TRUE;
 //				}
 //
-//				//ÅÚ°²È«
+//				//ç‚®å®‰å…¨
 //				if(IsCheCanToOrAt(board,bpao,0x38)){
 //					board->bsafe = TRUE;
 //				}
 //			}
 //			else if(board->b256[0x38] == BSHI){
-//				//³µ°²È«
+//				//è½¦å®‰å…¨
 //				if(IsCheCanToOrAt(board,bche,0x36)){
 //					board->bsafe = TRUE;
 //				}
 //
-//				//ÅÚ°²È«
+//				//ç‚®å®‰å…¨
 //				if(IsCheCanToOrAt(board,bpao,0x36)){
 //					board->bsafe = TRUE;
 //				}

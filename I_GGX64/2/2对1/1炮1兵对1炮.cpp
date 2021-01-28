@@ -3,7 +3,7 @@
 #include "..\\..\\chess.h"
 #include "..\\..\\preGen.h" 
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1±ø¶Ô1ÅÚ.cpp"
+#include "1ç‚®1å…µå¯¹1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -13,12 +13,12 @@
 
 //const int Pawn_Add = 64;
 
-//ºì·½ÅÚ±ø£¬ºÚ·½Ö»ÓÐÒ»ÅÚ
+//çº¢æ–¹ç‚®å…µï¼Œé»‘æ–¹åªæœ‰ä¸€ç‚®
 void my_m_MT_R_1PAO1PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
 	Square yk = your_king_pos;
-	//ÅÚ¸ß±øÀýºÍÒ»ÅÚ  // Àýµä page 134
+	//ç‚®é«˜å…µä¾‹å’Œä¸€ç‚®  // ä¾‹å…¸ page 134
 	if(my_shi_num == 0 && my_xiang_num == 0){
 		RETRUN_MUL(1);
 	}
@@ -39,7 +39,7 @@ void my_m_MT_R_1PAO1PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 		RETRUN_MUL(1);
 	}
 
-	// fen 2b6/4P4/3k5/9/3c5/9/9/3A4B/9/2C1K4 w - - 35 35  //ÅÚ±ø·½µÄ±øÔÚ¶Ô·½½«µÄÏÂÃæ,Ò²ºÍÁË
+	// fen 2b6/4P4/3k5/9/3c5/9/9/3A4B/9/2C1K4 w - - 35 35  //ç‚®å…µæ–¹çš„å…µåœ¨å¯¹æ–¹å°†çš„ä¸‹é¢,ä¹Ÿå’Œäº†
 	if(StoY(mpawn) == MY_RANK0){
 		RETRUN_MUL(1);
 	}
@@ -76,7 +76,7 @@ void my_m_MT_R_1PAO1PAWN_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 	
 
 
-	//Èç¹ûºÚÅÚ>ºìÅÚ, Ò²ÊÇºÍÁË
+	//å¦‚æžœé»‘ç‚®>çº¢ç‚®, ä¹Ÿæ˜¯å’Œäº†
 	if(your_xiang_num != 0){
 		if(StoY(mpao) MY_SMALL_EQL MY_RANK3 && StoY(ypao) MY_SMALL_EQL MY_RANK4){
 			if(StoY(ypao) MY_LARGE StoY(mpao)){

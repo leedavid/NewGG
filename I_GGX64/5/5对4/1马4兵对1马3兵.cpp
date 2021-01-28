@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Âí4±ø¶Ô1Âí3±ø.cpp"
+#include "1é©¬4å…µå¯¹1é©¬3å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -52,7 +52,7 @@ void my_m_MT_R_1ma4pawn_B_1ma3pawn(typePOS &POSITION, EvalInfo &ei){
 
 
 /*
-   //Èç¹ûË«·½ÊÇÊËÏàÈ«,ÇÒ¶à±ø·½Ö»ÓĞÒ»¸ö±ø¹ıºÓ,¾ÍÒ²»ù±¾ÊÇºÍÆå
+   //å¦‚æœåŒæ–¹æ˜¯ä»•ç›¸å…¨,ä¸”å¤šå…µæ–¹åªæœ‰ä¸€ä¸ªå…µè¿‡æ²³,å°±ä¹ŸåŸºæœ¬æ˜¯å’Œæ£‹
 
     Square rk = PieceListStart(board,RKING);
 	Square bk = PieceListStart(board,BKING);

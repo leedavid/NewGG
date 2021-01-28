@@ -3,14 +3,14 @@
 #include "..\\..\\chess.h"
 #include "..\\..\\preGen.h"
 #include "..\\..\\endgame\mat.h"
-#include "1³µ2ÅÚ1±ø¶Ô1³µ1ÅÚ2±ø.cpp"
+#include "1è½¦2ç‚®1å…µå¯¹1è½¦1ç‚®2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//const int ADD_2CheXPawn_1Che3PaoMa1Pawn_2ChePawnCan      =  32;                     //2³µ·½ÓÐ±ø¿É¹ýºÓ£¬
+//const int ADD_2CheXPawn_1Che3PaoMa1Pawn_2ChePawnCan      =  32;                     //2è½¦æ–¹æœ‰å…µå¯è¿‡æ²³ï¼Œ
 
 
 void my_m_MT_R_1che2pao1pawn_B_1che1pao2pawn(typePOS &POSITION, EvalInfo &ei){
@@ -25,12 +25,12 @@ void my_m_MT_R_1che2pao1pawn_B_1che1pao2pawn(typePOS &POSITION, EvalInfo &ei){
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
 
 	// fen 2b1k4/4a4/4b4/3PP4/p4c3/6B1C/6R2/3A5/3K2c2/4r4 b - - 0 1
-	//Èç¹û¶Ô·½ÓÐ¶þ¸ö±ø£¬ÊÇÁ¬±ø£¬¶øÎÒ·½µÄ±ø²»ÄÜ¹ýºÓ£¬Òª¼õ·Ö
+	//å¦‚æžœå¯¹æ–¹æœ‰äºŒä¸ªå…µï¼Œæ˜¯è¿žå…µï¼Œè€Œæˆ‘æ–¹çš„å…µä¸èƒ½è¿‡æ²³ï¼Œè¦å‡åˆ†
 	Bitboard ylp = Your_get_connect_Pawn(POSITION);
 
 	if(bit_is_set(ylp,MY_SQ3A) || bit_is_set(ylp,MY_SQ31)){
 		if(your_shi_num >= 1 && your_xiang_num >= 1){
-			// Èç¹ûÎÒ·½µÄ±ø²»ÄÜ¹ý±ø
+			// å¦‚æžœæˆ‘æ–¹çš„å…µä¸èƒ½è¿‡å…µ
 			if(StoY(mpawn) MY_LARGE_EQL MY_RANK4){
 				if(bit_is_set(YOUR_ATTACK,XYtoS(StoX(mpawn),MY_RANK4))){
 					MY_EV_SUB(64);

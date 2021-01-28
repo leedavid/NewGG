@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2ÅÚ1Âí¶Ô1³µ.cpp"
+#include "2ç‚®1é©¬å¯¹1è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//2ÅÚ1Âí¶Ô1³µ, ÅÚÂí·½Òª¼Ó·Ö
+//2ç‚®1é©¬å¯¹1è½¦, ç‚®é©¬æ–¹è¦åŠ åˆ†
 
 void my_m_MT_R_2pao_1ma_B_1che(typePOS &POSITION, EvalInfo &ei){
 
@@ -19,7 +19,7 @@ void my_m_MT_R_2pao_1ma_B_1che(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 
 	if((my_shi_num + my_xiang_num) >= 1 && StoY(mk) MY_LARGE_EQL MY_RANK8){
-		MY_EV_ADD(Add_2ÅÚ1Âí¶Ô1³µ);
+		MY_EV_ADD(Add_2ç‚®1é©¬å¯¹1è½¦);
 	}
 
 
@@ -50,7 +50,7 @@ void my_m_MT_R_2pao_1ma_B_1che(typePOS &POSITION, EvalInfo &ei){
 		MY_EV_SUB(128);
 		RETRUN_MUL(8);
 	}
-	//Èç¹û³µ·½ÊÇÊËÏàÈ«,Ò²ÊÇºÍÆå
+	//å¦‚æžœè½¦æ–¹æ˜¯ä»•ç›¸å…¨,ä¹Ÿæ˜¯å’Œæ£‹
 
 
 }
@@ -58,7 +58,7 @@ void my_m_MT_R_2pao_1ma_B_1che(typePOS &POSITION, EvalInfo &ei){
 
 //void m_MT_B_2pao_1ma_R_1che(typePOS &POSITION, EvalInfo &ei){
 //
-//	/*board->mulScore -= Add_2ÅÚ1Âí¶Ô1³µ;
+//	/*board->mulScore -= Add_2ç‚®1é©¬å¯¹1è½¦;
 //
 //	if(board->R_shi == 2 && board->R_xiang == 2){
 //		board->mulScore /= 8;

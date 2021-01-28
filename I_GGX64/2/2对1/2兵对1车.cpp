@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2±ø¶Ô1³µ.cpp"
+#include "2å…µå¯¹1è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -14,7 +14,7 @@
 //const int CheAdd   = 50;
 //const int PawnAdd  = 10;
 
-//ÎÒ·½¶þ¸ö±ø£¬¶Ô·½Ò»¸ö³µ
+//æˆ‘æ–¹äºŒä¸ªå…µï¼Œå¯¹æ–¹ä¸€ä¸ªè½¦
 void my_m_MT_R_2PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	
 	Square mpawn1 = S90_from_piecelist(POSITION,my_pawn,0);
@@ -23,7 +23,7 @@ void my_m_MT_R_2PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	Square yche = S90_from_piecelist(POSITION,your_che,0);
 
-	// ±øÔÚ±£³ÖÔÚ×äÏß //ÔÚÕâ¶ù¿´Ò»ÏÂÓÐ¶àÉÙ±øÔÚ¶þÏß£¬ÓÐ¼¸¸ö¼Ó·Ö
+	// å…µåœ¨ä¿æŒåœ¨å’çº¿ //åœ¨è¿™å„¿çœ‹ä¸€ä¸‹æœ‰å¤šå°‘å…µåœ¨äºŒçº¿ï¼Œæœ‰å‡ ä¸ªåŠ åˆ†
 	Bitboard mpbb = m_and(bb_my_pawn, RankBB_A[MY_RANK3]);
 	MY_EV_ADD((sint16)count_1s(mpbb) * 64);
 
@@ -51,8 +51,8 @@ void my_m_MT_R_2PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	
 	if(your_shi_num == 0 && StoY(yk) == MY_RANK0 
 		&& PB90(MY_SQ0D) == my_pawn && StoY(mk) != MY_RANK7){
-			//Àýµä page184 µÚ2¾Ö Ò»³µÀýºÍË«µÍ×äÊË, 
-			//Ë«µÍ×äÇÖÈë¾Å¹¬, ÄÜ¿ØÖÆÖ÷Ë§, ÈçÓÐÊ¿»¤½«, ¿ÉÒÔÞÄºÍ
+			//ä¾‹å…¸ page184 ç¬¬2å±€ ä¸€è½¦ä¾‹å’ŒåŒä½Žå’ä»•, 
+			//åŒä½Žå’ä¾µå…¥ä¹å®«, èƒ½æŽ§åˆ¶ä¸»å¸…, å¦‚æœ‰å£«æŠ¤å°†, å¯ä»¥å¼ˆå’Œ
 			// fen 9/3ka4/9/9/9/8R/9/9/3pp4/5K3 w
 			if(my_shi_num >= 1){
 				if((PB90(MY_SQ0C) == my_pawn && StoX(mk) == 0x3)
@@ -61,9 +61,9 @@ void my_m_MT_R_2PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 				}
 			}
 			//////////////////////////////////////////////////
-			// Àýµä page184 µÚ4¾Ö Ò»³µÀýºÍË«µÍ×äÏó,
+			// ä¾‹å…¸ page184 ç¬¬4å±€ ä¸€è½¦ä¾‹å’ŒåŒä½Žå’è±¡,
 			// fen 9/5k3/1R6b/9/9/9/9/9/4pp3/3K5 w
-			// Èç¹ûÓÐÏàÓë½«ÔÚÍ¬Ò»±ß,
+			// å¦‚æžœæœ‰ç›¸ä¸Žå°†åœ¨åŒä¸€è¾¹,
 			if(your_xiang_num >= 1){
 				if(PB90(MY_SQ0C) == my_pawn || PB90(MY_SQ0E) == my_pawn){
 					for(int i = 0; i < my_xiang_num; i++){
@@ -77,10 +77,10 @@ void my_m_MT_R_2PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////
-	// µÚ6¾Ö Ò»³µÀýºÍË«¸ß×äË«Ïó
-	// Ë«¸ß×ä,Ë«ÏóÁ¬»·»¥±£, ÓÖÔÚÖÐÏßµ²Ë§»¤½«, ÎÞÐ¸¿É»÷
+	// ç¬¬6å±€ ä¸€è½¦ä¾‹å’ŒåŒé«˜å’åŒè±¡
+	// åŒé«˜å’,åŒè±¡è¿žçŽ¯äº’ä¿, åˆåœ¨ä¸­çº¿æŒ¡å¸…æŠ¤å°†, æ— æ‡ˆå¯å‡»
 	// fen 4k4/9/1R2b4/9/2b6/9/4pp3/9/9/4K4 w
-	if(my_xiang_num == 2 && StoY(mk) != MY_RANK7){  // ²»ÔÚÉÏÃæ
+	if(my_xiang_num == 2 && StoY(mk) != MY_RANK7){  // ä¸åœ¨ä¸Šé¢
 		if(PB90(MY_SQ43) == my_xiang){
 			if(StoY(mpawn1) MY_LARGE StoY(yk)){
 				if(PB90(mpawn1 + 1) == my_pawn || PB90(mpawn2 + 1) == my_pawn){
@@ -99,8 +99,8 @@ void my_m_MT_R_2PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// µÚ11¾Ö, page 187 Ò»³µÀýºÍË«¸ß×ä,Ë«Ê¿
-	// Ë«×äÔÚÖÐÏß,Ë«Ê¿ÖÐÓÐÒ»¸öÊÇ¸ßÊË,¿ÉÒÔ³ÉºÍ
+	// ç¬¬11å±€, page 187 ä¸€è½¦ä¾‹å’ŒåŒé«˜å’,åŒå£«
+	// åŒå’åœ¨ä¸­çº¿,åŒå£«ä¸­æœ‰ä¸€ä¸ªæ˜¯é«˜ä»•,å¯ä»¥æˆå’Œ
 	// fen 3ak4/9/3a5/9/5R3/9/3pp4/9/9/4K4 w
 	if(my_shi_num == 2 && StoY(mk) == MY_RANK9){
 		if(PB90(MY_SQ42) == my_shi || PB90(MY_SQ44) == my_shi){
@@ -114,9 +114,9 @@ void my_m_MT_R_2PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//Ò»³µÇÉÊ¤3ak4/4a4/9/1R7/9/9/3pp4/9/9/4K4 w
+	//ä¸€è½¦å·§èƒœ3ak4/4a4/9/1R7/9/9/3pp4/9/9/4K4 w
 	// fen 3ak4/4a4/9/1R7/9/9/3pp4/9/9/4K4 w
-	MY_EV_ADD(ADD_CheXPawn_To_1Pawn); // ÓÐ³µ·½µÄ¼Ó·Ö
+	MY_EV_ADD(ADD_CheXPawn_To_1Pawn); // æœ‰è½¦æ–¹çš„åŠ åˆ†
 
 	// fen R8/3ka4/3a5/9/9/9/3pp4/4B4/4A4/2BAK4 w - - 125 125
 	if(my_shi_num == 2 && StoY(mk) MY_LARGE MY_RANK7){
@@ -134,7 +134,7 @@ void my_m_MT_R_2PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//Èç¹ûÎÒ·½ÓÐ¶þ¸ö±ø£¬ÇÒ½«ÔÚÁ¬±øµÄÒ»±ß£¬¾ÍÓÐ¿ÉÄÜÊÇºÍÆå
+	//å¦‚æžœæˆ‘æ–¹æœ‰äºŒä¸ªå…µï¼Œä¸”å°†åœ¨è¿žå…µçš„ä¸€è¾¹ï¼Œå°±æœ‰å¯èƒ½æ˜¯å’Œæ£‹
 	// fen 3ak4/9/3a5/9/5PP2/9/9/5A3/4AK3/6r2 w - - 62 62
 	if(my_shi_num == 2  && StoY(mk) != MY_RANK7){
 		if(StoY(mpawn1) == StoY(mpawn2) && abs(StoX(mpawn1) - StoX(mpawn2)) == 1){
@@ -169,7 +169,7 @@ void my_m_MT_R_2PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	// fen 5a3/4k4/5a3/3PP4/9/r8/9/9/4A4/3K1A3 b - - 0 1
 	if(my_xiang_num == 2 || (my_shi_num == 2 && MY_SQ4C != mk)){
 		if(StoY(mk) MY_LARGE_EQL MY_RANK8){
-			// 6ÏßÓÐ¶þ±ø
+			// 6çº¿æœ‰äºŒå…µ
 			if((StoY(mpawn1) == MY_RANK3 && StoY(mpawn2) == MY_RANK3)
 				|| (StoY(mpawn1) == MY_RANK4 && StoY(mpawn2) == MY_RANK4)){
 				// fen 2bk5/4a4/3ab4/4P1P2/9/2B6/9/4B4/3K5/4r4 b - - 0 1

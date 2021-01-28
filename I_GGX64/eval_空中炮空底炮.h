@@ -1,7 +1,7 @@
 
 
     //***********************************************************
-	// ¿ÕÅÚµÄÆÀ¹À. (ÖĞ¿ÕÅÚ,µ×¿ÕÅÚ) Òª½øÒ»²½È·ÈÏÊÇ²»ÊÇ¿ÕÅÚ
+	// ç©ºç‚®çš„è¯„ä¼°. (ä¸­ç©ºç‚®,åº•ç©ºç‚®) è¦è¿›ä¸€æ­¥ç¡®è®¤æ˜¯ä¸æ˜¯ç©ºç‚®
 	//***********************************************************
     Bitboard bkp = ei.KongPaoBB; // fen rnbak3C/4a1r2/1c2b1nc1/p1p1p1p1p/9/9/P1P1P1P1P/1C7/9/RNBAKABNR w
 	while(m128_is_have_bit(bkp)){
@@ -9,9 +9,9 @@
 		uint8 mchess = PB90(msq);
 		if(FALSE){
 		}
-		else if(mchess == RPAO){  // ºì·½ÓĞ¿ÉÄÜÊÇ¿ÕÖĞÅÚ,»ò¿Õµ×ÅÚ
+		else if(mchess == RPAO){  // çº¢æ–¹æœ‰å¯èƒ½æ˜¯ç©ºä¸­ç‚®,æˆ–ç©ºåº•ç‚®
 
-			// Õâ¿ÉÄÜÊÇºì·½µ×¿ÕÅÚ
+			// è¿™å¯èƒ½æ˜¯çº¢æ–¹åº•ç©ºç‚®
 			if(StoY(msq) == StoY(bk)){	
 
 				if(ABS(StoX(msq) - 0x4) <= 1){
@@ -19,66 +19,66 @@
 				}
 
 				if(ABS(StoX(msq) - StoX(bk)) >= 2){			// 
-					// ÒªÅĞ¶Ï½«ÄÜ²»ÄÜ×óÓÒÒÆ¶¯
+					// è¦åˆ¤æ–­å°†èƒ½ä¸èƒ½å·¦å³ç§»åŠ¨
 					//fen 5a1nN/1R2a4/C2k5/p7p/2p3n2/4p3P/Pc3r3/3CB4/4A4/3A1KB2 w - - 0 0</
 					if(ei.BKing_Info & KING_CAN_UP_DOWN){
 						ei.attPoint[WHITECOLOR] +=  Di_Pao_att_point; 
 					}
 					else{
-						ei.attPoint[WHITECOLOR] +=  Di_KongPao_att_point;   // ¿ÕÅÚ¼Ó¹¥»÷µã	
+						ei.attPoint[WHITECOLOR] +=  Di_KongPao_att_point;   // ç©ºç‚®åŠ æ”»å‡»ç‚¹	
 					}
 				}
 
-				//»¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÊÜµ½¶Ô·½µÄ¹¥»÷
+				//è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯å—åˆ°å¯¹æ–¹çš„æ”»å‡»
 				if(bit_is_set(POSITION->DYN->attack_black,msq)){
 					ei.attPoint[WHITECOLOR] -= Kong_Di_Pao_att_By_Other;
 				}
 
 			}
-			// Õâ¿ÉÄÜ ºì·½ ÊÇÖĞ¿ÕÅÚ
+			// è¿™å¯èƒ½ çº¢æ–¹ æ˜¯ä¸­ç©ºç‚®
 			else if(StoX(msq) == StoX(bk)){
 				if(StoY(msq) <= 0x2){
 					//fen 3C2b2/3k4C/2N2n3/3P5/8P/4cn3/9/2pAB4/4A4/4K1B2 w - - 0 0
 					continue;
 				}
-				if(ABS(StoY(msq) - StoY(bk)) >= 2){ // Ö»ÓĞÏóÏßÉÏÃæµÄÅÚ²Å¿ÉÄÜÊÇ¿ÕÅÚ
+				if(ABS(StoY(msq) - StoY(bk)) >= 2){ // åªæœ‰è±¡çº¿ä¸Šé¢çš„ç‚®æ‰å¯èƒ½æ˜¯ç©ºç‚®
 
-					set_bit(ei.attackKingBoard,msq);                          // ×öÒ»¸ö±êÖ¾
+					set_bit(ei.attackKingBoard,msq);                          // åšä¸€ä¸ªæ ‡å¿—
 
-					// ÒªÅĞ¶Ï½«ÄÜ²»ÄÜ×óÓÒÒÆ¶¯
+					// è¦åˆ¤æ–­å°†èƒ½ä¸èƒ½å·¦å³ç§»åŠ¨
 					//fen 5a1nN/1R2a4/C2k5/p7p/2p3n2/4p3P/Pc3r3/3CB4/4A4/3A1KB2 w - - 0 0</
 					if(ei.BKing_Info & KING_CAN_RIGHT_LEFT){
-						ei.attPoint[WHITECOLOR]  +=  KongPao_att_point[RChe_num()]/2;   // ¿ÕÅÚ¼Ó¹¥»÷µã
+						ei.attPoint[WHITECOLOR]  +=  KongPao_att_point[RChe_num()]/2;   // ç©ºç‚®åŠ æ”»å‡»ç‚¹
 					}
 					else{
-						ei.attPoint[WHITECOLOR]  +=  KongPao_att_point[RChe_num()];      // ¿ÕÅÚ¼Ó¹¥»÷µã
+						ei.attPoint[WHITECOLOR]  +=  KongPao_att_point[RChe_num()];      // ç©ºç‚®åŠ æ”»å‡»ç‚¹
 					}
 				}	
 			}			
 		}
-		else if(mchess == BPAO){ // ºÚ·½ÓĞ¿ÉÄÜÊÇ¿ÕÅÚ
+		else if(mchess == BPAO){ // é»‘æ–¹æœ‰å¯èƒ½æ˜¯ç©ºç‚®
 
-			// Õâ¿ÉÄÜÊÇºÚµ×¿ÕÅÚ
+			// è¿™å¯èƒ½æ˜¯é»‘åº•ç©ºç‚®
 			if(StoY(msq) == StoY(rk)){						
 				if(ABS(StoX(msq) - 0x4) <= 1){
 					continue;
 				}
-				if(ABS(StoX(msq) - StoX(rk)) >= 2){ // Ö»ÓĞÏóÏßÉÏÃæµÄÅÚ²Å¿ÉÄÜÊÇ¿ÕÅÚ
-					// ÒªÅĞ¶Ï½«ÄÜ²»ÄÜ×óÓÒÒÆ¶¯
+				if(ABS(StoX(msq) - StoX(rk)) >= 2){ // åªæœ‰è±¡çº¿ä¸Šé¢çš„ç‚®æ‰å¯èƒ½æ˜¯ç©ºç‚®
+					// è¦åˆ¤æ–­å°†èƒ½ä¸èƒ½å·¦å³ç§»åŠ¨
 					//fen 5a1nN/1R2a4/C2k5/p7p/2p3n2/4p3P/Pc3r3/3CB4/4A4/3A1KB2 w - - 0 0</
 					if(ei.RKing_Info & KING_CAN_UP_DOWN){
 						ei.attPoint[BLACKCOLOR] +=  Di_Pao_att_point; 
 					}
 					else{
-						ei.attPoint[BLACKCOLOR] +=  Di_KongPao_att_point;   // ¿ÕÅÚ¼Ó¹¥»÷µã	
+						ei.attPoint[BLACKCOLOR] +=  Di_KongPao_att_point;   // ç©ºç‚®åŠ æ”»å‡»ç‚¹	
 					}					
 				}
-				//»¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÊÜµ½¶Ô·½µÄ¹¥»÷
+				//è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯å—åˆ°å¯¹æ–¹çš„æ”»å‡»
 				if(bit_is_set(POSITION->DYN->attack_white,msq)){
 					ei.attPoint[BLACKCOLOR] -= Kong_Di_Pao_att_By_Other;
 				}			
 			}
-			// Õâ¿ÉÄÜÊÇºÚÖĞ¿ÕÅÚ
+			// è¿™å¯èƒ½æ˜¯é»‘ä¸­ç©ºç‚®
 			else if(StoX(msq) == StoX(rk)){
 				if(StoY(msq) >= 0x7){
 					//fen 3C2b2/3k4C/2N2n3/3P5/8P/4cn3/9/2pAB4/4A4/4K1B2 w - - 0 0
@@ -86,15 +86,15 @@
 				}	
 				if(ABS(StoY(msq) - StoY(rk)) >= 2){	
 
-					// Èç¹û¶Ô·½ÓĞ¶ş³µ,Ò²Òª¼ÓÒ»Ğ©.
-					set_bit(ei.attackKingBoard,msq);                          // ×öÒ»¸ö±êÖ¾
+					// å¦‚æœå¯¹æ–¹æœ‰äºŒè½¦,ä¹Ÿè¦åŠ ä¸€äº›.
+					set_bit(ei.attackKingBoard,msq);                          // åšä¸€ä¸ªæ ‡å¿—
 
-					// ÔÙ¸ù¾İ¶Ô·½³µµÄÇé¿ö¼ÓÒ»Ğ©·Ö
+					// å†æ ¹æ®å¯¹æ–¹è½¦çš„æƒ…å†µåŠ ä¸€äº›åˆ†
 					if(ei.RKing_Info & KING_CAN_RIGHT_LEFT){
 						ei.attPoint[BLACKCOLOR] +=  KongPao_att_point[BChe_num()]/2; 
 					}
 					else{
-						ei.attPoint[BLACKCOLOR] +=  KongPao_att_point[BChe_num()];      // ¿ÕÅÚ¼Ó¹¥»÷µã
+						ei.attPoint[BLACKCOLOR] +=  KongPao_att_point[BChe_num()];      // ç©ºç‚®åŠ æ”»å‡»ç‚¹
 					}
 				}		
 			}

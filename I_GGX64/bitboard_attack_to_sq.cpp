@@ -12,29 +12,29 @@ Bitboard sq_attacked_by_color(const typePOS *POSITION, int sq, int white_to_move
 	//m128_from_2u64(att,0,0);
 	//register Bitboard bb;
     occ = POSITION->byWhiteBlack;              // board_display(board,"");
-	if(white_to_move){                         // Õâ¸ö²»ÊÇ
+	if(white_to_move){                         // è¿™ä¸ªä¸æ˜¯
 
-        //1,ºì±ø,ºìË§                                                             //BB_or_BB(att,bb); µÚÒ»¸ö¿ÉÊ¡È¥.
+        //1,çº¢å…µ,çº¢å¸…                                                             //BB_or_BB(att,bb); ç¬¬ä¸€ä¸ªå¯çœåŽ».
 		att = m_and(Attack_By_Rpawn_Rking[sq],
-			m_or(POSITION->byChessBB[RPAWN],POSITION->byChessBB[RKING]));       //µÃµ½ºì±ø¿É¹¥»÷µÄÎ»ÆåÅÌ
+			m_or(POSITION->byChessBB[RPAWN],POSITION->byChessBB[RKING]));       //å¾—åˆ°çº¢å…µå¯æ”»å‡»çš„ä½æ£‹ç›˜
 		
-		//2,³µ
+		//2,è½¦
 		att = m_or(att,
 			m_and(rook_attacks_bb(sq,occ), POSITION->byChessBB[RCHE]));
 
-		//3,ÅÚ
+		//3,ç‚®
 		att = m_or(att,
 			m_and(pao_eat_attacks_bb(sq,occ),POSITION->byChessBB[RPAO]));
 
-		//4,Âí
+		//4,é©¬
 		att = m_or(att,
 			m_and(king_to_ma_attacks_bb(sq,occ),POSITION->byChessBB[RMA]));
 
-		//5,ÊË
+		//5,ä»•
 		att = m_or(att,
 			m_and(shi_attacks(sq),POSITION->byChessBB[RSHI]));
 
-		//6,Ïà
+		//6,ç›¸
 		att = m_or(att,
 			m_and(xiang_attacks_bb(sq,occ),POSITION->byChessBB[RXIANG]));
 
@@ -56,27 +56,27 @@ Bitboard sq_attacked_by_color(const typePOS *POSITION, int sq, int white_to_move
 	}
 	else{
 
-		 //1,ºÚ×ä,ºÚ½«                                                             //BB_or_BB(att,bb); µÚÒ»¸ö¿ÉÊ¡È¥.
+		 //1,é»‘å’,é»‘å°†                                                             //BB_or_BB(att,bb); ç¬¬ä¸€ä¸ªå¯çœåŽ».
 		att = m_and(Attack_By_Bpawn_Bking[sq],
-			m_or(POSITION->byChessBB[BPAWN],POSITION->byChessBB[BKING]));       //µÃµ½ºì±ø¿É¹¥»÷µÄÎ»ÆåÅÌ
+			m_or(POSITION->byChessBB[BPAWN],POSITION->byChessBB[BKING]));       //å¾—åˆ°çº¢å…µå¯æ”»å‡»çš„ä½æ£‹ç›˜
 
-		//2,³µ
+		//2,è½¦
 		att = m_or(att,
 			m_and(rook_attacks_bb(sq,occ), POSITION->byChessBB[BCHE]));
 
-		//3,ÅÚ
+		//3,ç‚®
 		att = m_or(att,
 			m_and(pao_eat_attacks_bb(sq,occ),POSITION->byChessBB[BPAO]));
 
-		//4,Âí
+		//4,é©¬
 		att = m_or(att,
 			m_and(king_to_ma_attacks_bb(sq,occ),POSITION->byChessBB[BMA]));	
 
-		//5,ÊË
+		//5,ä»•
 		att = m_or(att,
 			m_and(shi_attacks(sq),POSITION->byChessBB[BSHI]));
 
-		//6,Ïà
+		//6,ç›¸
 		att = m_or(att,
 			m_and(xiang_attacks_bb(sq,occ),POSITION->byChessBB[BXIANG]));
 	}

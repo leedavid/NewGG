@@ -4,14 +4,14 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ4±ø¶Ô1ÅÚ1Âí.cpp"
+#include "1ç‚®4å…µå¯¹1ç‚®1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-// ÅÚ4±ø¶ÔÅÚÂí
+// ç‚®4å…µå¯¹ç‚®é©¬
 void my_m_MT_R_1pao4pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
@@ -20,7 +20,7 @@ void my_m_MT_R_1pao4pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_ADD((sint16)count_1s(bmp) * ADD_PaoXPawn_To_1Pao1Ma_ByShi[your_shi_num]);
 
 	// fen 3a5/4ak3/2P6/4P4/2b6/9/5C3/B4An2/3KA4/2B5c b - - 126 126
-    //Èç¹ûÅÚ·½ÊÇÊËÏàÈ«£¬ÇÒÅÚÔÚ¶şÏßÒÔÏÂ£¬¾ÍÒª¼Ó·Ö
+    //å¦‚æœç‚®æ–¹æ˜¯ä»•ç›¸å…¨ï¼Œä¸”ç‚®åœ¨äºŒçº¿ä»¥ä¸‹ï¼Œå°±è¦åŠ åˆ†
 	if((my_shi_num + my_xiang_num) == 4 && StoY(my_king_pos) MY_LARGE_EQL MY_RANK8){
 		MY_EV_ADD(ADD_MAPAO_Xpawn_To_PAO2PawnNoSafe);
 		// fen 2bk1a3/4a4/4b4/9/P2n4C/2P6/8P/4B4/4A4/4KABc1 b - - 0 1

@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1��1�ڶ�1��.cpp"
+#include "1马1炮对1车.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -14,7 +14,7 @@
 
 //const int MaPao2ShiAdd = 16;
 
-//���ڶԳ�
+//马炮对车
 void my_m_MT_R_1pao1ma_B_1che(typePOS &POSITION, EvalInfo &ei){
 
 	Square mk   = my_king_pos;
@@ -42,10 +42,10 @@ void my_m_MT_R_1pao1ma_B_1che(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//�����ڷ�Ҫ�����, 
-	//����Ҫ���غ�һ��,Ҫ����;
-	//1,���ڽ���, ���⳵�ڵ�ͷ�ս�,��������Ӧ��,������õ�һ�ֺ;ֵ�����
-	//2,���ڽ�ǰ, ��ʱ��������, ���в�������̫Զ,
+	//则马炮方要求和了, 
+	//马炮要想守和一车,要二点;
+	//1,炮在将后, 以免车在当头照将,再用马做应着,这是最好的一种和局的形势
+	//2,炮在将前, 随时紧帖互保, 马切不可跳得太远,
 	if(StoX(mpao) == StoX(mk) && (your_shi_num + your_xiang_num) == 0){
 		//
 		if(StoY(mpao) MY_LARGE StoY(mk)){

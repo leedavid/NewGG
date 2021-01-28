@@ -1,23 +1,23 @@
 	
 
 
-       // ºì±ø
+       // çº¢å…µ
 		Bitboard p = bitboard_white_pawn;
 		Bitboard B = p;
 		//Bitboard Btmp;
-		// ÏòÇ°Ò»²½.
+		// å‘å‰ä¸€æ­¥.
 		B = _mm_andnot_si128(_mm_load_si128((__m128i*)Rank0BB),B);
 		m128_RightShift(B,9);
-		ei.attackedBy[RPAWN] = B;   // µÚÒ»´ÎÖ»ÒªÖ±½Ó¸³Öµ
+		ei.attackedBy[RPAWN] = B;   // ç¬¬ä¸€æ¬¡åªè¦ç›´æ¥èµ‹å€¼
 		POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,B);	
 		B = m128_bb_and_bb(B,bit_bk);
 		m128_LeftShift(B,9);	
 		POSITION->DYN->black_king_check = m128_bb_or_bb(POSITION->DYN->black_king_check,B);
-		// ¹ıºÓ±ø	
+		// è¿‡æ²³å…µ	
 		//fen 9/4k4/3a5/1P7/9/3N1R3/4r4/4Bn3/9/2BK1p3 w - - 0 0
 		if(have_bit(p,_mm_load_si128((__m128i*)RpawnOverBB))){
 			p = m128_bb_and_bb(p,_mm_load_si128((__m128i*)RpawnOverBB));
-			// ±ø½«Ò»ÏßµÄ¼Ó·Ö
+			// å…µå°†ä¸€çº¿çš„åŠ åˆ†
 			Bitboard bKPC;
 			bKPC = m128_bb_and_bb(ei.attackKingCheCan[WHITECOLOR],p);
 			while (m128_is_have_bit(bKPC)){
@@ -27,29 +27,29 @@
 				}
 				else if(PB90[kpawnche] == RPAWN){ //fen 4ka3/4aP3/2n5b/4p1N1p/p5b2/4R4/1r2P3P/2r1B4/4A1C2/c1BA1K3 w
 					if(m128_is_have_bit(m128_bb_and_bb(
-						one_rpawn_rk_attacks(kpawnche),attacks_by_rpawn_rk(bk)))){ //board_display(POSITION,"½«Ö§³Å±ø!!");							
+						one_rpawn_rk_attacks(kpawnche),attacks_by_rpawn_rk(bk)))){ //board_display(POSITION,"å°†æ”¯æ’‘å…µ!!");							
 							ei.Rattack_B_Count += King_CheSameLineAtt ;
 							break;
 					}
 				}
 			}						
-			//------- ¹ıºÓ±øÊıÁ¿µÄ¼Ó·Ö
-			int gh_num  = count_1s(_mm_andnot_si128(_mm_load_si128((__m128i*)Rank0BB),p));	// È¥ÁËµ×Ïß±ø
+			//------- è¿‡æ²³å…µæ•°é‡çš„åŠ åˆ†
+			int gh_num  = count_1s(_mm_andnot_si128(_mm_load_si128((__m128i*)Rank0BB),p));	// å»äº†åº•çº¿å…µ
 			valu       += PAWN_NUM_OVER_RIVER_point[gh_num];
 			B = p;
-			//------- Èç¹û¶Ô·½Ã»ÓĞÊËÁË,Òª¼Ó·ÖÍÛ
+			//------- å¦‚æœå¯¹æ–¹æ²¡æœ‰ä»•äº†,è¦åŠ åˆ†å“‡
 			int yshi    = POSITION->pieceCount[BSHI];
 			//int pnum    = 0;
-			while(m128_is_have_bit(B)){ // ºì±ø
+			while(m128_is_have_bit(B)){ // çº¢å…µ
 				int pawn = pop_1st_bit(&B);				
-				valu += point_B_01Shi_R_Pawn90[yshi][pawn];   // ¶Ô·½ÉÙÊËºóÎÒ·½±øµÄ¼Ó·Ö
+				valu += point_B_01Shi_R_Pawn90[yshi][pawn];   // å¯¹æ–¹å°‘ä»•åæˆ‘æ–¹å…µçš„åŠ åˆ†
 				if(yshi == 0){
 					if(   (ei.R_att_Bside[BK_RIGHT] & (KS_S_CHE_MY_SIDE_1_OPEN + KS_S_CHE_MY_SIDE_2_OPEN))
 						||(ei.R_att_Bside[BK_LEFT]  & (KS_S_CHE_MY_SIDE_1_OPEN + KS_S_CHE_MY_SIDE_2_OPEN))){
-							valu += point_B_01Shi_R_Pawn90_My_CheOpen[pawn]; //ÔÙ¼ÓÒ»Ğ©·Ö
+							valu += point_B_01Shi_R_Pawn90_My_CheOpen[pawn]; //å†åŠ ä¸€äº›åˆ†
                      
-							// ±È¶ÔÒ»ÏÂ³µ±øºÍ¶Ô·½µÄÊËµÄÊıÁ¿
-							// 2³µ1±ø¶Ô2ÊË,1³µ1±ø¶Ô1ÊË,Èç¹û¶Ô·½ÓĞÅÚÔÚ·ÀÊØ,¾ÍÒª¼õÒ»¸ö. Èç¹û¶Ô·½ÓĞ³µÔÚ·ÀÊØ,¾ÍÒª¼õÒ»¸ö.
+							// æ¯”å¯¹ä¸€ä¸‹è½¦å…µå’Œå¯¹æ–¹çš„ä»•çš„æ•°é‡
+							// 2è½¦1å…µå¯¹2ä»•,1è½¦1å…µå¯¹1ä»•,å¦‚æœå¯¹æ–¹æœ‰ç‚®åœ¨é˜²å®ˆ,å°±è¦å‡ä¸€ä¸ª. å¦‚æœå¯¹æ–¹æœ‰è½¦åœ¨é˜²å®ˆ,å°±è¦å‡ä¸€ä¸ª.
 							if(StoY(bk) == 0x0){
 								if(pawn == 0x0d){
 
@@ -73,8 +73,8 @@
 					}
 				}
 			}
-			B = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB),p);  // È¥ÁË×óÃæ±ø
-			m128_RightShift(B,1);                   //ËùÓĞºì±øÏò×óÒ»²½
+			B = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB),p);  // å»äº†å·¦é¢å…µ
+			m128_RightShift(B,1);                   //æ‰€æœ‰çº¢å…µå‘å·¦ä¸€æ­¥
 			ei.attackedBy[RPAWN] = m128_bb_or_bb(ei.attackedBy[RPAWN],B);
 			POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,B);
 			B = m128_bb_and_bb(B,bit_bk);
@@ -82,14 +82,14 @@
 			POSITION->DYN->black_king_check = m128_bb_or_bb(POSITION->DYN->black_king_check,B);
 			//
 			B = _mm_andnot_si128(_mm_load_si128((__m128i*)File8BB),p);
-			m128_LeftShift(B,1);                   //ËùÓĞºì±øÏòÓÒÒ»²½
+			m128_LeftShift(B,1);                   //æ‰€æœ‰çº¢å…µå‘å³ä¸€æ­¥
 			ei.attackedBy[RPAWN] = m128_bb_or_bb(ei.attackedBy[RPAWN],B);
 			POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,B);
 			B = m128_bb_and_bb(B,bit_bk);
 			m128_RightShift(B,1);
 			POSITION->DYN->black_king_check = m128_bb_or_bb(POSITION->DYN->black_king_check,B);
 
-			// µÃµ½×ä±£»¤×Ô¼ºµÄÆå×ÓµÄ·Ö
+			// å¾—åˆ°å’ä¿æŠ¤è‡ªå·±çš„æ£‹å­çš„åˆ†
 			B = m128_bb_and_bb(ei.attackedBy[RPAWN],occ);
 			while (m128_is_have_bit(B))	{
 				int p1 = pop_1st_bit(&B);
@@ -98,18 +98,18 @@
 		}	
 
 
-		// black ±ø
+		// black å…µ
 		p = bitboard_black_pawn;
 		B = p;
-		// ÏòÇ°Ò»²½.
+		// å‘å‰ä¸€æ­¥.
 		B = _mm_andnot_si128(_mm_load_si128((__m128i*)Rank9BB),B);
 		m128_LeftShift(B,9);
-		ei.attackedBy[BPAWN] = B;   // µÚÒ»´ÎÖ»ÒªÖ±½Ó¸³Öµ
+		ei.attackedBy[BPAWN] = B;   // ç¬¬ä¸€æ¬¡åªè¦ç›´æ¥èµ‹å€¼
 		POSITION->DYN->attack_black = m128_bb_or_bb(POSITION->DYN->attack_black,B);
 		B = m128_bb_and_bb(B,bit_rk);
 		m128_RightShift(B,9);
 		POSITION->DYN->white_king_check = m128_bb_or_bb(POSITION->DYN->white_king_check,B);
-		// ¹ıºÓ±ø	
+		// è¿‡æ²³å…µ	
 		if(have_bit(p,_mm_load_si128((__m128i*)BpawnOverBB))){
 			p = m128_bb_and_bb(p,_mm_load_si128((__m128i*)BpawnOverBB));
 			Bitboard bKPC;
@@ -119,21 +119,21 @@
 				if(StoX(kpawnche) != StoX(bk)){
 					continue;
 				}
-				else if(PB90[kpawnche] == BPAWN){ //ÔÙ¿´Ò»ÏÂÎÒ·½µÄÄÜ²»ÄÜ³Ôµ½¶Ô·½µÄ½«						
+				else if(PB90[kpawnche] == BPAWN){ //å†çœ‹ä¸€ä¸‹æˆ‘æ–¹çš„èƒ½ä¸èƒ½åƒåˆ°å¯¹æ–¹çš„å°†						
 					if(m128_is_have_bit(m128_bb_and_bb(
-						one_bpawn_bk_attacks(kpawnche),attacks_by_bpawn_bk(rk)))){ //board_display(POSITION,"½«Ö§³Å±ø!!"); //fen 3k1a3/Rc2a4/4b1n2/4p4/P1p1n1bC1/4RN3/2P1Pr2P/N3B1r2/3pA4/2BAK4 w					
+						one_bpawn_bk_attacks(kpawnche),attacks_by_bpawn_bk(rk)))){ //board_display(POSITION,"å°†æ”¯æ’‘å…µ!!"); //fen 3k1a3/Rc2a4/4b1n2/4p4/P1p1n1bC1/4RN3/2P1Pr2P/N3B1r2/3pA4/2BAK4 w					
 							ei.Battack_R_Count += King_CheSameLineAtt ;
 							break;
 					}
 				}
 			}
 
-			//------- ¹ıºÓ±øÊıÁ¿µÄ¼Ó·Ö
-			int gh_num  = count_1s(_mm_andnot_si128(_mm_load_si128((__m128i*)Rank9BB),p));	// È¥ÁËµ×Ïß±ø
+			//------- è¿‡æ²³å…µæ•°é‡çš„åŠ åˆ†
+			int gh_num  = count_1s(_mm_andnot_si128(_mm_load_si128((__m128i*)Rank9BB),p));	// å»äº†åº•çº¿å…µ
 			valu       -= PAWN_NUM_OVER_RIVER_point[gh_num]; // fen 3ckab2/4a4/4b4/P2R1P2p/2r1P4/P1N6/5n2P/3AB4/9/2BK1A3 w - - 5 5
 			
 			B = p; // fen 4ka3/1PP1a4/9/9/4p1p2/7R1/4p4/4B4/3rA4/3AK1B2 b
-			//------- Èç¹û¶Ô·½Ã»ÓĞÊËÁË,Òª¼Ó·ÖÍÛ
+			//------- å¦‚æœå¯¹æ–¹æ²¡æœ‰ä»•äº†,è¦åŠ åˆ†å“‡
 			int yshi    = POSITION->pieceCount[RSHI];
 			//int pnum    = 0;
 			while(m128_is_have_bit(B)){
@@ -142,14 +142,14 @@
 				if(yshi == 0){
 					if(   (ei.B_att_Rside[RK_RIGHT] & (KS_S_CHE_MY_SIDE_1_OPEN + KS_S_CHE_MY_SIDE_2_OPEN))
 						||(ei.B_att_Rside[RK_LEFT]  & (KS_S_CHE_MY_SIDE_1_OPEN + KS_S_CHE_MY_SIDE_2_OPEN))){
-							valu -= point_R_01Shi_B_Pawn90_My_CheOpen[pawn]; //ÔÙ¼ÓÒ»Ğ©·Ö
+							valu -= point_R_01Shi_B_Pawn90_My_CheOpen[pawn]; //å†åŠ ä¸€äº›åˆ†
 					}
 				}
 				int pawnSafe = PrePawnAttKingMul_Safe[yshi][pawn][rk];
 				if(pawnSafe){
 					valu -= pawnSafe;
 					if(StoX(pawn) == 0x4){
-						ei.B_att_Rside[RK_RIGHT]        |= KS_S_PAWN_SIDE_ATT;  //ÓĞ±øÁíÈë½ø¹¥ÁË
+						ei.B_att_Rside[RK_RIGHT]        |= KS_S_PAWN_SIDE_ATT;  //æœ‰å…µå¦å…¥è¿›æ”»äº†
 						ei.B_att_Rside[RK_LEFT]         |= KS_S_PAWN_SIDE_ATT;
 					}
 					else{
@@ -158,8 +158,8 @@
 				}
 			}
 
-			B = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB),p);  // È¥ÁË×óÃæ±ø
-			m128_RightShift(B,1);                   //ËùÓĞºì±øÏò×óÒ»²½
+			B = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB),p);  // å»äº†å·¦é¢å…µ
+			m128_RightShift(B,1);                   //æ‰€æœ‰çº¢å…µå‘å·¦ä¸€æ­¥
 			ei.attackedBy[BPAWN] = m128_bb_or_bb(ei.attackedBy[BPAWN],B);
 			POSITION->DYN->attack_black = m128_bb_or_bb(POSITION->DYN->attack_black,B);
 			B = m128_bb_and_bb(B,bit_rk);
@@ -167,14 +167,14 @@
 			POSITION->DYN->white_king_check = m128_bb_or_bb(POSITION->DYN->white_king_check,B);
 			//
 			B = _mm_andnot_si128(_mm_load_si128((__m128i*)File8BB),p);
-			m128_LeftShift(B,1);                   //ËùÓĞºì±øÏòÓÒÒ»²½
+			m128_LeftShift(B,1);                   //æ‰€æœ‰çº¢å…µå‘å³ä¸€æ­¥
 			ei.attackedBy[BPAWN] = m128_bb_or_bb(ei.attackedBy[BPAWN],B);
 			POSITION->DYN->attack_black = m128_bb_or_bb(POSITION->DYN->attack_black,B);
 			B = m128_bb_and_bb(B,bit_rk);
 			m128_RightShift(B,1);
 			POSITION->DYN->white_king_check = m128_bb_or_bb(POSITION->DYN->white_king_check,B);
 
-			// µÃµ½ºÚ×ä±£»¤×Ô¼ºµÄÆå×ÓµÄ·Ö
+			// å¾—åˆ°é»‘å’ä¿æŠ¤è‡ªå·±çš„æ£‹å­çš„åˆ†
 			B = m128_bb_and_bb(ei.attackedBy[BPAWN],occ);
 			while (m128_is_have_bit(B))	{
 				int p1 = pop_1st_bit(&B);

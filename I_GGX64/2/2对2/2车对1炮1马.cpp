@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2³µ¶Ô1ÅÚ1Âí.cpp"
+#include "2è½¦å¯¹1ç‚®1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -19,7 +19,7 @@ void my_m_MT_R_2che_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 		if(PB90(MY_SQ0D) == your_shi && PB90(MY_SQ16) == your_xiang 
 			&& StoY(ypao) MY_SMALL_EQL MY_RANK2){
 			
-			// fen 4kab2/9/5a3/9/2b6/5r3/7rC/4B4/4A4/2BAKN3 w - - 66 66 //Ò»¸öÌØÊâµÄºÍÐÍ
+			// fen 4kab2/9/5a3/9/2b6/5r3/7rC/4B4/4A4/2BAKN3 w - - 66 66 //ä¸€ä¸ªç‰¹æ®Šçš„å’Œåž‹
 			if(PB90(MY_SQ03) == your_ma && PB90(MY_SQ05) == your_shi){
 				if(StoX(ypao) < 0x4 && PB90(MY_SQ06) == your_xiang){
 					RETRUN_MUL(2);

@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2³µ4±ø¶Ô2³µ.cpp"
+#include "2è½¦4å…µå¯¹2è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -15,11 +15,11 @@
 //const int const_Pawn_add   = 64;
 
 
-//2³µ4±ø¶Ô2³µ
+//2è½¦4å…µå¯¹2è½¦
 void my_m_MT_R_2che4pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 	
 
 	Square yk = your_king_pos;
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
-	MY_EV_ADD((sint16)count_1s(bmp) * ADD_2³µx±ø¶Ô2³µ_byPawn[your_shi_num]);
+	MY_EV_ADD((sint16)count_1s(bmp) * ADD_2è½¦xå…µå¯¹2è½¦_byPawn[your_shi_num]);
 }

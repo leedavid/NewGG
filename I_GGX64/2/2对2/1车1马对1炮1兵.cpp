@@ -4,18 +4,18 @@
 #include "..\\..\\preGen.h"
 
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí¶Ô1ÅÚ1±ø.cpp"
+#include "1è½¦1é©¬å¯¹1ç‚®1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
 
-//³µ±ø¶ÔÅÚ±ø
+//è½¦å…µå¯¹ç‚®å…µ
 void my_m_MT_R_1che1ma_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	
 	// fen 4k4/4c4/9/8p/9/9/9/4R4/4N4/3AKA3 w - - 0 0
-	//Ò»¸ö×ÓÒ²²»ÄÜ¶¯ÁË
+	//ä¸€ä¸ªå­ä¹Ÿä¸èƒ½åŠ¨äº†
 	if(my_xiang_num == 0){
 		if(PB90(MY_SQ55) == my_king && PB90(MY_SQ4C) == my_ma 
 			&& PB90(MY_SQ54) == my_shi && PB90(MY_SQ56) == my_shi){

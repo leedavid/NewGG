@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "2Âí1±ø¶Ô1ÅÚ1±ø.cpp"
+#include "2é©¬1å…µå¯¹1ç‚®1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -27,7 +27,7 @@ void my_m_MT_R_2ma1pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
 
 	// fen 9/4P4/3k5/9/3n5/2Bn5/3C5/4KA3/3pA4/9 b - - 0 1
-	// ¶ş¸öÂí²»ÄÜ×ß
+	// äºŒä¸ªé©¬ä¸èƒ½èµ°
 	if(!m_have_bit(_mm_andnot_si128(EV_YOUR_XBIT,bb_my_ma))){
 		MY_EV_SUB(168);
 	}

@@ -4,13 +4,13 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1Âí1ÅÚ¶Ô1Âí.cpp"
+#include "1é©¬1ç‚®å¯¹1é©¬.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//1, ÎÒ·½µÄÂíÒª¹ıºÓ
+//1, æˆ‘æ–¹çš„é©¬è¦è¿‡æ²³
 //const int MaPaoXPawn_Vs_Ma_PaoMao_Over_River =  96;
 //const int PaoMao_Over_River =  96;
 //const int PaoAtHome         =  32;
@@ -18,7 +18,7 @@
 //const int GaoShi            =  16;
 //const int OtherXiangQuan    =
 
-//ÂíÅÚ¶ÔÂí //×ÜÄÜÊ¤, Ò»¶¨Òª¼Ó·Ö
+//é©¬ç‚®å¯¹é©¬ //æ€»èƒ½èƒœ, ä¸€å®šè¦åŠ åˆ†
 void my_m_MT_R_1pao1ma_B_1ma(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk   = your_king_pos;
@@ -35,16 +35,16 @@ void my_m_MT_R_1pao1ma_B_1ma(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	MY_EV_ADD(96);
-	//1, ÎÒ·½µÄÂíÒª¹ıºÓ
+	//1, æˆ‘æ–¹çš„é©¬è¦è¿‡æ²³
 	if(StoY(mma) MY_SMALL MY_RANK5){
 		MY_EV_ADD(64);
 	}
-	//2, ÅÚÒª»Ø¼Ò
+	//2, ç‚®è¦å›å®¶
 	if(StoY(mpao) MY_LARGE MY_RANK5){
 		MY_EV_ADD(32);
 	}
-	//3, ÏàÒª·ÉÆğ
-	//4,¸ßÊË
+	//3, ç›¸è¦é£èµ·
+	//4,é«˜ä»•
 	if(PB90(MY_SQ42) == my_shi || PB90(MY_SQ44) == my_shi){
 		MY_EV_ADD(32);
 	}
@@ -53,7 +53,7 @@ void my_m_MT_R_1pao1ma_B_1ma(typePOS &POSITION, EvalInfo &ei){
          MY_EV_SUB(80);
 	}
 
-	//ÂíÅÚÄÑÊ¤ÂíË«Ïó
+	//é©¬ç‚®éš¾èƒœé©¬åŒè±¡
 	// fen 5kb2/9/8b/5N3/9/2B6/9/4B1Cn1/9/3K5 w - - 89 89
 	if(my_shi_num == 0 && your_xiang_num == 2){
 		if(StoY(yk) MY_SMALL MY_RANK2 && StoY(yma) MY_SMALL_EQL MY_RANK4){
@@ -88,7 +88,7 @@ void my_m_MT_R_1pao1ma_B_1ma(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//ÂíÅÚÄÑÊ¤ÂíË«Ïó
+	//é©¬ç‚®éš¾èƒœé©¬åŒè±¡
 	// fen 5kb2/9/8b/5N3/9/2B6/9/4B1Cn1/9/3K5 w - - 89 89
 	if (my_shi_num == 0 && your_xiang_num == 2) {
 		if (StoY(yk) MY_SMALL MY_RANK2) {
@@ -133,7 +133,7 @@ void my_m_MT_R_1pao1ma_B_1ma(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// fen 2b1k1b2/9/9/4N1n2/9/2B3B2/9/5A3/3K5/2C6 w - - 0 1  Õâ¸öÒª³ÔÏà
+	// fen 2b1k1b2/9/9/4N1n2/9/2B3B2/9/5A3/3K5/2C6 w - - 0 1  è¿™ä¸ªè¦åƒç›¸
 	if(your_xiang_num == 2 && StoY(yk) MY_SMALL_EQL MY_RANK1){
 		RETRUN_MUL(12);
 	}

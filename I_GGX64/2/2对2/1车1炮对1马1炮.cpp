@@ -4,13 +4,13 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ¶Ô1Âí1ÅÚ.cpp"
+#include "1è½¦1ç‚®å¯¹1é©¬1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif 
 
-//³µÅÚ¶Ô1Âí1ÅÚ
+//è½¦ç‚®å¯¹1é©¬1ç‚®
 #pragma warning(disable : 4100)                    // unreferenced formal parameter  
 void my_m_MT_R_1che1pao_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 

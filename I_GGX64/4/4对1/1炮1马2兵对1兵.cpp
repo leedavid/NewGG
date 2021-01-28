@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí2±ø¶Ô1±ø.cpp"
+#include "1ç‚®1é©¬2å…µå¯¹1å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -12,7 +12,7 @@
 
 
 
-//»¹ÓÐ¾ÍÊÇÂí¹ýºÓÁË
+//è¿˜æœ‰å°±æ˜¯é©¬è¿‡æ²³äº†
 
 void my_m_MT_R_1pao1ma_2pawn_B_1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;

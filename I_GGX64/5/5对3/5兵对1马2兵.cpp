@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "5±ø¶Ô1Âí2±ø.cpp"
+#include "5å…µå¯¹1é©¬2å…µ.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -48,7 +48,7 @@ void my_m_MT_R_5pawn_B_1ma2pawn(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	board->mulScore += ADD_1MaXPawn_3Pawn;    //ÅÚ±ø·½µÄ±ðÍâ¼Ó·Ö
+//	board->mulScore += ADD_1MaXPawn_3Pawn;    //ç‚®å…µæ–¹çš„åˆ«å¤–åŠ åˆ†
 //
 //	// fen 2bak4/4a4/4b4/p3p4/8p/4P1B2/P1p6/6p2/N8/2BAKA3 b - - 0 0
 //	if(board->R_shi == 2 && board->R_xiang == 2){

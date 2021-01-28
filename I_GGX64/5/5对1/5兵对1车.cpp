@@ -4,7 +4,7 @@
 #include "..\\..\\preGen.h"
  
 #include "..\\..\\endgame\mat.h"
-#include "5±ø¶Ô1³µ.cpp"
+#include "5å…µå¯¹1è½¦.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
@@ -12,7 +12,7 @@
 
 //const int Pawn_add = 10;
 
-//ºì·½Èý±ø£¬ºÚ·½Ò»³µ
+//çº¢æ–¹ä¸‰å…µï¼Œé»‘æ–¹ä¸€è½¦
 void my_m_MT_R_5pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 
 	Square mk = my_king_pos;
@@ -24,7 +24,7 @@ void my_m_MT_R_5pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 4k4/4a4/9/4P4/3PP4/9/r8/9/9/4K4 w - - 142 142 
-	// ÎÒ·½ÓÐÈý¸ö±øÁ¬ÏßÁË,¾ÍÒ²Òª¼Ó·ÖÁË
+	// æˆ‘æ–¹æœ‰ä¸‰ä¸ªå…µè¿žçº¿äº†,å°±ä¹Ÿè¦åŠ åˆ†äº†
 	// fen 4k4/4a4/9/4P4/3PP4/9/r8/9/4A4/4KA3 w
 	Bitboard lp = My_get_connect_Pawn(POSITION);
 	if(m_have_bit(m_and(lp,MyLowBB[MY_RANK2]))){
@@ -35,9 +35,9 @@ void my_m_MT_R_5pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 			   }
 			}
 			// fen 4k4/4a4/9/4P4/3PP4/9/r8/9/9/4K4 w - - 142 142 
-			// Èç¹ûÁ¬Ç°Ãæ»¹ÓÐÁ¬±ø
+			// å¦‚æžœè¿žå‰é¢è¿˜æœ‰è¿žå…µ
 			Bitboard lpf = _mm_andnot_si128(_mm_load_si128((__m128i*)MyLastRankPawnBB),lp);
-			//ËùÓÐ±øÏòÇ°Ò»²½
+			//æ‰€æœ‰å…µå‘å‰ä¸€æ­¥
 			my_m_Rsf(lpf,9);
 			if(m_have_bit(m_and(lpf,bb_my_pawn))){
 				RETRUN_MUL(2);
@@ -56,12 +56,12 @@ void my_m_MT_R_5pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 	}
 }
 
-//ºÚ·½Èý±ø£¬ºì·½Ò»³µ
+//é»‘æ–¹ä¸‰å…µï¼Œçº¢æ–¹ä¸€è½¦
 //void m_MT_B_5pawn_R_1che(typePOS &POSITION, EvalInfo &ei){
 ///*
-//	int PawnLian = 0;      //ÓÐ¶àÉÙ¸öÁ¬±ø
+//	int PawnLian = 0;      //æœ‰å¤šå°‘ä¸ªè¿žå…µ
 //
-//    //ÔÚÕâ¶ù¿´Ò»ÏÂÓÐ¶àÉÙ±øÔÚ¶þÏß£¬ÓÐ¼¸¸ö¼Ó·Ö
+//    //åœ¨è¿™å„¿çœ‹ä¸€ä¸‹æœ‰å¤šå°‘å…µåœ¨äºŒçº¿ï¼Œæœ‰å‡ ä¸ªåŠ åˆ†
 //	for(int from = PieceListStart(board,BPAWN); from > 0x32; from = NextPiece(board,from)){
 //		if(StoY(from) == 0x9){
 //			board->mulScore -= Pawn_add;
@@ -90,14 +90,14 @@ void my_m_MT_R_5pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 //	Square bk = PieceListStart(board,BKING);
 //	//Square rk = PieceListStart(board,RKING);
 //
-//	//if((cInfo16 & CK_B_2s) && (cInfo16 & CK_B_2x)){		//¶Ô·½ÊËÏàÈ«
+//	//if((cInfo16 & CK_B_2s) && (cInfo16 & CK_B_2x)){		//å¯¹æ–¹ä»•ç›¸å…¨
 //	if(board->B_shi == 2 && board->B_xiang == 2){
 //		if(bk == 0x37){
 //			return 1;
 //		}
 //	}
 //
-//	board->mulScore += ADD_CheXPawn_To_1Pawn;    //ÓÐ³µ·½µÄ¼Ó·Ö
+//	board->mulScore += ADD_CheXPawn_To_1Pawn;    //æœ‰è½¦æ–¹çš„åŠ åˆ†
 //
 //	*/
 //}

@@ -4,19 +4,19 @@
 #include "..\\..\\preGen.h"
 
 //#define PaoAdd 16
-//#define cons_ÅÚÊËÀıÊ¤Ïó 168
+//#define cons_ç‚®ä»•ä¾‹èƒœè±¡ 168
  
-#include "1ÅÚ.cpp"
+#include "1ç‚®.cpp"
 #include "..\\..\\white.h"
 #else
 #include "..\\..\\black.h"
 #endif  
 
 //const int PaoAdd = 16;
-//const int cons_ÅÚÊËÀıÊ¤Ïó = 168;
+//const int cons_ç‚®ä»•ä¾‹èƒœè±¡ = 168;
 
 
-//ºì·½Ò»¸öÅÚ
+//çº¢æ–¹ä¸€ä¸ªç‚®
 void my_m_MT_R_1PAO(typePOS &POSITION, EvalInfo &ei){
 	
 	Square yk = your_king_pos;
@@ -41,22 +41,22 @@ void my_m_MT_R_1PAO(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// ÎÒ·½Ã»ÓĞÒ»¸öÊË
+	// æˆ‘æ–¹æ²¡æœ‰ä¸€ä¸ªä»•
 	if(my_shi_num == 0){
 		RETRUN_MUL(1);
 	}
 
-	// ¶Ô·½ÓĞÁ½¸öÏà
+	// å¯¹æ–¹æœ‰ä¸¤ä¸ªç›¸
 	if(your_xiang_num == 2){
 		RETRUN_MUL(1);
 	}
 
-	if(your_xiang_num >= 1){ // 43¾Ö ÅÚÊËÏàÈ«ºÍµ¥ÊËÏó
+	if(your_xiang_num >= 1){ // 43å±€ ç‚®ä»•ç›¸å…¨å’Œå•ä»•è±¡
 		if(your_shi_num != 0){
 			//if(your_shi_num == 1){
             //              if()
 			//}
-			// ÒªÃ»ÓĞ¹¹³ÉÖĞÅÚ
+			// è¦æ²¡æœ‰æ„æˆä¸­ç‚®
 			// fen 4k4/4a4/4b4/9/9/9/4C4/3A5/4K4/9 w
 			// fen 9/4ak3/4b4/9/9/9/4C4/3A5/4K4/9 w
 			if(m_have_bit(m_and(POSITION.Pao_Super_bb(your_king_pos),
@@ -75,7 +75,7 @@ void my_m_MT_R_1PAO(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//// ÅÚÊËÀıÊ¤Ïó, µÃ¼ÓÒ»Ğ©·Ö	
+	//// ç‚®ä»•ä¾‹èƒœè±¡, å¾—åŠ ä¸€äº›åˆ†	
 	//MY_EV_ADD(168);
 
 	if(your_shi_num == 0 && your_xiang_num <= 1 && my_shi_num != 0){

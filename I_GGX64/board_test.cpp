@@ -78,34 +78,34 @@ void board_display(const typePOS *POSITION, char * szReason){
 	char* q;
 
 	const static char *c_BoardStrSim[19] = {
-		"cmd: 9©°--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©´ \n",
-		"cmd:  ©¦  ©¦  ©¦  ©¦£Ü©¦£¯©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 8©À--©à--©à--©à--¡ù--©à--©à--©à--©È \n",
-		"cmd:  ©¦  ©¦  ©¦  ©¦£¯©¦£Ü©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 7©À--©à--©à--©à--©à--©à--©à--©à--©È \n",
-		"cmd:  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 6©À--©à--©à--©à--©à--©à--©à--©à--©È \n",
-		"cmd:  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 5©À--©Ø--©Ø--©Ø--©Ø--©Ø--©Ø--©Ø--©È \n",
-		"cmd:  ©¦                              ©¦ \n",
-		"cmd: 4©À--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©Ğ--©È \n",
-		"cmd:  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 3©À--©à--©à--©à--©à--©à--©à--©à--©È \n",
-		"cmd:  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 2©À--©à--©à--©à--©à--©à--©à--©à--©È \n",
-		"cmd:  ©¦  ©¦  ©¦  ©¦£Ü©¦£¯©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 1©À--©à--©à--©à--¡ù--©à--©à--©à--©È \n",
-		"cmd:  ©¦  ©¦  ©¦  ©¦£¯©¦£Ü©¦  ©¦  ©¦  ©¦ \n",
-		"cmd: 0©¸--©Ø--©Ø--©Ø--©Ø--©Ø--©Ø--©Ø--©¼ \n"
+		"cmd: 9â”Œ--â”¬--â”¬--â”¬--â”¬--â”¬--â”¬--â”¬--â” \n",
+		"cmd:  â”‚  â”‚  â”‚  â”‚ï¼¼â”‚ï¼â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 8â”œ--â”¼--â”¼--â”¼--â€»--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:  â”‚  â”‚  â”‚  â”‚ï¼â”‚ï¼¼â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 7â”œ--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 6â”œ--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 5â”œ--â”´--â”´--â”´--â”´--â”´--â”´--â”´--â”¤ \n",
+		"cmd:  â”‚                              â”‚ \n",
+		"cmd: 4â”œ--â”¬--â”¬--â”¬--â”¬--â”¬--â”¬--â”¬--â”¤ \n",
+		"cmd:  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 3â”œ--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 2â”œ--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:  â”‚  â”‚  â”‚  â”‚ï¼¼â”‚ï¼â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 1â”œ--â”¼--â”¼--â”¼--â€»--â”¼--â”¼--â”¼--â”¤ \n",
+		"cmd:  â”‚  â”‚  â”‚  â”‚ï¼â”‚ï¼¼â”‚  â”‚  â”‚  â”‚ \n",
+		"cmd: 0â””--â”´--â”´--â”´--â”´--â”´--â”´--â”´--â”˜ \n"
 		"cmd:  a   b   c   d   e   f   g   h   i\n"
 	};
 
 	const static char chessStr[17][4] = {
-		"´í",
-		"›","ÊË","Ïà","ñR","Ü‡","ÅÚ","±ø",
-		"´í",
-		"Œ¢","Ê¿","Ïó","Âí","³µ","°ü","×ä",
-		"´í"
+		"é”™",
+		"å¸¥","ä»•","ç›¸","é¦¬","è»Š","ç‚®","å…µ",
+		"é”™",
+		"å°‡","å£«","è±¡","é©¬","è½¦","åŒ…","å’",
+		"é”™"
 	};
 
    fprintf(out,"cmd: ");
@@ -132,10 +132,10 @@ void board_display(const typePOS *POSITION, char * szReason){
 
    //
    if(POS_SIDE){
-	   fprintf(out,"cmd: µ±Ç°ÊÇºì·½×ßÆå\n");
+	   fprintf(out,"cmd: å½“å‰æ˜¯çº¢æ–¹èµ°æ£‹\n");
    }
    else{
-	   fprintf(out,"cmd: µ±Ç°ÊÇºÚ·½×ßÆå\n");
+	   fprintf(out,"cmd: å½“å‰æ˜¯é»‘æ–¹èµ°æ£‹\n");
    }
    q = pv;
    *q = 0;
@@ -154,7 +154,7 @@ void board_display(const typePOS *POSITION, char * szReason){
    *q = 0;
    fprintf(out,"pv= %s\n",pv);
 
-   // ·ÖÊı
+   // åˆ†æ•°
 
 
    //Record* re = &board->His[board->gamePly];
@@ -188,10 +188,10 @@ void board_display(const typePOS *POSITION, char * szReason){
 	  // board->pMat->Bphase
    //    );
 
-   //Êä³öµ±Ç°µÄÆÀ¹ÀÖµ
+   //è¾“å‡ºå½“å‰çš„è¯„ä¼°å€¼
    //fprintf(out,"eval %d\n", evaluate(board,NULL,0));
 
-   //´òÓ¡µ±Ç°ËùÓĞµÄÀúÊ·×ß²½,nocap,ÊÇ²»ÊÇ½«¾ü,posVal, move2str
+   //æ‰“å°å½“å‰æ‰€æœ‰çš„å†å²èµ°æ­¥,nocap,æ˜¯ä¸æ˜¯å°†å†›,posVal, move2str
    //for(int i = 1; i <= board->gply; i++){
 	  // fprintf(out,"cmd: No.%2d,Move:%s, n: %d, c: %d, o: %d, e: %d  \n",
 		 //  i,move2str(board->His[i].move,buf),board->His[i].nonCap,board->His[i].ischeck,board->Opening,board->Endgame);
@@ -199,12 +199,12 @@ void board_display(const typePOS *POSITION, char * szReason){
    fflush(out);
 }
 const static uint8 r2b_chess[16] = {
-	0,  //Õâ¸ö²»ÓÃÁË
+	0,  //è¿™ä¸ªä¸ç”¨äº†
 	BKING,BSHI,BXIANG,BMA,BCHE,BPAO,BPAWN,
 	8,		
 	RKING,RSHI,RXIANG,RMA,RCHE,RPAO,RPAWN,
 };
-// Æå¾ÖºÚºì½»»»
+// æ£‹å±€é»‘çº¢äº¤æ¢
 void board_red2black			(typePOS * tNow, typePOS * tOld){
 	int i;
 	char fen[256];
@@ -217,7 +217,7 @@ void board_red2black			(typePOS * tNow, typePOS * tOld){
 	board_to_fen(tNow,fen);
 	board_from_fen(tNow,fen,FALSE);
 }
-// Æå¾Ö×óÓÒ½»»»
+// æ£‹å±€å·¦å³äº¤æ¢
 void board_mirror 				(typePOS * tNow, const typePOS * tOld){
     int i;
 	char fen[256];
