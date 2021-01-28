@@ -164,7 +164,7 @@ static BOOL WMI_DoWithHarddiskSerialNumber( TCHAR *SerialNumber, UINT uSize )
 	}
 
 	// 去掉空格
-	std::remove( SerialNumber, SerialNumber + _tcslen(SerialNumber) + 1, L' ' );
+	static_cast<void>(std::remove( SerialNumber, SerialNumber + _tcslen(SerialNumber) + 1, L' ' ));
 
 	return TRUE;
 }
@@ -185,12 +185,12 @@ static BOOL WMI_DoWithProperty( INT iQueryType, TCHAR *szProperty, UINT uSize )
 
 	case 6:		// 网卡当前MAC地址
 		// 去掉冒号
-		std::remove( szProperty, szProperty + _tcslen(szProperty) + 1, L':' );
+		static_cast<void>(std::remove( szProperty, szProperty + _tcslen(szProperty) + 1, L':' ));
 		break;
 
 	default:
 		// 去掉空格
-		std::remove( szProperty, szProperty + _tcslen(szProperty) + 1, L' ' );
+		static_cast<void>(std::remove( szProperty, szProperty + _tcslen(szProperty) + 1, L' ' ));
 	}
 
 	return isOK;
