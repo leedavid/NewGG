@@ -70,101 +70,101 @@
 
  Bitboard BetweenBB[90][90];          // 二个在同一线上的棋子之间的位棋盘．不包括自己的信息.
 
-const char BB_BDISPLAY_CHESS[3] = {"●"};
+// const char BB_BDISPLAY_CHESS[3] = {"●"};
 
 //将位棋盘打印出来
 //将位棋盘打印出来
-void print_bb(Bitboard bb){
-
-	static const  char *c_BoardStrSim[] = {
-		"cmd:    0  1   2   3   4   5   6   7   8  \n",
-		"cmd: 0 ┌--┬--┬--┬--┬--┬--┬--┬--┐ \n",
-		"cmd:   │  │  │  │＼│／│  │  │  │ \n",
-		"cmd: 1 ├--┼--┼--┼--※--┼--┼--┼--┤ \n",
-		"cmd:   │  │  │  │／│＼│  │  │  │ \n",
-		"cmd: 2 ├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
-		"cmd:   │  │  │  │  │  │  │  │  │ \n",
-		"cmd: 3 ├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
-		"cmd:   │  │  │  │  │  │  │  │  │ \n",
-		"cmd: 4 ├--┴--┴--┴--┴--┴--┴--┴--┤ \n",
-		"cmd:   │                              │ \n",
-		"cmd: 5 ├--┬--┬--┬--┬--┬--┬--┬--┤ \n",
-		"cmd:   │  │  │  │  │  │  │  │  │ \n",
-		"cmd: 6 ├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
-		"cmd:   │  │  │  │  │  │  │  │  │ \n",
-		"cmd: 7 ├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
-		"cmd:   │  │  │  │＼│／│  │  │  │ \n",
-		"cmd: 8 ├--┼--┼--┼--※--┼--┼--┼--┤ \n",
-		"cmd:   │  │  │  │／│＼│  │  │  │ \n",
-		"cmd: 9 └--┴--┴--┴--┴--┴--┴--┴--┘ \n"
-	};
-
-	char buf[256];
-	int r;
-	int f;
-
-	std::cout << "input Bitboard is: bb[1] = " << std::hex << bb.m128i_u64[1] 
-	          << ", bb[0] = " << std::hex << bb.m128i_u64[0] << std::endl;
-
-	std::cout << c_BoardStrSim[0] << std::endl;
-
-	for(r = 1; r < 20; r++){
-		sprintf_s(buf,256,c_BoardStrSim[r]);
-		if((r-1)%2 == 0){
-			for(f = 0; f < 9; f++){
-				if(bit_is_set(bb,XYtoS(f,(r-1)/2))){
-					buf[f*4+1+6] = BB_BDISPLAY_CHESS[0];
-					buf[f*4+2+6] = BB_BDISPLAY_CHESS[1];
-				}
-			}
-		}
-		std::cout << buf;
-	}
-	std::cout << std::dec << std::endl;
-}
+//void print_bb(Bitboard bb){
+//
+//	static const  char *c_BoardStrSim[] = {
+//		"cmd:    0  1   2   3   4   5   6   7   8  \n",
+//		"cmd: 0 ┌--┬--┬--┬--┬--┬--┬--┬--┐ \n",
+//		"cmd:   │  │  │  │＼│／│  │  │  │ \n",
+//		"cmd: 1 ├--┼--┼--┼--※--┼--┼--┼--┤ \n",
+//		"cmd:   │  │  │  │／│＼│  │  │  │ \n",
+//		"cmd: 2 ├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
+//		"cmd:   │  │  │  │  │  │  │  │  │ \n",
+//		"cmd: 3 ├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
+//		"cmd:   │  │  │  │  │  │  │  │  │ \n",
+//		"cmd: 4 ├--┴--┴--┴--┴--┴--┴--┴--┤ \n",
+//		"cmd:   │                              │ \n",
+//		"cmd: 5 ├--┬--┬--┬--┬--┬--┬--┬--┤ \n",
+//		"cmd:   │  │  │  │  │  │  │  │  │ \n",
+//		"cmd: 6 ├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
+//		"cmd:   │  │  │  │  │  │  │  │  │ \n",
+//		"cmd: 7 ├--┼--┼--┼--┼--┼--┼--┼--┤ \n",
+//		"cmd:   │  │  │  │＼│／│  │  │  │ \n",
+//		"cmd: 8 ├--┼--┼--┼--※--┼--┼--┼--┤ \n",
+//		"cmd:   │  │  │  │／│＼│  │  │  │ \n",
+//		"cmd: 9 └--┴--┴--┴--┴--┴--┴--┴--┘ \n"
+//	};
+//
+//	char buf[256];
+//	int r;
+//	int f;
+//
+//	std::cout << "input Bitboard is: bb[1] = " << std::hex << bb.m128i_u64[1] 
+//	          << ", bb[0] = " << std::hex << bb.m128i_u64[0] << std::endl;
+//
+//	std::cout << c_BoardStrSim[0] << std::endl;
+//
+//	for(r = 1; r < 20; r++){
+//		sprintf_s(buf,256,c_BoardStrSim[r]);
+//		if((r-1)%2 == 0){
+//			for(f = 0; f < 9; f++){
+//				if(bit_is_set(bb,XYtoS(f,(r-1)/2))){
+//					buf[f*4+1+6] = BB_BDISPLAY_CHESS[0];
+//					buf[f*4+2+6] = BB_BDISPLAY_CHESS[1];
+//				}
+//			}
+//		}
+//		std::cout << buf;
+//	}
+//	std::cout << std::dec << std::endl;
+//}
 
 
 // 根据棋盘,得到位棋盘
-void qibanToBB(Bitboard* bb){
-
-	int r;
-	int f;
-	static const  char *c_BoardStrSim[] = {
-		"cmd:    0  1   2   3   4   5   6   7   8  \n",
-		"cmd: 0 ●--●--●--●--●--●--●--●--● \n",
-		"cmd:   │  │  │  │＼│／│  │  │  │ \n",
-		"cmd: 1 ├--┼--┼--┼--※--┼--┼--┼--┤ \n",
-		"cmd:   │  │  │  │／│＼│  │  │  │ \n",
-		"cmd: 2 ├--●--┼--┼--┼--┼--┼--●--┤ \n",
-		"cmd:   │  │  │  │  │  │  │  │  │ \n",
-		"cmd: 3 ●--┼--●--┼--●--┼--●--┼--● \n",
-		"cmd:   │  │  │  │  │  │  │  │  │ \n",
-		"cmd: 4 ├--┴--┴--┴--┴--┴--┴--┴--┤ \n",
-		"cmd:   │                              │ \n",
-		"cmd: 5 ├--┬--┬--┬--┬--┬--┬--┬--┤ \n",
-		"cmd:   │  │  │  │  │  │  │  │  │ \n",
-		"cmd: 6 ●--┼--●--┼--●--┼--●--┼--● \n",
-		"cmd:   │  │  │  │  │  │  │  │  │ \n",
-		"cmd: 7 ├--●--┼--┼--┼--┼--┼--●--┤ \n",
-		"cmd:   │  │  │  │＼│／│  │  │  │ \n",
-		"cmd: 8 ├--┼--┼--┼--※--┼--┼--┼--┤ \n",
-		"cmd:   │  │  │  │／│＼│  │  │  │ \n",
-		"cmd: 9 ●--●--●--●--●--●--●--●--● \n"
-	};
-
-	*bb = _mm_setzero_si128();
-
-	for(r = 1; r < 20; r++){
-		if((r-1)%2 == 0){
-			for(f = 0; f < 9; f++){
-				if(c_BoardStrSim[r][f*4+1+6] == BB_BDISPLAY_CHESS[0] 
-				   && c_BoardStrSim[r][f*4+2+6] == BB_BDISPLAY_CHESS[1]){
-					set_bit(*bb,XYtoS(f,(r-1)/2));
-				}
-			}
-		}
-	}
-}
+//void qibanToBB(Bitboard* bb){
+//
+//	int r;
+//	int f;
+//	static const  char *c_BoardStrSim[] = {
+//		"cmd:    0  1   2   3   4   5   6   7   8  \n",
+//		"cmd: 0 ●--●--●--●--●--●--●--●--● \n",
+//		"cmd:   │  │  │  │＼│／│  │  │  │ \n",
+//		"cmd: 1 ├--┼--┼--┼--※--┼--┼--┼--┤ \n",
+//		"cmd:   │  │  │  │／│＼│  │  │  │ \n",
+//		"cmd: 2 ├--●--┼--┼--┼--┼--┼--●--┤ \n",
+//		"cmd:   │  │  │  │  │  │  │  │  │ \n",
+//		"cmd: 3 ●--┼--●--┼--●--┼--●--┼--● \n",
+//		"cmd:   │  │  │  │  │  │  │  │  │ \n",
+//		"cmd: 4 ├--┴--┴--┴--┴--┴--┴--┴--┤ \n",
+//		"cmd:   │                              │ \n",
+//		"cmd: 5 ├--┬--┬--┬--┬--┬--┬--┬--┤ \n",
+//		"cmd:   │  │  │  │  │  │  │  │  │ \n",
+//		"cmd: 6 ●--┼--●--┼--●--┼--●--┼--● \n",
+//		"cmd:   │  │  │  │  │  │  │  │  │ \n",
+//		"cmd: 7 ├--●--┼--┼--┼--┼--┼--●--┤ \n",
+//		"cmd:   │  │  │  │＼│／│  │  │  │ \n",
+//		"cmd: 8 ├--┼--┼--┼--※--┼--┼--┼--┤ \n",
+//		"cmd:   │  │  │  │／│＼│  │  │  │ \n",
+//		"cmd: 9 ●--●--●--●--●--●--●--●--● \n"
+//	};
+//
+//	*bb = _mm_setzero_si128();
+//
+//	for(r = 1; r < 20; r++){
+//		if((r-1)%2 == 0){
+//			for(f = 0; f < 9; f++){
+//				if(c_BoardStrSim[r][f*4+1+6] == BB_BDISPLAY_CHESS[0] 
+//				   && c_BoardStrSim[r][f*4+2+6] == BB_BDISPLAY_CHESS[1]){
+//					set_bit(*bb,XYtoS(f,(r-1)/2));
+//				}
+//			}
+//		}
+//	}
+//}
 
 void initLeftRightBB(void){
 
