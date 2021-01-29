@@ -5030,6 +5030,9 @@
     <ClInclude Include="chess.h">
       <Filter>Search\Draw_Repeat\Resource Files\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="chess.h">
+      <Filter>Search\Draw_Repeat\Resource Files\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="GGicon.ico">
