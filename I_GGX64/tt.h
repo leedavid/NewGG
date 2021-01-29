@@ -1,20 +1,3 @@
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #if !defined(TT_H_INCLUDED)
 #define TT_H_INCLUDED
 
@@ -205,7 +188,7 @@ public:
 	uint8 generation() const { return generation8; }
 	TTEntry* probe(const Key key, bool& found) const;
 	int hashfull() const;
-	void resize(size_t mbSize);
+	void resize(uint64 mbSize);
 	void clear();
 
 	// The lowest order bits of the key are used to get the index of the cluster
