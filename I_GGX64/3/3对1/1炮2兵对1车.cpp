@@ -1,33 +1,33 @@
 #ifndef END_my_m_MT_R_1pao2pawn_B_1che
 #define END_my_m_MT_R_1pao2pawn_B_1che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2±ø¶Ô1³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®2å…µå¯¹1è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 // void m_MT_B_1CHE_R_1PAO(board_t *board);
 // void my_m_MT_R_1CHE_B_1PAO(board_t *board);
 
-//1ÅÚ2±ø¶Ô1³µ  //Âíx±ø¶Ô1³µ_addByPawnSafe
+//1ç‚®2å…µå¯¹1è½¦  //é©¬xå…µå¯¹1è½¦_addByPawnSafe
 
 void my_m_MT_R_1pao2pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 
 
 	Square yk = your_king_pos;
 	Square mk = my_king_pos;
-	//ÅÚ·½ÓÐ¶þÏà¶þÊË, ÔòÂí·½°²È«ÁË
+	//ç‚®æ–¹æœ‰äºŒç›¸äºŒä»•, åˆ™é©¬æ–¹å®‰å…¨äº†
 	if(my_xiang_num == 2 && my_shi_num == 2){
 		EV_MY_SAFE = TRUE;
 	}
 
 	if(my_shi_num == 2 || my_xiang_num == 2 || (my_shi_num >= 1 && PB90(MY_SQ55) == my_king)){
 
-		// ¿´Ò»ÏÂÊÇ²»ÊÇÓÐÁ¬±ø
+		// çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯æœ‰è¿žå…µ
 		Bitboard lp = My_get_connect_Pawn(POSITION);
 
 		if(m_have_bit(m_and(lp,MyLowBB[MY_RANK2]))){
@@ -47,7 +47,7 @@ void my_m_MT_R_1pao2pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 	//BcRFen: 4ka3/4a4/5c3/9/9/2B6/3R5/9/4p4/3A1K3 b - - 0 0
 
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
-	MY_EV_ADD((sint16)count_1s(bmp) * ADD_PaoxPawn¶Ô1Che_addByPawnSafeByShi[your_shi_num]);
+	MY_EV_ADD((sint16)count_1s(bmp) * ADD_PaoxPawnå¯¹1Che_addByPawnSafeByShi[your_shi_num]);
 	
 
 	// fen 5P3/3k5/b2a5/4CP3/6b2/9/9/4B4/1r2K4/6B2 w - - 130 130 
@@ -127,12 +127,12 @@ void my_m_MT_R_1pao2pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 //	int  rk = PieceListStart(board,RKING);
 //
 //
-//	if(board->B_xiang == 2 && board->B_shi == 2){   //ÅÚ·½ÓÐ¶þÏà¶þÊË, ÔòÂí·½°²È«ÁË
+//	if(board->B_xiang == 2 && board->B_shi == 2){   //ç‚®æ–¹æœ‰äºŒç›¸äºŒä»•, åˆ™é©¬æ–¹å®‰å…¨äº†
 //		//paoSideSafe = TRUE;
 //		board->bsafe = TRUE;
 //	}
 //
-//	if(board->B_shi == 2 || board->B_xiang == 2 || (board->B_shi >= 1 && board->b256[0x37] == BKING)){  //Âí·½ÓÐ¶þÏà,»ò¶þÊË, ÔòÂí·½Èç¹ûÔÚÖÐÏßÓÐÁ¬±ø¾ÍÊÇºÍÁË.
+//	if(board->B_shi == 2 || board->B_xiang == 2 || (board->B_shi >= 1 && board->b256[0x37] == BKING)){  //é©¬æ–¹æœ‰äºŒç›¸,æˆ–äºŒä»•, åˆ™é©¬æ–¹å¦‚æžœåœ¨ä¸­çº¿æœ‰è¿žå…µå°±æ˜¯å’Œäº†.
 //		for(int from = PieceListStart(board,BPAWN); from > 0x32; from = NextPiece(board,from)){
 //
 //			if(StoY(from) < StoY(rk) && StoX(from) == 0x7){
@@ -152,7 +152,7 @@ void my_m_MT_R_1pao2pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 //
 //		if(StoY(from) <= StoY(rk)){
 //
-//			board->mulScore -= ADD_PaoxPawn¶Ô1Che_addByPawnSafeByShi[board->R_shi];
+//			board->mulScore -= ADD_PaoxPawnå¯¹1Che_addByPawnSafeByShi[board->R_shi];
 //		}
 //	}
 //

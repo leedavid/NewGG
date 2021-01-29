@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1MA1PAWN_B_2PAWN
 #define END_my_m_MT_R_1MA1PAWN_B_2PAWN
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1Âí1±ø¶Ô2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1é©¬1å…µå¯¹2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //void my_m_MT_R_1MA1PAWN_B_1PAWN(board_t *board)
@@ -15,7 +15,7 @@
 //const int MaPawnAdd = 96;
 //const int KingMid   = 24;
 
-//ÎÒ·½Âí±ø£¬¶Ô·½2±ø
+//æˆ‘æ–¹é©¬å…µï¼Œå¯¹æ–¹2å…µ
 void my_m_MT_R_1MA1PAWN_B_2PAWN(typePOS &POSITION, EvalInfo &ei){
 	
 
@@ -44,7 +44,7 @@ void my_m_MT_R_1MA1PAWN_B_2PAWN(typePOS &POSITION, EvalInfo &ei){
 	if(StoX(mk) == 0x4){
 		MY_EV_ADD(64);
 	}
-	// ÎÒ·½µÄ±øµ½µ×ÁË
+	// æˆ‘æ–¹çš„å…µåˆ°åº•äº†
 	if(StoY(mpawn) == MY_RANK0){
 		RETRUN_MUL(2);
 	}
@@ -63,7 +63,7 @@ void my_m_MT_R_1MA1PAWN_B_2PAWN(typePOS &POSITION, EvalInfo &ei){
 	}
 	
 	// fen 3a5/3k1P3/9/6N2/9/9/3p5/9/9/4K4 w - - 0 0 
-	// ×äÊ¿ÞÄºÍñRµÍ±ø£¬íšÞÄ³É±¾¾ÖÊ¿ÔÚŒ¢µ×£¬¼´¡°Ì«¹«×øÒÎ¡±ÐÎÊ½»¥Ïà±£×o£¬Ê¿²ØŒ¢µ×£¬¼tŸo·¨¿É„Ù£¬×îááÓÃ×ä×ßée¡£ÌÈÈô±øÎ»ì¶Èý¾€ÒÔÉÏ£¬¼´ŒÙ±Ø„Ù¡£
+	// å’å£«å¼ˆå’Œé¦¬ä½Žå…µï¼Œé ˆå¼ˆæˆæœ¬å±€å£«åœ¨å°‡åº•ï¼Œå³â€œå¤ªå…¬åæ¤…â€å½¢å¼äº’ç›¸ä¿è­·ï¼Œå£«è—å°‡åº•ï¼Œç´…ç„¡æ³•å¯å‹ï¼Œæœ€å¾Œç”¨å’èµ°é–‘ã€‚å€˜è‹¥å…µä½æ–¼ä¸‰ç·šä»¥ä¸Šï¼Œå³å±¬å¿…å‹ã€‚
 	if(your_shi_num >= 1){
 		if(StoY(mpawn) MY_SMALL_EQL MY_RANK2){
 			if(StoX(mpawn) > 0x4 && PB90(MY_SQ03) == your_shi && StoX(yk) == 0x3){
@@ -123,7 +123,7 @@ void my_m_MT_R_1MA1PAWN_B_2PAWN(typePOS &POSITION, EvalInfo &ei){
 	// fen 2ba5/4ak3/b8/2P6/9/1pP1n4/9/4BA3/4A4/2BK5 b
 }
 
-//ÎÒ·½Âí±ø£¬¶Ô·½2±ø
+//æˆ‘æ–¹é©¬å…µï¼Œå¯¹æ–¹2å…µ
 //void m_MT_B_1MA1PAWN_R_2PAWN(typePOS &POSITION, EvalInfo &ei){
 ///*
 //	Square bk     = PieceListStart(board,BKING);
@@ -133,7 +133,7 @@ void my_m_MT_R_1MA1PAWN_B_2PAWN(typePOS &POSITION, EvalInfo &ei){
 //	Square rpawn1  = PieceListStart(board,RPAWN);
 //	Square rpawn2  = NextPiece(board,rpawn1);
 //
-//	//ÆäËüµÄÆå×ÓµÄÐÅÏ¢
+//	//å…¶å®ƒçš„æ£‹å­çš„ä¿¡æ¯
 //	//uint16 OthInfo = Info16 & (CK_R_2x + CK_R_1x + CK_R_2s + CK_R_1s);
 //	board->mulScore -= MaPawnAdd;
 //
@@ -141,7 +141,7 @@ void my_m_MT_R_1MA1PAWN_B_2PAWN(typePOS &POSITION, EvalInfo &ei){
 //		board->mulScore -= KingMid;
 //	}
 //
-//	//ÎÒ·½µÄ±øµ½µ×ÁË
+//	//æˆ‘æ–¹çš„å…µåˆ°åº•äº†
 //	if(bpawn > 0xc0){
 //		board->mulScore /= 8;
 //		return 1;
@@ -150,7 +150,7 @@ void my_m_MT_R_1MA1PAWN_B_2PAWN(typePOS &POSITION, EvalInfo &ei){
 //	if(board->R_shi != 0){
 //		if(StoY(bpawn) > 0xa){
 //			//	// fen 3a5/3k1P3/9/6N2/9/9/3p5/9/9/4K4 w - - 0 0 
-//			//	//×äÊ¿ÞÄºÍñRµÍ±ø£¬íšÞÄ³É±¾¾ÖÊ¿ÔÚŒ¢µ×£¬¼´¡°Ì«¹«×øÒÎ¡±ÐÎÊ½»¥Ïà±£×o£¬Ê¿²ØŒ¢µ×£¬¼tŸo·¨¿É„Ù£¬×îááÓÃ×ä×ßée¡£ÌÈÈô±øÎ»ì¶Èý¾€ÒÔÉÏ£¬¼´ŒÙ±Ø„Ù¡£
+//			//	//å’å£«å¼ˆå’Œé¦¬ä½Žå…µï¼Œé ˆå¼ˆæˆæœ¬å±€å£«åœ¨å°‡åº•ï¼Œå³â€œå¤ªå…¬åæ¤…â€å½¢å¼äº’ç›¸ä¿è­·ï¼Œå£«è—å°‡åº•ï¼Œç´…ç„¡æ³•å¯å‹ï¼Œæœ€å¾Œç”¨å’èµ°é–‘ã€‚å€˜è‹¥å…µä½æ–¼ä¸‰ç·šä»¥ä¸Šï¼Œå³å±¬å¿…å‹ã€‚
 //			if((StoX(bpawn) > 0x7 && board->b256[0xc6] == RSHI && StoX(rk) == 0x6)
 //				||(StoX(bpawn) < 0x7 && board->b256[0xc8] == RSHI && StoX(rk) == 0x8)){
 //					return 1;
@@ -158,22 +158,22 @@ void my_m_MT_R_1MA1PAWN_B_2PAWN(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	//Âí¸ß±ø¶Ô×äË«ÊËµÄÒ»¸öºÍÐÍ
+//	//é©¬é«˜å…µå¯¹å’åŒä»•çš„ä¸€ä¸ªå’Œåž‹
 //	// fen 4k4/4aP3/3a5/9/9/9/9/2n1p4/3KA4/5A3 w - - 127 127 
 //	if(board->R_shi == 2){
-//		//ºì±ø¸ø¶þ¸öÊË¿ØÖÆ×¡ÁË
+//		//çº¢å…µç»™äºŒä¸ªä»•æŽ§åˆ¶ä½äº†
 //		if(bpawn == 0xa7 && board->b256[0xb7] == RSHI){
 //			return 1;
 //		}
 //
 //		// fen 4k4/3Pa4/3a5/9/9/9/6N2/5K2B/4A3p/3A3p1 w - - 51 51
 //
-//		//Èç¹ûºÚ±ø¹ýºÓÁË
+//		//å¦‚æžœé»‘å…µè¿‡æ²³äº†
 //		if(rpawn1 < 0x80 && StoY(rpawn1) >= 0x6){
 //			return 1;
 //		}
 //
-//		//Èç¹ûºÚ±ø¹ýºÓÁË
+//		//å¦‚æžœé»‘å…µè¿‡æ²³äº†
 //		if(rpawn2 < 0x80 && StoY(rpawn2) >= 0x6){
 //			return 1;
 //		}

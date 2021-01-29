@@ -2,7 +2,7 @@
 #define MY_EVAL_CONST_H_STOCKFISH
 
 
-const Score r_CheMove[]  = {  // ◊Û”““∆∂Ø
+const Score r_CheMove[]  = {  // Â∑¶Âè≥ÁßªÂä®
 	Score(((-38) << 16) + (-38)),     //-38,
 	Score(((-18) << 16) + (-18)),     //-18,
 	Score(((-12) << 16) + (-18)),     //-18,
@@ -18,7 +18,7 @@ const Score r_CheMove[]  = {  // ◊Û”““∆∂Ø
 }; 
 
 
-const Score f_CheMove[]  = {  // …œœ¬“∆∂Ø
+const Score f_CheMove[]  = {  // ‰∏ä‰∏ãÁßªÂä®
 	Score(((-42) << 16) + (-72)),     //-64,
 	Score(((-28) << 16) + (-54)),     //-44,
 	Score(((-26) << 16) + (-44)),     //-44,
@@ -70,7 +70,7 @@ const Score PAWN_num_OVER_RIVER_point[6] = {
 // ===================================================================
 
 
-#define Ma_KongPao_Check                      6       // ¬ÌµΩø’≈⁄Ω´æ¸
+#define Ma_KongPao_Check                      6       // È©¨Âà∞Á©∫ÁÇÆÂ∞ÜÂÜõ
 
 #define PaoCanAttackPoint                     4
 #define PaoGuardtheKingOut                    3       //
@@ -79,20 +79,20 @@ const Score PAWN_num_OVER_RIVER_point[6] = {
 
 #define TwoPaoAt_SameFile_Sub                 5
 
-#define CheCanPaoNullCHeckPoint               6       // ≥µƒ‹¿›Ω´.
+#define CheCanPaoNullCHeckPoint               6       // ËΩ¶ËÉΩÂûíÂ∞Ü.
 
 #define Pawn_Is_Bad                           4
 
 #define MaCanAttackPoint                      3
 
-#define CheOpenAtt                            6       // ≥µ“—ø™∑≈∫Ûµƒπ•ª˜ƒ‹¡¶
+#define CheOpenAtt                            6       // ËΩ¶Â∑≤ÂºÄÊîæÂêéÁöÑÊîªÂáªËÉΩÂäõ
 #define CheCanCheck                           2
-#define RookSafeCheckBonus                    4       //∂‘∑Ωµƒ≥µƒ‹◊‘”…Ω´
+#define RookSafeCheckBonus                    4       //ÂØπÊñπÁöÑËΩ¶ËÉΩËá™Áî±Â∞Ü
 
 
-#define Other_Che_Can_Not_back                4       //∂‘∑Ωµƒ≥µ≤ªƒ‹ªÿº“ ÿŒ¿
-#define MaSafeCheckBonus                      6       //∂‘∑Ωµƒ¬Ìƒ‹◊‘”…Ω´
-#define Ma_Not_Good_Move_to_Attack            4       //¬Ì√ª”–∫√µƒΩ¯π•≤Ω¡À
+#define Other_Che_Can_Not_back                4       //ÂØπÊñπÁöÑËΩ¶‰∏çËÉΩÂõûÂÆ∂ÂÆàÂç´
+#define MaSafeCheckBonus                      6       //ÂØπÊñπÁöÑÈ©¨ËÉΩËá™Áî±Â∞Ü
+#define Ma_Not_Good_Move_to_Attack            4       //È©¨Ê≤°ÊúâÂ•ΩÁöÑËøõÊîªÊ≠•‰∫Ü
 #define Che_At_mid_contor_King                8
 		
 

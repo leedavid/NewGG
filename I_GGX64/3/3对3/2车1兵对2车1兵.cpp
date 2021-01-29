@@ -1,7 +1,7 @@
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
 
 void m_MT_R_B_2che1pawn(typePOS &POSITION, EvalInfo &ei){
@@ -22,7 +22,7 @@ void m_MT_R_B_2che1pawn(typePOS &POSITION, EvalInfo &ei){
 
 
 
-	//�췽��ȫ
+	//红方安全
 	if(PB90(0x55) == RKING){
 		if(RShi_num() == 2 && RXiang_num() == 2){
 			if(StoY(bpawn) <= 0x6){

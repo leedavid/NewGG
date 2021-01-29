@@ -1,31 +1,31 @@
 #ifndef Emy_m_MT_R_1CHE
 #define Emy_m_MT_R_1CHE
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "1³µ.cpp"
-#include "..\\..\\white.h"
+#include "1è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif  
 
-//ºì·½Ò»³µ
+//çº¢æ–¹ä¸€è½¦
 void my_m_MT_R_1CHE(typePOS &POSITION, EvalInfo &ei){
     Square mche = S90_from_piecelist(POSITION,my_che,0);
 	Square yk   = your_king_pos;
 	Square mk   = my_king_pos;
 	Bitboard T;
-	// ÎÒµÄ½«²»ÔÚµ×Ïß£¬Ò²¸üºÃÉ±¶Ô·½¡£
+	// æˆ‘çš„å°†ä¸åœ¨åº•çº¿ï¼Œä¹Ÿæ›´å¥½æ€å¯¹æ–¹ã€‚
 	if(StoY(mk) != MY_RANK9){
 		MY_EV_ADD(32);
 	}
-	// Ë«·½µÄ½«ÔÚÍ¬Ò»Ïß
+	// åŒæ–¹çš„å°†åœ¨åŒä¸€çº¿
 	if(StoX(mk) == StoX(yk)){
 		MY_EV_ADD(24);
 	}
 	T = m_and(POSITION.Rook_attacks_bb(mk),BitboardOCC);
 	if(m_have_bit(T) == FALSE){
-		MY_EV_ADD(24);  // ½«ÉÏÃæÃ»ÓĞÆå×Ó
+		MY_EV_ADD(24);  // å°†ä¸Šé¢æ²¡æœ‰æ£‹å­
 	}
 	else {
 		Square sq;
@@ -39,7 +39,7 @@ void my_m_MT_R_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	MY_EV_ADD(ADD_CheXPawn_To_1Pawn); // ÓĞ³µ·½µÄ¼Ó·Ö
+	MY_EV_ADD(ADD_CheXPawn_To_1Pawn); // æœ‰è½¦æ–¹çš„åŠ åˆ†
 
 	if (StoY(yk) == MY_RANK2){
 		RETRUN_MUL(16);
@@ -50,7 +50,7 @@ void my_m_MT_R_1CHE(typePOS &POSITION, EvalInfo &ei){
 		MY_EV_ADD(32);
 	}
 	
-	// ¶Ô·½ÊËÏàÈ«
+	// å¯¹æ–¹ä»•ç›¸å…¨
 	if (your_shi_num == 2 && your_xiang_num == 2 && StoY(yk) MY_SMALL_EQL MY_RANK1){
 
 		MY_EV_SUB(256);
@@ -69,8 +69,8 @@ void my_m_MT_R_1CHE(typePOS &POSITION, EvalInfo &ei){
 			if (yk == MY_SQ05 && PB90(MY_SQ06) == your_xiang){
 				RETRUN_MUL(1);
 			}
-			// fen 5k3/4a4/4ba3/5R3/6b2/9/9/3AK4/9/2B2AB2 w - - 9 9</P> Ò²ÊÇºÍÆå
-			if (StoY(yk) == MY_RANK0){  // ¶Ô·½µÄ½«ÔÚµ×Ïß¡£
+			// fen 5k3/4a4/4ba3/5R3/6b2/9/9/3AK4/9/2B2AB2 w - - 9 9</P> ä¹Ÿæ˜¯å’Œæ£‹
+			if (StoY(yk) == MY_RANK0){  // å¯¹æ–¹çš„å°†åœ¨åº•çº¿ã€‚
 				T = POSITION.Rook_attacks_bb(mche);
 				if (m_have_bit(m_and(T, RankBB_A[MY_RANK0])) == FALSE){
 					RETRUN_MUL(1);  // fen 5k3/4a4/4ba3/7R1/6b2/9/9/3AK4/9/2B2AB2 b
@@ -90,10 +90,10 @@ void my_m_MT_R_1CHE(typePOS &POSITION, EvalInfo &ei){
 				RETRUN_MUL(1);
 			}
 			// fen 4k4/4a4/5a2b/9/4R1b2/9/9/3AK4/9/2B2AB2 b - - 0 0 
-			// ¶ş¸öÏàµÄÎ»ÖÃÔÚÒ»±ß,ËæÊ±¿ÉÁ¬Ïß
+			// äºŒä¸ªç›¸çš„ä½ç½®åœ¨ä¸€è¾¹,éšæ—¶å¯è¿çº¿
 			if ((abs(StoX(mche) - 0x4) <= 1) &&
 				(PB90(MY_SQ15) == your_shi || PB90(MY_SQ17) == your_shi)){
-				// ¶ş¸öÏàÊÇÁ¬ÔÚÒ»ÆğµÄ¡£
+				// äºŒä¸ªç›¸æ˜¯è¿åœ¨ä¸€èµ·çš„ã€‚
 				Square xi = S90_from_piecelist(POSITION, your_xiang, 0);
 				if (m_have_bit(m_and(POSITION.xiang_attacks_bb(xi),
 					bb_your_xiang))){
@@ -103,14 +103,14 @@ void my_m_MT_R_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 
 
-		//ÕâÊÇºì³µÔÚµ×ÏßÊ±µÄÌØÊâµÄĞÎ
+		//è¿™æ˜¯çº¢è½¦åœ¨åº•çº¿æ—¶çš„ç‰¹æ®Šçš„å½¢
 		if (StoY(mche) == MY_RANK0
 			&& PB90(MY_SQ0D) == your_shi && PB90(MY_SQ16) == your_xiang){
 			// fen 2baR4/4ak3/4b4/9/9/9/9/9/4K4/9 b - - 105 105
 			// L
 			if (PB90(MY_SQ0E) == your_king && PB90(MY_SQ03) == your_shi
 				&& StoX(mche) >= 0x04){
-				// ×ó±ß»¹ÓĞÏó¡£¾ÍÊÇºÍÆå
+				// å·¦è¾¹è¿˜æœ‰è±¡ã€‚å°±æ˜¯å’Œæ£‹
 				if (m_have_bit(m_and(LeftBB[0x4],
 					bb_your_xiang))){ //	print_bb(LeftBB[0x4]);
 					RETRUN_MUL(1);
@@ -119,7 +119,7 @@ void my_m_MT_R_1CHE(typePOS &POSITION, EvalInfo &ei){
 			// R
 			if (PB90(MY_SQ0C) == your_king && PB90(MY_SQ05) == your_shi
 				&& StoX(mche) <= 0x04){
-				// ×ó±ß»¹ÓĞÏó¡£¾ÍÊÇºÍÆå
+				// å·¦è¾¹è¿˜æœ‰è±¡ã€‚å°±æ˜¯å’Œæ£‹
 				if (m_have_bit(m_and(RightBB[0x4],
 					bb_your_xiang))){ //	print_bb(LeftBB[0x4]);
 					RETRUN_MUL(1);
@@ -130,7 +130,7 @@ void my_m_MT_R_1CHE(typePOS &POSITION, EvalInfo &ei){
 		if (PB90(MY_SQ0D) == your_shi && PB90(MY_SQ16) == your_xiang){
 			if (StoY(yk) == MY_RANK0){
 				// fen 3a1k3/4a4/4b4/3R5/2b6/9/9/9/4K4/9 b - - 0 0
-				// ½«³µ²»ÔÚÒ»±ß£¬Ò²ÊÇºÍÆå£¬½«ÔÚµ×Ïß¡£
+				// å°†è½¦ä¸åœ¨ä¸€è¾¹ï¼Œä¹Ÿæ˜¯å’Œæ£‹ï¼Œå°†åœ¨åº•çº¿ã€‚
 				if ((StoX(yk) >= 0x4) && StoX(mche) <= 0x4){
 					RETRUN_MUL(1);
 				}
@@ -293,6 +293,6 @@ void my_m_MT_R_1CHE(typePOS &POSITION, EvalInfo &ei){
 			//	}
 			//}
 
-		} // ¶Ô·½ÊËÏàÈ«
+		} // å¯¹æ–¹ä»•ç›¸å…¨
 	}
 }

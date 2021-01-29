@@ -1,16 +1,16 @@
 #ifndef END_my_m_MT_R_1che1pao_B_2pao
 #define END_my_m_MT_R_1che1pao_B_2pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ¶Ô2ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®å¯¹2ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h" //
+#include "../../black.h" //
 #endif 
 
-//³µÅÚ¶Ô2ÅÚ
+//è½¦ç‚®å¯¹2ç‚®
 
 void my_m_MT_R_1che1pao_B_2pao(typePOS &POSITION, EvalInfo &ei){
 
@@ -23,7 +23,7 @@ void my_m_MT_R_1che1pao_B_2pao(typePOS &POSITION, EvalInfo &ei){
 
 	if((your_shi_num + your_xiang_num) == 4 && StoY(yk) == MY_RANK0){
 		// fen 2bak4/4a4/1c2b2c1/7R1/C8/9/9/4B4/9/2BAKA3 w
-		//"µ£×ÓÅÚ" ÓëÊ¿,Ïó»¥ÏàÑÚ»¤, ×ã¿ÉÓ¦Õ½. Èç¹ûÅÚÔÚÏÂ¶þÂ·,ÔòÖÐÏóÄÑ±£.
+		//"æ‹…å­ç‚®" ä¸Žå£«,è±¡äº’ç›¸æŽ©æŠ¤, è¶³å¯åº”æˆ˜. å¦‚æžœç‚®åœ¨ä¸‹äºŒè·¯,åˆ™ä¸­è±¡éš¾ä¿.
 		if(PB90(MY_SQ16) == your_xiang && (PB90(MY_SQ02) == your_xiang || PB90(MY_SQ06) == your_xiang)){			
 
 			if (MY_SQ04 == yk){
@@ -33,7 +33,7 @@ void my_m_MT_R_1che1pao_B_2pao(typePOS &POSITION, EvalInfo &ei){
 					}
 				}
 
-				//Õâ¸öÒ²ÊÇºÍ
+				//è¿™ä¸ªä¹Ÿæ˜¯å’Œ
 				// fen C1bak1c1R/4a4/2c1b4/9/9/9/9/9/9/2BAKAB2 w - - 14 14
 				if (IsOnSameSide(mche, mpao) == FALSE){
 					if (IsOnSameSide(ypao1, ypao2) == FALSE && (StoY(ypao1) == MY_RANK2 || StoY(ypao2) == MY_RANK2)){
@@ -85,7 +85,7 @@ void my_m_MT_R_1che1pao_B_2pao(typePOS &POSITION, EvalInfo &ei){
 //	int bpao  = PieceListStart(board,BPAO);
 //
 //	// fen 2bak4/4a4/1c2b2c1/7R1/C8/9/9/4B4/9/2BAKA3 w
-//	//"µ£×ÓÅÚ" ÓëÊ¿,Ïó»¥ÏàÑÚ»¤, ×ã¿ÉÓ¦Õ½. Èç¹ûÅÚÔÚÏÂ¶þÂ·,ÔòÖÐÏóÄÑ±£.
+//	//"æ‹…å­ç‚®" ä¸Žå£«,è±¡äº’ç›¸æŽ©æŠ¤, è¶³å¯åº”æˆ˜. å¦‚æžœç‚®åœ¨ä¸‹äºŒè·¯,åˆ™ä¸­è±¡éš¾ä¿.
 //	if(board->R_shi == 2 && board->R_xiang == 2){
 //		if(board->b256[0xa7] == RXIANG 
 //			&& board->b256[0xb7] == RSHI 
@@ -101,7 +101,7 @@ void my_m_MT_R_1che1pao_B_2pao(typePOS &POSITION, EvalInfo &ei){
 //				}
 //			}
 //
-//			//Õâ¸öÒ²ÊÇºÍ
+//			//è¿™ä¸ªä¹Ÿæ˜¯å’Œ
 //			// fen C1bak1c1R/4a4/2c1b4/9/9/9/9/9/9/2BAKAB2 w - - 14 14
 //			if(StoY(bche) == 0xc){
 //				if(FALSE){

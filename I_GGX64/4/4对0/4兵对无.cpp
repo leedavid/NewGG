@@ -1,16 +1,16 @@
 #ifndef END_my_m_MT_R_4pawn
 #define END_my_m_MT_R_4pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "4±ø¶ÔÎÞ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "4å…µå¯¹æ— .cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//ÎÒ·½3±ø£¬¶Ô·½ 0 attacker
+//æˆ‘æ–¹3å…µï¼Œå¯¹æ–¹ 0 attacker
 void my_m_MT_R_4pawn(typePOS &POSITION, EvalInfo &ei){
 	BothOnlyPawnEval(POSITION,ei);
 }

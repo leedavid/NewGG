@@ -1,26 +1,26 @@
 #ifndef END_my_m_MT_R_1che5pawn_B_2che
 #define END_my_m_MT_R_1che5pawn_B_2che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ5±ø¶Ô2³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦5å…µå¯¹2è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//ºì·½1³µÈý±ø ºÚ·½ 2³µ
+//çº¢æ–¹1è½¦ä¸‰å…µ é»‘æ–¹ 2è½¦
 
 void my_m_MT_R_1che5pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
-	// Èç¹ûºì·½ÊÇÊËÏàÈ«,ÇÒÍêÈ«, Ôòºì·½Òª¼Ó·Ö
+	// å¦‚æžœçº¢æ–¹æ˜¯ä»•ç›¸å…¨,ä¸”å®Œå…¨, åˆ™çº¢æ–¹è¦åŠ åˆ†
 
 	// ADD
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
-	MY_EV_ADD((sint16)count_1s(bmp) * Add_³µx±ø_2³µ_by_Pawn_Safe_Shi[your_shi_num]);
+	MY_EV_ADD((sint16)count_1s(bmp) * Add_è½¦xå…µ_2è½¦_by_Pawn_Safe_Shi[your_shi_num]);
 
 	if((my_shi_num + my_xiang_num) == 4 && PB90(MY_SQ55) == my_king){
 	    RETRUN_MUL(4);
@@ -35,11 +35,11 @@ void my_m_MT_R_1che5pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 //	//	return m_MT_B_1che2pawn_R_2che(board);
 //	//}
 //
-//	//Èç¹ûºì·½ÊÇÊËÏàÈ«,ÇÒÍêÈ«, Ôòºì·½Òª¼Ó·Ö
+//	//å¦‚æžœçº¢æ–¹æ˜¯ä»•ç›¸å…¨,ä¸”å®Œå…¨, åˆ™çº¢æ–¹è¦åŠ åˆ†
 //
 //	for(Square bpawn = PieceListStart(board,BPAWN); bpawn > 0x32; bpawn = NextPiece(board,bpawn)){
 //		if(StoY(bpawn) < 0xc){
-//			board->mulScore -= Add_³µx±ø_2³µ_by_Pawn_Safe_Shi[board->R_shi];
+//			board->mulScore -= Add_è½¦xå…µ_2è½¦_by_Pawn_Safe_Shi[board->R_shi];
 //		}
 //	}
 //

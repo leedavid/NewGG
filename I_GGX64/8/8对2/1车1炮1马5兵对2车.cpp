@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1pao1ma5pawn_B_2che
 #define END_my_m_MT_R_1che1pao1ma5pawn_B_2che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1Âí5±ø¶Ô2³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®1é©¬5å…µå¯¹2è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //const int  ADD_1Che1Pao1MaXPawn_2CheOnly[3]         = {96, 64, 32};   //1 

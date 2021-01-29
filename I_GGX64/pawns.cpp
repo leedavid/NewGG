@@ -11,9 +11,9 @@ namespace {
 	const int attControlbyPawn[5] = {0, 4,  8, 12,  16};
 	const int PCHECK_SAFE[6] = {0,0,8,10,12,12};
 
-                           // Ê¹ÓÃ¡°Ïà¡± HASH 
+                           // ä½¿ç”¨â€œç›¸â€ HASH 
 //////////////////////////////////////////////////////////////////////////
-// Õâ¸öÖ»ÔÚ PAWN_HASH ÖĞÆÀ¹À£¬ËùÒÔ²»ÄÜÓĞ³µµÄÎ»ÖÃ
+// è¿™ä¸ªåªåœ¨ PAWN_HASH ä¸­è¯„ä¼°ï¼Œæ‰€ä»¥ä¸èƒ½æœ‰è½¦çš„ä½ç½®
 template<Color Us>
 Score evaluate_pawns_2(Position& pos, Pawns::Entry* e) {
 	const Color Them = (Us == WHITE ? BLACK : WHITE);
@@ -24,7 +24,7 @@ Score evaluate_pawns_2(Position& pos, Pawns::Entry* e) {
 	const Square mk = pos.king_square(Us);
 	Score bonus = SCORE_ZERO;
 
-	// ÇóË«·½ÊËÏà±øµÄÎ»ÆåÅÌ
+	// æ±‚åŒæ–¹ä»•ç›¸å…µçš„ä½æ£‹ç›˜
 	Bitboard brsxp = m_or(pos.pieces(BSHI),
 		m_or(pos.pieces(BXIANG),
 			m_or(pos.pieces(BPAWN),
@@ -37,30 +37,30 @@ Score evaluate_pawns_2(Position& pos, Pawns::Entry* e) {
 	if (Us == WHITE) {
 		switch (abs(StoX(mk) - StoX(yk))) {
 		case 2:
-			e->_PawnInfo |= KING_CANNOT_STRING;  // Ë«·½½«Ë§²»¿ÉÄÜÇ£ÖÆ
+			e->_PawnInfo |= KING_CANNOT_STRING;  // åŒæ–¹å°†å¸…ä¸å¯èƒ½ç‰µåˆ¶
 			e->_PawnInfo |= R_KING_CANNOT_ATT;
 			break;
 		case 1:
-			e->_PawnInfo |= KING_CANNOT_STRING; // Ë«·½½«Ë§²»¿ÉÄÜÇ£ÖÆ
+			e->_PawnInfo |= KING_CANNOT_STRING; // åŒæ–¹å°†å¸…ä¸å¯èƒ½ç‰µåˆ¶
 			
 			sq = XYtoS(StoX(mk), StoY(yk));
-			clear_bit(tmp, sq);   // È¥ÁË¶Ô·½±ßÉÏµÄÒ»Æå×Ó£¬
+			clear_bit(tmp, sq);   // å»äº†å¯¹æ–¹è¾¹ä¸Šçš„ä¸€æ£‹å­ï¼Œ
 			if (pos.piece_on(sq + 9) == RPAWN) {
-				clear_bit(tmp, sq + 9);   // È¥ÁË¶Ô·½±ßÉÏµÄÒ»Æå×Ó£¬
+				clear_bit(tmp, sq + 9);   // å»äº†å¯¹æ–¹è¾¹ä¸Šçš„ä¸€æ£‹å­ï¼Œ
 			}
 			if (count_1s(tmp) >= 1) {
 				e->_PawnInfo |= R_KING_CANNOT_ATT;
 			}
 			break;
-		case 0:  // ¶ş¸ö½«ÔÚÒ»ÌõÏßÉÏ¡£
+		case 0:  // äºŒä¸ªå°†åœ¨ä¸€æ¡çº¿ä¸Šã€‚
 			if (count_1s(tmp) >= 2) {
-				e->_PawnInfo |= KING_CANNOT_STRING; // Ë«·½½«Ë§²»¿ÉÄÜÇ£ÖÆ
+				e->_PawnInfo |= KING_CANNOT_STRING; // åŒæ–¹å°†å¸…ä¸å¯èƒ½ç‰µåˆ¶
 			}
 
 			sq = XYtoS(StoX(mk), StoY(yk)+1);
-			clear_bit(tmp, sq);            // È¥ÁË¶Ô·½½«ÏÂÃæµÄÒ»Æå×Ó£¬
+			clear_bit(tmp, sq);            // å»äº†å¯¹æ–¹å°†ä¸‹é¢çš„ä¸€æ£‹å­ï¼Œ
 			if (pos.piece_on(sq + 9) == RPAWN) {
-				clear_bit(tmp, sq + 9);   // È¥ÁË¶Ô·½½«ÏÂÃæ¶ş¸ñµÄÆå×Ó£¬
+				clear_bit(tmp, sq + 9);   // å»äº†å¯¹æ–¹å°†ä¸‹é¢äºŒæ ¼çš„æ£‹å­ï¼Œ
 			}
 			if (count_1s(tmp) >= 1) {
 				e->_PawnInfo |= R_KING_CANNOT_ATT;
@@ -74,30 +74,30 @@ Score evaluate_pawns_2(Position& pos, Pawns::Entry* e) {
 	{
 		switch (abs(StoX(mk) - StoX(yk))) {
 		case 2:
-			e->_PawnInfo |= KING_CANNOT_STRING;  // Ë«·½½«Ë§²»¿ÉÄÜÇ£ÖÆ
+			e->_PawnInfo |= KING_CANNOT_STRING;  // åŒæ–¹å°†å¸…ä¸å¯èƒ½ç‰µåˆ¶
 			e->_PawnInfo |= B_KING_CANNOT_ATT;
 			break;
 		case 1:
-			e->_PawnInfo |= KING_CANNOT_STRING; // Ë«·½½«Ë§²»¿ÉÄÜÇ£ÖÆ
+			e->_PawnInfo |= KING_CANNOT_STRING; // åŒæ–¹å°†å¸…ä¸å¯èƒ½ç‰µåˆ¶
 
 			sq = XYtoS(StoX(mk), StoY(yk));
-			clear_bit(tmp, sq);   // È¥ÁË¶Ô·½±ßÉÏµÄÒ»Æå×Ó£¬
+			clear_bit(tmp, sq);   // å»äº†å¯¹æ–¹è¾¹ä¸Šçš„ä¸€æ£‹å­ï¼Œ
 			if (pos.piece_on(sq - 9) == BPAWN) {
-				clear_bit(tmp, sq - 9);   // È¥ÁË¶Ô·½±ßÉÏµÄÒ»Æå×Ó£¬
+				clear_bit(tmp, sq - 9);   // å»äº†å¯¹æ–¹è¾¹ä¸Šçš„ä¸€æ£‹å­ï¼Œ
 			}
 			if (count_1s(tmp) >= 1) {
 				e->_PawnInfo |= B_KING_CANNOT_ATT;
 			}
 			break;
-		case 0:  // ¶ş¸ö½«ÔÚÒ»ÌõÏßÉÏ¡£
+		case 0:  // äºŒä¸ªå°†åœ¨ä¸€æ¡çº¿ä¸Šã€‚
 			if (count_1s(tmp) >= 2) {
-				e->_PawnInfo |= KING_CANNOT_STRING; // Ë«·½½«Ë§²»¿ÉÄÜÇ£ÖÆ
+				e->_PawnInfo |= KING_CANNOT_STRING; // åŒæ–¹å°†å¸…ä¸å¯èƒ½ç‰µåˆ¶
 			}
 
 			sq = XYtoS(StoX(mk), StoY(yk) - 1);
-			clear_bit(tmp, sq);            // È¥ÁË¶Ô·½½«ÏÂÃæµÄÒ»Æå×Ó£¬
+			clear_bit(tmp, sq);            // å»äº†å¯¹æ–¹å°†ä¸‹é¢çš„ä¸€æ£‹å­ï¼Œ
 			if (pos.piece_on(sq - 9) == BPAWN) {
-				clear_bit(tmp, sq - 9);   // È¥ÁË¶Ô·½½«ÏÂÃæ¶ş¸ñµÄÆå×Ó£¬
+				clear_bit(tmp, sq - 9);   // å»äº†å¯¹æ–¹å°†ä¸‹é¢äºŒæ ¼çš„æ£‹å­ï¼Œ
 			}
 			if (count_1s(tmp) >= 1) {
 				e->_PawnInfo |= B_KING_CANNOT_ATT;
@@ -114,7 +114,7 @@ Score evaluate_pawns_2(Position& pos, Pawns::Entry* e) {
 
 
 	//////////////////////////////////////////////////////////////////////////	
-	// 4, ±øµÄ¹ıºÓÄÜÁ¦¼ì²é
+	// 4, å…µçš„è¿‡æ²³èƒ½åŠ›æ£€æŸ¥
 	if (Us == WHITE){
 		if (have_bit(pos.pieces(RPAWN), LowBB[0x4])){
 			B = m_and(LowBB[0x3], e->_pawnShiXiangAttacks[Them]); //print_bb(e->_pawnShiAttacks[Them]);
@@ -126,9 +126,9 @@ Score evaluate_pawns_2(Position& pos, Pawns::Entry* e) {
 			NotB = m_or(NotB, B);
 			m_Lsf(B, 9);
 			NotB = m_or(NotB, B);
-			NotB = _mm_andnot_si128(UpBB[0x5], NotB); // ÒÑ¹ıºÓµÄ±ø.				 
+			NotB = _mm_andnot_si128(UpBB[0x5], NotB); // å·²è¿‡æ²³çš„å…µ.				 
 		}
-		NotB = m_or(_mm_load_si128((__m128i*)Rank0BB), NotB); // È¥ÁËµ×Ïß±ø
+		NotB = m_or(_mm_load_si128((__m128i*)Rank0BB), NotB); // å»äº†åº•çº¿å…µ
 		pcan = _mm_andnot_si128(NotB, pos.pieces(RPAWN));  //print_bb(pcan); print_bb(NotB);
 
 	}
@@ -143,35 +143,35 @@ Score evaluate_pawns_2(Position& pos, Pawns::Entry* e) {
 			NotB = m_or(NotB, B);
 			m_Rsf(B, 9);
 			NotB = m_or(NotB, B);
-			NotB = _mm_andnot_si128(LowBB[0x4], NotB); // ÒÑ¹ıºÓµÄ±ø.				 
+			NotB = _mm_andnot_si128(LowBB[0x4], NotB); // å·²è¿‡æ²³çš„å…µ.				 
 		}
-		NotB = m_or(_mm_load_si128((__m128i*)Rank9BB), NotB); // È¥ÁËµ×Ïß±ø
+		NotB = m_or(_mm_load_si128((__m128i*)Rank9BB), NotB); // å»äº†åº•çº¿å…µ
 		pcan = _mm_andnot_si128(NotB, pos.pieces(BPAWN));  //print_bb(pcan); print_bb(NotB);		
 
 	}
 	//////////////////////////////////////////////////////////////////////////	
-	// ±øµÄ¹ıºÓÄÜÁ¦µÄ¼Ó·Ö
+	// å…µçš„è¿‡æ²³èƒ½åŠ›çš„åŠ åˆ†
 	e->_pcan[Us] = (int)count_1s(pcan);
 	bonus += ((e->_pcan[Us] + 1) / 2 * make_score(8, 16));
 	//////////////////////////////////////////////////////////////////////////	
-	// 4, ±øµÄµÚ¶ş´ÎÆÀ¹À
+	// 4, å…µçš„ç¬¬äºŒæ¬¡è¯„ä¼°
 	Bitboard p = m_and(pos.pieces(RPAWN + delt),
 		_mm_load_si128((__m128i*)(Us == WHITE ? RpawnOverBB : BpawnOverBB)));
-	if (m_have_bit(p)){  // ÓĞ¹ıºÓ±øÁË
+	if (m_have_bit(p)){  // æœ‰è¿‡æ²³å…µäº†
 		int gh_num = (int)count_1s(_mm_andnot_si128(
-			_mm_load_si128((__m128i*)(Us == WHITE ? Rank0BB : Rank9BB)), p));	// È¥ÁËµ×Ïß±ø
-		bonus += PAWN_num_OVER_RIVER_point[gh_num];          // ¹ıºÓ±øµÄÊıÁ¿¼Ó·Ö
+			_mm_load_si128((__m128i*)(Us == WHITE ? Rank0BB : Rank9BB)), p));	// å»äº†åº•çº¿å…µ
+		bonus += PAWN_num_OVER_RIVER_point[gh_num];          // è¿‡æ²³å…µçš„æ•°é‡åŠ åˆ†
 		B = p;
 		int yshi = pos.piece_count(BSHI - delt);
 		Square pawn;
 		while (pop_1st_bit_sq(B, pawn)) {
-			// µÃµ½±øµÄËùÓĞ×ß²½
+			// å¾—åˆ°å…µçš„æ‰€æœ‰èµ°æ­¥
 			Bitboard patt = (Us == WHITE ? one_rpawn_rk_attacks(pawn) : one_bpawn_bk_attacks(pawn));
 			if (abs(StoY(pawn) - StoY(yk)) <= 3){
 				bonus += (Us == WHITE ? point_B_01Shi_R_Pawn90[yshi][pawn]
-					: point_R_01Shi_B_Pawn90[yshi][pawn]);                     //¹ıºÓ±ø²Å¼Ó·Ö
+					: point_R_01Shi_B_Pawn90[yshi][pawn]);                     //è¿‡æ²³å…µæ‰åŠ åˆ†
 
-				// ¿´Ò»ÏÂÊÇ²»ÊÇÒªÅĞ¶ÏÓĞ³µÔÚ½ø¹¥¡£
+				// çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯è¦åˆ¤æ–­æœ‰è½¦åœ¨è¿›æ”»ã€‚
 				switch (yshi)
 				{
 				case 0:
@@ -194,17 +194,17 @@ Score evaluate_pawns_2(Position& pos, Pawns::Entry* e) {
 				}
 				
 			}
-			Score pawnSafe = PrePawnAttKingMul_Safe[yshi][pawn][yk];    //±ø¿ØÖÆ½«µÄ·Ö
+			Score pawnSafe = PrePawnAttKingMul_Safe[yshi][pawn][yk];    //å…µæ§åˆ¶å°†çš„åˆ†
 			if (pawnSafe){
 				set_bit(e->_attackKingBoard, pawn); //
-				// 1.¿´Ò»ÏÂ±øÄÜ²»ÄÜ½«¾ü, ×ª»¯Îªbcy,bcx, Õâ¸ö¾ÍÀ÷º¦ÁË
-				Bitboard Bcheck = m_and( // Õâ¸ö±ø¿ÉÒÔ½«¾üÁË
+				// 1.çœ‹ä¸€ä¸‹å…µèƒ½ä¸èƒ½å°†å†›, è½¬åŒ–ä¸ºbcy,bcx, è¿™ä¸ªå°±å‰å®³äº†
+				Bitboard Bcheck = m_and( // è¿™ä¸ªå…µå¯ä»¥å°†å†›äº†
 					patt,
 					Us == WHITE ?
 					attacks_by_rpawn_rk(yk) : attacks_by_bpawn_bk(yk));
-				// ±ø¿ÉÒÔ½«¾ü
+				// å…µå¯ä»¥å°†å†›
 				if (m_have_bit(Bcheck)){
-					// »¹ÒªÅĞ¶ÏÒ»ÏÂ,1,Òª±ø´óÓÚ¶Ô·½µÄ½«, 
+					// è¿˜è¦åˆ¤æ–­ä¸€ä¸‹,1,è¦å…µå¤§äºå¯¹æ–¹çš„å°†, 
 					// fen 3k1a3/4ac3/8b/3C1P3/P8/2c3N2/9/4pA3/5K3/3A5 b - - 0 1
 					if (Us == WHITE ? StoY(yk) == 0x0 : StoY(yk) == 0x9){
 						e->_attPoint[Us] += attControlbyPawn[count_1s(Bcheck)];
@@ -235,11 +235,11 @@ Score evaluate_pawns_1(Position& pos, Pawns::Entry* e) {
 	const Square yk = pos.king_square(Them);
 	// const Square mk = pos.king_square(Us);
 	Score bonus = SCORE_ZERO;
-	// 1, ÏÈ¼ÆËã±øµÄ¹¥»÷Î»ÆåÅÌ
+	// 1, å…ˆè®¡ç®—å…µçš„æ”»å‡»ä½æ£‹ç›˜
 	Bitboard p = pos.pieces(RPAWN + delt);
 	Bitboard B = p;
 	//////////////////////////////////////////////////////////////////////////	
-	// 1. ÏòÇ°Ò»²½
+	// 1. å‘å‰ä¸€æ­¥
 	B = _mm_andnot_si128(_mm_load_si128((__m128i*)(Us == WHITE ? Rank0BB : Rank9BB)), B);
 	if (Us == WHITE){
 		m_Rsf(B, 9);
@@ -247,51 +247,51 @@ Score evaluate_pawns_1(Position& pos, Pawns::Entry* e) {
 	else{
 		m_Lsf(B, 9);
 	}
-	e->_pawnShiXiangAttacks[Us] = B;   // Õâ¸öÊÇµÚÒ»¸öËã£¬Ö»ÒªÖ±½Ó¸³Öµ¾ÍĞĞÁË¡£
+	e->_pawnShiXiangAttacks[Us] = B;   // è¿™ä¸ªæ˜¯ç¬¬ä¸€ä¸ªç®—ï¼Œåªè¦ç›´æ¥èµ‹å€¼å°±è¡Œäº†ã€‚
 
 	//////////////////////////////////////////////////////////////////////////	
-	// 2. ¹ıºÓ±ø
+	// 2. è¿‡æ²³å…µ
 	p = m_and(p, _mm_load_si128((__m128i*)(Us == WHITE ? RpawnOverBB : BpawnOverBB)));
 	if (m_have_bit(p)){
-		B = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB), p);  // È¥ÁË×óÃæ±ø
-		m_Rsf(B, 1);                   //ËùÓĞºì±øÏò×óÒ»²½
+		B = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB), p);  // å»äº†å·¦é¢å…µ
+		m_Rsf(B, 1);                   //æ‰€æœ‰çº¢å…µå‘å·¦ä¸€æ­¥
 		e->_pawnShiXiangAttacks[Us] = m_or(e->_pawnShiXiangAttacks[Us], B);//		print_bb(B);
 
 		B = _mm_andnot_si128(_mm_load_si128((__m128i*)File8BB), p);
-		m_Lsf(B, 1);                   //ËùÓĞºì±øÏòÓÒÒ»²½
+		m_Lsf(B, 1);                   //æ‰€æœ‰çº¢å…µå‘å³ä¸€æ­¥
 		e->_pawnShiXiangAttacks[Us] = m_or(e->_pawnShiXiangAttacks[Us], B);//		print_bb(B);
 	}
 	//////////////////////////////////////////////////////////////////////////	
-	// 3£¬ ÊËµÄ¹¥»÷Î»ÆåÅÌ
+	// 3ï¼Œ ä»•çš„æ”»å‡»ä½æ£‹ç›˜
 	for (int i = 0; i < pos.piece_count(RSHI + delt); i++){
 		Square s = pos.piece_list(RSHI + delt, i);
-		e->_pawnShiXiangAttacks[Us] = m_or(e->_pawnShiXiangAttacks[Us], shi_attacks(s));      // ÊËµÄ¹¥»÷Î»ÆåÅÌ
+		e->_pawnShiXiangAttacks[Us] = m_or(e->_pawnShiXiangAttacks[Us], shi_attacks(s));      // ä»•çš„æ”»å‡»ä½æ£‹ç›˜
 
-		// ÊËµÄ×ÓÁ¦Öµ
-		bonus += make_score(SHI_VAL, SHI_VAL * 4 / 8);  // ÊËµ½ÁË²Ğ¾ÖÒª¼õ·Ö
+		// ä»•çš„å­åŠ›å€¼
+		bonus += make_score(SHI_VAL, SHI_VAL * 4 / 8);  // ä»•åˆ°äº†æ®‹å±€è¦å‡åˆ†
 
-		// ¶Ô·½µÄ¹¥»÷µã¼õÒ»Ğ©
+		// å¯¹æ–¹çš„æ”»å‡»ç‚¹å‡ä¸€äº›
 		e->_attPoint[Them] -= LACK_SHI_ATT_POINT;
 	}
 	//////////////////////////////////////////////////////////////////////////	
-	// 3£¬ ÏàµÄ¹¥»÷Î»ÆåÅÌ
+	// 3ï¼Œ ç›¸çš„æ”»å‡»ä½æ£‹ç›˜
 	for (int i = 0; i < pos.piece_count(RXIANG + delt); i++){
 		Square s = pos.piece_list(RXIANG + delt, i);
-		// Ïà µÄ×ÓÁ¦Öµ	
-		bonus += make_score(XIANG_VAL, XIANG_VAL * 4 / 8);  // ÏàµÄÎïÖÊÁ¦Á¿
+		// ç›¸ çš„å­åŠ›å€¼	
+		bonus += make_score(XIANG_VAL, XIANG_VAL * 4 / 8);  // ç›¸çš„ç‰©è´¨åŠ›é‡
 
 		//
 		Bitboard A = pos.xiang_attacks_bb(s);
 		e->_pawnShiXiangAttacks[Us] = m_or(e->_pawnShiXiangAttacks[Us], A);
-		// ÏàµÄ¹¥»÷Î»ÆåÅÌ£¬Õâ¶ùÒòÎª¼ÆËãÁËÏóÑÛHASH,ËùÒÔ¿ÉÓÃÕâ¸ö
+		// ç›¸çš„æ”»å‡»ä½æ£‹ç›˜ï¼Œè¿™å„¿å› ä¸ºè®¡ç®—äº†è±¡çœ¼HASH,æ‰€ä»¥å¯ç”¨è¿™ä¸ª
 
-		// ¶Ô·½µÄ¹¥»÷µã¼õÒ»Ğ©
+		// å¯¹æ–¹çš„æ”»å‡»ç‚¹å‡ä¸€äº›
 		e->_attPoint[Them] -= LACK_XIANG_ATT_POINT;
 	}
 
 
 	//////////////////////////////////////////////////////////////////////////	
-	// ÓĞ¿ÉÄÜÃÆ¹¬µÄÆåĞÎ
+	// æœ‰å¯èƒ½é—·å®«çš„æ£‹å½¢
 	// fen 3rkab2/4a4/2n1bc1Rn/p1p1p1p1p/2P3N2/1C7/Pr2P3P/2N1B1C2/4A4/2R1KAB2 b - - 0 1
 	if (Us == WHITE){
 		if (yk == 0x4 && pos.piece_count(BSHI) == 2){
@@ -306,7 +306,7 @@ Score evaluate_pawns_1(Position& pos, Pawns::Entry* e) {
 				}
 			}
 			// fen 2b1k1b2/9/9/5Pp2/8p/5RP2/1r1r1c2P/4BR3/1n2A4/2NAK1B2 w - - 0 1
-			if (pos.piece_count(BXIANG) == 2){ // ÊËÏàÈ«£¬Òª¼ÓÒ»Ğ©·ÀÊØ·Ö¡£
+			if (pos.piece_count(BXIANG) == 2){ // ä»•ç›¸å…¨ï¼Œè¦åŠ ä¸€äº›é˜²å®ˆåˆ†ã€‚
 				e->_attPoint[WHITE] -= ALL_SHIXIANG_ATT_POINT;
 			}
 		}
@@ -352,14 +352,14 @@ Entry* probe(Position& pos, Table& entries ) {
 	if (e->key == key){		
 		return e;
 	}
-	e->key = key;                              // ±£´æµ±Ç°KEY
+	e->key = key;                              // ä¿å­˜å½“å‰KEY
 	e->_attackKingBoard = _mm_setzero_si128();
-	e->_PawnInfo  = 0;                         // Òª²âÊÔ±øµÄÆäËüĞÅÏ¢¡£
+	e->_PawnInfo  = 0;                         // è¦æµ‹è¯•å…µçš„å…¶å®ƒä¿¡æ¯ã€‚
 	e->value = SCORE_ZERO;
 	e->_attPoint[WHITE] = LACK_SHI_ATT_POINT * 2 + LACK_XIANG_ATT_POINT * 2;                  // 
 	e->_attPoint[BLACK] = LACK_SHI_ATT_POINT * 2 + LACK_XIANG_ATT_POINT * 2;                  //
 
-	e->value += evaluate_pawns_1<WHITE>(pos, e)			// Õâ¶ùÒ²½«ÎŞ¹Ø
+	e->value += evaluate_pawns_1<WHITE>(pos, e)			// è¿™å„¿ä¹Ÿå°†æ— å…³
 	          - evaluate_pawns_1<BLACK>(pos, e);
 
 	e->value += evaluate_pawns_2<WHITE>(pos,e)

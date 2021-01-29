@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_2che1pao4pawn_B_2che2pao1pawn
 #define END_my_m_MT_R_2che1pao4pawn_B_2che2pao1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "2³µ1ÅÚ4±ø¶Ô2³µ2ÅÚ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2è½¦1ç‚®4å…µå¯¹2è½¦2ç‚®1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//const int ADD_2CheXPawn_1Che3PaoMa1Pawn_2ChePawnCan      =  32;                     //2³µ·½ÓĞ±ø¿É¹ıºÓ£¬
+//const int ADD_2CheXPawn_1Che3PaoMa1Pawn_2ChePawnCan      =  32;                     //2è½¦æ–¹æœ‰å…µå¯è¿‡æ²³ï¼Œ
 
 
 void my_m_MT_R_2che1pao4pawn_B_2che2pao1pawn(typePOS &POSITION, EvalInfo &ei){
@@ -26,7 +26,7 @@ void my_m_MT_R_2che1pao4pawn_B_2che2pao1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 2baka3/9/4b4/8p/1P1PPC1r1/4c2r1/4R3P/4B4/4A2c1/2B1KA1R1 b - - 0 1
 	if(EV_YOUR_CAN == 0 && my_shi_num == 2 && my_xiang_num == 2 && StoY(mk) == MY_RANK9){
-		//¶Ô·½µÄ¶ş¸öÅÚ£¬¶¼±»ÎÒ·½¹¥»÷ÁË
+		//å¯¹æ–¹çš„äºŒä¸ªç‚®ï¼Œéƒ½è¢«æˆ‘æ–¹æ”»å‡»äº†
 		if(!m_have_bit(_mm_andnot_si128(MY_ATTACK,bb_your_pao))){
 			MY_EV_ADD(EV_MY_CAN * 16);			
 		}

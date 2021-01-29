@@ -1,12 +1,12 @@
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
 
 //
-//const int  ADD_2MaXPawn_2Pao1Pawn_ByPawn[3]         = {96, 64, 32};            //2Âíx±ø¶Ô1ÅÚ2±ø, ¶à±øµÄ¼Ó·Ö
-//const int  ADD_2Pao1Pawn_2MaXPawn_ByPawn[3]         = {96, 64, 32};            //1ÅÚ2±ø¶Ô2Âíx±ø, ¶à±øµÄ¼Ó·Ö
+//const int  ADD_2MaXPawn_2Pao1Pawn_ByPawn[3]         = {96, 64, 32};            //2é©¬xå…µå¯¹1ç‚®2å…µ, å¤šå…µçš„åŠ åˆ†
+//const int  ADD_2Pao1Pawn_2MaXPawn_ByPawn[3]         = {96, 64, 32};            //1ç‚®2å…µå¯¹2é©¬xå…µ, å¤šå…µçš„åŠ åˆ†
 
 
 

@@ -1,4 +1,4 @@
-#include "..\\chess.h"
+#include "../chess.h"
 #include <cassert>
 #include <cstring>
 #include "preGen.h"
@@ -12,7 +12,7 @@
 #include "s_eval_const.h"
 
 //////////////////////////////////////////////////////////////////////////
-/// ÖĞÅÚµ×ÅÚµÄÆÀ¼Û
+/// ä¸­ç‚®åº•ç‚®çš„è¯„ä»·
 template<Color Us>
 void eval_zhong_di_pao(const Position& pos, EvalInfo& ei){
 
@@ -27,12 +27,12 @@ void eval_zhong_di_pao(const Position& pos, EvalInfo& ei){
 
 		Square pao_sq = pop_1st_bit(&bzp);
 		//////////////////////////////////////////////////////////////////////////
-		/// Õâ¸ö¿ÉÄÜÊÇÖĞÅÚ
+		/// è¿™ä¸ªå¯èƒ½æ˜¯ä¸­ç‚®
 		if(StoX(pao_sq) == StoX(yk)){
 			ei.valu += Sign[Us] * make_score(16,64);
 			ei.attPoint[Us] += MidPao_att_point;			//////////////////////////////////////////////////////////////////////////
 
-			// »¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÊÜµ½¶Ô·½µÄ¹¥»÷
+			// è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯å—åˆ°å¯¹æ–¹çš„æ”»å‡»
 			if(bit_is_set(ei.attacked_by(Them),pao_sq)){
 				if(bit_is_set(ei.attacked_by(Us),pao_sq)){
 				}
@@ -41,7 +41,7 @@ void eval_zhong_di_pao(const Position& pos, EvalInfo& ei){
 				}
 			}
 			//////////////////////////////////////////////////////////////////////////
-			/// ÔÙÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÌúÃÅË¨.
+			/// å†åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯é“é—¨æ “.
 			bool ist = false;
 			Bitboard BLR = _mm_setzero_si128();
 			if(Us == WHITE){
@@ -104,7 +104,7 @@ void eval_zhong_di_pao(const Position& pos, EvalInfo& ei){
 			}
 			if(ist){
 				//////////////////////////////////////////////////////////////////////////					  
-				// 1. ³µÄÜ²»ÄÜ¹¥»÷µ½¶Ô·½½«µÄÓÒ±ß,µ×Ïß.
+				// 1. è½¦èƒ½ä¸èƒ½æ”»å‡»åˆ°å¯¹æ–¹å°†çš„å³è¾¹,åº•çº¿.
 				for(int i = 0; i < pos.piece_count(RCHE + delt); i++){
 					Square s =  pos.piece_list(RCHE + delt,i);						  
 					if(bit_is_set(BLR,s)){
@@ -121,7 +121,7 @@ void eval_zhong_di_pao(const Position& pos, EvalInfo& ei){
 					}									
 				}
 				//////////////////////////////////////////////////////////////////////////
-				// 2 ¿´Ò»ÏÂ±ø
+				// 2 çœ‹ä¸€ä¸‹å…µ
 				Bitboard tbp = m_and(pos.pieces(RPAWN + delt),
 					m_and(BLR,_mm_load_si128((__m128i*)TiMenBit_Pawn)));
 				if(m_have_bit(tbp)){
@@ -129,7 +129,7 @@ void eval_zhong_di_pao(const Position& pos, EvalInfo& ei){
 					ei.attPoint[Us] += TiMen_Pawn_att_point;
 				}
 				//////////////////////////////////////////////////////////////////////////
-				/// 3. ½«
+				/// 3. å°†
 				if(bit_is_set(BLR,mk)){
 					Bitboard tkb = rook_attacks_bb(mk,_mm_andnot_si128(
 						m_or(pos.pieces(RCHE + delt), tbp),occ));
@@ -139,7 +139,7 @@ void eval_zhong_di_pao(const Position& pos, EvalInfo& ei){
 					}
 				}
 				//////////////////////////////////////////////////////////////////////////
-				/// 4. Âí
+				/// 4. é©¬
 				for(int i = 0; i < pos.piece_count(RMA + delt); i++){
 					Square s =  pos.piece_list(RMA + delt,i);	
 					if(bit_is_set(BLR,s)){
@@ -151,8 +151,8 @@ void eval_zhong_di_pao(const Position& pos, EvalInfo& ei){
 					}
 				}
 				//////////////////////////////////////////////////////////////////////////
-				/// 5. ¶Ô·½ÓĞÅÚÔÚ·ÀÊØ,Ò²Òª¿Û·Ö
-				BLR = m_and(BLR, _mm_load_si128((__m128i*)(Us == WHITE ? Rank0BB : Rank9BB)));	// È¥ÁËµ×Ïß±ø
+				/// 5. å¯¹æ–¹æœ‰ç‚®åœ¨é˜²å®ˆ,ä¹Ÿè¦æ‰£åˆ†
+				BLR = m_and(BLR, _mm_load_si128((__m128i*)(Us == WHITE ? Rank0BB : Rank9BB)));	// å»äº†åº•çº¿å…µ
 				//BLR = m_and(BLR,US == WHITE ? pos.pieces(BPAO) : pos.pieces(RPAO));
 				if(have_bit(BLR,Us == WHITE ? pos.pieces(BPAO) : pos.pieces(RPAO))){
 					ei.attPoint[Us] -= 6; // fen 2bakc1R1/4a4/n1c1b4/N1prC3p/P8/2P3r2/4P1n1P/3C2N2/4A4/1RBAK4 b - - 0 1
@@ -160,11 +160,11 @@ void eval_zhong_di_pao(const Position& pos, EvalInfo& ei){
 			}	
 		} 
 		//////////////////////////////////////////////////////////////////////////
-		/// Õâ¸ö¿Ï¶¨ÊÇµ×ÅÚ
+		/// è¿™ä¸ªè‚¯å®šæ˜¯åº•ç‚®
 		else{ 
-			ei.attPoint[Us] += Di_Pao_att_point;   // µ×ÅÚ¼Ó¹¥»÷µã	
+			ei.attPoint[Us] += Di_Pao_att_point;   // åº•ç‚®åŠ æ”»å‡»ç‚¹	
 			ei.valu += Sign[Us] * make_score(12, 48);
-			// »¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÊÜµ½¶Ô·½µÄ¹¥»÷
+			// è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯å—åˆ°å¯¹æ–¹çš„æ”»å‡»
 			if(bit_is_set(ei.attacked_by(Them),pao_sq)){
 				if(bit_is_set(ei.attacked_by(Us),pao_sq)){
 				}

@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_1pao1ma2pawn_B_1pao1ma1pawn
 #define END_my_m_MT_R_1pao1ma2pawn_B_1pao1ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí2±ø¶Ô1ÅÚ1Âí1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®1é©¬2å…µå¯¹1ç‚®1é©¬1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//ÂíÅÚ¶þ±ø¶ÔÒ»ÂíÒ»ÅÚÒ»±ø
+//é©¬ç‚®äºŒå…µå¯¹ä¸€é©¬ä¸€ç‚®ä¸€å…µ
 void my_m_MT_R_1pao1ma2pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// ADD
@@ -233,7 +233,7 @@ void my_m_MT_R_1pao1ma2pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 3ak4/4a4/4b4/9/6b2/2B5p/P1n1P3c/2N1B4/2C1A4/3AK4 w - - 4 4
-	//2±ø·½µÄ¶þ¸ö±ø¸øÂíÊØ×¡ÁË, Ò²»ù±¾ÊÇºÍÆå
+	//2å…µæ–¹çš„äºŒä¸ªå…µç»™é©¬å®ˆä½äº†, ä¹ŸåŸºæœ¬æ˜¯å’Œæ£‹
 	if ((my_shi_num + my_xiang_num) >= 3) {
 		if (your_shi_num == 2 && your_xiang_num == 2 && PB90(MY_SQ3A) == my_pawn) {
 			if (PB90(MY_SQ38) == your_ma && PB90(MY_SQ41) == my_ma && PB90(MY_SQ36) == my_pawn) {
@@ -252,7 +252,7 @@ void my_m_MT_R_1pao1ma2pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	//MY_EV_ADD(EV_MY_CAN * 8);
 
 	// fen 5a3/4a1P2/b4k2b/4P4/4c4/4N4/5p3/B8/2C1n4/3K5 b - - 0 1
-	// ¶Ô·½µÄ½«µÄËùÓÐ²½¸øÎÒ·½µÄ½«¿ØÖÆ×¡ÁË.
+	// å¯¹æ–¹çš„å°†çš„æ‰€æœ‰æ­¥ç»™æˆ‘æ–¹çš„å°†æŽ§åˆ¶ä½äº†.
 	//if(StoY(yk) != MY_RANK0){
 	//	//print_bb(ei.attacked_by(your_king));
 	//	if(!m_have_bit(_mm_andnot_si128(ei.pi->pawnshi_attacks(MY_COLOR),ei.attacked_by(your_king)))){
@@ -261,7 +261,7 @@ void my_m_MT_R_1pao1ma2pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	//}
 
 	// fen 1P7/4k4/9/7N1/6b2/3cp3P/1n7/1C7/4A4/3K1A3 w
-	//ÎÒ·½Ò»¸ö±øµ½µ×£¬Ò»¸ö±ø»¹ÔÚ Y3X2Ö®Íâ
+	//æˆ‘æ–¹ä¸€ä¸ªå…µåˆ°åº•ï¼Œä¸€ä¸ªå…µè¿˜åœ¨ Y3X2ä¹‹å¤–
 	if (StoY(mpawn1) == MY_RANK0) {
 		MY_EV_SUB(32);
 		if (abs(StoX(mpawn2) - 0x4) >= 3 && StoY(mpawn2) MY_LARGE_EQL MY_RANK3) {

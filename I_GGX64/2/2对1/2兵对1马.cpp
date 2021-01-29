@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2PAWN_B_1MA
 #define END_my_m_MT_R_2PAWN_B_1MA
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2±ø¶Ô1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2å…µå¯¹1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //const int PawnShiAdd[3] = {96,48,0};

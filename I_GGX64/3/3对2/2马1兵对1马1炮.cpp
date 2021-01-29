@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2ma1pawn_B_1ma1pao
 #define END_my_m_MT_R_2ma1pawn_B_1ma1pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2Âí1±ø¶Ô1Âí1ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2é©¬1å…µå¯¹1é©¬1ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -124,7 +124,7 @@ void my_m_MT_R_2ma1pawn_B_1ma1pao(typePOS &POSITION, EvalInfo &ei){
 //	// fen 3ak4/4a4/4b3b/9/2p3p2/9/6nn1/3AB2N1/4A4/2BC1K3 w - - 120 120
 //	if(board->R_shi == 2 && board->R_xiang == 2){
 //		if(StoY(rk) == 0xc){
-//			//if(bcan <= 0){             //±øÒ»¸öÒ²²»ÄÜ¹ýºÓ,¾ÍÊÇºÍÆå
+//			//if(bcan <= 0){             //å…µä¸€ä¸ªä¹Ÿä¸èƒ½è¿‡æ²³,å°±æ˜¯å’Œæ£‹
 //			//	return 1; 
 //			//}
 //			if(board->B_xiang == 2 || board->B_shi == 2){

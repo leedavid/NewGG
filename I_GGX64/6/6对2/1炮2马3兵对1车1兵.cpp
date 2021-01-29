@@ -1,27 +1,27 @@
 #ifndef END_my_m_MT_R_1pao_2ma3pawn_B_1che1pawn
 #define END_my_m_MT_R_1pao_2ma3pawn_B_1che1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2Âí3±ø¶Ô1³µ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®2é©¬3å…µå¯¹1è½¦1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//1ÅÚ2Âí3±ø¶Ô1³µ, ÅÚÂí·½Òª¼Ó·Ö
+//1ç‚®2é©¬3å…µå¯¹1è½¦, ç‚®é©¬æ–¹è¦åŠ åˆ†
 void my_m_MT_R_1pao_2ma3pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
 	Square ypawn = S90_from_piecelist(POSITION,your_pawn,0);
 	if(StoY(ypawn) MY_SMALL MY_RANK5 || my_shi_num > 0){
-		MY_EV_ADD(Add_1ÅÚ2Âí¶Ô1³µ1±ø);
+		MY_EV_ADD(Add_1ç‚®2é©¬å¯¹1è½¦1å…µ);
 	}
 
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
-	MY_EV_ADD((sint16)count_1s(bmp) * Add_1ÅÚ2Âí¶Ô1³µ1±ø_byPawn_Shi[your_shi_num]);
+	MY_EV_ADD((sint16)count_1s(bmp) * Add_1ç‚®2é©¬å¯¹1è½¦1å…µ_byPawn_Shi[your_shi_num]);
 }
 
 
@@ -30,13 +30,13 @@ void my_m_MT_R_1pao_2ma3pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 //	Square rpawn = PieceListStart(board,RPAWN);
 //
 //	if(rpawn > 0x80 || board->B_shi > 0){
-//		board->mulScore -= Add_1ÅÚ2Âí¶Ô1³µ1±ø;
+//		board->mulScore -= Add_1ç‚®2é©¬å¯¹1è½¦1å…µ;
 //	}
 //
-//	//±ø»¹ÓÐÁíÍâµÄ¼Ó·Ö
+//	//å…µè¿˜æœ‰å¦å¤–çš„åŠ åˆ†
 //	for(int from = PieceListStart(board,BPAWN); from > 0x32; from = NextPiece(board,from)){
 //		if(StoY(from) < 0xc){
-//			board->mulScore -=  Add_1ÅÚ2Âí¶Ô1³µ1±ø_byPawn_Shi[board->R_shi];
+//			board->mulScore -=  Add_1ç‚®2é©¬å¯¹1è½¦1å…µ_byPawn_Shi[board->R_shi];
 //		}
 //	}
 //

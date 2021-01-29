@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che2pawn_B_1che1ma
 #define END_my_m_MT_R_1che2pawn_B_1che1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ2±ø¶Ô1³µ1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦2å…µå¯¹1è½¦1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -135,7 +135,7 @@ void my_m_MT_R_1che2pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	
-	//Èç¹û±ø·½Ò»¸ö×ÓÒ²Ã»ÓĞÁË
+	//å¦‚æœå…µæ–¹ä¸€ä¸ªå­ä¹Ÿæ²¡æœ‰äº†
 	if((my_shi_num + my_xiang_num) <= 1){
 		MY_EV_SUB(196);
 	}
@@ -157,7 +157,7 @@ void my_m_MT_R_1che2pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 			RETRUN_MUL(8);
 		}
 	}
-	//Èç¹ûËùÓĞ±øÔÚ±øÏßÉÏ	
+	//å¦‚æœæ‰€æœ‰å…µåœ¨å…µçº¿ä¸Š	
 	// fen 2b1k4/9/4b4/9/P1P1R3P/9/2r6/3An4/4A4/3K5 b - - 3 3
 	if(my_xiang_num == 0 && StoY(yma) MY_LARGE_EQL MY_RANK5){
 		Bitboard p = m_and(bb_my_pawn,MyLowBB[MY_RANK4]);

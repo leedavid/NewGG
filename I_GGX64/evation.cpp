@@ -18,12 +18,12 @@ namespace {
 
 	//const Score Tempo = make_score(32, 12);  // make_score(48, 22);
 
-	const Score Chess_Protect_Us_Score[] = {          // ±øÊËÏà±£»¤×Ô¼ºÆå×ÓµÄµÃ·Ö      
+	const Score Chess_Protect_Us_Score[] = {          // å…µä»•ç›¸ä¿æŠ¤è‡ªå·±æ£‹å­çš„å¾—åˆ†      
 		Score(0),
-		//  ½«	     ÊË	       Ïà          Âí           ³µ           ÅÚ	          ±ø   
+		//  å°†	     ä»•	       ç›¸          é©¬           è½¦           ç‚®	          å…µ   
 		SMG(0, 0), SMG(4, 8), SMG(8, 16), SMG(16, 16), SMG(16, 24), SMG(16, 24), SMG(8, 32),
 		Score(0),
-		//  ½«	     ÊË	      Ïà          Âí         ³µ         ÅÚ	        ±ø   
+		//  å°†	     ä»•	      ç›¸          é©¬         è½¦         ç‚®	        å…µ   
 		SMG(0, 0), SMG(4, 8), SMG(8, 16), SMG(16, 16), SMG(16, 24), SMG(16, 24), SMG(8, 32),
 	};
 
@@ -32,12 +32,12 @@ namespace {
 
 //////////////////////////////////////////////////////////////////////////
 #include "eval_king_fisrt.cpp"
-#include "³é½«ÓëÇ£ÖÆ.cpp"
-#include "eval_¿ÕÅÚ.cpp"
-#include "eval_ÖĞÅÚµ×ÅÚ.cpp"
-#include "Èõ×ÓÆÀ¹À.cpp"
-#include "µÚ1´Î_Æå×Ó.cpp"
-#include "ÍõµÄ°²È«.cpp"
+#include "æŠ½å°†ä¸ç‰µåˆ¶.cpp"
+#include "eval_ç©ºç‚®.cpp"
+#include "eval_ä¸­ç‚®åº•ç‚®.cpp"
+#include "å¼±å­è¯„ä¼°.cpp"
+#include "ç¬¬1æ¬¡_æ£‹å­.cpp"
+#include "ç‹çš„å®‰å…¨.cpp"
 #include "eval_king_up_string.cpp"
 #include "eval_by_material_phase.cpp"
 #include "eval_Only_1chexPaoxPawnNoshi.cpp"
@@ -67,16 +67,16 @@ namespace Eval {
 		EvalInfo ei;
 		Thread* th = pos.this_thread();
 
-		Score bonus = pos.psq_score(); // +(pos.side_to_move() == WHITE ? Tempo : -Tempo);       // Î»ÖÃ·Ö?
+		Score bonus = pos.psq_score(); // +(pos.side_to_move() == WHITE ? Tempo : -Tempo);       // ä½ç½®åˆ†?
 		
 		Square rk = pos.king_square(WHITE);
 		Square bk = pos.king_square(BLACK);
 
 		//////////////////////////////////////////////////////////////////////////	
 		// Probe the material hash table
-		bonus += make_score(pos.pMatinfo()->material, pos.pMatinfo()->material);  // ×ÓÁ¦·Ö	
+		bonus += make_score(pos.pMatinfo()->material, pos.pMatinfo()->material);  // å­åŠ›åˆ†	
 
-		ei.pi = Pawns::probe(pos, th->pawnsTable);    // ±øµÄhash
+		ei.pi = Pawns::probe(pos, th->pawnsTable);    // å…µçš„hash
 		bonus += ei.pi->pawns_value();
 
 		ei.rcan = ei.pi->getPawnCan(WHITE);
@@ -86,39 +86,39 @@ namespace Eval {
 		ei.evscore = 0;
 
 		//------------------------------------------------------------------------
-		// ei.attPoint[WHITE] = ºì·½¹¥»÷ºÚ·½µÄµãÊı
+		// ei.attPoint[WHITE] = çº¢æ–¹æ”»å‡»é»‘æ–¹çš„ç‚¹æ•°
 		ei.attPoint[WHITE] = ei.pi->getAttpoint(WHITE);
 		ei.attPoint[BLACK] = ei.pi->getAttpoint(BLACK);
 
 		//////////////////////////////////////////////////////////////////////////
-		// // µÃµ½ÊË£¬±øµÄ¹¥»÷Çé¿ö
+		// // å¾—åˆ°ä»•ï¼Œå…µçš„æ”»å‡»æƒ…å†µ
 		Bitboard RpawnShiXiang = ei.pi->pawnshiXiang_attacks(WHITE);  //print_bb(RpawnShi);
 		Bitboard BpawnShiXiang = ei.pi->pawnshiXiang_attacks(BLACK);  //print_bb(BpawnShi);
 
 		//////////////////////////////////////////////////////////////////////////	
-		// Çå¿Õ¿É¹¥»÷µÄÆå×Ó¡£
+		// æ¸…ç©ºå¯æ”»å‡»çš„æ£‹å­ã€‚
 		ei.attackedBy[RCHE] = ei.attackedBy[RMA]
 			= ei.attackedBy[RPAO]  = _mm_setzero_si128();
 		ei.attackedBy[BCHE] = ei.attackedBy[BMA]
 			= ei.attackedBy[BPAO]  = _mm_setzero_si128();
 
-		ei.KongPao[WHITE] = ei.KongPao[BLACK] = _mm_setzero_si128();   // Ë«·½µÄ¿ÕÅÚ£¬Òªµ¥¶ÀÆÀ¼ÛÒ»ÏÂ¡£
+		ei.KongPao[WHITE] = ei.KongPao[BLACK] = _mm_setzero_si128();   // åŒæ–¹çš„ç©ºç‚®ï¼Œè¦å•ç‹¬è¯„ä»·ä¸€ä¸‹ã€‚
 
 		//////////////////////////////////////////////////////////////////////////	
-		// ´¦ÓÚ¹¥»÷µÄÆå¸ñ£¬±ø¹²ÓÃÒ»¸öÆå¸ñ
-		ei.attackKingBoard[WHITE] = m_and(ei.pi->attack_pawn(), UpBB[0x5]);    // ÕıÔÚ¹¥»÷×´Ì¬µÄÆå×Ó
+		// å¤„äºæ”»å‡»çš„æ£‹æ ¼ï¼Œå…µå…±ç”¨ä¸€ä¸ªæ£‹æ ¼
+		ei.attackKingBoard[WHITE] = m_and(ei.pi->attack_pawn(), UpBB[0x5]);    // æ­£åœ¨æ”»å‡»çŠ¶æ€çš„æ£‹å­
 		ei.attackKingBoard[BLACK] = m_and(ei.pi->attack_pawn(), LowBB[0x4]);
 
 		//////////////////////////////////////////////////////////////////////////	
-		// ºìË§
+		// çº¢å¸…
 		ei.attackedBy[RKING] = one_rpawn_rk_attacks(rk);
-		// ºÚ½«
+		// é»‘å°†
 		ei.attackedBy[BKING] = one_bpawn_bk_attacks(bk);
 
 		//////////////////////////////////////////////////////////////////////////	
-		// ÔÙÆÀ¼ÛÒ»ÏÂ½«
+		// å†è¯„ä»·ä¸€ä¸‹å°†
 		// fen C1bak4/4N4/9/9/2b6/9/9/3AK4/9/2B2A3 w - - 0 1
-		// ÎÒ·½µÄ½«²»Ö±½Ó¹¥»÷¶Ô·½µÄ×Ó£¬Ò²ÒªËãÒ»ÏÂXbitÍÛ
+		// æˆ‘æ–¹çš„å°†ä¸ç›´æ¥æ”»å‡»å¯¹æ–¹çš„å­ï¼Œä¹Ÿè¦ç®—ä¸€ä¸‹Xbitå“‡
 
 		if (ei.pi->_PawnInfo & R_KING_CANNOT_ATT) {
 		}
@@ -127,7 +127,7 @@ namespace Eval {
 			Bitboard bRnoChe = _mm_andnot_si128(pos.pieces(RCHE), pos.occupied_squares());
 			Bitboard rkFatt = pos.Rook_attacks_bb_only_F(rk, bRnoChe);
 			if (have_bit(rkFatt, ei.attackedBy[BKING])) {
-				set_bit(ei.attackKingBoard[WHITE], rk);    // ºì½«Ò²¼ÓÈëÁË½ø¹¥
+				set_bit(ei.attackKingBoard[WHITE], rk);    // çº¢å°†ä¹ŸåŠ å…¥äº†è¿›æ”»
 				ei.attPoint[WHITE] += 3;
 			} // fen 8c/5k3/9/9/N8/5r2P/9/B2AB4/3pA4/4K4 w - - 0 1
 		}
@@ -136,22 +136,22 @@ namespace Eval {
 		else {
 			Bitboard bBnoChe = _mm_andnot_si128(pos.pieces(BCHE), pos.occupied_squares());
 			Bitboard bkFatt = pos.Rook_attacks_bb_only_F(bk, bBnoChe);
-			if (have_bit(bkFatt, ei.attackedBy[RKING])) {   // ºÚ½«Ò²¼ÓÈëÁË½ø¹¥
+			if (have_bit(bkFatt, ei.attackedBy[RKING])) {   // é»‘å°†ä¹ŸåŠ å…¥äº†è¿›æ”»
 				set_bit(ei.attackKingBoard[BLACK], bk);
 				ei.attPoint[BLACK] += 3;
 			}
 		}
 
 		//////////////////////////////////////////////////////////////////////////	
-		// ½«µÄÇ£ÖÆ
+		// å°†çš„ç‰µåˆ¶
 		
-		ei.xray_bit[WHITE] = ei.xray_bit[BLACK] = _mm_setzero_si128(); // Çå¿Õ³õÇ£ÖÆµÄÆå×Ó
+		ei.xray_bit[WHITE] = ei.xray_bit[BLACK] = _mm_setzero_si128(); // æ¸…ç©ºåˆç‰µåˆ¶çš„æ£‹å­
 
 		if (!(ei.pi->_PawnInfo & KING_CANNOT_STRING)) {
 			Bitboard bet = m_and(BetweenBB[bk][rk], pos.occupied_squares());
-			if (count_1s(bet) == 1) { // ¶ş¸ö½«ÖĞ¼äÖ»ÓĞÒ»¸ö×Ó
+			if (count_1s(bet) == 1) { // äºŒä¸ªå°†ä¸­é—´åªæœ‰ä¸€ä¸ªå­
 				if (have_bit(pos.pieces_of_color(WHITE), bet)) {
-					ei.xray_bit[BLACK] = bet;  // Õâ¸öÓÃÀ´ÅĞ¶ÏÎÑĞÄÂíÊ²Ã´µÄ¡£
+					ei.xray_bit[BLACK] = bet;  // è¿™ä¸ªç”¨æ¥åˆ¤æ–­çªå¿ƒé©¬ä»€ä¹ˆçš„ã€‚
 					set_bit(ei.attackKingBoard[BLACK], bk);
 				}
 				else {
@@ -163,7 +163,7 @@ namespace Eval {
 
 
 		//////////////////////////////////////////////////////////////////////////	
-		// µÚÒ»½«ÆÀ¼ÛÃ¿Ò»¸öÆå×ÓµÄ¹¥»÷Çé¿ö.
+		// ç¬¬ä¸€å°†è¯„ä»·æ¯ä¸€ä¸ªæ£‹å­çš„æ”»å‡»æƒ…å†µ.
 		bonus += evaluate_pieces_no_include_king_first<WHITE>(pos, ei)
 			- evaluate_pieces_no_include_king_first<BLACK>(pos, ei);
 
@@ -173,8 +173,8 @@ namespace Eval {
 			m_or(ei.attacked_by(RMA),
 			ei.attacked_by(RPAO))));
 
-		// Æå×Ó±£»¤×Ô¼ºµÄÆå×ÓµÄµÃ·Ö£¬¼ÓÇ¿ÁªÏµ¡£
-		Bitboard A = m_and(ei.attackedBy[EMPTY], pos.pieces_of_color(WHITE)); // Õâ¸ö²»ÄÜÓĞÅÚ£¬Âí£¬³µ£¬½«
+		// æ£‹å­ä¿æŠ¤è‡ªå·±çš„æ£‹å­çš„å¾—åˆ†ï¼ŒåŠ å¼ºè”ç³»ã€‚
+		Bitboard A = m_and(ei.attackedBy[EMPTY], pos.pieces_of_color(WHITE)); // è¿™ä¸ªä¸èƒ½æœ‰ç‚®ï¼Œé©¬ï¼Œè½¦ï¼Œå°†
 		Square t;
 		while (pop_1st_bit_sq(A, t)) {
 			bonus += Chess_Protect_Us_Score[pos.piece_on(t)];
@@ -186,31 +186,31 @@ namespace Eval {
 			m_or(ei.attacked_by(BMA),
 			ei.attacked_by(BPAO))));
 
-		Bitboard B = m_and(ei.attackedBy[_X_X], pos.pieces_of_color(BLACK)); // Õâ¸ö²»ÄÜÓĞÅÚ£¬Âí£¬³µ£¬½«
+		Bitboard B = m_and(ei.attackedBy[_X_X], pos.pieces_of_color(BLACK)); // è¿™ä¸ªä¸èƒ½æœ‰ç‚®ï¼Œé©¬ï¼Œè½¦ï¼Œå°†
 		while (pop_1st_bit_sq(B, t)) {
 			bonus -= Chess_Protect_Us_Score[pos.piece_on(t)];
 		}
-		// ÂíµÄÒÆ¶¯ÄÜÁ¦ÆÀ¹À
-		// Õâ¸öµÃ·Åµ½×îºó
+		// é©¬çš„ç§»åŠ¨èƒ½åŠ›è¯„ä¼°
+		// è¿™ä¸ªå¾—æ”¾åˆ°æœ€å
 		bonus += evaluate_ma_mob<WHITE>(pos, ei)
 			- evaluate_ma_mob<BLACK>(pos, ei);
 
 
 		//////////////////////////////////////////////////////////////////////////	
-		// Õâ¸ö·ÅÇ£ÖÆ,»òÆäËüµÄ¹¥»÷
+		// è¿™ä¸ªæ”¾ç‰µåˆ¶,æˆ–å…¶å®ƒçš„æ”»å‡»
 		bonus += eval_weak_piece<WHITE>(pos, ei)      // 
 			- eval_weak_piece<BLACK>(pos, ei);
 
 		//////////////////////////////////////////////////////////////////////////	
-		// ÍõµÄ°²È«ĞÔÆÀ¹À
+		// ç‹çš„å®‰å…¨æ€§è¯„ä¼°
 		bonus += eval_king_safe<WHITE>(pos, ei)  // fen 2bak4/1C1Ca4/1PP1b4/8p/4n4/9/8P/3AB4/4A1n2/2B2K1c1 b - - 0 
 			- eval_king_safe<BLACK>(pos, ei);
 
 
 		//////////////////////////////////////////////////////////////////////////	
-		uint8 serchinfo = pos.pMatinfo()->searchInfo8;   //¸ù¾İÌØÊâµÄÆå×Ó×ÓÁ¦Òª×öµÄËÑË÷	
+		uint8 serchinfo = pos.pMatinfo()->searchInfo8;   //æ ¹æ®ç‰¹æ®Šçš„æ£‹å­å­åŠ›è¦åšçš„æœç´¢	
 		//////////////////////////////////////////////////////////////////////////
-		// Ö»ÓĞÒ»³µ<=1ÅÚ½ø¹¥Ê±,¶Ô·½µÄ±øµÄ¼Ó·Ö
+		// åªæœ‰ä¸€è½¦<=1ç‚®è¿›æ”»æ—¶,å¯¹æ–¹çš„å…µçš„åŠ åˆ†
 		if (serchinfo & (CK_Only_1Che1PaoxPawn + CK_BR_1CHE_4MAPAO)){
 
 			if (serchinfo & CK_Only_1Che1PaoxPawn){
@@ -240,7 +240,7 @@ namespace Eval {
 		} // searchinfo8 
 
 
-		// ²Ğ¾ÖµÄĞÅÏ¢
+		// æ®‹å±€çš„ä¿¡æ¯
 		Value v = scale_by_game_phase(pos, ei, bonus);
 		ASSERT(abs(v) < 15000);
 		return (pos.side_to_move() == WHITE ? v : -v) + Eval::Tempo;

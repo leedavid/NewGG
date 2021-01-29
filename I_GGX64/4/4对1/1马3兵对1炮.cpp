@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_1ma3pawn_B_1pao
 #define END_my_m_MT_R_1ma3pawn_B_1pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1Âí3±ø¶Ô1ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1é©¬3å…µå¯¹1ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//1Âí3±ø¶ÔºÚ1ÅÚ
+//1é©¬3å…µå¯¹é»‘1ç‚®
 void my_m_MT_R_1ma3pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
@@ -20,11 +20,11 @@ void my_m_MT_R_1ma3pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
 
 	int pok = (int)count_1s(bmp);
-	MY_EV_ADD(pok * ADD_1Âí±ø¶Ô1ÅÚ_by_Pawn_By_Shi[your_shi_num]);
+	MY_EV_ADD(pok * ADD_1é©¬å…µå¯¹1ç‚®_by_Pawn_By_Shi[your_shi_num]);
 
 	Square ypao = S90_from_piecelist(POSITION,your_pao,0);
 
-    //Èç¹ûÓĞÎÑĞÄÂíÔÚ,¾Í¿ÉÄÜÊÇºÍÆå
+    //å¦‚æœæœ‰çªå¿ƒé©¬åœ¨,å°±å¯èƒ½æ˜¯å’Œæ£‹
 	// fen 3aka3/4n4/b3b4/9/9/4C1B2/9/5p3/2p1K4/3p5 w - - 14 14
 	if(pok <= 1 && your_xiang_num >= 1 && StoY(yk) != MY_RANK0){
 		if(PB90(MY_SQ4C) == my_ma && PB90(MY_SQ54) == my_shi && PB90(MY_SQ56) == my_shi){

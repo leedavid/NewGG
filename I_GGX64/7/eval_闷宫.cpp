@@ -1,4 +1,4 @@
-#include "..\\chess.h"
+#include "../chess.h"
 #include <cassert>
 #include <cstring>
 #include "preGen.h"
@@ -11,7 +11,7 @@
 #include "s_ucioption.h"
 #include "s_eval_const.h"
 //////////////////////////////////////////////////////////////////////////
-/// ÃÆ¹¬ÍşĞ²µÄÆÀ¹À
+/// é—·å®«å¨èƒçš„è¯„ä¼°
 //void eval_men_gong_threat(const Position& pos, EvalInfo& ei){
 //
 //#define  PAO_CAN_MEN_GONG_W_XIANG 4
@@ -20,13 +20,13 @@
 //	if(pos.piece_count(RSHI) == 2 && pos.piece_count(BPAO) != 0){
 //		if(pos.piece_on(Square(0x4c)) == RSHI && pos.piece_on(Square(0x55)) == RKING){
 //			if(pos.piece_on(Square(0x54)) == RSHI){
-//				// ÓĞ¶şÖÖÇé¿ö, 1. Èç¹ûÓĞÏàÔÚ,ÔòÒªÅĞ¶ÏÈıÆßÂ·ÊÇ²»ÊÇÓĞÅÚ
+//				// æœ‰äºŒç§æƒ…å†µ, 1. å¦‚æœæœ‰ç›¸åœ¨,åˆ™è¦åˆ¤æ–­ä¸‰ä¸ƒè·¯æ˜¯ä¸æ˜¯æœ‰ç‚®
 //				if(pos.piece_on(Square(0x53)) == RXIANG){
 //					Bitboard pao = _mm_andnot_si128(UpBB[0x3],m_and(FileBB_A[0x2],pos.pieces(BPAO)));
 //					ei.attackKingBoard[BLACK] = m_or(ei.attackKingBoard[BLACK],pao);
 //					ei.attPoint[BLACK] += PAO_CAN_MEN_GONG_W_XIANG * count_1s(pao);
 //				}
-//				// 2. Èç¹ûÃ»ÓĞÏàÔÚ, ÔòÒªÅĞ¶Ï<>=ÈıÆßÂ·ÊÇ²»ÊÇÓĞ¶Ô·½µÄÅÚ
+//				// 2. å¦‚æœæ²¡æœ‰ç›¸åœ¨, åˆ™è¦åˆ¤æ–­<>=ä¸‰ä¸ƒè·¯æ˜¯ä¸æ˜¯æœ‰å¯¹æ–¹çš„ç‚®
 //				else{
 //					Bitboard pao = m_and(LeftBB[0x03],pos.pieces(BPAO));
 //					ei.attackKingBoard[BLACK] = m_or(ei.attackKingBoard[BLACK],pao);
@@ -36,13 +36,13 @@
 //				}
 //			}
 //			else if(pos.piece_on(Square(0x56)) == RSHI){
-//				// ÓĞ¶şÖÖÇé¿ö, 1. Èç¹ûÓĞÏàÔÚ,ÔòÒªÅĞ¶ÏÈıÆßÂ·ÊÇ²»ÊÇÓĞÅÚ
+//				// æœ‰äºŒç§æƒ…å†µ, 1. å¦‚æœæœ‰ç›¸åœ¨,åˆ™è¦åˆ¤æ–­ä¸‰ä¸ƒè·¯æ˜¯ä¸æ˜¯æœ‰ç‚®
 //				if(pos.piece_on(Square(0x57)) == RXIANG){
 //					Bitboard pao = _mm_andnot_si128(UpBB[0x3],m_and(FileBB_A[0x6],pos.pieces(BPAO)));
 //					ei.attackKingBoard[BLACK] = m_or(ei.attackKingBoard[BLACK],pao);
 //					ei.attPoint[BLACK] += PAO_CAN_MEN_GONG_W_XIANG * count_1s(pao);
 //				}
-//				// 2. Èç¹ûÃ»ÓĞÏàÔÚ, ÔòÒªÅĞ¶Ï<>=ÈıÆßÂ·ÊÇ²»ÊÇÓĞ¶Ô·½µÄÅÚ
+//				// 2. å¦‚æœæ²¡æœ‰ç›¸åœ¨, åˆ™è¦åˆ¤æ–­<>=ä¸‰ä¸ƒè·¯æ˜¯ä¸æ˜¯æœ‰å¯¹æ–¹çš„ç‚®
 //				else{
 //					Bitboard pao = m_and(RightBB[0x05],pos.pieces(BPAO));
 //					ei.attackKingBoard[BLACK] = m_or(ei.attackKingBoard[BLACK],pao);
@@ -56,13 +56,13 @@
 //	if(pos.piece_count(BSHI) == 2  && pos.piece_count(RPAO) != 0){
 //		if(pos.piece_on(Square(0x0d)) == BSHI && pos.piece_on(Square(0x04)) == BKING){
 //			if(pos.piece_on(Square(0x03)) == BSHI){
-//				// ÓĞ¶şÖÖÇé¿ö, 1. Èç¹ûÓĞÏàÔÚ,ÔòÒªÅĞ¶ÏÈıÆßÂ·ÊÇ²»ÊÇÓĞÅÚ
+//				// æœ‰äºŒç§æƒ…å†µ, 1. å¦‚æœæœ‰ç›¸åœ¨,åˆ™è¦åˆ¤æ–­ä¸‰ä¸ƒè·¯æ˜¯ä¸æ˜¯æœ‰ç‚®
 //				if(pos.piece_on(Square(0x02)) == BXIANG){
 //					Bitboard pao = _mm_andnot_si128(LowBB[0x6],m_and(FileBB_A[0x2],pos.pieces(RPAO)));
 //					ei.attackKingBoard[WHITE] = m_or(ei.attackKingBoard[WHITE],pao);
 //					ei.attPoint[WHITE] += PAO_CAN_MEN_GONG_W_XIANG * count_1s(pao);
 //				}
-//				// 2. Èç¹ûÃ»ÓĞÏàÔÚ, ÔòÒªÅĞ¶Ï<>=ÈıÆßÂ·ÊÇ²»ÊÇÓĞ¶Ô·½µÄÅÚ
+//				// 2. å¦‚æœæ²¡æœ‰ç›¸åœ¨, åˆ™è¦åˆ¤æ–­<>=ä¸‰ä¸ƒè·¯æ˜¯ä¸æ˜¯æœ‰å¯¹æ–¹çš„ç‚®
 //				else{
 //					Bitboard pao = m_and(LeftBB[0x03],pos.pieces(RPAO));
 //					ei.attackKingBoard[WHITE] = m_or(ei.attackKingBoard[WHITE],pao);
@@ -72,13 +72,13 @@
 //				}
 //			}
 //			else if(pos.piece_on(Square(0x05)) == BSHI){
-//				// ÓĞ¶şÖÖÇé¿ö, 1. Èç¹ûÓĞÏàÔÚ,ÔòÒªÅĞ¶ÏÈıÆßÂ·ÊÇ²»ÊÇÓĞÅÚ
+//				// æœ‰äºŒç§æƒ…å†µ, 1. å¦‚æœæœ‰ç›¸åœ¨,åˆ™è¦åˆ¤æ–­ä¸‰ä¸ƒè·¯æ˜¯ä¸æ˜¯æœ‰ç‚®
 //				if(pos.piece_on(Square(0x06)) == BXIANG){
 //					Bitboard pao = _mm_andnot_si128(LowBB[0x6],m_and(FileBB_A[0x6],pos.pieces(RPAO)));
 //					ei.attackKingBoard[WHITE] = m_or(ei.attackKingBoard[WHITE],pao);
 //					ei.attPoint[WHITE] += PAO_CAN_MEN_GONG_W_XIANG * count_1s(pao);
 //				}
-//				// 2. Èç¹ûÃ»ÓĞÏàÔÚ, ÔòÒªÅĞ¶Ï<>=ÈıÆßÂ·ÊÇ²»ÊÇÓĞ¶Ô·½µÄÅÚ
+//				// 2. å¦‚æœæ²¡æœ‰ç›¸åœ¨, åˆ™è¦åˆ¤æ–­<>=ä¸‰ä¸ƒè·¯æ˜¯ä¸æ˜¯æœ‰å¯¹æ–¹çš„ç‚®
 //				else{ //fen 3ak4/3na4/4br3/9/7Np/P3P2R1/3p4P/1C7/4A4/2BAK3c b - - 0 35
 //					Bitboard pao = m_and(RightBB[0x05],pos.pieces(RPAO));
 //					ei.attackKingBoard[WHITE] = m_or(ei.attackKingBoard[WHITE],pao);

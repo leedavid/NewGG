@@ -1,15 +1,15 @@
 #ifndef END_my_m_MT_R_1che1pawn_B_1pao
 #define END_my_m_MT_R_1che1pawn_B_1pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1±ø¶Ô1ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1å…µå¯¹1ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
-//³µ±ø¶Ô1ÅÚ
+//è½¦å…µå¯¹1ç‚®
 void my_m_MT_R_1che1pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	Square ypao  = S90_from_piecelist(POSITION,your_pao,0);
@@ -26,7 +26,7 @@ void my_m_MT_R_1che1pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 		}
 
 		// fen 3ckab2/4a4/5P2b/9/R8/2B6/9/3A5/9/2BAK4 b - - 36 36
-		// Õâ¸ö²»ºÍ
+		// è¿™ä¸ªä¸å’Œ
 		//if(StoY(mpawn) == MY_RANK2 && PB90(MY_SQ4C) != my_shi && PB90(MY_SQ43) != my_xiang){
 		//	if(StoX(mpawn) > 0x4){
 		//		if(count_1s(RightBB[0x4],bb_your_xiang)) == 2){
@@ -63,7 +63,7 @@ void my_m_MT_R_1che1pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 				}
 			}
 
-			// Èç¹û¶Ô·½µÄ±ø²»ÄÜ¹ıºÓ,Ò²ÊÇºÍÆå
+			// å¦‚æœå¯¹æ–¹çš„å…µä¸èƒ½è¿‡æ²³,ä¹Ÿæ˜¯å’Œæ£‹
 			// fen 5k3/9/9/9/2b1C1p2/2B6/1r7/3AB4/3KA4/9 r
 			if(StoY(yk) MY_SMALL_EQL MY_RANK1){
 				if(mpawn == MY_SQ2F || mpawn == MY_SQ33 || mpawn == MY_SQ38 || mpawn == MY_SQ3C){
@@ -71,7 +71,7 @@ void my_m_MT_R_1che1pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 				}
 			}
 			// fen 2b1ka3/4a4/b8/1R2P4/9/2B6/9/2cAB4/9/3A1K3 b - - 156 
-			// ½«ÔÚÔ­Î»
+			// å°†åœ¨åŸä½
 			if(your_king_pos == MY_SQ04 && StoY(mpawn) MY_LARGE MY_RANK2){
 				RETRUN_MUL(2);
 			}

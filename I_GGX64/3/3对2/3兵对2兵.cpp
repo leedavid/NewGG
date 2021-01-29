@@ -1,29 +1,29 @@
 #ifndef END_my_m_MT_R_3pawn_B_2pawn
 #define END_my_m_MT_R_3pawn_B_2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "3±ø¶Ô2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "3å…µå¯¹2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//3±ø¶Ô1±ø
+//3å…µå¯¹1å…µ
 void my_m_MT_R_3pawn_B_2pawn(typePOS &POSITION, EvalInfo &ei){
 
 	BothOnlyPawnEval(POSITION,ei);
 	Square mk = my_king_pos;
 	Square yk = your_king_pos;
 
-	//Èç¹ûÒ»¸ö±ø¹ıÈ¥ÁË, µ«¶ş¸ö±ø¶¥×¡ÁË,Ò²ÊÇºÍÆå
+	//å¦‚æœä¸€ä¸ªå…µè¿‡å»äº†, ä½†äºŒä¸ªå…µé¡¶ä½äº†,ä¹Ÿæ˜¯å’Œæ£‹
 	// fen 5a3/3kaP3/8b/p7p/6b2/P7P/9/4B4/9/2BAKA3 b - - 0 0
 	// fen 5a3/3ka4/8b/p7p/6b2/P7P/4P4/4B4/9/2BAKA3 b
 
-	// Çóºì·½¿É¹ı±øµÄÊıÁ¿
-	// ÇóÎÒ·½µÄ±øÊÇ²»ÊÇ¿ÉÄÜ³Ô¶Ô·½µÄ±ø, ÄÜ³ÔÒ»¸ö,Ôò¼ÓÒ»¸ö¹ı±øµÄÊıÁ¿
-	// ÇóºÚ·½¿É¹ı±øµÄÊıÁ¿
+	// æ±‚çº¢æ–¹å¯è¿‡å…µçš„æ•°é‡
+	// æ±‚æˆ‘æ–¹çš„å…µæ˜¯ä¸æ˜¯å¯èƒ½åƒå¯¹æ–¹çš„å…µ, èƒ½åƒä¸€ä¸ª,åˆ™åŠ ä¸€ä¸ªè¿‡å…µçš„æ•°é‡
+	// æ±‚é»‘æ–¹å¯è¿‡å…µçš„æ•°é‡
 
 	// fen 4k4/3Pa4/3aP4/8p/9/2B5P/4p4/3A5/4A4/2B2K3 b - - 0 1
 	if(your_shi_num == 2 && EV_MY_CAN <= 2){
@@ -32,7 +32,7 @@ void my_m_MT_R_3pawn_B_2pawn(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 4k4/3Pa4/4b4/9/p5b1p/2P3B2/8P/9/4A4/4K4 b - - 0 0
-    //±ø¶Ô±ø¶ÔµÄ¼Ó·Ö
+    //å…µå¯¹å…µå¯¹çš„åŠ åˆ†
     // fen 2bak4/4a4/9/p2P5/6b2/P3P3p/9/4B4/4A4/5K3 w - - 4 4
 	if(my_shi_num == 2){
 		EV_MY_SAFE = TRUE;
@@ -43,7 +43,7 @@ void my_m_MT_R_3pawn_B_2pawn(typePOS &POSITION, EvalInfo &ei){
 
 	if((your_shi_num + your_xiang_num) == 4){
 		Bitboard ghp = m_and(bb_your_pawn,
-			m_or(RankBB_A[MY_RANK5],RankBB_A[MY_RANK6])); // ±øÏßÓĞ±ø£¬¿ÉÆğµ²½«µÄ×÷ÓÃ
+			m_or(RankBB_A[MY_RANK5],RankBB_A[MY_RANK6])); // å…µçº¿æœ‰å…µï¼Œå¯èµ·æŒ¡å°†çš„ä½œç”¨
 		if(m_have_bit(ghp)){
 			EV_YOUR_SAFE = TRUE;
 		}
@@ -116,7 +116,7 @@ void my_m_MT_R_3pawn_B_2pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 }
 
-//3±ø¶Ô1±ø
+//3å…µå¯¹1å…µ
 //void m_MT_B_3pawn_R_2pawn(typePOS &POSITION, EvalInfo &ei){
 //	/*
 //    BothOnlyPawnEval(board);

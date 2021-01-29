@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1pao1ma1pawn_B_1ma2pawn
 #define END_my_m_MT_R_1pao1ma1pawn_B_1ma2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí1±ø¶Ô1Âí2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®1é©¬1å…µå¯¹1é©¬2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -59,7 +59,7 @@ void my_m_MT_R_1pao1ma1pawn_B_1ma2pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 4k4/5C3/4b1P2/9/2bN5/9/3n5/4pp3/9/3A1K3 b - - 0 1
-    //¶Ô·½¶ş¸ö±øÔÚ½ø¹¥£¬ÎÒ·½µÄÂíÅÚÔÚÍâÃæ£¬ÇÒÎÒ·½µÄ±ø»¹Ã»ÓĞ½øÈë¹¥»÷×´Ì¬
+    //å¯¹æ–¹äºŒä¸ªå…µåœ¨è¿›æ”»ï¼Œæˆ‘æ–¹çš„é©¬ç‚®åœ¨å¤–é¢ï¼Œä¸”æˆ‘æ–¹çš„å…µè¿˜æ²¡æœ‰è¿›å…¥æ”»å‡»çŠ¶æ€
 	if(my_shi_num <= 1 && EV_YOUR_CAN == 2 && StoY(mk) == MY_RANK9){
 		if(abs(StoX(mpawn) - 0x4) >= 2){
 			if(abs(StoX(ypawn1) - StoX(mk)) <= 1 && abs(StoX(ypawn2) - StoX(mk)) <= 1){

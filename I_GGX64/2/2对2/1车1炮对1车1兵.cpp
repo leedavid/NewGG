@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_1CHE1PAO_B_1CHE1PAWN
 #define END_my_m_MT_R_1CHE1PAO_B_1CHE1PAWN
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ¶Ô1³µ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®å¯¹1è½¦1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//ÎÒ·½Ò»³µÒ»ÅÚ, ¶Ô·½Ò»³µÒ»±ø
+//æˆ‘æ–¹ä¸€è½¦ä¸€ç‚®, å¯¹æ–¹ä¸€è½¦ä¸€å…µ
 void my_m_MT_R_1CHE1PAO_B_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 
 	static const sint16 PawnShiAdd[3] = {96, 32, 0};
@@ -134,7 +134,7 @@ void my_m_MT_R_1CHE1PAO_B_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 	}
 	else if(my_shi_num == 0){
 		if(your_shi_num == 0 && your_xiang_num == 0){
-			//ÅÚ·½µÄ³µÊØÁËÖĞÏß, ÔÚÕâ¶ù×÷º£µ×Â§ÔÂµÄÅĞ¶Ï
+			//ç‚®æ–¹çš„è½¦å®ˆäº†ä¸­çº¿, åœ¨è¿™å„¿ä½œæµ·åº•æ‚æœˆçš„åˆ¤æ–­
 			if(StoX(mche) == 0x4){
 				MY_EV_ADD(96);
 				if(IsOnSameSide(yk,mpao)){
@@ -150,8 +150,8 @@ void my_m_MT_R_1CHE1PAO_B_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 		}
 
 		//************************************************************************************************
-		//1, Èç¹û¶Ô·½ÓĞÊËÏà£¬¶øÅÚ·½Ã»ÓĞ£¬Ôò¶Ô·½ºÃ
-		//±ø·½µÄ³µÊØÖĞÁË
+		//1, å¦‚æœå¯¹æ–¹æœ‰ä»•ç›¸ï¼Œè€Œç‚®æ–¹æ²¡æœ‰ï¼Œåˆ™å¯¹æ–¹å¥½
+		//å…µæ–¹çš„è½¦å®ˆä¸­äº†
 		if(StoX(yche) == 0x4){
             if(StoY(ypawn) == MY_RANK9){
 				RETRUN_MUL(2);
@@ -159,7 +159,7 @@ void my_m_MT_R_1CHE1PAO_B_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 			MY_EV_SUB(64);
 		}
 
-		//2, »¹ÓĞÒ»ÖÖÇé¿ö, ³µÅÚÔÚÒ»Ïß,¶Ô·½µÄ±ø¾Í²»ÄÜÏÂÀ´	
+		//2, è¿˜æœ‰ä¸€ç§æƒ…å†µ, è½¦ç‚®åœ¨ä¸€çº¿,å¯¹æ–¹çš„å…µå°±ä¸èƒ½ä¸‹æ¥	
 		if(StoY(ypawn) MY_SMALL StoY(mk)){
 			if(StoY(mche) MY_LARGE StoY(ypawn)){
 				if(StoY(mche) == StoY(mpao) && StoY(mche) MY_SMALL StoY(mk)){

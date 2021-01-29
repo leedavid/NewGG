@@ -2,7 +2,7 @@
 
 
 ////////////////////////////////////////////////////////////////////////////
-///// µÚÒ»´ÎÆÀ¹ÀË«·½µÄ½«. °üº¬ÁËÎÑĞÄÂí,ÅÚ,³µÁË. 
+///// ç¬¬ä¸€æ¬¡è¯„ä¼°åŒæ–¹çš„å°†. åŒ…å«äº†çªå¿ƒé©¬,ç‚®,è½¦äº†. 
 //template<Color Us>
 //void evaluate_king_first(Position& pos, EvalInfo& ei){
 //
@@ -13,12 +13,12 @@
 //	//const Square yk  = pos.king_square(Them);
 //	//Score bonus = SCORE_ZERO;
 //	//////////////////////////////////////////////////////////////////////////
-//	/// ¶Ô·½¿ÉÄÜ½«¾üµÄÎ»ÆåÅÌ
+//	/// å¯¹æ–¹å¯èƒ½å°†å†›çš„ä½æ£‹ç›˜
 //	///
 //	ei.attackedBy[RKING + delt] 
 //	= (Us == WHITE ? one_rpawn_rk_attacks(mk) : one_bpawn_bk_attacks(mk));
 //
-//	//// »¹µÃ¼ÓÉÏÍõµÄ¹¥»÷²½×Ó
+//	//// è¿˜å¾—åŠ ä¸Šç‹çš„æ”»å‡»æ­¥å­
 //	// ei.attackedBy[delt] = ei.attackedBy[RKING + delt];  // Us 
 //	ei.attackedBy[delt] = m_or(ei.attackedBy[delt],ei.attackedBy[RKING + delt]);  // Us 
 //

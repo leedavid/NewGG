@@ -1,23 +1,23 @@
 #ifndef END_my_m_MT_R_2che1pawn_B_2che
 #define END_my_m_MT_R_2che1pawn_B_2che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
-#include "..\\..\\endgame\mat.h"
-#include "2³µ1±ø¶Ô2³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../chess.h"
+#include "../../preGen.h"
+#include "../../endgame/mat.h"
+#include "2è½¦1å…µå¯¹2è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 //const int const_Shi_add[3] = {128,48,0};
 //const int const_Pawn_add   =  48;
 
-//2³µ1±ø¶Ô2³µ
+//2è½¦1å…µå¯¹2è½¦
 void my_m_MT_R_2che1pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
-	MY_EV_ADD((sint16)count_1s(bmp) * ADD_2³µx±ø¶Ô2³µ_byPawn[your_shi_num]);
+	MY_EV_ADD((sint16)count_1s(bmp) * ADD_2è½¦xå…µå¯¹2è½¦_byPawn[your_shi_num]);
 
 	MY_EV_ADD(ADD_2che_2che_const_Shi_add[your_shi_num]);
 	MY_EV_SUB(ADD_2che_2che_const_Shi_add[my_shi_num]);

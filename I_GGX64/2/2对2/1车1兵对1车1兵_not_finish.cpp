@@ -1,12 +1,12 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
 const int ADD_byShi[3]   = {196,64,32};
 
-//�����Գ���
+//车兵对车兵
 void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS *POSITION, EvalInfo *ei){
 
 	int rpawn = S90_from_piecelist(POSITION,RPAWN,0);
@@ -21,7 +21,7 @@ void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS *POSITION, EvalInfo *ei){
 	int rcan = White_pawn_can_over_river(POSITION);
 	int bcan = Black_pawn_can_over_river(POSITION);
 
-	//���һ���ǵͱ�����Ҫ����
+	//如果一方是低兵，则要减分
 	if(StoY(bpawn) == 0x9){
 		ei->evscore += 64;
 	}
@@ -42,7 +42,7 @@ void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS *POSITION, EvalInfo *ei){
 	if(StoX(bche) == 0x4){
 		ei->evscore -= 64;
 	}
-	//���һ���Ľ���Է��ı���ͬһ��,Ҫ����
+	//如果一方的将与对方的兵在同一边,要减分
 	if(King_4_Side(rk) == King_4_Side(bpawn)){
 		if(StoY(bpawn) == 0x9){
 			ei->evscore -= 24;
@@ -59,7 +59,7 @@ void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS *POSITION, EvalInfo *ei){
 			ei->evscore += 64;
 		}
 	}
-    // ˫������������
+    // 双方都有两个仕
 	if(BShi_num() == 2 && StoY(bk) <= 1){
 		ei->bsafe = TRUE;
 	}
@@ -114,7 +114,7 @@ void m_MT_1CHE1PAWN_TO_1CHE1PAWN(typePOS *POSITION, EvalInfo *ei){
 		ei->evscore -= ADD_byShi[RShi_num()];
 	}
 
-	//���˫���ı���û�й���,����һ������,��ֻҪһ���г��ڱ������Ǻ��� 
+	//如果双方的兵都没有过河,且在一条列线,则只要一方有车在保兵就是和棋 
 	if(StoY(rpawn) > 0x4 && StoY(bpawn) < 0x5 && StoX(rpawn) == StoX(bpawn)){
 		if(StoY(rche) == StoY(rpawn)){
 			RETRUN_MUL(2);

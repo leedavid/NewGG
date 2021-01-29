@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_1CHE_3PAWN_B_1CHE
 #define END_my_m_MT_R_1CHE_3PAWN_B_1CHE
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ3±ø¶Ô1³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦3å…µå¯¹1è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//ÎÒ·½Ò»³µ3±ø£¬¶Ô·½Ò»³µ
+//æˆ‘æ–¹ä¸€è½¦3å…µï¼Œå¯¹æ–¹ä¸€è½¦
 void my_m_MT_R_1CHE_3PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	
 
@@ -59,7 +59,7 @@ void my_m_MT_R_1CHE_3PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 
 		// fen 3ak1b2/4a4/4b4/9/1r7/P3P2RP/9/4B4/4A4/3AK4 b - - 0 0
-		//Èı¸ö±øÓë³µÔÚÒ»Ïß,ÔòÒ²ÊÇºÍÆå,
+		//ä¸‰ä¸ªå…µä¸è½¦åœ¨ä¸€çº¿,åˆ™ä¹Ÿæ˜¯å’Œæ£‹,
 		if(StoY(mche) == MY_RANK5 && StoY(yche) == MY_RANK4){
 			if(PB90(MY_SQ2D) == my_pawn && PB90(MY_SQ31) == my_pawn && PB90(MY_SQ35) == my_pawn){
 				RETRUN_MUL(2);
@@ -72,7 +72,7 @@ void my_m_MT_R_1CHE_3PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 
 		// fen 3ak4/4a4/b3b4/p7r/6p2/9/R7p/4B4/9/3AKAB2 b - - 122 122
-		//Ã»ÓĞÄÇÒ»¸ö±øÄÜ×ß¶¯µÄ ³µ¶ş±ø×é³ÉÁËÒ»¸ö³¤·½ĞÎ
+		//æ²¡æœ‰é‚£ä¸€ä¸ªå…µèƒ½èµ°åŠ¨çš„ è½¦äºŒå…µç»„æˆäº†ä¸€ä¸ªé•¿æ–¹å½¢
 		if(mcan <= 2){
 			if(PB90(MY_SQ1B) == my_pawn && PB90(MY_SQ3E) == my_pawn){
 				if(PB90(MY_SQ36) == my_che && PB90(MY_SQ23) == your_che){
@@ -154,7 +154,7 @@ void my_m_MT_R_1CHE_3PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
     if((your_shi_num + your_xiang_num) == 4 && StoY(yk) == MY_RANK0){
 		// fen 3a1k3/4a4/4br3/9/2p3b2/3R5/9/4B3B/1pp1A4/3AK4 w - - 120 120
 		if(mcan <= 2){
-			//Èç¹ûÖ»ÓĞÒ»¸öÒÔÏÂµÄ±ø¹ıºÓ,Òª¼õ·Ö
+			//å¦‚æœåªæœ‰ä¸€ä¸ªä»¥ä¸‹çš„å…µè¿‡æ²³,è¦å‡åˆ†
 			if(My_pawn_already_over_river(POSITION) <= 1){
 				MY_EV_SUB(96);
 			}

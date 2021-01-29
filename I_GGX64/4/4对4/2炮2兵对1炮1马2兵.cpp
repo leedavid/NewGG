@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2pao2pawn_B_1pao1ma2pawn
 #define END_my_m_MT_R_2pao2pawn_B_1pao1ma2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2ÅÚ2±ø¶Ô1ÅÚ1Âí2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2ç‚®2å…µå¯¹1ç‚®1é©¬2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 // fen 2b1ka3/9/5a3/p3p4/6C2/2P1Pc3/8n/4B1C2/4A4/2BAK4 w - - 0 0
@@ -87,7 +87,7 @@ void my_m_MT_R_2pao2pawn_B_1pao1ma2pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 3k1a3/4a4/4b4/4C4/p3P2cp/9/P3N4/B8/9/5K2c w - - 0 0
-    //Èç¹ûºì·½ÓĞ±ø¹ıºÓ,ºÚ·½Ã»ÓĞ±ø¹ıºÓ,»ò¹ıºÓ±øÉÙÓÚ1¸ö, Òª¼õ·Ö.
+    //å¦‚æœçº¢æ–¹æœ‰å…µè¿‡æ²³,é»‘æ–¹æ²¡æœ‰å…µè¿‡æ²³,æˆ–è¿‡æ²³å…µå°‘äº1ä¸ª, è¦å‡åˆ†.
 	int malr = My_pawn_already_over_river(POSITION);
 	int yalr = Your_pawn_already_over_river(POSITION);
 
@@ -103,7 +103,7 @@ void my_m_MT_R_2pao2pawn_B_1pao1ma2pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 3kc4/4a4/5a2b/4P1PCp/2b6/2N6/1pp5c/8B/9/2BAKA3 b - - 0 1
 	if(EV_YOUR_CAN >= 2 && (your_shi_num + your_xiang_num) == 4){
-		// ÎÒ·½»¹ÓĞ±øÃ»ÓĞ¹ıºÓ
+		// æˆ‘æ–¹è¿˜æœ‰å…µæ²¡æœ‰è¿‡æ²³
 		Bitboard b = m_and(bb_my_pawn,MyLowBB[MY_RANK4]);
 		MY_EV_SUB((sint16)count_1s(b) * 16);
 	}
@@ -146,7 +146,7 @@ void my_m_MT_R_2pao2pawn_B_1pao1ma2pawn(typePOS &POSITION, EvalInfo &ei){
 //	int bcan  = BpawnCanOverLiver(board);
 //
 //	// fen 3k1a3/4a4/4b4/4C4/p3P2cp/9/P3N4/B8/9/5K2c w - - 0 0
-//    //Èç¹ûºì·½ÓĞ±ø¹ıºÓ,ºÚ·½Ã»ÓĞ±ø¹ıºÓ,»ò¹ıºÓ±øÉÙÓÚ1¸ö, Òª¼õ·Ö.
+//    //å¦‚æœçº¢æ–¹æœ‰å…µè¿‡æ²³,é»‘æ–¹æ²¡æœ‰å…µè¿‡æ²³,æˆ–è¿‡æ²³å…µå°‘äº1ä¸ª, è¦å‡åˆ†.
 //	if(bover <= 1 && rover >= 1 && rcan >= 2){
 //		if((board->B_shi + board->B_xiang) <= 3){
 //		   board->mulScore += rcan * 32;

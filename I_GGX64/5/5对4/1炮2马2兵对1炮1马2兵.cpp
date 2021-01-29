@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1pao2ma2pawn_B_1pao1ma2pawn
 #define END_my_m_MT_R_1pao2ma2pawn_B_1pao1ma2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2Âí2±ø¶Ô1ÅÚ1Âí2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®2é©¬2å…µå¯¹1ç‚®1é©¬2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -19,7 +19,7 @@ void my_m_MT_R_1pao2ma2pawn_B_1pao1ma2pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 5P3/4k4/b2aba3/p8/7C1/P5n2/2N3C2/5p3/8c/4K4 w - - 0 1
 	if(EV_YOUR_CAN <= 1){
-		// ¶þÏßÉÏÃ»ÓÐ¶Ô·½µÄ±ø
+		// äºŒçº¿ä¸Šæ²¡æœ‰å¯¹æ–¹çš„å…µ
 		if(!have_bit(bb_your_pawn,RankBB_A[MY_RANK8])){
 			MY_EV_ADD(32);
 		}

@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1pao1ma_B_1pawn
 #define END_my_m_MT_R_1pao1ma_B_1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí¶Ô1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®1é©¬å¯¹1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -17,7 +17,7 @@ void my_m_MT_R_1pao1ma_B_1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square ypawn = S90_from_piecelist(POSITION,your_pawn,0);
 	Square mpao  = S90_from_piecelist(POSITION,my_pao,0);
 	Square mma   = S90_from_piecelist(POSITION,my_ma,0);
-	//À§ËÀÒ»¸öÅÚ// fen 3a1Cb2/5k1N1/4b4/9/9/6B2/2p6/4BA3/9/3AK4 w - - 17 17
+	//å›°æ­»ä¸€ä¸ªç‚®// fen 3a1Cb2/5k1N1/4b4/9/9/6B2/2p6/4BA3/9/3AK4 w - - 17 17
 	if (your_shi_num >= 1 && your_xiang_num == 2){
 		if(StoY(yk) == MY_RANK1 && StoY(mpao) == MY_RANK0){
 			if(StoY(ypawn) MY_LARGE_EQL MY_RANK5 && abs(StoX(mpao)-0x4) <= 1){

@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2pao2ma3pawn_B_1che2pao1pawn
 #define END_my_m_MT_R_2pao2ma3pawn_B_1che2pao1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "2ÅÚ2Âí3±ø¶Ô1³µ2ÅÚ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2ç‚®2é©¬3å…µå¯¹1è½¦2ç‚®1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -22,7 +22,7 @@ void my_m_MT_R_2pao2ma3pawn_B_1che2pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	if((your_shi_num + your_xiang_num) >= 3 && StoY(yk) == MY_RANK0){
 		MY_EV_SUB(32);
 		Bitboard mp = m_and(bb_my_pawn,MyLowBB[MY_RANK4]);
-		if(count_1s(mp) >= 2){ // ÓÐ¶þ¸öÒÔÉÏµÄ±øÃ»ÓÐ¹ýºÓ
+		if(count_1s(mp) >= 2){ // æœ‰äºŒä¸ªä»¥ä¸Šçš„å…µæ²¡æœ‰è¿‡æ²³
 			MY_EV_SUB(16);
 			if(have_bit(mp,LeftBB[0x1])){
 				MY_EV_SUB(16);

@@ -1,18 +1,18 @@
 #ifndef END_my_m_MT_R_1che1ma1pawn_B_1che1pao
 #define END_my_m_MT_R_1che1ma1pawn_B_1che1pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí1±ø¶Ô1³µ1ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1é©¬1å…µå¯¹1è½¦1ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 
-//³µÂí1±ø¶Ô³µÅÚ
+//è½¦é©¬1å…µå¯¹è½¦ç‚®
 // fen 4kab2/4a4/4b4/2rC3R1/2n6/9/3p5/B8/4A4/2BAK4 b - - 0 0
 // fen 2ck1ab2/9/b2a5/2R3PN1/9/9/9/9/4K4/3A2r2 w - - 180 180
 

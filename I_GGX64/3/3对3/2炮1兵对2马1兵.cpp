@@ -1,18 +1,18 @@
 #ifndef END_my_m_MT_R_2pao1pawn_B_2ma1pawn
 #define END_my_m_MT_R_2pao1pawn_B_2ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2ÅÚ1±ø¶Ô2Âí1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2ç‚®1å…µå¯¹2é©¬1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 
-//2ÅÚ1±ø¶Ô2Âí1±ø
+//2ç‚®1å…µå¯¹2é©¬1å…µ
 
 void my_m_MT_R_2pao1pawn_B_2ma1pawn(typePOS &POSITION, EvalInfo &ei){
 
@@ -56,7 +56,7 @@ void my_m_MT_R_2pao1pawn_B_2ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 5k3/2P6/3a5/5N1c1/6bN1/9/7p1/9/4K4/2BA1A1c1 b - - 0 1
-	// ºÚÂí¸ø¿´ËÀÁË
+	// é»‘é©¬ç»™çœ‹æ­»äº†
 	if (my_xiang_num >= 1){
 		if (PB90(MY_SQ2E) == your_ma && PB90(MY_SQ2F) == my_xiang){
 			if (PB90(MY_SQ37) == my_pao && PB90(MY_SQ1C) == my_pawn){

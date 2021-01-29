@@ -1,25 +1,25 @@
 #ifndef END_my_m_MT_R_1che5pawn_B_1che1pao
 #define END_my_m_MT_R_1che5pawn_B_1che1pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ5±ø¶Ô1³µ1ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦5å…µå¯¹1è½¦1ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 ////const int const_Pawn_Shi_Add[3] = {180, 120, 32};
 
-//³µ3±ø¶Ô³µÅÚ
+//è½¦3å…µå¯¹è½¦ç‚®
 void my_m_MT_R_1che5pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 
 
 	Square yk = your_king_pos;
-	//¿´Ò»ÏÂ¶Ô·½ÊÇ²»ÊÇÓĞÊË
+	//çœ‹ä¸€ä¸‹å¯¹æ–¹æ˜¯ä¸æ˜¯æœ‰ä»•
 
-	// fen 2bak4/9/4b4/4R4/P3c4/4r1P2/8P/4B4/9/2B1KA3 b - - 0 0 //Õâ¸öFEN Ó¦ÊÇºìÓÅ
+	// fen 2bak4/9/4b4/4R4/P3c4/4r1P2/8P/4B4/9/2B1KA3 b - - 0 0 //è¿™ä¸ªFEN åº”æ˜¯çº¢ä¼˜
 
 	// ADD
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);

@@ -1,15 +1,15 @@
 #ifndef END_my_m_MT_R_2CHE_B_1CHE1PAWN
 #define END_my_m_MT_R_2CHE_B_1CHE1PAWN
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2³µ¶Ô1³µ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2è½¦å¯¹1è½¦1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
-//ÎÒ·½2³µ£¬¶Ô·½Ò»³µÒ»±ø
+//æˆ‘æ–¹2è½¦ï¼Œå¯¹æ–¹ä¸€è½¦ä¸€å…µ
 void my_m_MT_R_2CHE_B_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 
 	Square ypawn = S90_from_piecelist(POSITION,your_pawn,0);
@@ -21,7 +21,7 @@ void my_m_MT_R_2CHE_B_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 	}
 }
 
-//ÎÒ·½2³µ£¬¶Ô·½Ò»³µÒ»±ø
+//æˆ‘æ–¹2è½¦ï¼Œå¯¹æ–¹ä¸€è½¦ä¸€å…µ
 //void m_MT_B_2CHE_R_1CHE1PAWN(typePOS &POSITION, EvalInfo &ei){
 ///*
 //

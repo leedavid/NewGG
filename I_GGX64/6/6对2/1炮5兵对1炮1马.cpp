@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_1pao5pawn_B_1pao1ma
 #define END_my_m_MT_R_1pao5pawn_B_1pao1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ5±ø¶Ô1ÅÚ1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®5å…µå¯¹1ç‚®1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-// ÅÚ5±ø¶ÔÅÚÂí
+// ç‚®5å…µå¯¹ç‚®é©¬
 void my_m_MT_R_1pao5pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
@@ -25,7 +25,7 @@ void my_m_MT_R_1pao5pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 		MY_EV_ADD(EV_MY_CAN * 32);
 	}
 	// fen 3a5/4ak3/2P6/4P4/2b6/9/5C3/B4An2/3KA4/2B5c b - - 126 126
-    //Èç¹ûÅÚ·½ÊÇÊËÏàÈ«£¬ÇÒÅÚÔÚ¶şÏßÒÔÏÂ£¬¾ÍÒª¼Ó·Ö
+    //å¦‚æœç‚®æ–¹æ˜¯ä»•ç›¸å…¨ï¼Œä¸”ç‚®åœ¨äºŒçº¿ä»¥ä¸‹ï¼Œå°±è¦åŠ åˆ†
 }
 
 //void m_MT_B_1pao5pawn_R_1pao1ma(typePOS &POSITION, EvalInfo &ei){

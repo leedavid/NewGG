@@ -1,10 +1,10 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 //
-//ÄÜ²»ÄÜºÍ£¬ÔõÑùÊ¤
+//èƒ½ä¸èƒ½å’Œï¼Œæ€æ ·èƒœ
 #pragma warning(disable : 4100)                    // unreferenced formal parameter  
-//ºì·½Ò»¸ö±ø, ºÚ·½Ò»¸ö±ø, ×ÜÊÇºÍÆå
-void m_MT_1CHE_TO_1CHE(typePOS &POSITION, EvalInfo &ei){  //ÒòÎª±øµÄÎ»ÖÃ·ÖÏà²îÌ«´ó
+//çº¢æ–¹ä¸€ä¸ªå…µ, é»‘æ–¹ä¸€ä¸ªå…µ, æ€»æ˜¯å’Œæ£‹
+void m_MT_1CHE_TO_1CHE(typePOS &POSITION, EvalInfo &ei){  //å› ä¸ºå…µçš„ä½ç½®åˆ†ç›¸å·®å¤ªå¤§
 	RETRUN_MUL(1);
 }

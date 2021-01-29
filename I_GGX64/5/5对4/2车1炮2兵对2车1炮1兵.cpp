@@ -1,19 +1,19 @@
 #ifndef END_my_m_MT_R_2che1pao2pawn_B_2che1pao1pawn
 #define END_my_m_MT_R_2che1pao2pawn_B_2che1pao1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "2³µ1ÅÚ2±ø¶Ô2³µ1ÅÚ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2è½¦1ç‚®2å…µå¯¹2è½¦1ç‚®1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 
-//const int ADD_2CheXPawn_1Che1Pao1Ma1Pawn_ByPawnShi[3]    = {96, 64, 32};            //2³µx±ø¶Ô1³µ1ÅÚ1Âí1±ø, ±ø·½µÄ¼Ó·Ö
-//const int ADD_1Che1Pao1Ma1Pawn_2CheXPawn_ByPawnShi[3]    = {96, 64, 32};            //1³µ1ÅÚ1Âí1±ø¶Ô2³µx±ø, ±ø·½µÄ¼Ó·Ö
+//const int ADD_2CheXPawn_1Che1Pao1Ma1Pawn_ByPawnShi[3]    = {96, 64, 32};            //2è½¦xå…µå¯¹1è½¦1ç‚®1é©¬1å…µ, å…µæ–¹çš„åŠ åˆ†
+//const int ADD_1Che1Pao1Ma1Pawn_2CheXPawn_ByPawnShi[3]    = {96, 64, 32};            //1è½¦1ç‚®1é©¬1å…µå¯¹2è½¦xå…µ, å…µæ–¹çš„åŠ åˆ†
 
 void my_m_MT_R_2che1pao2pawn_B_2che1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 

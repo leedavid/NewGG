@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2ma_1pawn_B_1che
 #define END_my_m_MT_R_2ma_1pawn_B_1che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2Âí1±ø¶Ô1³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2é©¬1å…µå¯¹1è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -35,7 +35,7 @@ void my_m_MT_R_2ma_1pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 		   EV_YOUR_SAFE = TRUE;
 	   }
    }   
-   //Èç¹û¶þÂí³ÉÁ¬»·ÁË,Ò²¿ÉÄÜÊÇºÍÆå
+   //å¦‚æžœäºŒé©¬æˆè¿žçŽ¯äº†,ä¹Ÿå¯èƒ½æ˜¯å’Œæ£‹
    if(StoY(mpawn) MY_SMALL_EQL MY_RANK5 && StoY(mpawn) MY_LARGE MY_RANK0){
 	   if(PB90(MY_SQ28) == my_ma){
 		   if(PB90(MY_SQ39) == my_ma || PB90(MY_SQ3B) == my_ma){
@@ -108,7 +108,7 @@ void my_m_MT_R_2ma_1pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 1Nb1ka3/1r7/2Na5/9/1P7/6B2/9/3AB4/9/3AK4 w - - 0 1
 	if(EV_MY_SAFE){
-		// Ñ¹ËÀÒ»¸öÂí?
+		// åŽ‹æ­»ä¸€ä¸ªé©¬?
 		if(your_shi_num == 2 && your_xiang_num >= 1){
 			RETRUN_MUL(8);
 		}
@@ -171,7 +171,7 @@ void my_m_MT_R_2ma_1pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	//Èç¹û¶þÂí³ÉÁ¬»·ÁË,Ò²¿ÉÄÜÊÇºÍÆå
+//	//å¦‚æžœäºŒé©¬æˆè¿žçŽ¯äº†,ä¹Ÿå¯èƒ½æ˜¯å’Œæ£‹
 //	if(StoY(bpawn) > 0x7 && StoY(bpawn) < 0xc){
 //		if(board->b256[0x87] == BMA){
 //			//if(StoX(bk) <= 0x7 && StoX(bpawn) <= 0x7){

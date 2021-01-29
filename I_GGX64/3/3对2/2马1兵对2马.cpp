@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2ma1pawn_B_2ma
 #define END_my_m_MT_R_2ma1pawn_B_2ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2Âí1±ø¶Ô2Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2é©¬1å…µå¯¹2é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -33,7 +33,7 @@ void my_m_MT_R_2ma1pawn_B_2ma(typePOS &POSITION, EvalInfo &ei){
 
 	
 
-	//µ«Èç¹ûºÚ·½ÊÇÊËÏàÈ«,ÔòÒª½µÒ»Ğ©·Ö
+	//ä½†å¦‚æœé»‘æ–¹æ˜¯ä»•ç›¸å…¨,åˆ™è¦é™ä¸€äº›åˆ†
 	//Square yk = your_king_pos;
 	if(your_shi_num == 2 && your_xiang_num == 2 && StoY(yk) MY_SMALL_EQL MY_RANK1){
 		RETRUN_MUL(4);

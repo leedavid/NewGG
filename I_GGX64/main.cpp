@@ -48,6 +48,7 @@ BOOL Open_Log_File(void){
 
 int main(int argc, char *argv[]) {
 
+#ifdef _MSC_VER 
 	// Disable output buffering: printf() does not work correctly otherwise
 	//setvbuf(stdout, NULL, _IONBF, 0);
 
@@ -60,14 +61,14 @@ int main(int argc, char *argv[]) {
 		*filepart = 0;
 	}
 	else{
-		GetCurrentDirectory(MAX_PATH, (installDir));			//µÃµ½Èí¼şÔËĞĞÄ¿Â¼
+		GetCurrentDirectory(MAX_PATH, (installDir));			//å¾—åˆ°è½¯ä»¶è¿è¡Œç›®å½•
 	}
 #else
 	if(SearchPath(NULL,(L"NewGG.exe"),NULL,MAX_PATH, installDir, &filepart)){
 		*filepart = 0;
 	}
 	else{
-		GetCurrentDirectory(MAX_PATH, (installDir));			//µÃµ½Èí¼şÔËĞĞÄ¿Â¼
+		GetCurrentDirectory(MAX_PATH, (installDir));			//å¾—åˆ°è½¯ä»¶è¿è¡Œç›®å½•
 	}
 #endif
 
@@ -77,8 +78,10 @@ int main(int argc, char *argv[]) {
 	CreateDirectory(log_path,NULL);
 	Open_Log_File();
 #endif
+#else /* _MSC_VER */
+#endif /* _MSC_VER */
 
-	// ½«µ±Ç°Ïß³ÌµÄÓÅÏÈ¼¶½µÒ»ÏÂ
+	// å°†å½“å‰çº¿ç¨‹çš„ä¼˜å…ˆçº§é™ä¸€ä¸‹
 	//HANDLE hProcess = GetCurrentProcess();
 	//SetPriorityClass(hProcess, IDLE_PRIORITY_CLASS);  //BELOW_NORMAL_PRIORITY_CLASS  IDLE_PRIORITY_CLASS
 

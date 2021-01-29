@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1pao1pawn_B_1che1pao
 #define END_my_m_MT_R_1che1pao1pawn_B_1che1pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1±ø¶Ô1³µ1ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®1å…µå¯¹1è½¦1ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -90,7 +90,7 @@ void my_m_MT_R_1che1pao1pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 3rkab2/4a4/4b4/R8/4C1p2/9/9/4B4/1c2A4/4KA3 b - - 0 0
-    //1,ÌúÃÅË¨, 2, ±ø²»ÄÜ¹ýºÓ, 3, 
+    //1,é“é—¨æ “, 2, å…µä¸èƒ½è¿‡æ²³, 3, 
 	if((your_shi_num + your_xiang_num) >= 3 && mcan == 0){
 		if(isStringByPao(POSITION,ypao,Square(MY_SQ4C),Square(MY_SQ55))){
 			if(StoY(mche) == MY_RANK9){
@@ -307,7 +307,7 @@ void my_m_MT_R_1che1pao1pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 //	}
 //
 //	// fen 3rkab2/4a4/4b4/R8/4C1p2/9/9/4B4/1c2A4/4KA3 b - - 0 0
-//    //1,ÌúÃÅË¨, 2, ±ø²»ÄÜ¹ýºÓ, 3, 
+//    //1,é“é—¨æ “, 2, å…µä¸èƒ½è¿‡æ²³, 3, 
 //	if((board->R_shi+board->R_xiang) >= 3 && bcan == 0){
 //		if(Is_RhaveTianMenShuanCanControl_Bking(board) && StoY(bche) == 0x3){
 //			if(board->b256[0x36] != BSHI && StoX(bche) < 0x7 && StoX(rche) < 0x7){

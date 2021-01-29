@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_1pao3pawn_B_1pao1ma
 #define END_my_m_MT_R_1pao3pawn_B_1pao1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ3±ø¶Ô1ÅÚ1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®3å…µå¯¹1ç‚®1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-// ÅÚ3±ø¶ÔÅÚÂí
+// ç‚®3å…µå¯¹ç‚®é©¬
 void my_m_MT_R_1pao3pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 
 	// ADD_MY
@@ -21,7 +21,7 @@ void my_m_MT_R_1pao3pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_ADD(pmok * ADD_PaoXPawn_To_1Pao1Ma_ByShi[your_shi_num]);
 	Square mk = my_king_pos;
 	// fen 3a5/4ak3/2P6/4P4/2b6/9/5C3/B4An2/3KA4/2B5c b - - 126 126
-    //Èç¹ûÅÚ·½ÊÇÊËÏàÈ«£¬ÇÒ½«ÔÚ¶şÏßÒÔÏÂ£¬¾ÍÒª¼Ó·Ö
+    //å¦‚æœç‚®æ–¹æ˜¯ä»•ç›¸å…¨ï¼Œä¸”å°†åœ¨äºŒçº¿ä»¥ä¸‹ï¼Œå°±è¦åŠ åˆ†
 	if((my_shi_num + my_xiang_num) == 4 && StoY(mk) MY_LARGE_EQL MY_RANK8){
 		EV_MY_SAFE = TRUE;
 		// fen 2bk1a3/4a4/4b4/9/P2n4C/2P6/8P/4B4/4A4/4KABc1 b - - 0 1
@@ -39,7 +39,7 @@ void my_m_MT_R_1pao3pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 9/3k5/9/6N2/8c/9/4C4/4K4/5ppp1/2B6 b - - 0 1
-	// Èç¹û¶à·½µÄ±øÈ«ÔÚ¶Ô·½µÄ½«ÏÂÃæ,Òª´ó´óµÄ¼õ·Ö
+	// å¦‚æœå¤šæ–¹çš„å…µå…¨åœ¨å¯¹æ–¹çš„å°†ä¸‹é¢,è¦å¤§å¤§çš„å‡åˆ†
 	if(pmok == 0){
 		MY_EV_SUB(128);
 	}

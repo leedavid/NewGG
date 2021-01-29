@@ -1,18 +1,18 @@
 #ifndef END_my_m_MT_R_1che1pao2pawn_B_2che
 #define END_my_m_MT_R_1che1pao2pawn_B_2che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ2±ø¶Ô2³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®2å…µå¯¹2è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 
-//ºì·½³µÅÚ2±ø ¶Ô ºÚ·½2³µ
+//çº¢æ–¹è½¦ç‚®2å…µ å¯¹ é»‘æ–¹2è½¦
 void my_m_MT_R_1che1pao2pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 	
 	//my_m_MT_R_1che1pao1pawn_B_2che(POSITION,ei);
@@ -41,7 +41,7 @@ void my_m_MT_R_1che1pao2pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
 	int pmok = (int)count_1s(bmp);
-	MY_EV_ADD(pmok * ADD_³µÅÚ±ø¶Ô¶þ³µ_by_Pawn__Safe_Shi[your_shi_num]);
+	MY_EV_ADD(pmok * ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn__Safe_Shi[your_shi_num]);
 
 	// fen 3ak1b2/4a4/4b4/2r6/7r1/3CR3P/2P1P4/9/4A4/4KA3 w - - 0 1
 	if(my_shi_num == 2 && MY_SQ55 == mk){
@@ -82,8 +82,8 @@ void my_m_MT_R_1che1pao2pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 //	// fen 3ak1b2/3Ra4/4b1c2/4p3p/5r3/2R6/9/4B4/9/3AKAB2 w - - 0 0
 //	for(int pawn = PieceListStart(board,BPAWN); pawn > 0x32; pawn = NextPiece(board,pawn)){
 //		if(StoY(pawn) != 0xc){
-//			//board->mulScore -= ADD_³µÅÚ±ø¶Ô¶þ³µ_by_Pawn__Safe_Shi[board->R_shi];
-//			int bonus = ADD_³µÅÚ±ø¶Ô¶þ³µ_by_Pawn__Safe_Shi[board->R_shi];
+//			//board->mulScore -= ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn__Safe_Shi[board->R_shi];
+//			int bonus = ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn__Safe_Shi[board->R_shi];
 //			if(board->bsafe) {
 //				bonus *= 2;
 //			}

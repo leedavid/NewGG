@@ -248,7 +248,7 @@ int MyCut (typePOS* POSITION, int VALUE, int depth)
 				EXTEND = 1;
 		}
 		if (NextMove->trans_move == move
-			&& TO ((POS1 - 1)->move) == TO (POS1->move)  // ³Ô×ÓÑÓÉì
+			&& TO ((POS1 - 1)->move) == TO (POS1->move)  // åƒå­å»¶ä¼¸
 			&& (POS1 - 1)->catturaa != 0)
 			EXTEND++;
 		EXTEND = MAX (EXTEND, SINGULAR);
@@ -761,7 +761,7 @@ int MyCutEvasion (typePOS* POSITION, int VALUE, int depth)
 				EXTEND = 1;
 		}
 		if (NextMove->trans_move == move
-			&& TO ((POS1 - 1)->move) == TO (POS1->move)  // ³Ô×ÓÑÓÉì
+			&& TO ((POS1 - 1)->move) == TO (POS1->move)  // åƒå­å»¶ä¼¸
 			&& (POS1 - 1)->catturaa != 0)
 			EXTEND++;
 		EXTEND = MAX (EXTEND, SINGULAR);

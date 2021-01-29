@@ -1,16 +1,16 @@
 #ifndef END_m_MT_R_1che1pao1ma2pawn_B_1che2pao1pawn
 #define END_m_MT_R_1che1pao1ma2pawn_B_1che2pao1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1Âí2±ø¶Ô1³µ2ÅÚ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../chess.h"
+#include "../../preGen.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®1é©¬2å…µå¯¹1è½¦2ç‚®1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//const int ADD_2CheXPawn_1Che3PaoMa1Pawn_2ChePawnCan      =  32;                     //2³µ·½ÓĞ±ø¿É¹ıºÓ£¬
+//const int ADD_2CheXPawn_1Che3PaoMa1Pawn_2ChePawnCan      =  32;                     //2è½¦æ–¹æœ‰å…µå¯è¿‡æ²³ï¼Œ
 
 
 void my_m_MT_R_1che1pao1ma2pawn_B_1che2pao1pawn(typePOS &POSITION, EvalInfo &ei){
@@ -33,7 +33,7 @@ void my_m_MT_R_1che1pao1ma2pawn_B_1che2pao1pawn(typePOS &POSITION, EvalInfo &ei)
 		if(!have_bit(bb_your_pawn,MyLowBB[MY_RANK4])){
 			MY_EV_ADD(EV_MY_CAN * 16);
 
-			//ÎÒ·½µÄÒ»¸öÅÚÔÚµ×Ïß£¬¸ø¶Ô·½¿ØÖÆÁË
+			//æˆ‘æ–¹çš„ä¸€ä¸ªç‚®åœ¨åº•çº¿ï¼Œç»™å¯¹æ–¹æ§åˆ¶äº†
 			if(have_bit(bb_your_pao,m_and(MyUpBB[MY_RANK2],EV_MY_XBIT))){
 				MY_EV_ADD(32);
 			}

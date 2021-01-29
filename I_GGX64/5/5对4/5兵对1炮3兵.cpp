@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_5pawn_B_1pao3pawn
 #define END_my_m_MT_R_5pawn_B_1pao3pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "5±ø¶Ô1ÅÚ3±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "5å…µå¯¹1ç‚®3å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -27,7 +27,7 @@ void my_m_MT_R_5pawn_B_1pao3pawn(typePOS &POSITION, EvalInfo &ei){
 
 //void m_MT_B_5pawn_R_1pao3pawn(typePOS &POSITION, EvalInfo &ei){
 ///*
-//	//int connectPawn = 0;                  //Á¬±øµÄÊıÁ¿
+//	//int connectPawn = 0;                  //è¿å…µçš„æ•°é‡
 //	
 //	Square rk = PieceListStart(board,RKING);
 //	Square bk = PieceListStart(board,BKING);

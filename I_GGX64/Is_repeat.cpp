@@ -34,7 +34,7 @@ int is_repeat(const typePOS *POSITION){
 #endif	
 	TrupCap_t TRUECap[1];	
 
-#ifdef GG_TEST_MODE   // ¼Ñ¼Ñ²âÊÔÄ£Ê½Õâ¸ö²»ÄÜÓÃ.
+#ifdef GG_TEST_MODE   // ä½³ä½³æµ‹è¯•æ¨¡å¼è¿™ä¸ªä¸èƒ½ç”¨.
 	//if(POSITION->DYN->mossa50 >= 168){
 	//	//if(board_is_incheck(POSITION,POS_SIDE)){
 	//	//	return REPEAT_NO;
@@ -81,7 +81,7 @@ int is_repeat(const typePOS *POSITION){
 			int nOppCapture = 1;
 
 			for(n = 0; n < i; n++){
-				// Ê×ÏÈ¿´Ò»ÏÂÊÇ²»ÊÇÓĞ move = 0
+				// é¦–å…ˆçœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯æœ‰ move = 0
 				/*if((re-n)->move == 0 || PB90(TO((re-n)->move)] == 0){*/
 #ifdef DEBUG_REPEAT
 				if((re-n)->move == 0 ){
@@ -110,7 +110,7 @@ int is_repeat(const typePOS *POSITION){
 				}
 				alwaysCapture  = FALSE;	
 				//board_display(POSITION,"repeat?");
-				if(alwaysCheckByHis == FALSE && (nOppCapture + nOwnCapture) != 0){  // ÊÇ½«¾Í²»ÓÃÅĞ¶ÏÊÇ²»ÊÇ×½ÁË¡£ 				
+				if(alwaysCheckByHis == FALSE && (nOppCapture + nOwnCapture) != 0){  // æ˜¯å°†å°±ä¸ç”¨åˆ¤æ–­æ˜¯ä¸æ˜¯æ‰äº†ã€‚ 				
 
 					other_m = (re-n)->move;
 					me_m    = (re-n-1)->move;
@@ -153,7 +153,7 @@ int is_repeat(const typePOS *POSITION){
 					break;
 				}
 			}
-			//»¹Ô­Ô­À´µÄÆåÅÌ.
+			//è¿˜åŸåŸæ¥çš„æ£‹ç›˜.
 			while(--n >= 0){
 				repeat_make(POSITION);
 			}
@@ -167,7 +167,7 @@ int is_repeat(const typePOS *POSITION){
 			}
 #endif
 
-			if(nOwnChecks && nOppChecks){		// Ë«·½³¤½«
+			if(nOwnChecks && nOppChecks){		// åŒæ–¹é•¿å°†
 				return REPEAT_TRUE;
 			}
 			else if(nOwnChecks){
@@ -176,7 +176,7 @@ int is_repeat(const typePOS *POSITION){
 			else if(nOppChecks){
 				return REPEAT_BAN_ME;
 			}
-			if(nOwnCapture && nOppCapture){		// Ë«·½³¤×½
+			if(nOwnCapture && nOppCapture){		// åŒæ–¹é•¿æ‰
 				return REPEAT_TRUE;
 			}
 			else if(nOwnCapture){	
@@ -186,7 +186,7 @@ int is_repeat(const typePOS *POSITION){
 				return REPEAT_BAN_ME;
 			}
 			else{
-				return REPEAT_TRUE;            // ÍêÈ«ÏàÍ¬??
+				return REPEAT_TRUE;            // å®Œå…¨ç›¸åŒ??
 			}
 		}
 	}

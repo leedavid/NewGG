@@ -1,7 +1,7 @@
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
 
 //const int ADD_2Pao1MaXpawn_To_2Pao1Ma1Pawn_ByPawn[3]     = { 96, 64, 32};   //
@@ -18,7 +18,7 @@ void m_MT_BR_2pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen C1ba1k3/4a1P2/4b4/3n4p/3N1c3/9/4Cc3/4BA3/4A4/2B1K4 w - - 0 0
-	//这个要降一些分
+	//杩欎釜瑕侀檷涓�浜涘垎
 	int  rcan = ei.rcan;
 	int  bcan = ei.bcan;
 	if(rcan > 0 && bcan > 0){

@@ -1,7 +1,7 @@
 #include "eval_total.h"
 /*
 //////////////////////////////////////////////////////////////////////////
-/// ÖĞÅÚµ×ÅÚµÄÆÀ¼Û
+/// ä¸­ç‚®åº•ç‚®çš„è¯„ä»·
 template<Color Us>
 Score eval_zhong_di_pao(Position& pos, EvalInfo& ei){
 
@@ -16,19 +16,19 @@ Score eval_zhong_di_pao(Position& pos, EvalInfo& ei){
 		Square pao_sq = pop_1st_bit(bzp);
 
 		// fen 2bak4/3ra4/4n2r1/pR1CCP2p/6b2/9/Pp6P/3R5/2nNA4/2c1KAB2 b - - 0 1
-		// Èç¹ûÅÚ¸ø×Ô¼ºµÄ±ø±£»¤ÁË£¬Òª¼Ó·Ö
+		// å¦‚æœç‚®ç»™è‡ªå·±çš„å…µä¿æŠ¤äº†ï¼Œè¦åŠ åˆ†
 		if(bit_is_set(ei.attacked_by(RPAWN + delt),pao_sq)){
 			bonus += make_score(16,32);
 		}
 
 		//////////////////////////////////////////////////////////////////////////
-		/// Õâ¸ö¿ÉÄÜÊÇÖĞÅÚ
+		/// è¿™ä¸ªå¯èƒ½æ˜¯ä¸­ç‚®
 		if(StoX(pao_sq) == StoX(yk)){
 			bonus  += make_score(8,32);
 			ei.attPoint[Us] += 6;			//////////////////////////////////////////////////////////////////////////
 
 
-			// »¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÊÜµ½¶Ô·½µÄ¹¥»÷
+			// è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯å—åˆ°å¯¹æ–¹çš„æ”»å‡»
 			if(bit_is_set(ei.attacked_by(Them),pao_sq)){
 				if(bit_is_set(ei.attacked_by(Us),pao_sq)){
 				}
@@ -38,11 +38,11 @@ Score eval_zhong_di_pao(Position& pos, EvalInfo& ei){
 			}
 		} 
 		//////////////////////////////////////////////////////////////////////////
-		/// Õâ¸ö¿Ï¶¨ÊÇµ×ÅÚ
+		/// è¿™ä¸ªè‚¯å®šæ˜¯åº•ç‚®
 		else{ 
-			ei.attPoint[Us] += 8;   // µ×ÅÚ¼Ó¹¥»÷µã	
+			ei.attPoint[Us] += 8;   // åº•ç‚®åŠ æ”»å‡»ç‚¹	
 			bonus  += make_score(32, -8);
-			// »¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÊÜµ½¶Ô·½µÄ¹¥»÷
+			// è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯å—åˆ°å¯¹æ–¹çš„æ”»å‡»
 			if(bit_is_set(ei.attacked_by(Them),pao_sq)){
 				if(bit_is_set(ei.attacked_by(Us),pao_sq)){
 				}
@@ -53,16 +53,16 @@ Score eval_zhong_di_pao(Position& pos, EvalInfo& ei){
 		}
 
 
-		// ¶Ô±ßÉÏµÄÒ»×ÓµÄ¹¥»÷·ÖÒª¼Ó´ó. 
+		// å¯¹è¾¹ä¸Šçš„ä¸€å­çš„æ”»å‡»åˆ†è¦åŠ å¤§. 
 		Bitboard bet = BetweenBB[pao_sq][yk];
-		// Èç¹ûÓĞ³µÔÚÀïÃæ, ¾ÍÒªÅĞ¶ÏÊÇ²»ÊÇ»¹ÓĞ×ÓÔÚ¹¥»÷side.
+		// å¦‚æœæœ‰è½¦åœ¨é‡Œé¢, å°±è¦åˆ¤æ–­æ˜¯ä¸æ˜¯è¿˜æœ‰å­åœ¨æ”»å‡»side.
 		// fen 1CRaka3/9/n8/p2Rp3p/2b3p2/3nr1Pr1/P7P/B8/4A4/3AK4 r
 		if(have_bit(bet,pos.pieces(RCHE + delt))){
 			Bitboard kingside = m_and(bet,ei.attacked_by(BKING - delt));
-			// ³µ
+			// è½¦
 			for(int i = 0; i < pos.piece_count(RCHE + delt); i++){
 				Square s =  pos.piece_list(RCHE+ delt,i);
-				Bitboard A = ei.CheAtt[Us][i];                                // µÃµ½ÅÚµÄ¹¥»÷Î»ÆåÅÌ
+				Bitboard A = ei.CheAtt[Us][i];                                // å¾—åˆ°ç‚®çš„æ”»å‡»ä½æ£‹ç›˜
 				if(have_bit(A,kingside)){
 					if(!bit_is_set(bet,s)){
 						ei.haveKillDanger[Us] = true; 
@@ -70,16 +70,16 @@ Score eval_zhong_di_pao(Position& pos, EvalInfo& ei){
 					}
 				}
 			}		
-			// Âí
+			// é©¬
 			for(int i = 0; i < pos.piece_count(RMA + delt); i++){
 				//Square s =  pos.piece_list(RMA + delt,i);
-				Bitboard A = ei.MaAtt[Us][i];                                // µÃµ½ÅÚµÄ¹¥»÷Î»ÆåÅÌ
+				Bitboard A = ei.MaAtt[Us][i];                                // å¾—åˆ°ç‚®çš„æ”»å‡»ä½æ£‹ç›˜
 				if(have_bit(A,kingside)){
 					ei.haveKillDanger[Us] = true; 
 					continue;
 				}
 			}			
-			// ±ø
+			// å…µ
 			if(have_bit(ei.attacked_by(RPAWN + delt),kingside)){
 				ei.haveKillDanger[Us] = true; 
 				continue;

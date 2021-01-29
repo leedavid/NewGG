@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_2ma2pawn_B_1ma1pawn
 #define END_my_m_MT_R_2ma2pawn_B_1ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2Âí2±ø¶Ô1Âí1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2é©¬2å…µå¯¹1é©¬1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//const int  ADD_2MaXPawn_1Ma2Pawn_ByPawn[3]         = {96, 64, 32};            //2Âíx±ø¶Ô1Âí2±ø, ¶à±øµÄ¼Ó·Ö
-//const int  ADD_1Ma2Pawn_2MaXPawn_ByPawn[3]         = {96, 64, 32};            //1ÅÚ2±ø¶Ô2Âíx±ø, ¶à±øµÄ¼Ó·Ö
+//const int  ADD_2MaXPawn_1Ma2Pawn_ByPawn[3]         = {96, 64, 32};            //2é©¬xå…µå¯¹1é©¬2å…µ, å¤šå…µçš„åŠ åˆ†
+//const int  ADD_1Ma2Pawn_2MaXPawn_ByPawn[3]         = {96, 64, 32};            //1ç‚®2å…µå¯¹2é©¬xå…µ, å¤šå…µçš„åŠ åˆ†
 
 
 

@@ -1,20 +1,20 @@
 #ifndef END_my_m_MT_R_1che1ma1pawn_B_1che1ma
 #define END_my_m_MT_R_1che1ma1pawn_B_1che1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí1±ø¶Ô1³µ1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1é©¬1å…µå¯¹1è½¦1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 //const int B2shi2xiang = 80;
 
 
-//ÎÒ·½1³µ1Âí1±ø£¬¶Ô·½1³µ1Âí
+//æˆ‘æ–¹1è½¦1é©¬1å…µï¼Œå¯¹æ–¹1è½¦1é©¬
 void my_m_MT_R_1che1ma1pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 
 	// ADD_MY
@@ -101,7 +101,7 @@ void my_m_MT_R_1che1ma1pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 			// fen 4kab2/4a4/4br3/n8/9/2B6/4N1R1P/9/4A4/2BAK4 b - - 0 0
 			if(StoY(mpawn) MY_LARGE_EQL MY_RANK2){
 				// fen 3ak4/9/5a3/4n4/5r3/4p1B2/7R1/8B/4AN3/3A1K3 w - - 0 1
-				// »¹Òª¶Ô·½µÄÂí²»ÊÇ±»Ç£ÖÆµÄ
+				// è¿˜è¦å¯¹æ–¹çš„é©¬ä¸æ˜¯è¢«ç‰µåˆ¶çš„
 				EV_YOUR_SAFE = TRUE;			
 			}
 		}

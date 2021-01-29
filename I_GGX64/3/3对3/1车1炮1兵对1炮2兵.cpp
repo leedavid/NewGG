@@ -1,18 +1,18 @@
 #ifndef END_my_m_MT_R_1che1pao1pawn_B_1pao2pawn
 #define END_my_m_MT_R_1che1pao1pawn_B_1pao2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1±ø¶Ô1ÅÚ2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®1å…µå¯¹1ç‚®2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//const int ADD_ChePaoXPawn_To_1Pao1Ma1Pawn_ByPawn[3]    =  { 64, 32, 24};  //³µÅÚX±ø,¶Ô2ÅÚ1±ø
-//const int ADD_1Pao1Ma1Pawn_To_ChePaoXPawn_ByPawn[3]    =  { 64, 32, 24};  //³µÅÚX±ø,¶Ô2ÅÚ1±ø
+//const int ADD_ChePaoXPawn_To_1Pao1Ma1Pawn_ByPawn[3]    =  { 64, 32, 24};  //è½¦ç‚®Xå…µ,å¯¹2ç‚®1å…µ
+//const int ADD_1Pao1Ma1Pawn_To_ChePaoXPawn_ByPawn[3]    =  { 64, 32, 24};  //è½¦ç‚®Xå…µ,å¯¹2ç‚®1å…µ
 
 
 void my_m_MT_R_1che1pao1pawn_B_1pao2pawn(typePOS &POSITION, EvalInfo &ei){

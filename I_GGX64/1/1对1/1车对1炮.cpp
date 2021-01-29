@@ -1,14 +1,14 @@
 #ifndef END_my_m_MT_R_1CHE_B_1PAO
 #define END_my_m_MT_R_1CHE_B_1PAO
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "1Ё╣╤т1ез.cpp"
-#include "..\\..\\white.h"
+#include "1Х╫╕Е╞╧1Г┌╝.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
-//╨Л╥╫р╩╦ЖЁ╣ё╛╨з╥╫р╩╦Жез
+//Г╨╒Ф√╧Д╦─Д╦╙Х╫╕О╪▄И╩▒Ф√╧Д╦─Д╦╙Г┌╝
 void my_m_MT_R_1CHE_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	Square ypao = S90_from_piecelist(POSITION, your_pao, 0);
@@ -18,7 +18,7 @@ void my_m_MT_R_1CHE_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 		MY_EV_SUB(128);
 	}
 
-	// 1Ё╣дяй╓езк╚оС
+	// 1Х╫╕И ╬Х┐°Г┌╝Е▐▄Х╠║
 	if(StoY(yk) MY_SMALL MY_RANK2 && StoY(ypao) MY_SMALL_EQL MY_RANK6){
 		if(your_xiang_num == 2){
 			if(your_shi_num == 2){
@@ -32,7 +32,7 @@ void my_m_MT_R_1CHE_B_1PAO(typePOS &POSITION, EvalInfo &ei){
 			RETRUN_MUL(2);
 		}
 	}
-	// 1Ё╣дяй╓езк╚йк
+	// 1Х╫╕И ╬Х┐°Г┌╝Е▐▄Д╩∙
 	if(your_shi_num == 2){
 		if(StoX(ypao) == StoX(yk)){
 			RETRUN_MUL(2);

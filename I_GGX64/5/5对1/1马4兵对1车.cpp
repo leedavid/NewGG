@@ -1,27 +1,27 @@
 #ifndef END_my_m_MT_R_1ma4pawn_B_1che
 #define END_my_m_MT_R_1ma4pawn_B_1che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1Âí4±ø¶Ô1³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1é©¬4å…µå¯¹1è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 //
-//#include "..\\..\\chess.h"
-//#include "..\\..\\preGen.h"
+//#include "../../chess.h"
+//#include "../../preGen.h"
 //
-//#include "..\\..\\endgame\mat.h"
+//#include "../../endgame/mat.h"
 //
 // void m_MT_B_1CHE_R_1MA(board_t *board);
 // void my_m_MT_R_1CHE_B_1MA(board_t *board);
-//ÎÒ·½Ò»ÂíÒ»±ø, ¶Ô·½Ò»³µ
+//æˆ‘æ–¹ä¸€é©¬ä¸€å…µ, å¯¹æ–¹ä¸€è½¦
 void my_m_MT_R_1ma4pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
-	MY_EV_SUB(128);  // ³µ·½Òª¼Ó·Ö
+	MY_EV_SUB(128);  // è½¦æ–¹è¦åŠ åˆ†
 	
 	your_m_MT_R_1CHE_B_1MA(POSITION,ei);
 
@@ -43,15 +43,15 @@ void my_m_MT_R_1ma4pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 //
 //	bool isSafe = FALSE;
 //
-//	//ÓÐÒ»ÖÖºÍÐÎ
-//	// fen 4k4/9/4b4/4p4/2n4R1/9/9/9/9/4K4 w  Àýµä: Ò»³µÀýºÍÂí×äÏó page
+//	//æœ‰ä¸€ç§å’Œå½¢
+//	// fen 4k4/9/4b4/4p4/2n4R1/9/9/9/9/4K4 w  ä¾‹å…¸: ä¸€è½¦ä¾‹å’Œé©¬å’è±¡ page
 //	if(board->B_xiang != 0){
 //		if(board->b256[0x67] == BPAWN && board->b256[0x57] == BXIANG && StoX(bk) == 0x7){
-//			//1, ÂíÔÚÏàÑÛÉÏ
+//			//1, é©¬åœ¨ç›¸çœ¼ä¸Š
 //			//if(board->b256[0x75] == BMA || board->b256[0x79] == BMA){
 //			//	return 1;
 //			//}
-//			//2, Âí¿É×ßµ½ÏàÑÛÉÏ
+//			//2, é©¬å¯èµ°åˆ°ç›¸çœ¼ä¸Š
 //			if(IsMaCanToOrAt(board,bma,0x75) || IsMaCanToOrAt(board,bma,0x79)){
 //				isSafe = TRUE;
 //			}
@@ -62,7 +62,7 @@ void my_m_MT_R_1ma4pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 //		isSafe = TRUE;
 //	}
 //
-//	if(board->B_shi == 2 || board->B_xiang == 2){  //Âí·½ÓÐ¶þÏà,»ò¶þÊË, ÔòÂí·½Èç¹ûÔÚÖÐÏßÓÐÁ¬±ø¾ÍÊÇºÍÁË.
+//	if(board->B_shi == 2 || board->B_xiang == 2){  //é©¬æ–¹æœ‰äºŒç›¸,æˆ–äºŒä»•, åˆ™é©¬æ–¹å¦‚æžœåœ¨ä¸­çº¿æœ‰è¿žå…µå°±æ˜¯å’Œäº†.
 //		for(int from = PieceListStart(board,BPAWN); from > 0x32; from = NextPiece(board,from)){
 //
 //			if(StoY(from) < StoY(rk) && StoX(from) == 0x7){
@@ -77,7 +77,7 @@ void my_m_MT_R_1ma4pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	if(isSafe){    //Âí±ø·½°²È«ÁË
+//	if(isSafe){    //é©¬å…µæ–¹å®‰å…¨äº†
 //
 //		for(int from = PieceListStart(board,BPAWN); from > 0x32; from = NextPiece(board,from)){
 //			if(StoY(from) < StoY(rk)){

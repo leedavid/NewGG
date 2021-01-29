@@ -20,41 +20,41 @@ bool pseudo_is_legal(int move, typePOS *POSITION){
 
 	if(PIECE_SIDE(piece) == WHITE_TO_MOVE){
 		
-		if(piece == RKING){  // 1,×ßµÄÆå×ÓÊÇ½«,
+		if(piece == RKING){  // 1,èµ°çš„æ£‹å­æ˜¯å°†,
 			
-			// 1. ÊÇ²»ÊÇ¸ø¶Ô·½µÄ ³µ,½« ½«¾ü
+			// 1. æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ è½¦,å°† å°†å†›
 			if(m128_is_have_bit(m_and(m_or(POSITION->byChessBB[BKING],POSITION->byChessBB[BCHE]),
 				rook_attacks_bb(to,occ)))) return FALSE;            
 
-			// 2. ÊÇ²»ÊÇ¸ø¶Ô·½µÄ ÅÚ ½«¾ü
+			// 2. æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ ç‚® å°†å†›
 			if(m128_is_have_bit(m_and(POSITION->byChessBB[BPAO],
 				pao_eat_attacks_bb(to,occ)))) return FALSE;
 
-            // 3. ÊÇ²»ÊÇ¸ø¶Ô·½µÄ Âí ½«¾ü
+            // 3. æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ é©¬ å°†å†›
 			if(m128_is_have_bit(m_and(POSITION->byChessBB[BMA],
 				king_to_ma_attacks_bb(to,occ)))) return FALSE;
 
-			// 4, ÊÇ²»ÊÇ¸ø¶Ô·½µÄ ±ø ½«¾ü
+			// 4, æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ å…µ å°†å†›
 			if(m128_is_have_bit(m_and(Attack_By_Bpawn_Bking[to],POSITION->byChessBB[BPAWN]))) 
 			     return FALSE;
 		}
-		else{  // 2,×ßµÄÆå×Ó²»ÊÇ½«
+		else{  // 2,èµ°çš„æ£‹å­ä¸æ˜¯å°†
 
 			k = RKpos();
 			
-			// 2.1 ÅÐ¶ÏÊÇ²»ÊÇ×ß¶¯µÄ×Ô¼º½«ÏßÉÏµÄÆå,×ßÁËºó,¸ø¶Ô·½µÄ³µ,ÅÚ,½« ½«¾ü
+			// 2.1 åˆ¤æ–­æ˜¯ä¸æ˜¯èµ°åŠ¨çš„è‡ªå·±å°†çº¿ä¸Šçš„æ£‹,èµ°äº†åŽ,ç»™å¯¹æ–¹çš„è½¦,ç‚®,å°† å°†å†›
 			//iskxy = m_and(ChePseudoMask_FR[k],m_or(ChePseudoMask_FR[from],ChePseudoMask_FR[to]));  
 			//if(m128_is_have_bit(iskxy)){
 			if(bit_is_set(ChePseudoMask_FR[k],from) || bit_is_set(ChePseudoMask_FR[k],to)){
 				
-				// 2.1.1. ÊÇ²»ÊÇ¸ø¶Ô·½µÄ ³µ,½« ½«¾ü, ** µ«²»°üÀ¨³ÔÁË¶Ô·½µÄÆå.Í¬Ê±È¥ÁË¶Ô·½µÄÆå×Ó
+				// 2.1.1. æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ è½¦,å°† å°†å†›, ** ä½†ä¸åŒ…æ‹¬åƒäº†å¯¹æ–¹çš„æ£‹.åŒæ—¶åŽ»äº†å¯¹æ–¹çš„æ£‹å­
 				if(m128_is_have_bit(m_and(_mm_andnot_si128(SetMaskBB[to],
 					m_or(POSITION->byChessBB[BKING],POSITION->byChessBB[BCHE])),
 					rook_attacks_bb(k,occ)))) {
 						return FALSE; 
 				}
 				
-				// 2.1.2. ÊÇ²»ÊÇ¸ø¶Ô·½µÄ ÅÚ ½«¾ü
+				// 2.1.2. æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ ç‚® å°†å†›
 				if(m128_is_have_bit(m_and(_mm_andnot_si128(SetMaskBB[to],POSITION->byChessBB[BPAO]),
 					pao_eat_attacks_bb(k,occ)))){  //board_display(board,"""");
 					return FALSE;
@@ -62,51 +62,51 @@ bool pseudo_is_legal(int move, typePOS *POSITION){
 
 			}
 
-			// 2.2 ÅÐ¶ÏÊÇ²»ÊÇ×ß¶¯µÄ¿ÉÄÜ½«¾üµÄÂíÍÈÉÏµÄÆå ** µ«²»°üÀ¨³ÔÁË¶Ô·½µÄÆå.
+			// 2.2 åˆ¤æ–­æ˜¯ä¸æ˜¯èµ°åŠ¨çš„å¯èƒ½å°†å†›çš„é©¬è…¿ä¸Šçš„æ£‹ ** ä½†ä¸åŒ…æ‹¬åƒäº†å¯¹æ–¹çš„æ£‹.
 			if( ABS(from - k) == 8 || ABS(from - k) == 10){
-				// ÔÙÖØËãÒ»ÏÂ Âí µÄ½«¾ü
-				if(m128_is_have_bit(m_and(_mm_andnot_si128(SetMaskBB[to],POSITION->byChessBB[BMA]), //Õâ¶ùÒÑÈ¥ÁË¶Ô·½µÄÂí.
+				// å†é‡ç®—ä¸€ä¸‹ é©¬ çš„å°†å†›
+				if(m128_is_have_bit(m_and(_mm_andnot_si128(SetMaskBB[to],POSITION->byChessBB[BMA]), //è¿™å„¿å·²åŽ»äº†å¯¹æ–¹çš„é©¬.
 					king_to_ma_attacks_bb(k,occ))))
 					return FALSE;
 			}
 		}
 	}
 	else{
-		if(piece == BKING){  // 1,×ßµÄÆå×ÓÊÇ½«,
+		if(piece == BKING){  // 1,èµ°çš„æ£‹å­æ˜¯å°†,
 			
-			// 1. ÊÇ²»ÊÇ¸ø¶Ô·½µÄ ³µ,½« ½«¾ü
+			// 1. æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ è½¦,å°† å°†å†›
 			if(m128_is_have_bit(m_and(m_or(POSITION->byChessBB[RKING],POSITION->byChessBB[RCHE]),
 				rook_attacks_bb(to,occ)))) return FALSE;            
 
-			// 2. ÊÇ²»ÊÇ¸ø¶Ô·½µÄ ÅÚ ½«¾ü
+			// 2. æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ ç‚® å°†å†›
 			if(m128_is_have_bit(m_and(POSITION->byChessBB[RPAO],
 				pao_eat_attacks_bb(to,occ)))) return FALSE;
 
-            // 3. ÊÇ²»ÊÇ¸ø¶Ô·½µÄ Âí ½«¾ü
+            // 3. æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ é©¬ å°†å†›
 			if(m128_is_have_bit(m_and(POSITION->byChessBB[RMA],
 				king_to_ma_attacks_bb(to,occ)))) return FALSE;
 
-			// 4, ÊÇ²»ÊÇ¸ø¶Ô·½µÄ ±ø ½«¾ü
+			// 4, æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ å…µ å°†å†›
 			if(m128_is_have_bit(m_and(Attack_By_Bpawn_Bking[to],POSITION->byChessBB[RPAWN]))) 
 			     return FALSE;
 		}
-		else{  // 2,×ßµÄÆå×Ó²»ÊÇ½«
+		else{  // 2,èµ°çš„æ£‹å­ä¸æ˜¯å°†
 
 			k = BKpos();
 			
-			// 2.1 ÅÐ¶ÏÊÇ²»ÊÇ×ß¶¯µÄ×Ô¼º½«ÏßÉÏµÄÆå,×ßÁËºó,¸ø¶Ô·½µÄ³µ,ÅÚ,½« ½«¾ü
+			// 2.1 åˆ¤æ–­æ˜¯ä¸æ˜¯èµ°åŠ¨çš„è‡ªå·±å°†çº¿ä¸Šçš„æ£‹,èµ°äº†åŽ,ç»™å¯¹æ–¹çš„è½¦,ç‚®,å°† å°†å†›
 			//iskxy = m_and(ChePseudoMask_FR[k],m_or(ChePseudoMask_FR[from],ChePseudoMask_FR[to]));  
 			//if(m128_is_have_bit(iskxy)){
 			if(bit_is_set(ChePseudoMask_FR[k],from) || bit_is_set(ChePseudoMask_FR[k],to)){
 				
-				// 2.1.1. ÊÇ²»ÊÇ¸ø¶Ô·½µÄ ³µ,½« ½«¾ü, ** µ«²»°üÀ¨³ÔÁË¶Ô·½µÄÆå.Í¬Ê±È¥ÁË¶Ô·½µÄÆå×Ó
+				// 2.1.1. æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ è½¦,å°† å°†å†›, ** ä½†ä¸åŒ…æ‹¬åƒäº†å¯¹æ–¹çš„æ£‹.åŒæ—¶åŽ»äº†å¯¹æ–¹çš„æ£‹å­
 				if(m128_is_have_bit(m_and(_mm_andnot_si128(SetMaskBB[to],
 					m_or(POSITION->byChessBB[RKING],POSITION->byChessBB[RCHE])),
 					rook_attacks_bb(k,occ)))) {
 						return FALSE; 
 				}
 				
-				// 2.1.2. ÊÇ²»ÊÇ¸ø¶Ô·½µÄ ÅÚ ½«¾ü
+				// 2.1.2. æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ ç‚® å°†å†›
 				if(m128_is_have_bit(m_and(_mm_andnot_si128(SetMaskBB[to],POSITION->byChessBB[RPAO]),
 					pao_eat_attacks_bb(k,occ)))){
 					return FALSE;
@@ -114,9 +114,9 @@ bool pseudo_is_legal(int move, typePOS *POSITION){
 
 			}
 
-			// 2.2 ÅÐ¶ÏÊÇ²»ÊÇ×ß¶¯µÄ¿ÉÄÜ½«¾üµÄÂíÍÈÉÏµÄÆå ** µ«²»°üÀ¨³ÔÁË¶Ô·½µÄÆå.
+			// 2.2 åˆ¤æ–­æ˜¯ä¸æ˜¯èµ°åŠ¨çš„å¯èƒ½å°†å†›çš„é©¬è…¿ä¸Šçš„æ£‹ ** ä½†ä¸åŒ…æ‹¬åƒäº†å¯¹æ–¹çš„æ£‹.
 			if( ABS(from - k) == 8 || ABS(from - k) == 10){
-				// ÔÙÖØËãÒ»ÏÂ Âí µÄ½«¾ü
+				// å†é‡ç®—ä¸€ä¸‹ é©¬ çš„å°†å†›
 				if(m128_is_have_bit(m_and(_mm_andnot_si128(SetMaskBB[to],POSITION->byChessBB[RMA]),
 					king_to_ma_attacks_bb(k,occ))))
 					return FALSE;

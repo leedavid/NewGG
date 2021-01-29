@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1pao1ma_1pawn_B_1pao
 #define END_my_m_MT_R_1pao1ma_1pawn_B_1pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí1±ø¶Ô1ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®1é©¬1å…µå¯¹1ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -67,7 +67,7 @@ void my_m_MT_R_1pao1ma_1pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	////±»ÃÆ¹¬ÁË,Ò²¿ÉÄÜÊÇºÍÆå
+	////è¢«é—·å®«äº†,ä¹Ÿå¯èƒ½æ˜¯å’Œæ£‹
 	//if(board->b256[0xc7] == RKING && board->b256[0xb7] == RMA && board->b256[0xc6] == RSHI && board->b256[0xc8] == RSHI){
 	//	if(IsStringByPao(board,bpao,0xb7,0xc7)){
 	//		if(board->B_shi == 2 && StoY(rpawn) <= 0x5){
@@ -95,7 +95,7 @@ void my_m_MT_R_1pao1ma_1pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 //	Square bpawn = PieceListStart(board,BPAWN);
 //
 //	// fen 3aka3/4n4/4b1c2/9/2b1C4/9/9/5A3/4Ap3/3K5 w - - 44 44
-//	//±»ÃÆ¹¬ÁË,Ò²¿ÉÄÜÊÇºÍÆå
+//	//è¢«é—·å®«äº†,ä¹Ÿå¯èƒ½æ˜¯å’Œæ£‹
 //	if(board->b256[0x37] == BKING && board->b256[0x47] == BMA && board->b256[0x36] == BSHI && board->b256[0x38] == BSHI){
 //		if(IsStringByPao(board,rpao,0x47,0x37)){
 //			if(board->R_shi == 2 && StoY(bpawn) >= 0xa){

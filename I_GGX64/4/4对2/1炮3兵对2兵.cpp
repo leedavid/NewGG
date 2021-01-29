@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1pao3pawn_B_2pawn
 #define END_my_m_MT_R_1pao3pawn_B_2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ3±ø¶Ô2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®3å…µå¯¹2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -53,6 +53,6 @@ void my_m_MT_R_1pao3pawn_B_2pawn(typePOS &POSITION, EvalInfo &ei){
 
 
 
-//const int  ADD_1PaoXPawn_2Pawn                      = 128;              //1ÅÚx±ø¶Ô2±øµÄ¼Ó·Ö
+//const int  ADD_1PaoXPawn_2Pawn                      = 128;              //1ç‚®xå…µå¯¹2å…µçš„åŠ åˆ†
 //const int  ADD_1PaoXPawn_To_2Pawn_ByPaoPawn[3]      = {96,  64, 32};
 //const int  ADD_1PaoXPawn_To_2Pawn_ByPawnSide[3]     = {80,  48, 16};

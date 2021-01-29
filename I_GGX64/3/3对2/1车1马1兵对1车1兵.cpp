@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1ma1pawn_B_1che1pawn
 #define END_my_m_MT_R_1che1ma1pawn_B_1che1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí1±ø¶Ô1³µ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1é©¬1å…µå¯¹1è½¦1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -183,7 +183,7 @@ void my_m_MT_R_1che1ma1pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 9/9/4k4/p1r1p4/9/8R/Pn6P/4B4/4A4/3AK1B2 w - - 0 1
-	// ºÚ·½¶ş¸ö±ø¶¼ÔÚ¼ÒÀï,Òª¿Û·Ö
+	// é»‘æ–¹äºŒä¸ªå…µéƒ½åœ¨å®¶é‡Œ,è¦æ‰£åˆ†
 	//ymp = m_and(bb_your_pawn, MyUpBB[MY_RANK4]);
 	//MY_EV_ADD(64 * count_1s(ymp));
 	if(StoY(ypawn) MY_SMALL_EQL MY_RANK4){

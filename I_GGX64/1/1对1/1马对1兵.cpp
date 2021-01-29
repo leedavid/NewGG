@@ -1,20 +1,20 @@
 #ifndef END_my_m_MT_R_1MA_B_1PAWN
 #define END_my_m_MT_R_1MA_B_1PAWN
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "1Âí¶Ô1±ø.cpp"
-#include "..\\..\\white.h"
+#include "1é©¬å¯¹1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
-//ÄÜ²»ÄÜºÍ£¬ÔõÑùÊ¤
+//èƒ½ä¸èƒ½å’Œï¼Œæ€æ ·èƒœ
 
 
-// <<ÏóÆåšˆ¾ÖÀıµä>>
-// µÚ1Ò³ µÚ2¾Ö µ×±øÀıºÍÒ»Âí
+// <<è±¡æ£‹æ®˜å±€ä¾‹å…¸>>
+// ç¬¬1é¡µ ç¬¬2å±€ åº•å…µä¾‹å’Œä¸€é©¬
 
-//ºì·½Ò»¸öÂí, ºÚ·½Ò»¸ö±ø
+//çº¢æ–¹ä¸€ä¸ªé©¬, é»‘æ–¹ä¸€ä¸ªå…µ
 void my_m_MT_R_1MA_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 
    Square ypawn = S90_from_piecelist(POSITION,your_pawn,0);
@@ -28,7 +28,7 @@ void my_m_MT_R_1MA_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 		   MY_EV_SUB(64);
 	   }
 
-	   // Èç¹û¶Ô·½µÄ±ø¿ÉÄÜ±»À§ËÀ£¬Ò²²»ÊÇºÍ
+	   // å¦‚æœå¯¹æ–¹çš„å…µå¯èƒ½è¢«å›°æ­»ï¼Œä¹Ÿä¸æ˜¯å’Œ
 	   if(StoY(ypawn) == MY_RANK9){
 		   if(your_shi_num <= 1 && your_xiang_num == 0
 			   && my_xiang_num >= 1){
@@ -49,7 +49,7 @@ void my_m_MT_R_1MA_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 
 
 
-   // Õâ¸ö¿ÉÄÜÊ¤ÍÛ
+   // è¿™ä¸ªå¯èƒ½èƒœå“‡
    if(your_shi_num <= 1){
 	   if(StoY(ypawn) == MY_RANK9){
 		   if((StoX(ypawn) -0x4) <= 1){

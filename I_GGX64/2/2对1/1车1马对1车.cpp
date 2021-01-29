@@ -1,18 +1,18 @@
 #ifndef END_my_m_MT_R_1CHE1MA_B_1CHE
 #define END_my_m_MT_R_1CHE1MA_B_1CHE
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí¶Ô1³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1é©¬å¯¹1è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //const int CheMaAdd  = 96;
 
-//ÎÒ·½Ò»³µÒ»Âí, ¶Ô·½Ò»³µ
+//æˆ‘æ–¹ä¸€è½¦ä¸€é©¬, å¯¹æ–¹ä¸€è½¦
 void my_m_MT_R_1CHE1MA_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 
 	Square mche = S90_from_piecelist(POSITION,my_che,0);
@@ -78,7 +78,7 @@ void my_m_MT_R_1CHE1MA_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// Èç¹û³µÂí±»Ç£ÖÆÁË, Ò²ÊÇºÍÆå, 
+	// å¦‚æžœè½¦é©¬è¢«ç‰µåˆ¶äº†, ä¹Ÿæ˜¯å’Œæ£‹, 
 	// fen 3a1k3/4a4/4br3/5N3/9/5R3/9/4B4/9/5K3 w - - 78 78 
 	if((your_shi_num+your_xiang_num) >= 2){
 		if(isStr){
@@ -86,7 +86,7 @@ void my_m_MT_R_1CHE1MA_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// Èç¹û¶Ô·½ÓÐ¶þ¸öÊË,ÇÒÂí±»¶Ô·½Ñ¹ÖÆÁË
+	// å¦‚æžœå¯¹æ–¹æœ‰äºŒä¸ªä»•,ä¸”é©¬è¢«å¯¹æ–¹åŽ‹åˆ¶äº†
 	// fen 4ka3/9/9/7r1/9/9/1R7/3A5/3nA4/5K3 w
 	if(your_shi_num == 2 && PB90(MY_SQ0D) == your_shi){
 		if(StoY(mma) MY_SMALL_EQL MY_RANK2 && !IsOnSameSide(mma,yk)){
@@ -119,7 +119,7 @@ void my_m_MT_R_1CHE1MA_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
   	}
 
-	//Èç¹ûÊÇ³µÂí¶Ô³µÊËÏàÈ«,Ò²»ù±¾ÊÇºÍÆå
+	//å¦‚æžœæ˜¯è½¦é©¬å¯¹è½¦ä»•ç›¸å…¨,ä¹ŸåŸºæœ¬æ˜¯å’Œæ£‹
 	if(your_shi_num == 2 && your_xiang_num == 2){
 		if(StoY(yk) MY_SMALL MY_RANK2){
 			RETRUN_MUL(2);
@@ -134,7 +134,7 @@ void my_m_MT_R_1CHE1MA_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 4k4/9/b2ab4/9/9/2B6/9/9/R2KA4/nr1A5 b - - 50 50
-	//Âí¸ø³µÑ¹×¡ÁË
+	//é©¬ç»™è½¦åŽ‹ä½äº†
 	if(your_shi_num == 2 && StoY(yk) MY_SMALL MY_RANK2){
 		if(MY_SQ00 == mma && MY_SQ09 == yche){
 			RETRUN_MUL(2);
@@ -158,7 +158,7 @@ void my_m_MT_R_1CHE1MA_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		MY_EV_SUB(196);
 	}
 
-	// Èç¹ûÊÇ³µÂí¶Ô³µµ¥È±Ïà,Ò²»ù±¾ÊÇºÍÆå
+	// å¦‚æžœæ˜¯è½¦é©¬å¯¹è½¦å•ç¼ºç›¸,ä¹ŸåŸºæœ¬æ˜¯å’Œæ£‹
 	if(your_xiang_num == 2 && your_shi_num >= 1){
 		if(StoY(yk) == MY_RANK0){
 			RETRUN_MUL(2);
@@ -280,7 +280,7 @@ void my_m_MT_R_1CHE1MA_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 
 	
 
-	// ³µÂíÄÑÉ±ÂíË«Ïà¡£
+	// è½¦é©¬éš¾æ€é©¬åŒç›¸ã€‚
 	if(your_xiang_num == 2 && StoY(yk) MY_SMALL_EQL MY_RANK1){
 		RETRUN_MUL(8);
 	}

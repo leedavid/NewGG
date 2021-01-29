@@ -1,6 +1,8 @@
 #ifndef MY_BITBOARD_H_INCLUDED
 #define MY_BITBOARD_H_INCLUDED
 
+#include "platform.h"
+#include "bitop.h"
 #include "chess.h"
 
 
@@ -51,7 +53,7 @@ const uint64   CHE_Mult_F[90] =
 //Bitboard Pao_Eat_Attacks_R[NUM_PAO_EAT_ATT_R];
 //int      Pao_Eat_AttackIndex_R[90];
 const  uint64  PAO_EAT_Mult_R[90]  = 
-{  //7Î»
+{  //7ä½
 
 	0x4810085B72032000,0x582028000082299A,0x0102030C19001220,0x4187021022402D90,0x1020281D31340014,0x22040303060C609C,
 	0x0101298803820409,0x18403C0000B20278,0x408020032B000D50,0x1910200C44952004,0x4044100C05880006,0x408204000002021B,
@@ -76,7 +78,7 @@ const  uint64  PAO_EAT_Mult_R[90]  =
 //Bitboard Pao_Eat_Attacks_F[NUM_PAO_EAT_ATT_F];
 //int      Pao_Eat_AttackIndex_F[90];
 const uint64  PAO_EAT_Mult_F[90] =
-{ //8Î»
+{ //8ä½
 
 	0x0A60058107001B11,0x6190008800800830,0x4C1002034A286004,0x0A44005260200440,0x24002300201810A0,0x0623404A40100710,
 	0x1AA830400B041C08,0x0080084003922502,0x248410300900400A,0x01CA040121830211,0x21010B8305002100,0x400145810140090E,
@@ -170,7 +172,7 @@ const uint64   Ma_to_King_Mult[90] =
 //
 //Bitboard King_to_Ma_Attacks[NUM_MA_TO_KING_ATT];
 //int      King_to_Ma_AttackIndex[90];
-static const  uint64   King_to_Ma_Mult[90] = {  // Õâ¸öÊÇ´íµÄ,Òª¸ÄÒ»ÏÂ.
+static const  uint64   King_to_Ma_Mult[90] = {  // è¿™ä¸ªæ˜¯é”™çš„,è¦æ”¹ä¸€ä¸‹.
 
 	0x423F718020C03018,0x10326380208146A2,0x095960002514022A,0x10B930A009455000,0x0856628408240488,0x54393284019068C2,
 	0x10864C8879D85478,0x209033010803058E,0x18107F803F010022,0x4F7A0420580108C1,0x104608B011B00060,0x2228044100000A20,
@@ -251,9 +253,9 @@ extern uint64 XIANG_Mult[90];
 #define transform_mul(bb,magic64,bits)  ((M128_get_Or64(bb) * (magic64)) >> (64 - (bits)))
 
 
-// Ò»´Î³Ë·¨µÃµ½, µ«ÏÖÔÚFRÒª¶ş´Î²ÅĞĞ. 
+// ä¸€æ¬¡ä¹˜æ³•å¾—åˆ°, ä½†ç°åœ¨FRè¦äºŒæ¬¡æ‰è¡Œ. 
 //_mm_extract_epi64
-//ÎÄÕÂ³ö´¦£ºDIY²¿Âä(http://www.diybl.com/course/3_program/c++/cppjs/200876/130590_2.html)
+//æ–‡ç« å‡ºå¤„ï¼šDIYéƒ¨è½(http://www.diybl.com/course/3_program/c++/cppjs/200876/130590_2.html)
 //__inline uint16 transform_bba(Bitboard bb,uint64 magic64,int bits){
 //	//return (uint16)((((_mm_extract_epi64(bb,1) << TRANS_BIT) | _mm_extract_epi64(bb,0)) * magic64) >> bits);
 //	return (uint16)((M128_get_Or64(bb) * magic64) >> bits);
@@ -344,7 +346,7 @@ FORCE_INLINE bool m128_is_same(Bitboard &b1, Bitboard &b2) {
 }
 
 
-__inline bool m_have_bit(Bitboard m128) {  // Õâ¸ö¿ì£¬ÔÎ
+__inline bool m_have_bit(Bitboard m128) {  // è¿™ä¸ªå¿«ï¼Œæ™•
 	return !_mm_testz_si128(m128,m128);
 }
 

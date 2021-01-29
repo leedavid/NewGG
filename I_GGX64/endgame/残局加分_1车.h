@@ -1,7 +1,7 @@
-#ifndef XGC_šˆ¾Ö¼Ó·Ö_1³µ_H
-#define XGC_šˆ¾Ö¼Ó·Ö_1³µ_H
+#ifndef XGC_æ®˜å±€åŠ åˆ†_1è½¦_H
+#define XGC_æ®˜å±€åŠ åˆ†_1è½¦_H
 
-//************************************************************        ÓĞ1³µ¶Ô1³µ ************************************************************ 
+//************************************************************        æœ‰1è½¦å¯¹1è½¦ ************************************************************ 
 static const  sint16 ADD_Che2PawnCan_PawnControlMa                = 96;
 
 static const  sint16 ADD_3PaoMaTo1Che1PaoMa1PawnByPaoMaCan        = 32;
@@ -10,196 +10,196 @@ static const  sint16 ADD_1che2paoXpawn_B_1che1pao2ma_MaHome       = 32;
 static const  sint16 ADD_1che1pao1maXpawn_B_1che1pao2ma_MaHome    = 32;
 static const  sint16 ADD_1che2maXpawn_B_1che1pao2ma_MaHome        = 16;
 
-static const  sint16  ADD_1che2pao1pawn_1che1pao1ma_ByShi[3]      = { 48, 24, 16};             //1³µ2ÅÚX±ø¶Ô1³µ1ÅÚ1Âí
-static const  sint16  ADD_1che2pao1pawn_1che2pao_ByShi[3]         = { 48, 24, 16};             //1³µ2ÅÚX±ø¶Ô1³µ2ÅÚ
-static const  sint16  ADD_1che2pao1pawn_1che2ma_ByShi[3]          = { 48, 24, 16};             //1³µ2ÅÚX±ø¶Ô1³µ2Âí
+static const  sint16  ADD_1che2pao1pawn_1che1pao1ma_ByShi[3]      = { 48, 24, 16};             //1è½¦2ç‚®Xå…µå¯¹1è½¦1ç‚®1é©¬
+static const  sint16  ADD_1che2pao1pawn_1che2pao_ByShi[3]         = { 48, 24, 16};             //1è½¦2ç‚®Xå…µå¯¹1è½¦2ç‚®
+static const  sint16  ADD_1che2pao1pawn_1che2ma_ByShi[3]          = { 48, 24, 16};             //1è½¦2ç‚®Xå…µå¯¹1è½¦2é©¬
 
-static const  sint16  ADD_1che1pao1ma1pawn_1che1pao1ma_ByShi[3]   = { 48, 24, 16};             //1³µ1ÅÚ1ÂíX±ø¶Ô1³µ1ÅÚ1Âí
-static const  sint16  ADD_1che1pao1ma1pawn_1che2pao_ByShi[3]      = { 48, 24, 16};             //1³µ1ÅÚ1ÂíX±ø¶Ô1³µ2ÅÚ
-static const  sint16  ADD_1che1pao1ma1pawn_1che2ma_ByShi[3]       = { 48, 24, 16};             //1³µ1ÅÚ1ÂíX±ø¶Ô1³µ2Âí
+static const  sint16  ADD_1che1pao1ma1pawn_1che1pao1ma_ByShi[3]   = { 48, 24, 16};             //1è½¦1ç‚®1é©¬Xå…µå¯¹1è½¦1ç‚®1é©¬
+static const  sint16  ADD_1che1pao1ma1pawn_1che2pao_ByShi[3]      = { 48, 24, 16};             //1è½¦1ç‚®1é©¬Xå…µå¯¹1è½¦2ç‚®
+static const  sint16  ADD_1che1pao1ma1pawn_1che2ma_ByShi[3]       = { 48, 24, 16};             //1è½¦1ç‚®1é©¬Xå…µå¯¹1è½¦2é©¬
 
-static const  sint16  ADD_1che2ma1pawn_1che1pao1ma_ByShi[3]       = { 48, 24, 16};             //1³µ2ÂíX±ø¶Ô1³µ1ÅÚ1Âí
-static const  sint16  ADD_1che2ma1pawn_1che2pao_ByShi[3]          = { 48, 24, 16};             //1³µ2ÂíX±ø¶Ô1³µ2ÅÚ
-static const  sint16  ADD_1che2ma1pawn_1che2ma_ByShi[3]           = { 48, 24, 16};             //1³µ2ÂíX±ø¶Ô1³µ2Âí
+static const  sint16  ADD_1che2ma1pawn_1che1pao1ma_ByShi[3]       = { 48, 24, 16};             //1è½¦2é©¬Xå…µå¯¹1è½¦1ç‚®1é©¬
+static const  sint16  ADD_1che2ma1pawn_1che2pao_ByShi[3]          = { 48, 24, 16};             //1è½¦2é©¬Xå…µå¯¹1è½¦2ç‚®
+static const  sint16  ADD_1che2ma1pawn_1che2ma_ByShi[3]           = { 48, 24, 16};             //1è½¦2é©¬Xå…µå¯¹1è½¦2é©¬
 
-static const  sint16  ADD_CheMaPawn_CheMa_ByPawnByShi[3]       = { 96, 24, 16};				//³µÂí±ø¶Ô³µÂí¶à±ø¼Ó·Ö
-static const  sint16  ADD_CheMaPawn_ChePao_ByPawnByShi[3]      = { 48, 24, 16}; 			//³µÂí±ø¶Ô³µÂí¶à±ø¼Ó·Ö
+static const  sint16  ADD_CheMaPawn_CheMa_ByPawnByShi[3]       = { 96, 24, 16};				//è½¦é©¬å…µå¯¹è½¦é©¬å¤šå…µåŠ åˆ†
+static const  sint16  ADD_CheMaPawn_ChePao_ByPawnByShi[3]      = { 48, 24, 16}; 			//è½¦é©¬å…µå¯¹è½¦é©¬å¤šå…µåŠ åˆ†
 
-static const  sint16  ADD_ChePaoPawn_ChePao_ByPawnByShi[3]     = { 48, 24, 16};             //³µÅÚ±ø¶Ô³µÅÚ¶à±ø¼Ó·Ö
-static const  sint16  ADD_ChePaoPawn_CheMa_ByPawnByShi[3]      = { 48, 24, 16};             //³µÅÚ±ø¶Ô³µÂí¶à±ø¼Ó·Ö
+static const  sint16  ADD_ChePaoPawn_ChePao_ByPawnByShi[3]     = { 48, 24, 16};             //è½¦ç‚®å…µå¯¹è½¦ç‚®å¤šå…µåŠ åˆ†
+static const  sint16  ADD_ChePaoPawn_CheMa_ByPawnByShi[3]      = { 48, 24, 16};             //è½¦ç‚®å…µå¯¹è½¦é©¬å¤šå…µåŠ åˆ†
 
-static const  sint16  ADD_CheXPawn_To_Che_ByShi[3]             = {96, 48, 32};             //³µ±ø¶Ô³µ
+static const  sint16  ADD_CheXPawn_To_Che_ByShi[3]             = {96, 48, 32};             //è½¦å…µå¯¹è½¦
 
-static const  sint16  ADD_CheMaPawn_CheMaPao_ByPawnByShi[3]       = { 96, 36, 16};		//³µÂí±ø¶Ô³µÂí¶à±ø¼Ó·Ö
+static const  sint16  ADD_CheMaPawn_CheMaPao_ByPawnByShi[3]       = { 96, 36, 16};		//è½¦é©¬å…µå¯¹è½¦é©¬å¤šå…µåŠ åˆ†
 
-static const  sint16  ADD_CheMaPawn_CheMa1pawn_ByPawnByShi[3]       = { 64, 36, 16};		//³µÂí±ø¶Ô³µÂí¶à±ø¼Ó·Ö
-static const  sint16  ADD_CheMaPawn_ChePao1pawn_ByPawnByShi[3]      = { 48, 24, 16};		//³µÂí±ø¶Ô³µÂí¶à±ø¼Ó·Ö
-static const  sint16  ADD_ChePaoPawn_ChePao1pawn_ByPawnByShi[3]     = { 48, 24, 16};        //³µÅÚ±ø¶Ô³µÅÚ¶à±ø¼Ó·Ö
-static const  sint16  ADD_ChePaoPawn_CheMa1pawn_ByPawnByShi[3]      = { 48, 24, 16};        //³µÅÚ±ø¶Ô³µÂí¶à±ø¼Ó·Ö
+static const  sint16  ADD_CheMaPawn_CheMa1pawn_ByPawnByShi[3]       = { 64, 36, 16};		//è½¦é©¬å…µå¯¹è½¦é©¬å¤šå…µåŠ åˆ†
+static const  sint16  ADD_CheMaPawn_ChePao1pawn_ByPawnByShi[3]      = { 48, 24, 16};		//è½¦é©¬å…µå¯¹è½¦é©¬å¤šå…µåŠ åˆ†
+static const  sint16  ADD_ChePaoPawn_ChePao1pawn_ByPawnByShi[3]     = { 48, 24, 16};        //è½¦ç‚®å…µå¯¹è½¦ç‚®å¤šå…µåŠ åˆ†
+static const  sint16  ADD_ChePaoPawn_CheMa1pawn_ByPawnByShi[3]      = { 48, 24, 16};        //è½¦ç‚®å…µå¯¹è½¦é©¬å¤šå…µåŠ åˆ†
 
-static const  sint16 ADD_ChePaoPawn_ChePao_ByShiXiang				 =  64;                 //³µÅÚ±ø¶Ô³µÅÚ
+static const  sint16 ADD_ChePaoPawn_ChePao_ByShiXiang				 =  64;                 //è½¦ç‚®å…µå¯¹è½¦ç‚®
 static const  sint16 ADD_Only_Pawn_NoCheMaPaoByShi[3]				 =  {64,32,16};
 
-static const  sint16 ADD_NO_CHE_OP_KING_NOT_BOTTOM             = 96;                      //ÎŞ³µ·½³µ²»ÔÚµ×Ïß
+static const  sint16 ADD_NO_CHE_OP_KING_NOT_BOTTOM             = 96;                      //æ— è½¦æ–¹è½¦ä¸åœ¨åº•çº¿
 
 static const  sint16 ADD_1CheMore2Pawn_To_1Pao2ma1Pawn         = 32;
 static const  sint16 ADD_1CheMore2Pawn_To_2Pao1ma1Pawn         = 32;
 
 
-static const  sint16  ADD_ChePaoXPawn_CheMa1Pawn[3]            = { 48, 24, 16};            //³µÅÚX±ø¶Ô³µÂí1±ø_±øµÄ¼Ó·Ö
-static const  sint16  ADD_ChePaoXPawn_ChePao1Pawn[3]           = { 48, 24, 16};            //³µÅÚX±ø¶Ô³µÅÚ1±ø_±øµÄ¼Ó·Ö
+static const  sint16  ADD_ChePaoXPawn_CheMa1Pawn[3]            = { 48, 24, 16};            //è½¦ç‚®Xå…µå¯¹è½¦é©¬1å…µ_å…µçš„åŠ åˆ†
+static const  sint16  ADD_ChePaoXPawn_ChePao1Pawn[3]           = { 48, 24, 16};            //è½¦ç‚®Xå…µå¯¹è½¦ç‚®1å…µ_å…µçš„åŠ åˆ†
 
-static const  sint16  ADD_CheMaXPawn_CheMa1Pawn[3]             = { 48, 24, 16};            //³µÅÚX±ø¶Ô³µÂí1±ø_±øµÄ¼Ó·Ö
-static const  sint16  ADD_CheMaXPawn_ChePao1Pawn[3]            = { 48, 24, 16};            //³µÅÚX±ø¶Ô³µÅÚ1±ø_±øµÄ¼Ó·Ö
+static const  sint16  ADD_CheMaXPawn_CheMa1Pawn[3]             = { 48, 24, 16};            //è½¦ç‚®Xå…µå¯¹è½¦é©¬1å…µ_å…µçš„åŠ åˆ†
+static const  sint16  ADD_CheMaXPawn_ChePao1Pawn[3]            = { 48, 24, 16};            //è½¦ç‚®Xå…µå¯¹è½¦ç‚®1å…µ_å…µçš„åŠ åˆ†
 
-static const  sint16  ADD_ChePaoXPawn_CheMa2Pawn[3]            = { 48, 24, 16};            //³µÅÚX±ø¶Ô³µÂí1±ø_±øµÄ¼Ó·Ö
-static const  sint16  ADD_ChePaoXPawn_ChePao2Pawn[3]           = { 48, 24, 16};            //³µÅÚX±ø¶Ô³µÅÚ1±ø_±øµÄ¼Ó·Ö
+static const  sint16  ADD_ChePaoXPawn_CheMa2Pawn[3]            = { 48, 24, 16};            //è½¦ç‚®Xå…µå¯¹è½¦é©¬1å…µ_å…µçš„åŠ åˆ†
+static const  sint16  ADD_ChePaoXPawn_ChePao2Pawn[3]           = { 48, 24, 16};            //è½¦ç‚®Xå…µå¯¹è½¦ç‚®1å…µ_å…µçš„åŠ åˆ†
 
-static const  sint16  ADD_CheMaXPawn_CheMa2Pawn[3]             = { 48, 24, 16};            //³µÅÚX±ø¶Ô³µÂí1±ø_±øµÄ¼Ó·Ö
-static const  sint16  ADD_CheMaXPawn_ChePao2Pawn[3]            = { 48, 24, 16};            //³µÅÚX±ø¶Ô³µÅÚ1±ø_±øµÄ¼Ó·Ö
+static const  sint16  ADD_CheMaXPawn_CheMa2Pawn[3]             = { 48, 24, 16};            //è½¦ç‚®Xå…µå¯¹è½¦é©¬1å…µ_å…µçš„åŠ åˆ†
+static const  sint16  ADD_CheMaXPawn_ChePao2Pawn[3]            = { 48, 24, 16};            //è½¦ç‚®Xå…µå¯¹è½¦ç‚®1å…µ_å…µçš„åŠ åˆ†
 
-static const  sint16  ADD_ChePaoXPawn_VS_1Che2Pawn_ByShi[3]    = { 48, 24, 16};            //³µÅÚX±ø¶Ô³µ2±ø_±øµÄ¼Ó·Ö
-static const  sint16  ADD_1Che2Pawn_VS_ChePaoXPawn_ByShi[3]    = { 48, 24, 16};            //³µ2±ø_±ø¶Ô³µÅÚX±øµÄ¼Ó·Ö
-static const  sint16  ADD_ChePaoString_OtPawn                  =  32;                     //³µÅÚ·½³µÅÚ±»Ç£
+static const  sint16  ADD_ChePaoXPawn_VS_1Che2Pawn_ByShi[3]    = { 48, 24, 16};            //è½¦ç‚®Xå…µå¯¹è½¦2å…µ_å…µçš„åŠ åˆ†
+static const  sint16  ADD_1Che2Pawn_VS_ChePaoXPawn_ByShi[3]    = { 48, 24, 16};            //è½¦2å…µ_å…µå¯¹è½¦ç‚®Xå…µçš„åŠ åˆ†
+static const  sint16  ADD_ChePaoString_OtPawn                  =  32;                     //è½¦ç‚®æ–¹è½¦ç‚®è¢«ç‰µ
 
-static const  sint16  ADD_CheMaXPawn_VS_1Che2Pawn_ByShi[3]     = { 48, 24, 16};            //³µÅÚX±ø¶Ô³µ2±ø_±øµÄ¼Ó·Ö
-static const  sint16  ADD_1Che2Pawn_VS_CheMaXPawn_ByShi[3]     = { 48, 24, 16};           //³µ2±ø_±ø¶Ô³µÅÚX±øµÄ¼Ó·Ö
+static const  sint16  ADD_CheMaXPawn_VS_1Che2Pawn_ByShi[3]     = { 48, 24, 16};            //è½¦ç‚®Xå…µå¯¹è½¦2å…µ_å…µçš„åŠ åˆ†
+static const  sint16  ADD_1Che2Pawn_VS_CheMaXPawn_ByShi[3]     = { 48, 24, 16};           //è½¦2å…µ_å…µå¯¹è½¦ç‚®Xå…µçš„åŠ åˆ†
 
 
-static const  sint16 ADD_ChePawn_To_ChePawnByShi[3]            = { 48, 24, 16};            //³µ±ø¶Ô³µ±ø,¶à±ø·½µÄ·Ö
+static const  sint16 ADD_ChePawn_To_ChePawnByShi[3]            = { 48, 24, 16};            //è½¦å…µå¯¹è½¦å…µ,å¤šå…µæ–¹çš„åˆ†
 
-static const  sint16 ADD_CheXPawn_To1Pao                       =  80;                     //³µ±ø¶ÔÅÚ,
+static const  sint16 ADD_CheXPawn_To1Pao                       =  80;                     //è½¦å…µå¯¹ç‚®,
 static const  sint16 ADD_CheXPawn_To1Pao_ByPawnShi[3]          = {64,32,16};
 
-static const  sint16 ADD_CheXPawn_To1Ma                        =  64;                     //³µ±ø¶ÔÂí,
+static const  sint16 ADD_CheXPawn_To1Ma                        =  64;                     //è½¦å…µå¯¹é©¬,
 static const  sint16 ADD_CheXPawn_To1Ma_ByPawnShi[3]           = {64,32,16};
 
-static const  sint16 ADD_CheXPawn_To1Pawn                      =  64;                     //³µ±ø¶Ô±ø,
+static const  sint16 ADD_CheXPawn_To1Pawn                      =  64;                     //è½¦å…µå¯¹å…µ,
 static const  sint16 ADD_CheXPawn_To1Pawn_ByPawnShi[3]         = {64,32,16};
 
-static const  sint16 ADD_ChePawn_To_CheMa_By_PawnByShi[3]      = {64,32,16};              //³µ±ø¶Ô³µÂí,±øµÄ¼Ó·Ö
-static const  sint16 ADD_ChePawn_To_CheMa_Pawn_SX_LessOne      = 108;                     //³µ±øÒÔ³µÂí, ±ø·½Ã»ÓĞ1¸öÒÔÏÂÊËÏàÁË
+static const  sint16 ADD_ChePawn_To_CheMa_By_PawnByShi[3]      = {64,32,16};              //è½¦å…µå¯¹è½¦é©¬,å…µçš„åŠ åˆ†
+static const  sint16 ADD_ChePawn_To_CheMa_Pawn_SX_LessOne      = 108;                     //è½¦å…µä»¥è½¦é©¬, å…µæ–¹æ²¡æœ‰1ä¸ªä»¥ä¸‹ä»•ç›¸äº†
 
-static const  sint16 ADD_CheXPawn_To_1Che1Ma1Pawn_ByPawn[3]    = {64,32,16};              //³µ±ø¶Ô³µÂí1±ø,±øµÄ¼Ó·Ö
-static const  sint16 ADD_1Che1Ma1Pawn_To_CheXPawn_ByPawn[3]    = {64,32,16};              //³µ±ø¶Ô³µÂí1±ø,±øµÄ¼Ó·Ö
+static const  sint16 ADD_CheXPawn_To_1Che1Ma1Pawn_ByPawn[3]    = {64,32,16};              //è½¦å…µå¯¹è½¦é©¬1å…µ,å…µçš„åŠ åˆ†
+static const  sint16 ADD_1Che1Ma1Pawn_To_CheXPawn_ByPawn[3]    = {64,32,16};              //è½¦å…µå¯¹è½¦é©¬1å…µ,å…µçš„åŠ åˆ†
 
-static const  sint16 ADD_CheXPawn_To_1Che1Pao1Pawn_ByPawn[3]    = {64,32,16};              //³µ±ø¶Ô³µÂí1±ø,±øµÄ¼Ó·Ö
-static const  sint16 ADD_1Che1Pao1Pawn_To_CheXPawn_ByPawn[3]    = {64,32,16};              //³µ±ø¶Ô³µÂí1±ø,±øµÄ¼Ó·Ö
-
-
+static const  sint16 ADD_CheXPawn_To_1Che1Pao1Pawn_ByPawn[3]    = {64,32,16};              //è½¦å…µå¯¹è½¦é©¬1å…µ,å…µçš„åŠ åˆ†
+static const  sint16 ADD_1Che1Pao1Pawn_To_CheXPawn_ByPawn[3]    = {64,32,16};              //è½¦å…µå¯¹è½¦é©¬1å…µ,å…µçš„åŠ åˆ†
 
 
-//************************************************************        ÓĞ1³µ¶Ô0³µ ************************************************************ 
-static const  sint16 ADD_ChePawnCan_noChePawnNotcan              =  32;             //ÓĞ³µ·½µÄ±øÄÜ¹ıºÓ£¬ÎŞ³µ·½µÄ±ø²»ÄÜ¹ıºÓ¡£
 
-static const  sint16 ADD_2Pao1MaXPawn_1Che1Pao_To_ByPawn[3]      =  { 64, 32, 16 };  //2ÅÚ1ÂíX±ø¶Ô³µÅÚ
-static const  sint16 ADD_1Pao2MaXPawn_1Che1Pao_To_ByPawn[3]      =  { 64, 32, 16 };  //1ÅÚ2ÂíX±ø¶Ô³µÅÚ
 
-static const  sint16 ADD_2Pao1MaXPawn_1Che1Ma_To_ByPawn[3]       =  { 64, 32, 16 };  //2ÅÚ1ÂíX±ø¶Ô³µÂí
-static const  sint16 ADD_1Pao2MaXPawn_1Che1Ma_To_ByPawn[3]       =  { 64, 32, 16 };  //1ÅÚ2ÂíX±ø¶Ô³µÂí
+//************************************************************        æœ‰1è½¦å¯¹0è½¦ ************************************************************ 
+static const  sint16 ADD_ChePawnCan_noChePawnNotcan              =  32;             //æœ‰è½¦æ–¹çš„å…µèƒ½è¿‡æ²³ï¼Œæ— è½¦æ–¹çš„å…µä¸èƒ½è¿‡æ²³ã€‚
 
-static const  sint16 ADD_ChePaoXPawn_To_2Pao1Ma_ByPawn[3]      =  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô2ÅÚ1Âí
-static const  sint16 ADD_ChePaoXPawn_To_1Pao2Ma_ByPawn[3]      =  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô1ÅÚ2Âí
+static const  sint16 ADD_2Pao1MaXPawn_1Che1Pao_To_ByPawn[3]      =  { 64, 32, 16 };  //2ç‚®1é©¬Xå…µå¯¹è½¦ç‚®
+static const  sint16 ADD_1Pao2MaXPawn_1Che1Pao_To_ByPawn[3]      =  { 64, 32, 16 };  //1ç‚®2é©¬Xå…µå¯¹è½¦ç‚®
 
-static const  sint16 ADD_ChePaoXPawn_To_2Pao1Pawn_ByPawn[3]    =  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô2ÅÚ1±ø
-static const  sint16 ADD_2Pao1Pawn_To_ChePaoXPawn_ByPawn[3]    =  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô2ÅÚ1±ø
+static const  sint16 ADD_2Pao1MaXPawn_1Che1Ma_To_ByPawn[3]       =  { 64, 32, 16 };  //2ç‚®1é©¬Xå…µå¯¹è½¦é©¬
+static const  sint16 ADD_1Pao2MaXPawn_1Che1Ma_To_ByPawn[3]       =  { 64, 32, 16 };  //1ç‚®2é©¬Xå…µå¯¹è½¦é©¬
 
-static const  sint16 ADD_ChePaoXPawn_To_1Pao1Ma1Pawn_ByPawn[3] =  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô1ÅÚ1Âí1±ø
-static const  sint16 ADD_1Pao1Ma1Pawn_To_ChePaoXPawn_ByPawn[3] =  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô1ÅÚ1Âí1±ø
+static const  sint16 ADD_ChePaoXPawn_To_2Pao1Ma_ByPawn[3]      =  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹2ç‚®1é©¬
+static const  sint16 ADD_ChePaoXPawn_To_1Pao2Ma_ByPawn[3]      =  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹1ç‚®2é©¬
 
-static const  sint16 ADD_ChePaoXPawn_To_2Ma1Pawn_ByPawn[3]	    =  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô2Âí1±ø
-static const  sint16 ADD_2Ma1Pawn_To_ChePaoXPawn_ByPawn[3]     =  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô2Âí1±ø
+static const  sint16 ADD_ChePaoXPawn_To_2Pao1Pawn_ByPawn[3]    =  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹2ç‚®1å…µ
+static const  sint16 ADD_2Pao1Pawn_To_ChePaoXPawn_ByPawn[3]    =  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹2ç‚®1å…µ
 
-static const  sint16 ADD_ChePaoXPawn_To_1Pao2Pawn_ByPawn[3]	=  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô1Âí2±ø
-static const  sint16 ADD_1Pao2Pawn_To_ChePaoXPawn_ByPawn[3]    =  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô1Âí2±ø
+static const  sint16 ADD_ChePaoXPawn_To_1Pao1Ma1Pawn_ByPawn[3] =  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹1ç‚®1é©¬1å…µ
+static const  sint16 ADD_1Pao1Ma1Pawn_To_ChePaoXPawn_ByPawn[3] =  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹1ç‚®1é©¬1å…µ
 
-static const  sint16 ADD_ChePaoXPawn_To_1Ma2Pawn_ByPawn[3]	    =  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô1Âí2±ø
-static const  sint16 ADD_1Ma2Pawn_To_ChePaoXPawn_ByPawn[3]     =  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô1Âí2±ø
+static const  sint16 ADD_ChePaoXPawn_To_2Ma1Pawn_ByPawn[3]	    =  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹2é©¬1å…µ
+static const  sint16 ADD_2Ma1Pawn_To_ChePaoXPawn_ByPawn[3]     =  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹2é©¬1å…µ
 
-static const  sint16 ADD_ChePaoXPawn_To_3Pawn_ByPawn[3]	    =  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô3±ø
-static const  sint16 ADD_3Pawn_To_ChePaoXPawn_ByPawn[3]        =  { 64, 32, 16 };  //³µÅÚX±ø,¶Ô3±ø
+static const  sint16 ADD_ChePaoXPawn_To_1Pao2Pawn_ByPawn[3]	=  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹1é©¬2å…µ
+static const  sint16 ADD_1Pao2Pawn_To_ChePaoXPawn_ByPawn[3]    =  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹1é©¬2å…µ
 
-static const  sint16 ADD_CheMaXPawn_To_2Pao1Ma_ByPawn[3]       =  { 64, 24, 16 };  //³µÂíX±ø,¶Ô2ÅÚ1Âí
-static const  sint16 ADD_CheMaXPawn_To_1Pao2Ma_ByPawn[3]       =  { 64, 32, 16 };  //³µÂíX±ø,¶Ô1ÅÚ2Âí
+static const  sint16 ADD_ChePaoXPawn_To_1Ma2Pawn_ByPawn[3]	    =  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹1é©¬2å…µ
+static const  sint16 ADD_1Ma2Pawn_To_ChePaoXPawn_ByPawn[3]     =  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹1é©¬2å…µ
 
-static const  sint16 ADD_CheMaXPawn_To_2Pao1Pawn_ByPawn[3]     =  { 64, 32, 16 };  //³µÂíX±ø,¶Ô2ÅÚ1±ø
-static const  sint16 ADD_2Pao1Pawn_To_CheMaXPawn_ByPawn[3]     =  { 64, 32, 16 };  //³µÂíX±ø,¶Ô2ÅÚ1±ø
+static const  sint16 ADD_ChePaoXPawn_To_3Pawn_ByPawn[3]	    =  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹3å…µ
+static const  sint16 ADD_3Pawn_To_ChePaoXPawn_ByPawn[3]        =  { 64, 32, 16 };  //è½¦ç‚®Xå…µ,å¯¹3å…µ
 
-static const  sint16 ADD_CheMaXPawn_To_1Pao1Ma1Pawn_ByPawn[3]  =  { 64, 32, 16 };  //³µÂíX±ø,¶Ô1ÅÚ1Âí1±ø
-static const  sint16 ADD_1Pao1Ma1Pawn_To_CheMaXPawn_ByPawn[3]  =  { 64, 32, 16 };  //³µÂíX±ø,¶Ô1ÅÚ1Âí1±ø
+static const  sint16 ADD_CheMaXPawn_To_2Pao1Ma_ByPawn[3]       =  { 64, 24, 16 };  //è½¦é©¬Xå…µ,å¯¹2ç‚®1é©¬
+static const  sint16 ADD_CheMaXPawn_To_1Pao2Ma_ByPawn[3]       =  { 64, 32, 16 };  //è½¦é©¬Xå…µ,å¯¹1ç‚®2é©¬
 
-static const  sint16 ADD_CheMaXPawn_To_2Ma1Pawn_ByPawn[3]	    =  { 64, 32, 16 };  //³µÂíX±ø,¶Ô2Âí1±ø
-static const  sint16 ADD_2Ma1Pawn_To_CheMaXPawn_ByPawn[3]      =  { 64, 32, 16 };  //³µÂíX±ø,¶Ô2Âí1±ø
+static const  sint16 ADD_CheMaXPawn_To_2Pao1Pawn_ByPawn[3]     =  { 64, 32, 16 };  //è½¦é©¬Xå…µ,å¯¹2ç‚®1å…µ
+static const  sint16 ADD_2Pao1Pawn_To_CheMaXPawn_ByPawn[3]     =  { 64, 32, 16 };  //è½¦é©¬Xå…µ,å¯¹2ç‚®1å…µ
 
-static const  sint16 ADD_CheMaXPawn_To_1Pao2Pawn_ByPawn[3]	    =  { 64, 32, 16 };  //³µÂíX±ø,¶Ô1ÅÚ2±ø
-static const  sint16 ADD_1Pao2Pawn_To_CheMaXPawn_ByPawn[3]     =  { 64, 32, 16 };  //³µÂíX±ø,¶Ô1ÅÚ2±ø
+static const  sint16 ADD_CheMaXPawn_To_1Pao1Ma1Pawn_ByPawn[3]  =  { 64, 32, 16 };  //è½¦é©¬Xå…µ,å¯¹1ç‚®1é©¬1å…µ
+static const  sint16 ADD_1Pao1Ma1Pawn_To_CheMaXPawn_ByPawn[3]  =  { 64, 32, 16 };  //è½¦é©¬Xå…µ,å¯¹1ç‚®1é©¬1å…µ
 
-static const  sint16 ADD_CheMaXPawn_To_1Ma2Pawn_ByPawn[3]	    =  { 64, 32, 16 };  //³µÂíX±ø,¶Ô1Âí2±ø
-static const  sint16 ADD_1Ma2Pawn_To_CheMaXPawn_ByPawn[3]      =  { 64, 32, 16 };  //³µÂíX±ø,¶Ô1Âí2±ø
+static const  sint16 ADD_CheMaXPawn_To_2Ma1Pawn_ByPawn[3]	    =  { 64, 32, 16 };  //è½¦é©¬Xå…µ,å¯¹2é©¬1å…µ
+static const  sint16 ADD_2Ma1Pawn_To_CheMaXPawn_ByPawn[3]      =  { 64, 32, 16 };  //è½¦é©¬Xå…µ,å¯¹2é©¬1å…µ
 
-static const  sint16 ADD_CheMaXPawn_To_3Pawn_ByPawn[3]	        =  { 64, 32, 16 };  //³µÂíX±ø,¶Ô3±ø
-static const  sint16 ADD_3Pawn_To_CheMaXPawn_ByPawn[3]         =  { 64, 32, 16 };  //³µÂíX±ø,¶Ô3±ø
+static const  sint16 ADD_CheMaXPawn_To_1Pao2Pawn_ByPawn[3]	    =  { 64, 32, 16 };  //è½¦é©¬Xå…µ,å¯¹1ç‚®2å…µ
+static const  sint16 ADD_1Pao2Pawn_To_CheMaXPawn_ByPawn[3]     =  { 64, 32, 16 };  //è½¦é©¬Xå…µ,å¯¹1ç‚®2å…µ
 
-static const  sint16 ADD_CheXPawn_To_2Pao1Ma_ByPawn[3]         =  { 64, 32, 16 };  //³µX±ø,¶Ô2ÅÚ1Âí
-static const  sint16 ADD_CheXPawn_To_1Pao2Ma_ByPawn[3]         =  { 64, 32, 16 };  //³µX±ø,¶Ô1ÅÚ2Âí
+static const  sint16 ADD_CheMaXPawn_To_1Ma2Pawn_ByPawn[3]	    =  { 64, 32, 16 };  //è½¦é©¬Xå…µ,å¯¹1é©¬2å…µ
+static const  sint16 ADD_1Ma2Pawn_To_CheMaXPawn_ByPawn[3]      =  { 64, 32, 16 };  //è½¦é©¬Xå…µ,å¯¹1é©¬2å…µ
 
-static const  sint16 ADD_CheXPawn_To_2Pao1Pawn_ByPawn[3]       =  { 64, 32, 16 };  //³µX±ø,¶Ô2ÅÚ1±ø
-static const  sint16 ADD_2Pao1Pawn_To_CheXPawn_ByPawn[3]       =  { 64, 32, 16 };  //³µX±ø,¶Ô2ÅÚ1±ø
+static const  sint16 ADD_CheMaXPawn_To_3Pawn_ByPawn[3]	        =  { 64, 32, 16 };  //è½¦é©¬Xå…µ,å¯¹3å…µ
+static const  sint16 ADD_3Pawn_To_CheMaXPawn_ByPawn[3]         =  { 64, 32, 16 };  //è½¦é©¬Xå…µ,å¯¹3å…µ
 
-static const  sint16 ADD_Che2Pawn_To_2PaoXPawn_ByPawn[3]       =  { 64, 32, 16 };  //³µ2±ø,¶Ô2ÅÚX±ø
-static const  sint16 ADD_2PaoXPawn_To_Che2Pawn_ByPawn[3]       =  { 80, 48, 24};  //³µ2±ø,¶Ô2ÅÚX±ø
+static const  sint16 ADD_CheXPawn_To_2Pao1Ma_ByPawn[3]         =  { 64, 32, 16 };  //è½¦Xå…µ,å¯¹2ç‚®1é©¬
+static const  sint16 ADD_CheXPawn_To_1Pao2Ma_ByPawn[3]         =  { 64, 32, 16 };  //è½¦Xå…µ,å¯¹1ç‚®2é©¬
 
-static const  sint16 ADD_CheXPawn_To_1Pao1Ma1Pawn_ByPawn[3]    =  { 64, 32, 16 };  //³µX±ø,¶Ô1ÅÚ1Âí1±ø
-static const  sint16 ADD_1Pao1Ma1Pawn_To_CheXPawn_ByPawn[3]    =  { 64, 32, 16 };  //³µX±ø,¶Ô1ÅÚ1Âí1±ø
+static const  sint16 ADD_CheXPawn_To_2Pao1Pawn_ByPawn[3]       =  { 64, 32, 16 };  //è½¦Xå…µ,å¯¹2ç‚®1å…µ
+static const  sint16 ADD_2Pao1Pawn_To_CheXPawn_ByPawn[3]       =  { 64, 32, 16 };  //è½¦Xå…µ,å¯¹2ç‚®1å…µ
 
-static const  sint16 ADD_Che2Pawn_To_1Pao1MaXPawn_ByPawn[3]    =  { 64, 32, 16 };  //³µ2±ø,¶Ô1ÅÚ1ÂíX±ø
-static const  sint16 ADD_1Pao1MaXPawn_To_Che2Pawn_ByPawn[3]    =  { 64, 24, 16 };  //³µ2±ø,¶Ô1ÅÚ1ÂíX±ø
-static const  sint16 ADD_Che2Pawn_Can0                         =   96;            //³µ2±øÒ»¸ö±øÒ²²»ÄÜ¹ıºÓ
+static const  sint16 ADD_Che2Pawn_To_2PaoXPawn_ByPawn[3]       =  { 64, 32, 16 };  //è½¦2å…µ,å¯¹2ç‚®Xå…µ
+static const  sint16 ADD_2PaoXPawn_To_Che2Pawn_ByPawn[3]       =  { 80, 48, 24};  //è½¦2å…µ,å¯¹2ç‚®Xå…µ
+
+static const  sint16 ADD_CheXPawn_To_1Pao1Ma1Pawn_ByPawn[3]    =  { 64, 32, 16 };  //è½¦Xå…µ,å¯¹1ç‚®1é©¬1å…µ
+static const  sint16 ADD_1Pao1Ma1Pawn_To_CheXPawn_ByPawn[3]    =  { 64, 32, 16 };  //è½¦Xå…µ,å¯¹1ç‚®1é©¬1å…µ
+
+static const  sint16 ADD_Che2Pawn_To_1Pao1MaXPawn_ByPawn[3]    =  { 64, 32, 16 };  //è½¦2å…µ,å¯¹1ç‚®1é©¬Xå…µ
+static const  sint16 ADD_1Pao1MaXPawn_To_Che2Pawn_ByPawn[3]    =  { 64, 24, 16 };  //è½¦2å…µ,å¯¹1ç‚®1é©¬Xå…µ
+static const  sint16 ADD_Che2Pawn_Can0                         =   96;            //è½¦2å…µä¸€ä¸ªå…µä¹Ÿä¸èƒ½è¿‡æ²³
 static const  sint16 ADD_Che2Pawn_Never                        =   96;
 
-static const  sint16 ADD_CheXPawn_To_2Ma1Pawn_ByPawn[3]        =  { 64, 32, 16 };  //³µX±ø,¶Ô2Âí1±ø
-static const  sint16 ADD_2Ma1Pawn_To_CheXPawn_ByPawn[3]        =  { 64, 32, 16 };  //³µX±ø,¶Ô2Âí1±ø
+static const  sint16 ADD_CheXPawn_To_2Ma1Pawn_ByPawn[3]        =  { 64, 32, 16 };  //è½¦Xå…µ,å¯¹2é©¬1å…µ
+static const  sint16 ADD_2Ma1Pawn_To_CheXPawn_ByPawn[3]        =  { 64, 32, 16 };  //è½¦Xå…µ,å¯¹2é©¬1å…µ
 
-static const  sint16 ADD_Che2Pawn_To_2MaXPawn_ByPawn[3]        =  { 64, 32, 24 };  //³µ2±ø,¶Ô2Âíx±ø
-static const  sint16 ADD_2MaXPawn_To_Che2Pawn_ByPawn[3]        =  { 64, 32, 16 };  //³µ2±ø,¶Ô2Âíx±ø
+static const  sint16 ADD_Che2Pawn_To_2MaXPawn_ByPawn[3]        =  { 64, 32, 24 };  //è½¦2å…µ,å¯¹2é©¬xå…µ
+static const  sint16 ADD_2MaXPawn_To_Che2Pawn_ByPawn[3]        =  { 64, 32, 16 };  //è½¦2å…µ,å¯¹2é©¬xå…µ
 
-static const  sint16 ADD_CheXPawn_To_1Pao2Pawn_ByPawn[3]       =  { 64, 32, 16 };  //³µX±ø,¶Ô1ÅÚ2±ø
-static const  sint16 ADD_1Pao2Pawn_To_CheXPawn_ByPawn[3]       =  { 64, 32, 16 };  //³µX±ø,¶Ô1ÅÚ2±ø
+static const  sint16 ADD_CheXPawn_To_1Pao2Pawn_ByPawn[3]       =  { 64, 32, 16 };  //è½¦Xå…µ,å¯¹1ç‚®2å…µ
+static const  sint16 ADD_1Pao2Pawn_To_CheXPawn_ByPawn[3]       =  { 64, 32, 16 };  //è½¦Xå…µ,å¯¹1ç‚®2å…µ
 
-static const  sint16 ADD_CheXPawn_To_1Ma2Pawn_ByPawn[3]        =  { 64, 32, 16 };  //³µX±ø,¶Ô1Âí2±ø
-static const  sint16 ADD_1Ma2Pawn_To_CheXPawn_ByPawn[3]        =  { 64, 32, 16 };  //³µX±ø,¶Ô1Âí2±ø
+static const  sint16 ADD_CheXPawn_To_1Ma2Pawn_ByPawn[3]        =  { 64, 32, 16 };  //è½¦Xå…µ,å¯¹1é©¬2å…µ
+static const  sint16 ADD_1Ma2Pawn_To_CheXPawn_ByPawn[3]        =  { 64, 32, 16 };  //è½¦Xå…µ,å¯¹1é©¬2å…µ
 
 
-static const  sint16 ADD_PaoXPawn_To_ChePawnByShi_WpaoSafe[3]  =  { 80, 48, 16};  //ÅÚ±ø¶Ô³µ±ø,ÅÚ·½°²È«ºó,ÓĞ±øµÄ¼Ó·Ö 
-static const  sint16 ADD_MaXPawn_To_CheByShi_WmaSafe[3]        =  { 80, 48, 16};  //Âí±ø¶Ô³µ,Âí±ø·½°²È«ºó,ÓĞ±øµÄ¼Ó·Ö    
+static const  sint16 ADD_PaoXPawn_To_ChePawnByShi_WpaoSafe[3]  =  { 80, 48, 16};  //ç‚®å…µå¯¹è½¦å…µ,ç‚®æ–¹å®‰å…¨å,æœ‰å…µçš„åŠ åˆ† 
+static const  sint16 ADD_MaXPawn_To_CheByShi_WmaSafe[3]        =  { 80, 48, 16};  //é©¬å…µå¯¹è½¦,é©¬å…µæ–¹å®‰å…¨å,æœ‰å…µçš„åŠ åˆ†    
 
 static const  sint16 ADD_ChePawn_To_2Pao_By_PawnByShi[3]       =  {128, 80, 32};
-static const  sint16 ADD_ChePawn_To_MaPao_By_PawnByShi[3]      =  {128, 80, 32};   //³µ±ø¶ÔÂíÅÚ,³µ±ø·½±øÒª¼Ó·Ö,ÒòÎªÂíÅÚÌ«ÄÑÉ±¶Ô·½ÁË
+static const  sint16 ADD_ChePawn_To_MaPao_By_PawnByShi[3]      =  {128, 80, 32};   //è½¦å…µå¯¹é©¬ç‚®,è½¦å…µæ–¹å…µè¦åŠ åˆ†,å› ä¸ºé©¬ç‚®å¤ªéš¾æ€å¯¹æ–¹äº†
 static const  sint16 ADD_ChePawn_To_2Ma_By_PawnByShi[3]        =  {128, 80, 32};
-static const  sint16 ADD_ChePawn_To_MaPao_By_Che               =  64;              //³µ±ø¶ÔÂíÅÚ,³µ±ø·½³µÒª¼Ó·Ö,ÒòÎªÂíÅÚÌ«ÄÑÉ±¶Ô·½ÁË
+static const  sint16 ADD_ChePawn_To_MaPao_By_Che               =  64;              //è½¦å…µå¯¹é©¬ç‚®,è½¦å…µæ–¹è½¦è¦åŠ åˆ†,å› ä¸ºé©¬ç‚®å¤ªéš¾æ€å¯¹æ–¹äº†
 
-static const  sint16 ADD_CheXPawn_To_MaPawn                    =  96;             //³µ±ø¶ÔÂí±ø,³µ·½µÄ¼Ó·Ö
+static const  sint16 ADD_CheXPawn_To_MaPawn                    =  96;             //è½¦å…µå¯¹é©¬å…µ,è½¦æ–¹çš„åŠ åˆ†
 static const  sint16 ADD_CheXPawn_To_MaPawn_PawnByShi[3]       =  {168,128, 64};
 
-static const  sint16 ADD_CheXPawn_To_PaoPawn                   =  96;             //³µ±ø¶ÔÅÚ±ø,³µ·½µÄ¼Ó·Ö
+static const  sint16 ADD_CheXPawn_To_PaoPawn                   =  96;             //è½¦å…µå¯¹ç‚®å…µ,è½¦æ–¹çš„åŠ åˆ†
 static const  sint16 ADD_CheXPawn_To_PaoPawn_PawnByShi[3]      =  {168,128, 64};
 
 static const  sint16 ADD_CheXPawn_To_5Pawn                     =  168;
 static const  sint16 ADD_CheXPawn_To_4Pawn                     =  168;
-static const  sint16 ADD_CheXPawn_To_3Pawn                     =  168;             //³µ±ø¶Ô3±ø,³µ·½µÄ¼Ó·Ö
+static const  sint16 ADD_CheXPawn_To_3Pawn                     =  168;             //è½¦å…µå¯¹3å…µ,è½¦æ–¹çš„åŠ åˆ†
 
 
-static const  sint16 ADD_CheXPawn_To_2Pawn                     =  128;             //³µ±ø¶Ô2±ø,³µ·½µÄ¼Ó·Ö
-static const  sint16 ADD_CheXPawn_To_2PawnByShi[3]             =  {196,128, 96};   //³µ±ø¶Ô2±ø, ³µ·½±øµÄ¼Ó·Ö
+static const  sint16 ADD_CheXPawn_To_2Pawn                     =  128;             //è½¦å…µå¯¹2å…µ,è½¦æ–¹çš„åŠ åˆ†
+static const  sint16 ADD_CheXPawn_To_2PawnByShi[3]             =  {196,128, 96};   //è½¦å…µå¯¹2å…µ, è½¦æ–¹å…µçš„åŠ åˆ†
 
-static const  sint16 ADD_CheXPawn_To_1Pawn                     =  96;             //³µ±ø¶Ô1±ø,³µ·½µÄ¼Ó·Ö
-static const  sint16 ADD_CheXPawn_To_PawnByShi[3]              =  {196,128, 96};   //³µ±ø¶Ô±ø, ³µ·½±øµÄ¼Ó·Ö
+static const  sint16 ADD_CheXPawn_To_1Pawn                     =  96;             //è½¦å…µå¯¹1å…µ,è½¦æ–¹çš„åŠ åˆ†
+static const  sint16 ADD_CheXPawn_To_PawnByShi[3]              =  {196,128, 96};   //è½¦å…µå¯¹å…µ, è½¦æ–¹å…µçš„åŠ åˆ†
 
-static const  sint16 ADD_1Pao1MaXPawn_To_1Che_PawnByShi[3]     =  { 48, 24, 16};    //1ÅÚ1Âíx±ø¶Ô³µ
+static const  sint16 ADD_1Pao1MaXPawn_To_1Che_PawnByShi[3]     =  { 48, 24, 16};    //1ç‚®1é©¬xå…µå¯¹è½¦
 static const  sint16 ADD_1Pao1MaXPawn_To_1Che_PawnNotRiver     =  32;
 
-static const  sint16 ADD_2PaoXPawn_To_1Che_PawnByShi[3]        =  { 48, 24, 16};   //2ÅÚx±ø¶Ô³µ
-static const  sint16 ADD_2MaXPawn_To_1Che_PawnByShi[3]         =  { 48, 24, 16};    //2ÅÚx±ø¶Ô³µ
+static const  sint16 ADD_2PaoXPawn_To_1Che_PawnByShi[3]        =  { 48, 24, 16};   //2ç‚®xå…µå¯¹è½¦
+static const  sint16 ADD_2MaXPawn_To_1Che_PawnByShi[3]         =  { 48, 24, 16};    //2ç‚®xå…µå¯¹è½¦
 
 
 #endif

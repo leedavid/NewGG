@@ -1,20 +1,20 @@
 #ifndef ENDR_1che2pao3pawn_B_2che3pawn
 #define ENDR_1che2pao3pawn_B_2che3pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ2ÅÚ3±ø¶Ô2³µ3±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦2ç‚®3å…µå¯¹2è½¦3å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 void my_m_MT_R_1che2pao3pawn_B_2che3pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 3ak1b2/1R2a4/1c2b2c1/2p6/p1r5p/6P2/P2R4P/4B4/9/3AKAB2 w - - 20 20
-	//Ë«³µÓĞÒ»¸ö³µ±³ÁË
+	//åŒè½¦æœ‰ä¸€ä¸ªè½¦èƒŒäº†
 
 	if((my_shi_num + my_xiang_num) == 4 && StoY(my_king_pos) == MY_RANK9){
 		int ycan  = EV_YOUR_CAN;

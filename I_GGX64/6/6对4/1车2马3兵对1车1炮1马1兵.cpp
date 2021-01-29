@@ -1,13 +1,13 @@
 #ifndef END_my_m_m_MT_R_1che2ma3pawn_B_1che1pao1ma1pawn 
 #define END_my_m_m_MT_R_1che2ma3pawn_B_1che1pao1ma1pawn 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "1³µ2Âí3±ø¶Ô1³µ1ÅÚ1Âí1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦2é©¬3å…µå¯¹1è½¦1ç‚®1é©¬1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -20,7 +20,7 @@ void my_m_MT_R_1che2ma3pawn_B_1che1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	//MY_EV_SUB((sint16)count_1s(ymp) * ADD_ChePaoXPawn_To_1Pao2Ma_ByPawn[my_shi_num]);
 
 	// fen 2b1k4/4ac3/4ba3/9/6r1p/P1P2N3/2R5P/4B1N2/n3A4/2BAK4 w - - 0 0
-	// ¶ş¸öÂíÍ¬Ê±¸ø¶Ô·½¹¥»÷ÁË
+	// äºŒä¸ªé©¬åŒæ—¶ç»™å¯¹æ–¹æ”»å‡»äº†
 	if(!m_have_bit(_mm_andnot_si128(YOUR_ATTACK,bb_my_ma))){
 		//print_bb(YOUR_ATTACK);
 		//print_bb(bb_my_ma);

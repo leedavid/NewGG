@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2pao_B_1pao1pawn
 #define END_my_m_MT_R_2pao_B_1pao1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2ÅÚ¶Ô1ÅÚ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2ç‚®å¯¹1ç‚®1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -36,7 +36,7 @@ void my_m_MT_R_2pao_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 		EV_MY_SAFE = TRUE;
 	}
 
-	//»¹ÓĞÒ»¸öÇé¿ö,ÎÒ·½µÄÅÚ±»À§×¡ÁË,²»ÄÜ¶¯ÁË,Ò²ÊÇºÍÆå
+	//è¿˜æœ‰ä¸€ä¸ªæƒ…å†µ,æˆ‘æ–¹çš„ç‚®è¢«å›°ä½äº†,ä¸èƒ½åŠ¨äº†,ä¹Ÿæ˜¯å’Œæ£‹
     // fen C1bCk4/3c5/4b4/9/9/6B2/2p6/5A3/9/2B1KA3 b - - 120 120
 	if(your_xiang_num != 0){
 		if(PB90(MY_SQ03) == my_pao){

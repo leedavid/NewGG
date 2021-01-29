@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1ma1pao1pawn_B_1ma1pawn
 #define END_my_m_MT_R_1ma1pao1pawn_B_1ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí1±ø¶Ô1Âí1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®1é©¬1å…µå¯¹1é©¬1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -95,7 +95,7 @@ void my_m_MT_R_1ma1pao1pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	//ÂíÅÚ·½ÁíÍâ¼Ó·Ö
+//	//é©¬ç‚®æ–¹å¦å¤–åŠ åˆ†
 //	board->mulScore -= MaPaoXPawn_MaPawn ;
 //
 //	// fen 4k4/4a2N1/b4a3/2cn4p/7P1/9/9/4B4/4A4/2BA1K3 w - - 120 120

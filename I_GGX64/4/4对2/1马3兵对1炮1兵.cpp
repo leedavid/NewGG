@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_1ma3pawn_B_1pao1pawn
 #define END_my_m_MT_R_1ma3pawn_B_1pao1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1Âí3±ø¶Ô1ÅÚ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1é©¬3å…µå¯¹1ç‚®1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//1Âí3±ø¶ÔÅÚ±ø
+//1é©¬3å…µå¯¹ç‚®å…µ
 void my_m_MT_R_1ma3pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 
     // ADD_MY
@@ -54,7 +54,7 @@ void my_m_MT_R_1ma3pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square ypao = S90_from_piecelist(POSITION,your_pao,0);
 
 	// fen 9/2P1a1P2/3a1k3/4PN3/2b3b2/9/4c4/B3B4/4Ap3/3AK4 w - - 121 121
-    //£²±øµ½µ×£¬Âí²»ÄÜ¶¯ÁË£¬Ò²ÊÇºÍÆå
+    //ï¼’å…µåˆ°åº•ï¼Œé©¬ä¸èƒ½åŠ¨äº†ï¼Œä¹Ÿæ˜¯å’Œæ£‹
 	if((your_shi_num + your_xiang_num) == 4 && StoY(yk) == MY_RANK2){
 		Bitboard low = m_and(bb_my_pawn,MyUpBB[MY_RANK3]);
 		bool ok = false;
@@ -62,7 +62,7 @@ void my_m_MT_R_1ma3pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 			ok = true;
 		}
 		else if(count_1s(low) == 2){	
-			//ÕÒµ½ÁíÍâÒ»¸ö±ø£¬ÔÚ×äÏß£¬ÇÒ²»ÔÚ½«Ò»±ß
+			//æ‰¾åˆ°å¦å¤–ä¸€ä¸ªå…µï¼Œåœ¨å’çº¿ï¼Œä¸”ä¸åœ¨å°†ä¸€è¾¹
 			low = m_and(bb_my_pawn,RankBB_A[MY_RANK3]);
 			if(count_1s(low) == 1){
 				int p = pop_1st_bit_sq(low);
@@ -88,7 +88,7 @@ void my_m_MT_R_1ma3pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 4k4/4a4/b3ba3/8p/6n2/1p4B1P/9/4BA2C/4Ap3/4K4 b - - 120 120
-    //¶¥ËÀÒ»¸ö±ø,ÅÚ»¹ÔÚ´òÄÇ¸ö±ø,ÓÐ¿ÉÄÜÊÇÄÑÊ¤
+    //é¡¶æ­»ä¸€ä¸ªå…µ,ç‚®è¿˜åœ¨æ‰“é‚£ä¸ªå…µ,æœ‰å¯èƒ½æ˜¯éš¾èƒœ
 	if((your_shi_num + your_xiang_num) == 4 && StoY(yk) MY_SMALL_EQL MY_RANK1){
 		Square sq = SQ_END90;
 		if(PB90(MY_SQ24) == your_pawn && PB90(MY_SQ36) == my_pawn){
@@ -129,7 +129,7 @@ void my_m_MT_R_1ma3pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	
 }
 
-//1Âí3±ø¶ÔÅÚ±ø
+//1é©¬3å…µå¯¹ç‚®å…µ
 //void m_MT_B_1ma3pawn_R_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 ///*
 //	Square rk = PieceListStart(board,RKING);
@@ -157,7 +157,7 @@ void my_m_MT_R_1ma3pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 //				if(board->b256[0xc7] == RKING && board->b256[0xb6] == BPAWN && board->b256[0xb8] == BPAWN){
 //				}
 //				else{
-//					//ÁíÍâ¶þ¸ö±ø¸ø¶¥×¡ÁË
+//					//å¦å¤–äºŒä¸ªå…µç»™é¡¶ä½äº†
 //					if(FALSE){
 //					}
 //					else if(board->b256[0x83] == RPAWN && board->b256[0x63] == BPAWN){
@@ -184,7 +184,7 @@ void my_m_MT_R_1ma3pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 //		}
 //
 //		if(blow >= 2){
-//			//¿´Ò»ÉÏÊÇ²»ÊÇºìÂí²»ÄÜ×ßÁË£®
+//			//çœ‹ä¸€ä¸Šæ˜¯ä¸æ˜¯çº¢é©¬ä¸èƒ½èµ°äº†ï¼Ž
 //			if(board->b256[0x37] == BKING && board->b256[0x47] == BSHI && board->b256[0x57] == BXIANG){
 //				if(StoX(rpao) == 0x7 && StoY(rpao) > 0x5 && StoY(rpao) <= 0x8){
 //					if(board->b256[0x36] == BSHI && board->b256[0x48] == RPAWN){
@@ -213,7 +213,7 @@ void my_m_MT_R_1ma3pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 //	}
 //
 //	// fen 4k4/4a4/b3ba3/8p/6n2/1p4B1P/9/4BA2C/4Ap3/4K4 b - - 120 120
-//    //¶¥ËÀÒ»¸ö±ø,ÅÚ»¹ÔÚ´òÄÇ¸ö±ø,ÓÐ¿ÉÄÜÊÇÄÑÊ¤
+//    //é¡¶æ­»ä¸€ä¸ªå…µ,ç‚®è¿˜åœ¨æ‰“é‚£ä¸ªå…µ,æœ‰å¯èƒ½æ˜¯éš¾èƒœ
 //	if(board->R_shi == 2 && board->R_xiang == 2 && StoY(rk) >= 0xb){
 //		if(StoY(rpao) > 0x8){
 //			if(board->b256[0x79] == BMA && board->b256[0x6b] == BPAWN 

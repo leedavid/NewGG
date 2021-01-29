@@ -1,71 +1,71 @@
 
 
-// ºì³µ
+// çº¢è½¦
 for(int i = 0; i < RChe_num(); i++){
 	int s = S90_from_piecelist(POSITION,RCHE,i);
 
 	Bitboard A = ei.RcheAtt[i];
 	// -------------------------------------------------------------------------------------------- 
-	// 1. ÒÆ¶¯ĞÔÄÜ Mobility
+	// 1. ç§»åŠ¨æ€§èƒ½ Mobility
 	// -------------------------------------------------------------------------------------------- 
 	int mob; 
 	Bitboard ratt = m_and(A,RankBB_A[StoY(s)]);
-	ratt = _mm_andnot_si128(bitboard_occ_white,ratt);           // È¥ÁË×Ô¼ºµÄÆå¸ñ
-	ratt = _mm_andnot_si128(POSITION->DYN->attack_black,ratt);  // È¥ÁË¶Ô·½µÄ¹¥»÷µÄÆå¸ñ
+	ratt = _mm_andnot_si128(bitboard_occ_white,ratt);           // å»äº†è‡ªå·±çš„æ£‹æ ¼
+	ratt = _mm_andnot_si128(POSITION->DYN->attack_black,ratt);  // å»äº†å¯¹æ–¹çš„æ”»å‡»çš„æ£‹æ ¼
 	mob =  count_1s(ratt);
-	valu += r_CheMove[mob];  // ×óÓÒÒÆ¶¯µÄ·Ö
+	valu += r_CheMove[mob];  // å·¦å³ç§»åŠ¨çš„åˆ†
 	Bitboard fatt = m_and(A,FileBB_A[StoX(s)]);
 	fatt = _mm_andnot_si128(bitboard_occ_white,fatt);
 	fatt = _mm_andnot_si128(POSITION->DYN->attack_black,fatt);  //
 	mob = count_1s(fatt);
 	valu += f_CheMove[mob];
 	
-    // 1, ºì³µÄÜ¹¥»÷µ½¶Ô·½. 
+    // 1, çº¢è½¦èƒ½æ”»å‡»åˆ°å¯¹æ–¹. 
 	if(m128_is_have_bit(m_and(A,KingAttackZone[bk]))){
-		set_bit(ei.attackKingBoard,s);                  // ×öÒ»¸ö±êÖ¾, ³µÔÚ½ø¹¥ÁË
+		set_bit(ei.attackKingBoard,s);                  // åšä¸€ä¸ªæ ‡å¿—, è½¦åœ¨è¿›æ”»äº†
 	}
 
 	if(bit_is_set(POSITION->DYN->black_xray,s)){
-		//»¹Òª¼õÒ»Ğ©,ÒòÎªÕâ¸ö³µ±»Ç£ÖÆÁË.
+		//è¿˜è¦å‡ä¸€äº›,å› ä¸ºè¿™ä¸ªè½¦è¢«ç‰µåˆ¶äº†.
 		ei.attPoint[WHITECOLOR] -= Rook_CanNotMove_Att;
-		continue;  // Õâ¸ö³µ±»Ç£ÖÆÁË
+		continue;  // è¿™ä¸ªè½¦è¢«ç‰µåˆ¶äº†
 	}
 
 	// ****************************************************************
 	Bitboard ckatt = m_and(A,ei.attackKingCheCan[BLACKCOLOR]);
-	if(m128_is_have_bit(ckatt)){  // ºì³µÄÜ½«¾ü
+	if(m128_is_have_bit(ckatt)){  // çº¢è½¦èƒ½å°†å†›
 
 		set_bit(ei.attackKingBoard,s);  
-		ei.kingAdjacentZoneAttacksCount[WHITECOLOR] ++;         // ºì³µÄÜÖ±½Ó½«
+		ei.kingAdjacentZoneAttacksCount[WHITECOLOR] ++;         // çº¢è½¦èƒ½ç›´æ¥å°†
 
-		// ¿´Ò»ÏÂÊÇ²»ÊÇ°²È«µÄ½«
+		// çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯å®‰å…¨çš„å°†
 		if(have_bit(white_safe,ckatt)){
 			ei.attPoint[WHITECOLOR] += RookSafeCheckBonus * count_1s(m_and(white_safe,ckatt));
 		}
 
-		//¿´Ò»ÏÂÊÇ²»ÊÇ½«¾üÒ»ÏßÁË,
+		//çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯å°†å†›ä¸€çº¿äº†,
 		if(bit_is_set(A,rk) && StoX(s) == StoX(rk)){ //fen 4ka3/4aR3/2n5b/4p1N1p/p5b2/4R4/1r2P3P/2r1B4/4A1C2/c1BA1K3 w
 			ei.attPoint[WHITECOLOR] += King_CheSameLineAtt;
 		}
 
-		// ¿´Ò»ÏÂÄÜ²»ÄÜÀİ½«
+		// çœ‹ä¸€ä¸‹èƒ½ä¸èƒ½å’å°†
 		if(m128_is_have_bit(m_and(POSITION->DYN->white_pao_null,A))){
 			ei.attPoint[WHITECOLOR] = CheCanPaoNullCHeckPoint;
 		}
 
-		if(have_bit(A,bit_bk)){  // ÕıÔÚ½«¾üÁË, Õâ¸öÒ»¶¨Òª¼ÓÉÏ, ÒòÎªÕâ¸öºÍ
+		if(have_bit(A,bit_bk)){  // æ­£åœ¨å°†å†›äº†, è¿™ä¸ªä¸€å®šè¦åŠ ä¸Š, å› ä¸ºè¿™ä¸ªå’Œ
 			continue;
 		}
 
 
-		//Èç¹û½«²»ÔÚÔ­Î»£¬»òÃ»ÓĞ¶ş¸öÊË 
+		//å¦‚æœå°†ä¸åœ¨åŸä½ï¼Œæˆ–æ²¡æœ‰äºŒä¸ªä»• 
 		//fen 5kb2/4a4/3ab4/9/5R3/2r6/5r3/9/4A4/2B1KA3 b - - 0 0</
-		//Õâ¸öÒòÎªÊÇÔÚ½«¾ü£¬
-		if(0x04 != bk || BShi_num() == 0){   // ½«²»ÔÚÔ­Î»£¬»òÃ»ÓĞÊËÁË£®
+		//è¿™ä¸ªå› ä¸ºæ˜¯åœ¨å°†å†›ï¼Œ
+		if(0x04 != bk || BShi_num() == 0){   // å°†ä¸åœ¨åŸä½ï¼Œæˆ–æ²¡æœ‰ä»•äº†ï¼
 			while(m128_is_have_bit(ckatt)){   
 				int ckq = pop_1st_bit(&ckatt);
 				if(WhiteSEE(POSITION,MOVE_FromTo(s,ckq)) > 0){
-					if(StoX(ckq) == StoX(bk)){  // ¿ÉÒÔÉÏÏÂ½«,
+					if(StoX(ckq) == StoX(bk)){  // å¯ä»¥ä¸Šä¸‹å°†,
 						ei.rcx += 2;
 					}
 					else{
@@ -81,12 +81,12 @@ for(int i = 0; i < RChe_num(); i++){
 					}
 				}
 			}
-		} // ¶ş³µ´íÉ±µÄÇé¿ö		
+		} // äºŒè½¦é”™æ€çš„æƒ…å†µ		
      }
 }
 
 // ----------------------------------------------------------------------------
-// ºÚ³µ **************************************************************
+// é»‘è½¦ **************************************************************
 // ----------------------------------------------------------------------------
 //che_check = 0;
 for(int i = 0; i < BChe_num(); i++){
@@ -94,61 +94,61 @@ for(int i = 0; i < BChe_num(); i++){
 
 	Bitboard A = ei.BcheAtt[i];
 	// -------------------------------------------------------------------------------------------- 
-	// 1. ÒÆ¶¯ĞÔÄÜ Mobility
+	// 1. ç§»åŠ¨æ€§èƒ½ Mobility
 	// -------------------------------------------------------------------------------------------- 
 	int mob; 
 	Bitboard ratt = m_and(A,RankBB_A[StoY(s)]);
 	ratt = _mm_andnot_si128(bitboard_occ_black,ratt);  
 	ratt = _mm_andnot_si128(POSITION->DYN->attack_white,ratt);  //
 	mob =  count_1s(ratt);
-	valu -= r_CheMove[mob];  // ×óÓÒÒÆ¶¯µÄ·Ö
+	valu -= r_CheMove[mob];  // å·¦å³ç§»åŠ¨çš„åˆ†
 	Bitboard fatt = m_and(A,FileBB_A[StoX(s)]);
 	fatt = _mm_andnot_si128(bitboard_occ_black,fatt);
 	fatt = _mm_andnot_si128(POSITION->DYN->attack_white,fatt);  //
 	mob = count_1s(fatt);
 	valu -= f_CheMove[mob];
 
-	// 1, ºÚ³µÄÜ¹¥»÷µ½¶Ô·½. 
+	// 1, é»‘è½¦èƒ½æ”»å‡»åˆ°å¯¹æ–¹. 
 	if(m128_is_have_bit(m_and(A,KingAttackZone[rk]))){
-		set_bit(ei.attackKingBoard,s);                  // ×öÒ»¸ö±êÖ¾, ³µÔÚ½ø¹¥ÁË
+		set_bit(ei.attackKingBoard,s);                  // åšä¸€ä¸ªæ ‡å¿—, è½¦åœ¨è¿›æ”»äº†
 	}
 
 	if(bit_is_set(POSITION->DYN->white_xray,s)){
-		//»¹Òª¼õÒ»Ğ©,ÒòÎªÕâ¸ö³µ±»Ç£ÖÆÁË.
+		//è¿˜è¦å‡ä¸€äº›,å› ä¸ºè¿™ä¸ªè½¦è¢«ç‰µåˆ¶äº†.
 		ei.attPoint[BLACKCOLOR] -= Rook_CanNotMove_Att;
-		continue;  // Õâ¸ö³µ±»Ç£ÖÆÁË
+		continue;  // è¿™ä¸ªè½¦è¢«ç‰µåˆ¶äº†
 	}
 
 	// ****************************************************************
-    // ºÚ³µ
+    // é»‘è½¦
 	Bitboard ckatt = m_and(A,ei.attackKingCheCan[WHITECOLOR]);
 	if(m128_is_have_bit(ckatt)){
 
 		set_bit(ei.attackKingBoard,s);  
-		ei.kingAdjacentZoneAttacksCount[BLACKCOLOR] ++;         // ºì³µÄÜÖ±½Ó½«
+		ei.kingAdjacentZoneAttacksCount[BLACKCOLOR] ++;         // çº¢è½¦èƒ½ç›´æ¥å°†
 		
-		// ¿´Ò»ÏÂÊÇ²»ÊÇ°²È«µÄ½«
+		// çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯å®‰å…¨çš„å°†
 		if(have_bit(black_safe,ckatt)){
 			ei.attPoint[BLACKCOLOR] += RookSafeCheckBonus * count_1s(m_and(black_safe,ckatt));
 		}
 
-		//¿´Ò»ÏÂÊÇ²»ÊÇ½«¾üÒ»ÏßÁË,
+		//çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯å°†å†›ä¸€çº¿äº†,
 		if(bit_is_set(A,bk) && StoX(s) == StoX(bk)){ //fen 4ka3/4aR3/2n5b/4p1N1p/p5b2/4R4/1r2P3P/2r1B4/4A1C2/c1BA1K3 w
 			ei.attPoint[BLACKCOLOR] += King_CheSameLineAtt;
 		}
 
-		// ¿´Ò»ÏÂÄÜ²»ÄÜÀİ½«
+		// çœ‹ä¸€ä¸‹èƒ½ä¸èƒ½å’å°†
 		if(m128_is_have_bit(m_and(POSITION->DYN->black_pao_null,A))){
 			ei.attPoint[BLACKCOLOR] += CheCanPaoNullCHeckPoint;
 		}
 
-		if(have_bit(A,bit_rk)){  // ÕıÔÚ½«¾üÁË
+		if(have_bit(A,bit_rk)){  // æ­£åœ¨å°†å†›äº†
 			continue;
 		}
 
-		//Èç¹û½«²»ÔÚÔ­Î»£¬»òÃ»ÓĞ¶ş¸öÊËfen 3a1k3/4a4/4b1C2/5RP1p/6b2/5r2P/rn4N2/4C4/3RK4/9 b - - 0 0
-		if(0x55 != rk || RShi_num() == 0) {      // ½«²»ÔÚÔ­Î»		
-			//ckatt = _mm_andnot_si128(BetweenBB[s][rk],ckatt); //È¥ÁËÏàÍ¬µÄÆå¸ñ
+		//å¦‚æœå°†ä¸åœ¨åŸä½ï¼Œæˆ–æ²¡æœ‰äºŒä¸ªä»•fen 3a1k3/4a4/4b1C2/5RP1p/6b2/5r2P/rn4N2/4C4/3RK4/9 b - - 0 0
+		if(0x55 != rk || RShi_num() == 0) {      // å°†ä¸åœ¨åŸä½		
+			//ckatt = _mm_andnot_si128(BetweenBB[s][rk],ckatt); //å»äº†ç›¸åŒçš„æ£‹æ ¼
 			while(m128_is_have_bit(ckatt)){ 
 				int ckq = pop_1st_bit(&ckatt);
 				if(BlackSEE(POSITION,MOVE_FromTo(s,ckq)) > 0){

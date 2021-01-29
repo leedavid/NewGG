@@ -24,11 +24,11 @@
  //Bitboard  File7BB;               //   =   { 0x2010080402010080, 0x0000000001008040};
  //Bitboard  File8BB;               //   =   { 0x4020100804020100, 0x0000000002010080};
 
- //Bitboard  RpawnOverBB;               //   =   {0x00001fffffffffff,0x0000000000000000};  //¹ýºÓµÄºì±ø
- //Bitboard  BpawnOverBB;               //   =   {0xffffe00000000000,0x0000000003ffffff};  //¹ýºÓµÄºÚ±ø
+ //Bitboard  RpawnOverBB;               //   =   {0x00001fffffffffff,0x0000000000000000};  //è¿‡æ²³çš„çº¢å…µ
+ //Bitboard  BpawnOverBB;               //   =   {0xffffe00000000000,0x0000000003ffffff};  //è¿‡æ²³çš„é»‘å…µ
 
- Bitboard OneRpawnOrRking_AttackBB[90];      // ºì±ø,ºì½«,¹¥»÷ÆäËüµÄÆå¸ñ.
- Bitboard OneBpawnOrBking_AttackBB[90];      // ºÚ±ø,ºÚ½«
+ Bitboard OneRpawnOrRking_AttackBB[90];      // çº¢å…µ,çº¢å°†,æ”»å‡»å…¶å®ƒçš„æ£‹æ ¼.
+ Bitboard OneBpawnOrBking_AttackBB[90];      // é»‘å…µ,é»‘å°†
 
 void initNeighboringFilesBB(){
 	//NeighboringFilesBB[0] = _mm_load_si128 ((__m128i*) File1BB);
@@ -114,8 +114,8 @@ void initFileRankconst(void){
 	//m128_from_2u64(File6BB,		0x1008040201008040, 0x0000000000804020);
 	//m128_from_2u64(File7BB,		0x2010080402010080, 0x0000000001008040);
 	//m128_from_2u64(File8BB,		0x4020100804020100, 0x0000000002010080);
-	//m128_from_2u64(RpawnOverBB, 0x00001fffffffffff, 0x0000000000000000);  //¹ýºÓµÄºì±ø
-	//m128_from_2u64(BpawnOverBB, 0xffffe00000000000, 0x0000000003ffffff);  //¹ýºÓµÄºÚ±ø
+	//m128_from_2u64(RpawnOverBB, 0x00001fffffffffff, 0x0000000000000000);  //è¿‡æ²³çš„çº¢å…µ
+	//m128_from_2u64(BpawnOverBB, 0xffffe00000000000, 0x0000000003ffffff);  //è¿‡æ²³çš„é»‘å…µ
 }
 
 void initFileBB_A_RankBB_A(void){

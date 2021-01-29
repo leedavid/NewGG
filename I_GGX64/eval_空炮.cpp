@@ -1,7 +1,7 @@
 #include "eval_total.h"
 
 //////////////////////////////////////////////////////////////////////////
-// ÆÀ¼ÛÒ»ÏÂ¿ÕÅÚ
+// è¯„ä»·ä¸€ä¸‹ç©ºç‚®
 template<Color Us>
 Score eval_kong_zhong_di_pao(Position& pos, EvalInfo& ei){
 
@@ -14,7 +14,7 @@ Score eval_kong_zhong_di_pao(Position& pos, EvalInfo& ei){
 	Score bonus = SCORE_ZERO;
 	
 
-	// ÇóµÃÅÚ
+	// æ±‚å¾—ç‚®
 	Bitboard bkp = ei.KongPao[Us];
 	while(m_have_bit(bkp)){
 
@@ -23,12 +23,12 @@ Score eval_kong_zhong_di_pao(Position& pos, EvalInfo& ei){
 		Square yk = pos.king_square(Them);
 		Square mpao = pop_1st_bit_sq(bkp);
 
-		if(m_have_bit(bkp)){ // ÓĞ¶ş¸ö¿ÕÅÚ£¬Òª¼õ
+		if(m_have_bit(bkp)){ // æœ‰äºŒä¸ªç©ºç‚®ï¼Œè¦å‡
 			ei.attPoint[Us] -= 8;	
 			bonus -= make_score(168,80);
 		}
 
-		if(!bit_is_set(PaoCanAttKing[yk],mpao)){ // È¥ÁËÔÚ¹¬ÄÚµÄÇé¿ö
+		if(!bit_is_set(PaoCanAttKing[yk],mpao)){ // å»äº†åœ¨å®«å†…çš„æƒ…å†µ
 			continue;
 		}
 		set_bit(ei.attackKingBoard[Us],mpao);
@@ -40,7 +40,7 @@ Score eval_kong_zhong_di_pao(Position& pos, EvalInfo& ei){
 		// paoNull
 
 		// fen 2bak4/4a4/4b4/3Rp2P1/8r/C3P1B2/P2N3c1/4B1N2/4A4/3AK3c w - - 0 1
-		//Èç¹ûÓĞ¶ş¸öÅÚ£¬ÔòÒªÅĞ¶ÏÒ»ÏÂ£¬ÁíÒ»¸öÅÚÄÜ²»ÄÜÖØÅÚ£¬
+		//å¦‚æœæœ‰äºŒä¸ªç‚®ï¼Œåˆ™è¦åˆ¤æ–­ä¸€ä¸‹ï¼Œå¦ä¸€ä¸ªç‚®èƒ½ä¸èƒ½é‡ç‚®ï¼Œ
 		bool twoPao = false;
 		Bitboard otherp = _mm_andnot_si128(ei.KongPao[Us],pos.pieces(RPAO + delt));
 		Square op;
@@ -107,7 +107,7 @@ Score eval_kong_zhong_di_pao(Position& pos, EvalInfo& ei){
 			if(StoY(mpao) == StoY(yk) && pos.piece_count(RCHE + delt) <= 1 && pos.piece_count(BCHE - delt) >= 1){
 				Bitboard attp = m_and(pos.pieces_of_color(Us),Us == WHITE? UpBB[0x5] : LowBB[0x4]);
 				attp = _mm_andnot_si128(pos.pieces(RCHE + delt),attp);
-				if(count_1s(attp) <= 1){ // ¹ıºÓµÄÆå×Ó
+				if(count_1s(attp) <= 1){ // è¿‡æ²³çš„æ£‹å­
 					ei.attPoint[Us] -= 8;
 				}
 			}
@@ -117,24 +117,24 @@ Score eval_kong_zhong_di_pao(Position& pos, EvalInfo& ei){
 					// fen 1C2ka3/4a4/b3b4/2R6/9/5pC2/1p3r3/4BA3/2NnAK2c/2B6 w - - 0 1
 					ei.attPoint[Us] += 3;
 					// fen 2Rak1b2/9/2n2C3/p3p3p/9/1N7/PcrNP3P/1C7/c2KA4/5A3 w - - 0 1
-					//Èç¹û¶Ô·½µÄ½«Ö»ÄÜÒÆ¶¯Ò»²½²»µ½
+					//å¦‚æœå¯¹æ–¹çš„å°†åªèƒ½ç§»åŠ¨ä¸€æ­¥ä¸åˆ°
 					if(count_1s(_mm_andnot_si128(pos.pieces_of_color(Them),ei.attacked_by(BKING - delt))) <= 1){
 						ei.attPoint[Us] += 3;
 					}
 			}						
-			//Õâ¸ö»¹Òª¸´ÔÓ£¬ÒªÅĞ¶ÏÓĞÃ»ÓĞÉ±Æå
+			//è¿™ä¸ªè¿˜è¦å¤æ‚ï¼Œè¦åˆ¤æ–­æœ‰æ²¡æœ‰æ€æ£‹
 			Bitboard B = m_and(ei.attacked_by(BKING - delt),paoNull);
 			if(have_bit(ei.attacked_by(RMA + delt),B)){
 				ei.attPoint[Us] += 4;
 			}
-			//»¹ÓĞ³µ½«Ò»ÏßµÄ£¬
+			//è¿˜æœ‰è½¦å°†ä¸€çº¿çš„ï¼Œ
 			
-			// Õâ¸ö»¹ÒªÁíÍâËãÒ»ÏÂ£¬Èç¹û¸ôÁË2¸ñ£¬»¹ÒªÀ÷º¦£¬Èç¹û¸ôÁËÒ»¸ñ£¬
+			// è¿™ä¸ªè¿˜è¦å¦å¤–ç®—ä¸€ä¸‹ï¼Œå¦‚æœéš”äº†2æ ¼ï¼Œè¿˜è¦å‰å®³ï¼Œå¦‚æœéš”äº†ä¸€æ ¼ï¼Œ
 			// fen 1C2ka3/4a4/b3b4/2R6/9/5pC2/1p3r3/4BA3/2NnAK2c/2B6 w - - 0 1
 		}
 
 		// fen 2ba5/4k4/3a5/5R3/2c1C4/1p1C4P/1p2r4/3ABA3/9/1c2K1B2 w - - 0 1
-		int attnum = (int)count_1s(ei.attackKingBoard[Us]);  // ²»ĞèÒªÈ¥ÁËÅÚ
+		int attnum = (int)count_1s(ei.attackKingBoard[Us]);  // ä¸éœ€è¦å»äº†ç‚®
 
 		int m = KpaoMul[attnum];
 
@@ -150,7 +150,7 @@ Score eval_kong_zhong_di_pao(Position& pos, EvalInfo& ei){
 			}
 		}
 
-		// Èç¹ûÕâ¸öÅÚ¸ø¶Ô·½¹¥»÷ÖĞ¡£Òª¼õÒ»Ğ©
+		// å¦‚æœè¿™ä¸ªç‚®ç»™å¯¹æ–¹æ”»å‡»ä¸­ã€‚è¦å‡ä¸€äº›
 		if (bit_is_set(ei.attacked_by(Them), mpao)) {
 			ei.attPoint[Us] -= 8;
 		}

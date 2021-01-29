@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1pao2ma3pawn_B_2che1pao2pawns
 #define END_my_m_MT_R_1che1pao2ma3pawn_B_2che1pao2pawns
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ2Âí3±ø¶Ô2³µ1ÅÚ2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®2é©¬3å…µå¯¹2è½¦1ç‚®2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //const int _3pawn1paopawn_PawnShiAdd[3] = {96,48,24};
@@ -21,7 +21,7 @@ void my_m_MT_R_1che1pao2ma3pawn_B_2che1pao2pawn(typePOS &POSITION, EvalInfo &ei)
   // fen 3akab2/7r1/b5nC1/N3p2Rp/9/6r2/P3P3P/4N4/9/2BAKAB2 w - - 0 1
   if(your_shi_num == 2 && your_xiang_num == 2 && StoY(yk) == MY_RANK0){
 	  if(!have_bit(bb_my_pawn,MyUpBB[MY_RANK5])){   // 
-		  // ³µÅÚ±»Ç£
+		  // è½¦ç‚®è¢«ç‰µ
 		  MY_EV_SUB(32);
 		  //for(int i = 0; i < pos.piece_count(your_che); i++){
 			 // Square s =  pos.piece_list(your_che,i);

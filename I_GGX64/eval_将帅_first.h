@@ -7,34 +7,34 @@
 	bit_bk = SetMaskBB[bk];	
 
 
-	valu += POSITION->DYN->statico;  // Õâ¸ö°üÀ¨¿ª¾Ö·ÖÓë²Ğ¾Ö·Ö value = (DYNAMIC->statik) + (PAWN_VALUE->points);
+	valu += POSITION->DYN->statico;  // è¿™ä¸ªåŒ…æ‹¬å¼€å±€åˆ†ä¸æ®‹å±€åˆ† value = (DYNAMIC->statik) + (PAWN_VALUE->points);
 	
 	//stringBeChe = _mm_setzero_si128();
 	POSITION->DYN->white_xray = _mm_setzero_si128();
 	POSITION->DYN->black_xray = _mm_setzero_si128();
 
-	POSITION->DYN->black_pao_null = _mm_setzero_si128();        // ÅÚ¿É³é½«µÄÆå¸ñ
+	POSITION->DYN->black_pao_null = _mm_setzero_si128();        // ç‚®å¯æŠ½å°†çš„æ£‹æ ¼
 	POSITION->DYN->white_pao_null = _mm_setzero_si128();        // 
 
-	POSITION->DYN->black_king_check = _mm_setzero_si128();      // ½«¾üµÄÆå¸ñ
+	POSITION->DYN->black_king_check = _mm_setzero_si128();      // å°†å†›çš„æ£‹æ ¼
 	POSITION->DYN->white_king_check = _mm_setzero_si128();
 
 	
 	//***********************************************************
-	// ºÚ½«
+	// é»‘å°†
 	//*********************************************************** 
 	POSITION->DYN->attack_black = one_bpawn_bk_attacks(bk);   // 
 
-	ei.attackKingCheCan[BLACKCOLOR] = rook_attacks_bb(bk,occ);            // ¶Ô·½µÄ³µÄÜ½«¾üµÄÆå¸ñ	
-	// ¶Ô½«¼ì²â
-	if(m128_is_have_bit(m_and(ei.attackKingCheCan[BLACKCOLOR],bit_rk))){ // ¿´Ò»ÏÂÊÇ²»ÊÇ¶Ô½«ÁË
-		POSITION->DYN->black_king_check = bit_rk;  // ¶Ô½«
+	ei.attackKingCheCan[BLACKCOLOR] = rook_attacks_bb(bk,occ);            // å¯¹æ–¹çš„è½¦èƒ½å°†å†›çš„æ£‹æ ¼	
+	// å¯¹å°†æ£€æµ‹
+	if(m128_is_have_bit(m_and(ei.attackKingCheCan[BLACKCOLOR],bit_rk))){ // çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯å¯¹å°†äº†
+		POSITION->DYN->black_king_check = bit_rk;  // å¯¹å°†
 		POSITION->DYN->white_king_check = bit_bk;
 	}
 	
-	// Õâ¶ù¿ÉÅĞ¶ÏÊÇ²»ÊÇ¶Ô·½ÓĞ¿ÕÅÚ,(»ò°ë¿ÕÅÚ)
+	// è¿™å„¿å¯åˆ¤æ–­æ˜¯ä¸æ˜¯å¯¹æ–¹æœ‰ç©ºç‚®,(æˆ–åŠç©ºç‚®)
 
-	// ÔÙ¿´Ò»ÏÂÊÇ²»ÊÇÓĞºìÅÚ£¬ÒòÎª¿ÉÒÔµş½«£¬µş½«Ò²ÄÜÇ¿´óÍÛ
+	// å†çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯æœ‰çº¢ç‚®ï¼Œå› ä¸ºå¯ä»¥å å°†ï¼Œå å°†ä¹Ÿèƒ½å¼ºå¤§å“‡
 	Bitboard kPao = m_and(ei.attackKingCheCan[BLACKCOLOR],bitboard_white_pao);
 	if(m128_is_have_bit(kPao)){
 		ei.KongPaoBB = m128_bb_or_bb(ei.KongPaoBB,kPao);
@@ -45,40 +45,40 @@
 		}
 	}
 
-	ei.attackKingMaCan[BLACKCOLOR]   = king_to_ma_attacks_bb(bk,occ);       // ¶Ô·½µÄÂíÄÜ½«¾üµÄÆå¸ñ
-	ei.attackKingPaoCan[BLACKCOLOR]  = pao_eat_attacks_bb(bk,occ);          // ¶Ô·½µÄÅÚÄÜ½«¾üµÄÆå¸ñ	
+	ei.attackKingMaCan[BLACKCOLOR]   = king_to_ma_attacks_bb(bk,occ);       // å¯¹æ–¹çš„é©¬èƒ½å°†å†›çš„æ£‹æ ¼
+	ei.attackKingPaoCan[BLACKCOLOR]  = pao_eat_attacks_bb(bk,occ);          // å¯¹æ–¹çš„ç‚®èƒ½å°†å†›çš„æ£‹æ ¼	
 
 	//***********************************************************
-	// ºì½«
+	// çº¢å°†
 	//***********************************************************
 
-    POSITION->DYN->attack_white = one_rpawn_rk_attacks(rk);            // ÍõµÄ¿É¹¥»÷ĞÔ   
+    POSITION->DYN->attack_white = one_rpawn_rk_attacks(rk);            // ç‹çš„å¯æ”»å‡»æ€§   
 
-	ei.attackKingCheCan[WHITECOLOR] = rook_attacks_bb(rk,occ);            // ¶Ô·½µÄ³µÄÜ½«¾üµÄÆå¸ñ
+	ei.attackKingCheCan[WHITECOLOR] = rook_attacks_bb(rk,occ);            // å¯¹æ–¹çš„è½¦èƒ½å°†å†›çš„æ£‹æ ¼
 
-	if(ABS(StoX(rk) - StoX(bk)) <= 1){  // ½«Óë½«µÄÏà»¥¹¥»÷ĞÔ¡£
+	if(ABS(StoX(rk) - StoX(bk)) <= 1){  // å°†ä¸å°†çš„ç›¸äº’æ”»å‡»æ€§ã€‚
 		POSITION->DYN->attack_black = m128_bb_or_bb(POSITION->DYN->attack_black,
 			m_and(ei.attackKingCheCan[BLACKCOLOR],KingKingAttBB[rk]));  
 		POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,
 			m_and(ei.attackKingCheCan[WHITECOLOR],KingKingAttBB[bk]));	
 	}
 
-	// ÔÙ¿´Ò»ÏÂÊÇ²»ÊÇÓĞºÚÅÚ£¬ÒòÎª¿ÉÒÔµş½«£¬µş½«Ò²ÄÜÇ¿´óÍÛ
+	// å†çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯æœ‰é»‘ç‚®ï¼Œå› ä¸ºå¯ä»¥å å°†ï¼Œå å°†ä¹Ÿèƒ½å¼ºå¤§å“‡
 	kPao = m_and(ei.attackKingCheCan[WHITECOLOR],bitboard_black_pao);
 	if(m128_is_have_bit(kPao)){
 		ei.KongPaoBB = m128_bb_or_bb(ei.KongPaoBB,kPao);
 		while(m128_is_have_bit(kPao)){
 			int pao = pop_1st_bit(&kPao);
 			POSITION->DYN->black_pao_null = m128_bb_or_bb(POSITION->DYN->black_pao_null,
-				BetweenBB[pao][rk]);  // µÃµ½¿É¿ÕÅÚµÄ½«µÄÆå¸ñ
+				BetweenBB[pao][rk]);  // å¾—åˆ°å¯ç©ºç‚®çš„å°†çš„æ£‹æ ¼
 		}
 	}	
 
-	ei.attackKingMaCan[WHITECOLOR]  = king_to_ma_attacks_bb(rk,occ);       // ¶Ô·½µÄÂíÄÜ½«¾üµÄÆå¸ñ
-	ei.attackKingPaoCan[WHITECOLOR] = pao_eat_attacks_bb(rk,occ);          // ¶Ô·½µÄÅÚÄÜ½«¾üµÄÆå¸ñ
+	ei.attackKingMaCan[WHITECOLOR]  = king_to_ma_attacks_bb(rk,occ);       // å¯¹æ–¹çš„é©¬èƒ½å°†å†›çš„æ£‹æ ¼
+	ei.attackKingPaoCan[WHITECOLOR] = pao_eat_attacks_bb(rk,occ);          // å¯¹æ–¹çš„ç‚®èƒ½å°†å†›çš„æ£‹æ ¼
 
 
-	// ÔÙÆÀ¹ÀÒ»ÏÂºÚ³µÓëË§µÄ¹ØÏµ
+	// å†è¯„ä¼°ä¸€ä¸‹é»‘è½¦ä¸å¸…çš„å…³ç³»
 	BString = m_and(ei.attackKingPaoCan[WHITECOLOR],bitboard_black_che);
 	while(m128_is_have_bit(BString)){
 		int che = pop_1st_bit(&BString);
@@ -88,7 +88,7 @@
 		set_bit(POSITION->DYN->black_xray,x);
 		xray_black_list[x] = che;
 	}
-	// ÔÙÆÀ¹ÀÒ»ÏÂºì³µÓëË§µÄ¹ØÏµ
+	// å†è¯„ä¼°ä¸€ä¸‹çº¢è½¦ä¸å¸…çš„å…³ç³»
 	BString = m_and(ei.attackKingPaoCan[BLACKCOLOR],bitboard_white_che);
 	while(m128_is_have_bit(BString)){
 		int che = pop_1st_bit(&BString);
@@ -99,7 +99,7 @@
 		xray_white_list[x] = che;
 	}
 
-	// ÔÙÆÀ¹ÀÒ»ÏÂºÚÅÚÓëË§µÄ¹ØÏµ, ÖĞÅÚ,µ×ÅÚ
+	// å†è¯„ä¼°ä¸€ä¸‹é»‘ç‚®ä¸å¸…çš„å…³ç³», ä¸­ç‚®,åº•ç‚®
 	BString = m_and(pao_super_attacks_bb(rk,occ), bitboard_black_pao);
 	while(m128_is_have_bit(BString)){
 		int pao = pop_1st_bit(&BString);
@@ -115,14 +115,14 @@
 
 		xray_black_list[p1] = pao;
 		xray_black_list[p2] = pao;
-		// ÓÃÀ´ÆÀ¹ÀÖĞÅÚ(ÌúÃÅË¨), µ×ÅÚ, ÎÑĞÄÅÚ,Âí....
-		set_bit(ei.ZhongDiPaoBB,pao);  // board_display(board,"ÖĞÅÚ»òµ×ÅÚ\n",stdout);
+		// ç”¨æ¥è¯„ä¼°ä¸­ç‚®(é“é—¨æ “), åº•ç‚®, çªå¿ƒç‚®,é©¬....
+		set_bit(ei.ZhongDiPaoBB,pao);  // board_display(board,"ä¸­ç‚®æˆ–åº•ç‚®\n",stdout);
 
-		//½«ÕâĞ©ÅÚ×öÒ»¸ö½ø¹¥µÄ±êÖ¾ 
+		//å°†è¿™äº›ç‚®åšä¸€ä¸ªè¿›æ”»çš„æ ‡å¿— 
 		set_bit(ei.attackKingBoard,pao);
 	}
 
-	// ÔÙÆÀ¹ÀÒ»ÏÂºìÅÚÓëºÚË§µÄ¹ØÏµ, ÖĞÅÚ,µ×ÅÚ
+	// å†è¯„ä¼°ä¸€ä¸‹çº¢ç‚®ä¸é»‘å¸…çš„å…³ç³», ä¸­ç‚®,åº•ç‚®
 	BString = m_and(pao_super_attacks_bb(bk,occ), bitboard_white_pao);
 	while(m128_is_have_bit(BString)){
 		int pao = pop_1st_bit(&BString);
@@ -138,8 +138,8 @@
 
 		xray_white_list[p1] = pao;
 		xray_white_list[p2] = pao;
-		// ÓÃÀ´ÆÀ¹ÀÖĞÅÚ(ÌúÃÅË¨), µ×ÅÚ, ÎÑĞÄÅÚ,Âí....
-		set_bit(ei.ZhongDiPaoBB,pao);  // board_display(board,"ÖĞÅÚ»òµ×ÅÚ\n",stdout);
+		// ç”¨æ¥è¯„ä¼°ä¸­ç‚®(é“é—¨æ “), åº•ç‚®, çªå¿ƒç‚®,é©¬....
+		set_bit(ei.ZhongDiPaoBB,pao);  // board_display(board,"ä¸­ç‚®æˆ–åº•ç‚®\n",stdout);
 
 		set_bit(ei.attackKingBoard,pao);
 	}

@@ -1,16 +1,16 @@
 #ifndef END_my_m_MT_R_2pao_B_1ma
 #define END_my_m_MT_R_2pao_B_1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2ÅÚ¶Ô1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2ç‚®å¯¹1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-// 2ÅÚ¶Ô1Âí
+// 2ç‚®å¯¹1é©¬
 
 
 // fen 4ck3/4a4/3a5/1N7/6b2/6B2/4c4/9/4A4/2BAK4 w - - 126 126 

@@ -1,19 +1,19 @@
 #ifndef END_my_m_MT_R_1che1pao_B_1che1ma
 #define END_my_m_MT_R_1che1pao_B_1che1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ¶Ô1³µ1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®å¯¹1è½¦1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 //const int ChePao_CheMa_Pao_Empty = 196;
 
-//³µÅÚ¶Ô³µÂí
+//è½¦ç‚®å¯¹è½¦é©¬
 void my_m_MT_R_1che1pao_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 
 	Square mk = my_king_pos;
@@ -27,7 +27,7 @@ void my_m_MT_R_1che1pao_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 
 
 	//  fen 4kab2/4a4/4b4/1n7/9/4r4/2R6/9/4C4/3AKA3 b - - 0 1
-	//  Õâ¸ö²»ºÍ
+	//  è¿™ä¸ªä¸å’Œ
 	if (my_shi_num == 2 && my_xiang_num == 0) {
 		if (PB90(MY_SQ4C) == my_pao && PB90(MY_SQ54) == my_shi
 			&& PB90(MY_SQ56) == my_shi && MY_SQ55 == mk) {
@@ -37,7 +37,7 @@ void my_m_MT_R_1che1pao_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//Èç¹ûÅÚ·½ÊÇ¶ş¸öÊË,»ò¶ş¸öÏà,Âí·½ÊÇÊËÏàÈ«,¾ÍÊÇºÍÆå
+	//å¦‚æœç‚®æ–¹æ˜¯äºŒä¸ªä»•,æˆ–äºŒä¸ªç›¸,é©¬æ–¹æ˜¯ä»•ç›¸å…¨,å°±æ˜¯å’Œæ£‹
 	if(StoY(mk) MY_LARGE_EQL MY_RANK8){
 		if(my_xiang_num == 2){
 			EV_MY_SAFE = TRUE;
@@ -68,7 +68,7 @@ void my_m_MT_R_1che1pao_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 2b1ka3/4c4/4ba3/9/9/6B2/9/3rB1R2/2N6/4K4 w - - 27 27
-    //Õâ¸ö²»ºÍ
+    //è¿™ä¸ªä¸å’Œ
 
 	if(my_shi_num == 0){
 		// fen 9/2c1k4/4b4/4r4/4NRb2/9/9/4B4/4A4/5K3 b - - 150 150
@@ -103,7 +103,7 @@ void my_m_MT_R_1che1pao_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 6R2/4ak3/3a1n3/9/9/9/5r3/9/4A4/2BAKCB2 w
-	//Ò»ÅÚÍÏ¶ş×ÓÁË.
+	//ä¸€ç‚®æ‹–äºŒå­äº†.
 	if(your_shi_num == 2 && StoY(yk) MY_SMALL_EQL MY_RANK1){
 		if(bit_is_set(ei.attacked_by(your_che),mpao) && StoX(yche) == StoX(yma)){
 			if(StoX(yk) == 0x5 && MY_SQ17 == yma){
@@ -241,7 +241,7 @@ void my_m_MT_R_1che1pao_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 	// fen 4k4/9/3cr4/3RN4/9/9/9/9/4K4/9 b - - 0 1
-	if((my_shi_num + my_xiang_num) <= 1){  // ÎÒ·½²»°²È«¡£
+	if((my_shi_num + my_xiang_num) <= 1){  // æˆ‘æ–¹ä¸å®‰å…¨ã€‚
 		if(bit_is_set(EV_MY_XBIT,yma)){
 			RETRUN_MUL(8);
 		}

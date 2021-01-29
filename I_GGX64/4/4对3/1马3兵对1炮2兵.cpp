@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_1ma3pawn_B_1pao2pawn
 #define END_my_m_MT_R_1ma3pawn_B_1pao2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1Âí3±ø¶Ô1ÅÚ2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1é©¬3å…µå¯¹1ç‚®2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//1Âí3±ø¶Ô1ÅÚ2±ø //ADD_1PaoXPawn_1MaXPawn_ByShi
+//1é©¬3å…µå¯¹1ç‚®2å…µ //ADD_1PaoXPawn_1MaXPawn_ByShi
 
 void my_m_MT_R_1ma3pawn_B_1pao2pawn(typePOS &POSITION, EvalInfo &ei){	
 	// ADD_MY
@@ -56,7 +56,7 @@ void my_m_MT_R_1ma3pawn_B_1pao2pawn(typePOS &POSITION, EvalInfo &ei){
 			MY_EV_SUB(32);
 		}
 
-		//  Èç¹ûÓĞ¶ş¸ö±ß±ø£¬ÇÒÔİ²»ÄÜ¹ıºÓ
+		//  å¦‚æœæœ‰äºŒä¸ªè¾¹å…µï¼Œä¸”æš‚ä¸èƒ½è¿‡æ²³
 		if (EV_MY_CAN <= 1) {
 			
 			Bitboard p = m_and(m_and(m_or(FileBB_A[0], FileBB_A[0x8]),

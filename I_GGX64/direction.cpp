@@ -45,7 +45,7 @@ void init_relative_rank(){
 }
 
 //enum Direction {
-//	DIR_×óÓÒ = 0, DIR_ÉÏÏÂ = 1, DIR_Âí = 2, DIR_Ïà = 3, DIR_ÊË = 4
+//	DIR_å·¦å³ = 0, DIR_ä¸Šä¸‹ = 1, DIR_é©¬ = 2, DIR_ç›¸ = 3, DIR_ä»• = 4
 //};
 
 void init_direction_table() {
@@ -77,11 +77,11 @@ void init_direction_table() {
 				continue;
 
 			if(StoX(s1) == StoX(s2)){
-				DirectionTable[s1][s2] = DIR_ÉÏÏÂ;
+				DirectionTable[s1][s2] = DIR_ä¸Šä¸‹;
 			}
 
 			if(StoY(s1) == StoY(s2)){
-				DirectionTable[s1][s2] = DIR_×óÓÒ;
+				DirectionTable[s1][s2] = DIR_å·¦å³;
 			}
 
 			

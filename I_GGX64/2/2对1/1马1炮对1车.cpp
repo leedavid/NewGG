@@ -1,20 +1,20 @@
 #ifndef END_my_m_MT_R_1pao1ma_B_1che
 #define END_my_m_MT_R_1pao1ma_B_1che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1Âí1ÅÚ¶Ô1³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1é©¬1ç‚®å¯¹1è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 // fen 9/3k5/3c5/4R4/9/2n6/9/9/9/3K5 w
 
 //const int MaPao2ShiAdd = 16;
 
-//ÂíÅÚ¶Ô³µ
+//é©¬ç‚®å¯¹è½¦
 void my_m_MT_R_1pao1ma_B_1che(typePOS &POSITION, EvalInfo &ei){
 
 	Square mk   = my_king_pos;
@@ -42,10 +42,10 @@ void my_m_MT_R_1pao1ma_B_1che(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//ÔòÂíÅÚ·½ÒªÇóºÍÁË, 
-	//ÂíÅÚÒªÏëÊØºÍÒ»³µ,Òª¶şµã;
-	//1,ÅÚÔÚ½«ºó, ÒÔÃâ³µÔÚµ±Í·ÕÕ½«,ÔÙÓÃÂí×öÓ¦×Å,ÕâÊÇ×îºÃµÄÒ»ÖÖºÍ¾ÖµÄĞÎÊÆ
-	//2,ÅÚÔÚ½«Ç°, ËæÊ±½ôÌû»¥±£, ÂíÇĞ²»¿ÉÌøµÃÌ«Ô¶,
+	//åˆ™é©¬ç‚®æ–¹è¦æ±‚å’Œäº†, 
+	//é©¬ç‚®è¦æƒ³å®ˆå’Œä¸€è½¦,è¦äºŒç‚¹;
+	//1,ç‚®åœ¨å°†å, ä»¥å…è½¦åœ¨å½“å¤´ç…§å°†,å†ç”¨é©¬åšåº”ç€,è¿™æ˜¯æœ€å¥½çš„ä¸€ç§å’Œå±€çš„å½¢åŠ¿
+	//2,ç‚®åœ¨å°†å‰, éšæ—¶ç´§å¸–äº’ä¿, é©¬åˆ‡ä¸å¯è·³å¾—å¤ªè¿œ,
 	if(StoX(mpao) == StoX(mk) && (your_shi_num + your_xiang_num) == 0){
 		//
 		if(StoY(mpao) MY_LARGE StoY(mk)){

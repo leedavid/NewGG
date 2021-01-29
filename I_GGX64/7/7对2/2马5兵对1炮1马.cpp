@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2ma5pawn_B_1ma1pao
 #define END_my_m_MT_R_2ma5pawn_B_1ma1pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2Âí5±ø¶Ô1ÅÚ1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2é©¬5å…µå¯¹1ç‚®1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 

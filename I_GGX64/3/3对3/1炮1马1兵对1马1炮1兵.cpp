@@ -1,6 +1,6 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
 
 void m_MT_1pao1ma1pawn_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei) {

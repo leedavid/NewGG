@@ -12,57 +12,57 @@
 
 typedef struct _T_WQL_QUERY
 {
-	CHAR*	szSelect;		// SELECTÓï¾ä
-	WCHAR*	szProperty;		// ÊôĞÔ×Ö¶Î
+	CHAR*	szSelect;		// SELECTè¯­å¥
+	WCHAR*	szProperty;		// å±æ€§å­—æ®µ
 } T_WQL_QUERY;
 
-// WQL²éÑ¯Óï¾ä
+// WQLæŸ¥è¯¢è¯­å¥
 const T_WQL_QUERY szWQLQuery[] = {
-	// Íø¿¨Ô­ÉúMACµØÖ·
+	// ç½‘å¡åŸç”ŸMACåœ°å€
 	"SELECT * FROM Win32_NetworkAdapter WHERE (MACAddress IS NOT NULL) AND (NOT (PNPDeviceID LIKE 'ROOT%'))",
 	L"PNPDeviceID",
 
-	// Ó²ÅÌĞòÁĞºÅ
+	// ç¡¬ç›˜åºåˆ—å·
 	"SELECT * FROM Win32_DiskDrive WHERE (SerialNumber IS NOT NULL) AND (MediaType LIKE 'Fixed hard disk%')",
 	L"SerialNumber",
 
-	// Ö÷°åĞòÁĞºÅ
+	// ä¸»æ¿åºåˆ—å·
 	"SELECT * FROM Win32_BaseBoard WHERE (SerialNumber IS NOT NULL)",
 	L"SerialNumber",	
 
-	// ´¦ÀíÆ÷ID
+	// å¤„ç†å™¨ID
 	"SELECT * FROM Win32_Processor WHERE (ProcessorId IS NOT NULL)",
 	L"ProcessorId",
 
-	// BIOSĞòÁĞºÅ
+	// BIOSåºåˆ—å·
 	"SELECT * FROM Win32_BIOS WHERE (SerialNumber IS NOT NULL)",
 	L"SerialNumber",
 
-	// Ö÷°åĞÍºÅ
+	// ä¸»æ¿å‹å·
 	"SELECT * FROM Win32_BaseBoard WHERE (Product IS NOT NULL)",
 	L"Product",
 
-	// Íø¿¨µ±Ç°MACµØÖ·
+	// ç½‘å¡å½“å‰MACåœ°å€
 	"SELECT * FROM Win32_NetworkAdapter WHERE (MACAddress IS NOT NULL) AND (NOT (PNPDeviceID LIKE 'ROOT%'))",
 	L"MACAddress",
 };
 
-// Í¨¹ı¡°PNPDeviceID¡±»ñÈ¡Íø¿¨Ô­ÉúMACµØÖ·
+// é€šè¿‡â€œPNPDeviceIDâ€è·å–ç½‘å¡åŸç”ŸMACåœ°å€
 static BOOL WMI_DoWithPNPDeviceID( const TCHAR *PNPDeviceID, TCHAR *MacAddress, UINT uSize )
 {
 	TCHAR	DevicePath[MAX_PATH];
 	HANDLE	hDeviceFile;	
 	BOOL	isOK = FALSE;
 
-	// Éú³ÉÉè±¸Â·¾¶Ãû
+	// ç”Ÿæˆè®¾å¤‡è·¯å¾„å
 	StringCchCopy( DevicePath, MAX_PATH, TEXT("\\\\.\\") );
 	StringCchCat( DevicePath, MAX_PATH, PNPDeviceID );
 	StringCchCat( DevicePath, MAX_PATH, TEXT("#{ad498944-762f-11d0-8dcb-00c04fc3358c}") );
 
-	// ½«¡°PNPDeviceID¡±ÖĞµÄ¡°\¡±Ìæ»»³É¡°#¡±£¬ÒÔ»ñµÃÕæÕıµÄÉè±¸Â·¾¶Ãû
+	// å°†â€œPNPDeviceIDâ€ä¸­çš„â€œ\â€æ›¿æ¢æˆâ€œ#â€ï¼Œä»¥è·å¾—çœŸæ­£çš„è®¾å¤‡è·¯å¾„å
 	std::replace( DevicePath + 4, DevicePath + 4 + _tcslen(PNPDeviceID), TEXT('\\'), TEXT('#') ); 
 
-	// »ñÈ¡Éè±¸¾ä±ú
+	// è·å–è®¾å¤‡å¥æŸ„
 	hDeviceFile = CreateFile( DevicePath,
 		0,
 		FILE_SHARE_READ | FILE_SHARE_WRITE,
@@ -77,11 +77,11 @@ static BOOL WMI_DoWithPNPDeviceID( const TCHAR *PNPDeviceID, TCHAR *MacAddress, 
 		BYTE	ucData[8];
 		DWORD	dwByteRet;		
 
-		// »ñÈ¡Íø¿¨Ô­ÉúMACµØÖ·
+		// è·å–ç½‘å¡åŸç”ŸMACåœ°å€
 		dwID = OID_802_3_PERMANENT_ADDRESS;
 		isOK = DeviceIoControl( hDeviceFile, IOCTL_NDIS_QUERY_GLOBAL_STATS, &dwID, sizeof(dwID), ucData, sizeof(ucData), &dwByteRet, NULL );
 		if( isOK )
-		{	// ½«×Ö½ÚÊı×é×ª»»³É16½øÖÆ×Ö·û´®
+		{	// å°†å­—èŠ‚æ•°ç»„è½¬æ¢æˆ16è¿›åˆ¶å­—ç¬¦ä¸²
 			for( DWORD i = 0; i < dwByteRet; i++ )
 			{
 				StringCchPrintf( MacAddress + (i << 1), uSize - (i << 1), TEXT("%02X"), ucData[i] );
@@ -101,12 +101,12 @@ static BOOL WMI_DoWithHarddiskSerialNumber( TCHAR *SerialNumber, UINT uSize )
 
 	iLen = (UINT)_tcslen(SerialNumber);
 	if( iLen == 40 )	// InterfaceType = "IDE"
-	{	// ĞèÒª½«16½øÖÆ±àÂë´®×ª»»Îª×Ö·û´®
+	{	// éœ€è¦å°†16è¿›åˆ¶ç¼–ç ä¸²è½¬æ¢ä¸ºå­—ç¬¦ä¸²
 		TCHAR ch, szBuf[32];
 		BYTE b;		
 
 		for( i = 0; i < 20; i++ )
-		{	// ½«16½øÖÆ×Ö·û×ª»»Îª¸ß4Î»
+		{	// å°†16è¿›åˆ¶å­—ç¬¦è½¬æ¢ä¸ºé«˜4ä½
 			ch = SerialNumber[i * 2];
 			if( (ch >= '0') && (ch <= '9') )
 			{
@@ -121,13 +121,13 @@ static BOOL WMI_DoWithHarddiskSerialNumber( TCHAR *SerialNumber, UINT uSize )
 				b = BYTE(ch - 'a' + 10);
 			}
 			else
-			{	// ·Ç·¨×Ö·û
+			{	// éæ³•å­—ç¬¦
 				break;
 			}
 
 			b <<= 4;
 
-			// ½«16½øÖÆ×Ö·û×ª»»ÎªµÍ4Î»
+			// å°†16è¿›åˆ¶å­—ç¬¦è½¬æ¢ä¸ºä½4ä½
 			ch = SerialNumber[i * 2 + 1];
 			if( (ch >= '0') && (ch <= '9') )
 			{
@@ -142,7 +142,7 @@ static BOOL WMI_DoWithHarddiskSerialNumber( TCHAR *SerialNumber, UINT uSize )
 				b += BYTE(ch - 'a' + 10);
 			}
 			else
-			{	// ·Ç·¨×Ö·û
+			{	// éæ³•å­—ç¬¦
 				break;
 			}
 
@@ -150,21 +150,21 @@ static BOOL WMI_DoWithHarddiskSerialNumber( TCHAR *SerialNumber, UINT uSize )
 		}
 
 		if( i == 20 )
-		{	// ×ª»»³É¹¦
+		{	// è½¬æ¢æˆåŠŸ
 			szBuf[i] = L'\0';
 			StringCchCopy( SerialNumber, uSize, szBuf );
 			iLen = (UINT)_tcslen(SerialNumber);
 		}
 	}
 
-	// Ã¿2¸ö×Ö·û»¥»»Î»ÖÃ
+	// æ¯2ä¸ªå­—ç¬¦äº’æ¢ä½ç½®
 	for( i = 0; i < iLen; i += 2 )
 	{
 		std::swap( SerialNumber[i], SerialNumber[i+1] );
 	}
 
-	// È¥µô¿Õ¸ñ
-	std::remove( SerialNumber, SerialNumber + _tcslen(SerialNumber) + 1, L' ' );
+	// å»æ‰ç©ºæ ¼
+	static_cast<void>(std::remove( SerialNumber, SerialNumber + _tcslen(SerialNumber) + 1, L' ' ));
 
 	return TRUE;
 }
@@ -175,47 +175,47 @@ static BOOL WMI_DoWithProperty( INT iQueryType, TCHAR *szProperty, UINT uSize )
 
 	switch( iQueryType )
 	{
-	case 0:		// Íø¿¨Ô­ÉúMACµØÖ·		
+	case 0:		// ç½‘å¡åŸç”ŸMACåœ°å€		
 		isOK = WMI_DoWithPNPDeviceID( szProperty, szProperty, uSize );
 		break;
 
-	case 1:		// Ó²ÅÌĞòÁĞºÅ
+	case 1:		// ç¡¬ç›˜åºåˆ—å·
 		isOK = WMI_DoWithHarddiskSerialNumber( szProperty, uSize );
 		break;
 
-	case 6:		// Íø¿¨µ±Ç°MACµØÖ·
-		// È¥µôÃ°ºÅ
-		std::remove( szProperty, szProperty + _tcslen(szProperty) + 1, L':' );
+	case 6:		// ç½‘å¡å½“å‰MACåœ°å€
+		// å»æ‰å†’å·
+		static_cast<void>(std::remove( szProperty, szProperty + _tcslen(szProperty) + 1, L':' ));
 		break;
 
 	default:
-		// È¥µô¿Õ¸ñ
-		std::remove( szProperty, szProperty + _tcslen(szProperty) + 1, L' ' );
+		// å»æ‰ç©ºæ ¼
+		static_cast<void>(std::remove( szProperty, szProperty + _tcslen(szProperty) + 1, L' ' ));
 	}
 
 	return isOK;
 }
 
-// »ùÓÚWindows Management Instrumentation£¨Windows¹ÜÀí¹æ·¶£©
+// åŸºäºWindows Management Instrumentationï¼ˆWindowsç®¡ç†è§„èŒƒï¼‰
 INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
 {
 	HRESULT hres;
 	INT	iTotal = 0;
 	
-	// ÅĞ¶Ï²éÑ¯ÀàĞÍÊÇ·ñÖ§³Ö
+	// åˆ¤æ–­æŸ¥è¯¢ç±»å‹æ˜¯å¦æ”¯æŒ
 	if( (iQueryType < 0) || (iQueryType >= sizeof(szWQLQuery)/sizeof(T_WQL_QUERY)) )
 	{
-		return -1;	// ²éÑ¯ÀàĞÍ²»Ö§³Ö
+		return -1;	// æŸ¥è¯¢ç±»å‹ä¸æ”¯æŒ
 	}
 
-    // ³õÊ¼»¯COM
+    // åˆå§‹åŒ–COM
     hres = CoInitializeEx( NULL, COINIT_MULTITHREADED ); 
     if( FAILED(hres) )
     {
         return -2;
     }
 
-    // ÉèÖÃCOMµÄ°²È«ÈÏÖ¤¼¶±ğ
+    // è®¾ç½®COMçš„å®‰å…¨è®¤è¯çº§åˆ«
 	hres = CoInitializeSecurity( 
 		NULL, 
 		-1, 
@@ -233,7 +233,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
         return -2;
     }
     
-	// »ñµÃWMIÁ¬½ÓCOM½Ó¿Ú
+	// è·å¾—WMIè¿æ¥COMæ¥å£
     IWbemLocator *pLoc = NULL;
     hres = CoCreateInstance( 
 		CLSID_WbemLocator,             
@@ -248,7 +248,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
         return -2;
     }
 
-    // Í¨¹ıÁ¬½Ó½Ó¿ÚÁ¬½ÓWMIµÄÄÚºË¶ÔÏóÃû"ROOT\\CIMV2"
+    // é€šè¿‡è¿æ¥æ¥å£è¿æ¥WMIçš„å†…æ ¸å¯¹è±¡å"ROOT\\CIMV2"
 	IWbemServices *pSvc = NULL;
 	hres = pLoc->ConnectServer(
          _bstr_t( L"ROOT\\CIMV2" ),
@@ -267,7 +267,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
         return -2;
     }
 
-	// ÉèÖÃÇëÇó´úÀíµÄ°²È«¼¶±ğ
+	// è®¾ç½®è¯·æ±‚ä»£ç†çš„å®‰å…¨çº§åˆ«
     hres = CoSetProxyBlanket(
 		pSvc,
 		RPC_C_AUTHN_WINNT,
@@ -286,7 +286,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
         return -2;
     }
 
-    // Í¨¹ıÇëÇó´úÀíÀ´ÏòWMI·¢ËÍÇëÇó
+    // é€šè¿‡è¯·æ±‚ä»£ç†æ¥å‘WMIå‘é€è¯·æ±‚
     IEnumWbemClassObject *pEnumerator = NULL;
     hres = pSvc->ExecQuery(
 		bstr_t("WQL"), 
@@ -303,7 +303,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
         return -3;
     }
 
-    // Ñ­»·Ã¶¾ÙËùÓĞµÄ½á¹û¶ÔÏó  
+    // å¾ªç¯æšä¸¾æ‰€æœ‰çš„ç»“æœå¯¹è±¡  
     while( pEnumerator )
     {
 		IWbemClassObject *pclsObj = NULL;
@@ -327,7 +327,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
         }
 
 		if( properties != NULL )
-		{	// »ñÈ¡ÊôĞÔÖµ
+		{	// è·å–å±æ€§å€¼
 			VARIANT vtProperty;
 			
 			VariantInit( &vtProperty );	
@@ -335,7 +335,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
 			StringCchCopy( properties[iTotal].szProperty, PROPERTY_MAX_LEN, W2T(vtProperty.bstrVal) );
 			VariantClear( &vtProperty );
 
-			// ¶ÔÊôĞÔÖµ×ö½øÒ»²½µÄ´¦Àí
+			// å¯¹å±æ€§å€¼åšè¿›ä¸€æ­¥çš„å¤„ç†
 			if( WMI_DoWithProperty( iQueryType, properties[iTotal].szProperty, PROPERTY_MAX_LEN ) )
 			{
 				iTotal++;
@@ -349,7 +349,7 @@ INT WMI_DeviceQuery( INT iQueryType, T_DEVICE_PROPERTY *properties, INT iSize )
 		pclsObj->Release();
     } // End While
 
-    // ÊÍ·Å×ÊÔ´
+    // é‡Šæ”¾èµ„æº
 	pEnumerator->Release();
     pSvc->Release();
     pLoc->Release();    

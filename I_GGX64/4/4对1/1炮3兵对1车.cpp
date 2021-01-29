@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_1pao3pawn_B_1che
 #define END_my_m_MT_R_1pao3pawn_B_1che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ3±ø¶Ô1³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®3å…µå¯¹1è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//1ÅÚ3±ø¶Ô1³µ  //Âíx±ø¶Ô1³µ_addByPawnSafe
+//1ç‚®3å…µå¯¹1è½¦  //é©¬xå…µå¯¹1è½¦_addByPawnSafe
 
 void my_m_MT_R_1pao3pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 
@@ -27,7 +27,7 @@ void my_m_MT_R_1pao3pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 
 	if(EV_MY_SAFE){
 		Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
-		MY_EV_ADD((sint16)count_1s(bmp) * ADD_PaoxPawn¶Ô1Che_addByPawnSafeByShi[your_shi_num]);
+		MY_EV_ADD((sint16)count_1s(bmp) * ADD_PaoxPawnå¯¹1Che_addByPawnSafeByShi[your_shi_num]);
 		// fen 6b2/4k4/4b4/p7p/9/6p2/6c2/B3K4/5R3/3A1A3 w - - 0 1
 		MY_EV_ADD(EV_MY_CAN * 32);
 	}
@@ -62,11 +62,11 @@ void my_m_MT_R_1pao3pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 //	int  bpao = PieceListStart(board,BPAO);
 //
 //
-//	if(board->B_xiang == 2 && board->B_shi == 2){   //Âí·½ÓÐ¶þÏà¶þÊË, ÔòÂí·½°²È«ÁË
+//	if(board->B_xiang == 2 && board->B_shi == 2){   //é©¬æ–¹æœ‰äºŒç›¸äºŒä»•, åˆ™é©¬æ–¹å®‰å…¨äº†
 //		board->bsafe = TRUE;
 //	}
 //
-//	if(board->B_shi == 2 || board->B_xiang == 2){  //Âí·½ÓÐ¶þÏà,»ò¶þÊË, ÔòÂí·½Èç¹ûÔÚÖÐÏßÓÐÁ¬±ø¾ÍÊÇºÍÁË.
+//	if(board->B_shi == 2 || board->B_xiang == 2){  //é©¬æ–¹æœ‰äºŒç›¸,æˆ–äºŒä»•, åˆ™é©¬æ–¹å¦‚æžœåœ¨ä¸­çº¿æœ‰è¿žå…µå°±æ˜¯å’Œäº†.
 //		for(int from = PieceListStart(board,BPAWN); from > 0x32; from = NextPiece(board,from)){
 //
 //			if(StoY(from) < StoY(rk) && StoX(from) == 0x7){
@@ -86,7 +86,7 @@ void my_m_MT_R_1pao3pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 //
 //		if(StoY(from) <= StoY(rk)){
 //
-//			board->mulScore -= ADD_PaoxPawn¶Ô1Che_addByPawnSafeByShi[board->R_shi];
+//			board->mulScore -= ADD_PaoxPawnå¯¹1Che_addByPawnSafeByShi[board->R_shi];
 //		}
 //	}
 //

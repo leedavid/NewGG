@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1ma2pawn_B_2che
 #define END_my_m_MT_R_1che1ma2pawn_B_2che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí2±ø¶Ô2³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1é©¬2å…µå¯¹2è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //const int MAT_R_2che1pawn_B_1che1ma1pawn_MaSafe = 256;
@@ -62,7 +62,7 @@ void my_m_MT_R_1che1ma2pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 //
 //
 //	// fen 4kab2/4aR3/4R4/4n1r2/9/9/9/4B4/9/2BAKA3 w - - 0 0
-//	//ºì·½¶þ¸ö³µÒ»¸öÒ²²»ÄÜ¶¯ÁË,Ò²ÊÇºÍÆå, ºì·½µÄ±ø²»ÄÜ¹ýºÓ
+//	//çº¢æ–¹äºŒä¸ªè½¦ä¸€ä¸ªä¹Ÿä¸èƒ½åŠ¨äº†,ä¹Ÿæ˜¯å’Œæ£‹, çº¢æ–¹çš„å…µä¸èƒ½è¿‡æ²³
 //	if(rcan == 0){
 //		if(board->B_xiang >= 1 && board->B_shi == 2){
 //			if(StoY(bk) == 0x3){

@@ -69,7 +69,7 @@ int MyLowDepth (typePOS* POSITION, int VALUE, int depth)
 			}
 			if (trans->DepthUpper >= depth){	
 				Value = HashUpperBound (trans);
-				if (Value < VALUE) // Èç¹ûÊÇ½â½«²½£¬Ôò²»ÄÜ·µ»Ø£¬»ØÎª¿ÉÄÜÓÐ BY_LGL
+				if (Value < VALUE) // å¦‚æžœæ˜¯è§£å°†æ­¥ï¼Œåˆ™ä¸èƒ½è¿”å›žï¼Œå›žä¸ºå¯èƒ½æœ‰ BY_LGL
 					RETURN (Value);				
 			}
 			trans_depth = trans->DepthLower;
@@ -119,7 +119,7 @@ int MyLowDepth (typePOS* POSITION, int VALUE, int depth)
 		if (VALUE >= POS0->valu + 75 + 32 * depth)
 		{
 			//NextMove->TARGET ^= BitboardOppP;
-			NextMove->TARGET = m_xor(NextMove->TARGET,bitboard_your_pawn);  // È¥ÁË±ø
+			NextMove->TARGET = m_xor(NextMove->TARGET,bitboard_your_pawn);  // åŽ»äº†å…µ
 			//if (BitboardOppP & MyAttacked)
 			//	best_value += 125;
 			if(m128_is_have_bit(m_and(bitboard_your_pawn,MyAttacked))){
@@ -159,7 +159,7 @@ int MyLowDepth (typePOS* POSITION, int VALUE, int depth)
 			&& NextMove->phase == ORDINARY_MOVES
 			&& (move & RE0XE000) == 0
 			&& m128_is_have_bit(_mm_andnot_si128(MyXRAY,SetMaskBB[fr])) 
-			//&& MyOccupied ^ (BitboardMyP | BitboardMyK) // ³ýÁË±ø£¬½«»¹ÓÐÆäËüµÄ×Ó¡£
+			//&& MyOccupied ^ (BitboardMyP | BitboardMyK) // é™¤äº†å…µï¼Œå°†è¿˜æœ‰å…¶å®ƒçš„å­ã€‚
 			&& m128_is_have_bit(_mm_xor_si128(MyOccupied,m_or(bitboard_my_pawn,bitboard_my_king))))
 		{
 			if ((2 * depth) + MAX_POSITIONAL (move) + POS0->valu <	VALUE + 40 + 2 * cnt)
@@ -169,14 +169,14 @@ int MyLowDepth (typePOS* POSITION, int VALUE, int depth)
 			}
 		}
 		if (cnt > 1 
-			&& (PB90(to) == 0 || (depth <= 5 && !EasySEE (move)))  //²»ÊÇ³Ô×Ó²½
+			&& (PB90(to) == 0 || (depth <= 5 && !EasySEE (move)))  //ä¸æ˜¯åƒå­æ­¥
 			//&& SqSet[fr] & ~MyXRAY 
-			&& m128_is_have_bit(_mm_andnot_si128(MyXRAY,SetMaskBB[fr]))  //²»ÊÇ³é½«,
-			//&& POSITION->sq[fr] != EnumMyK  // ×ßµÄ²»ÊÇ½«¡£
+			&& m128_is_have_bit(_mm_andnot_si128(MyXRAY,SetMaskBB[fr]))  //ä¸æ˜¯æŠ½å°†,
+			//&& POSITION->sq[fr] != EnumMyK  // èµ°çš„ä¸æ˜¯å°†ã€‚
 			&& PB90(fr) != my_king
-			//&& !MoveIsEP (move)  // Õâ¶ùÒª¼ÓÉÏÒ»¸ö²»ÊÇ½«¾ü²½£¬Èç¹ûÊÇ½«¾ü²½£¬Ò²²»ÄÜ½ü»Ø0
+			//&& !MoveIsEP (move)  // è¿™å„¿è¦åŠ ä¸Šä¸€ä¸ªä¸æ˜¯å°†å†›æ­¥ï¼Œå¦‚æžœæ˜¯å°†å†›æ­¥ï¼Œä¹Ÿä¸èƒ½è¿‘å›ž0
 			&& move != trans_move 
-			&& !MySEE (POSITION, move))  //ËÍ³Ô×Ó£¿£¿¡¡// ËÍ×ÓµÄ½«¾ü²½²»×ß£¿£¿ ´ø×Å³µ½«,²»ËãËÍ×ÓÍÛ.			
+			&& !MySEE (POSITION, move))  //é€åƒå­ï¼Ÿï¼Ÿã€€// é€å­çš„å°†å†›æ­¥ä¸èµ°ï¼Ÿï¼Ÿ å¸¦ç€è½¦å°†,ä¸ç®—é€å­å“‡.			
 		{
 			cnt++;
 			continue;
@@ -210,7 +210,7 @@ int MyLowDepth (typePOS* POSITION, int VALUE, int depth)
 				continue;
 			}
 			if (QSEARCH_CONDITION){  // QSEARCH_CONDITION        (new_depth <= 1)
-				v = -OppQsearch (POSITION, 1 - VALUE, 0);       //Õâ¸öÓÐÎÊÌâ,¶Ô·½²»×ß½«¾ü²½ÁË?
+				v = -OppQsearch (POSITION, 1 - VALUE, 0);       //è¿™ä¸ªæœ‰é—®é¢˜,å¯¹æ–¹ä¸èµ°å°†å†›æ­¥äº†?
 			}
 			else{
 				v = -OppLowDepth (POSITION, 1 - VALUE, new_depth);
@@ -237,7 +237,7 @@ int MyLowDepth (typePOS* POSITION, int VALUE, int depth)
 			HISTORY_BAD (move, depth);
 	}
 
-	if (!cnt && NextMove->phase <= TRANS2){  //Ã»ÓÐºÏ·¨×ß²½¾ÍÊÇËÀÁË
+	if (!cnt && NextMove->phase <= TRANS2){  //æ²¡æœ‰åˆæ³•èµ°æ­¥å°±æ˜¯æ­»äº†
 		RETURN (HEIGHT (POSITION) - VALUE_MATE);
 	}
 	HashUpper (POSITION->DYN->HASH, depth, best_value);
@@ -344,8 +344,8 @@ int MyLowDepthCheck (typePOS* POSITION, int VALUE, int depth)
 		move = p->move;
 		p++;
 
-		if (IsInterpose (move)   // ÊÇÉ±ÊÖ²½£¿£¿
-			&& VALUE > -25000 // ËÑË÷
+		if (IsInterpose (move)   // æ˜¯æ€æ‰‹æ­¥ï¼Ÿï¼Ÿ
+			&& VALUE > -25000 // æœç´¢
 			&& (move & 0x7fff) != trans_move 
 			&& !MySEE (POSITION, move))
 		{
@@ -400,7 +400,7 @@ int MyLowDepthCheck (typePOS* POSITION, int VALUE, int depth)
 }
 
 
-// ÎÒ·½ÊÇ½â½«²½
+// æˆ‘æ–¹æ˜¯è§£å°†æ­¥
 int MyLowDepthEvasion (typePOS* POSITION, int VALUE, int depth)
 {	
 	int cnt, Value, best_value, v, k, i, trans_move = 0;
@@ -447,7 +447,7 @@ int MyLowDepthEvasion (typePOS* POSITION, int VALUE, int depth)
 			if (trans->DepthUpper >= depth){
 				//if(POSITION->STACKst[POSITION->StackHeight-1].checkk == FALSE){
 				Value = HashUpperBound (trans);
-				if (Value < VALUE) // Èç¹ûÊÇ½â½«²½£¬Ôò²»ÄÜ·µ»Ø£¬»ØÎª¿ÉÄÜÓÐ BY_LGL
+				if (Value < VALUE) // å¦‚æžœæ˜¯è§£å°†æ­¥ï¼Œåˆ™ä¸èƒ½è¿”å›žï¼Œå›žä¸ºå¯èƒ½æœ‰ BY_LGL
 					RETURN (Value);
 				//}
 			}
@@ -500,7 +500,7 @@ int MyLowDepthEvasion (typePOS* POSITION, int VALUE, int depth)
 		if (VALUE >= POS0->valu + 75 + 32 * depth)
 		{
 			//NextMove->TARGET ^= BitboardOppP;
-			NextMove->TARGET = m_xor(NextMove->TARGET,bitboard_your_pawn);  // È¥ÁË±ø
+			NextMove->TARGET = m_xor(NextMove->TARGET,bitboard_your_pawn);  // åŽ»äº†å…µ
 			//if (BitboardOppP & MyAttacked)
 			//	best_value += 125;
 			if(m128_is_have_bit(m_and(bitboard_your_pawn,MyAttacked))){
@@ -540,7 +540,7 @@ int MyLowDepthEvasion (typePOS* POSITION, int VALUE, int depth)
 			&& NextMove->phase == ORDINARY_MOVES
 			&& (move & RE0XE000) == 0
 			&& m128_is_have_bit(_mm_andnot_si128(MyXRAY,SetMaskBB[fr])) 
-			//&& MyOccupied ^ (BitboardMyP | BitboardMyK) // ³ýÁË±ø£¬½«»¹ÓÐÆäËüµÄ×Ó¡£
+			//&& MyOccupied ^ (BitboardMyP | BitboardMyK) // é™¤äº†å…µï¼Œå°†è¿˜æœ‰å…¶å®ƒçš„å­ã€‚
 			&& m128_is_have_bit(_mm_xor_si128(MyOccupied,m_or(bitboard_my_pawn,bitboard_my_king))))
 		{
 			if ((2 * depth) + MAX_POSITIONAL (move) + POS0->valu <	VALUE + 40 + 2 * cnt)
@@ -550,14 +550,14 @@ int MyLowDepthEvasion (typePOS* POSITION, int VALUE, int depth)
 			}
 		}
 		if (cnt > 1 
-			&& (PB90(to) == 0 || (depth <= 5 && !EasySEE (move)))  //²»ÊÇ³Ô×Ó²½
+			&& (PB90(to) == 0 || (depth <= 5 && !EasySEE (move)))  //ä¸æ˜¯åƒå­æ­¥
 			//&& SqSet[fr] & ~MyXRAY 
-			&& m128_is_have_bit(_mm_andnot_si128(MyXRAY,SetMaskBB[fr]))  //²»ÊÇ³é½«,
-			//&& POSITION->sq[fr] != EnumMyK  // ×ßµÄ²»ÊÇ½«¡£
+			&& m128_is_have_bit(_mm_andnot_si128(MyXRAY,SetMaskBB[fr]))  //ä¸æ˜¯æŠ½å°†,
+			//&& POSITION->sq[fr] != EnumMyK  // èµ°çš„ä¸æ˜¯å°†ã€‚
 			&& PB90(fr) != my_king
-			//&& !MoveIsEP (move)  // Õâ¶ùÒª¼ÓÉÏÒ»¸ö²»ÊÇ½«¾ü²½£¬Èç¹ûÊÇ½«¾ü²½£¬Ò²²»ÄÜ½ü»Ø0
+			//&& !MoveIsEP (move)  // è¿™å„¿è¦åŠ ä¸Šä¸€ä¸ªä¸æ˜¯å°†å†›æ­¥ï¼Œå¦‚æžœæ˜¯å°†å†›æ­¥ï¼Œä¹Ÿä¸èƒ½è¿‘å›ž0
 			&& move != trans_move 
-			&& !MySEE (POSITION, move))  //ËÍ³Ô×Ó£¿£¿¡¡// ËÍ×ÓµÄ½«¾ü²½²»×ß£¿£¿ ´ø×Å³µ½«,²»ËãËÍ×ÓÍÛ.			
+			&& !MySEE (POSITION, move))  //é€åƒå­ï¼Ÿï¼Ÿã€€// é€å­çš„å°†å†›æ­¥ä¸èµ°ï¼Ÿï¼Ÿ å¸¦ç€è½¦å°†,ä¸ç®—é€å­å“‡.			
 		{
 			cnt++;
 			continue;
@@ -591,7 +591,7 @@ int MyLowDepthEvasion (typePOS* POSITION, int VALUE, int depth)
 				continue;
 			}
 			if (QSEARCH_CONDITION){  // QSEARCH_CONDITION        (new_depth <= 1)
-				v = -OppQsearch (POSITION, 1 - VALUE, 0);       //Õâ¸öÓÐÎÊÌâ,¶Ô·½²»×ß½«¾ü²½ÁË?
+				v = -OppQsearch (POSITION, 1 - VALUE, 0);       //è¿™ä¸ªæœ‰é—®é¢˜,å¯¹æ–¹ä¸èµ°å°†å†›æ­¥äº†?
 			}
 			else{
 				v = -OppLowDepth (POSITION, 1 - VALUE, new_depth);
@@ -617,7 +617,7 @@ int MyLowDepthEvasion (typePOS* POSITION, int VALUE, int depth)
 			HISTORY_BAD (move, depth);
 	}
 
-	if (!cnt && NextMove->phase <= TRANS2){  //Ã»ÓÐºÏ·¨×ß²½¾ÍÊÇËÀÁË¡£
+	if (!cnt && NextMove->phase <= TRANS2){  //æ²¡æœ‰åˆæ³•èµ°æ­¥å°±æ˜¯æ­»äº†ã€‚
 		RETURN (HEIGHT (POSITION) - VALUE_MATE);
 	}
 	HashUpper (POSITION->DYN->HASH, depth, best_value);

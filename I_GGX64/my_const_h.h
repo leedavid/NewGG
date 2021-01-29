@@ -61,7 +61,7 @@ const static uint8 _KingSide[90] = {
 //	1,   1,   1,   1,   0,   1,   1,   1,   1,  
 //	1,   1,   1,   1,   0,   1,   1,   1,   1,  
 //	1,   1,   1,   1,   0,   1,   1,   1,   1,  
-//	0,   0,   0,   0,   0,   0,   0,   0,   0,     //ÅÚ¹é±ßÁË
+//	0,   0,   0,   0,   0,   0,   0,   0,   0,     //ç‚®å½’è¾¹äº†
 //	0,   0,   0,   0,   0,   0,   0,   0,   0,  
 //	0,   0,   0,   0,   0,   0,   0,   0,   0,  
 //	0,   0,   0,   0,   0,   0,   0,   0,   0,  
@@ -78,7 +78,7 @@ const static uint8 _KingSide[90] = {
 #define KS_R_PAO_INOF(p90) _R_PaoInfo[p90]
 #define KS_B_PAO_INOF(p90) _B_PaoInfo[p90]
 
-//ºìÅÚÔÚÖĞ¼äµÄÇé¿ö
+//çº¢ç‚®åœ¨ä¸­é—´çš„æƒ…å†µ
 const static uint32 _R_PaoInfo[90] = { 
   KsP,  KsP,  KsP,    KsP,  0,    KsP,  KsP,  KsP,  KsP,	
   KsP,  KsP,  KsP,    KsP,  0,    KsP,  KsP,  KsP,  KsP,
@@ -92,7 +92,7 @@ const static uint32 _R_PaoInfo[90] = {
 	0,    0,    0,    KmP,    0,  KmP,  0,    0,    0,	
 	0,    0,    0,    KmP,    0,  KmP,  0,    0,    0,	
 };
-//ºÚÅÚÔÚÖĞ¼äµÄÇé¿ö
+//é»‘ç‚®åœ¨ä¸­é—´çš„æƒ…å†µ
 const static uint32 _B_PaoInfo[90] = { 
 	0,    0,    0,    KmP,    0,  KmP,  0,    0,    0,	
 	0,    0,    0,    KmP,    0,  KmP,  0,    0,    0,	
@@ -107,7 +107,7 @@ const static uint32 _B_PaoInfo[90] = {
   KsP,  KsP,  KsP,    KsP,  0,    KsP,  KsP,  KsP,  KsP,	
 };
 
-#define BK_LEFT  0  //¹²¶şÎ» xx  0x ºÚ·½ 1xºì·½
+#define BK_LEFT  0  //å…±äºŒä½ xx  0x é»‘æ–¹ 1xçº¢æ–¹
 #define BK_RIGHT 1
 #define RK_LEFT  2
 #define RK_RIGHT 3
@@ -127,8 +127,8 @@ const static uint32 _B_PaoInfo[90] = {
 //#define EV_STAT_B_right_TieMen_By_R        (1 << 5)
 
 
-#include "endgame\\²Ğ¾Ö¼Ó·Ö_0³µ.h"
-#include "endgame\\²Ğ¾Ö¼Ó·Ö_1³µ.h"
-#include "endgame\\²Ğ¾Ö¼Ó·Ö_2³µ.h"
+#include "endgame/æ®‹å±€åŠ åˆ†_0è½¦.h"
+#include "endgame/æ®‹å±€åŠ åˆ†_1è½¦.h"
+#include "endgame/æ®‹å±€åŠ åˆ†_2è½¦.h"
 
 #endif

@@ -1,13 +1,13 @@
 #ifndef END_my_K_MT_R_2ma_B_1che
 #define END_my_K_MT_R_2ma_B_1che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2Âí¶Ô1³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2é©¬å¯¹1è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -27,12 +27,12 @@ void my_m_MT_R_2ma_B_1che(typePOS &POSITION, EvalInfo &ei){
 		EV_YOUR_SAFE = TRUE;
 	}
 
-	// ÏóÆå²Ğ¾ÖÀıµä page 222  Ë«ÂíÁ¬»·»¥±£, ÈçÁ¢ÓÚÖĞÏß,ºÍ"ÀıºÍ"Ò»³µ
-	if(StoY(mk) MY_LARGE MY_RANK7){//1,Ê×ÏÈ½«Òª°²È«
-		//2, ¶ş¸öÂíÔÚÏàÖĞ¼äÒÔÉÏ
+	// è±¡æ£‹æ®‹å±€ä¾‹å…¸ page 222  åŒé©¬è¿ç¯äº’ä¿, å¦‚ç«‹äºä¸­çº¿,å’Œ"ä¾‹å’Œ"ä¸€è½¦
+	if(StoY(mk) MY_LARGE MY_RANK7){//1,é¦–å…ˆå°†è¦å®‰å…¨
+		//2, äºŒä¸ªé©¬åœ¨ç›¸ä¸­é—´ä»¥ä¸Š
 		if(StoY(mma1) MY_SMALL_EQL MY_RANK7 && StoY(mma1) MY_LARGE MY_RANK2){
 			if(StoY(mma2) MY_SMALL_EQL MY_RANK7 && StoY(mma2) MY_LARGE MY_RANK2){
-				//3, Âí½áÁ¬»·ÁË, ÇÒÊÇÁ¢ÓÚÖĞÏß, 
+				//3, é©¬ç»“è¿ç¯äº†, ä¸”æ˜¯ç«‹äºä¸­çº¿, 
 				if(StoX(mma1) == 0x4 || StoX(mma2) == 0x4){
 					if(abs(StoX(mma1) - StoX(mma2)) == 1){
 						if(abs(StoY(mma1) - StoY(mma2)) == 2){
@@ -55,7 +55,7 @@ void my_m_MT_R_2ma_B_1che(typePOS &POSITION, EvalInfo &ei){
 	// fen 4k4/9/4bRn2/9/5n3/6B2/9/9/4K4/5A3 w - - 0 0
 	if(PB90(MY_SQ43) == my_xiang && StoY(mk) MY_LARGE_EQL MY_RANK8){
 		//if(bit_is_set(ei.attacked_by(my_ma],MY_SQ43)){
-		//	//¿´Ò»ÏÂÂíÊÇ²»ÊÇÁ¬×ÅµÄµÄ.
+		//	//çœ‹ä¸€ä¸‹é©¬æ˜¯ä¸æ˜¯è¿ç€çš„çš„.
 		//}
 		Bitboard ma_att = ei.attacked_by(my_ma);
 		if(m_have_bit(m_and(ma_att,bb_my_ma))){
@@ -63,7 +63,7 @@ void my_m_MT_R_2ma_B_1che(typePOS &POSITION, EvalInfo &ei){
 				RETRUN_MUL(4);
 			}
 			
-			// fen 3a5/4k4/9/9/2b6/3N5/3r5/2N1B4/9/4K4 w, Õâ¸öÊÇ³µµ²×¡ÁË. 
+			// fen 3a5/4k4/9/9/2b6/3N5/3r5/2N1B4/9/4K4 w, è¿™ä¸ªæ˜¯è½¦æŒ¡ä½äº†. 
 			if(have_bit(Ma_Pseudo_Att[MY_SQ43],bb_my_ma)){
 				RETRUN_MUL(4); // fen 3a5/4k4/9/9/2b6/3N5/3r5/2N1B4/9/4K4 w
 			}

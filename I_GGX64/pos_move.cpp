@@ -43,16 +43,16 @@ bool Position::pl_move_is_legala(Move m) {
 	Bitboard KFR = ChePseudoMask_FR[mk];
 	//////////////////////////////////////////////////////////////////////////
 	if(have_bit(KFR,m_or(pieces(BKING - delt),pieces(BCHE - delt)))){
-		// 2.1.1. ÊÇ²»ÊÇ¸ø¶Ô·½µÄ ³µ,½« ½«¾ü, ** µ«²»°üÀ¨³ÔÁË¶Ô·½µÄÆå.Í¬Ê±È¥ÁË¶Ô·½µÄÆå×Ó
+		// 2.1.1. æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ è½¦,å°† å°†å†›, ** ä½†ä¸åŒ…æ‹¬åƒäº†å¯¹æ–¹çš„æ£‹.åŒæ—¶å»äº†å¯¹æ–¹çš„æ£‹å­
 		if(m_have_bit(m_and(_mm_andnot_si128(SetMaskBB[to],
 			m_or(pieces(BKING - delt),pieces(BCHE - delt))),
-			Rook_attacks_bb(mk,occ)))) {    // Õâ¸öÒª¼ÓÈë£¬ÒòÎªÊÇÒª×ßÁËºó
+			Rook_attacks_bb(mk,occ)))) {    // è¿™ä¸ªè¦åŠ å…¥ï¼Œå› ä¸ºæ˜¯è¦èµ°äº†å
 				return false; 
 		}
 	}
 	//////////////////////////////////////////////////////////////////////////
 	if(have_bit(KFR,pieces(BPAO - delt))){
-		// 2.1.2. ÊÇ²»ÊÇ»¹¸ø¶Ô·½µÄÅÚ½«¾ü
+		// 2.1.2. æ˜¯ä¸æ˜¯è¿˜ç»™å¯¹æ–¹çš„ç‚®å°†å†›
 		if(m_have_bit(m_and(_mm_andnot_si128(SetMaskBB[to],pieces(BPAO - delt)),
 			Pao_Eat_bb(mk,occ)))){
 				return false;
@@ -65,7 +65,7 @@ bool Position::pl_move_is_legala(Move m) {
 				return false;
 		}
 	}
-	// 2.1.4 ÊÇ²»ÊÇ»¹¸ø¶Ô·½µÄ±ø½«¾ü
+	// 2.1.4 æ˜¯ä¸æ˜¯è¿˜ç»™å¯¹æ–¹çš„å…µå°†å†›
 	if(have_bit(Us == WHITE? attacks_by_bpawn_bk(mk): attacks_by_rpawn_rk(mk),pieces(BPAWN - delt))){
 		if(m_have_bit(m_and(_mm_andnot_si128(SetMaskBB[to],pieces(BPAWN - delt)),
 			Us == WHITE? attacks_by_bpawn_bk(mk): attacks_by_rpawn_rk(mk)))){
@@ -116,16 +116,16 @@ bool Position::legal(Move m) {
 	Bitboard KFR = ChePseudoMask_FR[mk];
     //////////////////////////////////////////////////////////////////////////
 	if(have_bit(KFR,m_or(pieces(BKING - delt),pieces(BCHE - delt)))){
-		// 2.1.1. ÊÇ²»ÊÇ¸ø¶Ô·½µÄ ³µ,½« ½«¾ü, ** µ«²»°üÀ¨³ÔÁË¶Ô·½µÄÆå.Í¬Ê±È¥ÁË¶Ô·½µÄÆå×Ó
+		// 2.1.1. æ˜¯ä¸æ˜¯ç»™å¯¹æ–¹çš„ è½¦,å°† å°†å†›, ** ä½†ä¸åŒ…æ‹¬åƒäº†å¯¹æ–¹çš„æ£‹.åŒæ—¶å»äº†å¯¹æ–¹çš„æ£‹å­
 		if(m_have_bit(m_and(_mm_andnot_si128(SetMaskBB[to],
 			m_or(pieces(BKING - delt),pieces(BCHE - delt))),
-			Rook_attacks_bb(mk,occ)))) {    // Õâ¸öÒª¼ÓÈë£¬ÒòÎªÊÇÒª×ßÁËºó
+			Rook_attacks_bb(mk,occ)))) {    // è¿™ä¸ªè¦åŠ å…¥ï¼Œå› ä¸ºæ˜¯è¦èµ°äº†å
 				return false; 
 		}
 	}
 	//////////////////////////////////////////////////////////////////////////
 	if(have_bit(KFR,pieces(BPAO - delt))){
-		// 2.1.2. ÊÇ²»ÊÇ»¹¸ø¶Ô·½µÄÅÚ½«¾ü
+		// 2.1.2. æ˜¯ä¸æ˜¯è¿˜ç»™å¯¹æ–¹çš„ç‚®å°†å†›
 		if(m_have_bit(m_and(_mm_andnot_si128(SetMaskBB[to],pieces(BPAO - delt)),
 			Pao_Eat_bb(mk,occ)))){
 				return false;
@@ -138,7 +138,7 @@ bool Position::legal(Move m) {
 				return false;
 		}
 	}
-	// 2.1.4 ÊÇ²»ÊÇ»¹¸ø¶Ô·½µÄ±ø½«¾ü
+	// 2.1.4 æ˜¯ä¸æ˜¯è¿˜ç»™å¯¹æ–¹çš„å…µå°†å†›
 	if(have_bit(Us == WHITE? attacks_by_bpawn_bk(mk): attacks_by_rpawn_rk(mk),pieces(BPAWN - delt))){
 		if(m_have_bit(m_and(_mm_andnot_si128(SetMaskBB[to],pieces(BPAWN - delt)),
 			Us == WHITE? attacks_by_bpawn_bk(mk): attacks_by_rpawn_rk(mk)))){
@@ -170,7 +170,7 @@ bool Position::pseudo_legal(Move move) {
 	switch(piece){
 	case RMA:
 	case BMA:{
-		//µÃµ½ÂíµÄËùÓĞ×ß²½			
+		//å¾—åˆ°é©¬çš„æ‰€æœ‰èµ°æ­¥			
 		return (bit_is_set(king_to_ma_attacks_bb(to),from));
 			 }
 			 break;
@@ -185,12 +185,12 @@ bool Position::pseudo_legal(Move move) {
 						}
 						break;
 	case RCHE:
-	case BCHE:{ //²»³Ô×ÓÓë³Ô×Ó
+	case BCHE:{ //ä¸åƒå­ä¸åƒå­
 		return (bit_is_set(Rook_attacks_bb(to),from));
 			  }
 			  break;
 	case RPAO:
-	case BPAO:{//²»³Ô×Ó
+	case BPAO:{//ä¸åƒå­
 		if(cap == EMPTY){
 			return (bit_is_set(Rook_attacks_bb(to),from));
 		}
@@ -217,7 +217,7 @@ bool Position::pseudo_legal(Move move) {
 }
 
 static const  bool AlwaysZhouJiang[16] = {
-	false,  // Õâ¸ö²»ÓÃÁË
+	false,  // è¿™ä¸ªä¸ç”¨äº†
 	false,  true, true, true, false, false, false,
 	false,
 	false,  true, true, true, false, false, false,		
@@ -230,7 +230,10 @@ bool Position::gives_check(Move m, CheckInfo& ci) {
 
 	//ASSERT(pos_is_ok());
 	ASSERT(is_ok(m));
-	ASSERT(m128_is_same(ci.dcCandidates, discovered_check_candidates(side_to_move())));
+
+	Bitboard bb = discovered_check_candidates(side_to_move());
+	ASSERT(m128_is_same(ci.dcCandidates, bb));
+	
 	ASSERT(color_of(b90[from_sq(m)]) == side_to_move());
 
 
@@ -240,11 +243,11 @@ bool Position::gives_check(Move m, CheckInfo& ci) {
 	Square yk   = ci.ksq;
 	
 
-	// Direct check ? Ö±½Ó½«.
+	// Direct check ? ç›´æ¥å°†.
 	if (ChessCanDirectCheck[pc]){
-		if (bit_is_set(ci.checkSq[pc], to)){ // ÔÎ,Õâ¸ö²»ÊÇÅÚ½«ÍÛ.
+		if (bit_is_set(ci.checkSq[pc], to)){ // æ™•,è¿™ä¸ªä¸æ˜¯ç‚®å°†å“‡.
 			// fen 2bak2r1/4a4/4b1n2/p3pNR1p/2p6/5NP2/P3P3P/4B3C/3cK2c1/2r2A1R1 b - - 0 1
-			if (type_of(pc) == PAO && bit_is_set(ChePseudoMask_FR[yk], from)){  // ÅÚÒ²ÔÚ½«ÏßÉÏ×ß
+			if (type_of(pc) == PAO && bit_is_set(ChePseudoMask_FR[yk], from)){  // ç‚®ä¹Ÿåœ¨å°†çº¿ä¸Šèµ°
 				Bitboard occ = occupied_squares();
 				clear_bit(occ, from);
 				set_bit(occ, to);
@@ -262,51 +265,51 @@ bool Position::gives_check(Move m, CheckInfo& ci) {
 		}
 	}
 
-	// Discovery check ? ³é½«, ÖĞ¹úÏóÆåÓĞÅÚ³é½«,³µ³é³µ,Âí³é½«ÈıÖÖĞÎÊ½.
+	// Discovery check ? æŠ½å°†, ä¸­å›½è±¡æ£‹æœ‰ç‚®æŠ½å°†,è½¦æŠ½è½¦,é©¬æŠ½å°†ä¸‰ç§å½¢å¼.
 	//if (m_have_bit(ci.dcCandidates) && bit_is_set(ci.dcCandidates, from)){
 	if (bit_is_set(ci.dcCandidates, from))	{		
 		if(bit_is_set(ChePseudoMask_FR[yk],from)){
-			// 1, ³µµÄ³é½«.
-			// 2, ÅÚµÄ³é½«.
-			// ÉÏÃæ¶şÖÖÔÚ,Ò»Ö±ÏßÉÏ. »¹ÓĞÒ»ÖÖÊÇ³ÔÖĞ¼äµÄÆå×Ó½«. ÅÚ a b ½«, a¿ÉÒÔ³ÔbÉú²ú½«. 
-			// Èç¹ûÊÇÂí,ÊË,Ïà,¾ÍÒ»¶¨ÊÇ½«¾ü²½ÍÛ
+			// 1, è½¦çš„æŠ½å°†.
+			// 2, ç‚®çš„æŠ½å°†.
+			// ä¸Šé¢äºŒç§åœ¨,ä¸€ç›´çº¿ä¸Š. è¿˜æœ‰ä¸€ç§æ˜¯åƒä¸­é—´çš„æ£‹å­å°†. ç‚® a b å°†, aå¯ä»¥åƒbç”Ÿäº§å°†. 
+			// å¦‚æœæ˜¯é©¬,ä»•,ç›¸,å°±ä¸€å®šæ˜¯å°†å†›æ­¥å“‡
 			if(AlwaysZhouJiang[piece_on(from)]){
 				return true;
 			}
-			// ÔÙÅĞ¶ÏÒ»ÏÂ, ÓÃ¸´ÔÓµÄ·½·¨. 
+			// å†åˆ¤æ–­ä¸€ä¸‹, ç”¨å¤æ‚çš„æ–¹æ³•. 
 			if(direction_between_squares(from, yk) != direction_between_squares(to, yk)){
 					return true;
 			}
-			// ÔÙ¿´Ò»ÏÂÊÇ²»ÊÇÅÚ,³µ,±øµÈ³Ô×Ó½«. 
+			// å†çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯ç‚®,è½¦,å…µç­‰åƒå­å°†. 
 			if(piece_on(to) != EMPTY){
 				return true;
 			}
 		}
-		else{  // 3, ÂíµÄ³é½«.			 
+		else{  // 3, é©¬çš„æŠ½å°†.			 
 			return true;
 		}
 	}
 
 	//////////////////////////////////////////////////////////////////////////
-	// ×ßµ½¿ÕÅÚÖĞ¼äµÄ½«
-	if(bit_is_set(ci.PaoNull,to)){ // »¹ÒªÕâ¸öÆå×Ó,²»ÊÇÕâ¸öÅÚ²ÅĞĞÍÛ.
+	// èµ°åˆ°ç©ºç‚®ä¸­é—´çš„å°†
+	if(bit_is_set(ci.PaoNull,to)){ // è¿˜è¦è¿™ä¸ªæ£‹å­,ä¸æ˜¯è¿™ä¸ªç‚®æ‰è¡Œå“‡.
 		if(type_of(pc) == PAO && bit_is_set(ChePseudoMask_FR[yk],from)){			
-			return false; // Õâ¸ö²»¿ÉÄÜÔÙ½«ÁË. 			
+			return false; // è¿™ä¸ªä¸å¯èƒ½å†å°†äº†. 			
 		}
 		return true;
 	}
 
-	//»¹ÒªÅÚ³ÔÆäËüµÄ×ÓÀ´½«.
+	//è¿˜è¦ç‚®åƒå…¶å®ƒçš„å­æ¥å°†.
 	// fen r1bakab1r/9/7c1/p1p1C1p1p/4n4/4n4/P1P3P1P/9/9/RNBAKABNR w - - 0 1
-	// e6e2 ºìÅÚ³Ô×Ó½«?? ÕâÊ±ÅÚÒ²¶¯ÁËÍÛ. 
-	// fen rnbakabr1/9/4c2c1/p1p1C1p1p/9/9/P1P1P1P1P/9/9/RNBAKABNR b - - 0 1 // Õâ¸ö²»ÊÇ½«
+	// e6e2 çº¢ç‚®åƒå­å°†?? è¿™æ—¶ç‚®ä¹ŸåŠ¨äº†å“‡. 
+	// fen rnbakabr1/9/4c2c1/p1p1C1p1p/9/9/P1P1P1P1P/9/9/RNBAKABNR b - - 0 1 // è¿™ä¸ªä¸æ˜¯å°†
 	if(type_of(pc) == PAO && b90[to] != EMPTY 
 		&& bit_is_set(ChePseudoMask_FR[yk],from)
 		&& bit_is_set(ChePseudoMask_FR[yk],to)){
 
 		Color Us = color_of(piece_on(from));  // side_to_move();
 		const Piece delt = COLOR_BY_SIDE_ADD[Us];
-        // ¿´Ò»ÏÂÊÇ²»ÊÇÓĞÅÚÔÚ½«ÁË.
+        // çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯æœ‰ç‚®åœ¨å°†äº†.
 		Bitboard occ = occupied_squares();
 		clear_bit(occ,from);
 		set_bit(occ,to);
@@ -337,34 +340,34 @@ bool Position::test_Is_True_Cap(Square from, Square to, Color which){
 	to_id = type_of(b90[to]);
 
 	//---------------------------------------------------------------------------
-	//1, ÊÇ±ø»ò½«ÔÚ³Ô, ¾Í·µ»Ø FALSE ,Õâ¶ù²»ÓÃÁË, ÒòÎªÇ°ÃæµÄÒÑÈ¥³ıÁË
+	//1, æ˜¯å…µæˆ–å°†åœ¨åƒ, å°±è¿”å› FALSE ,è¿™å„¿ä¸ç”¨äº†, å› ä¸ºå‰é¢çš„å·²å»é™¤äº†
 	//---------------------------------------------------------------------------
 
 
 	//---------------------------------------------------------------------------
-	//2, ÅĞ¶ÏÕâ¸öÆåÄÜ²»ÄÜ×ß, Èç¹û²»ÄÜ×ß,Ò²¾Í²»¿ÉÄÜÈ¥³Ô¶Ô·½ÁË
+	//2, åˆ¤æ–­è¿™ä¸ªæ£‹èƒ½ä¸èƒ½èµ°, å¦‚æœä¸èƒ½èµ°,ä¹Ÿå°±ä¸å¯èƒ½å»åƒå¯¹æ–¹äº†
 	//---------------------------------------------------------------------------
-	//if(Is_Can_Move_To_Eat(board,from,to) == FALSE){  //×½·½µÄ×Ó²»ÄÜ¶¯.
+	//if(Is_Can_Move_To_Eat(board,from,to) == FALSE){  //æ‰æ–¹çš„å­ä¸èƒ½åŠ¨.
 	//	return;
 	//}
 
-	//ÉÏÃæµÄÒ²²»ÓÃ,ÒòÎªÒÑÔÚÇ°Ãæ¹ıÂËÁË.
+	//ä¸Šé¢çš„ä¹Ÿä¸ç”¨,å› ä¸ºå·²åœ¨å‰é¢è¿‡æ»¤äº†.
 
 	//---------------------------------------------------------------------------
-	//3, ÔÙÅĞ¶ÏÒ»ÏÂÕâ¸ö×½µÄÆåµÄ¼ÛÖµÊÇ²»ÊÇ±È±»×½µÄÆåµÄ¼ÛÖµĞ¡
+	//3, å†åˆ¤æ–­ä¸€ä¸‹è¿™ä¸ªæ‰çš„æ£‹çš„ä»·å€¼æ˜¯ä¸æ˜¯æ¯”è¢«æ‰çš„æ£‹çš„ä»·å€¼å°
 	//---------------------------------------------------------------------------
 	if(PieceValueMidgame[b90[from]] >= PieceValueMidgame[b90[to]]){
 		//---------------------------------------------------------------------------
-		//4, Èç¹ûË«·½µÄÆå×ÓÏàÍ¬,ÔòÒªÅĞ¶Ï 1, Õâ¸öÆå×ÓÄÜ²»ÄÜ×ß, 2, Õâ¸öÆåÄÜ²»ÄÜ·´³Ô¶Ô·½(Âí)
+		//4, å¦‚æœåŒæ–¹çš„æ£‹å­ç›¸åŒ,åˆ™è¦åˆ¤æ–­ 1, è¿™ä¸ªæ£‹å­èƒ½ä¸èƒ½èµ°, 2, è¿™ä¸ªæ£‹èƒ½ä¸èƒ½ååƒå¯¹æ–¹(é©¬)
 		//---------------------------------------------------------------------------
 		if(type_of(b90[from]) == to_id){
-			//ÅĞ¶ÏÊÇ²»ÊÇÂí×½
+			//åˆ¤æ–­æ˜¯ä¸æ˜¯é©¬æ‰
 			//if(Is_Can_Move_To_Eat(board,to,from) == TRUE){
 			if(legal(MOVE_FromTo(to,from)) == true){
 				if(to_id != MA) return false;
-				// fen 3ak4/4a4/2ncb4/4N4/2p1P1b2/6B2/2P6/1N7/9/3AKAB2 b - - 157 157 Õâ¸ö²»ÊÇ
-				// fen 3ak4/4a4/2ncb4/4N4/2p3b2/6B2/2P6/1N7/9/3AKAB2 b Õâ¸öÊÇ³£×½
-				//ÔÙ¿´Ò»ÏÂÕâ¸öÂíÄÜ²»ÄÜ·´³Ôµ½×Ô¼º.
+				// fen 3ak4/4a4/2ncb4/4N4/2p1P1b2/6B2/2P6/1N7/9/3AKAB2 b - - 157 157 è¿™ä¸ªä¸æ˜¯
+				// fen 3ak4/4a4/2ncb4/4N4/2p3b2/6B2/2P6/1N7/9/3AKAB2 b è¿™ä¸ªæ˜¯å¸¸æ‰
+				//å†çœ‹ä¸€ä¸‹è¿™ä¸ªé©¬èƒ½ä¸èƒ½ååƒåˆ°è‡ªå·±.
 				//king_to_ma_attacks(bb,board,sq);
 				//BB_and_BB(bb,board->byChessBB[BMA]);
 				//BB_or_BB(att,bb);	
@@ -375,14 +378,14 @@ bool Position::test_Is_True_Cap(Square from, Square to, Color which){
 			}
 		}
 		//---------------------------------------------------------------------------
-		//5, ÔÙ¿´Ò»ÏÂÕâ¸öÆåÓĞÃ»ÓĞÆäËüµÄÆå×Ó±£»¤×Å
+		//5, å†çœ‹ä¸€ä¸‹è¿™ä¸ªæ£‹æœ‰æ²¡æœ‰å…¶å®ƒçš„æ£‹å­ä¿æŠ¤ç€
 		//---------------------------------------------------------------------------
 
 		oldside = sideToMove;
 		sideToMove = color_of(b90[from]);
 		move_do_test(MOVE_FromTo(from,to),&undo_capture);
 
-		//b, ÔÙ¿´Ò»ÏÂÓĞÃ»ÓĞÆäËüµÄÆå×Ó±£»¤×Å
+		//b, å†çœ‹ä¸€ä¸‹æœ‰æ²¡æœ‰å…¶å®ƒçš„æ£‹å­ä¿æŠ¤ç€
 		isP = isPretecte_TrueCap(which,to);	
 		move_undo_test(MOVE_FromTo(from,to),undo_capture);	
 		sideToMove = oldside;

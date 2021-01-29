@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1pao2ma3pawn_B_1che1pao1ma1pawn
 #define END_my_m_MT_R_1che1pao2ma3pawn_B_1che1pao1ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ2Âí3±ø¶Ô1³µ1ÅÚ1Âí1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®2é©¬3å…µå¯¹1è½¦1ç‚®1é©¬1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //const int _3pawn1paopawn_PawnShiAdd[3] = {96,48,24};
@@ -19,14 +19,14 @@ void my_m_MT_R_1che1pao2ma3pawn_B_1che1pao1ma1pawn(typePOS &POSITION, EvalInfo &
 	Square ypao = S90_from_piecelist(POSITION,your_pao,0);
 
 	
-	//¶Ô·½µÄ±øÃ»ÓÐ¹ýºÓ
+	//å¯¹æ–¹çš„å…µæ²¡æœ‰è¿‡æ²³
 	if(!have_bit(MyLowBB[MY_RANK4],bb_your_pawn)){
 		MY_EV_ADD(32);
-		//¶Ô·½µÄÂíÃ»ÓÐ¹ýºÓ
+		//å¯¹æ–¹çš„é©¬æ²¡æœ‰è¿‡æ²³
 
 
 		if(StoY(yma) MY_SMALL_EQL MY_RANK3){
-			MY_EV_ADD(32);  // ¶Ô·½µÄÅÚÔÚÎÒÕâ±ß
+			MY_EV_ADD(32);  // å¯¹æ–¹çš„ç‚®åœ¨æˆ‘è¿™è¾¹
 			if(StoY(ypao) MY_LARGE_EQL MY_RANK5){
 				MY_EV_ADD(32);
 			}

@@ -55,7 +55,7 @@ int MyAnalysis (typePOS* POSITION, int ALPHA, int BETA, int depth)
 		EXTEND =0;
 		to = TO (move);
 	
-		//if((move & 0xffff) == 0x2f02 && depth == 8){ // �Է�����,Ȼ�󲻽�,�ҷ���Ҫ��һ��,���ܷ��ط���.
+		//if((move & 0xffff) == 0x2f02 && depth == 8){ // 对方连将,然后不将,我方还要走一步,才能返回分数.
 		//	move = move;
 		//}
 		//if((move & 0xffff) == 0x4e4d && depth == 2){

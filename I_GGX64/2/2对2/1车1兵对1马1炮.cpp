@@ -1,19 +1,19 @@
 #ifndef END_my_m_MT_R_1che1pawn_B_1pao1ma
 #define END_my_m_MT_R_1che1pawn_B_1pao1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1±ø¶Ô1Âí1ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1å…µå¯¹1é©¬1ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//#define ADD_ChePawn_To_MaPao_By_Panw   128              //³µ±ø¶ÔÂíÅÚ,³µ±ø·½±øÒª¼Ó·Ö,ÒòÎªÂíÅÚÌ«ÄÑÉ±¶Ô·½ÁË
-//#define ADD_ChePawn_To_MaPao_By_Che    128              //³µ±ø¶ÔÂíÅÚ,³µ±ø·½³µÒª¼Ó·Ö,ÒòÎªÂíÅÚÌ«ÄÑÉ±¶Ô·½ÁË
+//#define ADD_ChePawn_To_MaPao_By_Panw   128              //è½¦å…µå¯¹é©¬ç‚®,è½¦å…µæ–¹å…µè¦åŠ åˆ†,å› ä¸ºé©¬ç‚®å¤ªéš¾æ€å¯¹æ–¹äº†
+//#define ADD_ChePawn_To_MaPao_By_Che    128              //è½¦å…µå¯¹é©¬ç‚®,è½¦å…µæ–¹è½¦è¦åŠ åˆ†,å› ä¸ºé©¬ç‚®å¤ªéš¾æ€å¯¹æ–¹äº†
 
-//ÎÒ·½1³µ1±ø,¶Ô·½ÊÇÂíÅÚ
+//æˆ‘æ–¹1è½¦1å…µ,å¯¹æ–¹æ˜¯é©¬ç‚®
 void my_m_MT_R_1che1pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 
 	MY_EV_ADD(ADD_ChePawn_To_MaPao_By_Che);
@@ -27,7 +27,7 @@ void my_m_MT_R_1che1pawn_B_1pao1ma(typePOS &POSITION, EvalInfo &ei){
 		MY_EV_ADD(ADD_ChePawn_To_MaPao_By_PawnByShi[your_shi_num]);
 	}
 
-	//Èç¹û¶Ô·½ÊÇÊËÏàÈ«,Ò²¿ÉÄÜÊÇºÍÆå
+	//å¦‚æœå¯¹æ–¹æ˜¯ä»•ç›¸å…¨,ä¹Ÿå¯èƒ½æ˜¯å’Œæ£‹
 	if(your_shi_num == 2){
 
 		if(your_xiang_num == 2){

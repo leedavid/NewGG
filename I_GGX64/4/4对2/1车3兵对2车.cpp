@@ -1,17 +1,17 @@
 #ifndef END_my_m_MAR_R_1che3pawn_B_2che_a
 #define END_my_m_MAR_R_1che3pawn_B_2che_a
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ3±ø¶Ô2³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦3å…µå¯¹2è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//ºì·½1³µÈı±ø ºÚ·½ 2³µ
+//çº¢æ–¹1è½¦ä¸‰å…µ é»‘æ–¹ 2è½¦
 
 void my_m_MT_R_1che3pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 
@@ -20,10 +20,10 @@ void my_m_MT_R_1che3pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 	Square mk = my_king_pos;
 	Square mche = S90_from_piecelist(POSITION,my_che,0); 
 
-	//Èç¹ûºì·½ÊÇÊËÏàÈ«,ÇÒÍêÈ«, Ôòºì·½Òª¼Ó·Ö
+	//å¦‚æœçº¢æ–¹æ˜¯ä»•ç›¸å…¨,ä¸”å®Œå…¨, åˆ™çº¢æ–¹è¦åŠ åˆ†
 	// ADD
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
-	MY_EV_ADD((sint16)count_1s(bmp) * Add_³µx±ø_2³µ_by_Pawn_Safe_Shi[your_shi_num]);
+	MY_EV_ADD((sint16)count_1s(bmp) * Add_è½¦xå…µ_2è½¦_by_Pawn_Safe_Shi[your_shi_num]);
 
 	// fen 2ba1k3/4a4/4b4/4PPP2/9/9/4r4/9/4A4/1r1RKA3 b - - 0 1
     if(my_shi_num == 2 && MY_SQ55 == mk && PB90(MY_SQ4C) == my_shi){
@@ -52,7 +52,7 @@ void my_m_MT_R_1che3pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//1, ºì·½ÊÇÊËÏàÈ«, Ôòºì·½ÊÇ°²È«µÄ
+	//1, çº¢æ–¹æ˜¯ä»•ç›¸å…¨, åˆ™çº¢æ–¹æ˜¯å®‰å…¨çš„
 	if((my_shi_num + my_xiang_num) == 4 && PB90(MY_SQ55) == my_king){
 		if(PB90(MY_SQ43) == my_xiang){	
 			RETRUN_MUL(4);

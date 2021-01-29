@@ -1,51 +1,51 @@
 //#define TwoCheZhouJianPoint point(2,32)
 
-// ºì³µ
+// çº¢è½¦
 for(int i = 0; i < RChe_num(); i++){
 	int s = S90_from_piecelist(POSITION,RCHE,i);
-	Bitboard A // 1. ³µµÄ¹¥»÷,Òª´«µİÒ»ÏÂ,ÒòÎª¶ş³µ¿ÉÁ¬Ïß¹¥»÷.
+	Bitboard A // 1. è½¦çš„æ”»å‡»,è¦ä¼ é€’ä¸€ä¸‹,å› ä¸ºäºŒè½¦å¯è¿çº¿æ”»å‡».
 		=  rook_attacks_bb(s,_mm_andnot_si128(POSITION->byChessBB[RCHE],occ)); //rook_attacks_bb(s,occ);
 	ei.RcheAtt[i] = A;
 	POSITION->DYN->attack_white = m128_bb_or_bb(POSITION->DYN->attack_white,A);
 	if(have_bit(A,bit_bk)){
-		set_bit(POSITION->DYN->black_king_check,s);        // ÔÚ½«¾ü
+		set_bit(POSITION->DYN->black_king_check,s);        // åœ¨å°†å†›
 	}
-	//Èç¹û³µ²»ÄÜ»Øµ½×Ô¼ºµÄ¼ÒÀï,¾ÍÒª¿Û·Ö
+	//å¦‚æœè½¦ä¸èƒ½å›åˆ°è‡ªå·±çš„å®¶é‡Œ,å°±è¦æ‰£åˆ†
 	if(m128_is_have_bit(m_and(A,LowBB[0x4])) == FALSE){
 		ei.attPoint[BLACKCOLOR] += Other_Che_Can_Not_back;
 	}
 
-	// ¿´Ò»ÏÂ³µÊÇ²»ÊÇ¿ª·ÅÁË
+	// çœ‹ä¸€ä¸‹è½¦æ˜¯ä¸æ˜¯å¼€æ”¾äº†
 	if(m128_is_have_bit(
 		m_and(A,UpBB[StoY(bk)+CHE_OPEN_SUB_LINE]))){
 		//valu += my_che_open_score;
 		ei.attPoint[WHITECOLOR] += CheOpenAtt;
-		//Õâ¸ö³µÒ²¼ÓÈëÁË½ø¹¥ÍÛ
+		//è¿™ä¸ªè½¦ä¹ŸåŠ å…¥äº†è¿›æ”»å“‡
 		set_bit(ei.attackKingBoard,s); 
 	}
 }
 
 
 // ----------------------------------------------------------------------------
-// ºÚ³µ **************************************************************
+// é»‘è½¦ **************************************************************
 // ----------------------------------------------------------------------------
 //che_check = 0;
 for(int i = 0; i < BChe_num(); i++){
 	int s = S90_from_piecelist(POSITION,BCHE,i);
-	Bitboard A // 1. ³µµÄ¹¥»÷,Òª´«µİÒ»ÏÂ,ÒòÎª¶ş³µ¿ÉÁ¬Ïß¹¥»÷.
+	Bitboard A // 1. è½¦çš„æ”»å‡»,è¦ä¼ é€’ä¸€ä¸‹,å› ä¸ºäºŒè½¦å¯è¿çº¿æ”»å‡».
 		=  rook_attacks_bb(s,_mm_andnot_si128(POSITION->byChessBB[BCHE],occ)); //rook_attacks_bb(s,occ);
 	ei.BcheAtt[i] = A;
 	POSITION->DYN->attack_black = m128_bb_or_bb(POSITION->DYN->attack_black,A);
 	if(have_bit(A,bit_rk)){
-		set_bit(POSITION->DYN->white_king_check,s);        // ÔÚ½«¾ü
+		set_bit(POSITION->DYN->white_king_check,s);        // åœ¨å°†å†›
 	}
 
-	//Èç¹û³µ²»ÄÜ»Øµ½×Ô¼ºµÄ¼ÒÀï,¾ÍÒª¿Û·Ö
+	//å¦‚æœè½¦ä¸èƒ½å›åˆ°è‡ªå·±çš„å®¶é‡Œ,å°±è¦æ‰£åˆ†
 	if(m128_is_have_bit(m_and(A,UpBB[0x5])) == FALSE){
 		ei.attPoint[WHITECOLOR]  += Other_Che_Can_Not_back;
 	}
 
-	// ¿´Ò»ÏÂ³µÊÇ²»ÊÇ¿ª·ÅÁË
+	// çœ‹ä¸€ä¸‹è½¦æ˜¯ä¸æ˜¯å¼€æ”¾äº†
 	if(m128_is_have_bit(
 		m_and(A,LowBB[StoY(rk)-CHE_OPEN_SUB_LINE]))){
 		//valu -= my_che_open_score;
@@ -53,7 +53,7 @@ for(int i = 0; i < BChe_num(); i++){
 		set_bit(ei.attackKingBoard,s); 
 	}
 
-} // ºÚ³µ end
+} // é»‘è½¦ end
 
 //if(che_check == 2){
 //	if(StoY(rk) != 0x9){

@@ -1,18 +1,18 @@
 #ifndef END_my_m_MT_R_2ma2pawn_B_2ma1pawn
 #define END_my_m_MT_R_2ma2pawn_B_2ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2Âí2±ø¶Ô2Âí1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2é©¬2å…µå¯¹2é©¬1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //
-//const int  ADD_2MaXPawn_2Pao1Pawn_ByPawn[3]         = {96, 64, 32};            //2Âíx±ø¶Ô1ÅÚ2±ø, ¶à±øµÄ¼Ó·Ö
-//const int  ADD_2Pao1Pawn_2MaXPawn_ByPawn[3]         = {96, 64, 32};            //1ÅÚ2±ø¶Ô2Âíx±ø, ¶à±øµÄ¼Ó·Ö
+//const int  ADD_2MaXPawn_2Pao1Pawn_ByPawn[3]         = {96, 64, 32};            //2é©¬xå…µå¯¹1ç‚®2å…µ, å¤šå…µçš„åŠ åˆ†
+//const int  ADD_2Pao1Pawn_2MaXPawn_ByPawn[3]         = {96, 64, 32};            //1ç‚®2å…µå¯¹2é©¬xå…µ, å¤šå…µçš„åŠ åˆ†
 
 
 
@@ -166,7 +166,7 @@ void my_m_MT_R_2ma2pawn_B_2ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	// fen 4k4/2P1aP3/3a5/9/2n1Nnb2/9/5N3/4B4/3KAp3/5A3 b - - 0 1
 	if(EV_MY_SAFE){
 		if(your_shi_num == 2 && StoY(yk) == MY_RANK0){
-			// ¶Ô·½µÄ½«ÄÜ×ß¶¯
+			// å¯¹æ–¹çš„å°†èƒ½èµ°åŠ¨
 			if(PB90(MY_SQ0D) != my_pawn){
 				if(m_have_bit(_mm_andnot_si128(MY_ATTACK,ei.attacked_by(your_king)))){
 					RETRUN_MUL(12);

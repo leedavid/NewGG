@@ -1,24 +1,24 @@
 #ifndef END_my_m_MT_R_1PAO1PAWN_B_1MA
 #define END_my_m_MT_R_1PAO1PAWN_B_1MA
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1��1����1��.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1炮1兵对1马.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 //const int Panw_Add = 32;
 
-//�ҷ�һ��һ��, �Է�һ��
+//我方一炮一兵, 对方一马
 void my_m_MT_R_1PAO1PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei){
 
 	//return;
 	Square yk = your_king_pos;
-	//��һ�¶Է�����ȫ���ҷ�ֻ���ڱ�ʱ�ĵ÷�,Ҫ�������ڷ���һЩ����Ϊ�Է�û�л���
+	//看一下对方仕相全，我方只有炮兵时的得分,要补偿成炮方好一些，因为对方没有机会
 	MY_EV_ADD(ADD_1PaoXPawn_1Ma_ByPawn[your_shi_num]);
 
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
@@ -28,13 +28,13 @@ void my_m_MT_R_1PAO1PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei){
 		MY_EV_SUB(168);
 	}
 
-	//����Է������ڽ�������,����
+	//如果对方的马在将的上面,不和
 	// fen 4kab2/3Pn4/9/9/6b2/9/9/9/4K4/4CA3 w - - 0 0
 	if(PB90(MY_SQ04) == your_king && PB90(MY_SQ0D) == your_ma){
 		RETRUN_MUL(16);
 	}
 
-	//�ڷ�û���˾ͺ���
+	//炮方没有仕就和了
 	if(my_shi_num == 0){
 		if(StoY(yk) MY_LARGE StoY(mpawn)){
 			RETRUN_MUL(1);
@@ -48,7 +48,7 @@ void my_m_MT_R_1PAO1PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//�Է�������ȫ
+	//对方是仕相全
 	if(your_shi_num >= 1 && your_xiang_num == 2){
 		RETRUN_MUL(1);
 	}
@@ -62,7 +62,7 @@ void my_m_MT_R_1PAO1PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 	Square yma = S90_from_piecelist(POSITION,your_ma,0);
-	//������ܿ��ƺڽ�,Ҳ�Ǻ���
+	//红兵不能控制黑将,也是和棋
 	// fen 5kb2/3P5/3a5/9/2n6/9/9/9/3KA4/5C3 b - - 126 126 
 	if(StoY(mpawn) MY_SMALL_EQL MY_RANK1 && your_xiang_num >= 1){
 		if(FALSE){
@@ -81,7 +81,7 @@ void my_m_MT_R_1PAO1PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//����ڷ��ǵ�ȱ��,Ҳ�Ǻ���
+	//如果黑方是单缺相,也是和棋
 	if((your_shi_num + your_xiang_num) >= 3){
 		RETRUN_MUL(1);
 	}
@@ -90,7 +90,7 @@ void my_m_MT_R_1PAO1PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 5k3/4P4/b8/9/9/9/6n2/3A5/3KA4/3C5 w - - 121 121
-	//���뽫������ֻ���һ��
+	//兵与将的纵线只相差一格
 	if(my_xiang_num == 0 && your_shi_num != 0){
 		if(StoY(mpawn) MY_SMALL_EQL MY_RANK5 && abs(StoY(mpawn) - StoY(yk)) <= 1){
 			if(StoX(your_king_pos) == 0x5){
@@ -117,7 +117,7 @@ void my_m_MT_R_1PAO1PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei){
 	}
 	
 	// fen 5a3/5k3/3a1N3/9/6b2/6c2/9/5K3/3p5/9 w - - 0 1
-	// �����Է��Ľ�ǣ��ס��. 
+	// 马给对方的将牵制住了. 
 	if(bit_is_set(ei.attacked_by(my_king),yma)){
 		RETRUN_MUL(16);
 	}
@@ -130,7 +130,7 @@ void my_m_MT_R_1PAO1PAWN_B_1MA(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 4ka3/4a4/4bc1N1/9/2b6/9/9/4B1p2/4A4/3K5 b - - 0 0
-	//�ڱ��������࣬
+	//炮兵对马仕相，
 
 	// fen 9/4P4/5k3/9/9/2B6/2n6/3KBA3/4A4/8C b - - 126 126
 	if(StoY(mpawn) MY_SMALL StoY(yk) && StoY(yma) MY_LARGE_EQL MY_RANK5){

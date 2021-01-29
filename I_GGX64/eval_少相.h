@@ -3,16 +3,16 @@
 const static int LackXiangAttackByCheMaPoint[] = {
 	(((0) << 0) + (0)), (((32) << 16) + (96)), (((48) << 16) + (128))
 };
-// Èç¹ûÓÐ±ø£¬»¹Òª¼Ó·Ö
+// å¦‚æžœæœ‰å…µï¼Œè¿˜è¦åŠ åˆ†
 const static int LackXiangAttackByCheMaPawnPoint =  (((16) << 16) + (48));
 
 // fen 2b1ka3/4a4/9/p1N3R1p/2P3p2/4r3P/P3c4/4B4/4A4/3AK1B2 b - - 0 0
-//È±ÏàÅÂ³µÂí¹¥»÷ÍÛ
+//ç¼ºç›¸æ€•è½¦é©¬æ”»å‡»å“‡
 switch(RXiang_num()){
 case 2:
 	break;
 case 1:
-case 0:{ // ¶Ô·½ÓÐ³µÂí¹ýºÓÁË£¬ÎÒ·½Ã»ÓÐ³µÂíÅÚÔÚ¼Ò
+case 0:{ // å¯¹æ–¹æœ‰è½¦é©¬è¿‡æ²³äº†ï¼Œæˆ‘æ–¹æ²¡æœ‰è½¦é©¬ç‚®åœ¨å®¶
 	Bitboard b1 = m_and(LowBB[0x4],
 		m128_bb_or_bb(bitboard_white_che,
 		m128_bb_or_bb(bitboard_white_ma,bitboard_white_pao)));
@@ -36,12 +36,12 @@ default:
 }
 // fen 2b1ka3/4a4/9/p1N3R1p/2P3p2/4r3P/P3c4/4B4/4A4/3AK1B2 b - - 0 0
 // fen 2b1ka3/4a4/9/p1N3R1p/2P3p2/5r2P/P3c4/4B4/4A4/3AK1B2 b (58,
-//È±ÏàÅÂ³µÂí¹¥»÷ÍÛ
+//ç¼ºç›¸æ€•è½¦é©¬æ”»å‡»å“‡
 switch(BXiang_num()){
 case 2:
 	break;
 case 1:
-case 0:{ // ¶Ô·½ÓÐ³µÂí¹ýºÓÁË£¬ÎÒ·½Ã»ÓÐ³µÂíÅÚÔÚ¼Ò
+case 0:{ // å¯¹æ–¹æœ‰è½¦é©¬è¿‡æ²³äº†ï¼Œæˆ‘æ–¹æ²¡æœ‰è½¦é©¬ç‚®åœ¨å®¶
 	Bitboard b1 = m_and(UpBB[0x5],
 		m128_bb_or_bb(bitboard_black_che,
 		m128_bb_or_bb(bitboard_black_ma,bitboard_black_pao)));

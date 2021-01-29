@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_1pao1ma4pawn_B_1che2pawn
 #define END_my_m_MT_R_1pao1ma4pawn_B_1che2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí4±ø¶Ô1³µ2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®1é©¬4å…µå¯¹1è½¦2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//const int ADD_Che2Pawn_To_1Pao1MaXPawn_ByPawn[3]    =  { 96, 64, 32};  //³µ2±ø,¶Ô1ÅÚ1ÂíX±ø
-//const int ADD_1Pao1MaXPawn_To_Che2Pawn_ByPawn[3]    =  { 96, 64, 32};  //³µ2±ø,¶Ô1ÅÚ1ÂíX±ø
+//const int ADD_Che2Pawn_To_1Pao1MaXPawn_ByPawn[3]    =  { 96, 64, 32};  //è½¦2å…µ,å¯¹1ç‚®1é©¬Xå…µ
+//const int ADD_1Pao1MaXPawn_To_Che2Pawn_ByPawn[3]    =  { 96, 64, 32};  //è½¦2å…µ,å¯¹1ç‚®1é©¬Xå…µ
 
 void my_m_MT_R_1pao1ma4pawn_B_1che2pawn(typePOS &POSITION, EvalInfo &ei){
 
@@ -26,7 +26,7 @@ void my_m_MT_R_1pao1ma4pawn_B_1che2pawn(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 4kab2/9/4ba1n1/4p3p/p1p6/c4R3/4P3P/4B4/4A4/2BAK4 w - - 2 2
-    //Èç¹û³µ·½µÄ¶ş¸ö±ø¶¼²»ÄÜ¹ıºÓ,¾ÍÒª¼õ·ÖÍÛ
+    //å¦‚æœè½¦æ–¹çš„äºŒä¸ªå…µéƒ½ä¸èƒ½è¿‡æ²³,å°±è¦å‡åˆ†å“‡
 
 	int ycan = EV_YOUR_CAN;
 	if(ycan == 0){

@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che4pawn_B_1che2pawn
 #define END_my_m_MT_R_1che4pawn_B_1che2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ4±ø¶Ô1³µ2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦4å…µå¯¹1è½¦2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 void my_m_MT_R_1che4pawn_B_1che2pawn(typePOS &POSITION, EvalInfo &ei){
@@ -34,7 +34,7 @@ void my_m_MT_R_1che4pawn_B_1che2pawn(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 2b1ka3/4a2P1/4b4/9/p5r1p/2P3B2/P6RP/4B4/9/3AKA3 b - - 121 121
-    //ÔÚÕâºì·½Ö»ÓĞÒ»¸ö±ø¹ıºÓ, ÆäËüµÄÈı¸ö±ø¶¼²»ÄÜ¹ıºÓ,¾ÍÄÑÊ¤
+    //åœ¨è¿™çº¢æ–¹åªæœ‰ä¸€ä¸ªå…µè¿‡æ²³, å…¶å®ƒçš„ä¸‰ä¸ªå…µéƒ½ä¸èƒ½è¿‡æ²³,å°±éš¾èƒœ
 	int mcan = EV_MY_CAN;
 	int ycan = EV_YOUR_CAN;
 	if(mcan <= 1 && ycan <= 1){

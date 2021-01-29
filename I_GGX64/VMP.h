@@ -3,7 +3,7 @@
 
 
 
-//#define  USE_VP_PROTECT                          // 使用VMP 加密
+//#define  USE_VP_PROTECT                          // 浣跨敤VMP 鍔犲瘑
 
 
 #ifdef NDEBUG    
@@ -18,7 +18,7 @@
 
 
 
-#ifdef USE_VP_PROTECT                                 // 使用VMP加密
+#ifdef USE_VP_PROTECT                                 // 浣跨敤VMP鍔犲瘑
 #define CYCLONE_SUB_DEPTH  0
 #define CYCLONE_MUL_NPS    2
 #else

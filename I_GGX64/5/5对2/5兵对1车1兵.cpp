@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_5pawn_B_1che1pawn
 #define END_my_m_MT_R_5pawn_B_1che1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "5±ø¶Ô1³µ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "5å…µå¯¹1è½¦1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -83,7 +83,7 @@ void my_m_MT_R_5pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 //}
 
 
-//const int ADD_CheXPawn_To_3Pawn                     =  168;             //³µ±ø¶Ô3±ø,³µ·½µÄ¼Ó·Ö
-//const int ADD_CheXPawn_To_2Pawn                     =  196;             //³µ±ø¶Ô2±ø,³µ·½µÄ¼Ó·Ö
-//const int ADD_CheXPawn_To_1Pawn                     =  256;             //³µ±ø¶Ô1±ø,³µ·½µÄ¼Ó·Ö
-//const int ADD_CheXPawn_To_PawnByShi[3]              =  {196,128, 96};   //³µ±ø¶Ô±ø, ³µ·½±øµÄ¼Ó·Ö
+//const int ADD_CheXPawn_To_3Pawn                     =  168;             //è½¦å…µå¯¹3å…µ,è½¦æ–¹çš„åŠ åˆ†
+//const int ADD_CheXPawn_To_2Pawn                     =  196;             //è½¦å…µå¯¹2å…µ,è½¦æ–¹çš„åŠ åˆ†
+//const int ADD_CheXPawn_To_1Pawn                     =  256;             //è½¦å…µå¯¹1å…µ,è½¦æ–¹çš„åŠ åˆ†
+//const int ADD_CheXPawn_To_PawnByShi[3]              =  {196,128, 96};   //è½¦å…µå¯¹å…µ, è½¦æ–¹å…µçš„åŠ åˆ†

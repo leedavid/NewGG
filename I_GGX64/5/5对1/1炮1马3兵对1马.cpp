@@ -1,16 +1,16 @@
 #ifndef END_my_m_MT_R_1pao1ma_3pawn_B_1ma
 #define END_my_m_MT_R_1pao1ma_3pawn_B_1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí3±ø¶Ô1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®1é©¬3å…µå¯¹1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//»¹ÓÐ¾ÍÊÇÂí¹ýºÓÁË
+//è¿˜æœ‰å°±æ˜¯é©¬è¿‡æ²³äº†
 
 void my_m_MT_R_1pao1ma_3pawn_B_1ma(typePOS &POSITION, EvalInfo &ei){
 
@@ -21,7 +21,7 @@ void my_m_MT_R_1pao1ma_3pawn_B_1ma(typePOS &POSITION, EvalInfo &ei){
 
 	Square mma = S90_from_piecelist(POSITION,my_ma,0);
 
-	//1, ÎÒ·½µÄÂíÒª¹ýºÓ
+	//1, æˆ‘æ–¹çš„é©¬è¦è¿‡æ²³
 	if(StoY(mma) MY_SMALL MY_RANK5){
 		MY_EV_ADD(MaPaoXPawn_Vs_Ma_PaoMao_Over_River);
 	}
@@ -42,12 +42,12 @@ void my_m_MT_R_1pao1ma_3pawn_B_1ma(typePOS &POSITION, EvalInfo &ei){
 //
 //	int bma = PieceListStart(board,BMA);
 //
-//	//1, ÎÒ·½µÄÂíÒª¹ýºÓ
+//	//1, æˆ‘æ–¹çš„é©¬è¦è¿‡æ²³
 //	if(bma > 0x80){
 //		board->mulScore -= MaPaoXPawn_Vs_Ma_PaoMao_Over_River;
 //	}
 //
-//	//ÂíÅÚ·½ÁíÍâ¼Ó·Ö
+//	//é©¬ç‚®æ–¹å¦å¤–åŠ åˆ†
 //	board->mulScore -= MaPaoXPawn_Ma  ;
 //
 //

@@ -54,7 +54,38 @@ typedef uint64 Key;
 #define FALSE  0
 
 #else
-#  include <inttypes.h>
+#include <inttypes.h>
+#include <stdint.h>
+
+typedef int8_t   sint8;
+typedef uint8_t  uint8;
+typedef int16_t  sint16;
+typedef uint16_t uint16;
+typedef int32_t  sint32;
+typedef uint32_t uint32;
+typedef int64_t  sint64;
+typedef uint64_t uint64;
+
+typedef char       __int8;
+typedef short      __int16;
+typedef int        __int32;
+typedef long long  __int64;
+
+typedef int                 BOOL;
+typedef unsigned char       BYTE;
+typedef unsigned short      WORD;
+typedef int                 INT;
+typedef unsigned int        UINT;
+
+// Hash keys
+typedef uint64 Key;
+
+#define XMM_ALIGN __attribute__((aligned(16)))
+#include <immintrin.h>
+#define Bitboard __m128i
+#define TRUE   1
+#define FALSE  0
+
 #endif
 
 #ifndef _WIN32 // Linux - Unix
@@ -127,5 +158,7 @@ inline DWORD* dwWin9xKludge() { static DWORD dw; return &dw; }
 #  define thread_join(x) { WaitForSingleObject(x, INFINITE); CloseHandle(x); }
 
 #endif
+
+void sleep_ms(int milliseconds);
 
 #endif // #ifndef PLATFORM_H_INCLUDED

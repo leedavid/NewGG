@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2che5pawn_B_2che
 #define END_my_m_MT_R_2che5pawn_B_2che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2³µ5±ø¶Ô2³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2è½¦5å…µå¯¹2è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -19,7 +19,7 @@ void my_m_MT_R_2che5pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	//
    Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
-   MY_EV_ADD((sint16)count_1s(bmp) * ADD_2³µx±ø¶Ô2³µ_byPawn[your_shi_num]);
+   MY_EV_ADD((sint16)count_1s(bmp) * ADD_2è½¦xå…µå¯¹2è½¦_byPawn[your_shi_num]);
 
 
 }

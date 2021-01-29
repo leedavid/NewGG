@@ -1,10 +1,10 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
-//¶þ±ø¶Ô¶þ±ø
+//äºŒå…µå¯¹äºŒå…µ
 void m_MT_2pawn_TO_2pawn(typePOS &POSITION, EvalInfo &ei){
 
 
@@ -41,7 +41,7 @@ void m_MT_2pawn_TO_2pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 9/3Pa4/3ak1P2/9/9/9/9/9/2p1A2p1/3K5 b - - 121 121
-	// ¶þ±øµ½¶þÏß£¬¶Ô·½µÄ½«ÔÚÒ»±ß 
+	// äºŒå…µåˆ°äºŒçº¿ï¼Œå¯¹æ–¹çš„å°†åœ¨ä¸€è¾¹ 
 	if(StoY(bpawn1) >= 0x8 && StoY(bpawn2) >= 0x8){
 		if(RShi_num() >= 1 && StoX(bk) != 0x4){
 			if(IsOnSameSide(bpawn1,bpawn2) == FALSE && PB90(0x4C) != BPAWN){

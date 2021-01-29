@@ -1,21 +1,21 @@
 
-//********************************************* Ò»¶ÔÎÞ********************
-//********************************************* Ò»¶Ô0********************
+//********************************************* ä¸€å¯¹æ— ********************
+//********************************************* ä¸€å¯¹0********************
 #define my_m_MT_R_1CHE  m_MT_R_1CHE  
 #define my_m_MT_R_1MA   m_MT_R_1MA 
 #define my_m_MT_R_1PAO  m_MT_R_1PAO
 #define my_m_MT_R_1PAWN m_MT_R_1PAWN  
-//********************************************* Ò»¶ÔÒ»********************
-#define my_m_MT_R_1CHE_B_1PAO   m_MT_R_1CHE_B_1PAO 		 //ºìÒ»³µºÚÒ»ÅÚ
-#define your_m_MT_R_1CHE_B_1PAO m_MT_B_1CHE_R_1PAO 		 //ºìÒ»³µºÚÒ»ÅÚ	
+//********************************************* ä¸€å¯¹ä¸€********************
+#define my_m_MT_R_1CHE_B_1PAO   m_MT_R_1CHE_B_1PAO 		 //çº¢ä¸€è½¦é»‘ä¸€ç‚®
+#define your_m_MT_R_1CHE_B_1PAO m_MT_B_1CHE_R_1PAO 		 //çº¢ä¸€è½¦é»‘ä¸€ç‚®	
 
 #define my_m_MT_R_1CHE_B_1MA    m_MT_R_1CHE_B_1MA 
 #define your_m_MT_R_1CHE_B_1MA  m_MT_B_1CHE_R_1MA 
 
 #define my_m_MT_R_1CHE_B_1PAWN  m_MT_R_1CHE_B_1PAWN  
 #define my_m_MT_R_1PAO_B_1MA  m_MT_R_1PAO_B_1MA 
-#define my_m_MT_R_1PAO_B_1PAWN m_MT_R_1PAO_B_1PAWN 	//ºìÒ»ÅÚºÚÒ»±ø
-#define my_m_MT_R_1MA_B_1PAWN  m_MT_R_1MA_B_1PAWN	//ºìÒ»ÂíºÚÒ»±ø
+#define my_m_MT_R_1PAO_B_1PAWN m_MT_R_1PAO_B_1PAWN 	//çº¢ä¸€ç‚®é»‘ä¸€å…µ
+#define my_m_MT_R_1MA_B_1PAWN  m_MT_R_1MA_B_1PAWN	//çº¢ä¸€é©¬é»‘ä¸€å…µ
 
 
 

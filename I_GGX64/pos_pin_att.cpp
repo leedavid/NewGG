@@ -28,17 +28,17 @@ CheckInfo::CheckInfo(Position& pos) {
 	const Color us   = pos.side_to_move();
 	const Color them = ~us;
 
-	ksq = pos.king_square(them);                                               // ¶Ô·½µÄ½«µÄÎ»ÖÃ.
-	dcCandidates = pos.discovered_check_candidates(us);                        // ÕÒ³öËùÓĞ¿É³é½«µÄÆå×Ó.
-	PaoNull      = pos.findPaoNullBiboard(us,ksq);                             // ÕÒ³öËùÓĞ¿ÉµşÅÚ½«µÄ¸ñ×Ó.
+	ksq = pos.king_square(them);                                               // å¯¹æ–¹çš„å°†çš„ä½ç½®.
+	dcCandidates = pos.discovered_check_candidates(us);                        // æ‰¾å‡ºæ‰€æœ‰å¯æŠ½å°†çš„æ£‹å­.
+	PaoNull      = pos.findPaoNullBiboard(us,ksq);                             // æ‰¾å‡ºæ‰€æœ‰å¯å ç‚®å°†çš„æ ¼å­.
 
 	Piece delt = COLOR_BY_SIDE_ADD[us];	
-	checkSq[RCHE + delt]  = pos.Rook_attacks_bb(ksq);                           // ÎÒ·½µÄ³µÄÜ½«¾üµÄÆå¸ñ
-	checkSq[RMA + delt]   = pos.king_to_ma_attacks_bb(ksq);                     // ÎÒ·½µÄÂíÄÜ½«¾üµÄÆå¸ñ
-	checkSq[RPAO + delt]  = pos.Pao_Eat_bb(ksq);                                // ÎÒ·½µÄÅÚÄÜ½«¾üµÄÆå¸ñ	
+	checkSq[RCHE + delt]  = pos.Rook_attacks_bb(ksq);                           // æˆ‘æ–¹çš„è½¦èƒ½å°†å†›çš„æ£‹æ ¼
+	checkSq[RMA + delt]   = pos.king_to_ma_attacks_bb(ksq);                     // æˆ‘æ–¹çš„é©¬èƒ½å°†å†›çš„æ£‹æ ¼
+	checkSq[RPAO + delt]  = pos.Pao_Eat_bb(ksq);                                // æˆ‘æ–¹çš„ç‚®èƒ½å°†å†›çš„æ£‹æ ¼	
 	checkSq[RPAWN + delt] = (us == WHITE ? 
-		attacks_by_rpawn_rk(ksq) : attacks_by_bpawn_bk(ksq));                   // ÎÒ·½µÄ±øÄÜ½«¾üµÄÆå¸ñ	
-	// ÆäËüµÄÇå¿ÕÒ»ÏÂ. ºóÃæÒª°Ñ²»ÄÜÖ±½Ó½«µÄÆå×ÓÈ¥ÁË¡£
+		attacks_by_rpawn_rk(ksq) : attacks_by_bpawn_bk(ksq));                   // æˆ‘æ–¹çš„å…µèƒ½å°†å†›çš„æ£‹æ ¼	
+	// å…¶å®ƒçš„æ¸…ç©ºä¸€ä¸‹. åé¢è¦æŠŠä¸èƒ½ç›´æ¥å°†çš„æ£‹å­å»äº†ã€‚
     // checkSq[RKING + delt] = checkSq[RSHI + delt] = checkSq[RXIANG + delt] = _mm_setzero_si128();
 }
 
@@ -48,7 +48,7 @@ CheckInfo::CheckInfo(Position& pos) {
 /// pieces for the given side which are candidates for giving a discovered
 /// check. Contrary to pinned_pieces() here there is no need of checkersBB
 /// to be already updated.
-// ÕÒ³ö¿É³é½«µÄÆå×Ó. 
+// æ‰¾å‡ºå¯æŠ½å°†çš„æ£‹å­. 
 Bitboard Position::discovered_check_candidates(Color c)  {
 
 	//return hidden_checkers_FindPinned_false(c);
@@ -59,7 +59,7 @@ Bitboard Position::discovered_check_candidates(Color c)  {
 	Square ksq = king_square(~c);
 	Piece delt = COLOR_BY_SIDE_ADD[c];
 
-	//1. ³µµ². 
+	//1. è½¦æŒ¡. 
 	Bitboard pin = m_and(pieces(RCHE + delt),ChePseudoMask_FR[ksq]);
 	Square s;
 	while (pop_1st_bit_sq(pin, s)) {
@@ -69,7 +69,7 @@ Bitboard Position::discovered_check_candidates(Color c)  {
 		}
 	}
 
-	//2. ÅÚµ²
+	//2. ç‚®æŒ¡
 	pin = m_and(pieces(RPAO + delt),ChePseudoMask_FR[ksq]);
 	//Square s;
 	while (pop_1st_bit_sq(pin, s)) {
@@ -79,7 +79,7 @@ Bitboard Position::discovered_check_candidates(Color c)  {
 		}
 	}
 
-	//3. µ²Âí.
+	//3. æŒ¡é©¬.
 	pin = m_and(pieces(RMA + delt),Ma_Pseudo_Att[ksq]);
 	//Square s;
 	while (pop_1st_bit_sq(pin, s)) {
@@ -126,7 +126,7 @@ Bitboard Position::attackers_to(Square sq){
 		   m_or(m_and(Pao_Eat_bb(sq),m_or(pieces(RPAO),pieces(BPAO))),
 		   m_or(m_and(shi_attacks(sq), m_or(pieces(RSHI),pieces(BSHI))),
 		   m_and(xiang_attacks_bb(sq,occ),m_or(pieces(RXIANG),pieces(BXIANG)))))))));
-	// ÖĞÏó¶Ô½«Ò²ÒªËãÍÛ??
+	// ä¸­è±¡å¯¹å°†ä¹Ÿè¦ç®—å“‡??
 }
 
 
@@ -136,18 +136,18 @@ Bitboard Position::attacks_from_occ(Piece p, Square s, Bitboard occ){
 	ASSERT(square_is_ok(s));
 
 	switch (p){
-	case RCHE: // ³µ
+	case RCHE: // è½¦
 	case BCHE:{
 				 return Rook_attacks_bb(s, occ); //  Rook_attacks_bb(sq);
 	}
-	case RMA:  // Âí
+	case RMA:  // é©¬
 	case BMA:{
 		         return ma_to_king_attacks_bb(s,occ);
 	}
-	case RPAO: // ÅÚ
+	case RPAO: // ç‚®
 	case BPAO:
 		return Pao_Eat_bb(s,occ);
-	case RPAWN: // ±ø
+	case RPAWN: // å…µ
 	case RKING:
 		return one_rpawn_rk_attacks(s);
 	case BPAWN:
@@ -174,17 +174,17 @@ Bitboard Position::attacks_from(Piece p, Square sq)  {
 	ASSERT(square_is_ok(sq));
 
 	switch(p){
-	case RCHE: // ³µ
+	case RCHE: // è½¦
 	case BCHE:
 		return Rook_attacks_bb(sq);
-	case RMA:  // Âí
+	case RMA:  // é©¬
 	case BMA:{
 		return ma_to_king_attacks_bb(sq);
 			 }
-	case RPAO: // ÅÚ
+	case RPAO: // ç‚®
 	case BPAO:
 		return Pao_Eat_bb(sq);
-	case RPAWN: // ±ø
+	case RPAWN: // å…µ
 	case RKING:
 		return one_rpawn_rk_attacks(sq);
 	case BPAWN:
@@ -206,7 +206,7 @@ Bitboard Position::attacks_from(Piece p, Square sq)  {
 
 /// Position::move_attacks_square() tests whether a move from the current
 /// position attacks a given square. 
-/// Õâ¸ö×ß·¨»¹Ã»ÓĞ×ß, Òª×ßÁËÖ®ºóÔÙÅĞ¶Ï. Õâ¸öÊÇ²»ÊÇ×½×Ó²½? Õâ¸öÅĞ¶ÏºÃ¼òµ¥ÍÛ. 
+/// è¿™ä¸ªèµ°æ³•è¿˜æ²¡æœ‰èµ°, è¦èµ°äº†ä¹‹åå†åˆ¤æ–­. è¿™ä¸ªæ˜¯ä¸æ˜¯æ‰å­æ­¥? è¿™ä¸ªåˆ¤æ–­å¥½ç®€å•å“‡. 
 //bool Position::move_attacks_square(Move m, Square s) {
 //
 //	ASSERT(is_ok(m));
@@ -216,7 +216,7 @@ Bitboard Position::attacks_from(Piece p, Square sq)  {
 //
 //	ASSERT(!square_is_empty(f));
 //
-//	// Ö±½Ó¿ÉÒÔ³Ôµ½
+//	// ç›´æ¥å¯ä»¥åƒåˆ°
 //	if(bit_is_set(attacks_from(piece_on(f),t),s))
 //		return true;
 //
@@ -232,22 +232,22 @@ Bitboard Position::attacks_from(Piece p, Square sq)  {
 //	Piece delt = COLOR_BY_SIDE_ADD[us];
 //
 //
-//	//1, ¿´Ò»ÏÂÏÖÔÚÊÇ²»ÊÇ¸øÎÒÃÇµÄ³µ,¹¥»÷ÁË,
+//	//1, çœ‹ä¸€ä¸‹ç°åœ¨æ˜¯ä¸æ˜¯ç»™æˆ‘ä»¬çš„è½¦,æ”»å‡»äº†,
 //	xray = m_and(Rook_attacks_bb(s,occ),pieces(RCHE + delt));
-//	//2, ÏÖÔÚÊÇ²»ÊÇ¸øÎÒÃÇµÄÂí¹¥»÷ÁË.
+//	//2, ç°åœ¨æ˜¯ä¸æ˜¯ç»™æˆ‘ä»¬çš„é©¬æ”»å‡»äº†.
 //	xray = m_or(xray,
 //		m_and(king_to_ma_attacks_bb(s,occ),pieces(RMA + delt)));
-//	//3, ÏÖÔÚÊÇ²»ÊÇ¸øÎÒÃÇµÄÅÚ¹¥»÷ÁË. 
+//	//3, ç°åœ¨æ˜¯ä¸æ˜¯ç»™æˆ‘ä»¬çš„ç‚®æ”»å‡»äº†. 
 //	xray = m_or(xray,
 //		m_and(Pao_Eat_bb(s,occ),pieces(RPAO + delt)));
 //
 //
 //	// If we have attacks we need to verify that are caused by our move
 //	// and are not already existent ones.
-//	// Èç¹ûÏÖÔÚÔÚ¹¥»÷¶Ô·½,ÎÒÃÇÒªĞ£ÑéÒ»ÏÂ,ÊÇ²»ÊÇÔ­ÏÈ¾ÍÔÚµÄ¹¥»÷. 
+//	// å¦‚æœç°åœ¨åœ¨æ”»å‡»å¯¹æ–¹,æˆ‘ä»¬è¦æ ¡éªŒä¸€ä¸‹,æ˜¯ä¸æ˜¯åŸå…ˆå°±åœ¨çš„æ”»å‡». 
 //	// return xray && (xray ^ (xray & attacks_from<QUEEN>(s)));
-//	if(m_have_bit(xray)){ // ÏÖÔÚÓĞ³µ,»òÂí,»òÅÚ ÔÚ¹¥»÷ s 		
-//		//1. µÃµ½Ô­ÏÈµÄ³µ,Âí,ÅÚ¹¥»÷Í¼.
+//	if(m_have_bit(xray)){ // ç°åœ¨æœ‰è½¦,æˆ–é©¬,æˆ–ç‚® åœ¨æ”»å‡» s 		
+//		//1. å¾—åˆ°åŸå…ˆçš„è½¦,é©¬,ç‚®æ”»å‡»å›¾.
 //		Bitboard org;	
 //
 //		org =  m_and(Rook_attacks_bb(s),   pieces(RCHE + delt));
@@ -260,7 +260,7 @@ Bitboard Position::attacks_from(Piece p, Square sq)  {
 //		xray = m_xor(org,xray); // (xray & attacks_from<QUEEN>(s)));
 //
 //		if(m_have_bit(xray)){
-//			return true;  // ÕâÊÇÕæ×½ÍÛ.
+//			return true;  // è¿™æ˜¯çœŸæ‰å“‡.
 //		}
 //	}
 //
@@ -270,7 +270,7 @@ Bitboard Position::attacks_from(Piece p, Square sq)  {
 /////////////////////////////////////////////////////////////////////////
 // 
 
-//void Position::find_checkers() { // ÕÒµ½¶Ô·½½«¾üµÄÈË¡£
+//void Position::find_checkers() { // æ‰¾åˆ°å¯¹æ–¹å°†å†›çš„äººã€‚
 //
 //	Color Us = side_to_move();
 //	const Piece delt = COLOR_BY_SIDE_ADD[Us];
@@ -286,10 +286,10 @@ Bitboard Position::attacks_from(Piece p, Square sq)  {
 Bitboard Position::findPaoNullBiboard(Color c, Square ksq) {
 
 	Bitboard result = _mm_setzero_si128();	
-	// ÕÒµ½¿ÕÅÚÖ®¼äµÄ¿Õ¸ñ.
+	// æ‰¾åˆ°ç©ºç‚®ä¹‹é—´çš„ç©ºæ ¼.
 	Piece delt = COLOR_BY_SIDE_ADD[c];
 	if(have_bit(ChePseudoMask_FR[ksq],pieces(RPAO + delt))){
-		// ÕÒµ½ÎÒ·½ËùÓĞµÄ¿ÕÅÚ
+		// æ‰¾åˆ°æˆ‘æ–¹æ‰€æœ‰çš„ç©ºç‚®
 		for(int i = 0; i < piece_count(RPAO + delt); i++){
 			Square pao =  piece_list(RPAO + delt,i);
 			Bitboard bet = BetweenBB[pao][ksq];

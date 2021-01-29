@@ -1,20 +1,20 @@
 #ifndef END_my_m_MT_R_1MA1PAWN_B_1CHE
 #define END_my_m_MT_R_1MA1PAWN_B_1CHE
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1Âí1±ø¶Ô1³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1é©¬1å…µå¯¹1è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 // void m_MT_B_1CHE_R_1MA(board_t *board);
 // void my_m_MT_R_1CHE_B_1MA(board_t *board);
 
-//ÎÒ·½Ò»ÂíÒ»±ø, ¶Ô·½Ò»³µ
+//æˆ‘æ–¹ä¸€é©¬ä¸€å…µ, å¯¹æ–¹ä¸€è½¦
 void my_m_MT_R_1MA1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 
 	Square mk    = my_king_pos;
@@ -22,8 +22,8 @@ void my_m_MT_R_1MA1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
 	
 	
-	//ÓÐÒ»ÖÖºÍÐÎ
-	// fen 4k4/9/4b4/4p4/2n4R1/9/9/9/9/4K4 w  Àýµä: Ò»³µÀýºÍÂí×äÏó page
+	//æœ‰ä¸€ç§å’Œå½¢
+	// fen 4k4/9/4b4/4p4/2n4R1/9/9/9/9/4K4 w  ä¾‹å…¸: ä¸€è½¦ä¾‹å’Œé©¬å’è±¡ page
 	if(my_xiang_num >= 1){
 		if(MY_SQ3A == mpawn && PB90(MY_SQ43) == my_xiang && StoX(mk) == 0x4){			
 			Bitboard matt = POSITION.ma_to_king_attacks_bb(mma);
@@ -41,7 +41,7 @@ void my_m_MT_R_1MA1PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 3ak4/4a4/4n4/6p2/6b2/4R4/9/4B4/4K4/3A1AB2 b - - 0 1
-	//±ø±£»¤×ÅÏà
+	//å…µä¿æŠ¤ç€ç›¸
 	if(my_shi_num == 2 && my_xiang_num >= 1 && StoY(mk) == MY_RANK9){
 		if(PB90(MY_SQ43) == my_ma){
 			if(PB90(MY_SQ38) == my_pawn){

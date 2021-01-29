@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1ma_B_1che1pawn
 #define END_my_m_MT_R_1che1ma_B_1che1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí¶Ô1³µ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1é©¬å¯¹1è½¦1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 //const PanwAdd = 32;
 
@@ -87,7 +87,7 @@ void my_m_MT_R_1che1ma_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	if(StoY(ypawn) MY_LARGE StoY(mk)){
 		EV_MY_SAFE = TRUE;
 	}
-	//Èç¹û±ø·½Ò»¸ö×ÓÒ²Ã»ÓĞÁË
+	//å¦‚æœå…µæ–¹ä¸€ä¸ªå­ä¹Ÿæ²¡æœ‰äº†
 	if((your_shi_num + your_xiang_num) <= 1){
 		MY_EV_ADD(ADD_ChePawn_To_CheMa_Pawn_SX_LessOne);
 	}
@@ -322,7 +322,7 @@ void my_m_MT_R_1che1ma_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 //	//	}
 //	//}
 //
-//	//Èç¹û±ø·½Ò»¸ö×ÓÒ²Ã»ÓĞÁË
+//	//å¦‚æœå…µæ–¹ä¸€ä¸ªå­ä¹Ÿæ²¡æœ‰äº†
 //	if((board->R_shi + board->R_xiang)<= 1){
 //		board->mulScore -= ADD_ChePawn_To_CheMa_Pawn_SX_LessOne ;
 //	}

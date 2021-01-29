@@ -1,20 +1,20 @@
 #ifndef END_my_m_MT_R_2CHE_B_1CHE1MA
 #define END_my_m_MT_R_2CHE_B_1CHE1MA
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2³µ¶Ô1³µ1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2è½¦å¯¹1è½¦1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//Ë«³µ·½¼Ó·Ö
+//åŒè½¦æ–¹åŠ åˆ†
 
-//const int Ë«³µvs³µÂí_³µ·½¼Ó·Ö = 64;
+//const int åŒè½¦vsè½¦é©¬_è½¦æ–¹åŠ åˆ† = 64;
 
-//ÎÒ·½2³µ£¬¶Ô·½Ò»³µÒ»Âí
+//æˆ‘æ–¹2è½¦ï¼Œå¯¹æ–¹ä¸€è½¦ä¸€é©¬
 void my_m_MT_R_2CHE_B_1CHE1MA(typePOS &POSITION, EvalInfo &ei){
 
 
@@ -25,15 +25,15 @@ void my_m_MT_R_2CHE_B_1CHE1MA(typePOS &POSITION, EvalInfo &ei){
 	Square yche = S90_from_piecelist(POSITION, your_che, 0);
 	
 
-	// Èç¹ûºÚ·½ÊÇÊËÏàÈ«,ÇÒ½«ÔÚÔ­Î»,ÔòÊÇºÍÆå
+	// å¦‚æžœé»‘æ–¹æ˜¯ä»•ç›¸å…¨,ä¸”å°†åœ¨åŽŸä½,åˆ™æ˜¯å’Œæ£‹
 	if((your_shi_num + your_xiang_num) == 4 && StoY(yk) == MY_RANK0){
 		if(PB90(MY_SQ16) == your_xiang){
 			RETRUN_MUL(2);
 		}
 	}
 
-	// Àýµä: page 440 fen 3ak4/4a4/4b1n2/1R7/4r4/3R5/9/9/9/3K5 w
-	// Ë«³µÀýºÍ³µÂíµ¥È±Ïó Æä·½·¨ÊÇÈ«Á¦¼áÊØ
+	// ä¾‹å…¸: page 440 fen 3ak4/4a4/4b1n2/1R7/4r4/3R5/9/9/9/3K5 w
+	// åŒè½¦ä¾‹å’Œè½¦é©¬å•ç¼ºè±¡ å…¶æ–¹æ³•æ˜¯å…¨åŠ›åšå®ˆ
 	if(your_shi_num == 2 && your_xiang_num >= 1 && MY_SQ04 == yk){
 		if(PB90(MY_SQ0D) == your_shi && PB90(MY_SQ16) == your_xiang){
 			if(PB90(MY_SQ03) == your_shi && PB90(MY_SQ05) == your_ma){
@@ -44,7 +44,7 @@ void my_m_MT_R_2CHE_B_1CHE1MA(typePOS &POSITION, EvalInfo &ei){
 			}
 		}
 
-		//³µÂíÒ²ÄÜºÍµ¥È±ÏóÍÛ
+		//è½¦é©¬ä¹Ÿèƒ½å’Œå•ç¼ºè±¡å“‡
 		// fen 3a1k3/4a4/9/9/8R/9/9/2rN5/4Ar3/2B1KA3 b - - 4 4
 		if(MY_SQ04 == yk && PB90(MY_SQ0D) == your_shi){
 			if(PB90(MY_SQ15) == your_ma && PB90(MY_SQ05) == your_shi && PB90(MY_SQ02) == your_xiang){
@@ -56,7 +56,7 @@ void my_m_MT_R_2CHE_B_1CHE1MA(typePOS &POSITION, EvalInfo &ei){
 		}
 
 		// fen 4kab2/4aR3/4R4/4n1r2/9/9/9/4B4/9/2BAKA3 w - - 0 0
-		// ºì·½¶þ¸ö³µÒ»¸öÒ²²»ÄÜ¶¯ÁË,Ò²ÊÇºÍÆå
+		// çº¢æ–¹äºŒä¸ªè½¦ä¸€ä¸ªä¹Ÿä¸èƒ½åŠ¨äº†,ä¹Ÿæ˜¯å’Œæ£‹
 		if(StoY(yk) == MY_RANK0){
 			if(PB90(MY_SQ1F) == your_ma && PB90(MY_SQ16) == my_che){
 				//Square yche = S90_from_piecelist(POSITION,your_che,0);
@@ -73,8 +73,8 @@ void my_m_MT_R_2CHE_B_1CHE1MA(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 	
-	// Àýµä: page 440
-	// Ë«³µÀýºÍ³µÂíµ¥È±ÊË ºÚÊ¿ÔÚµ×Ïß¿ÉºÍ,ÖÐÏßÔò¸º
+	// ä¾‹å…¸: page 440
+	// åŒè½¦ä¾‹å’Œè½¦é©¬å•ç¼ºä»• é»‘å£«åœ¨åº•çº¿å¯å’Œ,ä¸­çº¿åˆ™è´Ÿ
 	// fen 
 	if(your_xiang_num == 2 && your_shi_num >= 1){
 		if(StoY(yk) == MY_RANK0 && PB90(MY_SQ16) == your_ma){

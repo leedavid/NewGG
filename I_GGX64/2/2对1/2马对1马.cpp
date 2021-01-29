@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2ma_B_1ma
 #define END_my_m_MT_R_2ma_B_1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2Âí¶Ô1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2é©¬å¯¹1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 void my_m_MT_R_2ma_B_1ma(typePOS &POSITION, EvalInfo &ei){
@@ -31,7 +31,7 @@ void my_m_MT_R_2ma_B_1ma(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 	// fen 6b2/4Nk3/4b4/4nN3/9/6B2/9/3AB4/9/3K1A3 b - - 16 16
-	// Ò»¸öÂí¸øÀ§×¡ÁË,²»ÄÜ¶¯ÁË,Ò²ÊÇºÍÆå
+	// ä¸€ä¸ªé©¬ç»™å›°ä½äº†,ä¸èƒ½åŠ¨äº†,ä¹Ÿæ˜¯å’Œæ£‹
 	if(your_xiang_num == 2){
 		if(PB90(MY_SQ0D) == my_ma){
 			if(PB90(MY_SQ16) == your_xiang && MY_SQ1F == yma){
@@ -42,7 +42,7 @@ void my_m_MT_R_2ma_B_1ma(typePOS &POSITION, EvalInfo &ei){
 		}
 	}   
 
-	//Ë«ÂíÄÑÊ¤Ë«Ïàµ¥ÈÊ
+	//åŒé©¬éš¾èƒœåŒç›¸å•ä»
 	// fen 9/3ka4/5a3/3N5/6b2/9/3n5/4BAn1B/5K3/9 w - - 66 66
 	if(StoY(yk) MY_SMALL_EQL MY_RANK1){
 		if(your_xiang_num == 2 && your_shi_num >= 1){

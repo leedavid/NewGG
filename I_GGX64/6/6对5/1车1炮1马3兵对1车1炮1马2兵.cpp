@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1pao1ma3pawn_B_1che1pao1ma2pawn
 #define END_my_m_MT_R_1che1pao1ma3pawn_B_1che1pao1ma2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1Âí3±ø¶Ô1³µ1ÅÚ1Âí2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®1é©¬3å…µå¯¹1è½¦1ç‚®1é©¬2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -36,7 +36,7 @@ void my_m_MT_R_1che1pao1ma3pawn_B_1che1pao1ma2pawn(typePOS &POSITION, EvalInfo &
 	}
 
 	// fen 4kab2/2Nra4/4b4/2R5c/2P5p/5p3/2P1n3P/4C4/4A4/2BAK4 b - - 0 1
-    //Èç¹û¶Ô·½µÄ³µ²»ÄÜ¶¯£¬Òª¼õ·Ö
+    //å¦‚æžœå¯¹æ–¹çš„è½¦ä¸èƒ½åŠ¨ï¼Œè¦å‡åˆ†
 	if(EV_MY_CAN >= 1 && bit_is_set(EV_MY_XBIT,yche)){
 		MY_EV_ADD(32);
 		// fen 1Crak4/3ca1n2/4b3b/1R7/6p1P/3N5/4P1P2/4B4/3pA4/3AK4 b - - 0 1

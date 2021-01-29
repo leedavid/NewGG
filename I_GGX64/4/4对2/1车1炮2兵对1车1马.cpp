@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1pao2pawn_B_1che1ma
 #define END_my_m_MT_R_1che1pao2pawn_B_1che1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ2±ø¶Ô1³µ1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®2å…µå¯¹1è½¦1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -53,7 +53,7 @@ void my_m_MT_R_1che1pao2pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 4kab2/4a4/4b4/3n5/4r4/6C2/P2R4P/4B4/4A4/2B1KA3 b - - 0 1
-	// ÓÐ¶þ¸ö±ß±ø
+	// æœ‰äºŒä¸ªè¾¹å…µ
 	if(your_shi_num == 2 && your_xiang_num == 2 && StoY(yk) == MY_RANK0){
 		if(!have_bit(bb_my_pawn,MyUpBB[MY_RANK5])){
 			if(have_bit(bb_my_pawn,LeftBB[0x1])){

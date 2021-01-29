@@ -1,21 +1,21 @@
 #ifndef END_my_m_MT_R_1PAO1ma_B_NO
 #define END_my_m_MT_R_1PAO1ma_B_NO
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí¶ÔÎŞ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®1é©¬å¯¹æ— .cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//const int _PaoPawn_To_No_Canwin = 128;  //Ê¤Æå·Ö
+//const int _PaoPawn_To_No_Canwin = 128;  //èƒœæ£‹åˆ†
 
-//Ó¦¸ÃÊÇÎÒ·½Ò»µãÒ»µãºÃ£¬¶Ô·½Ò»µãÒ»µã²îÀ´ÅĞ¶Ï
+//åº”è¯¥æ˜¯æˆ‘æ–¹ä¸€ç‚¹ä¸€ç‚¹å¥½ï¼Œå¯¹æ–¹ä¸€ç‚¹ä¸€ç‚¹å·®æ¥åˆ¤æ–­
 
-//ÎÒ·½Ò»ÅÚÒ»±ø£¬¶Ô·½ 0 attacker
+//æˆ‘æ–¹ä¸€ç‚®ä¸€å…µï¼Œå¯¹æ–¹ 0 attacker
 void my_m_MT_R_1PAO1ma_B_NO(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;

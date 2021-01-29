@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1pao2pawn_B_1che1pao
 #define END_my_m_MT_R_1che1pao2pawn_B_1che1pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ2±ø¶Ô1³µ1ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®2å…µå¯¹1è½¦1ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -71,7 +71,7 @@ void my_m_MT_R_1che1pao2pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-    //±ø·½µÄ³µ¸øÑ¹ÔÚ±ßÉÏ
+    //å…µæ–¹çš„è½¦ç»™åŽ‹åœ¨è¾¹ä¸Š
 	// fen 3ak1b2/4a4/3cb4/5RP2/4r4/4C4/4P4/B8/9/5K3 w - - 0 122
 	if(your_shi_num == 2 && your_xiang_num == 2 && yk == MY_SQ04){
 		Bitboard p = m_and(bb_my_pawn, MyLowBB[MY_RANK2]);
@@ -128,7 +128,7 @@ void my_m_MT_R_1che1pao2pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 //
 //
 //	// fen 2bcka3/4a4/8b/rC3R3/2p6/9/9/4B4/4A1p2/2BA1K3 b - - 120 120
-//    //±ø·½µÄ³µ¸øÑ¹ÔÚ±ßÉÏ
+//    //å…µæ–¹çš„è½¦ç»™åŽ‹åœ¨è¾¹ä¸Š
 //	if(board->R_shi == 2 && board->R_xiang == 2){
 //		if(StoY(rk) == 0xc){
 //			if(IsStringByChe(board,rche,rpao,bche)){

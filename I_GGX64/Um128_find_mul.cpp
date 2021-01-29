@@ -31,13 +31,13 @@ Bitboard af[MAX_ARR];
 uint64 M_get_transfrom_u64(Bitboard bb, uint64 magic64){
 	uint64 res;
 	M128_Mul128(bb,magic64,&res);
-	return res;  //  res ÊÇ 64X64 µÄ¸ß64Î»£¬Ç° 15Î» 7Î»ÊÇrank, 8Î»ÊÇfile
+	return res;  //  res æ˜¯ 64X64 çš„é«˜64ä½ï¼Œå‰ 15ä½ 7ä½æ˜¯rank, 8ä½æ˜¯file
 }
 
-// Ô­À´µÄ                                                   
+// åŸæ¥çš„                                                   
 ///////////////////////////////////////////////////////////////////////////////////////
-// bits   = mask ×Ü¹²ÓĞ¶àÉÙÎ»
-// index  = rank(7Î»£© file(8Î»£©
+// bits   = mask æ€»å…±æœ‰å¤šå°‘ä½
+// index  = rank(7ä½ï¼‰ file(8ä½ï¼‰
 void M_index_to_Bitboard(Bitboard* result, int index, int bits, Bitboard mask){
 	int i,j;
 	*result = _mm_setzero_si128();      //print_bb(mask);
@@ -61,12 +61,12 @@ void M_che_att_by_block_r(Bitboard* result, int sq,Bitboard block){
 
 	*result = _mm_setzero_si128();
 
-	//ÏòÓÒ
+	//å‘å³
 	for(f = fl+1; f <= 8; f++){
 		set_bit(*result,XYtoS(f,rk));
 		if(bit_is_set(block,XYtoS(f,rk))) break;
 	}
-	//Ïò×ó
+	//å‘å·¦
 	for(f = fl-1; f >= 0; f--){
 		set_bit(*result,XYtoS(f,rk));
 		if(bit_is_set(block,XYtoS(f,rk))) break;
@@ -79,12 +79,12 @@ void M_che_att_by_block_f(Bitboard* result, int sq,Bitboard block){
 	int fl = StoX(sq);
 	int r;
 	*result = _mm_setzero_si128();
-	//ÏòÉÏ
+	//å‘ä¸Š
 	for(r = rk+1; r <= 9; r++){
 		set_bit(*result,XYtoS(fl,r));
 		if(bit_is_set(block,XYtoS(fl,r))) break;
 	}
-	//ÏòÏÂ
+	//å‘ä¸‹
 	for(r = rk-1; r >= 0; r--){
 		set_bit(*result,XYtoS(fl,r));
 		if(bit_is_set(block,XYtoS(fl,r))) break;
@@ -110,7 +110,7 @@ void m_find_che_magic_r(uint64* BB_magic, int sq, int m){
 		if((k & 0xfffff) == 0){
 			printf_s("\n >>now CHE SQ=%d, %.16I64X, remain: %.16I64X total k = %.16I64X,\n",sq,k, testchenum - k, testchenum);
 		}
-		//µÃµ½
+		//å¾—åˆ°
 		*BB_magic = random_uint64_fewbits();
 		//*BB_magic = 0x8000000000000000;
 		t64 = M_get_transfrom_u64(mask,*BB_magic);
@@ -136,7 +136,7 @@ void m_find_che_magic_r(uint64* BB_magic, int sq, int m){
 		}
 	}
 	//not find
-	*BB_magic = 0; //»¹ÊÇÇåÒ»ÏÂ0
+	*BB_magic = 0; //è¿˜æ˜¯æ¸…ä¸€ä¸‹0
 	printf_s("\n <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>ERR not find sq= %d", sq);
 }
 
@@ -181,7 +181,7 @@ void m_find_che_magic_fr(uint64* BB_magic, int sq, int m){
 		if((k & 0xfffff) == 0){
 			printf_s("\n >>now CHE SQ=%d, %.16I64X, remain: %.16I64X total k = %.16I64X,\n",sq,k, testchenum - k, testchenum);
 		}
-		//µÃµ½
+		//å¾—åˆ°
 		*BB_magic = random_uint64_fewbits();
 		//*BB_magic = 0x8000000000000000;
 		//print_bb(mask);
@@ -227,7 +227,7 @@ void m_find_che_magic_fr(uint64* BB_magic, int sq, int m){
 		}
 	}
 	//not find
-	*BB_magic = 0; //»¹ÊÇÇåÒ»ÏÂ0
+	*BB_magic = 0; //è¿˜æ˜¯æ¸…ä¸€ä¸‹0
 	printf_s("\n <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>ERR not find sq= %d", sq);
 }
 
@@ -238,15 +238,15 @@ void M_find_mul(bool isZero){
 	int sq;
 	PMul = (uint64*)M_CHE_Mult_R;
 	//goto findma;
-	//ÕÒµ½³µµÄÄ§ÊõÊı×Ö
+	//æ‰¾åˆ°è½¦çš„é­”æœ¯æ•°å­—
 	for(sq = 0; sq < 90; sq++){
 		if(isZero){
 			PMul[sq] = 0;
 		}
 		if(PMul[sq] == 0){
-			m_find_che_magic_fr(&PMul[sq], sq, 15);    // Rank ×î¶à 7 + file 8
+			m_find_che_magic_fr(&PMul[sq], sq, 15);    // Rank æœ€å¤š 7 + file 8
 			if(PMul[sq] != 0){
-				//»¹ÒªÔÙËãÒ»ÏÂÍÛ
+				//è¿˜è¦å†ç®—ä¸€ä¸‹å“‡
 				find++;
 			}
 		}
@@ -257,7 +257,7 @@ void M_find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	fprintf_s(llog_file,"\n che rank array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	fprintf_s(llog_file,"\n che rank array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(llog_file,"0x%.16I64X,",PMul[sq]);
 		//fprintf_s(log_file,"0x%.16I64X,",PMul[sq]);
@@ -269,13 +269,13 @@ void M_find_mul(bool isZero){
 	//----------------------------------------------------------------------------
 	PMul = (uint64*)CHE_Mult_F;
 	find = 0;
-	//ÕÒµ½³µµÄÄ§ÊõÊı×Ö
+	//æ‰¾åˆ°è½¦çš„é­”æœ¯æ•°å­—
 	for(sq = 0; sq < 90; sq++){
 		if(isZero){
 			PMul[sq] = 0;
 		}
 		if(PMul[sq] == 0){
-			find_che_magic_f(&PMul[sq], sq, 8);    // Rank ×î¶à 7
+			find_che_magic_f(&PMul[sq], sq, 8);    // Rank æœ€å¤š 7
 			if(PMul[sq] != 0){
 				find++;
 			}
@@ -286,8 +286,8 @@ void M_find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(log_file,"\n che file array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(log_file,"\n che file array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(log_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(log_file,"\n");
@@ -302,7 +302,7 @@ void M_find_mul(bool isZero){
 			PMul[sq] = 0;
 		}
 		if(PMul[sq] == 0){
-			find_pao_eat_magic_r(&PMul[sq], sq, 7);  //R×î¶à7
+			find_pao_eat_magic_r(&PMul[sq], sq, 7);  //Ræœ€å¤š7
 			if(PMul[sq] != 0){
 				find++;
 			}
@@ -313,8 +313,8 @@ void M_find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(log_file,"\n pao eat rank array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(log_file,"\n pao eat rank array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(log_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(log_file,"\n");
@@ -329,7 +329,7 @@ void M_find_mul(bool isZero){
 			PMul[sq] = 0;
 		}
 		if(PMul[sq] == 0){
-			find_pao_eat_magic_f(&PMul[sq], sq, 8);  //File ×î¶à 8
+			find_pao_eat_magic_f(&PMul[sq], sq, 8);  //File æœ€å¤š 8
 			if(PMul[sq] != 0){
 				find++;
 			}
@@ -340,8 +340,8 @@ void M_find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(log_file,"\n pao eat file array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(log_file,"\n pao eat file array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(log_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(log_file,"\n");
@@ -368,7 +368,7 @@ void M_find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	fprintf_s(log_file,"\n pao super rank array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	fprintf_s(log_file,"\n pao super rank array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(log_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(log_file,"\n");
@@ -394,8 +394,8 @@ void M_find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(log_file,"\n pao super file array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(log_file,"\n pao super file array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(log_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(log_file,"\n");
@@ -423,8 +423,8 @@ void M_find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(log_file,"\n ma_ma eat array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(log_file,"\n ma_ma eat array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(log_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(log_file,"\n");
@@ -451,8 +451,8 @@ void M_find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(log_file,"\n king_to_ma eat array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(log_file,"\n king_to_ma eat array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(log_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(log_file,"\n");
@@ -482,8 +482,8 @@ void M_find_mul(bool isZero){
 #endif
 	}
 #ifdef  USE_LOG_FILE
-	//ÔÙ´òÓ¡Êı×é
-	fprintf_s(log_file,"\n xiang eat array ******************************** ÓÖ·¢ÏÖÁË %d ¸ö\n",find);
+	//å†æ‰“å°æ•°ç»„
+	fprintf_s(log_file,"\n xiang eat array ******************************** åˆå‘ç°äº† %d ä¸ª\n",find);
 	for(sq = 0; sq < 90; sq++){
 		fprintf_s(log_file,"0x%.16I64X,",PMul[sq]);
 		if((sq%6)==5) fprintf_s(log_file,"\n");

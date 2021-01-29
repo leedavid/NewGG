@@ -4,7 +4,7 @@
 
 #include "preGen.h"
 
-// ÍõÇ£ÖÆ¶Ô·½µÄÊËµÄ¼Ó·Ö
+// ç‹ç‰µåˆ¶å¯¹æ–¹çš„ä»•çš„åŠ åˆ†
 void KingControlKingAdd(typePOS &POSITION, EvalInfo &ei){
 	Square rk = RKpos();
 	Square bk = BKpos();
@@ -36,7 +36,7 @@ void BothOnlyPawnEval(typePOS &POSITION, EvalInfo &ei){
 	
 	Bitboard p;
 	
-	// ÍõÇ£ÖÆ¶Ô·½µÄÊËµÄ¼Ó·Ö
+	// ç‹ç‰µåˆ¶å¯¹æ–¹çš„ä»•çš„åŠ åˆ†
 	KingControlKingAdd(POSITION,ei);
 
 	int rcan = ei.rcan;
@@ -45,7 +45,7 @@ void BothOnlyPawnEval(typePOS &POSITION, EvalInfo &ei){
 	ei.evscore += 80 * (rcan - bcan);
 
 	// fen 2b3P2/3k5/6P2/9/9/9/9/B8/9/2B1K4 w
-	// ±øÏà¶Ô¶Ô·½µÄÊËµÄ¼Ó·Ö¡£
+	// å…µç›¸å¯¹å¯¹æ–¹çš„ä»•çš„åŠ åˆ†ã€‚
 	p = m_and(bb_white_pawn,UpBB[StoY(BKpos())]);
 	if(count_1s(p) == (int)count_1s(bb_white_pawn)){
 		if(BXiang_num() >= 1 || bcan >= 1){
@@ -82,7 +82,7 @@ void BothOnlyPawnEval(typePOS &POSITION, EvalInfo &ei){
 	Square bk = BKpos();
 
 	// fen 9/2P1PP3/3k5/p1p1p3p/9/9/P7P/9/9/2BAKAB2 w - - 0 1
-	// ÎÒ·½µÄ±øÈ«ÔÚ¶Ô·½µÄ½«ÏÂÃæ£¬Óë²»ÄÜ¹ıºÓ
+	// æˆ‘æ–¹çš„å…µå…¨åœ¨å¯¹æ–¹çš„å°†ä¸‹é¢ï¼Œä¸ä¸èƒ½è¿‡æ²³
 	Bitboard mrup = m_and(bb_white_pawn,UpBB[StoY(bk)]);
 	int rup = (int)count_1s(mrup);
 
@@ -103,13 +103,13 @@ void BothOnlyPawnEval(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 9/3kaP3/b4a3/9/6b2/9/9/4BK2B/1p1p5/5A3 w - - 0 111
-	// Ò»·½µÄ±øÈ«ÔÚ½«ÔÚµÄÏÂÃæ. ÁíÒ»·½ÓĞ±ø»òÓĞÏà. 
+	// ä¸€æ–¹çš„å…µå…¨åœ¨å°†åœ¨çš„ä¸‹é¢. å¦ä¸€æ–¹æœ‰å…µæˆ–æœ‰ç›¸. 
 
 
 	//ei.rcan = (uint8)(rcan);
 	//ei.bcan = (uint8)(bcan);
 
-	// ¶Ô·½½«ÉÏÓĞÊËÒª¼Ó·Ö
+	// å¯¹æ–¹å°†ä¸Šæœ‰ä»•è¦åŠ åˆ†
 	//if(StoX(yk) == 0x3){
 	//	if(PB90(MY_SQ15) == your_shi){
 	//		MY_EV_ADD(96);
@@ -143,7 +143,7 @@ bool getBetweenSq(typePOS &POSITION, Square sq1, Square sq2, Square& mid){
    return FALSE;
 } 
 
-// ÊÇ²»ÊÇ¸ø³µÇ£ÖÆÁË
+// æ˜¯ä¸æ˜¯ç»™è½¦ç‰µåˆ¶äº†
 bool isStringByChe(typePOS &POSITION,Square sq1,Square mid, Square sq2){
 	Bitboard peat = POSITION.Pao_Eat_bb(sq1);
 	if(bit_is_set(peat,sq2)){
@@ -156,7 +156,7 @@ bool isStringByChe(typePOS &POSITION,Square sq1,Square mid, Square sq2){
 	return FALSE;
 }
 
-// ÊÇ²»ÊÇ¸øÅÚÇ£ÖÆÁË
+// æ˜¯ä¸æ˜¯ç»™ç‚®ç‰µåˆ¶äº†
 bool isStringByPao(typePOS &POSITION,Square pao, Square sq3, Square sq4){
 	
 	Bitboard paoatt = POSITION.Pao_Super_bb(pao);

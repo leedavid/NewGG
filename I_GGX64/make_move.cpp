@@ -18,7 +18,7 @@ void MakeWhite (const typePOS *POSITION, uint32 mossa)
 	ASSERT(board_is_ok(POSITION));
 
 	POSITION->nodes++;
-	if (POSITION->cpu == 0)  // ºËÐÄµÄ´ÎÐò
+	if (POSITION->cpu == 0)  // æ ¸å¿ƒçš„æ¬¡åº
 	{
 		NODE_CHECK++;
 		if ((NODE_CHECK & 4095) == 0){
@@ -34,11 +34,11 @@ void MakeWhite (const typePOS *POSITION, uint32 mossa)
 
 	POSITION->DYN++;
 	POSITION->DYN->mossa50++;
-	POSITION->DYN->move = mossa; // ±£´æ±¾´ÎµÄ Move
+	POSITION->DYN->move = mossa; // ä¿å­˜æœ¬æ¬¡çš„ Move
 
 	PB90(di) = 0;                    // from
 
-	POSITION->DYN->statico += statico_valu[pezzo][ai] - statico_valu[pezzo][di]; // Î»ÖÃ·Ö
+	POSITION->DYN->statico += statico_valu[pezzo][ai] - statico_valu[pezzo][di]; // ä½ç½®åˆ†
 	//cel = ZOBRIST[pezzo][di] ^ ZOBRIST[pezzo][ai];                        // hash_key
 	cattura = PB90(ai);                // capture
 	POSITION->DYN->catturaa = cattura;                 // capture
@@ -63,8 +63,8 @@ void MakeWhite (const typePOS *POSITION, uint32 mossa)
 			board_display(POSITION,"caputer a king !!");
 		}
 #endif
-		clear_bit(POSITION->byChessBB[cattura],ai);      // ±»³ÔµÄÆå×ÓµÄÎ»ÆåÅÌÇå³ý
-		clear_bit(bitboard_occ_black,ai);                 // ¶Ô·½ÑÕÉ«µÄÎ»ÆåÅÌ
+		clear_bit(POSITION->byChessBB[cattura],ai);      // è¢«åƒçš„æ£‹å­çš„ä½æ£‹ç›˜æ¸…é™¤
+		clear_bit(bitboard_occ_black,ai);                 // å¯¹æ–¹é¢œè‰²çš„ä½æ£‹ç›˜
 
 		// piece count
 		POSITION->pieceCount[cattura] --;
@@ -133,7 +133,7 @@ void // do_black
 
 	POSITION->DYN++;
 	POSITION->DYN->mossa50++;
-	POSITION->DYN->move = mossa; // ±£´æ±¾´ÎµÄ Move
+	POSITION->DYN->move = mossa; // ä¿å­˜æœ¬æ¬¡çš„ Move
 
 	PB90(di) = 0;                    // from
 	//cel = quadretto_libero[di];              // clear_mask
@@ -141,7 +141,7 @@ void // do_black
 	//POSITION->bitbordo[pezzo] &= cel;       // bitboard_chess
 	//occupato_libero (cel, di);                 // bitboard
 
-	POSITION->DYN->statico += statico_valu[pezzo][ai] - statico_valu[pezzo][di]; // Î»ÖÃ·Ö
+	POSITION->DYN->statico += statico_valu[pezzo][ai] - statico_valu[pezzo][di]; // ä½ç½®åˆ†
 	//cel = ZOBRIST[pezzo][di] ^ ZOBRIST[pezzo][ai]; // hash_key
 	cattura = PB90(ai);                // capture
 	POSITION->DYN->catturaa = cattura;                 // capture
@@ -169,8 +169,8 @@ void // do_black
 		}
 #endif
 		// bitboard
-		clear_bit(POSITION->byChessBB[cattura],ai);      // ±»³ÔµÄÆå×ÓµÄÎ»ÆåÅÌÇå³ý
-		clear_bit(bitboard_occ_white,ai);                 // ¶Ô·½ÑÕÉ«µÄÎ»ÆåÅÌ
+		clear_bit(POSITION->byChessBB[cattura],ai);      // è¢«åƒçš„æ£‹å­çš„ä½æ£‹ç›˜æ¸…é™¤
+		clear_bit(bitboard_occ_white,ai);                 // å¯¹æ–¹é¢œè‰²çš„ä½æ£‹ç›˜
 
 		// piece count
 		POSITION->pieceCount[cattura] --;

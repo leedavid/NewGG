@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2pao3pawn_B_1pao1ma1pawn
 #define END_my_m_MT_R_2pao3pawn_B_1pao1ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2ÅÚ3±ø¶Ô1ÅÚ1Âí1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2ç‚®3å…µå¯¹1ç‚®1é©¬1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 void my_m_MT_R_2pao3pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
@@ -26,7 +26,7 @@ void my_m_MT_R_2pao3pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square ypawn = S90_from_piecelist(POSITION,your_pawn,0); 
 
 	// fen 9/4k4/b2C1N3/9/2p5p/4P4/9/4Bc2B/4K4/cp3A3 b - - 1 1
-    //Èç¹ûÅÚ·½Ã»ÓÐÊËÁË, ÓÐºì·½µÄ±ø¿É¹ýºÓ,Òª¼Ó·Ö
+    //å¦‚æžœç‚®æ–¹æ²¡æœ‰ä»•äº†, æœ‰çº¢æ–¹çš„å…µå¯è¿‡æ²³,è¦åŠ åˆ†
 	int ycan = EV_YOUR_CAN;
 	if(my_shi_num == 0 && StoY(ypawn) MY_SMALL_EQL StoY(mk)){
 		MY_EV_SUB(ycan * 64);
@@ -83,7 +83,7 @@ void my_m_MT_R_2pao3pawn_B_1pao1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 //	}
 //
 //	// fen 9/4k4/b2C1N3/9/2p5p/4P4/9/4Bc2B/4K4/cp3A3 b - - 1 1
-//    //Èç¹ûÅÚ·½Ã»ÓÐÊËÁË, ÓÐºì·½µÄ±ø¿É¹ýºÓ,Òª¼Ó·Ö
+//    //å¦‚æžœç‚®æ–¹æ²¡æœ‰ä»•äº†, æœ‰çº¢æ–¹çš„å…µå¯è¿‡æ²³,è¦åŠ åˆ†
 //	if(board->B_shi == 0 && rcan >= 1){
 //		board->mulScore += 64;
 //	}

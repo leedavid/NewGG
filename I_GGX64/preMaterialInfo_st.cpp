@@ -15,17 +15,17 @@ const int Che_Only_Less_OnePawn_ByOnly1Ma  = 64;
 const int Che_Only_Less_OnePawn_ByPaoMa    = 80;
 const int Che_Only_Less_OnePawn_ByPawn     = 32;
 
-//ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Ö
-const int ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Öa = 16;
-const int ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Öb = 32;
-const int ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Öc = 64;
+//æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†
+const int æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†a = 16;
+const int æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†b = 32;
+const int æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†c = 64;
 
-//ÓĞ³µ·½Ö»ÓĞ³µÂí»ò³µÅÚ
+//æœ‰è½¦æ–¹åªæœ‰è½¦é©¬æˆ–è½¦ç‚®
 //fen 2bak4/4a4/4bc3/2nR5/n1N6/8p/9/4B4/4A4/2BAK4 w - - 0 0
 const int Che_Only_1Pao_Or_1Ma_AddByOther_More_3MaPao = 48;
 
 //fen 3ak4/4a4/P3b4/2R5p/2n3p2/4n4/R7P/6r2/4A4/4KAB2 w - - 7 7
-//³µ·½ÓĞ¶ş¸ö³µ,¶Ô·½ÊË²»È«, ÔòÒª¼Ó·Ö
+//è½¦æ–¹æœ‰äºŒä¸ªè½¦,å¯¹æ–¹ä»•ä¸å…¨, åˆ™è¦åŠ åˆ†
 //                                0,  1   2   3  4
 const int Che2ToChe1ByNot4SX[5] = { 64, 48, 24, 12, 0}; 
 
@@ -42,7 +42,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	//	}
 	//}
 
-	//Õâ¶ù¿É·ÅÈëºìÏàºìÊËµÄÊıÁ¿
+	//è¿™å„¿å¯æ”¾å…¥çº¢ç›¸çº¢ä»•çš„æ•°é‡
 
 	int R_chemapao = rche + rma + rpao;
 	int B_chemapao = bche + bma + bpao;
@@ -77,7 +77,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	const static int  SHIXiang         = PAWN + 3;
 	const static int  MaPao            = PAWN + 4;
 
-	//ºì·½ÊÇÕı,ºÚ·½ÊÇ¸º
+	//çº¢æ–¹æ˜¯æ­£,é»‘æ–¹æ˜¯è´Ÿ
 	const static int TurnMul[2] = {	 1,	-1	};
 	//uint32 kpao;
 	//int att;
@@ -89,19 +89,19 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	pMat->B_KongPaoScore   = 0;
 	pMat->searchInfo16     = 0;
 	pMat->phase            = 0;
-	//pMat->Rphase           = 0;      //ºì·½µÄ¹¥×Ó×´Ì¬£¬ °üÀ¨¶Ô·½Ã»ÓĞÊËÏà
-	//pMat->Bphase           = 0;      //ºÚ·½µÄ¹¥×Ó×´Ì¬£¬ °üÀ¨¶Ô·½Ã»ÓĞÊËÏà
+	//pMat->Rphase           = 0;      //çº¢æ–¹çš„æ”»å­çŠ¶æ€ï¼Œ åŒ…æ‹¬å¯¹æ–¹æ²¡æœ‰ä»•ç›¸
+	//pMat->Bphase           = 0;      //é»‘æ–¹çš„æ”»å­çŠ¶æ€ï¼Œ åŒ…æ‹¬å¯¹æ–¹æ²¡æœ‰ä»•ç›¸
 
 
 	////fen 2b2R3/3k5/3ab4/p8/3N5/P1P6/n3P3P/4B1N2/9/cr1AK1B2 w - - 1 1
-	//Ö»ÓĞÒ»¸ö,²»¼õ³µ
+	//åªæœ‰ä¸€ä¸ª,ä¸å‡è½¦
 	//if(rche == 1){
 	//	Rphase += CheAttPhase;
 	//}
 	//
 	
 
-	//Èç¹ûÒ»·½µÄ³µÃ»ÓĞÁË,ÇÒÂíÅÚÉÙÓÚ4¸ö,½«Phase¼õĞ¡Ò»Ğ©
+	//å¦‚æœä¸€æ–¹çš„è½¦æ²¡æœ‰äº†,ä¸”é©¬ç‚®å°‘äº4ä¸ª,å°†Phaseå‡å°ä¸€äº›
 	//if(rche == 0 && (rma + rpao) <= 2 && rpawn == 0){
  //        Rphase = Rphase * 6/8;
 	//}
@@ -114,7 +114,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	//}
 
 	//fen 2b2R3/3k5/3ab4/p8/3N5/P1P6/n3P3P/4B1N2/9/cr1AK1B2 w - - 1 1
-    //Ö»Òª¶Ô·½ÓĞÈı¸ö´ó×Ó, »ùÊıÒ²Òª¼ÓÒ»Ğ©
+    //åªè¦å¯¹æ–¹æœ‰ä¸‰ä¸ªå¤§å­, åŸºæ•°ä¹Ÿè¦åŠ ä¸€äº›
 	//if(rche == 1 && (rpao + rma) >= 2){
 	//	Rphase += CheAttPhase;
 	//}
@@ -127,14 +127,14 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 
 
 	////fen 2b2R3/3k5/3ab4/p8/3N5/P1P6/n3P3P/4B1N2/9/cr1AK1B2 w - - 1 1
-	//Ö»ÓĞÒ»¸ö,²»¼õ³µ
+	//åªæœ‰ä¸€ä¸ª,ä¸å‡è½¦
 	//if(bche == 1){
 	//	Bphase += CheAttPhase;
 	//}
 
 	
 
-	//Èç¹ûÒ»·½µÄ³µÃ»ÓĞÁË,ÇÒÂíÅÚÉÙÓÚ4¸ö,½«Phase¼õĞ¡Ò»Ğ©
+	//å¦‚æœä¸€æ–¹çš„è½¦æ²¡æœ‰äº†,ä¸”é©¬ç‚®å°‘äº4ä¸ª,å°†Phaseå‡å°ä¸€äº›
 	//if(bche == 0 && (bma + bpao) <= 2 && bpawn == 0){
  //        Bphase = Bphase * 6/8;
 	//}
@@ -147,14 +147,14 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	//}
 
 	//fen 2b2R3/3k5/3ab4/p8/3N5/P1P6/n3P3P/4B1N2/9/cr1AK1B2 w - - 1 1
-    //Ö»Òª¶Ô·½ÓĞÈı¸ö´ó×Ó, »ùÊıÒ²Òª¼ÓÒ»Ğ©
+    //åªè¦å¯¹æ–¹æœ‰ä¸‰ä¸ªå¤§å­, åŸºæ•°ä¹Ÿè¦åŠ ä¸€äº›
 	//if(bche == 1 && (bpao + bma) >= 2){
 	//	Bphase += CheAttPhase;
 	//}
 
 	
 
-	//Èç¹ûÒ»·½Ã»ÓĞ¹¥»÷×ÓÁË, ÁíÒ»·½Òª¼Ó·Ö
+	//å¦‚æœä¸€æ–¹æ²¡æœ‰æ”»å‡»å­äº†, å¦ä¸€æ–¹è¦åŠ åˆ†
 	if(rche == 0 && rpao == 0 && rma == 0 && rpawn <= 1){
           pMat->material -= (bche * 256 + bpao * 128 + bma * 128 + bpawn * 64);
 	}
@@ -170,10 +170,10 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	}
 
 	//fen 3a1k3/4a4/4P4/1r7/p3P4/9/P7p/4BA3/1c7/1RBAK4 w - - 0 0
-    //Ò»·½Ö»ÓĞ
+    //ä¸€æ–¹åªæœ‰
 
 	//*************************************************************************************
-	//Èç¹ûÃ»ÓĞ±øÁË
+	//å¦‚æœæ²¡æœ‰å…µäº†
 	//if(rpawn == 0){
 	//	if(FALSE){
 	//	}
@@ -186,15 +186,15 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	//		}
 	//		else if(rma == 1){
 	//		}
-	//		else if(rma == 0){          //ÒÔÏÂÖ»ÓĞ³µÅÚ
+	//		else if(rma == 0){          //ä»¥ä¸‹åªæœ‰è½¦ç‚®
 	//			if(FALSE){
 	//			}
-	//			else if(rpao == 2){     //³µ2ÅÚ
+	//			else if(rpao == 2){     //è½¦2ç‚®
 	//			}
-	//			else if(rpao == 1){     //³µ1ÅÚ
+	//			else if(rpao == 1){     //è½¦1ç‚®
 	//				Rphase /= 2;
 	//			}
-	//			else if(rpao == 0){     //¹â³µ
+	//			else if(rpao == 0){     //å…‰è½¦
 	//				Rphase /= 4;
 	//			}
 	//		}
@@ -209,7 +209,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	//			}
 	//			else if(rpao == 1){
 	//			}
-	//			else if(rpao == 0){     //Ö»ÓĞ¶ş¸öÂí
+	//			else if(rpao == 0){     //åªæœ‰äºŒä¸ªé©¬
 	//				Rphase /= 2;
 	//			}
 	//		}
@@ -218,14 +218,14 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	//			}
 	//			else if(rpao == 2){
 	//			}
-	//			else if(rpao == 1){   //Ö»ÓĞÂíÅÚ
+	//			else if(rpao == 1){   //åªæœ‰é©¬ç‚®
 	//				Rphase /= 2;
 	//			}
-	//			else if(rpao == 0){   //Ö»ÓĞÒ»¸öÂí
+	//			else if(rpao == 0){   //åªæœ‰ä¸€ä¸ªé©¬
 	//				Rphase /= 4;
 	//			}
 	//		}
-	//		else if(rma == 0){   //ÒÔÏÂÖ»ÓĞÅÚ
+	//		else if(rma == 0){   //ä»¥ä¸‹åªæœ‰ç‚®
 	//			if(FALSE){
 	//			}
 	//			else if(rpao == 2){
@@ -253,15 +253,15 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	//		}
 	//		else if(bma == 1){
 	//		}
-	//		else if(bma == 0){          //ÒÔÏÂÖ»ÓĞ³µÅÚ
+	//		else if(bma == 0){          //ä»¥ä¸‹åªæœ‰è½¦ç‚®
 	//			if(FALSE){
 	//			}
-	//			else if(bpao == 2){     //³µ2ÅÚ
+	//			else if(bpao == 2){     //è½¦2ç‚®
 	//			}
-	//			else if(bpao == 1){     //³µ1ÅÚ
+	//			else if(bpao == 1){     //è½¦1ç‚®
 	//				Bphase /= 2;
 	//			}
-	//			else if(bpao == 0){     //¹â³µ
+	//			else if(bpao == 0){     //å…‰è½¦
 	//				Bphase /= 4;
 	//			}
 	//		}
@@ -276,7 +276,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	//			}
 	//			else if(bpao == 1){
 	//			}
-	//			else if(bpao == 0){     //Ö»ÓĞ¶ş¸öÂí
+	//			else if(bpao == 0){     //åªæœ‰äºŒä¸ªé©¬
 	//				Bphase /= 2;
 	//			}
 	//		}
@@ -285,14 +285,14 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	//			}
 	//			else if(bpao == 2){
 	//			}
-	//			else if(bpao == 1){   //Ö»ÓĞÂíÅÚ
+	//			else if(bpao == 1){   //åªæœ‰é©¬ç‚®
 	//				Bphase /= 2;
 	//			}
-	//			else if(bpao == 0){   //Ö»ÓĞÒ»¸öÂí
+	//			else if(bpao == 0){   //åªæœ‰ä¸€ä¸ªé©¬
 	//				Bphase /= 4;
 	//			}
 	//		}
-	//		else if(bma == 0){   //ÒÔÏÂÖ»ÓĞÅÚ
+	//		else if(bma == 0){   //ä»¥ä¸‹åªæœ‰ç‚®
 	//			if(FALSE){
 	//			}
 	//			else if(bpao == 2){
@@ -308,7 +308,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	//	}
 	//}
 
-	//Èç¹ûÖ»ÓĞÒ»¸ö±øÁË
+	//å¦‚æœåªæœ‰ä¸€ä¸ªå…µäº†
 	//if(rpawn == 1){
 	//	if(FALSE){
 	//	}
@@ -396,8 +396,8 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 
 	//*************************************************************************************
 
-	//pMat->Rphase = Rphase;			//×î´ó255
-	//pMat->Bphase = Bphase;			//×î´ó255
+	//pMat->Rphase = Rphase;			//æœ€å¤§255
+	//pMat->Bphase = Bphase;			//æœ€å¤§255
 
 
 	rpawn_val  = PAWN_VAL;
@@ -458,8 +458,8 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 		//}
 	}
 
-	//#define CK_R_CAN_DO_NULL        (1 << 9)   // ÊÇ²»ÊÇÄÜ×öNULL
-	//#define CK_B_CAN_DO_NULL        (1 << 10)  // ÊÇ²»ÊÇÄÜ×öNULL
+	//#define CK_R_CAN_DO_NULL        (1 << 9)   // æ˜¯ä¸æ˜¯èƒ½åšNULL
+	//#define CK_B_CAN_DO_NULL        (1 << 10)  // æ˜¯ä¸æ˜¯èƒ½åšNULL
 	if((rche + rma + rpao) >= 1 || rpawn >= 2 ){
 		pMat->searchInfo16 |= CK_R_CAN_DO_NULL;
 	}
@@ -491,10 +491,10 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 //
 
 	//if((rche + bche) != 4){
-	//	pMat->searchInfo16 |= CK_Eval_Pawn_Can; //ÆÀ¹ÀÒ»ÏÂË«·½±ø¿ÉÄÜ¹ıºÓµÄÄÜÁ¦
+	//	pMat->searchInfo16 |= CK_Eval_Pawn_Can; //è¯„ä¼°ä¸€ä¸‹åŒæ–¹å…µå¯èƒ½è¿‡æ²³çš„èƒ½åŠ›
 	//}
 
-    //È±ÏàÅÂÅÚ¹¥£®
+    //ç¼ºç›¸æ€•ç‚®æ”»ï¼
 	//fen 4k4/4a4/4ba2N/N4P3/P1b3n2/c8/5p3/2nA5/4A2C1/4K4 b - - 0 0
 	if(rpao >= 1){
 		if((rche == 0 && (rma + rpao) <= 2) || (rche == 1 && (rma + rpao) == 1)){
@@ -546,14 +546,14 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	//}
 	//fen 7r1/4k4/5a2b/p7p/6p2/3N5/P6cP/B3B4/4A4/4KR3 b - - 0 0
 	//
-	//#define CK_R_Only_1Che2PaoxPawn (1 << 2)   // Ò»·½Ö»ÓĞ1³µ1ÅÚX±øµÄÆÀ½é
-    //#define CK_B_Only_1Che2PaoxPawn (1 << 3)   // Ò»·½Ö»ÓĞ1³µ1ÅÚX±øµÄÆÀ½é 
+	//#define CK_R_Only_1Che2PaoxPawn (1 << 2)   // ä¸€æ–¹åªæœ‰1è½¦1ç‚®Xå…µçš„è¯„ä»‹
+    //#define CK_B_Only_1Che2PaoxPawn (1 << 3)   // ä¸€æ–¹åªæœ‰1è½¦1ç‚®Xå…µçš„è¯„ä»‹ 
 
 	//if((rche + rma + rpao + bche + bma + bpao) >= 4){
-		//pMat->searchInfo16 |= IS_EARLY_GAME; // ×ÜÊÇÒªÑÓÉìËÑË÷
+		//pMat->searchInfo16 |= IS_EARLY_GAME; // æ€»æ˜¯è¦å»¶ä¼¸æœç´¢
 	//}
 	
-	////Èç¹ûÒ»·½ÊÇ¹âÍ·ÁË,ÁíÒ»·½ÓĞ³µÂíÒÔÉÏµÄ×Ó, ³µÂí·½Òª¼Ó·ÖÍÛ
+	////å¦‚æœä¸€æ–¹æ˜¯å…‰å¤´äº†,å¦ä¸€æ–¹æœ‰è½¦é©¬ä»¥ä¸Šçš„å­, è½¦é©¬æ–¹è¦åŠ åˆ†å“‡
 	if(rshi <= 1 && rxiang <= 1){
 		if(bche >= 1 && bma >= 1){
 			pMat->material -= 80;
@@ -572,7 +572,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	}
 
 
-	//Ò»·½ÓĞ¶ş³µ,¶Ô·½Ã»ÓĞÊË
+	//ä¸€æ–¹æœ‰äºŒè½¦,å¯¹æ–¹æ²¡æœ‰ä»•
 	if(number[WHITE][CHE] == 2 && number[BLACK][SHI] == 0){
 		pMat->material += 64 * (3 - number[BLACK][CHE]);
 		//fen 2b1k1r2/R6R1/4b4/p1pr1n2p/6n2/2P3B1P/P8/1N2B4/4A4/4KA3 b - - 63 63
@@ -606,12 +606,12 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
   for(turn = 0; turn < 2; turn ++){
 	  opp              = turn ^ 0x1;  	  
 
-	  //ÏÂÃæ¸ù¾İ³µµÄÊıÁ¿À´µ÷ÕûÏàÓ¦µÄÆå×ÓµÄ·ÖÊı
+	  //ä¸‹é¢æ ¹æ®è½¦çš„æ•°é‡æ¥è°ƒæ•´ç›¸åº”çš„æ£‹å­çš„åˆ†æ•°
 
       //*****************************************************************************	 
-	  //ÎÒ·½2¸ö³µ
+	  //æˆ‘æ–¹2ä¸ªè½¦
 	  if(number[turn][CHE] == 2){
-		  //ÎÒ·½2¸ö³µ, ¶Ô·½2¸ö³µ
+		  //æˆ‘æ–¹2ä¸ªè½¦, å¯¹æ–¹2ä¸ªè½¦
 		  if(number[opp][CHE] == 2){
 			  const int Turn_Pawn_2Che2Che[10]   = {100, 96, 92, 88, 84, 72, 56, 52, 48, 0 }; //{100, 96, 88, 80, 72, 64, 56, 48, 40,  0};
 			  const int Opp_Pawn_2Che2Che[10]    = {100, 96, 92, 88, 84, 72, 56, 52, 48, 0 };
@@ -643,11 +643,11 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  rxiang_val  = rxiang_val *  Opp_Xiang_2Che2Che[B_2che1ma1pao] / 100; 
 			  }
 
-			  if((rma+rpao) == 2 && (bma+bpao) == 2){       //±øÖÖÆëÈ«µÄÒª¼Ó·Ö
+			  if((rma+rpao) == 2 && (bma+bpao) == 2){       //å…µç§é½å…¨çš„è¦åŠ åˆ†
 				  if(rma==2){
 					  pMat->material -= 16;
 				  }
-				  if(bma==2){                  //³µÂíÂíÃ»³µÂíÅÚ,³µÅÚÅÚºÃ
+				  if(bma==2){                  //è½¦é©¬é©¬æ²¡è½¦é©¬ç‚®,è½¦ç‚®ç‚®å¥½
 					  pMat->material += 16;
 				  }
 
@@ -660,7 +660,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 			  }
 
 			  if((rma+rpao) > (bma + bpao)){
-				  if((bxiang+bshi) == 4){			//ºÚ·½ÊÇÊËÏàÈ«
+				  if((bxiang+bshi) == 4){			//é»‘æ–¹æ˜¯ä»•ç›¸å…¨
 					  pMat->material += ((rma + rpao) - (bma + bpao)) *   64;
 				  }
 				  else{
@@ -668,7 +668,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  }
 			  }
 			  else if((rma+rpao) < (bma+bpao)){
-				  if((rxiang+rshi) == 4){			//ºì·½ÊÇÊËÏàÈ«
+				  if((rxiang+rshi) == 4){			//çº¢æ–¹æ˜¯ä»•ç›¸å…¨
 					  pMat->material += ((rma + rpao) - (bma + bpao)) *   64;
 				  }
 				  else{
@@ -676,7 +676,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  }
 			  }	
 
-			  //2, ³µÂíÂíÅÚ,±È³µÅÚÅÚÂíÉÙ32·Ö, ÒÔÃâ¿ªÊ¼ÓÃÅÚ»»Âí
+			  //2, è½¦é©¬é©¬ç‚®,æ¯”è½¦ç‚®ç‚®é©¬å°‘32åˆ†, ä»¥å…å¼€å§‹ç”¨ç‚®æ¢é©¬
 			  if((rma+rpao) == 3 && (bma+bpao) == 3){
 				  if(rma == 2){
 					  pMat->material -= 24;
@@ -686,7 +686,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  }
 			  }
 
-			  //Èç¹ûÒ»·½Ö»ÓĞ¶ş¸ö³µ,Ò»·½¶à¶ş¸öÂíÅÚ, ÔòÁíÒ»·½Òª¼Ó·Ö
+			  //å¦‚æœä¸€æ–¹åªæœ‰äºŒä¸ªè½¦,ä¸€æ–¹å¤šäºŒä¸ªé©¬ç‚®, åˆ™å¦ä¸€æ–¹è¦åŠ åˆ†
 			  if((rma+rpao) == 0){
 				  if((bpao+bma) >= 2){
 					  pMat->material -= 256;
@@ -699,7 +699,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 			  }
 
 			  //fen 2bak4/4a3R/4b4/p1R1p4/6P2/2P6/P7P/r8/2r6/3CK1B2 w - - 0 0
-              //2³µ¶Ô2³µ(Âí,ÅÚ), Âí,ÅÚ·½Ã»ÓĞÊËÁË
+              //2è½¦å¯¹2è½¦(é©¬,ç‚®), é©¬,ç‚®æ–¹æ²¡æœ‰ä»•äº†
 			  if((rma + rpao) <= 1 && rshi == 0){
 				  pMat->material -= 96;
 			  }
@@ -710,7 +710,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 
 
 
-			  //Èç¹û¶Ô·½Ö»ÓĞÒ»¸öÊË
+			  //å¦‚æœå¯¹æ–¹åªæœ‰ä¸€ä¸ªä»•
 			  if(bshi == 0){
 				  pMat->material += rpawn_val  * (2 - bshi) * rpawn / 32;
 
@@ -738,7 +738,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 
 			  break;
 		  }
-		  //ÎÒ·½2¸ö³µ, ¶Ô·½1¸ö³µ
+		  //æˆ‘æ–¹2ä¸ªè½¦, å¯¹æ–¹1ä¸ªè½¦
 		  else if(number[opp][CHE] == 1){
 			  const int Turn_Pawn_2Che2Che[10]   = {120,116,112,108,104,100, 96, 92, 88, 84};
 			  const int Opp_Pawn_2Che2Che[10]    = {100, 96, 92, 88, 84, 80, 76, 72, 68, 64};
@@ -762,7 +762,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  bxiang_val  = bxiang_val *  Opp_Xiang_2Che2Che[R_2che1ma1pao] / 100; 
 
 				  //fen 4kab2/4a4/4b4/7Rp/p1pn5/9/Pr2PR2P/4B4/2n1A4/2BA1K3 w - - 4 4
-				  //Õâ¸öÒªºìºÃÒ»Ğ©
+				  //è¿™ä¸ªè¦çº¢å¥½ä¸€äº›
 				  if((bpao + bma) <= 2){
                        pMat->material += OtherNoPaoMaLessTwo[bpao + bma] * rpawn;
 				  }
@@ -794,11 +794,11 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  }
 			  }
 	
-			  //Èç¹û¶Ô·½Ö»ÓĞÒ»¸öÊË
+			  //å¦‚æœå¯¹æ–¹åªæœ‰ä¸€ä¸ªä»•
 			  if(turn == WHITE){
 				 //pMat->material += rpawn_val * (2 - bshi) * rpawn  / 32;
 
-				 //Ò»³µ»»¶şÅÚ,µÃ¼ÓÒ»Ğ©·Ö
+				 //ä¸€è½¦æ¢äºŒç‚®,å¾—åŠ ä¸€äº›åˆ†
 				 //if(rpao == 0){
 					// pMat->material -= 32;
 				 //}
@@ -814,7 +814,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				 }
 			  }
 
-			  //¶ş³µ¶Ô³µÅÚ, ¶şÅÚ·½ÓĞ±ø
+			  //äºŒè½¦å¯¹è½¦ç‚®, äºŒç‚®æ–¹æœ‰å…µ
 			  //fen 2Rakab2/9/4c4/p6r1/3P2p2/5R3/8P/9/9/3AK4 b - - 0 0
 			  if(rche == 2 && (bma + bpao) == 1){
 				   rpawn_val =  rpawn_val * 138 / 100; 
@@ -840,7 +840,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 			  }
 
 			  //fen 2R2ab2/3ka4/8n/p3r4/3r4C/6N1P/P8/4B3N/4A4/3AK1B2 b - - 0 0
-			  //Èç¹ûË«·½ÊÇ×ÓÁ¦ÏàÍ¬,
+			  //å¦‚æœåŒæ–¹æ˜¯å­åŠ›ç›¸åŒ,
 			  if(FALSE){
 			  }
 			  else if(turn == WHITE){
@@ -886,9 +886,9 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 
 
 			  //fen C1bak4/4a4/4b1n2/4n1R2/p7p/2P6/P3rpc1P/4B1R2/4A4/2BAK4 w - - 0 0
-			  //Õâ¸öÓ¦ÊÇÒ»³µ·½ÉÔºÃÒ»Ğ©
+			  //è¿™ä¸ªåº”æ˜¯ä¸€è½¦æ–¹ç¨å¥½ä¸€äº›
 			  //
-			  if(turn == WHITE){    //Èç¹ûºì·½ÊÇ¶ş¸ö³µ
+			  if(turn == WHITE){    //å¦‚æœçº¢æ–¹æ˜¯äºŒä¸ªè½¦
 				  if((rpao + rma) == 1){
 					  if((bpao + bma) >= 3){
 						  pMat->material -=  (bpao + bma) * 32;
@@ -957,7 +957,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 
 			  break;
 		  }
-		  //ÎÒ·½2¸ö³µ, ¶Ô·½0¸ö³µ
+		  //æˆ‘æ–¹2ä¸ªè½¦, å¯¹æ–¹0ä¸ªè½¦
 		  else if(number[opp][CHE] == 0){
        								   //             0   1   2   3   4   5   6   7   8   9 
 			  const int Turn_Pawn_2Che2Che[10]   = {116,112,108,100, 96, 92, 88, 84, 80, 76};
@@ -990,7 +990,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  rxiang_val  = rxiang_val *  Opp_Xiang_2Che2Che[B_2che1ma1pao] / 100; 
 			  }
 	
-       	      //Èç¹û¶Ô·½Ö»ÓĞÒ»¸öÊË
+       	      //å¦‚æœå¯¹æ–¹åªæœ‰ä¸€ä¸ªä»•
 			  if(turn == WHITE){
 				 pMat->material += rpawn_val * (2 - bshi) / 16;
 			  }
@@ -1001,9 +1001,9 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 		  }
 	  }
 	  //*****************************************************************************
-	  //ÎÒ·½1¸ö³µ
+	  //æˆ‘æ–¹1ä¸ªè½¦
 	  else if(number[turn][CHE] == 1){
-		  //ÎÒ·½1¸ö³µ, ¶Ô·½1¸ö³µ
+		  //æˆ‘æ–¹1ä¸ªè½¦, å¯¹æ–¹1ä¸ªè½¦
 		  if(number[opp][CHE] == 1){ 
 								       //             0   1   2   3   4   5   6   7   8   9 
 			  const int Turn_Pawn_2Che2Che[10]   = {108, 104, 100, 96, 88, 80, 72, 68, 64, 58};
@@ -1043,7 +1043,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 			  }
 
 			  //fen 2bk1a3/4a4/6c2/9/p1b3N2/9/P3P3P/6r2/4A4/1R1AK4 w - - 0 0
-			  //ÒªÌåÏÖ³öÈ±ÏàÅÂÅÚ¹¥µÄĞÎ
+			  //è¦ä½“ç°å‡ºç¼ºç›¸æ€•ç‚®æ”»çš„å½¢
 			  if(rpao >= 1 && rshi == 2 && rxiang == 2){
 				  if(bpao == 0 && bma <= 1 && bxiang == 0 && bshi == 2){
 					  pMat->material += 64;
@@ -1055,7 +1055,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  }
 			  }
 
-			  //Èç¹ûÒ»·½µÄ±ø±ÈÁíÒ»·½¶à¶ş¸ö
+			  //å¦‚æœä¸€æ–¹çš„å…µæ¯”å¦ä¸€æ–¹å¤šäºŒä¸ª
 			  if((bma + bpao) == (rma + rpao)){
 				  if((rpawn - bpawn) >= 2){
 					  pMat->material += 32;
@@ -1066,7 +1066,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 			  }
 
 			  //fen 3a1k3/4a4/4P4/1r7/p3P4/9/P7p/4BA3/1c7/1RBAK4 w - - 0 0
-              //³µ·½Ö»ÓĞ³µ±øÁË
+              //è½¦æ–¹åªæœ‰è½¦å…µäº†
 			  if((rpao + rma) == 0){
 				  if(bshi == 2){
 					  pMat->material -= (bma+bpao) * 64;
@@ -1080,7 +1080,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  }
 			  }
 
-			  //ÒòÎªÅÚµÄÎ»ÖÃ·ÖÒªµÍÒ»Ğ©,ËùÒÔ2ÅÚ+Âí·½Òª¼ÓÒ»Ğ©·Ö			  
+			  //å› ä¸ºç‚®çš„ä½ç½®åˆ†è¦ä½ä¸€äº›,æ‰€ä»¥2ç‚®+é©¬æ–¹è¦åŠ ä¸€äº›åˆ†			  
 			  //fen 2bak4/4a4/2N1b3n/2c3p2/3r1P2c/p3R4/3N5/1C2B4/4A4/4KAB2 r
 			  if(rpao == 2 && rma != 0){
 				  pMat->material += 64;
@@ -1090,7 +1090,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 			  }
 
 			  //fen 4ka3/4a4/4b4/N7r/P3P2c1/2B4n1/R6N1/4B4/9/3AK4 w - - 0 0
-			  //³µ£²ÂíÒª±È³µÂíÅÚ¼õÒ»Ğ©·Ö
+			  //è½¦ï¼’é©¬è¦æ¯”è½¦é©¬ç‚®å‡ä¸€äº›åˆ†
 			  if(rpao >= 1 && rma >= 1 && bpao == 0){
 				  pMat->material += 48;
 			  }
@@ -1098,7 +1098,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  pMat->material -= 48;
 			  }
 
-			  //Èç¹ûÒ»·½Ö»ÓĞÒ»¸ö³µ,ÁíÒ»·½ÓĞÆäËüµÄ×ÓÁ¦,»¹Òª¼Ó·Ö
+			  //å¦‚æœä¸€æ–¹åªæœ‰ä¸€ä¸ªè½¦,å¦ä¸€æ–¹æœ‰å…¶å®ƒçš„å­åŠ›,è¿˜è¦åŠ åˆ†
 			  if((bpao + bma + bpawn) == 0){
 				  pMat->material += (rpao + rma) * 96;
 				  pMat->material +=  rpawn * 64;
@@ -1110,7 +1110,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 
 
 			  //fen 2baka3/9/4b4/pRC1p4/8p/4n1B2/r5p2/1N7/4A4/3AK1B2 w - - 4 4
-			  //Èç¹û´ó¼ÒÊÇ3¸ö´ó×Ó,Ôò¶à¶ş±øÒ»·½»¹Òª¼ÓÒ»Ğ©·Ö
+			  //å¦‚æœå¤§å®¶æ˜¯3ä¸ªå¤§å­,åˆ™å¤šäºŒå…µä¸€æ–¹è¿˜è¦åŠ ä¸€äº›åˆ†
 			  if(R_chemapao == B_chemapao && R_chemapao <= 3){
 				 if((rpawn - bpawn) >= 2){
 					  pMat->material += 32;
@@ -1120,7 +1120,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  }
 			  }
 
-			  //Èç¹û¶Ô·½Ö»ÓĞ³µÂí,¾ÍÒª¼Ó·Ö
+			  //å¦‚æœå¯¹æ–¹åªæœ‰è½¦é©¬,å°±è¦åŠ åˆ†
 			  if(rma == 1 && rpao == 0 && rpawn == 0){
 				  if((bma + bpao) >= 1 && bpawn > 0 && (bshi == 2 && bxiang == 2)){
 					  pMat->material -= bpawn * 32;
@@ -1133,13 +1133,13 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 			  }
 
 			  //==================================================================================
-			  //ÆäËüÇé¿ö
-			  //1£¬±øÖÖÆëÈ«Òª¼Ó·Ö
-			  if((rma+rpao) == 2 && (bma+bpao) == 2){       //±øÖÖÆëÈ«µÄÒª¼Ó·Ö
+			  //å…¶å®ƒæƒ…å†µ
+			  //1ï¼Œå…µç§é½å…¨è¦åŠ åˆ†
+			  if((rma+rpao) == 2 && (bma+bpao) == 2){       //å…µç§é½å…¨çš„è¦åŠ åˆ†
 				  if(rma==2){
 					  pMat->material -= 32;
 				  }
-				  if(bma==2){                  //³µÂíÂíÃ»³µÂíÅÚ,³µÅÚÅÚºÃ
+				  if(bma==2){                  //è½¦é©¬é©¬æ²¡è½¦é©¬ç‚®,è½¦ç‚®ç‚®å¥½
 					  pMat->material += 32;
 				  }
 
@@ -1150,10 +1150,10 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 					  pMat->material += 32;
 				  }
 			  }
-			  //2, ÎÒ·½»¹¶à´ó×Ó
-			  ////ºì·½µÄ´ó×Ó±ÈºÚ·½µÄ´ó×Ó¶à
+			  //2, æˆ‘æ–¹è¿˜å¤šå¤§å­
+			  ////çº¢æ–¹çš„å¤§å­æ¯”é»‘æ–¹çš„å¤§å­å¤š
 			  if((rma+rpao) > (bma + bpao)){
-				  if((bxiang+bshi) == 4){			//ºÚ·½ÊÇÊËÏàÈ«
+				  if((bxiang+bshi) == 4){			//é»‘æ–¹æ˜¯ä»•ç›¸å…¨
 					  pMat->material += ((rma + rpao) - (bma + bpao)) *   96;
 				  }
 				  else{
@@ -1161,7 +1161,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  }
 			  }
 			  else if((rma+rpao) < (bma+bpao)){
-				  if((rxiang+rshi) == 4){			//ºì·½ÊÇÊËÏàÈ«
+				  if((rxiang+rshi) == 4){			//çº¢æ–¹æ˜¯ä»•ç›¸å…¨
 					  pMat->material += ((rma + rpao) - (bma + bpao)) *   96;
 				  }
 				  else{
@@ -1170,7 +1170,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 			  }	
               //fen 2b1ka3/4a4/2n1bc3/5N3/R1p1P4/9/P4r3/4BN3/4A4/2B1KA3 w - - 0 1
 			  //fen 2b1ka3/n3a4/4bc3/R4N3/p1p1P4/9/r8/4BN3/4A4/2B1KA3 b
-			  //Èç¹û¶Ô·½ÊÇ³µÅÚÂí£²±ø£¬ÎÒ·½ÊÇ³µ2Âí1±ø£¬¶Ô·½Òª¼Ó·Ö		
+			  //å¦‚æœå¯¹æ–¹æ˜¯è½¦ç‚®é©¬ï¼’å…µï¼Œæˆ‘æ–¹æ˜¯è½¦2é©¬1å…µï¼Œå¯¹æ–¹è¦åŠ åˆ†		
 			  if(FALSE){
 			  }
 			  else if(rma >= 1 && rpao >= 1 && bpao == 0 && bma <= 2){
@@ -1188,7 +1188,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 
 
 			  //goto  OutEval;
-			  //Èç¹û¶Ô·½Ö»ÓĞÒ»¸öÊË
+			  //å¦‚æœå¯¹æ–¹åªæœ‰ä¸€ä¸ªä»•
 			  //pMat->material += rpawn_val  * (2 - bshi) * rpawn / 64;
 			  //pMat->material -= bpawn_val  * (2 - rshi) * bpawn / 64;
 
@@ -1203,8 +1203,8 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 			  break;
 			  //==================================================================================
 		  }
-		  //ÎÒ·½1¸ö³µ, ¶Ô·½0¸ö³µ
-		  else if(number[opp][CHE] == 0){										   //ÎŞ³µ
+		  //æˆ‘æ–¹1ä¸ªè½¦, å¯¹æ–¹0ä¸ªè½¦
+		  else if(number[opp][CHE] == 0){										   //æ— è½¦
 			                             //           0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
 			  //const int Turn_Pawn_2Che2Che[16]   = {164,156,148,140,132,124,116,108,100, 96, 80, 76, 72, 70, 70, 70};
 			  //const int Opp_Pawn_2Che2Che[16]    = {148,140,132,124,116,108,100, 96, 80, 76, 72, 68, 68, 68, 68, 68};
@@ -1258,11 +1258,11 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  rxiang_val  = rxiang_val *  Opp_Xiang_2Che2Che[B_2che1ma1pao] / 100; 
 			  }	
 
-			  //Èç¹ûË«·½µÄ×ÓÊÇÏàÍ¬µÄ.
+			  //å¦‚æœåŒæ–¹çš„å­æ˜¯ç›¸åŒçš„.
 			  if(FALSE){
 			  }
 			  else if(turn == WHITE){
-				  if((rma + rpao) >= (bpao + bma - 2)){  //Ë«·½ÊÇ×ÓÁ¦Æ½ºâµÄ,Ò»³µµÖ¶ş¸ö
+				  if((rma + rpao) >= (bpao + bma - 2)){  //åŒæ–¹æ˜¯å­åŠ›å¹³è¡¡çš„,ä¸€è½¦æŠµäºŒä¸ª
                      pMat->material += rpawn * 64;
 					 pMat->material += (rma+rpao) * 16;
 
@@ -1274,7 +1274,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  }
 			  }
 			  else if(turn == BLACK){
-				  if((bma + bpao) >= (rpao + rma - 2)){  //Ë«·½ÊÇ×ÓÁ¦Æ½ºâµÄ,Ò»³µµÖ¶ş¸ö
+				  if((bma + bpao) >= (rpao + rma - 2)){  //åŒæ–¹æ˜¯å­åŠ›å¹³è¡¡çš„,ä¸€è½¦æŠµäºŒä¸ª
                      pMat->material -= bpawn * 64;
 					 pMat->material -= (bma+bpao) * 16;
 					  //fen 2b1kab1C/4a4/9/8P/4r4/p5P2/7c1/3CB1N2/4A4/4KAB2 w - - 14 14
@@ -1287,7 +1287,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 
 
 			  //fen 4k1b2/9/2n1bR3/p5c2/4p4/9/9/4B4/4A4/2BA1K3 w - - 0 0
-              //³µ·½Ö»ÓĞÒ»¸ö³µÁË
+              //è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦äº†
 			  if(FALSE){
 			  }
 			  else if(turn == WHITE){
@@ -1315,7 +1315,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
                 
 
 			  //fen 4k1b2/5C3/4baN2/p1n3c1p/3N5/9/P7r/4B4/4C4/3AKAB2 w - - 3 3
-			  //Èç¹ûÓĞ³µ·½µÄÆäËüµÄ×Ó´óÓÚ¶ş¸ö,ÔòÒ²Òª¼Ó·Ö
+			  //å¦‚æœæœ‰è½¦æ–¹çš„å…¶å®ƒçš„å­å¤§äºäºŒä¸ª,åˆ™ä¹Ÿè¦åŠ åˆ†
 			  if(FALSE){
 			  }
 			  else if(turn == WHITE){
@@ -1329,7 +1329,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  }
 			  }
 
-			   //Èç¹û¶Ô·½Ö»ÓĞÒ»¸öÊË
+			   //å¦‚æœå¯¹æ–¹åªæœ‰ä¸€ä¸ªä»•
 			  if(FALSE){
 			  }
 			  else if(turn == WHITE){
@@ -1341,31 +1341,31 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 
 
 
-			  // ¿´Ò»ÏÂ¶Ô·½µÄÂíÅÚÊıÁ¿
+			  // çœ‹ä¸€ä¸‹å¯¹æ–¹çš„é©¬ç‚®æ•°é‡
 			  if(turn == WHITE){
 				  //pMat->material += 64 * (rma + rpao);
 
-				  if((rma + rpao ) == 0){   //ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µ
+				  if((rma + rpao ) == 0){   //æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦
 					  if((bshi + bxiang) == 4){
-						  pMat->material += ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Öa;
+						  pMat->material += æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†a;
 					  }
 					  else if(bshi == 2 || bxiang == 2){
-						  pMat->material += ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Öb;
+						  pMat->material += æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†b;
 					  }
 					  else{
-						  pMat->material += ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Öc;
+						  pMat->material += æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†c;
 					  }
 				  }
 				  else{
 					  if((bshi + bxiang) == 4){
-						  pMat->material += ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Öa;
+						  pMat->material += æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†a;
 					  }
 					  else{
 						  //if(bshi == 2 || bxiang == 2) && bpao != 
-						  pMat->material += ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Öc;
+						  pMat->material += æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†c;
 					  }
 
-					  //Èç¹û¶Ô·½Ö»ÓĞ¶ş¸ö´ó×Ó(ÂíÅÚ),Ôò³µ·½ÒªÁí·Ö
+					  //å¦‚æœå¯¹æ–¹åªæœ‰äºŒä¸ªå¤§å­(é©¬ç‚®),åˆ™è½¦æ–¹è¦å¦åˆ†
 					  if((bma+bpao) <= 2){
 						  pMat->material += 64;
 					  }
@@ -1373,36 +1373,36 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 			  }
 			  else{
 				  //pMat->material -= 64 * (bma + bpao);
-				  if((bma + bpao ) == 0){   //ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µ
+				  if((bma + bpao ) == 0){   //æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦
 					  if((rshi + rxiang) == 4){
-						  pMat->material -= ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Öa;
+						  pMat->material -= æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†a;
 					  }
 					  else if(rshi == 2 || rxiang == 2){
-						  pMat->material -= ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Öb;
+						  pMat->material -= æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†b;
 					  }
 					  else{
-						  pMat->material -= ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Öc;
+						  pMat->material -= æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†c;
 					  }
 				  }
 				  else{
 					  if((rshi + rxiang) == 4){
-						  pMat->material -= ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Öa;
+						  pMat->material -= æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†a;
 					  }
 					  else{
-						  pMat->material -= ÓĞ³µ·½Ö»ÓĞÒ»¸ö³µÊ±µÄ¼Ó·Öc;
+						  pMat->material -= æœ‰è½¦æ–¹åªæœ‰ä¸€ä¸ªè½¦æ—¶çš„åŠ åˆ†c;
 					  }
 
-					  //Èç¹û¶Ô·½Ö»ÓĞ¶ş¸ö´ó×Ó(ÂíÅÚ),Ôò³µ·½ÒªÁí·Ö
+					  //å¦‚æœå¯¹æ–¹åªæœ‰äºŒä¸ªå¤§å­(é©¬ç‚®),åˆ™è½¦æ–¹è¦å¦åˆ†
 					  if((rma+rpao) <= 2){
 						  pMat->material -= 64;
 					  }
 				  }				  
 			  }
 			  //fen 4kab2/9/4ba1n1/4p3p/p1p6/c4R3/4P3P/4B4/4A4/2BAK4 w - - 2 2
-              //Õâ¸öÓ¦ÊÇºÚºÃÒ»Ğ©
+              //è¿™ä¸ªåº”æ˜¯é»‘å¥½ä¸€äº›
 
 
-			  if(turn == WHITE){    //ºì·½ÓĞ³µ,ºÚ·½Ã»ÓĞ³µ
+			  if(turn == WHITE){    //çº¢æ–¹æœ‰è½¦,é»‘æ–¹æ²¡æœ‰è½¦
 				  if((rma + rpao) == 1){
 					  if((bma + bpao) == 4){
 						  pMat->material -= (bma + bpao) * 32;
@@ -1414,7 +1414,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 					  }
 				  }
 
-				  //³µ1¸öÒÔÉÏµÄ×Ó,¶ÔÂíÅÚ3¸öÒÔÏÂµÄ×Ó, ³µ·½µÄ±øÒªÒª¼Ó·Ö
+				  //è½¦1ä¸ªä»¥ä¸Šçš„å­,å¯¹é©¬ç‚®3ä¸ªä»¥ä¸‹çš„å­, è½¦æ–¹çš„å…µè¦è¦åŠ åˆ†
 				  //fen 3akab2/2C6/4b4/R8/2pP4p/9/P4n2P/4B4/3K2nc1/3A1AB2 w - - 4 4
 				  if((rma+rpao) >= 1){
 					  if((bma + bpao) <= 3){
@@ -1424,7 +1424,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 			  }
 			  else{
 
-				  //³µ1¸öÒÔÉÏµÄ×Ó,¶ÔÂíÅÚ3¸öÒÔÏÂµÄ×Ó, ³µ·½µÄ±øÒªÒª¼Ó·Ö
+				  //è½¦1ä¸ªä»¥ä¸Šçš„å­,å¯¹é©¬ç‚®3ä¸ªä»¥ä¸‹çš„å­, è½¦æ–¹çš„å…µè¦è¦åŠ åˆ†
 				  if((bma+bpao) >= 1){
 					  if((rma + rpao) <= 3){
 						  pMat->material -= bpawn * 32;
@@ -1484,11 +1484,11 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 
 
 			  if(turn == WHITE){
-                  //ÓĞ³µ·½Ö»ÓĞ³µ±øÒÔÏÂ
+                  //æœ‰è½¦æ–¹åªæœ‰è½¦å…µä»¥ä¸‹
 				  if(rma == 0 && rpao == 0){
 					  if(rpawn <= 1){
 						  if(bshi == 2 && bxiang == 2){
-							  //³µ±øÄÜÊ¤ÂíÊËÏàÈ«£¬µ«²»ÄÜÊ¤ÅÚÊËÏàÈ«
+							  //è½¦å…µèƒ½èƒœé©¬ä»•ç›¸å…¨ï¼Œä½†ä¸èƒ½èƒœç‚®ä»•ç›¸å…¨
 							  if(bma == 1 && bpao == 0){
 								  pMat->material -= Che_Only_Less_OnePawn_ByOnly1Ma;
 							  }
@@ -1498,18 +1498,18 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 							  if((bma + bpao) >= 2){
 								  pMat->material -= Che_Only_Less_OnePawn_ByPaoMa * (bma+bpao);
 							  }
-							  //ÔÙ¼ÓÉÏ¶Ô·½±øµÄ·Ö
+							  //å†åŠ ä¸Šå¯¹æ–¹å…µçš„åˆ†
 							  pMat->material -= bpawn * Che_Only_Less_OnePawn_ByPawn;
 						  }
 					  }
 				  }
 			  }
 			  else{
-				   //ÓĞ³µ·½Ö»ÓĞ³µ±øÒÔÏÂ
+				   //æœ‰è½¦æ–¹åªæœ‰è½¦å…µä»¥ä¸‹
 				  if(bma == 0 && bpao == 0){
 					  if(bpawn <= 1){
 						  if(rshi == 2 && rxiang == 2){
-							  //³µ±øÄÜÊ¤ÂíÊËÏàÈ«£¬µ«²»ÄÜÊ¤ÅÚÊËÏàÈ«
+							  //è½¦å…µèƒ½èƒœé©¬ä»•ç›¸å…¨ï¼Œä½†ä¸èƒ½èƒœç‚®ä»•ç›¸å…¨
 							  if(rma == 1 && rpao == 0){
 								  pMat->material += Che_Only_Less_OnePawn_ByOnly1Ma;
 							  }
@@ -1519,7 +1519,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 							  if((rma + rpao) >= 2){
 								  pMat->material += Che_Only_Less_OnePawn_ByPaoMa * (rma+rpao);
 							  }
-							  //ÔÙ¼ÓÉÏ¶Ô·½±øµÄ·Ö
+							  //å†åŠ ä¸Šå¯¹æ–¹å…µçš„åˆ†
 							  pMat->material += rpawn * Che_Only_Less_OnePawn_ByPawn;
 						  }
 					  }
@@ -1529,9 +1529,9 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 		  }
 	  }
 	  //*****************************************************************************
-	  //ÎÒ·½0¸ö³µ
+	  //æˆ‘æ–¹0ä¸ªè½¦
 	  else if(number[turn][CHE] == 0){
-		  //ÎÒ·½0¸ö³µ, ¶Ô·½0¸ö³µ
+		  //æˆ‘æ–¹0ä¸ªè½¦, å¯¹æ–¹0ä¸ªè½¦
 		  if(number[opp][CHE] == 0){
 	    	                            //           0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
 			  const int Turn_Pawn_2Che2Che[10]   = {128,124,120,116,112,108, 100, 92, 88, 0};
@@ -1554,7 +1554,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  bshi_val    = bshi_val   *   Opp_Shi_2Che2Che[R_2che1ma1pao]  / 100; 
 
 				  //fen 4k4/4a4/4ba2N/N4P3/P1b3n2/c8/5p3/2nA5/4A2C1/4K4 b - - 0 0
-				  //È±ÏàÅÂÅÚ¹¥£®
+				  //ç¼ºç›¸æ€•ç‚®æ”»ï¼
 				  rxiang_val  = rxiang_val *  (Turn_Xiang_2Che2Che[B_2che1ma1pao]) / 100; 
 				  bxiang_val  = bxiang_val *  (Opp_Xiang_2Che2Che[R_2che1ma1pao] ) / 100; 
 			  }
@@ -1572,7 +1572,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  rxiang_val  = rxiang_val *  Opp_Xiang_2Che2Che[B_2che1ma1pao] / 100; 
 			  }
 
-			  //Èç¹ûË«·½¶¼Ö»ÓĞÉÙ¶ş¸ö´ó×ÓÁË,ÔòË«·½µÄ±øµÄ¼ÛÖµÒª¼Ó´ó
+			  //å¦‚æœåŒæ–¹éƒ½åªæœ‰å°‘äºŒä¸ªå¤§å­äº†,åˆ™åŒæ–¹çš„å…µçš„ä»·å€¼è¦åŠ å¤§
 			  if((rma+rpao) == 2){
 				  bpawn_val = bpawn_val * 118 / 100;
 			  }
@@ -1587,7 +1587,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  rpawn_val = rpawn_val * 128 / 100;
 			  }
 
-			  //ÒòÎªÅÚµÄÎ»ÖÃ·ÖÒªµÍÒ»Ğ©,ËùÒÔ2ÅÚ+Âí·½Òª¼ÓÒ»Ğ©·Ö
+			  //å› ä¸ºç‚®çš„ä½ç½®åˆ†è¦ä½ä¸€äº›,æ‰€ä»¥2ç‚®+é©¬æ–¹è¦åŠ ä¸€äº›åˆ†
 			  //fen 2bak4/4a4/2N1b3n/2c3p2/5P2c/p8/3N5/1C2B4/4A4/4KAB2 w - - 17 17
 			  if(rpao == 2 && rma != 0){
 				  pMat->material += 64;
@@ -1596,7 +1596,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  pMat->material -= 64;
 			  }
 
-			  //Èç¹ûÒ»·½µÄ±ø±ÈÁíÒ»·½¶à¶ş¸ö
+			  //å¦‚æœä¸€æ–¹çš„å…µæ¯”å¦ä¸€æ–¹å¤šäºŒä¸ª
 			  if((bma + bpao) == (rma + rpao)){
 				  if((rpawn - bpawn) >= 2){
 					  pMat->material += 48;
@@ -1606,7 +1606,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  }
 			  }
 
-			  //Èç¹û´ó¼ÒÊÇ3¸ö´ó×Ó,Ôò¶à¶ş±øÒ»·½»¹Òª¼ÓÒ»Ğ©·Ö
+			  //å¦‚æœå¤§å®¶æ˜¯3ä¸ªå¤§å­,åˆ™å¤šäºŒå…µä¸€æ–¹è¿˜è¦åŠ ä¸€äº›åˆ†
 			  if(R_chemapao == B_chemapao && R_chemapao <= 2){
 				 if((rpawn - bpawn) >= 2){
 					  pMat->material += 64;
@@ -1616,15 +1616,15 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  }
 			  }
 
-			  if((rma+rpao) == 2 && (bma+bpao) == 2){       //±øÖÖÆëÈ«µÄÒª¼Ó·Ö
+			  if((rma+rpao) == 2 && (bma+bpao) == 2){       //å…µç§é½å…¨çš„è¦åŠ åˆ†
 				  if(rma==2){
 					  pMat->material -= 32;
 				  }
-				  if(bma==2){                  //ÂíÂíÃ»ÂíÅÚ,ÅÚÅÚºÃ
+				  if(bma==2){                  //é©¬é©¬æ²¡é©¬ç‚®,ç‚®ç‚®å¥½
 					  pMat->material += 32;
 				  }
 
-				  //Èç¹ûË«·½ÊËÏàÈ«£¬ÇÒË«·½µÄ±øÉÙÓÚ£²¸ö
+				  //å¦‚æœåŒæ–¹ä»•ç›¸å…¨ï¼Œä¸”åŒæ–¹çš„å…µå°‘äºï¼’ä¸ª
 				  if(rshi == 2 && rxiang == 2 && bshi == 2 && bxiang == 2 && rpawn <= 2 && bpawn <= 2){
 				  }
 				  else{
@@ -1648,11 +1648,11 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 			  }
 
 			  //fen 3k1ab2/4a4/4b4/8C/2p1c4/P8/6p2/4B4/5K3/6C2 b - - 1 1
-			  //2ÅÚ¶Ô1ÅÚ
-			  if(bpao <= 1 && bma == 0){  //ºÚ·½Ö»ÓĞÒ»¸öÅÚÁË
+			  //2ç‚®å¯¹1ç‚®
+			  if(bpao <= 1 && bma == 0){  //é»‘æ–¹åªæœ‰ä¸€ä¸ªç‚®äº†
 				  pMat->material += (rpao+rma) * 64;
 			  }
-			  if(rpao <= 1 && rma == 0){  //ºÚ·½Ö»ÓĞÒ»¸öÅÚÁË
+			  if(rpao <= 1 && rma == 0){  //é»‘æ–¹åªæœ‰ä¸€ä¸ªç‚®äº†
 				  pMat->material -= (bpao+bma) * 64;
 			  }
 
@@ -1664,7 +1664,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				  pMat->material -= (bpao+bma) * 64;
 			  }
 
-			  //ÅÚ·½Ã»ÓĞÊËÁË£¬Âí·½ÓĞ±ø
+			  //ç‚®æ–¹æ²¡æœ‰ä»•äº†ï¼Œé©¬æ–¹æœ‰å…µ
 			  if(bma == 0 && bpao <= 1 && bshi == 0 && rma >= 0 && rpawn != 0){
 				   pMat->material += 80;
 			  }
@@ -1672,7 +1672,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 				   pMat->material -= 80;
 			  }
 
-			  //2, ÎÒ·½»¹¶à´ó×Ó
+			  //2, æˆ‘æ–¹è¿˜å¤šå¤§å­
 
 			  pMat->material += 128 * (rma + rpao);
 			  pMat->material -= 128 * (bma + bpao);
@@ -1685,10 +1685,10 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	  }// else if(number[turn][CHE] == 0){
   }
 
-  //ÒÔÏÂÆÀ¼ÛË«·½¿ÕÅÚµÄÄÜÁ¦»ù´¡·Ö
+  //ä»¥ä¸‹è¯„ä»·åŒæ–¹ç©ºç‚®çš„èƒ½åŠ›åŸºç¡€åˆ†
   //*****************************************************************************************************
   //pMat->BR_KongPaoScore  = 0;
-  //EV->king_safety[BLACK] -= Zhong_KongPaoSafe[board->pMat->BR_KongPaoScore & 0x0f];   //ºì·½ÅÚÒª & 0x0f
+  //EV->king_safety[BLACK] -= Zhong_KongPaoSafe[board->pMat->BR_KongPaoScore & 0x0f];   //çº¢æ–¹ç‚®è¦ & 0x0f
 //#define Pao_Max_Base  = 15;
 //#define Pao_Min_Base  =  0;
 
@@ -1706,7 +1706,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	 // //if(FALSE){
 	 // //}
 
-	 // ////×ß×Ó·½ÓĞ¶ş¸ö³µ
+	 // ////èµ°å­æ–¹æœ‰äºŒä¸ªè½¦
 	 // //else if(number[turn][CHE] == 2){		
   // //                           
 		// // //const int Pao2Che[22] 
@@ -1723,7 +1723,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 		// // 
 	 // //}
 
-	 // ////×ß×Ó·½ÓĞ1¸ö³µ
+	 // ////èµ°å­æ–¹æœ‰1ä¸ªè½¦
 	 // //else if(number[turn][CHE] == 1){
 		// // 
 
@@ -1735,13 +1735,13 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 		//	//  if(number[turn][PAWN] == 0){
 		//	//	  kpao = kpao * 2 / 3;				 
 		//	//  }
-		//	//  if(number[opp][SHI] == 0){   //ÓĞÅÚÒªÁôËûÊË
+		//	//  if(number[opp][SHI] == 0){   //æœ‰ç‚®è¦ç•™ä»–ä»•
 		//	//	  kpao = kpao * 2 / 3;
 		//	//  }
 		// // }
 	 // //}
 
-	 // ////ÅÚ·½Ã»ÓĞ³µÁË
+	 // ////ç‚®æ–¹æ²¡æœ‰è½¦äº†
 	 // //else{ 
 
 		// // const int che0max =   8;
@@ -1754,13 +1754,13 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 		//	//  if(number[turn][PAWN] == 0){
 		//	//	  kpao = kpao * 2 / 3;				 
 		//	//  }
-		//	//  if(number[opp][SHI] == 0){   //ÓĞÅÚÒªÁôËûÊË
+		//	//  if(number[opp][SHI] == 0){   //æœ‰ç‚®è¦ç•™ä»–ä»•
 		//	//	  kpao = kpao * 2 / 3;
 		//	//  }
 		// // }
 	 // //}
 
-	 // //EV->king_safety[BLACK] -= Zhong_KongPaoSafe[board->pMat->BR_KongPaoScore & 0x0f];   //ºì·½ÅÚÒª & 0x0f
+	 // //EV->king_safety[BLACK] -= Zhong_KongPaoSafe[board->pMat->BR_KongPaoScore & 0x0f];   //çº¢æ–¹ç‚®è¦ & 0x0f
 
 	 // if(turn == WHITE){
 		//  //pMat->BR_KongPaoScore &= 0x0f;
@@ -1812,7 +1812,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 	  pMat->phase = (((not_pawn_material - EndgameLimit) * 128) / (MidgameLimit - EndgameLimit));
   }
 
-  //  ×îºó, ±£´æÒ»ÏÂ
+  //  æœ€å, ä¿å­˜ä¸€ä¸‹
   pMat->material = (pMat->material * MaterialWeight) / 256; 
 
   //pMat->Rphase = RegPhase[WHITE];
@@ -1821,7 +1821,7 @@ void InitOnePreMat(premat_t* pMat, int rpawn, int bpawn, int rche, int rma, int 
 
 
 #ifdef  USE_ASSERT
-  ////  ÔÚÕâ¶ùÈ·ÈÏÒ»ÏÂ,
+  ////  åœ¨è¿™å„¿ç¡®è®¤ä¸€ä¸‹,
   //if(number[WHITE][CheMaPaoPawn] == 0){
   //    ASSERT(pMat->material <= 0);
   //    //if(pMat->material >= 0){
@@ -1866,7 +1866,7 @@ void InitPreMatinfo(void){
     MatAddress[BSHI]   = (int)(&PreMatInfo[0][0][0][0][0][0][0][0][0][0][1][0] - Porg);
     MatAddress[BXIANG] = (int)(&PreMatInfo[0][0][0][0][0][0][0][0][0][0][0][1] - Porg);
 
-             //                        //±ø ×ä ³µ Âí ÅÚ Ê¿ Ïà ³µ Âí ÅÚ Ê¿ Ïà 
+             //                        //å…µ å’ è½¦ é©¬ ç‚® å£« ç›¸ è½¦ é©¬ ç‚® å£« ç›¸ 
              //  preMT_t PreMatInfo[6][6][3][3][3][3][3][3][3][3][3][3];
              //                            6 *6 *3 *3 *3 *3 *3 *3 *3 *3 *3 *3
 
@@ -1902,7 +1902,7 @@ void InitPreMatinfo(void){
 														//funMat[MARR->marr[0][0][0][0][0][2][2][0][0][0][2][2]]
 													}
 
-													//ºì±ø ºÚ×ä ºì³µ ºìÂí ºìÅÚ ºìÊ¿ ºìÏà ºÚ³µ ºÚÂí ºÚÅÚ ºÚÊ¿ ºÚÏà 													
+													//çº¢å…µ é»‘å’ çº¢è½¦ çº¢é©¬ çº¢ç‚® çº¢å£« çº¢ç›¸ é»‘è½¦ é»‘é©¬ é»‘ç‚® é»‘å£« é»‘ç›¸ 													
                                                 }
                                             }
                                         }
@@ -1921,7 +1921,7 @@ void InitPreMatinfo(void){
 	InitMatFunction();
 	//888888888888888888888888888888888888888888888888888888888888888888
 
-		//ÔÚÕâ¶ù»¹µÃ¸ã½«µÚÒ»¸ö¸ã³É4¸ö
+		//åœ¨è¿™å„¿è¿˜å¾—æå°†ç¬¬ä¸€ä¸ªææˆ4ä¸ª
 	for(rpawn = 0; rpawn < 6; rpawn ++){
 		for(bpawn = 0; bpawn < 6; bpawn ++){
 			for(rche = 0; rche < 3; rche ++){
@@ -1948,7 +1948,7 @@ void InitPreMatinfo(void){
 													//	//	}
 													//	//}
 													//}
-													//else{  //Õâ¸ö¾Í²»Òª´¦ÀíÁË
+													//else{  //è¿™ä¸ªå°±ä¸è¦å¤„ç†äº†
 														
 														fp = funMat[MARR->a[rpawn][bpawn][rche][rma][rpao][0][0][bche][bma][bpao][0][0]];
 														funMat[MARR->a[rpawn][bpawn][rche][rma][rpao][rshi][rxiang][bche][bma][bpao][bshi][bxiang]] = fp;
@@ -1968,7 +1968,7 @@ void InitPreMatinfo(void){
 		}
 	}
 
-    free(MARR);  //ÊÍ·ÅÄÚ´æ. 
+    free(MARR);  //é‡Šæ”¾å†…å­˜. 
 
 }
 

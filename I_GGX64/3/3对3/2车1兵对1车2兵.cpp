@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_2che1pawn_B_1che2pawn
 #define END_my_m_MT_R_2che1pawn_B_1che2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2³µ1±ø¶Ô1³µ2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2è½¦1å…µå¯¹1è½¦2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//2³µ1±ø¶Ô1³µ2±ø
+//2è½¦1å…µå¯¹1è½¦2å…µ
 void my_m_MT_R_2che1pawn_B_1che2pawn(typePOS &POSITION, EvalInfo &ei){
 	// ADD_MY
 	Square yk = your_king_pos;

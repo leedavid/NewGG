@@ -360,8 +360,8 @@ int AES::ucharToHex(const unsigned char *uch, char *hex)
 		tmp = (int)*uch;
 		high = tmp >> 4;
 		low = tmp & 15;
-		*hex++ = valueToHexCh(high); //ÏÈÐ´¸ß×Ö½Ú
-		*hex++ = valueToHexCh(low); //Æä´ÎÐ´µÍ×Ö½Ú
+		*hex++ = valueToHexCh(high); //å…ˆå†™é«˜å­—èŠ‚
+		*hex++ = valueToHexCh(low); //å…¶æ¬¡å†™ä½Žå­—èŠ‚
 		uch++;
 	}
 	*hex = '\0';
@@ -386,7 +386,7 @@ int AES::hexToUChar(const char *hex, unsigned char *uch)
 			*uch = '\0';
 			return -3;
 		}
-		hex++; //Ö¸ÕëÒÆ¶¯µ½ÏÂÒ»¸ö×Ö·ûÉÏ
+		hex++; //æŒ‡é’ˆç§»åŠ¨åˆ°ä¸‹ä¸€ä¸ªå­—ç¬¦ä¸Š
 		low = ascillToValue(*hex);
 		if (low < 0){
 			*uch = '\0';
@@ -449,8 +449,8 @@ int AES::strToHex(const char *ch, char *hex)
 		tmp = (int)*ch;
 		high = tmp >> 4;
 		low = tmp & 15;
-		*hex++ = valueToHexCh(high); //ÏÈÐ´¸ß×Ö½Ú
-		*hex++ = valueToHexCh(low); //Æä´ÎÐ´µÍ×Ö½Ú
+		*hex++ = valueToHexCh(high); //å…ˆå†™é«˜å­—èŠ‚
+		*hex++ = valueToHexCh(low); //å…¶æ¬¡å†™ä½Žå­—èŠ‚
 		ch++;
 	}
 	*hex = '\0';
@@ -475,7 +475,7 @@ int AES::hexToStr(const char *hex, char *ch)
 			*ch = '\0';
 			return -3;
 		}
-		hex++; //Ö¸ÕëÒÆ¶¯µ½ÏÂÒ»¸ö×Ö·ûÉÏ
+		hex++; //æŒ‡é’ˆç§»åŠ¨åˆ°ä¸‹ä¸€ä¸ªå­—ç¬¦ä¸Š
 		low = ascillToValue(*hex);
 		if (low < 0){
 			*ch = '\0';
@@ -491,7 +491,7 @@ int AES::hexToStr(const char *hex, char *ch)
 
 int AES::ascillToValue(const char ch){
 	int result = 0;
-	//»ñÈ¡16½øÖÆµÄ¸ß×Ö½ÚÎ»Êý¾Ý
+	//èŽ·å–16è¿›åˆ¶çš„é«˜å­—èŠ‚ä½æ•°æ®
 	if (ch >= '0' && ch <= '9'){
 		result = (int)(ch - '0');
 	}
@@ -511,10 +511,10 @@ char AES::valueToHexCh(const int value)
 {
 	char result = '\0';
 	if (value >= 0 && value <= 9){
-		result = (char)(value + 48); //48Îªascii±àÂëµÄ¡®0¡¯×Ö·û±àÂëÖµ
+		result = (char)(value + 48); //48ä¸ºasciiç¼–ç çš„â€˜0â€™å­—ç¬¦ç¼–ç å€¼
 	}
 	else if (value >= 10 && value <= 15){
-		result = (char)(value - 10 + 65); //¼õÈ¥10ÔòÕÒ³öÆäÔÚ16½øÖÆµÄÆ«ÒÆÁ¿£¬65ÎªasciiµÄ'A'µÄ×Ö·û±àÂëÖµ
+		result = (char)(value - 10 + 65); //å‡åŽ»10åˆ™æ‰¾å‡ºå…¶åœ¨16è¿›åˆ¶çš„åç§»é‡ï¼Œ65ä¸ºasciiçš„'A'çš„å­—ç¬¦ç¼–ç å€¼
 	}
 	else{
 		;

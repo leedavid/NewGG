@@ -1,16 +1,16 @@
 #ifndef END_my_m_MT_R_3pawn
 #define END_my_m_MT_R_3pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "3±ø¶ÔÎŞ_nook.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "3å…µå¯¹æ— _nook.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//ÎÒ·½3±ø£¬¶Ô·½ 0 attacker
+//æˆ‘æ–¹3å…µï¼Œå¯¹æ–¹ 0 attacker
 void my_m_MT_R_3pawn(typePOS &POSITION, EvalInfo &ei){
 
 	BothOnlyPawnEval(POSITION,ei);
@@ -63,8 +63,8 @@ void my_m_MT_R_3pawn(typePOS &POSITION, EvalInfo &ei){
 			RETRUN_MUL(2);
 		}
 		// fen 5k3/9/4b4/9/6b2/6B2/9/4B1p2/2p1A1p2/3K1A3 w - - 120 120
-		//2¸ö±øµ½ÁË¶şÏß,ÁíÒ»¸ö±øÒ²ÔÚÒ»±ß
-		//Èç¹ûÃ»ÓĞ¸ß±øÁË,ÇÒ¶Ô·½µÄ½«ÔÚÍâÃæ,¾ÍÒ»°ãÊÇºÍÆå,ÎÒ·½Ã»ÓĞ
+		//2ä¸ªå…µåˆ°äº†äºŒçº¿,å¦ä¸€ä¸ªå…µä¹Ÿåœ¨ä¸€è¾¹
+		//å¦‚æœæ²¡æœ‰é«˜å…µäº†,ä¸”å¯¹æ–¹çš„å°†åœ¨å¤–é¢,å°±ä¸€èˆ¬æ˜¯å’Œæ£‹,æˆ‘æ–¹æ²¡æœ‰
 		Bitboard P = m_and(bb_my_pawn,MyUpBB[MY_RANK3]);
 		if(count_1s(P) == 3){
 			if(StoX(yk) < 4 && PB90(MY_SQ15) != your_shi){
@@ -241,7 +241,7 @@ void my_m_MT_R_3pawn(typePOS &POSITION, EvalInfo &ei){
 	// fen 9/5k3/4b4/9/6b2/6B2/9/4B4/3pAp3/4KAp2 w - - 0 0
 }
 
-//ÎÒ·½3±ø£¬¶Ô·½ 0 attacker
+//æˆ‘æ–¹3å…µï¼Œå¯¹æ–¹ 0 attacker
 //void m_MT_B_3pawn(typePOS &POSITION, EvalInfo &ei){
 ///*
 //	BothOnlyPawnEval(board);
@@ -250,8 +250,8 @@ void my_m_MT_R_3pawn(typePOS &POSITION, EvalInfo &ei){
 //	int UpKing = 0;
 //
 //	int L1 = 0;
-//	int L2 = 0;  //´óÓÚ2ÏßµÄ±ø
-//	int L3 = 0;  //´óÓÚ3ÏßµÄ±ø
+//	int L2 = 0;  //å¤§äº2çº¿çš„å…µ
+//	int L3 = 0;  //å¤§äº3çº¿çš„å…µ
 //
 //	Square rk = PieceListStart(board,RKING);
 //
@@ -280,8 +280,8 @@ void my_m_MT_R_3pawn(typePOS &POSITION, EvalInfo &ei){
 //	}
 //
 //	// fen 5k3/9/4b4/9/6b2/6B2/9/4B1p2/2p1A1p2/3K1A3 w - - 120 120
-//	//¶ş¸ö±øµ½ÁË¶şÏß,ÁíÒ»¸ö±øÒ²ÔÚÒ»±ß
-//	//Èç¹ûÃ»ÓĞ¸ß±øÁË,ÇÒ¶Ô·½µÄ½«ÔÚÍâÃæ,¾ÍÒ»°ãÊÇºÍÆå,ÎÒ·½Ã»ÓĞ
+//	//äºŒä¸ªå…µåˆ°äº†äºŒçº¿,å¦ä¸€ä¸ªå…µä¹Ÿåœ¨ä¸€è¾¹
+//	//å¦‚æœæ²¡æœ‰é«˜å…µäº†,ä¸”å¯¹æ–¹çš„å°†åœ¨å¤–é¢,å°±ä¸€èˆ¬æ˜¯å’Œæ£‹,æˆ‘æ–¹æ²¡æœ‰
 //	if(board->R_shi == 2 && board->R_xiang == 2){
 //
 //		if(bcan <= 1){

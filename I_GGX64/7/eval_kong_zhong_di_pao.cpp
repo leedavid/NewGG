@@ -1,4 +1,4 @@
-#include "..\\chess.h"
+#include "../chess.h"
 #include <cassert>
 #include <cstring>
 #include "preGen.h"
@@ -17,7 +17,7 @@ template<Color Us>
 bool isKingCanLeftRight(const Position& pos, EvalInfo& ei){
 	//////////////////////////////////////////////////////////////////////////
 	Square ksq = pos.king_square(Us);
-	/// ½«µÄ×óÓÒÆå²½.
+	/// å°†çš„å·¦å³æ£‹æ­¥.
 	Bitboard kcan = m_and(RankBB_A[StoY(ksq)],
 		(Us == WHITE ? one_rpawn_rk_attacks(ksq) : one_bpawn_bk_attacks(ksq)));
 	if(have_bit(kcan,ei.SafeBit[Us])){
@@ -32,7 +32,7 @@ template<Color Us>
 bool isKingCanUpDown(const Position& pos, EvalInfo& ei){
 	//////////////////////////////////////////////////////////////////////////
 	Square ksq = pos.king_square(Us);
-	/// ½«µÄ×óÓÒÆå²½.
+	/// å°†çš„å·¦å³æ£‹æ­¥.
 	Bitboard kcan = m_and(FileBB_A[StoX(ksq)],
 		(Us == WHITE ? one_rpawn_rk_attacks(ksq) : one_bpawn_bk_attacks(ksq)));
 	if(have_bit(kcan,ei.SafeBit[Us])){
@@ -42,7 +42,7 @@ bool isKingCanUpDown(const Position& pos, EvalInfo& ei){
 }
 
 //////////////////////////////////////////////////////////////////////////
-/// ¿ÕÅÚµÄ¹¥»÷µãÊı
+/// ç©ºç‚®çš„æ”»å‡»ç‚¹æ•°
 template<Color Us>
 int get_kong_pao_attack_point(const Position& pos, EvalInfo& ei){
 
@@ -54,15 +54,15 @@ int get_kong_pao_attack_point(const Position& pos, EvalInfo& ei){
 	ei.valu += Sign[Us] * make_score(k,k/8);
 
 	return  (count_1s(ei.attackKingBoard[Us]) - 2) * 5
-		+ (pos.piece_count(RCHE + delt) - 1) * 8       // ´ó×ÓÊıÄ¿, Ã»ÓĞ³µÒª¼õ·Ö
+		+ (pos.piece_count(RCHE + delt) - 1) * 8       // å¤§å­æ•°ç›®, æ²¡æœ‰è½¦è¦å‡åˆ†
 		+ (pos.piece_count(RPAO + delt) -1) * 3
 		+ pos.piece_count(RMA + delt) * 3;
 
-	// ¿´Ò»ÏÂ¿ÉÒÔ¹¥»÷µÄÆå×ÓµÄÊıÁ¿.
+	// çœ‹ä¸€ä¸‹å¯ä»¥æ”»å‡»çš„æ£‹å­çš„æ•°é‡.
 }
 
 //////////////////////////////////////////////////////////////////////////
-/// ¿Õ_ÖĞÅÚµ×ÅÚµÄÆÀ¼Û
+/// ç©º_ä¸­ç‚®åº•ç‚®çš„è¯„ä»·
 template<Color Us>
 void eval_kong_zhong_di_pao(const Position& pos, EvalInfo& ei){
 	Bitboard bkp = ei.KongPaoBB[Us];
@@ -73,7 +73,7 @@ void eval_kong_zhong_di_pao(const Position& pos, EvalInfo& ei){
 		const Square yk  = pos.king_square(Them);
 		//const Piece delt = COLOR_BY_SIDE_ADD[Us];	
 		//////////////////////////////////////////////////////////////////////////
-		/// ¿ÕÖĞÅÚ
+		/// ç©ºä¸­ç‚®
 		if(StoX(pao) == StoX(yk)){
 			if(Us == WHITE ? StoY(pao) <= 0x2 : StoY(pao) >= 0x7){
 				continue; //fen 3C2b2/3k4C/2N2n3/3P5/8P/4cn3/9/2pAB4/4A4/4K1B2 w - - 0 0
@@ -82,7 +82,7 @@ void eval_kong_zhong_di_pao(const Position& pos, EvalInfo& ei){
 				set_bit(ei.attackKingBoard[Us],pao);
 				//////////////////////////////////////////////////////////////////////////
 				ei.valu += Sign[Us] * make_score(128, 32);
-				/// ÒªÅĞ¶Ï½«ÄÜ²»ÄÜ×óÓÒÒÆ¶¯
+				/// è¦åˆ¤æ–­å°†èƒ½ä¸èƒ½å·¦å³ç§»åŠ¨
 				if(isKingCanLeftRight<Them>(pos,ei)){
 					ei.attPoint[Us] += get_kong_pao_attack_point<Us>(pos,ei)/2;				
 				}
@@ -92,7 +92,7 @@ void eval_kong_zhong_di_pao(const Position& pos, EvalInfo& ei){
 			}
 		}
 		//////////////////////////////////////////////////////////////////////////
-		/// ¿Õµ×ÅÚ
+		/// ç©ºåº•ç‚®
 		else{
 			if(ABS(StoX(pao) - 0x4) <= 1){
 				continue;
@@ -106,7 +106,7 @@ void eval_kong_zhong_di_pao(const Position& pos, EvalInfo& ei){
 					ei.attPoint[Us] +=  get_kong_pao_attack_point<Us>(pos,ei) - 4;   //
 				}
 			}
-			//»¹ÒªÅĞ¶ÏÒ»ÏÂÊÇ²»ÊÇÊÜµ½¶Ô·½µÄ¹¥»÷
+			//è¿˜è¦åˆ¤æ–­ä¸€ä¸‹æ˜¯ä¸æ˜¯å—åˆ°å¯¹æ–¹çš„æ”»å‡»
 			if(bit_is_set(ei.attacked_by(Them),pao)){
 				ei.attPoint[Us] -= Kong_Di_Pao_att_By_Other;
 			}

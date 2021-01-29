@@ -1,21 +1,21 @@
 #ifndef END_my_m_MT_R_1che2pawn_B_1ma1pawn
 #define END_my_m_MT_R_1che2pawn_B_1ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ2±ø¶Ô1Âí1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦2å…µå¯¹1é©¬1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 // fen 9/3P5/4k4/9/2b3b2/6B2/9/3AB4/r3Ap3/C3K4 w - - 44 44
 
-//const int ADD_PaoXPawn_To_ChePawnByShi_WpaoSafe[3]  =  { 80, 48, 16};  //ÅÚ±ø¶Ô³µ±ø,ÅÚ·½°²È«ºó,ÓĞ±øµÄ¼Ó·Ö 
+//const int ADD_PaoXPawn_To_ChePawnByShi_WpaoSafe[3]  =  { 80, 48, 16};  //ç‚®å…µå¯¹è½¦å…µ,ç‚®æ–¹å®‰å…¨å,æœ‰å…µçš„åŠ åˆ† 
 
-//³µ±ø¶ÔÂí±ø
+//è½¦å…µå¯¹é©¬å…µ
 void my_m_MT_R_1che2pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 
 

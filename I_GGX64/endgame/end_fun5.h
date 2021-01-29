@@ -1,11 +1,11 @@
 
 
 
-//********************************************* 5¶Ô0********************
+//********************************************* 5å¯¹0********************
  extern void m_MT_R_5pawn(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_5pawn(typePOS &POSITION, EvalInfo &ei);
 
-//********************************************* 5¶Ô1********************
+//********************************************* 5å¯¹1********************
  extern void m_MT_R_1CHE_4PAWN_B_1CHE(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_1CHE_4PAWN_R_1CHE(typePOS &POSITION, EvalInfo &ei);
 
@@ -96,7 +96,7 @@
  extern void m_MT_R_5pawn_B_1pawn(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_5pawn_R_1pawn(typePOS &POSITION, EvalInfo &ei);
 
-//********************************************* 5¶Ô2********************
+//********************************************* 5å¯¹2********************
  extern void m_MT_R_2che1pao2pawn_B_2che(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_2che1pao2pawn_R_2che(typePOS &POSITION, EvalInfo &ei);
 
@@ -133,7 +133,7 @@
  extern void m_MT_R_1che1ma3pawn_B_2che(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_1che1ma3pawn_R_2che(typePOS &POSITION, EvalInfo &ei);
 
- extern void m_MT_R_1che1ma3pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei);			//1³µ1Âí2±ø ¶Ô 1³µ1ÅÚ
+ extern void m_MT_R_1che1ma3pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei);			//1è½¦1é©¬2å…µ å¯¹ 1è½¦1ç‚®
  extern void m_MT_B_1che1ma3pawn_R_1che1pao(typePOS &POSITION, EvalInfo &ei);	
 
  extern void m_MT_R_1che1ma3pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei);
@@ -294,7 +294,7 @@
 
  extern void m_MT_R_5pawn_B_2pawn(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_5pawn_R_2pawn(typePOS &POSITION, EvalInfo &ei);
-//********************************************* 5¶Ô3********************
+//********************************************* 5å¯¹3********************
  extern void m_MT_R_2che1pao2pawn_B_2che1pao(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_2che1pao2pawn_R_2che1pao(typePOS &POSITION, EvalInfo &ei);
 
@@ -633,7 +633,7 @@
 
  extern void m_MT_R_5pawn_B_3pawn(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_5pawn_R_3pawn(typePOS &POSITION, EvalInfo &ei);
-//********************************************* 5¶Ô4********************
+//********************************************* 5å¯¹4********************
  extern void m_MT_R_2che1pao2pawn_B_2che1pao1pawn(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_2che1pao2pawn_R_2che1pao1pawn(typePOS &POSITION, EvalInfo &ei);
 
@@ -852,7 +852,7 @@
 
  extern void m_MT_R_5pawn_B_4pawn(typePOS &POSITION, EvalInfo &ei);
  extern void m_MT_B_5pawn_R_4pawn(typePOS &POSITION, EvalInfo &ei);
-//********************************************* 5¶Ô5********************
+//********************************************* 5å¯¹5********************
  extern void m_MT_R_2che3pawn_B_1che2pao1ma1pawn(typePOS &POSITION, EvalInfo &ei); //
  extern void m_MT_B_2che3pawn_R_1che2pao1ma1pawn(typePOS &POSITION, EvalInfo &ei); //
 

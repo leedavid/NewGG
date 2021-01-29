@@ -7,7 +7,7 @@
 //extern void AttBy_WhitePao_MaPawnShiXiang(typePOS*);
 //extern void AttBy_BlackPao_MaPawnShiXiang(typePOS*);
 
-// µÃµ½ºì·½¶ÔsqµÄ¹¥»÷µãÊý
+// å¾—åˆ°çº¢æ–¹å¯¹sqçš„æ”»å‡»ç‚¹æ•°
 int GetWhiteAtt_SQcount_CheMaPaoPawn(const typePOS *POSITION, EvalInfo *ei, int sq){
 
 	int num = 0;
@@ -31,7 +31,7 @@ int GetWhiteAtt_SQcount_CheMaPaoPawn(const typePOS *POSITION, EvalInfo *ei, int 
 	//}
 	return num;
 }
-// µÃµ½ºÚ·½¶ÔsqµÄ¹¥»÷µãÊý
+// å¾—åˆ°é»‘æ–¹å¯¹sqçš„æ”»å‡»ç‚¹æ•°
 int GetBlackAtt_SQcount_CheMaPaoPawn(const typePOS *POSITION, EvalInfo *ei, int sq){
 
 	int num = 0;

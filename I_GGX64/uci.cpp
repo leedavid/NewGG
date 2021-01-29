@@ -10,7 +10,7 @@
 #include <sstream>
 #include <string>
 
-
+#include "platform.h"
 #include "evaluate.h"
 #include "misc.h"
 #include "move.h"
@@ -19,12 +19,9 @@
 #include "notation.h"
 #include "search.h"
 #include "uci.h"
-#include "uci.h"
-#include <windows.h>
 #include "thread.h"
 #include "timeman.h"
 #include "tt.h"
-#include "VMP.h"
 
 
 #pragma warning(disable : 4239)  
@@ -76,7 +73,7 @@ namespace {
 			CheckInfo ci(pos);
 			pos.do_move(m, States->back(), pos.gives_check(m, ci), ci);
 		}
-		// Èç¹ûÃ»ÓĞºÏ·¨×ßÁË£¿
+		// å¦‚æœæ²¡æœ‰åˆæ³•èµ°äº†ï¼Ÿ
 	}
 
 
@@ -323,7 +320,7 @@ bool ccmd(Position& pos, istringstream& uip){
 			//Value margin;
 			// 
 			Eval::init();		
-			// È«¾Ö±äÁ¿,¿ÉÊä³öÆÀ¹ÀĞÅÏ¢ÁË. 
+			// å…¨å±€å˜é‡,å¯è¾“å‡ºè¯„ä¼°ä¿¡æ¯äº†. 
 			MustOuPutEvalInf = true;
 			Eval::evaluate(pos);
 			//print_eval_info(RootPosition,eiInfo,val);		
@@ -337,7 +334,7 @@ bool ccmd(Position& pos, istringstream& uip){
 					uip >> token;
 				}
 
-				Sleep(DELEY_BEST_MOVE_TIME);
+				sleep_ms(DELEY_BEST_MOVE_TIME);
 				std::cout << "bestmove " << token << std::endl;
 				return true;
 			}
@@ -426,10 +423,7 @@ bool ccmd(Position& pos, istringstream& uip){
 	return true;
 }
 
-
-
-
-
+#ifdef _MSC_VER
 
 #include <io.h>
 #include <fcntl.h>
@@ -439,7 +433,7 @@ bool ccmd(Position& pos, istringstream& uip){
 #include <sys/stat.h>
 
 void read_uci_set_file(){
-	//´ò¿ªÉè¶¨ÎÄ¼ş
+	//æ‰“å¼€è®¾å®šæ–‡ä»¶
 	TCHAR filename[1024];  
 	swprintf_s(filename,1024,L"%s\\%s",installDir,L"ggX64set2017.ini");
 
@@ -454,7 +448,7 @@ void read_uci_set_file(){
 		_close(pFile);
 
 		
-		//ÔÚÕâ¶ù¶Á³öÉè¶¨Êı¾İ
+		//åœ¨è¿™å„¿è¯»å‡ºè®¾å®šæ•°æ®
 		//setoption name xx value xx
 		char *p = rbuf;
 
@@ -463,7 +457,7 @@ void read_uci_set_file(){
 
 		char opcmd[1024];
 
-        // µ±ÓĞ×Ö½Ú´æÔÚÊ±
+        // å½“æœ‰å­—èŠ‚å­˜åœ¨æ—¶
 		while(*p != 0){
 
 			//name
@@ -505,6 +499,11 @@ void read_uci_set_file(){
 	}
 }
 
+#else
 
+void read_uci_set_file() {
+	
+}
 
+#endif
 

@@ -1,20 +1,20 @@
 #ifndef END_my_m_MT_R_1che1pawn_B_1pao1pawn
 #define END_my_m_MT_R_1che1pawn_B_1pao1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1±ø¶Ô1ÅÚ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1å…µå¯¹1ç‚®1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 // fen 9/3P5/4k4/9/2b3b2/6B2/9/3AB4/r3Ap3/C3K4 w - - 44 44
 
-//const int ADD_PaoXPawn_To_ChePawnByShi_WpaoSafe[3]  =  { 80, 48, 16};  //ÅÚ±ø¶Ô³µ±ø,ÅÚ·½°²È«ºó,ÓÐ±øµÄ¼Ó·Ö 
+//const int ADD_PaoXPawn_To_ChePawnByShi_WpaoSafe[3]  =  { 80, 48, 16};  //ç‚®å…µå¯¹è½¦å…µ,ç‚®æ–¹å®‰å…¨åŽ,æœ‰å…µçš„åŠ åˆ† 
 
-//³µ±ø¶ÔÅÚ±ø
+//è½¦å…µå¯¹ç‚®å…µ
 void my_m_MT_R_1che1pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	my_m_MT_R_1che1pawn_B_1pao(POSITION,ei);
@@ -53,7 +53,7 @@ void my_m_MT_R_1che1pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 3k1a3/9/4ba3/7rp/2b6/6B1P/9/4B3C/4A4/4K4 b - - 123 123
-	// ¶Ô·½µÄ±ø²»ÄÜ¹ýºÓ
+	// å¯¹æ–¹çš„å…µä¸èƒ½è¿‡æ²³
     if(your_xiang_num >= 1 && your_xiang_num == 2 && StoY(yk) MY_SMALL_EQL MY_RANK1){
 		if(PB90(MY_SQ16) == your_xiang){
 			if(StoX(mpawn) == 0 || StoX(mpawn) == 8){

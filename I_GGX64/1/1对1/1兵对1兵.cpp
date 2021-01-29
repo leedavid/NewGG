@@ -1,11 +1,11 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 //
-//ÄÜ²»ÄÜºÍ£¬ÔõÑùÊ¤
+//èƒ½ä¸èƒ½å’Œï¼Œæ€æ ·èƒœ
 
-//ºì·½Ò»¸ö±ø, ºÚ·½Ò»¸ö±ø, ×ÜÊÇºÍÆå
-void m_MT_PAWN_TO_PAWN(typePOS &POSITION, EvalInfo &ei){ //ÒòÎª±øµÄÎ»ÖÃ·ÖÏà²îÌ«´ó
+//çº¢æ–¹ä¸€ä¸ªå…µ, é»‘æ–¹ä¸€ä¸ªå…µ, æ€»æ˜¯å’Œæ£‹
+void m_MT_PAWN_TO_PAWN(typePOS &POSITION, EvalInfo &ei){ //å› ä¸ºå…µçš„ä½ç½®åˆ†ç›¸å·®å¤ªå¤§
 
 	Square rpawn = S90_from_piecelist(POSITION, RPAWN, 0);
 	Square bpawn = S90_from_piecelist(POSITION, BPAWN, 0);

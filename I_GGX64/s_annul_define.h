@@ -109,14 +109,14 @@
 #undef  MY_COLOR    
 #undef  YOUR_COLOR      
 
-#include "endgame\\s_end_undefine_data.h"
-#include "endgame\\anul_mat1.h"
-#include "endgame\\anul_mat2.h"
-#include "endgame\\anul_mat3.h"
-#include "endgame\\anul_mat4.h"
-#include "endgame\\anul_mat5.h"
-#include "endgame\\anul_mat6.h"
-#include "endgame\\anul_mat7.h"
-#include "endgame\\anul_mat8.h"
-#include "endgame\\anul_mat9.h"
+#include "endgame/s_end_undefine_data.h"
+#include "endgame/anul_mat1.h"
+#include "endgame/anul_mat2.h"
+#include "endgame/anul_mat3.h"
+#include "endgame/anul_mat4.h"
+#include "endgame/anul_mat5.h"
+#include "endgame/anul_mat6.h"
+#include "endgame/anul_mat7.h"
+#include "endgame/anul_mat8.h"
+#include "endgame/anul_mat9.h"
 

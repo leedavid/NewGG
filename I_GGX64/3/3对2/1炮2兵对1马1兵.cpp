@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_1pao2pawn_B_1ma1pawn
 #define END_my_m_MT_R_1pao2pawn_B_1ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ2±ø¶Ô1Âí1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®2å…µå¯¹1é©¬1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//const int  ADD_1PaoXPawn_1Ma1Pawn_ByPawnShi[3]      = {96, 64, 32};             //ÅÚx±ø¶Ô1Âí1±ø, ¶à±øµÄ¼Ó·Ö
-//const int  ADD_1PaoXPawn_1Ma1Pawn_ByMaPanw[3]       = {96, 64, 32};             //ÅÚx±ø¶Ô1Âí1±ø, ¶à±øµÄ¼Ó·Ö
+//const int  ADD_1PaoXPawn_1Ma1Pawn_ByPawnShi[3]      = {96, 64, 32};             //ç‚®xå…µå¯¹1é©¬1å…µ, å¤šå…µçš„åŠ åˆ†
+//const int  ADD_1PaoXPawn_1Ma1Pawn_ByMaPanw[3]       = {96, 64, 32};             //ç‚®xå…µå¯¹1é©¬1å…µ, å¤šå…µçš„åŠ åˆ†
 
 
 void my_m_MT_R_1pao2pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
@@ -143,7 +143,7 @@ void my_m_MT_R_1pao2pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 		MY_EV_SUB(64);
 	}
 
-   	// 1, Èç¹ûÂí·½ÊÇÊËÏàÈ«,ÅÚ·½ÓÐÊË,Ôò»ù±¾ÊÇºÍÆå
+   	// 1, å¦‚æžœé©¬æ–¹æ˜¯ä»•ç›¸å…¨,ç‚®æ–¹æœ‰ä»•,åˆ™åŸºæœ¬æ˜¯å’Œæ£‹
 	// fen 4k1b2/3Pa4/3a5/3P5/2b6/2C6/9/2n1p4/3K5/9 w - - 122 1
 	if((your_shi_num + your_xiang_num) == 4){
 		if(my_shi_num >= 1){
@@ -158,7 +158,7 @@ void my_m_MT_R_1pao2pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	if(StoY(mk) == MY_RANK9 && PB90(MY_SQ4C) == your_pawn){
 	}
 	else{
-		if(mcan >= 2){//ÅÚ·½Òª¼Ó·Ö
+		if(mcan >= 2){//ç‚®æ–¹è¦åŠ åˆ†
 			MY_EV_ADD(ADD_1PaoM2Pawn_1Ma1Pawn_ByM2Pawn);
 		}
 	}

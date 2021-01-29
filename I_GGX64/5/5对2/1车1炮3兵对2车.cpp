@@ -1,21 +1,21 @@
 #ifndef END_my_m_MT_R_1che1pao3pawn_B_2che
 #define END_my_m_MT_R_1che1pao3pawn_B_2che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ3±ø¶Ô2³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®3å…µå¯¹2è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//#define ADD_³µÅÚ±ø¶Ô¶þ³µ_by_Pawn_Safe   32             //³µÅÚ±ø¶Ô¶þ³µ,ÅÚ·½°²È«Ê±±øµÄ¼Ó·Ö
+//#define ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn_Safe   32             //è½¦ç‚®å…µå¯¹äºŒè½¦,ç‚®æ–¹å®‰å…¨æ—¶å…µçš„åŠ åˆ†
 
 
 
-//ºì·½³µÅÚ2±ø ¶Ô ºÚ·½2³µ
+//çº¢æ–¹è½¦ç‚®2å…µ å¯¹ é»‘æ–¹2è½¦
 void my_m_MT_R_1che1pao3pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
@@ -38,10 +38,10 @@ void my_m_MT_R_1che1pao3pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 	// ADD 
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
 	if(EV_MY_SAFE){
-		MY_EV_ADD((sint16)count_1s(bmp) * ADD_³µÅÚ±ø¶Ô¶þ³µ_by_Pawn__Safe_Shi[your_shi_num] * 3/2);
+		MY_EV_ADD((sint16)count_1s(bmp) * ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn__Safe_Shi[your_shi_num] * 3/2);
 	}
 	else{
-		MY_EV_ADD((sint16)count_1s(bmp) * ADD_³µÅÚ±ø¶Ô¶þ³µ_by_Pawn__Safe_Shi[your_shi_num]);
+		MY_EV_ADD((sint16)count_1s(bmp) * ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn__Safe_Shi[your_shi_num]);
 	}
 
 	
@@ -78,8 +78,8 @@ void my_m_MT_R_1che1pao3pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 //	// fen 3ak1b2/3Ra4/4b1c2/4p3p/5r3/2R6/9/4B4/9/3AKAB2 w - - 0 0
 //	for(int pawn = PieceListStart(board,BPAWN); pawn > 0x32; pawn = NextPiece(board,pawn)){
 //		if(StoY(pawn) != 0xc){
-//			//board->mulScore -= ADD_³µÅÚ±ø¶Ô¶þ³µ_by_Pawn__Safe_Shi[board->R_shi];
-//			int bonus = ADD_³µÅÚ±ø¶Ô¶þ³µ_by_Pawn__Safe_Shi[board->R_shi];
+//			//board->mulScore -= ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn__Safe_Shi[board->R_shi];
+//			int bonus = ADD_è½¦ç‚®å…µå¯¹äºŒè½¦_by_Pawn__Safe_Shi[board->R_shi];
 //			if(board->bsafe) {
 //				bonus *= 2;
 //			}

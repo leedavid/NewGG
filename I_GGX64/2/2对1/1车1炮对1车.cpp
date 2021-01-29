@@ -1,17 +1,17 @@
 #ifndef END_my_m_MT_R_1CHE1PAO_B_1CHE
 #define END_my_m_MT_R_1CHE1PAO_B_1CHE
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1��1�ڶ�1��.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1车1炮对1车.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//�ҷ�һ��һ��, �Է�һ��
+//我方一车一炮, 对方一车
 void my_m_MT_R_1CHE1PAO_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 
 	Square mche = S90_from_piecelist(POSITION,my_che,0);
@@ -21,7 +21,7 @@ void my_m_MT_R_1CHE1PAO_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	Square mk   = my_king_pos;
 
 	//*****************************************************************************************
-	//1, ����Է�������ȫ,���Ǻ���
+	//1, 如果对方是仕相全,则是和棋
 	if(your_shi_num == 2 && your_xiang_num == 2){
 		if(StoY(yk) == MY_RANK0){
 			RETRUN_MUL(2);
@@ -36,15 +36,15 @@ void my_m_MT_R_1CHE1PAO_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		MY_EV_SUB(128);
 	}
 
-	//�Է�û��˫��,Ҫ����ӷ�
+	//对方没有双相,要另外加分
 	if(your_xiang_num == 0){
 		MY_EV_ADD(128);
 	}
 
 	//*****************************************************************************************
-	//2,����Է�û������,��ɺ���§����ʤ
+	//2,如果对方没有仕相,则可海底搂月来胜
 	if(your_shi_num == 0 && your_xiang_num == 0){
-		//�ڷ��ĳ���������, �����������§�µ��ж�
+		//炮方的车守了中线, 在这儿作海底搂月的判断
 		if(StoX(mche) == 0x4){
 			MY_EV_ADD(64);
 
@@ -63,7 +63,7 @@ void my_m_MT_R_1CHE1PAO_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 	//*****************************************************************************************
-	//�ڷ�һ������Ҳû����, 133�֣����ںͳ�ʿ�����ںͳ���
+	//炮方一个仕相也没有了, 133局，车炮和车士，车炮和车相
 	if(my_shi_num == 0 && my_xiang_num == 0){
 		if((your_shi_num + your_xiang_num) >= 1){
 			RETRUN_MUL(2);
@@ -74,14 +74,14 @@ void my_m_MT_R_1CHE1PAO_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 5kb2/4a4/9/9/9/2B6/9/9/4KC1R1/5r3 w - - 35 35 
-	//����췽û������,�ڷ�������,Ҳ�Ǻ���
+	//如果红方没有仕了,黑方有仕相,也是和棋
 	if(my_shi_num == 0){
 		if(your_shi_num >= 1 && your_xiang_num >= 1){
 			RETRUN_MUL(2);
 		}
 	}
 
-	// ��һ�����
+	// 另一种妙和
 	// fen 4kaRC1/4a4/9/7r1/9/6B2/9/8B/9/4K4 b
 	if(your_shi_num == 2){
 		if(StoY(mpao) == StoY(mche) && StoY(mche) == MY_RANK0){
@@ -94,7 +94,7 @@ void my_m_MT_R_1CHE1PAO_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 
 
 	//*****************************************************************************************
-	// ������ڱ�ǣ����,Ҳ�Ǻ���
+	// 如果车炮被牵制了,也是和棋
 	// fen 4k4/9/3ab4/9/2b6/9/1R1C4r/4B4/4A4/2B1K4 w
 	if (isStringByChe(POSITION, mche, mpao, yche)){
 		// fen 4k1b2/4a4/3a5/9/9/2B6/2r6/2C1BA3/4AK3/2R6 w - - 0 1 
@@ -107,7 +107,7 @@ void my_m_MT_R_1CHE1PAO_B_1CHE(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 4k4/6C2/4b4/9/2b6/9/9/3R4B/1r2K4/9 w - - 7 7 
-	// ���ڶԳ�,���ڷ�û������, �����ж�����
+	// 车炮对车,车炮方没有仕了, 车方有二个象
 	if(my_shi_num == 0){
 		if(your_xiang_num == 2 && StoY(yk) != MY_RANK2){
 			RETRUN_MUL(2);

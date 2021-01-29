@@ -264,7 +264,7 @@ SKIP:
 		//{
 		//	best_value = MAX (0, best_value);
 		//	continue;
-		//}  // ÒòÎªÓĞ³£×½µÄÇé¿ö, Õâ¸ö²»ÄÜÓÃ
+		//}  // å› ä¸ºæœ‰å¸¸æ‰çš„æƒ…å†µ, è¿™ä¸ªä¸èƒ½ç”¨
 		move &= 0x7fff;
 		MAKE (POSITION, move);
 		EVAL (move);

@@ -1,24 +1,24 @@
 #ifndef END_my_m_MT_R_1che2ma_B_2che
 #define END_my_m_MT_R_1che2ma_B_2che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ2Âí¶Ô2³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦2é©¬å¯¹2è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//³µ2ÅÚ¶Ô³µÅÚ
+//è½¦2ç‚®å¯¹è½¦ç‚®
 void my_m_MT_R_1che2ma_B_2che(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
 	Square mk = my_king_pos;
 
 	if((your_shi_num + your_xiang_num) >= 2 && StoY(yk) == MY_RANK0){
-		MY_EV_SUB(ADD_2³µx±ø¶Ô1³µ2Âí);
+		MY_EV_SUB(ADD_2è½¦xå…µå¯¹1è½¦2é©¬);
 	}
 
 	Bitboard bmma = m_and(bb_my_ma,MyLowBB[MY_RANK6]);

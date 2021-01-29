@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1pao1ma3pawn_B_2che
 #define END_my_m_MT_R_1che1pao1ma3pawn_B_2che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1Âí3±ø¶Ô2³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®1é©¬3å…µå¯¹2è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -101,23 +101,23 @@ void my_m_MT_R_1che1pao1ma3pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 //			if(FALSE){
 //			}
 //		    else if(board->b256[0x36] == BSHI){
-//				//³µ°²È«
+//				//è½¦å®‰å…¨
 //				if(IsCheCanToOrAt(board,bche,0x38)){
 //					board->bsafe = TRUE;
 //				}
 //
-//				//ÅÚ°²È«
+//				//ç‚®å®‰å…¨
 //				if(IsCheCanToOrAt(board,bpao,0x38)){
 //					board->bsafe = TRUE;
 //				}
 //			}
 //			else if(board->b256[0x38] == BSHI){
-//				//³µ°²È«
+//				//è½¦å®‰å…¨
 //				if(IsCheCanToOrAt(board,bche,0x36)){
 //					board->bsafe = TRUE;
 //				}
 //
-//				//ÅÚ°²È«
+//				//ç‚®å®‰å…¨
 //				if(IsCheCanToOrAt(board,bpao,0x36)){
 //					board->bsafe = TRUE;
 //				}
@@ -150,23 +150,23 @@ void my_m_MT_R_1che1pao1ma3pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 	//		if(FALSE){
 	//		}
 	//	    else if(board->b256[0xc6] == RSHI){
-	//			//³µ°²È«
+	//			//è½¦å®‰å…¨
 	//			if(IsCheCanToOrAt(board,rche,0xc8)){
 	//				board->rsafe = TRUE;
 	//			}
 
-	//			//ÅÚ°²È«
+	//			//ç‚®å®‰å…¨
 	//			if(IsCheCanToOrAt(board,rpao,0xc8)){
 	//				board->rsafe = TRUE;
 	//			}
 	//		}
 	//		else if(board->b256[0xc8] == RSHI){
-	//			//³µ°²È«
+	//			//è½¦å®‰å…¨
 	//			if(IsCheCanToOrAt(board,rche,0xc6)){
 	//				board->rsafe = TRUE;
 	//			}
 
-	//			//ÅÚ°²È«
+	//			//ç‚®å®‰å…¨
 	//			if(IsCheCanToOrAt(board,rpao,0xc6)){
 	//				board->rsafe = TRUE;
 	//			}

@@ -1,18 +1,18 @@
 #ifndef END_my_m_MT_R_1che2pawn_B_1che1pawn
 #define END_my_m_MT_R_1che2pawn_B_1che1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ2±ø¶Ô1³µ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦2å…µå¯¹1è½¦1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //const int const_Pawn_Add = 32;
 
-//ºì·½1³µ2±ø£¬ºÚ·½1³µ1±ø
+//çº¢æ–¹1è½¦2å…µï¼Œé»‘æ–¹1è½¦1å…µ
 void my_m_MT_R_1che2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// ADD_MY
@@ -60,7 +60,7 @@ void my_m_MT_R_1che2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//»¹ÓĞÒ»ÖÖÇé¿ö,¾ÍÊÇÓĞ¶àÊËÏàÒ»·½Ö»ÓĞÒ»±ø,ÇÒÄÇ¸ö±ø±»¶Ô·½µÄ±øµ²×¡ÁË,¾ÍÊÇºÍÆå
+	//è¿˜æœ‰ä¸€ç§æƒ…å†µ,å°±æ˜¯æœ‰å¤šä»•ç›¸ä¸€æ–¹åªæœ‰ä¸€å…µ,ä¸”é‚£ä¸ªå…µè¢«å¯¹æ–¹çš„å…µæŒ¡ä½äº†,å°±æ˜¯å’Œæ£‹
 	
 
 	// fen 9/3ka4/3aR4/9/8p/P5P2/8r/4B4/9/4KA3 w - - 0 1
@@ -92,7 +92,7 @@ void my_m_MT_R_1che2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//ºì·½2±ø,ºÚ·½1±ø
+	//çº¢æ–¹2å…µ,é»‘æ–¹1å…µ
 	// fen 3R5/5k3/5a3/p1r6/8p/9/P8/4B4/9/3AKAB2 b
 	// fen 2baka3/9/4b4/8p/9/P8/6R1P/3A5/3K5/5r3 w - - 0 1
 	if(your_shi_num == 2 && StoY(yk) == MY_RANK0){
@@ -127,7 +127,7 @@ void my_m_MT_R_1che2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	}		
 
 	// fen 3aka3/9/2P6/4r3p/9/8P/8R/4B4/4A4/2B1KA3 b - - 14 14
-	//Èç¹ûºì·½Ö»ÓĞ¹ıÒ»¸ö±ø,ÔòÒ²ÊÇºÍÆå
+	//å¦‚æœçº¢æ–¹åªæœ‰è¿‡ä¸€ä¸ªå…µ,åˆ™ä¹Ÿæ˜¯å’Œæ£‹
 	if(your_shi_num == 2 && StoY(yk) == MY_RANK0){
 		// fen 2P1ka3/4aP3/5r3/9/3R5/9/9/B4A3/9/2BK1p3 b - - 0 1 not he
 		if(mcan <= 1 && have_bit(bb_my_pawn,MyLowBB[MY_RANK4])){
@@ -176,7 +176,7 @@ void my_m_MT_R_1che2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 4k4/4a4/4b4/9/4r3p/2P3B2/7RP/4B4/4A4/4KA3 w - - 120 120
-    //ºì·½¶ş¸ö±ø¶¼²»ÄÜ¹ıºÓ.
+    //çº¢æ–¹äºŒä¸ªå…µéƒ½ä¸èƒ½è¿‡æ²³.
 	if(your_shi_num >= 1 && your_xiang_num >= 1 && StoY(yk) == MY_RANK0){
 		if(StoY(mpawn1) MY_LARGE_EQL MY_RANK5 && StoY(mpawn2) MY_LARGE_EQL MY_RANK5){
 			if(mcan == 0){
@@ -394,7 +394,7 @@ void my_m_MT_R_1che2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
    // fen 4ka3/4a1P2/4b4/r8/9/P2R5/4p4/4B4/4A4/2BAK4 b - - 37 37
-   //ÇóµÃ¶ş³µµÄ½»²æµã
+   //æ±‚å¾—äºŒè½¦çš„äº¤å‰ç‚¹
    int xc = XYtoS(StoX(yche),StoY(mche));
    if(PB90(xc) == my_pawn){
 	   if(xc != MY_SQ2F || xc != MY_SQ33){
@@ -460,7 +460,7 @@ void my_m_MT_R_1che2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
    }
 
    // fen 3a1k3/4a4/9/3P5/9/7r1/3R5/4B4/1pp1A4/4KA3 w - - 120 120
-   //¶ş±øÔÚµ×ÏßÖĞ¼ä
+   //äºŒå…µåœ¨åº•çº¿ä¸­é—´
    if(EV_MY_SAFE){
 	   if(your_shi_num == 2 && your_xiang_num >= 1 && MY_SQ04 == yk){
 		   Bitboard mb = m_and(bb_my_pawn,MyUpBB[MY_RANK2]);
@@ -494,7 +494,7 @@ void my_m_MT_R_1che2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	   }
    }
    // fen 6b2/4a4/4ka3/p8/2b5P/P4R3/9/4r4/5K3/9 w - - 0 1 
-   // ºì·½Òª¼Ó·Ö
+   // çº¢æ–¹è¦åŠ åˆ†
    if(EV_YOUR_CAN == 0){
 	   MY_EV_ADD(EV_MY_CAN * 96);
 	   if(EV_MY_CAN <= 1){
@@ -681,7 +681,7 @@ void my_m_MT_R_1che2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	   if (your_shi_num >= 1 && your_xiang_num == 2 && MY_SQ04 == yk && EV_YOUR_CAN >= 1) {
 		   MY_EV_SUB(64);
 
-		   // ÓĞÒ»¸ö±ß±ø±»Ç£ÖÆÁË
+		   // æœ‰ä¸€ä¸ªè¾¹å…µè¢«ç‰µåˆ¶äº†
 		   if (!have_bit(bb_my_pawn, MyUpBB[MY_RANK3])) {
 			   if (abs(StoX(mpawn1) - 0x4) == 4) {
 				   if (bit_is_set(ei.attackedBy[your_che], mpawn1)

@@ -4580,6 +4580,9 @@
     <ClCompile Include="6\6对5\1车2马3兵对1车2炮1马1兵.cpp">
       <Filter>Eval_END\6\六对五</Filter>
     </ClCompile>
+    <ClCompile Include="platform.cpp">
+      <Filter>preGen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="endgame\残局加分_0车.h">
@@ -5008,6 +5011,12 @@
     </ClInclude>
     <ClInclude Include="db.h">
       <Filter>book</Filter>
+    </ClInclude>
+    <ClInclude Include="chess.h">
+      <Filter>Search\Draw_Repeat\Resource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chess.h">
+      <Filter>Search\Draw_Repeat\Resource Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="chess.h">
       <Filter>Search\Draw_Repeat\Resource Files\Header Files</Filter>

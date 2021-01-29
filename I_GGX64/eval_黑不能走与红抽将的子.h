@@ -1,9 +1,9 @@
 
-//µ±ÆåÅÌÉÏÓĞ1.ºì·½²»¿É×ß¶¯µÄÆå×Ó 2.ºÚ·½µÄ³é½« Ê±
+//å½“æ£‹ç›˜ä¸Šæœ‰1.çº¢æ–¹ä¸å¯èµ°åŠ¨çš„æ£‹å­ 2.é»‘æ–¹çš„æŠ½å°† æ—¶
 //set_bit(POSITION->DYN->black_xray,msq);
 //xray_black_list[msq] = s;
 
-//µ±ÆåÅÌÉÏÓĞ1.ºÚ·½²»¿É×ß¶¯µÄÆå×Ó 2.ºì·½µÄ³é½« Ê±
+//å½“æ£‹ç›˜ä¸Šæœ‰1.é»‘æ–¹ä¸å¯èµ°åŠ¨çš„æ£‹å­ 2.çº¢æ–¹çš„æŠ½å°† æ—¶
 
 #define BCanNotMove_attNum GetWhiteAtt_SQcount_CheMaPaoPawn(POSITION,&ei,msq)
 
@@ -12,41 +12,41 @@ while(m128_is_have_bit(CannotMove)){
 	int msq     = pop_1st_bit(&CannotMove);
 	int s       = xray_white_list[msq];
 
-	//Ö»ÓĞºÚ·½²ÅÒªÓÃÍÛ
+	//åªæœ‰é»‘æ–¹æ‰è¦ç”¨å“‡
 	//int attNum  = GetWhiteAtt_SQcount_CheMaPaoPawn(POSITION,&ei,msq);
 
-	// 1, ²»ÄÜ¶¯, 
+	// 1, ä¸èƒ½åŠ¨, 
 	switch(PB90(msq)){
-	// ºÚ·½²»ÄÜ×ß¶¯µÄÆå
+	// é»‘æ–¹ä¸èƒ½èµ°åŠ¨çš„æ£‹
 	//=======================================
 	case BPAWN:
-		// ÔÙ¿´Ò»ÏÂÊÇ¸øÄÇ¸öÇ£ÖÆÁË.
+		// å†çœ‹ä¸€ä¸‹æ˜¯ç»™é‚£ä¸ªç‰µåˆ¶äº†.
 		switch(PB90(s)){
-		case RCHE:  // ºÚ³µ ºì±ø ºìË§
+		case RCHE:  // é»‘è½¦ çº¢å…µ çº¢å¸…
 			ei.attPoint[WHITECOLOR] += att_Che_String[BCanNotMove_attNum]/2;
 			break;
-		case RPAO:  // ºÚÅÚ X ºì±ø ºìË§
+		case RPAO:  // é»‘ç‚® X çº¢å…µ çº¢å¸…
 			ei.attPoint[WHITECOLOR] += att_Pao_String[BCanNotMove_attNum]/2;
 			break;
-		case RMA:   // ºÚÂí ºì±ø ºìË§  // Õâ¸ö²»¿ÉÄÜ
+		case RMA:   // é»‘é©¬ çº¢å…µ çº¢å¸…  // è¿™ä¸ªä¸å¯èƒ½
 			ei.attPoint[WHITECOLOR] += att_Ma_String[BCanNotMove_attNum]/2;
 			break;
 		}
 		break;
 	//=======================================
 	case BMA:
-		// ÔÙ¿´Ò»ÏÂÊÇ¸øÄÇ¸öÇ£ÖÆÁË.
+		// å†çœ‹ä¸€ä¸‹æ˜¯ç»™é‚£ä¸ªç‰µåˆ¶äº†.
 		switch(PB90(s)){
-		case RCHE:  // ºÚ³µ_ºìÂí_ºìË§
-			ei.attPoint[WHITECOLOR] += att_ºÚ³µ_ºìÂí_ºìË§_string;
+		case RCHE:  // é»‘è½¦_çº¢é©¬_çº¢å¸…
+			ei.attPoint[WHITECOLOR] += att_é»‘è½¦_çº¢é©¬_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Che_String[BCanNotMove_attNum];
 			break;
-		case RPAO: // ºÚÅÚ_ºìÂí_ºìË§
-			ei.attPoint[WHITECOLOR] += att_ºÚÅÚ_ºìÂí_ºìË§_string;
+		case RPAO: // é»‘ç‚®_çº¢é©¬_çº¢å¸…
+			ei.attPoint[WHITECOLOR] += att_é»‘ç‚®_çº¢é©¬_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Pao_String[BCanNotMove_attNum];
 			break;
 		case RMA:
-			ei.attPoint[WHITECOLOR] += att_ºÚÂí_ºìÂí_ºìË§_string;
+			ei.attPoint[WHITECOLOR] += att_é»‘é©¬_çº¢é©¬_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Ma_String[BCanNotMove_attNum];
 			valu += att_Ma_String_Valu[BCanNotMove_attNum];
 			break;
@@ -54,18 +54,18 @@ while(m128_is_have_bit(CannotMove)){
 		break;
 	//=======================================
 	case BPAO:
-		// ÔÙ¿´Ò»ÏÂÊÇ¸øÄÇ¸öÇ£ÖÆÁË.
+		// å†çœ‹ä¸€ä¸‹æ˜¯ç»™é‚£ä¸ªç‰µåˆ¶äº†.
 		switch(PB90(s)){ 
-		case RCHE:    // ºÚ³µ_ºìÅÚ_ºìË§
-			ei.attPoint[WHITECOLOR] += att_ºÚ³µ_ºìÅÚ_ºìË§_string;
+		case RCHE:    // é»‘è½¦_çº¢ç‚®_çº¢å¸…
+			ei.attPoint[WHITECOLOR] += att_é»‘è½¦_çº¢ç‚®_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Che_String[BCanNotMove_attNum];
 			break;
 		case RPAO:
-			ei.attPoint[WHITECOLOR] += att_ºÚÅÚ_ºìÅÚ_ºìË§_string;
+			ei.attPoint[WHITECOLOR] += att_é»‘ç‚®_çº¢ç‚®_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Pao_String[BCanNotMove_attNum];
 			break;
 		case RMA:
-			ei.attPoint[WHITECOLOR] += att_ºÚÂí_ºìÅÚ_ºìË§_string;
+			ei.attPoint[WHITECOLOR] += att_é»‘é©¬_çº¢ç‚®_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Ma_String[BCanNotMove_attNum];
 			valu += att_Ma_String_Valu[BCanNotMove_attNum];
 			break;
@@ -73,18 +73,18 @@ while(m128_is_have_bit(CannotMove)){
 		break;
 	//=======================================
 	case BCHE:
-		// ÔÙ¿´Ò»ÏÂÊÇ¸øÄÇ¸öÇ£ÖÆÁË.
+		// å†çœ‹ä¸€ä¸‹æ˜¯ç»™é‚£ä¸ªç‰µåˆ¶äº†.
 		switch(PB90(s)){
 		case RCHE:
-			ei.attPoint[WHITECOLOR] += att_ºÚ³µ_ºì³µ_ºìË§_string;
+			ei.attPoint[WHITECOLOR] += att_é»‘è½¦_çº¢è½¦_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Che_String[BCanNotMove_attNum];
 			break;
 		case RPAO:
-			ei.attPoint[WHITECOLOR] += att_ºÚÅÚ_ºì³µ_ºìË§_string;
+			ei.attPoint[WHITECOLOR] += att_é»‘ç‚®_çº¢è½¦_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Pao_String[BCanNotMove_attNum];
 			break;
 		case RMA:
-			ei.attPoint[WHITECOLOR] += att_ºÚÂí_ºì³µ_ºìË§_string;
+			ei.attPoint[WHITECOLOR] += att_é»‘é©¬_çº¢è½¦_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Ma_String[BCanNotMove_attNum];
 			valu += att_Ma_String_Valu[BCanNotMove_attNum];
 			break;
@@ -92,36 +92,36 @@ while(m128_is_have_bit(CannotMove)){
 		break;
 	//=======================================
 	case BSHI:
-		// ÔÙ¿´Ò»ÏÂÊÇ¸øÄÇ¸öÇ£ÖÆÁË.
+		// å†çœ‹ä¸€ä¸‹æ˜¯ç»™é‚£ä¸ªç‰µåˆ¶äº†.
 		switch(PB90(s)){
 		case RCHE:
-			ei.attPoint[WHITECOLOR] += att_ºÚ³µ_ºìÊË_ºìË§_string;
+			ei.attPoint[WHITECOLOR] += att_é»‘è½¦_çº¢ä»•_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Che_String[BCanNotMove_attNum]/2;
 			break;
 		case RPAO:
-			ei.attPoint[WHITECOLOR] += att_ºÚÅÚ_ºìÊË_ºìË§_string;
+			ei.attPoint[WHITECOLOR] += att_é»‘ç‚®_çº¢ä»•_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Pao_String[BCanNotMove_attNum]/2;
 			break;
 		case RMA:
-			ei.attPoint[WHITECOLOR] += att_ºÚÂí_ºìÊË_ºìË§_string;
+			ei.attPoint[WHITECOLOR] += att_é»‘é©¬_çº¢ä»•_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Ma_String[BCanNotMove_attNum]/2;
 			break;
 		}
 		break;
 	//=======================================
 	case BXIANG:
-		// ÔÙ¿´Ò»ÏÂÊÇ¸øÄÇ¸öÇ£ÖÆÁË.
+		// å†çœ‹ä¸€ä¸‹æ˜¯ç»™é‚£ä¸ªç‰µåˆ¶äº†.
 		switch(PB90(s)){
 		case RCHE:
-			ei.attPoint[WHITECOLOR] += att_ºÚ³µ_ºìÏà_ºìË§_string;
+			ei.attPoint[WHITECOLOR] += att_é»‘è½¦_çº¢ç›¸_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Che_String[BCanNotMove_attNum]/2;
 			break;
 		case RPAO:
-			ei.attPoint[WHITECOLOR] += att_ºÚÅÚ_ºìÏà_ºìË§_string;
+			ei.attPoint[WHITECOLOR] += att_é»‘ç‚®_çº¢ç›¸_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Pao_String[BCanNotMove_attNum]/2;
 			break;
 		case RMA:
-			ei.attPoint[WHITECOLOR] += att_ºÚÂí_ºìÏà_ºìË§_string;
+			ei.attPoint[WHITECOLOR] += att_é»‘é©¬_çº¢ç›¸_çº¢å¸…_string;
 			ei.attPoint[WHITECOLOR] += att_Ma_String[BCanNotMove_attNum]/2;
 			break;
 		}
@@ -129,93 +129,93 @@ while(m128_is_have_bit(CannotMove)){
 
 	//***************************************
 	case RPAWN:
-		// ÔÙ¿´Ò»ÏÂÊÇ¸øÄÇ¸öÔÚºóÃæ³é½«ÁË.
+		// å†çœ‹ä¸€ä¸‹æ˜¯ç»™é‚£ä¸ªåœ¨åé¢æŠ½å°†äº†.
 		if(StoY(msq) <= 0x4){
 			switch(PB90(s)){
 			case RCHE:
-				ei.attPoint[WHITECOLOR] += att_ºÚ³µ_ºÚ×ä_ºìË§_zhou;
+				ei.attPoint[WHITECOLOR] += att_é»‘è½¦_é»‘å’_çº¢å¸…_zhou;
 				break;
 			case RPAO:
-				ei.attPoint[WHITECOLOR] += att_ºÚÅÚ_ºÚ×ä_ºìË§_zhou;
+				ei.attPoint[WHITECOLOR] += att_é»‘ç‚®_é»‘å’_çº¢å¸…_zhou;
 				break;
 			case RMA:
-				ei.attPoint[WHITECOLOR] += att_ºÚÂí_ºÚ×ä_ºìË§_zhou;
+				ei.attPoint[WHITECOLOR] += att_é»‘é©¬_é»‘å’_çº¢å¸…_zhou;
 				break;
 			}
 		}
 		break;
 	//***************************************
 	case RMA:
-		// ÔÙ¿´Ò»ÏÂÊÇ¸øÄÇ¸öÔÚºóÃæ³é½«ÁË.
+		// å†çœ‹ä¸€ä¸‹æ˜¯ç»™é‚£ä¸ªåœ¨åé¢æŠ½å°†äº†.
 		switch(PB90(s)){
 		case RCHE:
-			ei.attPoint[WHITECOLOR] += att_ºÚ³µ_ºÚÂí_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘è½¦_é»‘é©¬_çº¢å¸…_zhou;
 			break;
 		case RPAO:
-			ei.attPoint[WHITECOLOR] += att_ºÚÅÚ_ºÚÂí_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘ç‚®_é»‘é©¬_çº¢å¸…_zhou;
 			break;
 		case RMA:
-			ei.attPoint[WHITECOLOR] += att_ºÚÂí_ºÚÂí_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘é©¬_é»‘é©¬_çº¢å¸…_zhou;
 			break;
 		}
 		break;
 	//***************************************
 	case RPAO:
-		// ÔÙ¿´Ò»ÏÂÊÇ¸øÄÇ¸öÔÚºóÃæ³é½«ÁË.
+		// å†çœ‹ä¸€ä¸‹æ˜¯ç»™é‚£ä¸ªåœ¨åé¢æŠ½å°†äº†.
 		switch(PB90(s)){
 		case RCHE:
-			ei.attPoint[WHITECOLOR] += att_ºÚ³µ_ºÚÅÚ_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘è½¦_é»‘ç‚®_çº¢å¸…_zhou;
 			break;
 		case RPAO:
-			ei.attPoint[WHITECOLOR] += att_ºÚÅÚ_ºÚÅÚ_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘ç‚®_é»‘ç‚®_çº¢å¸…_zhou;
 			break;
 		case RMA:
-			ei.attPoint[WHITECOLOR] += att_ºÚÂí_ºÚÅÚ_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘é©¬_é»‘ç‚®_çº¢å¸…_zhou;
 			break;
 		}
 		break;
 	//***************************************
 	case RCHE:
-		// ÔÙ¿´Ò»ÏÂÊÇ¸øÄÇ¸öÔÚºóÃæ³é½«ÁË.
+		// å†çœ‹ä¸€ä¸‹æ˜¯ç»™é‚£ä¸ªåœ¨åé¢æŠ½å°†äº†.
 		switch(PB90(s)){
 		case RCHE:
-			ei.attPoint[WHITECOLOR] += att_ºÚ³µ_ºÚ³µ_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘è½¦_é»‘è½¦_çº¢å¸…_zhou;
 			break;
 		case RPAO:
-			ei.attPoint[WHITECOLOR] += att_ºÚÅÚ_ºÚ³µ_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘ç‚®_é»‘è½¦_çº¢å¸…_zhou;
 			break;
 		case RMA:
-			ei.attPoint[WHITECOLOR] += att_ºÚÂí_ºÚ³µ_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘é©¬_é»‘è½¦_çº¢å¸…_zhou;
 			break;
 		}
 		break;
 	//***************************************
 	case RSHI:
-		// ÔÙ¿´Ò»ÏÂÊÇ¸øÄÇ¸öÔÚºóÃæ³é½«ÁË.
+		// å†çœ‹ä¸€ä¸‹æ˜¯ç»™é‚£ä¸ªåœ¨åé¢æŠ½å°†äº†.
 		switch(PB90(s)){
 		case RCHE:
-			ei.attPoint[WHITECOLOR] += att_ºÚ³µ_ºÚÊ¿_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘è½¦_é»‘å£«_çº¢å¸…_zhou;
 			break;
 		case RPAO:
-			ei.attPoint[WHITECOLOR] += att_ºÚÅÚ_ºÚÊ¿_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘ç‚®_é»‘å£«_çº¢å¸…_zhou;
 			break;
 		case RMA:
-			ei.attPoint[WHITECOLOR] += att_ºÚÂí_ºÚÊ¿_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘é©¬_é»‘å£«_çº¢å¸…_zhou;
 			break;
 		}
 		break;
 	//***************************************
 	case RXIANG:
-		// ÔÙ¿´Ò»ÏÂÊÇ¸øÄÇ¸öÔÚºóÃæ³é½«ÁË.
+		// å†çœ‹ä¸€ä¸‹æ˜¯ç»™é‚£ä¸ªåœ¨åé¢æŠ½å°†äº†.
 		switch(PB90(s)){
 		case RCHE:
-			ei.attPoint[WHITECOLOR] += att_ºÚ³µ_ºÚÏó_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘è½¦_é»‘è±¡_çº¢å¸…_zhou;
 			break;
 		case RPAO:
-			ei.attPoint[WHITECOLOR] += att_ºÚÅÚ_ºÚÏó_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘ç‚®_é»‘è±¡_çº¢å¸…_zhou;
 			break;
 		case RMA:
-			ei.attPoint[WHITECOLOR] += att_ºÚÂí_ºÚÏó_ºìË§_zhou;
+			ei.attPoint[WHITECOLOR] += att_é»‘é©¬_é»‘è±¡_çº¢å¸…_zhou;
 			break;
 		}
 		break;

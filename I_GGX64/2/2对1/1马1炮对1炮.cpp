@@ -1,16 +1,16 @@
 #ifndef END_my_m_MT_R_1pao1ma_B_1pao
 #define END_my_m_MT_R_1pao1ma_B_1pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1Âí1ÅÚ¶Ô1ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1é©¬1ç‚®å¯¹1ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//ÂíÅÚ¶ÔÅÚ
+//é©¬ç‚®å¯¹ç‚®
 void my_m_MT_R_1pao1ma_B_1pao(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk  = your_king_pos;
@@ -19,7 +19,7 @@ void my_m_MT_R_1pao1ma_B_1pao(typePOS &POSITION, EvalInfo &ei){
 	Square ypao = S90_from_piecelist(POSITION,your_pao,0);
 
 	// fen 9/9/3k5/9/9/2B3B2/9/3nC4/3K4c/9 w - - 0 0
-	//Âí²»ÄÜ¶¯ÁË,ÊÇºÍÆå
+	//é©¬ä¸èƒ½åŠ¨äº†,æ˜¯å’Œæ£‹
 	if(my_shi_num == 0){
 		if(StoY(mma) MY_SMALL_EQL MY_RANK2 && (yk MY_ADD 9) == mma){
 			if(isStringByChe(POSITION,my_king_pos,mma,yk)){
@@ -28,7 +28,7 @@ void my_m_MT_R_1pao1ma_B_1pao(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 	// fen 3aka3/4n4/4b1c2/9/2b1C4/9/9/9/4A4/3K5 b - - 0 0
-	//±»ÃÆ¹¬ÁË,Ò²¿ÉÄÜÊÇºÍÆå
+	//è¢«é—·å®«äº†,ä¹Ÿå¯èƒ½æ˜¯å’Œæ£‹
 	if(my_king_pos == MY_SQ55 && mma == MY_SQ4C 
 		&& PB90(MY_SQ54) == my_shi && PB90(MY_SQ56) == my_shi){
 			if(isStringByPao(POSITION,ypao,mma,Square(MY_SQ55))){
@@ -52,7 +52,7 @@ void my_m_MT_R_1pao1ma_B_1pao(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// ¶Ô·½ÊËÏàÈ«
+	// å¯¹æ–¹ä»•ç›¸å…¨
 	if((your_shi_num + your_xiang_num) == 4){
 		if(StoY(yk) == MY_RANK0){
 			RETRUN_MUL(2);

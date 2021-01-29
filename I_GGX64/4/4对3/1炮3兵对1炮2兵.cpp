@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1pao3pawn_B_1pao2pawn
 #define END_my_m_MT_R_1pao3pawn_B_1pao2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ3±ø¶Ô1ÅÚ2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®3å…µå¯¹1ç‚®2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //const int RBcanByPawnAdd = 48;
@@ -24,7 +24,7 @@ void my_m_MT_R_1pao3pawn_B_1pao2pawn(typePOS &POSITION, EvalInfo &ei){
 	Bitboard ymp = m_and(bb_your_pawn,MyUpBB[StoY(mk)]);
 	MY_EV_SUB((sint16)count_1s(ymp) * ADD_1PaoXPawn_1PaoXPawn_ByShi[my_shi_num]);
 
-	//Ò»¸öºÍÐÍ
+	//ä¸€ä¸ªå’Œåž‹
 
 	int mcan = EV_MY_CAN;
 	int ycan = EV_YOUR_CAN;
@@ -53,7 +53,7 @@ void my_m_MT_R_1pao3pawn_B_1pao2pawn(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//Èç¹ûºÚ·½Ð¡ÓÚÒ»¸ö±ø¹ýºÓ,ºì·½ÓÐ¶þ¸öÒÔÉÏµÄ±ø¹ýºÓ,Ôòºì·½Òª¼Ó·Ö
+	//å¦‚æžœé»‘æ–¹å°äºŽä¸€ä¸ªå…µè¿‡æ²³,çº¢æ–¹æœ‰äºŒä¸ªä»¥ä¸Šçš„å…µè¿‡æ²³,åˆ™çº¢æ–¹è¦åŠ åˆ†
 	if(mcan >= 2 && ycan <= 1){
 		MY_EV_ADD(48 * mcan);
 	}

@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1ma2pawn_B_2pao
 #define END_my_m_MT_R_1ma2pawn_B_2pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1Âí2±ø¶Ô2ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1é©¬2å…µå¯¹2ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -15,7 +15,7 @@
 //
 
 
-// 1Âí2±ø¶Ô2ÅÚ
+// 1é©¬2å…µå¯¹2ç‚®
 void my_m_MT_R_1ma2pawn_B_2pao(typePOS &POSITION, EvalInfo &ei){
 	
 	Square yk = your_king_pos;
@@ -36,14 +36,14 @@ void my_m_MT_R_1ma2pawn_B_2pao(typePOS &POSITION, EvalInfo &ei){
 	Square mpawn1 = S90_from_piecelist(POSITION,my_pawn,0);
 	Square mpawn2 = S90_from_piecelist(POSITION,my_pawn,1);
 
-	//¶þ¸ö¶¼ÊÇµÍ±øÁË,Ò²ÊÇºÍÆå
+	//äºŒä¸ªéƒ½æ˜¯ä½Žå…µäº†,ä¹Ÿæ˜¯å’Œæ£‹
 	if(StoY(mpawn1) MY_SMALL_EQL StoY(yk) && StoY(mpawn2) MY_SMALL_EQL StoY(yk)){
 		EV_YOUR_SAFE = TRUE;
 	}
 	
 
 	// fen 4k1b2/9/3a1a3/9/8p/4C1B2/2C2n3/4K4/3p5/9 w - - 125 125
-	//ºì±ø²»ÄÜ¹ýºÓ,Ò²ÊÇºÍÆå
+	//çº¢å…µä¸èƒ½è¿‡æ²³,ä¹Ÿæ˜¯å’Œæ£‹
 	if(your_xiang_num >= 1){
 		Bitboard mp = m_and(bb_my_pawn,MyUpBB[StoY(yk)]);
 		if(count_1s(mp) >= 1){
@@ -102,13 +102,13 @@ void my_m_MT_R_1ma2pawn_B_2pao(typePOS &POSITION, EvalInfo &ei){
 //		board->bsafe = TRUE;
 //	}
 //
-//	//¶þ¸ö¶¼ÊÇµÍ±øÁË,Ò²ÊÇºÍÆå
+//	//äºŒä¸ªéƒ½æ˜¯ä½Žå…µäº†,ä¹Ÿæ˜¯å’Œæ£‹
 //	if(StoY(bpawn1) > StoY(rk) && StoY(bpawn2) > StoY(rk)){
 //		board->rsafe = TRUE;
 //	}
 //
 //	// fen 4k1b2/9/3a1a3/9/8p/4C1B2/2C2n3/4K4/3p5/9 w - - 125 125
-//	//ºÚ±ø²»ÄÜ¹ýºÓ,Ò²ÊÇºÍÆå
+//	//é»‘å…µä¸èƒ½è¿‡æ²³,ä¹Ÿæ˜¯å’Œæ£‹
 //	if(StoY(bpawn1) > StoY(rk)){
 //		if(StoY(bpawn2) < 0x8){
 //			if(StoX(bpawn2) == 0xb){

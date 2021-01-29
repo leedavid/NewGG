@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2pao_B_1che
 #define END_my_m_MT_R_2pao_B_1che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2ÅÚ¶Ô1³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2ç‚®å¯¹1è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 // fen 9/3kc4/5c3/9/9/8R/9/9/9/3K5 w
@@ -22,7 +22,7 @@ void my_m_MT_R_2pao_B_1che(typePOS &POSITION, EvalInfo &ei){
 	Square mpao1 = S90_from_piecelist(POSITION,my_pao,0);
 	Square mpao2 = S90_from_piecelist(POSITION,my_pao,1);
 
-	// µ±ÅÚ·½Ã»ÓĞ2ÊË»ò2Ïàºó,»¹ÓĞÒ»¸ö¿ÉºÍµÄĞÎ
+	// å½“ç‚®æ–¹æ²¡æœ‰2ä»•æˆ–2ç›¸å,è¿˜æœ‰ä¸€ä¸ªå¯å’Œçš„å½¢
 	if(my_shi_num == 2 || my_xiang_num == 2){
 		RETRUN_MUL(2);
 	}

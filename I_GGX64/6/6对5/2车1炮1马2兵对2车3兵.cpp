@@ -1,16 +1,16 @@
 #ifndef END_my_m_MT_R_2che1pao1ma2pawn_B_2che3pawn
 #define END_my_m_MT_R_2che1pao1ma2pawn_B_2che3pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "2³µ1ÅÚ1Âí2±ø¶Ô2³µ3±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2è½¦1ç‚®1é©¬2å…µå¯¹2è½¦3å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 #pragma warning(disable : 4100) 
-//const int ADD_2CheXPawn_1Che3PaoMa1Pawn_2ChePawnCan      =  32;                     //2³µ·½ÓĞ±ø¿É¹ıºÓ£¬
+//const int ADD_2CheXPawn_1Che3PaoMa1Pawn_2ChePawnCan      =  32;                     //2è½¦æ–¹æœ‰å…µå¯è¿‡æ²³ï¼Œ
 
 
 void my_m_MT_R_2che1pao1ma2pawn_B_2che3pawn(typePOS &POSITION, EvalInfo &ei){

@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1pao1ma_B_1che1ma1pawn
 #define END_my_m_MT_R_1che1pao1ma_B_1che1ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1Âí¶Ô1³µ1Âí1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®1é©¬å¯¹1è½¦1é©¬1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //const int  AD_Che_CanNotMove = 256;

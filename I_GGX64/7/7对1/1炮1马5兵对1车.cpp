@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1pao_1ma5pawn_B_1che
 #define END_my_m_MT_R_1pao_1ma5pawn_B_1che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí5±ø¶Ô1³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®1é©¬5å…µå¯¹1è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -18,7 +18,7 @@ void my_m_MT_R_1pao_1ma5pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
 	MY_EV_ADD((sint16)count_1s(bmp) * ADD_1Pao1MaXPawn_To_1Che_PawnByShi[your_shi_num]);
 
-	//Èç¹û¶Ô·½ÊÇÊËÏàÈ«£¬ÇÒÎÒ·½µÄ±øÃ»ÓĞ¹ıºÓ£¬Òª¼õ·Ö
+	//å¦‚æœå¯¹æ–¹æ˜¯ä»•ç›¸å…¨ï¼Œä¸”æˆ‘æ–¹çš„å…µæ²¡æœ‰è¿‡æ²³ï¼Œè¦å‡åˆ†
 	// fen 3ak1b2/4a4/4b4/5r3/9/5CP1P/P3N4/4B4/4A4/2B1KA3 w - - 6 6
 	// SUB
 	if((your_shi_num + your_xiang_num) == 4 && StoY(yk) == MY_RANK0){

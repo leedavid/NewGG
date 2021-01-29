@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1pao2pawn_B_1che1ma1pawn
 #define END_my_m_MT_R_1che1pao2pawn_B_1che1ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ2±ø¶Ô1³µ1Âí1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®2å…µå¯¹1è½¦1é©¬1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 void my_m_MT_R_1che1pao2pawn_B_1che1ma1pawn(typePOS &POSITION, EvalInfo &ei){
@@ -58,7 +58,7 @@ void my_m_MT_R_1che1pao2pawn_B_1che1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 		if (StoY(yma) MY_LARGE_EQL MY_RANK5) {
 			MY_EV_SUB(64);
 		}
-		// ÓÐ±ß±ø
+		// æœ‰è¾¹å…µ
 		if (have_bit(bb_my_pawn, m_or(FileBB_A[0x0], FileBB_A[0x8]))) {
 			MY_EV_SUB(32);
 		}
@@ -169,7 +169,7 @@ void my_m_MT_R_1che1pao2pawn_B_1che1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// fen 3P2b2/4k4/5a3/8p/4n4/8P/4r4/2R1B4/3CA4/4K4 bºÚ³µ5Æ½4ÓÐ???Õâ¾Ö¸Ð¾õÊÇºìºÃ¶à.ºìÅÚÒÑ¾­»Ø¼ÒÁË.
+	// fen 3P2b2/4k4/5a3/8p/4n4/8P/4r4/2R1B4/3CA4/4K4 bé»‘è½¦5å¹³4æœ‰???è¿™å±€æ„Ÿè§‰æ˜¯çº¢å¥½å¤š.çº¢ç‚®å·²ç»å›žå®¶äº†.
 	if(EV_YOUR_CAN == 0 && (my_shi_num + my_xiang_num) >= 2 && StoY(mk) == MY_RANK9){
 		MY_EV_ADD(32);
 		if(StoY(mpao) MY_LARGE_EQL MY_RANK6 && (your_shi_num + your_xiang_num) <= 2){

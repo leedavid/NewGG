@@ -1,28 +1,28 @@
 
 
-// 1. ÆÀ¼ÛºÚ·½µÄÈõ×Ó, È¥ÁË¶Ô·½±ø,ÊË,Ïà±£»¤µÄÆå×Ó
-// 2. Ò²ÒªÈ¥ÁË×Ô¼ºµÄ±øÍÛ.
+// 1. è¯„ä»·é»‘æ–¹çš„å¼±å­, å»äº†å¯¹æ–¹å…µ,ä»•,ç›¸ä¿æŠ¤çš„æ£‹å­
+// 2. ä¹Ÿè¦å»äº†è‡ªå·±çš„å…µå“‡.
 Bitboard weakEnemies = _mm_andnot_si128(
-	m128_bb_or_bb(ei.BpawnAtt,ei.BShiXiangAtt),  // È¥ÁË±ø,ÊËÏà
+	m128_bb_or_bb(ei.BpawnAtt,ei.BShiXiangAtt),  // å»äº†å…µ,ä»•ç›¸
 	m_and(
 	_mm_andnot_si128(bitboard_black_pawn,bitboard_occ_black),
 	POSITION->DYN->attack_white));
 
 if(m128_is_have_bit(weakEnemies)){
 	Bitboard b;
-	// ºìÊË,ºìÏàÔÚ¹¥»÷
+	// çº¢ä»•,çº¢ç›¸åœ¨æ”»å‡»
 	b = m_and(ei.RShiXiangAtt,weakEnemies);	
 	while(m128_is_have_bit(b)){
 		int sq2    = pop_1st_bit(&b);
 		valu += SHI_XIANG_ThreatBonus[PIECE_TYPE(PB90(sq2))];
 	}
-	// ºì±ø
+	// çº¢å…µ
 	b = m_and(ei.RpawnAtt,weakEnemies);	
 	while(m128_is_have_bit(b)){
 		int sq2    = pop_1st_bit(&b);
 		valu += PAWN_ThreatBonus[PIECE_TYPE(PB90(sq2))];
 	}
-	// ºìÅÚ, Æå×ÓµÄ×Ô±£»¤Ò²ËãÒ»Æğ?
+	// çº¢ç‚®, æ£‹å­çš„è‡ªä¿æŠ¤ä¹Ÿç®—ä¸€èµ·?
 	for(int i = 0; i < RPao_num(); i++){
 		b = m_and(ei.RPaoAtt[i],weakEnemies);	
 		while(m128_is_have_bit(b)){
@@ -30,7 +30,7 @@ if(m128_is_have_bit(weakEnemies)){
 			valu += PAO_ThreatBonus[PIECE_TYPE(PB90(sq2))];
 		}
 	}
-	// ºìÂí
+	// çº¢é©¬
 	for(int i = 0; i < RMa_num(); i++){
 		b = m_and(ei.RmaAtt[i],weakEnemies);	
 		while(m128_is_have_bit(b)){
@@ -38,7 +38,7 @@ if(m128_is_have_bit(weakEnemies)){
 			valu += MA_ThreatBonus[PIECE_TYPE(PB90(sq2))];
 		}
 	}
-	// ºì³µ
+	// çº¢è½¦
 	for(int i = 0; i < RChe_num(); i++){
 		b = m_and(ei.RcheAtt[i],weakEnemies);	
 		while(m128_is_have_bit(b)){
@@ -49,27 +49,27 @@ if(m128_is_have_bit(weakEnemies)){
 }
 
 
-// 1. ÆÀ¼Ûºì·½µÄÈõ×Ó, È¥ÁË¶Ô·½±ø,ÊË,Ïà±£»¤µÄÆå×Ó
+// 1. è¯„ä»·çº¢æ–¹çš„å¼±å­, å»äº†å¯¹æ–¹å…µ,ä»•,ç›¸ä¿æŠ¤çš„æ£‹å­
 weakEnemies = _mm_andnot_si128(
-	m128_bb_or_bb(ei.RpawnAtt,ei.RShiXiangAtt),  // È¥ÁË±ø,ÊËÏà
+	m128_bb_or_bb(ei.RpawnAtt,ei.RShiXiangAtt),  // å»äº†å…µ,ä»•ç›¸
 	m_and(
 	_mm_andnot_si128(bitboard_white_pawn,bitboard_occ_white),POSITION->DYN->attack_black));
 
 if(m128_is_have_bit(weakEnemies)){
 	Bitboard b;
-	// ºÚÊË,ºÚÏàÔÚ¹¥»÷
+	// é»‘ä»•,é»‘ç›¸åœ¨æ”»å‡»
 	b = m_and(ei.BShiXiangAtt,weakEnemies);	
 	while(m128_is_have_bit(b)){
 		int sq2    = pop_1st_bit(&b);
 		valu -= SHI_XIANG_ThreatBonus[PIECE_TYPE(PB90(sq2))];
 	}
-	// ºÚ±ø
+	// é»‘å…µ
 	b = m_and(ei.BpawnAtt,weakEnemies);	
 	while(m128_is_have_bit(b)){
 		int sq2    = pop_1st_bit(&b);
 		valu -= PAWN_ThreatBonus[PIECE_TYPE(PB90(sq2))];
 	}
-	// ºÚÅÚ, Æå×ÓµÄ×Ô±£»¤Ò²ËãÒ»Æğ?
+	// é»‘ç‚®, æ£‹å­çš„è‡ªä¿æŠ¤ä¹Ÿç®—ä¸€èµ·?
 	for(int i = 0; i < BPao_num(); i++){
 		b = m_and(ei.BPaoAtt[i],weakEnemies);	
 		while(m128_is_have_bit(b)){
@@ -77,7 +77,7 @@ if(m128_is_have_bit(weakEnemies)){
 			valu -= PAO_ThreatBonus[PIECE_TYPE(PB90(sq2))];
 		}
 	}
-	// ºÚÂí
+	// é»‘é©¬
 	for(int i = 0; i < BMa_num(); i++){
 		b = m_and(ei.BmaAtt[i],weakEnemies);	
 		while(m128_is_have_bit(b)){
@@ -85,7 +85,7 @@ if(m128_is_have_bit(weakEnemies)){
 			valu -= MA_ThreatBonus[PIECE_TYPE(PB90(sq2))];
 		}
 	}
-	// ºÚ³µ
+	// é»‘è½¦
 	for(int i = 0; i < BChe_num(); i++){
 		b = m_and(ei.BcheAtt[i],weakEnemies);	
 		while(m128_is_have_bit(b)){

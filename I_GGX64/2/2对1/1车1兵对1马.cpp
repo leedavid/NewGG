@@ -1,16 +1,16 @@
 #ifndef END_my_m_MT_R_1che1pawn_B_1ma
 #define END_my_m_MT_R_1che1pawn_B_1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1±ø¶Ô1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1å…µå¯¹1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//1³µ1±ø¶Ô1Âí
+//1è½¦1å…µå¯¹1é©¬
 void my_m_MT_R_1che1pawn_B_1ma(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
@@ -27,7 +27,7 @@ void my_m_MT_R_1che1pawn_B_1ma(typePOS &POSITION, EvalInfo &ei){
 		// fen 3aka3/3P5/4n3b/9/6b2/7R1/9/B8/4K4/6B2 w - - 0 1
        if(MY_SQ04 == yk && StoY(mpawn) MY_SMALL_EQL MY_RANK1){
 			if(MY_SQ16 == yma){
-				// ¶þ¸öÏàÔÚÒ»±ß
+				// äºŒä¸ªç›¸åœ¨ä¸€è¾¹
 				if(!have_bit(bb_your_xiang,LeftBB[0x4]) && StoX(mpawn) < 0x4 
 					&& PB90(MY_SQ03) == your_shi){
 					RETRUN_MUL(2); 

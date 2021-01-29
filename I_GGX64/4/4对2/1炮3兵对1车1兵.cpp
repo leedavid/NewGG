@@ -1,21 +1,21 @@
 #ifndef END_my_m_MT_R_1pao3pawn_B_1che1pawn
 #define END_my_m_MT_R_1pao3pawn_B_1che1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ3±ø¶Ô1³µ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®3å…µå¯¹1è½¦1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//1ÅÚ2±ø¶Ô1³µ1±ø, ÅÚÂí·½Òª¼Ó·Ö
+//1ç‚®2å…µå¯¹1è½¦1å…µ, ç‚®é©¬æ–¹è¦åŠ åˆ†
 
 void my_m_MT_R_1pao3pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 
-	//Èç¹ûÃ»ÓĞ¹ıºÓ,»òÕßÂíÅÚ·½ÓĞÊË
+	//å¦‚æœæ²¡æœ‰è¿‡æ²³,æˆ–è€…é©¬ç‚®æ–¹æœ‰ä»•
 	if((my_shi_num + my_xiang_num) == 4 && PB90(MY_SQ55) == my_king){
 		EV_MY_SAFE = TRUE;
 	}
@@ -38,7 +38,7 @@ void my_m_MT_R_1pao3pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 //
 //void m_MT_B_1pao3pawn_R_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 ///*
-//	//Èç¹ûÃ»ÓĞ¹ıºÓ,»òÕßÂíÅÚ·½ÓĞÊË
+//	//å¦‚æœæ²¡æœ‰è¿‡æ²³,æˆ–è€…é©¬ç‚®æ–¹æœ‰ä»•
 //    bool isSafe = FALSE;
 //
 //	int  bpao = PieceListStart(board,BPAO);

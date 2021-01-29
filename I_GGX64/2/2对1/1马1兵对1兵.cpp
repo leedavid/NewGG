@@ -1,12 +1,12 @@
 #ifndef END_my_m_MT_R_1MA1PAWN_B_1PAWN
 #define END_my_m_MT_R_1MA1PAWN_B_1PAWN
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h" 
-#include "..\\..\\endgame\mat.h"
-#include "1Âí1±ø¶Ô1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../chess.h"
+#include "../../preGen.h" 
+#include "../../endgame/mat.h"
+#include "1é©¬1å…µå¯¹1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -14,7 +14,7 @@
 //const int MaPawnAdd = 96;
 //const int KingMid   = 24;
 
-//ÎÒ·½Ò»ÂíÒ»±ø£¬¶Ô·½Ò»±ø
+//æˆ‘æ–¹ä¸€é©¬ä¸€å…µï¼Œå¯¹æ–¹ä¸€å…µ
 void my_m_MT_R_1MA1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 
     Square mpawn = S90_from_piecelist(POSITION,my_pawn,0);
@@ -56,7 +56,7 @@ void my_m_MT_R_1MA1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// ÎÒ·½µÄ±øµ½µ×ÁË
+	// æˆ‘æ–¹çš„å…µåˆ°åº•äº†
 	if(StoY(mpawn) == MY_RANK0){
 		RETRUN_MUL(1);
 	}
@@ -80,7 +80,7 @@ void my_m_MT_R_1MA1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//Èç¹ûºÚ±ø¹ýºÓÁË£¬ÓÃºÚ·½ÓÐ¶þ¸öÊË£¬
+	//å¦‚æžœé»‘å…µè¿‡æ²³äº†ï¼Œç”¨é»‘æ–¹æœ‰äºŒä¸ªä»•ï¼Œ
 	// fen 4k4/4a4/4NaP2/9/9/9/9/3A5/4A1p2/5K3 w - - 47 47
 	if(your_shi_num == 2 && StoY(ypawn) MY_LARGE_EQL MY_RANK5 && StoY(ypawn) != MY_RANK9){
 		if(StoY(mpawn) MY_SMALL_EQL MY_RANK2){
@@ -126,7 +126,7 @@ void my_m_MT_R_1MA1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen: 3a5/3k1P3/9/6N2/9/9/3p5/9/9/4K4 w - - 0 0 
-	//×äÊ¿ÞÄºÍñRµÍ±ø£¬íšÞÄ³É±¾¾ÖÊ¿ÔÚŒ¢µ×£¬¼´¡°Ì«¹«×øÒÎ¡±ÐÎÊ½»¥Ïà±£×o£¬Ê¿²ØŒ¢µ×£¬¼tŸo·¨¿É„Ù£¬×îááÓÃ×ä×ßée¡£ÌÈÈô±øÎ»ì¶Èý¾€ÒÔÉÏ£¬¼´ŒÙ±Ø„Ù¡£
+	//å’å£«å¼ˆå’Œé¦¬ä½Žå…µï¼Œé ˆå¼ˆæˆæœ¬å±€å£«åœ¨å°‡åº•ï¼Œå³â€œå¤ªå…¬åæ¤…â€å½¢å¼äº’ç›¸ä¿è­·ï¼Œå£«è—å°‡åº•ï¼Œç´…ç„¡æ³•å¯å‹ï¼Œæœ€å¾Œç”¨å’èµ°é–‘ã€‚å€˜è‹¥å…µä½æ–¼ä¸‰ç·šä»¥ä¸Šï¼Œå³å±¬å¿…å‹ã€‚
 
 	if(your_shi_num >= 0){
 		if(StoY(mpawn) MY_SMALL MY_RANK2){
@@ -156,14 +156,14 @@ void my_m_MT_R_1MA1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// Âí¸ß±ø¶Ô×äË«ÊËµÄÒ»¸öºÍÐÍ
+	// é©¬é«˜å…µå¯¹å’åŒä»•çš„ä¸€ä¸ªå’Œåž‹
 	// fen 4k4/4aP3/3a5/9/9/9/9/2n1p4/3KA4/5A3 w - - 127 127
 	if(your_shi_num == 2){
-		// ºì±ø¸ø¶þ¸öÊË¿ØÖÆ×¡ÁË
+		// çº¢å…µç»™äºŒä¸ªä»•æŽ§åˆ¶ä½äº†
 		if(MY_SQ16 == mpawn && PB90(MY_SQ0D) == your_shi){
-			//»¹Òª¿´Ò»ÏÂÃ»ÓÐ±»ºìË§Ç£ÖÆ×¡
+			//è¿˜è¦çœ‹ä¸€ä¸‹æ²¡æœ‰è¢«çº¢å¸…ç‰µåˆ¶ä½
 			// fen 9/1N1ka4/3aP4/9/9/2B6/9/9/3KA1p2/3A5 b - - 30 30
-			//Õâ¸öºì·½ÄÜÊ¤
+			//è¿™ä¸ªçº¢æ–¹èƒ½èƒœ
 			if(FALSE){
 			}
 			else if(StoX(mk) == 0x3 && PB90(MY_SQ15) == your_shi){
@@ -359,7 +359,7 @@ void my_m_MT_R_1MA1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 	if(your_xiang_num == 2 && your_shi_num >= 1 && EV_YOUR_CAN >= 1 && StoY(ypawn) == MY_RANK6){
 
 		// fen 2b1ka3/8P/9/6n2/9/9/4p4/4B4/4A4/2B2K3 w - - 32 32
-		//Èç¹û±ø¹ýºÓÁË,ÇÒ±ø·½ÊÇµ¥È±ÊË
+		//å¦‚æžœå…µè¿‡æ²³äº†,ä¸”å…µæ–¹æ˜¯å•ç¼ºä»•
 		//if(StoY(yk) MY_SMALL_EQL MY_RANK1){		
 		//	//if(StoY(ypawn) MY_LARGE MY_RANK4){
 		//	//	if(StoY(mpawn) MY_SMALL MY_RANK2){
@@ -452,7 +452,7 @@ void my_m_MT_R_1MA1PAWN_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	//Èç¹ûºÚ±ø¹ýºÓÁË,ÇÒÓÐ¶þ¸öÊË
+	//å¦‚æžœé»‘å…µè¿‡æ²³äº†,ä¸”æœ‰äºŒä¸ªä»•
 	// fen 9/3ka4/5a3/N4P3/9/6B2/9/5A3/2p1A4/4K1B2 b - - 122 122
 	if(your_shi_num == 2 && StoY(ypawn) != MY_RANK9 && EV_YOUR_CAN >= 1 && StoY(yk) MY_SMALL_EQL MY_RANK1){	
 

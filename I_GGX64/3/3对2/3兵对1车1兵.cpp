@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_3pawn_B_1che1pawn
 #define END_my_m_MT_R_3pawn_B_1che1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "3±ø¶Ô1³µ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "3å…µå¯¹1è½¦1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -28,7 +28,7 @@ void my_m_MT_R_3pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	if(my_shi_num == 2 && my_xiang_num == 2 && MY_SQ55 == mk){
 		Bitboard lp = My_get_connect_Pawn(POSITION);
 		if(have_bit(lp,RankBB_A[MY_RANK3]) || have_bit(lp,RankBB_A[MY_RANK4])){
-			//Èç¹ûÊÇÁ¬Ïà£¬¾ÍÊÇºÍÆå
+			//å¦‚æžœæ˜¯è¿žç›¸ï¼Œå°±æ˜¯å’Œæ£‹
 			if(StoX(ypawn) <= 0x4 && PB90(MY_SQ54) == my_shi){
 				RETRUN_MUL(2);
 			}

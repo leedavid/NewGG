@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2pao_2pawn_B_1che
 #define END_my_m_MT_R_2pao_2pawn_B_1che
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2ÅÚ2±ø¶Ô1³µ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2ç‚®2å…µå¯¹1è½¦.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 void my_m_MT_R_2pao_2pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
@@ -23,7 +23,7 @@ void my_m_MT_R_2pao_2pawn_B_1che(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 3ak4/9/5a3/1r7/6b2/P1P1C4/8P/4B1C2/4A4/3AK1B2 w - - 0 1
-	//ÎÒ·½µÄ±øÈ«ÔÚ¼Ò£¬ÇÒ¶Ô·½ÓÐÈý¸öÒÔÉÏµÄÊËÏà
+	//æˆ‘æ–¹çš„å…µå…¨åœ¨å®¶ï¼Œä¸”å¯¹æ–¹æœ‰ä¸‰ä¸ªä»¥ä¸Šçš„ä»•ç›¸
 	if((your_shi_num + your_xiang_num) >= 3 && StoY(yk) == MY_RANK0){
 		bmp = m_and(bmp,MyLowBB[MY_RANK4]);
 		MY_EV_SUB((sint16)count_1s(bmp) * 64);	

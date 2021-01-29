@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1pao1pawn_B_2pawn
 #define END_my_m_MT_R_1pao1pawn_B_2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1±ø¶Ô2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®1å…µå¯¹2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //void my_m_MT_R_1MA1PAWN_B_1PAWN(board_t *board)
@@ -15,7 +15,7 @@
 //const int absPPscore[10] =  {104,96,80,72,64,56,48,32,24,8};
 //const int PaoXsamePawn   =   32;
 
-//ÎÒ·½ÅÚ±ø£¬¶Ô·½2±ø
+//æˆ‘æ–¹ç‚®å…µï¼Œå¯¹æ–¹2å…µ
 void my_m_MT_R_1pao1pawn_B_2pawn(typePOS &POSITION, EvalInfo &ei){
 	
 	Square mpao     = S90_from_piecelist(POSITION,my_pao,0);
@@ -211,7 +211,7 @@ void my_m_MT_R_1pao1pawn_B_2pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen P8/3k5/9/9/9/9/9/3p5/3p4C/4K4 w - - 0 0 
-	// Õâ¸ö²»ºÍ
+	// è¿™ä¸ªä¸å’Œ
 	if(StoY(mpawn) MY_SMALL_EQL StoY(yk)){
 		if((my_shi_num + my_xiang_num) == 0){
 			if(PB90(MY_SQ4C) != your_pawn){

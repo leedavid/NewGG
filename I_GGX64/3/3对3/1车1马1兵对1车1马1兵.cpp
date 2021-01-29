@@ -1,8 +1,8 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
 void m_MT_BR_1che1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 
@@ -60,7 +60,7 @@ void m_MT_BR_1che1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	if(rcan == 0 && bcan == 0){
 		if((BShi_num() + BXiang_num()) == 4 && (RShi_num() + RXiang_num()) == 4){
 			if(StoY(rk) >= 0x8 && StoY(bk) <= 0x1){
-				// Õâ¸öÇ£ÖÆÁË,Ò²Ã»ÓÐ
+				// è¿™ä¸ªç‰µåˆ¶äº†,ä¹Ÿæ²¡æœ‰
 				if(StoY(rche) == StoY(bche)){
 					if(StoY(rche) == 0x5 || StoY(bche) == 0x4){
 						RETRUN_MUL(8);

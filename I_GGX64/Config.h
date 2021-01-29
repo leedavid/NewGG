@@ -2,10 +2,10 @@
 #define stockfish_MY_CONFIG_H_123
 
 
-#define HAVE_NONE_PAWN_MATERAIL      (1 << 0)   // ºì·½ÓÐ×ã¹»µÄ×ÓÁ¦
-#define CK_CAN_USE_FRUIT_PUN         (1 << 1)   // ½Ó½üÓÐºÍÆåÊ±²»ÄÜÓÃÄ£ºý²Ã¼ô
-#define CK_BR_1CHE_4MAPAO            (1 << 2)   // Ë«·½1³µ»¹ÓÐ4¸öÂíÅÚµÄÆÀ¼Û
-#define CK_Only_1Che1PaoxPawn        (1 << 3)   // Ò»·½Ö»ÓÐ1³µ1ÅÚX±øµÄÆÀ½é
+#define HAVE_NONE_PAWN_MATERAIL      (1 << 0)   // çº¢æ–¹æœ‰è¶³å¤Ÿçš„å­åŠ›
+#define CK_CAN_USE_FRUIT_PUN         (1 << 1)   // æŽ¥è¿‘æœ‰å’Œæ£‹æ—¶ä¸èƒ½ç”¨æ¨¡ç³Šè£å‰ª
+#define CK_BR_1CHE_4MAPAO            (1 << 2)   // åŒæ–¹1è½¦è¿˜æœ‰4ä¸ªé©¬ç‚®çš„è¯„ä»·
+#define CK_Only_1Che1PaoxPawn        (1 << 3)   // ä¸€æ–¹åªæœ‰1è½¦1ç‚®Xå…µçš„è¯„ä»‹
 #define CK_5000_Material             (1 << 4)
 
 
@@ -14,18 +14,18 @@ static const  Piece COLOR_BY_SIDE_ADD[2] = { EMPTY, _X_X };
 
 typedef struct {
 	sint16 a[6][6][3][3][3][3][3][3];  // BY LGL 20131124
-}MARR_t;   // PreMatInfo[6][6][3][3][3][3][3][3]; ±È½ÏÐ¡¡£
+}MARR_t;   // PreMatInfo[6][6][3][3][3][3][3][3]; æ¯”è¾ƒå°ã€‚
 
 
 #ifdef REPEAT_DEBUG
 
 enum REPEAT_INFO {
-	REPEAT_NO = 0,					    // Ã»ÓÐÖØ¸´
-	REPEAT_TRUE = 1,				    // ÊÇÕæºÍÆå
-	REPEAT_BAN_ME_CHECK = 2,		    // ×ß×Ó·½×ßÁË½û×Å
-	REPEAT_BAN_OTHER_CHECK = 3,         // ×ß×Ó·½×ßÁË½û×Å
-	REPEAT_BAN_ME_CAP = 4,				// ×ß×Ó·½×ßÁË½û×Å
-	REPEAT_BAN_OTHER_CAP = 5,		    // ×ß×Ó·½×ßÁË½û×Å
+	REPEAT_NO = 0,					    // æ²¡æœ‰é‡å¤
+	REPEAT_TRUE = 1,				    // æ˜¯çœŸå’Œæ£‹
+	REPEAT_BAN_ME_CHECK = 2,		    // èµ°å­æ–¹èµ°äº†ç¦ç€
+	REPEAT_BAN_OTHER_CHECK = 3,         // èµ°å­æ–¹èµ°äº†ç¦ç€
+	REPEAT_BAN_ME_CAP = 4,				// èµ°å­æ–¹èµ°äº†ç¦ç€
+	REPEAT_BAN_OTHER_CAP = 5,		    // èµ°å­æ–¹èµ°äº†ç¦ç€
 };
 
 #define CheckRepetition(sply) \
@@ -45,12 +45,12 @@ enum REPEAT_INFO {
 	};
 #else
 enum REPEAT_INFO {
-	REPEAT_NO = 0,                      // Ã»ÓÐÖØ¸´
-	REPEAT_TRUE = 1,                    // ÊÇÕæºÍÆå
-	REPEAT_BAN_ME_CHECK = 2,		    // ×ß×Ó·½×ßÁË½û×Å
-	REPEAT_BAN_OTHER_CHECK = 3,         // ×ß×Ó·½×ßÁË½û×Å
-	REPEAT_BAN_ME_CAP = 4,				// ×ß×Ó·½×ßÁË½û×Å
-	REPEAT_BAN_OTHER_CAP = 5,		    // ×ß×Ó·½×ßÁË½û×Å
+	REPEAT_NO = 0,                      // æ²¡æœ‰é‡å¤
+	REPEAT_TRUE = 1,                    // æ˜¯çœŸå’Œæ£‹
+	REPEAT_BAN_ME_CHECK = 2,		    // èµ°å­æ–¹èµ°äº†ç¦ç€
+	REPEAT_BAN_OTHER_CHECK = 3,         // èµ°å­æ–¹èµ°äº†ç¦ç€
+	REPEAT_BAN_ME_CAP = 4,				// èµ°å­æ–¹èµ°äº†ç¦ç€
+	REPEAT_BAN_OTHER_CAP = 5,		    // èµ°å­æ–¹èµ°äº†ç¦ç€
 };
 
 #endif
@@ -73,17 +73,21 @@ enum REPEAT_INFO {
 
 
 #ifndef NDEBUG
+#if defined(_WIN32) || defined(_WIN64)
 #define ASSERT(_Expression) (void)( (!!(_Expression)) || ((_CRT_WIDE(#_Expression), _CRT_WIDE(__FILE__), __LINE__), 0) )
-#else
+#else /* defined(_WIN32) || defined(_WIN64) */
+#define ASSERT(_Expression) (void)( (!!(_Expression)) || ((#_Expression, __FILE__, __LINE__), 0) )
+#endif /* defined(_WIN32) || defined(_WIN64) */
+#else /* !NDEBUG */
 #define ASSERT(_Expression)
-#endif
+#endif /* !NDEBUG */
 
 #define typePOS Position
 
 struct premat_t {
-	sint16  material;		      // 1  ×ÓÁ¦·Ö	
-	uint8   searchInfo8;          // 2. ÊÇÆå¾ÖµÄ¼ì²é×´Ì¬	
-	uint8   phase;                // 4. ²Ð¾Ö×´Ì¬	
+	sint16  material;		      // 1  å­åŠ›åˆ†	
+	uint8   searchInfo8;          // 2. æ˜¯æ£‹å±€çš„æ£€æŸ¥çŠ¶æ€	
+	uint8   phase;                // 4. æ®‹å±€çŠ¶æ€	
 };
 
 

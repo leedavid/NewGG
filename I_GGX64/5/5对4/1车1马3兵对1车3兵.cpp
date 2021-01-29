@@ -1,19 +1,19 @@
 #ifndef END_my_m_MT_R_1che1ma3pawn_B_1che3pawn
 #define END_my_m_MT_R_1che1ma3pawn_B_1che3pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí3±ø¶Ô1³µ3±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1é©¬3å…µå¯¹1è½¦3å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 void my_m_MT_R_1che1ma3pawn_B_1che3pawn(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 4kab2/4a4/4b1R2/p1P1p4/6p2/3NP4/P8/9/5K3/3r5 w - - 0 1
-	//¶Ô·½Ò»¸ö±øÒ²Ã»ÓÐ¹ýºÓ
+	//å¯¹æ–¹ä¸€ä¸ªå…µä¹Ÿæ²¡æœ‰è¿‡æ²³
 
 	MY_EV_ADD(EV_MY_CAN * 16);
 

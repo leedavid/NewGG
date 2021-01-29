@@ -1,6 +1,6 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
 
 //MAT_R_2ma_B_2pao

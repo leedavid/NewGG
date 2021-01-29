@@ -14,19 +14,19 @@ Bitboard My_get_connect_Pawn(typePOS &POSITION){
 	Bitboard byp = bb_my_pawn;
 	Bitboard blp_l;
 	Bitboard blp_r;
-	// È¥ÁË×óÃæ,
+	// å»äº†å·¦é¢,
 
-	blp_l = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB),byp);	    // È¥ÁË×î×óÃæµÄ±ø		
-	m_Rsf(blp_l,1);                    // ËùÓĞ±øÏò×óÒ»²½	
+	blp_l = _mm_andnot_si128(_mm_load_si128((__m128i*)File0BB),byp);	    // å»äº†æœ€å·¦é¢çš„å…µ		
+	m_Rsf(blp_l,1);                    // æ‰€æœ‰å…µå‘å·¦ä¸€æ­¥	
 
 
-	blp_r = _mm_andnot_si128(_mm_load_si128((__m128i*)File8BB),byp);	    // È¥ÁË×îÓÒÃæµÄ±ø
-	m_Lsf(blp_r,1);                   // ËùÓĞ±øÏòÓÒÒ»²½
+	blp_r = _mm_andnot_si128(_mm_load_si128((__m128i*)File8BB),byp);	    // å»äº†æœ€å³é¢çš„å…µ
+	m_Lsf(blp_r,1);                   // æ‰€æœ‰å…µå‘å³ä¸€æ­¥
 
 	return(m_and(m_or(blp_l,blp_r),byp));
 }
 
-// ÎÒ·½µÄ±øÒÑ¾­¹ıºÓµÄÊıÄ¿
+// æˆ‘æ–¹çš„å…µå·²ç»è¿‡æ²³çš„æ•°ç›®
 int My_pawn_already_over_river(typePOS &POSITION){
 
 	Bitboard myp = m_and(bb_my_pawn,MyUpBB[MY_RANK5]);

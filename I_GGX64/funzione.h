@@ -89,7 +89,7 @@ extern bool getBetweenSq(typePOS &POSITION, Square sq1, Square sq2, Square& mid)
 extern bool isStringByChe(typePOS &POSITION,Square sq1,Square mid, Square sq2);
 extern bool isStringByPao(typePOS &POSITION,Square pao,Square sq3, Square sq4);
 
-extern void (*funMat[26244])	(typePOS &board, EvalInfo &ei);  //”√¿¥∆¿π¿µƒ∫Ø ˝÷∏’Î 
+extern void (*funMat[26244])	(typePOS &board, EvalInfo &ei);  //Áî®Êù•ËØÑ‰º∞ÁöÑÂáΩÊï∞ÊåáÈíà 
 // ----------------------------------------------------------------------------------------
 extern  void InitMatFunction1();
 extern  void InitMatFunction2();
@@ -103,14 +103,14 @@ extern  void InitMatFunction9();
 extern  void InitMatFunction();
 
 
-#include "endgame\\end_fun1.h"
-#include "endgame\\end_fun2.h"
-#include "endgame\\end_fun3.h"
-#include "endgame\\end_fun4.h"
-#include "endgame\\end_fun5.h"
-#include "endgame\\end_fun6.h"
-#include "endgame\\end_fun7.h"
-#include "endgame\\end_fun8.h"
-#include "endgame\\end_fun9.h"
+#include "endgame/end_fun1.h"
+#include "endgame/end_fun2.h"
+#include "endgame/end_fun3.h"
+#include "endgame/end_fun4.h"
+#include "endgame/end_fun5.h"
+#include "endgame/end_fun6.h"
+#include "endgame/end_fun7.h"
+#include "endgame/end_fun8.h"
+#include "endgame/end_fun9.h"
 
 #define IsOnSameSide(sq1,sq2)  (King_4_Side(sq1) == King_4_Side(sq2))

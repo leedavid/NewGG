@@ -36,13 +36,13 @@ class Thread;
 
 struct CheckInfo {
 
-	explicit CheckInfo(Position&);  // explicit ÓÃÀ´½ûÖ¹ÒşÊ½×ª»»£¬Ëü½öÊÊÓÃÓÚ¹¹Ôìº¯Êı¡£
+	explicit CheckInfo(Position&);  // explicit ç”¨æ¥ç¦æ­¢éšå¼è½¬æ¢ï¼Œå®ƒä»…é€‚ç”¨äºæ„é€ å‡½æ•°ã€‚
 	
-	Bitboard dcCandidates;			// ³é½«µÄÆå×Ó, Õâ¸öÎ»Æå¸ñÅÌ¿É³é½«.
-	Bitboard PaoNull;				// ¿ÕÅÚµÄÆå¸ñ. Æå×Ó¿ÉÒÔ×ßµ½Õâ¶ùÀ´µş½«.
-	Bitboard checkSq[16];			// ½«¾üµÄÄ£×Ó, Õâ¸ö±ØĞëÒª16¸öÎ»ÖÃ
+	Bitboard dcCandidates;			// æŠ½å°†çš„æ£‹å­, è¿™ä¸ªä½æ£‹æ ¼ç›˜å¯æŠ½å°†.
+	Bitboard PaoNull;				// ç©ºç‚®çš„æ£‹æ ¼. æ£‹å­å¯ä»¥èµ°åˆ°è¿™å„¿æ¥å å°†.
+	Bitboard checkSq[16];			// å°†å†›çš„æ¨¡å­, è¿™ä¸ªå¿…é¡»è¦16ä¸ªä½ç½®
 									// Bitboard pinned;
-    Square ksq;  // ½«µÄÎ»ÖÃ
+    Square ksq;  // å°†çš„ä½ç½®
 };
 
 /// The StateInfo struct stores information we need to restore a Position
@@ -52,33 +52,33 @@ struct CheckInfo {
 
 struct StateInfo {
 	Key pawnKey;
-	premat_t*  pMat;                // ×ÓÁ¦
-	int rule50, pliesFromNull;      // ²»³Ô×Ó¼ì²â 
-	Score psq;                      // Æå×ÓµÄÎ»ÖÃ·Ö	
-	Move  m;                        // ¶Ô·½×ßµÄÆå²½
-	bool  mischeck;                 // ×ß²½ÊÇ²»ÊÇ½«¾ü
+	premat_t*  pMat;                // å­åŠ›
+	int rule50, pliesFromNull;      // ä¸åƒå­æ£€æµ‹ 
+	Score psq;                      // æ£‹å­çš„ä½ç½®åˆ†	
+	Move  m;                        // å¯¹æ–¹èµ°çš„æ£‹æ­¥
+	bool  mischeck;                 // èµ°æ­¥æ˜¯ä¸æ˜¯å°†å†›
 
 	// Not copied when making a move
     Key key;
     Bitboard checkersBB;
-	Piece capture;	                // ±»³ÔµÄÆå×Ó
+	Piece capture;	                // è¢«åƒçš„æ£‹å­
 	StateInfo* previous;
 };
 
 // In a std::deque references to elements are unaffected upon resizing
 typedef std::unique_ptr<std::deque<StateInfo>> StateListPtr;
 
-/// ³£×½ÅĞ¶Ï½á¹¹
-/// ¹²ÓĞ¶àÉÙ¸öĞÂÔö³Ô×Ó²½. ×î¶à16¸ö³Ô×Ó²½? 
+/// å¸¸æ‰åˆ¤æ–­ç»“æ„
+/// å…±æœ‰å¤šå°‘ä¸ªæ–°å¢åƒå­æ­¥. æœ€å¤š16ä¸ªåƒå­æ­¥? 
 typedef struct  {
 #define MAX_REAL_CAP_NUM 16                                
-	Piece       LastCapChess[MAX_REAL_CAP_NUM][2][2];      // ×îºóÒ»´Î³ÔµÄÆå×Ó
-	Square      last_to[MAX_REAL_CAP_NUM][2][2];           // ×îºóÒ»´Î¶Ô·½to
-	Square      last_ot_from[MAX_REAL_CAP_NUM][2][2];      // ×î¶à¿ÉÄÜÓĞ16¸öÕæ×½	
-	Square      last_ot_to[MAX_REAL_CAP_NUM][2][2];        // ×îºó¶Ô·½×ßµÄto
+	Piece       LastCapChess[MAX_REAL_CAP_NUM][2][2];      // æœ€åä¸€æ¬¡åƒçš„æ£‹å­
+	Square      last_to[MAX_REAL_CAP_NUM][2][2];           // æœ€åä¸€æ¬¡å¯¹æ–¹to
+	Square      last_ot_from[MAX_REAL_CAP_NUM][2][2];      // æœ€å¤šå¯èƒ½æœ‰16ä¸ªçœŸæ‰	
+	Square      last_ot_to[MAX_REAL_CAP_NUM][2][2];        // æœ€åå¯¹æ–¹èµ°çš„to
 	int         cap_num[2][2];
 	BOOL        isTrueCap;
-	PieceType   capture_chess[2];                          // Ë«·½×½µÄÆå×Ó  
+	PieceType   capture_chess[2];                          // åŒæ–¹æ‰çš„æ£‹å­  
 }TrupCap_t;
 
 /// The Position class stores the information regarding the board representation
@@ -173,7 +173,7 @@ public:
 	bool see_draw_by_last_move(Square mfrom, Square mto,
 		Square ofrom,Square oto, Color side, TrupCap_t* TRUECap, bool isincheck);
 
-	// ²»°üÀ¨¶¯±ø,¶¯½«µÄ³Ô×Ó²½. 
+	// ä¸åŒ…æ‹¬åŠ¨å…µ,åŠ¨å°†çš„åƒå­æ­¥. 
 	ExtMove* cattura_not_include_pawn_king(ExtMove* mlist, Color c);
 
 	// Number of pieces of each color and type
@@ -186,8 +186,8 @@ public:
 	int game_ply() const; // int startpos_ply_counter() const;
 
 	// Bitboards for pinned pieces and discovered check candidates
-	Bitboard discovered_check_candidates(Color c);    // ÕÒ³öËùÓĞ¿É³é½«µÄÆå×Ó.
-	Bitboard findPaoNullBiboard(Color c, Square ksq); // ÕÒ³öËùÓĞ¿ÉµşÅÚ½«µÄ¸ñ×Ó.
+	Bitboard discovered_check_candidates(Color c);    // æ‰¾å‡ºæ‰€æœ‰å¯æŠ½å°†çš„æ£‹å­.
+	Bitboard findPaoNullBiboard(Color c, Square ksq); // æ‰¾å‡ºæ‰€æœ‰å¯å ç‚®å°†çš„æ ¼å­.
 	//Bitboard pinned_pieces(Color c) const;
 
 	// Checking pieces and under check information

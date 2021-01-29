@@ -1,16 +1,16 @@
 #ifndef END_my_m_MT_K2CHE_B_1CHE1PAO_S
 #define END_my_m_MT_K2CHE_B_1CHE1PAO_S
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h" 
-#include "..\\..\\endgame\mat.h"
-#include "2³µ¶Ô1³µ1ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../chess.h"
+#include "../../preGen.h" 
+#include "../../endgame/mat.h"
+#include "2è½¦å¯¹1è½¦1ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //my_m_MT_R_2CHE_B_1CHE1PAO 
-//ÎÒ·½2³µ£¬¶Ô·½Ò»³µÒ»ÅÚ
+//æˆ‘æ–¹2è½¦ï¼Œå¯¹æ–¹ä¸€è½¦ä¸€ç‚®
 void my_m_MT_R_2CHE_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
@@ -30,7 +30,7 @@ void my_m_MT_R_2CHE_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 				}
 			}
 
-			// ¶Ô·½ÊËÏàÈ«
+			// å¯¹æ–¹ä»•ç›¸å…¨
 			if(your_xiang_num == 2 && PB90(MY_SQ16) == your_xiang){
 				RETRUN_MUL(2);
 			}
@@ -41,7 +41,7 @@ void my_m_MT_R_2CHE_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 			MY_EV_SUB(128);
 			
 			if(StoX(yche) == StoX(ypao)){
-				// Ë«³µÀýºÍ³µÅÚµ¥È±ÊË page 442 fen R2ckab2/9/4b4/9/3r5/5R3/9/9/9/2BAKAB2 w  
+				// åŒè½¦ä¾‹å’Œè½¦ç‚®å•ç¼ºä»• page 442 fen R2ckab2/9/4b4/9/3r5/5R3/9/9/9/2BAKAB2 w  
 				if(PB90(MY_SQ16) == your_xiang){
 					if(PB90(MY_SQ03) == your_pao && PB90(MY_SQ06) == your_xiang){
 						if(PB90(MY_SQ0D) == your_shi || PB90(MY_SQ05) == your_shi){
@@ -106,7 +106,7 @@ void my_m_MT_R_2CHE_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 
 }
 
-//ÎÒ·½2³µ£¬¶Ô·½Ò»³µÒ»ÅÚ
+//æˆ‘æ–¹2è½¦ï¼Œå¯¹æ–¹ä¸€è½¦ä¸€ç‚®
 //void m_MT_B_2CHE_R_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 ///*
 //	//premat_t* pMat = board->pMat;
@@ -117,7 +117,7 @@ void my_m_MT_R_2CHE_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 //	int rpao  = PieceListStart(board,RPAO);
 //	int rche  = PieceListStart(board,RCHE);
 //
-//	//if((cInfo16 & CK_R_2s)){		//¶Ô·½2ÊË
+//	//if((cInfo16 & CK_R_2s)){		//å¯¹æ–¹2ä»•
 //	//if(board->R_shi == 2){
 //	//	if(rk == 0xc7){
 //	//		return 2;
@@ -127,14 +127,14 @@ void my_m_MT_R_2CHE_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 //	if(rk == 0xc7){
 //
 //		
-//		if(board->R_shi == 2){	//ºì·½ÓÐ¶þ¸öÊË
+//		if(board->R_shi == 2){	//çº¢æ–¹æœ‰äºŒä¸ªä»•
 //			if(board->b256[0xb7] == RSHI){
 //				if(   (board->b256[0xc6] == RSHI && board->b256[0xc8] == RPAO)
 //					||(board->b256[0xc8] == RSHI && board->b256[0xc6] == RPAO)){
 //						return 1;
 //				}
 //
-//				//¶Ô·½ÊËÏàÈ«
+//				//å¯¹æ–¹ä»•ç›¸å…¨
 //				if(board->R_xiang == 2 && board->b256[0xa7] == RXIANG){
 //					return 1;
 //				}
@@ -144,16 +144,16 @@ void my_m_MT_R_2CHE_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 //		
 //
 //
-//		//Ë«³µÀýºÍ³µÅÚµ¥È±ÊË page 442 fen R2ckab2/9/4b4/9/3r5/5R3/9/9/9/2BAKAB2 w
+//		//åŒè½¦ä¾‹å’Œè½¦ç‚®å•ç¼ºä»• page 442 fen R2ckab2/9/4b4/9/3r5/5R3/9/9/9/2BAKAB2 w
 //
-//		//Ë«³µÀýºÍ³µÅÚµ¥È±ÊË page 442 fen R2ckab2/9/4b4/9/3r5/5R3/9/9/9/2BAKAB2 w        
+//		//åŒè½¦ä¾‹å’Œè½¦ç‚®å•ç¼ºä»• page 442 fen R2ckab2/9/4b4/9/3r5/5R3/9/9/9/2BAKAB2 w        
 //		if(board->R_shi == 1 && board->R_xiang == 2){
 //			if(board->b256[0xa7] == RXIANG){
 //				if((board->b256[0xc6] == RPAO && board->b256[0xc9] == RXIANG)
 //					||(board->b256[0xc8] == RPAO && board->b256[0xc5] == RXIANG)){
 //					 int rshi = PieceListStart(board,RSHI);
 //					 if(StoY(rshi) >= 0xb){
-//						//ÔÙ¿´Ò»ÏÂ³µÊÇ²»ÊÇÔÚ±£×ÅÅÚ
+//						//å†çœ‹ä¸€ä¸‹è½¦æ˜¯ä¸æ˜¯åœ¨ä¿ç€ç‚®
 //						 SlideMoveStruct *ps = FileMove(StoY(rpao), board->wBitFiles[StoX(rpao)]);
 //						 int sq1 = ps->RookCap[DUpLeft] + StoX(rpao);
 //						 if(board->b256[sq1] == RCHE){
@@ -192,14 +192,14 @@ void my_m_MT_R_2CHE_B_1CHE1PAO(typePOS &POSITION, EvalInfo &ei){
 //
 //
 //
-//		}// Ë«³µÀýºÍ³µÅÚµ¥È±ÊË
+//		}// åŒè½¦ä¾‹å’Œè½¦ç‚®å•ç¼ºä»•
 //
 //
 //
 //	}
 //
 //	if(board->b256[0xc7] == RKING){
-//		if(board->R_shi == 2){	//ºì·½ÓÐ¶þ¸öÊË
+//		if(board->R_shi == 2){	//çº¢æ–¹æœ‰äºŒä¸ªä»•
 //			return 8;
 //		}
 //	}

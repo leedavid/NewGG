@@ -1,13 +1,13 @@
-#define   REPEAT_NO        0       //没有重复
-#define   REPEAT_TRUE      1       //是真和棋
-#define   REPEAT_BAN_ME    3       //走子方走了禁着
-#define   REPEAT_BAN_OTHER 4       //走子方走了禁着
+#define   REPEAT_NO        0       //娌℃湁閲嶅
+#define   REPEAT_TRUE      1       //鏄湡鍜屾
+#define   REPEAT_BAN_ME    3       //璧板瓙鏂硅蛋浜嗙鐫�
+#define   REPEAT_BAN_OTHER 4       //璧板瓙鏂硅蛋浜嗙鐫�
 
 // common.h
 
 #define TempoValue		5                  // value_tempo was 5
 #define TempoValue2		5
-#define PrunePawn    	160                // pawn_plum   // 理想之物 plum
+#define PrunePawn    	160                // pawn_plum   // 鐞嗘兂涔嬬墿 plum
 #define PruneMinor  	500                // minor_plum
 #define PruneRook   	800                // rook_plum   // torre rook
 #define PruneCheck  	10                 // check_plum

@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2pao_B_1ma1pawn
 #define END_my_m_MT_R_2pao_B_1ma1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2ÅÚ¶Ô1Âí1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2ç‚®å¯¹1é©¬1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -25,7 +25,7 @@ void my_m_MT_R_2pao_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 4k4/3Pa4/4ba3/6N2/6b2/2B6/9/Bc1A5/4A4/1c3K3 b - - 213 213
-    //Âí·½ÓÐÊËÏàÈ«µÄ»°, ÅÚ·½ÄÑÊ¤
+    //é©¬æ–¹æœ‰ä»•ç›¸å…¨çš„è¯, ç‚®æ–¹éš¾èƒœ
 	if((your_shi_num + your_xiang_num) == 4 && StoY(yk) != MY_RANK2){
 		EV_YOUR_SAFE = TRUE;
 	}
@@ -39,7 +39,7 @@ void my_m_MT_R_2pao_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 3k5/4a4/5a3/9/2b6/6B2/4p4/4BA1n1/C3A4/4KC3 w - - 121 121
-	//ÅÚ¶ÔÂí±øµ¥È±Ïà
+	//ç‚®å¯¹é©¬å…µå•ç¼ºç›¸
 	if((your_shi_num + your_xiang_num) >= 3 && StoY(yk) != MY_RANK2){
 		if(StoY(ypawn) == MY_RANK6){
 			if(EV_MY_SAFE){

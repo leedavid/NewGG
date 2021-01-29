@@ -26,6 +26,10 @@
 //inline uint64 time_to_msec(const my_time_t& t) { return t.tv_sec * 1000LL + t.tv_usec / 1000; }
 #endif
 
+#if !defined(_WIN32) && !defined(_WIN64)
+#define TCHAR char
+#endif
+
 #define CACHE_LINE_SIZE 64
 // Cache line alignment specification
 #if defined(_MSC_VER) || defined(__INTEL_COMPILER)
@@ -74,7 +78,7 @@ enum PieceType {
 	KING=1, SHI=2, XIANG=3, MA=4, CHE=5, PAO=6, PAWN=7
 };
 
-const int MAX_PLY        = 148;                    // must 120 ÒòÎªÖĞÏó120²ÅºÍ
+const int MAX_PLY        = 148;                    // must 120 å› ä¸ºä¸­è±¡120æ‰å’Œ
 //const int MAX_PLY_PLUS_6 = MAX_PLY + 6;
 
 
@@ -107,7 +111,7 @@ enum Value {
 
 enum Piece
 {
-	EMPTY=0,  // Õâ¸ö²»ÓÃÁË
+	EMPTY=0,  // è¿™ä¸ªä¸ç”¨äº†
 	RKING=1,  RSHI=2, RXIANG=3, RMA=4, RCHE=5, RPAO=6, RPAWN=7,
 	_X_X =8,
 	BKING=9,  BSHI=10,BXIANG=11,BMA=12,BCHE=13,BPAO=14,BPAWN=15,   
@@ -193,7 +197,7 @@ const uint8 revertChess[] = {
 
 const bool ChessCanDirectCheck[] = {
 
-	false,  // Õâ¸ö²»ÓÃÁË
+	false,  // è¿™ä¸ªä¸ç”¨äº†
 	false, false, false, true, true, true, true,
 	false,
 	false, false, false, true, true, true, true,
@@ -209,7 +213,7 @@ enum Phase {
 //#define ChessCanDirCheck(c) ChessCanDirectCheck[x]
 
 enum Direction {
-	DIR_×óÓÒ = 0, DIR_ÉÏÏÂ = 1, DIR_Âí = 2, DIR_Ïà = 3, DIR_ÊË = 4, DIR_NONE = 5,
+	DIR_å·¦å³ = 0, DIR_ä¸Šä¸‹ = 1, DIR_é©¬ = 2, DIR_ç›¸ = 3, DIR_ä»• = 4, DIR_NONE = 5,
 };
 
 enum Move {
@@ -344,16 +348,16 @@ inline PieceType type_of(Piece p)  {
 }
 
 
-// Æå×ÓÊÇ²»ÊÇ±ø»òÊË
+// æ£‹å­æ˜¯ä¸æ˜¯å…µæˆ–ä»•
 inline bool isPawnShiXiangKing(Piece p){
 	static const bool _ispawnshi[] = 
 	{
-		    false,  // Õâ¸ö²»ÓÃÁË
+		    false,  // è¿™ä¸ªä¸ç”¨äº†
 			true,  true, true, false, false, false, true,
 			false,
 			true,  true, true, false, false, false, true,   
 
-			//EMPTY=0,  // Õâ¸ö²»ÓÃÁË
+			//EMPTY=0,  // è¿™ä¸ªä¸ç”¨äº†
 			//RKING=1,  RSHI=2, RXIANG=3, RMA=4, RCHE=5, RPAO=6, RPAWN=7,
 			//_X_X =8,
 			//BKING=9,  BSHI=10,BXIANG=11,BMA=12,BCHE=13,BPAO=14,BPAWN=15,  
@@ -390,11 +394,11 @@ inline Value mated_in(int ply) {
 #else
 
 #pragma warning(disable : 4100)   
-// ³£½«·Ö£®¡¡
+// å¸¸å°†åˆ†ï¼ã€€
 inline Value value_baned_check_in(int ply) {
 	return -VALUE_BAN_CHECK;  // return -VALUE_BAN_CHECK + ply;
 }
-// ³£×½·Ö£®
+// å¸¸æ‰åˆ†ï¼
 inline Value value_baned_cap_in(int ply) {
 	return -VALUE_BAN_CAP;   // return -VALUE_BAN_CAP + ply;	
 }
@@ -431,7 +435,7 @@ inline bool square_is_ok(Square s) {
 
 extern uint8 Relative_rank90[2][90];
 
-// Ïà¶Ôrank
+// ç›¸å¯¹rank
 inline int relative_rank(Color c, Square s) {
 	//return relative_rank(c, rank_of(s));
 	return Relative_rank90[c][s];

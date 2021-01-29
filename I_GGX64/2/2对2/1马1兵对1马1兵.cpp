@@ -1,10 +1,10 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
-//Âí±ø¶ÔÂí±ø
+//é©¬å…µå¯¹é©¬å…µ
 void m_MT_1MA1PAWN_1MA1PAWN(typePOS &POSITION, EvalInfo &ei){
 
 	
@@ -17,7 +17,7 @@ void m_MT_1MA1PAWN_1MA1PAWN(typePOS &POSITION, EvalInfo &ei){
 	Square bk = BKpos();
 	Square rk = RKpos();
 
-	//Ë«·½µÄ±øµ½µ×ÏßÁË£¬¾ÍºÍÁË
+	//åŒæ–¹çš„å…µåˆ°åº•çº¿äº†ï¼Œå°±å’Œäº†
 	if(StoY(bpawn) == 0x9 && StoY(rpawn) == 0x0){
 		RETRUN_MUL(1);
 	}
@@ -40,13 +40,13 @@ void m_MT_1MA1PAWN_1MA1PAWN(typePOS &POSITION, EvalInfo &ei){
 	int rcan = ei.rcan;
 	int bcan = ei.bcan;
 	
-	//Ë«·½µÄ±ø¶¼²»ÄÜ¹ıºÓ
+	//åŒæ–¹çš„å…µéƒ½ä¸èƒ½è¿‡æ²³
 	if(rcan == 0 && bcan == 0){
 		RETRUN_MUL(2);
 	}
 
 	// fen 4k1N2/5P3/9/5n3/9/9/9/B1p6/3KA4/6B2 b - - 27 27
-	//Èç¹ûË«·½µÄ½«Ã»ÓĞ±»ÖÆ×¡,Ò²ÊÇºÍÆå
+	//å¦‚æœåŒæ–¹çš„å°†æ²¡æœ‰è¢«åˆ¶ä½,ä¹Ÿæ˜¯å’Œæ£‹
 	if(FALSE){
 	}
 	else if(PB90(0x0D) == RPAWN && StoY(bk) == 0x0){
@@ -71,7 +71,7 @@ void m_MT_1MA1PAWN_1MA1PAWN(typePOS &POSITION, EvalInfo &ei){
 
 
 
-	//¿´ÄÜ²»ÄÜÓÃË§Ç£ÖÆ¶Ô·½µÄÂí
+	//çœ‹èƒ½ä¸èƒ½ç”¨å¸…ç‰µåˆ¶å¯¹æ–¹çš„é©¬
 	if(StoX(rk) == StoX(bk)){
 
 		Bitboard peat = POSITION.Pao_Eat_bb(rk);
@@ -86,7 +86,7 @@ void m_MT_1MA1PAWN_1MA1PAWN(typePOS &POSITION, EvalInfo &ei){
 			}
 		}
 
-		////µÃµ½½«µÄÉÏÏÂĞÅÏ¢
+		////å¾—åˆ°å°†çš„ä¸Šä¸‹ä¿¡æ¯
 		//SlideMoveStruct *psmv;
 
 		//psmv = FileMove(StoY(rk), board->wBitFiles[StoX(rk)]);
@@ -110,7 +110,7 @@ void m_MT_1MA1PAWN_1MA1PAWN(typePOS &POSITION, EvalInfo &ei){
 	// fen 5k3/4P4/9/4n4/7N1/6B2/9/3A1A3/2p2K3/6B2 w - - 0 1	
     if(ei.rsafe == TRUE && ei.bcan >= 1){
 		if(!bit_is_set(ei.xray_bit[WHITE],bma)){
-			// ¿ØÖÆ×¡¶Ô·½ËùÓĞ¿É½«µÄ²½×Ó¡£
+			// æ§åˆ¶ä½å¯¹æ–¹æ‰€æœ‰å¯å°†çš„æ­¥å­ã€‚
 			if(!m_have_bit(_mm_andnot_si128(ei.attacked_by(BLACK),
 				m_and(POSITION.king_to_ma_attacks_bb(bk),
 				ei.attacked_by(RMA))))){
@@ -120,7 +120,7 @@ void m_MT_1MA1PAWN_1MA1PAWN(typePOS &POSITION, EvalInfo &ei){
 	}
 	if(ei.bsafe == TRUE && ei.rcan >= 1){
 		if(!bit_is_set(ei.xray_bit[BLACK],rma)){
-			// ¿ØÖÆ×¡¶Ô·½ËùÓĞ¿É½«µÄ²½×Ó¡£fen 5k3/4P4/9/9/5n1N1/6B2/9/3A1K3/2p6/6B2 r
+			// æ§åˆ¶ä½å¯¹æ–¹æ‰€æœ‰å¯å°†çš„æ­¥å­ã€‚fen 5k3/4P4/9/9/5n1N1/6B2/9/3A1K3/2p6/6B2 r
 			if(!m_have_bit(_mm_andnot_si128(ei.attacked_by(WHITE),
 				m_and(POSITION.king_to_ma_attacks_bb(rk),
 				ei.attacked_by(BMA))))){

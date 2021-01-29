@@ -1,7 +1,7 @@
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
 
 void m_MT_PaoPawn_To_PaoPawn(typePOS &POSITION, EvalInfo &ei){
@@ -61,7 +61,7 @@ void m_MT_PaoPawn_To_PaoPawn(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 9/5k3/4P4/9/9/2B6/5c3/9/4p2C1/5KB2 b - - 0 0
-	//╟яезю╜в║╬мс╝ак
+	//Ф┼┼Г┌╝Ф▀┴Д╫▐Е╟╠Х╣╒Д╨├
 	if(RShi_num() == 0 && StoY(rpawn) <= 0x2 
 		&& abs(StoY(rpawn) - StoY(bk)) <= 1 && StoX(bpao) !=  StoX(bk)){
 			ei.bsafe = TRUE;
@@ -73,7 +73,7 @@ void m_MT_PaoPawn_To_PaoPawn(typePOS &POSITION, EvalInfo &ei){
 	}
 	
 	// fen 9/5k3/4P4/9/9/2B6/5c3/9/4p2C1/5KB2 b - - 0 0
-	//╟яезю╜в║╬мс╝ак
+	//Ф┼┼Г┌╝Ф▀┴Д╫▐Е╟╠Х╣╒Д╨├
 	if((RShi_num() + RXiang_num()) >= 2){
 		if(BShi_num() == 0 && BXiang_num() == 0 && StoY(bpawn) >= 0x7){
 			if(StoY(rpawn) > StoY(bk) && StoX(rpawn) == 0x4){
@@ -155,7 +155,7 @@ void m_MT_PaoPawn_To_PaoPawn(typePOS &POSITION, EvalInfo &ei){
 		&& StoY(rpawn) != 0 && BShi_num() <= 1){
 		if(StoY(bpawn) > StoY(rk)){
 			if(StoY(bpao) >= 0x5){
-				RETRUN_MUL(4);  // езр╙╩ь╪р╡епп
+				RETRUN_MUL(4);  // Г┌╝Х╕│Е⌡·Е╝╤Ф┴█Х║▄
 			}
 		}
 	}
@@ -163,13 +163,13 @@ void m_MT_PaoPawn_To_PaoPawn(typePOS &POSITION, EvalInfo &ei){
 		&& StoY(bpawn) != 9 && RShi_num() <= 1){
 		if(StoY(rpawn) < StoY(bk)){
 			if(StoY(rpao) <= 0x4){
-				RETRUN_MUL(4);  // езр╙╩ь╪р╡епп
+				RETRUN_MUL(4);  // Г┌╝Х╕│Е⌡·Е╝╤Ф┴█Х║▄
 			}
 		}
 	}
 
 	// fen 3k5/2P1a1c1C/3ab3b/9/9/9/9/9/4p4/3K5 w - - 132 132
-	//ез╢Рве╠Ь
+	//Г┌╝Ф┴⌠Г²─Е┘╣
 	if(ei.bsafe == TRUE){
 		if(abs(StoY(rk) - StoY(bpawn)) <= 1 && StoY(bpawn) >= 0x7){
 			if(StoY(rpawn) == 0x1 && StoY(rpao) == 0x1){

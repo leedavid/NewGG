@@ -1,11 +1,11 @@
 
     // *************************************************************
-	// ¿´Ò»ÏÂºì±ø¿É¹ıºÓµÄÄÜÁ¦
+	// çœ‹ä¸€ä¸‹çº¢å…µå¯è¿‡æ²³çš„èƒ½åŠ›
     // *************************************************************
 
 	Bitboard NotB;
 
-	//1, È¥ÁËµ×ÏßµÄ±ø
+	//1, å»äº†åº•çº¿çš„å…µ
 	NotB = _mm_load_si128((__m128i*)Rank0BB);
 	B = _mm_andnot_si128(LowBB[0x6],
 		_mm_andnot_si128(UpBB[0x3],POSITION->DYN->attack_black)); 
@@ -36,15 +36,15 @@
 
 	//if(FALSE){
 	//}
-	//else if(pMat->searchInfo16 & CK_R_12Che_B_NoChe){	// ºì·½ÓĞ³µ,ºÚ·½Ã»ÓĞ³µ
+	//else if(pMat->searchInfo16 & CK_R_12Che_B_NoChe){	// çº¢æ–¹æœ‰è½¦,é»‘æ–¹æ²¡æœ‰è½¦
 	//	ei.evscore += RChe_num() * rcan * 32;
 	//	ei.evscore -= bcan * 16;
 	//}
-	//else if(pMat->searchInfo16 & CK_B_12Che_R_NoChe){	// ºÚ·½ÓĞ³µ,ºì·½Ã»ÓĞ³µ
+	//else if(pMat->searchInfo16 & CK_B_12Che_R_NoChe){	// é»‘æ–¹æœ‰è½¦,çº¢æ–¹æ²¡æœ‰è½¦
 	//	ei.evscore -= BChe_num() * bcan * 32;
 	//	ei.evscore += rcan * 16;
 	//}
-	//else if(pMat->searchInfo16 & CK_R_NoChe_B_NoChe){	// Ë«·½Ã»ÓĞ³µ
+	//else if(pMat->searchInfo16 & CK_R_NoChe_B_NoChe){	// åŒæ–¹æ²¡æœ‰è½¦
 	//	ei.evscore += rcan * 32;
 	//	ei.evscore -= bcan * 32;
 	//}	

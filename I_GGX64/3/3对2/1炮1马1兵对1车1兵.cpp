@@ -1,20 +1,20 @@
 
 #ifndef END_my_m_MT_R_1ma1pao1pawn_B_1che1pawn
 #define END_my_m_MT_R_1ma1pao1pawn_B_1che1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí1±ø¶Ô1³µ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®1é©¬1å…µå¯¹1è½¦1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 //Add_MAT_B_1ma1pao1pawn_R_1che1pawn_ByShi
 
-// ºì·½ÂíÅÚ±ø,ºÚ·½³µ±ø
+// çº¢æ–¹é©¬ç‚®å…µ,é»‘æ–¹è½¦å…µ
 void my_m_MT_R_1ma1pao1pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	Square mk = my_king_pos;
@@ -91,7 +91,7 @@ void my_m_MT_R_1ma1pao1pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 }
 
-// ºÚ·½ÂíÅÚ±ø,ºì·½³µ±ø
+// é»‘æ–¹é©¬ç‚®å…µ,çº¢æ–¹è½¦å…µ
 //void m_MT_B_1ma1pao1pawn_R_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 ///*
 //	Square rpawn = PieceListStart(board,RPAWN);

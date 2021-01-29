@@ -1,25 +1,25 @@
 #ifndef END_my_m_MT_R_2che1pawn_B_1che1pao
 #define END_my_m_MT_R_2che1pawn_B_1che1pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2≥µ1±¯∂‘1≥µ1≈⁄.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2ËΩ¶1ÂÖµÂØπ1ËΩ¶1ÁÇÆ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 
 
-//2≥µ1±¯∂‘2≥µ
+//2ËΩ¶1ÂÖµÂØπ2ËΩ¶
 void my_m_MT_R_2che1pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	// ADD
 	Bitboard bmp = m_and(bb_my_pawn,MyLowBB[StoY(yk)]);
 	int pmok = (int)count_1s(bmp);
-	MY_EV_ADD(pmok * ADD_2≥µx±¯∂‘2≥µ_byPawn[your_shi_num]);
+	MY_EV_ADD(pmok * ADD_2ËΩ¶xÂÖµÂØπ2ËΩ¶_byPawn[your_shi_num]);
 	
     int mcan = EV_MY_CAN;
 
@@ -29,7 +29,7 @@ void my_m_MT_R_2che1pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 
 	if(your_shi_num == 2 && StoY(yk) == MY_RANK0){
 		if((my_shi_num + my_xiang_num) == 0){
-			// Œ“∑Ω”–≥µ≤ªƒ‹∂Ø¡À°£
+			// ÊàëÊñπÊúâËΩ¶‰∏çËÉΩÂä®‰∫Ü„ÄÇ
 			if(have_bit(EV_YOUR_XBIT,bb_my_che) && StoY(mpawn) MY_LARGE_EQL MY_RANK2){
 				RETRUN_MUL(4);
 			}

@@ -1,20 +1,20 @@
 #ifndef END_my_m_MT_R_1che1pawn_B_2pao
 #define END_my_m_MT_R_1che1pawn_B_2pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1±ø¶Ô2ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1å…µå¯¹2ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//#define ADD_ChePawn_To_MaPao_By_Panw   128              //³µ±ø¶ÔÂíÅÚ,³µ±ø·½±øÒª¼Ó·Ö,ÒòÎªÂíÅÚÌ«ÄÑÉ±¶Ô·½ÁË
-//#define ADD_ChePawn_To_MaPao_By_Che    128              //³µ±ø¶ÔÂíÅÚ,³µ±ø·½³µÒª¼Ó·Ö,ÒòÎªÂíÅÚÌ«ÄÑÉ±¶Ô·½ÁË
+//#define ADD_ChePawn_To_MaPao_By_Panw   128              //è½¦å…µå¯¹é©¬ç‚®,è½¦å…µæ–¹å…µè¦åŠ åˆ†,å› ä¸ºé©¬ç‚®å¤ªéš¾æ€å¯¹æ–¹äº†
+//#define ADD_ChePawn_To_MaPao_By_Che    128              //è½¦å…µå¯¹é©¬ç‚®,è½¦å…µæ–¹è½¦è¦åŠ åˆ†,å› ä¸ºé©¬ç‚®å¤ªéš¾æ€å¯¹æ–¹äº†
 
-//ÎÒ·½1³µ1±ø,¶Ô·½ÊÇ2ÅÚ
+//æˆ‘æ–¹1è½¦1å…µ,å¯¹æ–¹æ˜¯2ç‚®
 void my_m_MT_R_1che1pawn_B_2pao(typePOS &POSITION, EvalInfo &ei){
 	
 	Square yk = your_king_pos;
@@ -51,15 +51,15 @@ void my_m_MT_R_1che1pawn_B_2pao(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 4kc3/3Pa3R/4b4/9/2b6/9/4c4/B3B4/4A4/3AK4 w - - 121 121
-	//ÅÚ·½ÊÇµ¥È±ÊË,ÇÒ±øµ½ÁËÏÂ¶şÏß, ÅÚ·½ÔÚÒ»ÏßÊØ, ÖĞ¼äÊÇÏà, ¾ÍÊÇºÍÆå
+	//ç‚®æ–¹æ˜¯å•ç¼ºä»•,ä¸”å…µåˆ°äº†ä¸‹äºŒçº¿, ç‚®æ–¹åœ¨ä¸€çº¿å®ˆ, ä¸­é—´æ˜¯ç›¸, å°±æ˜¯å’Œæ£‹
 	if(your_xiang_num == 2 && your_shi_num >= 1 && MY_SQ04 == yk){
 		if(PB90(MY_SQ16) == your_xiang){
-			//Èç¹û±øÃ»ÓĞ¹ıºÓ,Ò²ÊÇºÍÍÛ
+			//å¦‚æœå…µæ²¡æœ‰è¿‡æ²³,ä¹Ÿæ˜¯å’Œå“‡
 			if(StoY(mpawn) MY_LARGE MY_RANK4){
 				RETRUN_MUL(2);
 			}
 
-			//ÅÚ½«ÔÚÒ»Ïß, ÇÒÅÚ±£×Å×Ô¼ºµÄÖĞÊË
+			//ç‚®å°†åœ¨ä¸€çº¿, ä¸”ç‚®ä¿ç€è‡ªå·±çš„ä¸­ä»•
 			if(m_have_bit(
 				m_and(RankBB_A[MY_RANK0],bb_your_pao))){
 					Bitboard peat = POSITION.Pao_Eat_bb(Square(MY_SQ0D));

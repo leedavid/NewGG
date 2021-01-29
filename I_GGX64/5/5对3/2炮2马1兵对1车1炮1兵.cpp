@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2pao2ma1pawn_B_1che1pao1pawn
 #define END_my_m_MT_R_2pao2ma1pawn_B_1che1pao1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "2ÅÚ2Âí1±ø¶Ô1³µ1ÅÚ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2ç‚®2é©¬1å…µå¯¹1è½¦1ç‚®1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 void my_m_MT_R_2pao2ma1pawn_B_1che1pao1pawn(typePOS &POSITION, EvalInfo &ei){

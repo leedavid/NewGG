@@ -1,16 +1,16 @@
 #ifndef END_my_m_MT_R_1pao1ma_B_1pao1pawn
 #define END_my_m_MT_R_1pao1ma_B_1pao1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí¶Ô1ÅÚ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®1é©¬å¯¹1ç‚®1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//1ÅÚ1Âí¶Ô1ÅÚ1±ø
+//1ç‚®1é©¬å¯¹1ç‚®1å…µ
 void my_m_MT_R_1pao1ma_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	Square ypawn = S90_from_piecelist(POSITION,your_pawn,0);
@@ -32,7 +32,7 @@ void my_m_MT_R_1pao1ma_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 
 	// fen 5a3/3k5/b3ba3/7P1/9/6B2/9/9/1n1C5/2BcK4 w - - 136 136
-	// À§ËÀ¶Ô·½Ò»¸öÅÚ
+	// å›°æ­»å¯¹æ–¹ä¸€ä¸ªç‚®
 	if(your_xiang_num >= 1 && ycan != 0){
 		if(MY_SQ04 == your_king_pos){
 			if(PB90(MY_SQ03) == my_pao && PB90(MY_SQ02) == your_xiang
@@ -51,7 +51,7 @@ void my_m_MT_R_1pao1ma_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
     // fen 2ba1k3/9/5C3/3N5/6b2/2B6/9/1c7/5p3/3K5 b - - 0 0
-	//Òª³Ô¶Ô·½µÄÊËÏà
+	//è¦åƒå¯¹æ–¹çš„ä»•ç›¸
 	if((your_shi_num + your_xiang_num)  <= 3 && (my_shi_num + my_xiang_num) >= 1){
 		MY_EV_ADD(128);
 	}

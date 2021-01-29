@@ -1,18 +1,18 @@
 #ifndef END_my_m_MT_R_1che2ma1pawn_B_1che1ma
 #define END_my_m_MT_R_1che2ma1pawn_B_1che1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "1³µ2Âí1±ø¶Ô1³µ1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦2é©¬1å…µå¯¹1è½¦1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 
-//³µ2ÅÚ¶Ô³µÅÚ
+//è½¦2ç‚®å¯¹è½¦ç‚®
 void my_m_MT_R_1che2ma1pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 
 	Square yma = S90_from_piecelist(POSITION,your_ma,0);

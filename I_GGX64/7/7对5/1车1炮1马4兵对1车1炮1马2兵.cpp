@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1pao1ma4pawn_B_1che1pao1ma2pawn
 #define END_my_m_MT_R_1che1pao1ma4pawn_B_1che1pao1ma2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1ÅÚ1Âí4±ø¶Ô1³µ1ÅÚ1Âí2±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1ç‚®1é©¬4å…µå¯¹1è½¦1ç‚®1é©¬2å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -37,7 +37,7 @@ void my_m_MT_R_1che1pao1ma4pawn_B_1che1pao1ma2pawn(typePOS &POSITION, EvalInfo &
 	}
 
 	// fen 2bak4/4a4/4b1n2/8p/p1P1PP3/1C1R5/2N5P/7r1/9/2BAK3c w - - 0 1
-	// ¶Ô·½µÄÂíÔÚ¼Ò£¬ÎÒ·½ÓÐÁ¬±ø£¬ÇÒ¶Ô·½Ã»ÓÐ±ø¹ýºÓ
+	// å¯¹æ–¹çš„é©¬åœ¨å®¶ï¼Œæˆ‘æ–¹æœ‰è¿žå…µï¼Œä¸”å¯¹æ–¹æ²¡æœ‰å…µè¿‡æ²³
 	if(EV_YOUR_CAN <= 1 && !have_bit(bb_your_pawn,MyLowBB[MY_RANK4])){
 		if(StoY(yma) MY_SMALL_EQL MY_RANK2){
 			MY_EV_ADD(EV_MY_CAN * 4);
@@ -56,7 +56,7 @@ void my_m_MT_R_1che1pao1ma4pawn_B_1che1pao1ma2pawn(typePOS &POSITION, EvalInfo &
 		if(StoY(mma) MY_SMALL_EQL MY_RANK5){
 		   MY_EV_ADD(EV_MY_CAN * 16);
 		}
-		// ¶Ô·½¶¼ÊÇ±ß±ø
+		// å¯¹æ–¹éƒ½æ˜¯è¾¹å…µ
 		if(!have_bit(bb_your_pawn,m_and(LeftBB[0x8],RightBB[0x0]))){
 			MY_EV_ADD(EV_MY_CAN * 16);
 		}		

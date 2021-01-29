@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2pao_B_2ma
 #define END_my_m_MT_R_2pao_B_2ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "2ÅÚ¶Ô2Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "2ç‚®å¯¹2é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -31,7 +31,7 @@ void my_m_MT_R_2pao_B_2ma(typePOS &POSITION, EvalInfo &ei){
 
 	Square mk = my_king_pos;
 
-	// Èç¹û¶þ¸öÅÚÕßÔÚ¼ÒÀï
+	// å¦‚æžœäºŒä¸ªç‚®è€…åœ¨å®¶é‡Œ
 	// fen 2bk5/4a4/5a3/9/9/5n3/9/3C5/1n2K4/4C4 w - - 0 1
 	if(StoX(mk) == 0x4){
 		Bitboard p = m_and(bb_my_pao, MyLowBB[MY_RANK6]);

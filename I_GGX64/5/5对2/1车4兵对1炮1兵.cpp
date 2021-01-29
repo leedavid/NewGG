@@ -1,20 +1,20 @@
 #ifndef END_my_m_MT_R_1che4pawn_B_1pao1pawn
 #define END_my_m_MT_R_1che4pawn_B_1pao1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1Ё╣4╠Ь╤т1ез1╠Ь.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1Х╫╕4Е┘╣Е╞╧1Г┌╝1Е┘╣.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 // fen 9/3P5/4k4/9/2b3b2/6B2/9/3AB4/r3Ap3/C3K4 w - - 44 44
 
-//const int ADD_PaoXPawn_To_ChePawnByShi_WpaoSafe[3]  =  { 80, 48, 16};  //ез╠Ь╤тЁ╣╠Ь,ез╥╫╟╡х╚╨С,сп╠Ь╣д╪с╥ж 
+//const int ADD_PaoXPawn_To_ChePawnByShi_WpaoSafe[3]  =  { 80, 48, 16};  //Г┌╝Е┘╣Е╞╧Х╫╕Е┘╣,Г┌╝Ф√╧Е╝┴Е┘╗Е░▌,Ф°┴Е┘╣Г └Е┼═Е┬├ 
 
-//Ё╣╠Ь╤тез╠Ь
+//Х╫╕Е┘╣Е╞╧Г┌╝Е┘╣
 void my_m_MT_R_1che4pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
@@ -25,7 +25,7 @@ void my_m_MT_R_1che4pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_ADD(ADD_CheXPawn_To_PaoPawn);
 }
 
-//const int ADD_CheXPawn_To_PaoPawn                   =  128;             //Ё╣╠Ь╤тез╠Ь,Ё╣╥╫╣д╪с╥ж
+//const int ADD_CheXPawn_To_PaoPawn                   =  128;             //Х╫╕Е┘╣Е╞╧Г┌╝Е┘╣,Х╫╕Ф√╧Г └Е┼═Е┬├
 //const int ADD_CheXPawn_To_PaoPawn_PawnByShi[3]      =  {168,128, 64};
 //
 //void m_MT_B_1che4pawn_R_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
@@ -34,7 +34,7 @@ void my_m_MT_R_1che4pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 //
 //	////if(board->R_shi == 2 && board->R_xiang == 2){
 //	////	if(board->b256[0xa7] == RXIANG){
-//	////		if(StoY(rpao) >= 0xa){       //ез©и╩ь╪р
+//	////		if(StoY(rpao) >= 0xa){       //Г┌╝Е▐╞Е⌡·Е╝╤
 //	////			return 1;
 //	////		}
 //	////	}

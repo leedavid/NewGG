@@ -1,18 +1,18 @@
 #ifndef END_my_m_MT_R_1ma3pawn_B_1ma
 #define END_my_m_MT_R_1ma3pawn_B_1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1Âí3±ø¶Ô1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1é©¬3å…µå¯¹1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//ADD_1Âí±ø¶Ô1Âí±ø_by_Pawn
+//ADD_1é©¬å…µå¯¹1é©¬å…µ_by_Pawn
 
-//1Âí3±ø¶Ô1Âí
+//1é©¬3å…µå¯¹1é©¬
 void my_m_MT_R_1ma3pawn_B_1ma(typePOS &POSITION, EvalInfo &ei){
 
 	Square yk = your_king_pos;
@@ -21,11 +21,11 @@ void my_m_MT_R_1ma3pawn_B_1ma(typePOS &POSITION, EvalInfo &ei){
 
 	int pok = (int)count_1s(bmp);
 
-	MY_EV_ADD(pok * ADD_1Âí±ø¶Ô1Âí_by_Pawn_By_Shi[your_shi_num]);
+	MY_EV_ADD(pok * ADD_1é©¬å…µå¯¹1é©¬_by_Pawn_By_Shi[your_shi_num]);
 
 
 	// fen 3a2b2/2PPak3/9/3n1P3/3N2b2/6B2/9/5A3/4K4/9 w - - 120 120
-	//ÓÐ¶þ¸ö±øµÍÓÚ½«£¬ÇÒ¶Ô·½ÊÇÊËÏàÈ«£¬Òª¼õ°ë
+	//æœ‰äºŒä¸ªå…µä½ŽäºŽå°†ï¼Œä¸”å¯¹æ–¹æ˜¯ä»•ç›¸å…¨ï¼Œè¦å‡åŠ
 
 
 	int mcan = EV_MY_CAN;
@@ -51,7 +51,7 @@ void my_m_MT_R_1ma3pawn_B_1ma(typePOS &POSITION, EvalInfo &ei){
 //
 //	for(int from = PieceListStart(board,BPAWN); from > 0x32; from = NextPiece(board,from)){
 //		if(StoY(from) < StoY(rk)){
-//			board->mulScore -=  ADD_1Âí±ø¶Ô1Âí_by_Pawn_By_Shi[board->R_shi];
+//			board->mulScore -=  ADD_1é©¬å…µå¯¹1é©¬_by_Pawn_By_Shi[board->R_shi];
 //		}
 //	}
 //
@@ -64,7 +64,7 @@ void my_m_MT_R_1ma3pawn_B_1ma(typePOS &POSITION, EvalInfo &ei){
 //	//}
 //
 //	// fen 3a2b2/2PPak3/9/3n1P3/3N2b2/6B2/9/5A3/4K4/9 w - - 120 120
-//	//ÓÐ¶þ¸ö±øµÍÓÚ½«£¬ÇÒ¶Ô·½ÊÇÊËÏàÈ«£¬Òª¼õ°ë
+//	//æœ‰äºŒä¸ªå…µä½ŽäºŽå°†ï¼Œä¸”å¯¹æ–¹æ˜¯ä»•ç›¸å…¨ï¼Œè¦å‡åŠ
 //	int blow = 0;
 //	for(int from = PieceListStart(board,BPAWN); from > 0x32; from = NextPiece(board,from)){
 //		if(StoY(from) >= StoY(rk) && StoY(from) >= 0xb){

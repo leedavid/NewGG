@@ -16,7 +16,7 @@
 
 using namespace std;
 
-// ×î´óÖµ, ×îĞ¡Öµ
+// æœ€å¤§å€¼, æœ€å°å€¼
 const string Fen_Test_Eavl[] = {
 	"N2a1kb2/4a2PR/4b4/6r2/9/6r2/9/B8/4A2C1/2B1KA3 w - - 0 91 max 160 min 20",
 	"2bak4/4a4/2N1b3n/2c3p2/3r1P2c/p3R4/3N5/1C2B4/4A4/4KAB2 w - - 0 1  max -9 min -60",

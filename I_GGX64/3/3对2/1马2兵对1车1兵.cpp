@@ -1,18 +1,18 @@
 #ifndef END_my_m_MT_R_1ma2pawn_B_1che1pawn_s
 #define END_my_m_MT_R_1ma2pawn_B_1che1pawn_s
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1Âí2±ø¶Ô1³µ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1é©¬2å…µå¯¹1è½¦1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 //
-//const int PawnNotSameSide = 64;         //¶ş±ø·½µÄ±ø²»ÔÚÒ»±ß,Òª¼Ó·Ö
+//const int PawnNotSameSide = 64;         //äºŒå…µæ–¹çš„å…µä¸åœ¨ä¸€è¾¹,è¦åŠ åˆ†
 
 // fen 3ak1b2/9/3a4b/6r1N/5P2P/9/9/3AB4/4A4/p3K1B2 w - - 0 1
 void my_m_MT_R_1ma2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){

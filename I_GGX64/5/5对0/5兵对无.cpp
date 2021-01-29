@@ -1,23 +1,23 @@
 #ifndef END_my_m_MT_R_5pawn
 #define END_my_m_MT_R_5pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "5±ø¶ÔÎÞ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "5å…µå¯¹æ— .cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
-//ÎÒ·½3±ø£¬¶Ô·½ 0 attacker
+//æˆ‘æ–¹3å…µï¼Œå¯¹æ–¹ 0 attacker
 void my_m_MT_R_5pawn(typePOS &POSITION, EvalInfo &ei){
 
 	BothOnlyPawnEval(POSITION,ei);
 }
 
-//ÎÒ·½3±ø£¬¶Ô·½ 0 attacker
+//æˆ‘æ–¹3å…µï¼Œå¯¹æ–¹ 0 attacker
 //void m_MT_B_5pawn(typePOS &POSITION, EvalInfo &ei){
 ///*
 //    BothOnlyPawnEval(board);

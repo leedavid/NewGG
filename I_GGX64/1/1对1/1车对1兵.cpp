@@ -1,15 +1,15 @@
 #ifndef END_my_m_MT_R_1CHE_B_1PAWN
 #define END_my_m_MT_R_1CHE_B_1PAWN
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "1³µ¶Ô1±ø.cpp"
-#include "..\\..\\white.h"
+#include "1è½¦å¯¹1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
-//ºì·½Ò»¸ö³µ£¬ºÚ·½Ò»¸ö±ø
+//çº¢æ–¹ä¸€ä¸ªè½¦ï¼Œé»‘æ–¹ä¸€ä¸ªå…µ
 void my_m_MT_R_1CHE_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 	Square yk = your_king_pos;
 	Square ypawn = S90_from_piecelist(POSITION,your_pawn,0);
@@ -23,7 +23,7 @@ void my_m_MT_R_1CHE_B_1PAWN(typePOS &POSITION, EvalInfo &ei){
 	if(your_shi_num == 2 && your_xiang_num == 2){
 		if(StoY(yk) == MY_RANK0){			
 			// fen 2bk5/4a4/b1R2a3/9/9/2B6/9/3AK3B/4A4/1p7 b
-			if(StoY(ypawn) MY_LARGE MY_RANK4){ // ±øÒÑ¹ýºÓ
+			if(StoY(ypawn) MY_LARGE MY_RANK4){ // å…µå·²è¿‡æ²³
 				// R
 				if(StoX(mche) > 0x4){
 					if(PB90(MY_SQ06) == your_xiang && PB90(MY_SQ1A) == your_xiang){

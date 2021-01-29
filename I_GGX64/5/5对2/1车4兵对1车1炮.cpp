@@ -1,23 +1,23 @@
 #ifndef END_my_m_MT_R_1che4pawn_B_1che1pao
 #define END_my_m_MT_R_1che4pawn_B_1che1pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1³µ4±ø¶Ô1³µ1ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦4å…µå¯¹1è½¦1ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
 ////const int const_Pawn_Shi_Add[3] = {180, 120, 32};
 
-//³µ3±ø¶Ô³µÅÚ
+//è½¦3å…µå¯¹è½¦ç‚®
 void my_m_MT_R_1che4pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
-	//¿´Ò»ÏÂ¶Ô·½ÊÇ²»ÊÇÓÐÊË
+	//çœ‹ä¸€ä¸‹å¯¹æ–¹æ˜¯ä¸æ˜¯æœ‰ä»•
 
-	// fen 2bak4/9/4b4/4R4/P3c4/4r1P2/8P/4B4/9/2B1KA3 b - - 0 0 //Õâ¸öFEN Ó¦ÊÇºìÓÅ
+	// fen 2bak4/9/4b4/4R4/P3c4/4r1P2/8P/4B4/9/2B1KA3 b - - 0 0 //è¿™ä¸ªFEN åº”æ˜¯çº¢ä¼˜
 
 	Square yk = your_king_pos;
 	// ADD
@@ -83,7 +83,7 @@ void my_m_MT_R_1che4pawn_B_1che1pao(typePOS &POSITION, EvalInfo &ei){
 //	int bche = PieceListStart(board,BCHE);
 //	int rpao = PieceListStart(board,RPAO);
 //
-//	//Èç¹û³µÅÚ±»Ç£ÖÆÁË, ÔòÅÚ·½Òª¼õ·Ö
+//	//å¦‚æžœè½¦ç‚®è¢«ç‰µåˆ¶äº†, åˆ™ç‚®æ–¹è¦å‡åˆ†
 //	if(IsStringByChe(board,rche,rpao,bche)){
 //		board->mulScore -= ADD_ChePawn_To_ChePao_By_StringPao;
 //	}

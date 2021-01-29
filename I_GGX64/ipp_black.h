@@ -184,17 +184,17 @@
 #define PIECE_IS_MINE       PIECE_BLACK
 #define PIECE_IS_OPP        PIECE_WHITE
 
-#include "endgame\\end_black.h"
+#include "endgame/end_black.h"
 
-//#include "endgame\\end_black_common_fun.h"
+//#include "endgame/end_black_common_fun.h"
 
-#include "endgame\\black_mat1.h"
-#include "endgame\\black_mat2.h"
-#include "endgame\\black_mat3.h"
-#include "endgame\\black_mat4.h"
-#include "endgame\\black_mat5.h"
-#include "endgame\\black_mat6.h"
-#include "endgame\\black_mat7.h"
-#include "endgame\\black_mat8.h"
-#include "endgame\\black_mat9.h"
+#include "endgame/black_mat1.h"
+#include "endgame/black_mat2.h"
+#include "endgame/black_mat3.h"
+#include "endgame/black_mat4.h"
+#include "endgame/black_mat5.h"
+#include "endgame/black_mat6.h"
+#include "endgame/black_mat7.h"
+#include "endgame/black_mat8.h"
+#include "endgame/black_mat9.h"
 

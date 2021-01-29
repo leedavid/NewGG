@@ -1,10 +1,10 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
-//³µÅÚ¶Ô³µÅÚ
+//è½¦ç‚®å¯¹è½¦ç‚®
 void m_MT_1che1pao_1che1pao(typePOS &POSITION, EvalInfo &ei){
 
 	//int rche = S90_from_piecelist(POSITION,RCHE,0);
@@ -29,7 +29,7 @@ void m_MT_1che1pao_1che1pao(typePOS &POSITION, EvalInfo &ei){
 
 
 	// fen 9/3k5/3a5/9/9/6B2/9/9/r2c1R3/3CK4 w - - 151 151 
-	//Èç¹ûÒ»·½Ö»ÓĞÒ»ÊË,Ò»·½Ö»ÓĞÒ»Ïà,
+	//å¦‚æœä¸€æ–¹åªæœ‰ä¸€ä»•,ä¸€æ–¹åªæœ‰ä¸€ç›¸,
 	if((BShi_num() + BXiang_num()) == 1 && (RShi_num() + RXiang_num()) == 1){
 		RETRUN_MUL(2);
 	}
@@ -62,7 +62,7 @@ void m_MT_1che1pao_1che1pao(typePOS &POSITION, EvalInfo &ei){
 		}
 	}
 
-	// Èç¹ûÒ»·½µÄÅÚÔÚ³µºóÃæ,¶øÇÒºÍ½«ÔÚÒ»Ïß,¾ÍÒª¼õ·Ö
+	// å¦‚æœä¸€æ–¹çš„ç‚®åœ¨è½¦åé¢,è€Œä¸”å’Œå°†åœ¨ä¸€çº¿,å°±è¦å‡åˆ†
 	if((RShi_num() + RXiang_num()) <= 1){
 		if(StoX(rche) == StoX(rpao) && StoX(rche) == StoX(rk)){
 			if(StoY(rpao) <= StoY(rk) && StoY(rche) < StoY(rpao)){

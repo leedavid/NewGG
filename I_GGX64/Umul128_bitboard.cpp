@@ -39,19 +39,19 @@ int      M_Pao_SUPER_Index_F[90];
 uint64   M_Pao_SUPER_Mult_F[90];
 
 
-Bitboard M_Ma_to_King_Mask[90];             //´ÓÂíµÄÎ»ÖÃ,À´³Ô½«, ÊÇËãÒ»ÏÂ±ğ½Å
+Bitboard M_Ma_to_King_Mask[90];             //ä»é©¬çš„ä½ç½®,æ¥åƒå°†, æ˜¯ç®—ä¸€ä¸‹åˆ«è„š
 Bitboard M_Ma_to_King_Attacks[NUM_MA_TO_KING_ATT];
 int      M_Ma_to_King_AttackIndex[90];
 uint64   M_Ma_to_King_Mult[90];
 
 
-Bitboard M_King_to_Ma_Mask[90];             //´Ó½«µÄÎ»ÖÃ,±»Âí³Ô, ÊÇËãÒ»ÏÂ·´±ğ½Å
+Bitboard M_King_to_Ma_Mask[90];             //ä»å°†çš„ä½ç½®,è¢«é©¬åƒ, æ˜¯ç®—ä¸€ä¸‹ååˆ«è„š
 Bitboard M_King_to_Ma_Attacks[NUM_MA_TO_KING_ATT];
 int      M_King_to_Ma_AttackIndex[90];
 uint64   M_King_to_Ma_Mult[90];
 
 
-Bitboard M_XiangMask[90];               // Ïà,Ö÷ÒªÊÇÓÃÀ´ËãÒ»ÏÂÏóÑÛ,
+Bitboard M_XiangMask[90];               // ç›¸,ä¸»è¦æ˜¯ç”¨æ¥ç®—ä¸€ä¸‹è±¡çœ¼,
 Bitboard M_XiangAttacks[NUM_XIANG_ATT];
 int      M_XiangAttackIndex[90];
 uint64   M_Xiang_Mult[90];

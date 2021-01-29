@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1che1ma4pawn_B_1che1pao1ma
 #define END_my_m_MT_R_1che1ma4pawn_B_1che1pao1ma
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
-#include "1³µ1Âí4±ø¶Ô1³µ1ÅÚ1Âí.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1è½¦1é©¬4å…µå¯¹1è½¦1ç‚®1é©¬.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 
@@ -35,7 +35,7 @@ void my_m_MT_R_1che1ma4pawn_B_1che1pao1ma(typePOS &POSITION, EvalInfo &ei){
 			}
 		}
 
-		// ¶Ô·½µÄÂíµÄËùÓĞ²½×Ó¸øÎÒ·½¿ØÖÆÁË£¿
+		// å¯¹æ–¹çš„é©¬çš„æ‰€æœ‰æ­¥å­ç»™æˆ‘æ–¹æ§åˆ¶äº†ï¼Ÿ
 		Bitboard ymAtt= _mm_andnot_si128(m_or(MyUpBB[MY_RANK1],ei.attacked_by(MY_COLOR)),ei.attacked_by(your_ma));
 		if(!m_have_bit(ymAtt)){
 			MY_EV_ADD(EV_MY_CAN * 8);

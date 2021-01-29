@@ -1,18 +1,18 @@
 #ifndef END_my_m_MT_R_1ma1pao2pawn_B_1che1pawn
 #define END_my_m_MT_R_1ma1pao2pawn_B_1che1pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "1ÅÚ1Âí2±ø¶Ô1³µ1±ø.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "1ç‚®1é©¬2å…µå¯¹1è½¦1å…µ.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //Add_MAT_B_1ma1pao1pawn_R_1che1pawn_ByShi
 
-// ºì·½ÂíÅÚ±ø,ºÚ·½³µ±ø
+// çº¢æ–¹é©¬ç‚®å…µ,é»‘æ–¹è½¦å…µ
 void my_m_MT_R_1ma1pao2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 
 
@@ -30,7 +30,7 @@ void my_m_MT_R_1ma1pao2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	MY_EV_ADD((sint16)count_1s(bmp) * Add_MAT_B_1ma1pao1pawn_R_1che1pawn_ByShi[your_shi_num]);
 
 	Bitboard lp = My_get_connect_Pawn(POSITION);
-    //Èç¹ûºì·½ÓÐÁª±ø£¬Ò²Òª¼Ó·Ö
+    //å¦‚æžœçº¢æ–¹æœ‰è”å…µï¼Œä¹Ÿè¦åŠ åˆ†
 	if(m_have_bit(m_and(lp,MyLowBB[StoY(yk)]))){
 		MY_EV_ADD(Add_MAT_B_1ma1pao1pawn_R_1che1pawn_ByConPawn);
 	}
@@ -91,7 +91,7 @@ void my_m_MT_R_1ma1pao2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 	}
 }
 
-// ºÚ·½ÂíÅÚ±ø,ºì·½³µ±ø
+// é»‘æ–¹é©¬ç‚®å…µ,çº¢æ–¹è½¦å…µ
 //void m_MT_B_1ma1pao2pawn_R_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 ///*
 //	Square rpawn = PieceListStart(board,RPAWN);
@@ -119,7 +119,7 @@ void my_m_MT_R_1ma1pao2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 //		}
 //	}
 //
-//	//Èç¹ûºì·½ÓÐÁª±ø£¬Ò²Òª¼Ó·Ö
+//	//å¦‚æžœçº¢æ–¹æœ‰è”å…µï¼Œä¹Ÿè¦åŠ åˆ†
 //	if(B_PawnConnect_0x7(board) && board->B_shi == 2){
 //		board->mulScore -= Add_MAT_B_1ma1pao1pawn_R_1che1pawn_ByConPawn;
 //	}
@@ -131,7 +131,7 @@ void my_m_MT_R_1ma1pao2pawn_B_1che1pawn(typePOS &POSITION, EvalInfo &ei){
 //	}
 //
 //	// fen 6b2/4k4/2n1b4/p3p4/9/9/4P4/4BR3/4A1c2/2BA1K3 w - - 15 15
-//	//ºÚ·½ÄÜÊØ×¡
+//	//é»‘æ–¹èƒ½å®ˆä½
 //	if(board->b256[rpawn - 0x20] == BPAWN || board->b256[rpawn - 0x30] == BPAWN){
 //		if(StoY(bk) <= 0x4){
 //			if(board->B_xiang == 2){

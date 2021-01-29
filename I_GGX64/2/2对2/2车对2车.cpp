@@ -1,12 +1,12 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
 const sint16 LackShiAdd[3] = {128,48,0};
 
-//大家两个车， 少仕的一方差
+//澶у涓や釜杞︼紝 灏戜粫鐨勪竴鏂瑰樊
 void m_MT_2che_2che(typePOS &POSITION, EvalInfo &ei){
 
 	Square rk = RKpos();

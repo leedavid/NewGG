@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_5pawn_B_1pao
 #define END_my_m_MT_R_5pawn_B_1pao
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
-#include "5±ø¶Ô1ÅÚ.cpp"
-#include "..\\..\\white.h"
+#include "../../endgame/mat.h"
+#include "5å…µå¯¹1ç‚®.cpp"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //const int _3pawn1pao_PawnShiAdd[3] = {96,48,24};
@@ -29,7 +29,7 @@ void my_m_MT_R_5pawn_B_1pao(typePOS &POSITION, EvalInfo &ei){
 //		if(StoY(from) < StoY(rk)){
 //			board->mulScore -=  ADD_XPawnToPao_ByPawnShi[board->R_shi];
 //
-//			//if(StoX(from) == 0x7){  //±øÔÚÖÐÏß
+//			//if(StoX(from) == 0x7){  //å…µåœ¨ä¸­çº¿
 //			//	if(board->b256[from+1] == RPAWN || board->b256[
 //			//}
 //		}
