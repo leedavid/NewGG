@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1pao1ma4pawn_B_1che2pawn
 #define END_my_m_MT_R_1pao1ma4pawn_B_1che2pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 #include "1炮1马4兵对1车2兵.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //const int ADD_Che2Pawn_To_1Pao1MaXPawn_ByPawn[3]    =  { 96, 64, 32};  //车2兵,对1炮1马X兵

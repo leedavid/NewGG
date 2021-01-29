@@ -1,7 +1,7 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
-#include "..\\..\\endgame\mat.h"
+#include "../../chess.h"
+#include "../../preGen.h"
+#include "../../endgame/mat.h"
 // fen 4kab2/4a4/4b4/9/2r1P4/p5B2/4R4/4B4/4K4/9 b - - 0 0
 //马兵兵对马兵兵
 void m_MT_1che2pawn_1che2pawn(typePOS &POSITION, EvalInfo &ei){

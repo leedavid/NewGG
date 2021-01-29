@@ -1,12 +1,12 @@
 #ifndef END_my_m_MT_R_1PAO1PAWN_B_1PAWN
 #define END_my_m_MT_R_1PAO1PAWN_B_1PAWN
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h" 
-#include "..\\..\\endgame\mat.h"
+#include "../../chess.h"
+#include "../../preGen.h" 
+#include "../../endgame/mat.h"
 #include "1炮1兵对1兵.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 //const int absPPscore[10] =  {104,96,80,72,64,56,48,32,24,8};
 //const int PaoXsamePawn   =   32;

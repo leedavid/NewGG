@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_1pao2ma4pawn_B_2pao1ma2pawn 
 #define END_my_m_MT_R_1pao2ma4pawn_B_2pao1ma2pawn 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 #include "1炮2马4兵对2炮1马2兵.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 #pragma warning(disable : 4100) 

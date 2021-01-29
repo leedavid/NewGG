@@ -1,8 +1,8 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
 //马兵对马兵
 void m_MT_1MA1PAWN_1MA1PAWN(typePOS &POSITION, EvalInfo &ei){

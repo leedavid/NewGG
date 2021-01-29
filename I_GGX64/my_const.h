@@ -53,8 +53,8 @@ static const uint8 _KingSide[90] = {
 };
 
 
-#include "endgame\\残局加分_0车.h"
-#include "endgame\\残局加分_1车.h"
-#include "endgame\\残局加分_2车.h"
+#include "endgame/残局加分_0车.h"
+#include "endgame/残局加分_1车.h"
+#include "endgame/残局加分_2车.h"
 
 #endif

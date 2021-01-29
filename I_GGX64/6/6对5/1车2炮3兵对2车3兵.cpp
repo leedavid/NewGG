@@ -1,13 +1,13 @@
 #ifndef ENDR_1che2pao3pawn_B_2che3pawn
 #define ENDR_1che2pao3pawn_B_2che3pawn
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 #include "1车2炮3兵对2车3兵.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 

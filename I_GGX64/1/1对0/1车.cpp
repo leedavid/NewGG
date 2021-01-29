@@ -1,12 +1,12 @@
 #ifndef Emy_m_MT_R_1CHE
 #define Emy_m_MT_R_1CHE
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
 #include "1车.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif  
 
 //红方一车

@@ -1,11 +1,11 @@
 #ifndef Emy_m_MT_R_1MA
 #define Emy_m_MT_R_1MA
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h" 
+#include "../../chess.h"
+#include "../../preGen.h" 
 #include "1马.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif  
 
 //红方一个马

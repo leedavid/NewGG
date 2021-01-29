@@ -73,10 +73,14 @@ enum REPEAT_INFO {
 
 
 #ifndef NDEBUG
+#if defined(_WIN32) || defined(_WIN64)
 #define ASSERT(_Expression) (void)( (!!(_Expression)) || ((_CRT_WIDE(#_Expression), _CRT_WIDE(__FILE__), __LINE__), 0) )
-#else
+#else /* defined(_WIN32) || defined(_WIN64) */
+#define ASSERT(_Expression) (void)( (!!(_Expression)) || ((#_Expression, __FILE__, __LINE__), 0) )
+#endif /* defined(_WIN32) || defined(_WIN64) */
+#else /* !NDEBUG */
 #define ASSERT(_Expression)
-#endif
+#endif /* !NDEBUG */
 
 #define typePOS Position
 

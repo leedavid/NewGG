@@ -1,13 +1,13 @@
 
 #ifndef END_my_m_MT_R_1PAO_B_1MA
 #define END_my_m_MT_R_1PAO_B_1MA
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
 #include "1炮对1马.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 //红方一个炮, 黑方一个马 //一马和炮双士 
 void my_m_MT_R_1PAO_B_1MA(typePOS &POSITION, EvalInfo &ei){

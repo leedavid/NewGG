@@ -1,8 +1,8 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 
 //车炮对车炮
 void m_MT_1che1pao_1che1pao(typePOS &POSITION, EvalInfo &ei){

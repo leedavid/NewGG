@@ -1,13 +1,13 @@
 #ifndef END_my_m_MT_R_2CHE_B_1CHE1MA
 #define END_my_m_MT_R_2CHE_B_1CHE1MA
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
  
-#include "..\\..\\endgame\mat.h"
+#include "../../endgame/mat.h"
 #include "2车对1车1马.cpp"
-#include "..\\..\\white.h"
+#include "../../white.h"
 #else
-#include "..\\..\\black.h"
+#include "../../black.h"
 #endif 
 
 //双车方加分

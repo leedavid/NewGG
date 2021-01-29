@@ -1,6 +1,8 @@
 #ifndef MY_BITBOARD_H_INCLUDED
 #define MY_BITBOARD_H_INCLUDED
 
+#include "platform.h"
+#include "bitop.h"
 #include "chess.h"
 
 

@@ -127,8 +127,8 @@ const static uint32 _B_PaoInfo[90] = {
 //#define EV_STAT_B_right_TieMen_By_R        (1 << 5)
 
 
-#include "endgame\\残局加分_0车.h"
-#include "endgame\\残局加分_1车.h"
-#include "endgame\\残局加分_2车.h"
+#include "endgame/残局加分_0车.h"
+#include "endgame/残局加分_1车.h"
+#include "endgame/残局加分_2车.h"
 
 #endif

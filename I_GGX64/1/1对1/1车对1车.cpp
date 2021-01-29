@@ -1,6 +1,6 @@
 
-#include "..\\..\\chess.h"
-#include "..\\..\\preGen.h"
+#include "../../chess.h"
+#include "../../preGen.h"
 //
 //能不能和，怎样胜
 #pragma warning(disable : 4100)                    // unreferenced formal parameter  
