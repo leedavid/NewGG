@@ -355,7 +355,7 @@ inline bool Position::capture(Move m) const {
 
 
 inline bool Position::square_is_empty(Square s) const {
-	return b90[s] == EMPTY;
+	return b90[s] == NO_PIECE;
 }
 
 inline premat_t* Position::pMatinfo() const {

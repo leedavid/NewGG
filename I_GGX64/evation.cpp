@@ -168,13 +168,13 @@ namespace Eval {
 			- evaluate_pieces_no_include_king_first<BLACK>(pos, ei);
 
 		// white
-		ei.attackedBy[EMPTY] = m_or(RpawnShiXiang,
+		ei.attackedBy[NO_PIECE] = m_or(RpawnShiXiang,
 			m_or(ei.attacked_by(RCHE),
 			m_or(ei.attacked_by(RMA),
 			ei.attacked_by(RPAO))));
 
 		// 棋子保护自己的棋子的得分，加强联系。
-		Bitboard A = m_and(ei.attackedBy[EMPTY], pos.pieces_of_color(WHITE)); // 这个不能有炮，马，车，将
+		Bitboard A = m_and(ei.attackedBy[NO_PIECE], pos.pieces_of_color(WHITE)); // 这个不能有炮，马，车，将
 		Square t;
 		while (pop_1st_bit_sq(A, t)) {
 			bonus += Chess_Protect_Us_Score[pos.piece_on(t)];

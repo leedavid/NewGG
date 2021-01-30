@@ -784,7 +784,7 @@ void Position::do_move(Move m, StateInfo& newSt, bool moveIsCheck, CheckInfo& ci
 	//prefetch((char*)TT.first_entry(k));
 
 	b90[to] = piece;
-	b90[from] = EMPTY;
+	b90[from] = NO_PIECE;
 
 	// pieceList
 	pieceList[piece][index[from]] = to;
@@ -865,7 +865,7 @@ void Position::do_move(Move m, StateInfo& newSt, bool moveIsCheck, CheckInfo& ci
 		}
 		//////////////////////////////////////////////////////////////////////////	
 		// 还要加入炮吃子将的情况
-		if (type_of(piece) == PAO && capture != EMPTY
+		if (type_of(piece) == PAO && capture != NO_PIECE
 			&& bit_is_set(ChePseudoMask_FR[ci.ksq], from)){ // 走的棋子原来在对方的将十字上.			
 			st->checkersBB = m_or(st->checkersBB,           // 2. 是炮抽将
 				m_and(Pao_Eat_bb(ci.ksq),
@@ -909,7 +909,7 @@ void Position::undo_move(Move m) {
 
 
 	b90[from] = piece;
-	b90[to] = EMPTY;
+	b90[to] = NO_PIECE;
 
 	// bitboard clear_bit(byChessBB[COLOR_BY_SIDE_ADD[us]],from);           // di == from
 	set_bit(byChessBB[COLOR_BY_SIDE_ADD[us]], from);

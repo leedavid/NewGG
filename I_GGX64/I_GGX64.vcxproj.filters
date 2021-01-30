@@ -270,6 +270,27 @@
     <Filter Include="book">
       <UniqueIdentifier>{afb5c418-87bf-48d4-a296-debb2c011508}</UniqueIdentifier>
     </Filter>
+    <Filter Include="syzygy">
+      <UniqueIdentifier>{b3a40962-0aed-4835-b767-9fb92999a539}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nnue">
+      <UniqueIdentifier>{e77c1ffe-3c8a-49fd-9117-79646270b63f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="incbin">
+      <UniqueIdentifier>{e4277ba4-11a9-417a-9525-3683151b5a5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nnue\architectures">
+      <UniqueIdentifier>{3323cf10-1b53-459d-9cad-2d64f86dfe5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nnue\features">
+      <UniqueIdentifier>{b236a799-21b3-4aa0-bd88-6ea070db4a40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nnue\layers">
+      <UniqueIdentifier>{a3791b84-e5ad-442d-9597-eda74eb9aded}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tune">
+      <UniqueIdentifier>{cac8d859-504e-4c94-9fc8-f50e6fd3f260}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="0\MT_NONE.cpp">
@@ -4394,9 +4415,6 @@
     <ClCompile Include="notation.cpp">
       <Filter>Search\UCI</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Search\UCI</Filter>
-    </ClCompile>
     <ClCompile Include="benchmark.cpp">
       <Filter>Search\UCI</Filter>
     </ClCompile>
@@ -4583,6 +4601,16 @@
     <ClCompile Include="platform.cpp">
       <Filter>preGen</Filter>
     </ClCompile>
+    <ClCompile Include="syzygy\tbprobe.cpp">
+      <Filter>syzygy</Filter>
+    </ClCompile>
+    <ClCompile Include="nnue\features\half_kp.cpp">
+      <Filter>nnue\features</Filter>
+    </ClCompile>
+    <ClCompile Include="tune.cpp">
+      <Filter>tune</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="endgame\残局加分_0车.h">
@@ -5033,10 +5061,49 @@
     <ClInclude Include="chess.h">
       <Filter>Search\Draw_Repeat\Resource Files\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="chess.h">
+      <Filter>Search\Draw_Repeat\Resource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="incbin\incbin.h">
+      <Filter>incbin</Filter>
+    </ClInclude>
+    <ClInclude Include="syzygy\tbprobe.h">
+      <Filter>syzygy</Filter>
+    </ClInclude>
+    <ClInclude Include="nnue\architectures\halfkp_256x2-32-32.h">
+      <Filter>nnue\architectures</Filter>
+    </ClInclude>
+    <ClInclude Include="nnue\features\feature_set.h">
+      <Filter>nnue\features</Filter>
+    </ClInclude>
+    <ClInclude Include="nnue\features\features_common.h">
+      <Filter>nnue\features</Filter>
+    </ClInclude>
+    <ClInclude Include="nnue\features\half_kp.h">
+      <Filter>nnue\features</Filter>
+    </ClInclude>
+    <ClInclude Include="nnue\features\index_list.h">
+      <Filter>nnue\features</Filter>
+    </ClInclude>
+    <ClInclude Include="nnue\layers\affine_transform.h">
+      <Filter>nnue\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="nnue\layers\clipped_relu.h">
+      <Filter>nnue\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="nnue\layers\input_slice.h">
+      <Filter>nnue\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="tune.h">
+      <Filter>tune</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="GGicon.ico">
       <Filter>Search\Draw_Repeat\Resource Files</Filter>
+    </None>
+    <None Include="incbin\UNLICENCE">
+      <Filter>incbin</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

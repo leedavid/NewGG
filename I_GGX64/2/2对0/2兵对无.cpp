@@ -384,11 +384,11 @@ void my_m_MT_R_2PAWN(typePOS &POSITION, EvalInfo &ei){
 			RETRUN_MUL(2);
 		}
 
-		if (yk == MY_SQ03 && PB90(MY_SQ15) == EMPTY){
+		if (yk == MY_SQ03 && PB90(MY_SQ15) == NO_PIECE){
 			RETRUN_MUL(2);
 		}
 		// fen 2bk1a3/2P2P3/5a3/9/6b2/2B6/9/3AB4/4A4/4K4 w - - 0 1
-		if (yk == MY_SQ05 && PB90(MY_SQ17) == EMPTY){
+		if (yk == MY_SQ05 && PB90(MY_SQ17) == NO_PIECE){
 			RETRUN_MUL(2);
 		}
 

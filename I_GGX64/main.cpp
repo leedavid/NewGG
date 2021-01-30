@@ -9,8 +9,7 @@
 #include "thread.h"
 #include "tt.h"
 #include "uci.h"
-#include "VMP.h"
-#include "open_book.h"
+#include "syzygy/tbprobe.h"
 
 
 
@@ -18,83 +17,29 @@
 
 using namespace std;
 
-extern void initTOTAL();
-////
-//// Functions
-////
-
-#ifdef  USE_LOG_FILE
-
-BOOL Open_Log_File(void){
-
-	errno_t err;
-	int   log_id;
-	TCHAR log_filename[1024];
-
-	for(log_id = 1; log_id < 900; log_id++){
-		swprintf_s(log_filename,sizeof(log_filename)/sizeof(TCHAR), L"%slog%03d.txt", log_path, log_id);
-		if((err = _wfopen_s(&llog_file, log_filename,L"r")) != 0){
-			break;
-		}
-		fclose(llog_file);
-	}
-	err = _wfopen_s(&llog_file, log_filename, L"w");
-
-	return err==0;
-}
-
-#endif
-
 
 int main(int argc, char *argv[]) {
 
-#ifdef _MSC_VER 
-	// Disable output buffering: printf() does not work correctly otherwise
-	//setvbuf(stdout, NULL, _IONBF, 0);
+	std::cout << engine_info() << std::endl;
 
-#include <stdio.h>
-#include <stdlib.h>
-	TCHAR * filepart;
+	CommandLine::init(argc, argv);
 
-#ifdef USE_USE_VP_PROTECT_BY_GG
-	if(SearchPath(NULL,(L"NewGG.exe"),NULL,MAX_PATH, installDir, &filepart)){
-		*filepart = 0;
-	}
-	else{
-		GetCurrentDirectory(MAX_PATH, (installDir));			//得到软件运行目录
-	}
-#else
-	if(SearchPath(NULL,(L"NewGG.exe"),NULL,MAX_PATH, installDir, &filepart)){
-		*filepart = 0;
-	}
-	else{
-		GetCurrentDirectory(MAX_PATH, (installDir));			//得到软件运行目录
-	}
-#endif
+	frist_init();  // Bitboards::init();
 
 
-#ifdef  USE_LOG_FILE
-	swprintf_s(log_path, MAX_PATH, L"%s\\log\\", installDir);
-	CreateDirectory(log_path,NULL);
-	Open_Log_File();
-#endif
-#else /* _MSC_VER */
-#endif /* _MSC_VER */
+	UCI::init(Options);
 
-	// 将当前线程的优先级降一下
-	//HANDLE hProcess = GetCurrentProcess();
-	//SetPriorityClass(hProcess, IDLE_PRIORITY_CLASS);  //BELOW_NORMAL_PRIORITY_CLASS  IDLE_PRIORITY_CLASS
+	Position::init();
+	Eval::init();
 
-	// Initialization through global resources manager
-	initTOTAL();  
-
-#ifdef USE_OPENBOOK
-	BD_initEnv(MST);
-#endif
+	Search::init();
+	Threads.set(size_t(Options["Threads"]));
+	Search::clear(); // After threads are up
+	Eval::NNUE::init();
 
 	UCI::loop(argc, argv);
 
-	Threads.exit();
+	Threads.set(0);
 	return 0;
 }
 

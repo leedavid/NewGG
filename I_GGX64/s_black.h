@@ -25,9 +25,9 @@
 #define EV_YOUR_CAN  ei.rcan
 #define EV_MY_SAFE   ei.bsafe
 #define EV_YOUR_SAFE ei.rsafe
-//static const  Piece COLOR_BY_SIDE_ADD[2] = { EMPTY, _X_X }; 
+
 #define MY_ATTACK      ei.attackedBy[_X_X]
-#define YOUR_ATTACK    ei.attackedBy[EMPTY]
+#define YOUR_ATTACK    ei.attackedBy[NO_PIECE]
 
 #define MY_SAFE_BIT      ei.SafeBit[BLACK]
 #define YOUR_SAFE_BIT    ei.SafeBit[WHITE]

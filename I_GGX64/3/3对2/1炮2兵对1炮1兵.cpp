@@ -156,7 +156,7 @@ void my_m_MT_R_1pao2pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 	if(your_shi_num == 2 && your_xiang_num >= 1 && PB90(MY_SQ04) == your_king){
 		if(IsOnSameSide(mpawn1,mpawn2) && StoY(mpawn1) MY_SMALL_EQL MY_RANK1
 			&& StoY(mpawn2) MY_SMALL_EQL MY_RANK1 && !IsOnSameSide(mpawn1,ypao)){
-            if(PB90(MY_SQ0D) == EMPTY && PB90(MY_SQ16) == EMPTY && StoY(ypao) == MY_RANK1){
+            if(PB90(MY_SQ0D) == NO_PIECE && PB90(MY_SQ16) == NO_PIECE && StoY(ypao) == MY_RANK1){
 				if(PB90(MY_SQ42) == my_king && PB90(MY_SQ4A) == your_pawn && PB90(MY_SQ15) == your_shi){
 					if(StoX(ypao) < 0X4){
 						RETRUN_MUL(2);
@@ -189,12 +189,12 @@ void my_m_MT_R_1pao2pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 		if((your_shi_num + your_xiang_num) >= 3){
 			Bitboard mp = m_and(bb_my_pawn,RankBB_A[MY_RANK2]);
 			if(count_1s(mp) == 2 && StoY(ypao) == MY_RANK2){
-				if(!have_bit(mp,RightBB[0x3]) && PB90(MY_SQ05) == EMPTY){
+				if(!have_bit(mp,RightBB[0x3]) && PB90(MY_SQ05) == NO_PIECE){
 					if(StoX(ypao) >= 0x5){
 						RETRUN_MUL(4);
 					}
 				}
-				if(!have_bit(mp,LeftBB[0x5]) && PB90(MY_SQ03) == EMPTY){
+				if(!have_bit(mp,LeftBB[0x5]) && PB90(MY_SQ03) == NO_PIECE){
 					if(StoX(ypao) <= 0x3){
 						RETRUN_MUL(4);
 					}
@@ -205,12 +205,12 @@ void my_m_MT_R_1pao2pawn_B_1pao1pawn(typePOS &POSITION, EvalInfo &ei){
 		if(your_shi_num == 2){
 			if(have_bit(bb_my_pawn,RankBB_A[MY_RANK0])){ // 有一个底兵
 				Bitboard mp = m_and(bb_my_pawn,MyUpBB[MY_RANK2]);
-				if(!have_bit(mp,RightBB[0x3]) && PB90(MY_SQ05) == EMPTY){
+				if(!have_bit(mp,RightBB[0x3]) && PB90(MY_SQ05) == NO_PIECE){
 					if(StoX(ypao) >= 0x5 && StoX(yk) == 0x5 && StoY(yk) != MY_RANK0){
 						RETRUN_MUL(4);
 					}
 				}
-				if(!have_bit(mp,LeftBB[0x5]) && PB90(MY_SQ03) == EMPTY){
+				if(!have_bit(mp,LeftBB[0x5]) && PB90(MY_SQ03) == NO_PIECE){
 					if(StoX(ypao) <= 0x3 && StoX(yk) == 0x3 && StoY(yk) != MY_RANK0){
 						RETRUN_MUL(4);
 					}

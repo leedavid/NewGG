@@ -12,7 +12,7 @@
 
 #include "movegen.h"
 
-#define SERIALIZE_MOVES(from,to)  (*mlist++).move = make_move(from, to);
+#define SERIALIZE_MOVES(from,to)  (*mlist++).move = make_move(Square(from), Square(to));
 
 
 // Explicit template instantiations
@@ -430,7 +430,7 @@ ExtMove* MyEvasion  (typePOS &POSITION, ExtMove* mlist)
 	btmp = _mm_andnot_si128(MyOccupied,btmp);
 	Square to;
 	while (pop_1st_bit_sq(btmp, to)) {
-		Square from = my_pawn_add_9(to);
+		Square from = Square(my_pawn_add_9(to));
 		if(bit_is_set(paoJia_BB,from)){           // 这个棋子是炮架, 要检查所有的棋格
 			if(!bit_is_set(PaoJia_CannotEva,to)){
 				if(myIsLegalEvasionMove(POSITION,from,to)){

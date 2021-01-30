@@ -25,7 +25,7 @@
 #define BKpos()   POSITION.piece_list(BKING,0) 
 #define bb_white_king 	POSITION.pieces(RKING) 
 #define bb_black_king	 	POSITION.pieces(BKING) 
-#define bitboard_occ_white  	POSITION.pieces(EMPTY)  
+#define bitboard_occ_white  	POSITION.pieces(NO_PIECE)  
 #define bitboard_occ_black  	POSITION.pieces(_X_X)  
 #define bb_white_shi 		POSITION.pieces(RSHI) 
 #define bb_black_shi 		POSITION.pieces(BSHI) 

@@ -1,10 +1,11 @@
 #include <cstring>
+#include "evaluate.h"
 #include "movegen.h"
 
-extern void read_uci_set_file();
+//extern void read_uci_set_file();
 //extern int get_cyclone_sub_depth(int depth);
-extern bool is_registered();
-extern void print_eval_info(Position& pos, const EvalInfo& ei, const Value val);
+//extern bool is_registered();
+//extern void print_eval_info(Position& pos, const EvalInfo& ei, const Value val);
 
 extern char piece_to_char(Piece pc);
 extern Piece piece_from_char(char c);

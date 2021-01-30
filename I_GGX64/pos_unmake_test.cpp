@@ -28,7 +28,7 @@ void Position::move_do_test(Move m, Piece* capture){
 	*capture       = b90[to];     // 保存刚才吃的子.
 
 	ASSERT(sideToMove == color_of(piece));
-	ASSERT(piece != EMPTY);
+	ASSERT(piece != NO_PIECE);
 
 	sideToMove = color_of(piece);
 
@@ -68,7 +68,7 @@ void Position::move_do_test(Move m, Piece* capture){
 	}
 
 	b90[to]    = piece;
-	b90[from]  = EMPTY;
+	b90[from]  = NO_PIECE;
 
 	// pieceList
 	pieceList[piece][index[from]] = to;
@@ -94,7 +94,7 @@ void Position:: move_undo_test(Move m, Piece capture){
 	ASSERT(color_of(b90[to]) == us);
 
 	b90[from] = piece;
-	b90[to]   = EMPTY;
+	b90[to]   = NO_PIECE;
 
 	
 	set_bit(byChessBB[COLOR_BY_SIDE_ADD[us]],from);

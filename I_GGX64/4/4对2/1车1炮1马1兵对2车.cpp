@@ -87,7 +87,7 @@ void my_m_MT_R_1che1pao1ma1pawn_B_2che(typePOS &POSITION, EvalInfo &ei){
 			}
 			if(sq != SQ_END90 ){
 				Bitboard rook = POSITION.Rook_attacks_bb(sq);
-				if(PB90(sq) != EMPTY){
+				if(PB90(sq) != NO_PIECE){
 					EV_MY_SAFE = TRUE;
 				}
 				if(m_have_bit(m_and(rook,

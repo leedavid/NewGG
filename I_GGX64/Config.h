@@ -10,7 +10,7 @@
 
 
 #define SMG(mg,eg)     Score(((mg)<< 16)+(eg)) 
-static const  Piece COLOR_BY_SIDE_ADD[2] = { EMPTY, _X_X };
+static const  Piece COLOR_BY_SIDE_ADD[2] = { NO_PIECE, _X_X };
 
 typedef struct {
 	sint16 a[6][6][3][3][3][3][3][3];  // BY LGL 20131124

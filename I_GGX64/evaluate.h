@@ -3,8 +3,36 @@
 
 #include "eval_const.h"
 #include "pawns.h"
-#include "VMP.h"
+#include "types.h"
+
+
 class Position;
+
+
+namespace Eval {
+
+	std::string trace(const Position& pos);
+	Value evaluate(const Position& pos);
+
+	extern bool useNNUE;
+	extern std::string eval_file_loaded;
+
+	// The default net name MUST follow the format nn-[SHA256 first 12 digits].nnue
+	// for the build process (profile-build and fishtest) to work. Do not change the
+	// name of the macro, as it is used in the Makefile.
+#define EvalFileDefaultName   "nn-62ef826d1a6d.nnue"
+
+	namespace NNUE {
+
+		Value evaluate(const Position& pos);
+		bool load_eval(std::string name, std::istream& stream);
+		void init();
+		void verify();
+
+	} // namespace NNUE
+
+} // namespace Eval
+
 
 struct EvalInfo {
 
@@ -40,12 +68,12 @@ extern Score WeightKingSafety[2];
 
 //////////////////////////////////////////////////////////////////////////
 /// point(opening,endgame) (((opening) << 16) + (endgame))
-static const  Score LackXiangAttackByCheMaPoint[] = {
-	Score(((0) << 0) + (0)), Score(((24) << 16) + (64)), Score(((32) << 16) + (80))
-};
+//static const  Score LackXiangAttackByCheMaPoint[] = {
+//	Score(((0) << 0) + (0)), Score(((24) << 16) + (64)), Score(((32) << 16) + (80))
+//};
 //////////////////////////////////////////////////////////////////////////
 // 如果有兵，还要加分
-static const  Score LackXiangAttackByCheMaPawnPoint =  Score(((16) << 16) + (48));
+//static const  Score LackXiangAttackByCheMaPawnPoint =  Score(((16) << 16) + (48));
 
 
 extern void eval_white_pawn_can(Position& pos, EvalInfo& ei);
@@ -130,14 +158,18 @@ extern Score eval_king_safe(Position& pos, EvalInfo& ei, Value& margin);
 extern Score eval_men_gong_threat(Position& pos, EvalInfo& ei);
 
 
-namespace Eval {
 
-const Value Tempo = Value(17); // Must be visible to search
 
-void init();
-Value evaluate(Position& pos);
-Value do_evaluate(Position& pos);
-}
+//const Value Tempo = Value(17); // Must be visible to search
+
+//void init();
+//Value evaluate(Position& pos);
+//Value do_evaluate(Position& pos);
+
+
+
+
+//} // namespace Eval
 
 
 

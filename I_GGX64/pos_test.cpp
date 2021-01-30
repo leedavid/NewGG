@@ -26,7 +26,7 @@ using std::string;
 /// 红黑双交换一下, 主要是用来调试用的. 
 
 static const  Piece r2b_chess[16] = {
-	EMPTY,  //这个不用了
+	NO_PIECE,  //这个不用了
 	BKING,BSHI,BXIANG,BMA,BCHE,BPAO,BPAWN,
 	_X_X,		
 	RKING,RSHI,RXIANG,RMA,RCHE,RPAO,RPAWN,

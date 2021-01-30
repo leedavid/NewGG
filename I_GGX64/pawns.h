@@ -28,13 +28,13 @@
 
 //const int PawnTableSize = 16384*2;
 
-template<class Entry, int Size>
-struct HashTable {
-	Entry* operator[](Key key) { return &table[(uint32_t)key & (Size - 1)]; }
+//template<class Entry, int Size>
+//struct HashTable {
+//	Entry* operator[](Key key) { return &table[(uint32_t)key & (Size - 1)]; }
 
-private:
-	std::vector<Entry> table = std::vector<Entry>(Size);
-};
+//private:
+//	std::vector<Entry> table = std::vector<Entry>(Size);
+//};
 
 namespace Pawns {
 

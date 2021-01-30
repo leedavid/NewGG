@@ -96,97 +96,81 @@ static char* benchcomd[] = {
 
 #define PERFT_DEPTH 5
 
-/// benchmark() runs a simple benchmark by letting Stockfish analyze a set
-/// of positions for a given limit each. There are five parameters: the
-/// transposition table size, the number of search threads that should
-/// be used, the limit value spent for each position (optional, default is
-/// depth 13), an optional file name where to look for positions in FEN
-/// format (defaults are the positions defined above) and the type of the
-/// limit value: depth (default), time in millisecs or number of nodes.
+/// setup_bench() builds a list of UCI commands to be run by bench. There
+/// are five parameters: TT size in MB, number of search threads that
+/// should be used, the limit value spent for each position, a file name
+/// where to look for positions in FEN format, the type of the limit:
+/// depth, perft, nodes and movetime (in millisecs), and evaluation type
+/// mixed (default), classical, NNUE.
+///
+/// bench -> search default positions up to depth 13
+/// bench 64 1 15 -> search default positions up to depth 15 (TT = 64MB)
+/// bench 64 4 5000 current movetime -> search current position with 4 threads for 5 sec
+/// bench 64 1 100000 default nodes -> search default positions for 100K nodes each
+/// bench 16 1 5 default perft -> run a perft 5 on default positions
 
-void benchmark(const Position& current, istream& is) {
+vector<string> setup_bench(const Position& current, istream& is) {
 
-	string token;
-	vector<string> fens;
-	Search::LimitsType limits;
+    vector<string> fens, list;
+    string go, token;
 
-	// Assign default values to missing arguments
-	string ttSize = (is >> token) ? token : "256";
-	string threads = (is >> token) ? token : "4";
-	string limit = (is >> token) ? token : "20";
-	string fenFile = (is >> token) ? token : "default";
-	string limitType = (is >> token) ? token : "depth";
+    // Assign default values to missing arguments
+    string ttSize = (is >> token) ? token : "16";
+    string threads = (is >> token) ? token : "1";
+    string limit = (is >> token) ? token : "13";
+    string fenFile = (is >> token) ? token : "default";
+    string limitType = (is >> token) ? token : "depth";
+    string evalType = (is >> token) ? token : "mixed";
 
-	Options["Hash"] = ttSize;
-	Options["Threads"] = threads;
-	Search::clear();
+    go = limitType == "eval" ? "eval" : "go " + limitType + " " + limit;
 
-	if (limitType == "time")
-		limits.movetime = stoi(limit); // movetime is in millisecs
+    if (fenFile == "default")
+        fens = Defaults;
 
-	else if (limitType == "nodes")
-		limits.nodes = stoi(limit);
+    else if (fenFile == "current")
+        fens.push_back(current.fen());
 
-	else if (limitType == "mate")
-		limits.mate = stoi(limit);
+    else
+    {
+        string fen;
+        ifstream file(fenFile);
 
-	else
-		limits.depth = stoi(limit);
+        if (!file.is_open())
+        {
+            cerr << "Unable to open file " << fenFile << endl;
+            exit(EXIT_FAILURE);
+        }
 
-	if (fenFile == "default")
-		fens = Defaults;
+        while (getline(file, fen))
+            if (!fen.empty())
+                fens.push_back(fen);
 
-	else if (fenFile == "current")
-		fens.push_back(current.fen());
+        file.close();
+    }
 
-	else
-	{
-		string fen;
-		ifstream file(fenFile);
+    list.emplace_back("setoption name Threads value " + threads);
+    list.emplace_back("setoption name Hash value " + ttSize);
+    list.emplace_back("ucinewgame");
 
-		if (!file.is_open())
-		{
-			cerr << "Unable to open file " << fenFile << endl;
-			return;
-		}
+    size_t posCounter = 0;
 
-		while (getline(file, fen))
-			if (!fen.empty())
-				fens.push_back(fen);
+    for (const string& fen : fens)
+        if (fen.find("setoption") != string::npos)
+            list.emplace_back(fen);
+        else
+        {
+            if (evalType == "classical" || (evalType == "mixed" && posCounter % 2 == 0))
+                list.emplace_back("setoption name Use NNUE value false");
+            else if (evalType == "NNUE" || (evalType == "mixed" && posCounter % 2 != 0))
+                list.emplace_back("setoption name Use NNUE value true");
+            list.emplace_back("position fen " + fen);
+            list.emplace_back(go);
+            ++posCounter;
+        }
 
-		file.close();
-	}
+    list.emplace_back("setoption name Use NNUE value true");
 
-	uint64_t nodes = 0;
-	TimePoint elapsed = now();
-	Position pos;
-
-	for (size_t i = 0; i < fens.size(); i++)
-	{
-		StateListPtr states(new std::deque<StateInfo>(1));
-		pos.set(fens[i], &states->back(), Threads.main());
-
-		cerr << "\nPosition: " << i + 1 << '/' << fens.size() << endl;
-
-		if (limitType == "perft")
-			nodes += Search::perft(pos, limits.depth * ONE_PLY);
-		else
-		{
-			limits.startTime = now();
-			Threads.start_thinking(pos, states, limits);
-			Threads.main()->wait_for_search_finished();
-			nodes += Threads.nodes_searched();
-		}
-	}
-
-	elapsed = now() - elapsed + 1;  // Avoid a 'divide by zero'
-
-	dbg_print(); // Just before to exit
-
-	cerr << "\n==========================="
-		<< "\nTotal time (ms) : " << elapsed
-		<< "\nNodes searched  : " << nodes
-		<< "\nNodes/second    : " << 1000 * nodes / elapsed << endl;
+    return list;
 }
 
 

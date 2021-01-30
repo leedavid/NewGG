@@ -25,7 +25,7 @@
 #define EV_MY_SAFE   ei.rsafe
 #define EV_YOUR_SAFE ei.bsafe
 
-#define MY_ATTACK      ei.attackedBy[EMPTY]
+#define MY_ATTACK      ei.attackedBy[NO_PIECE]
 #define YOUR_ATTACK    ei.attackedBy[_X_X]
 
 #define MY_SAFE_BIT      ei.SafeBit[WHITE]

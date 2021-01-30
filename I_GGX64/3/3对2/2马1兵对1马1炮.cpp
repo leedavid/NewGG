@@ -37,7 +37,7 @@ void my_m_MT_R_2ma1pawn_B_1ma1pao(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 3a1k3/4a4/4b4/c4P3/6b2/2N6/9/B2A5/1N7/1n2K4 b - - 0 1
 	if (StoY(yma) == MY_RANK9) {
-		if (PB90(yma MY_SUB 9) != EMPTY) {
+		if (PB90(yma MY_SUB 9) != NO_PIECE) {
 			MY_EV_ADD(64);
 		}
 	}

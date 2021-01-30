@@ -44,7 +44,7 @@ void my_m_MT_R_1pao2pawn_B_2pao(typePOS &POSITION, EvalInfo &ei){
 			p = mpawn2;
 		}
 		if(p != SQ_END90 ){
-			p = p MY_SUB 9;
+			p = Square(p MY_SUB 9);
 			Bitboard peat = POSITION.Pao_Eat_bb(p);
 			if(m_have_bit(m_and(peat,bb_your_pao))){
 				RETRUN_MUL(4);

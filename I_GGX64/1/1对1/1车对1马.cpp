@@ -225,10 +225,10 @@ void my_m_MT_R_1CHE_B_1MA(typePOS &POSITION, EvalInfo &ei){
 
 	// fen 3a5/4ak3/2R2n3/9/6b2/9/9/3A5/9/3A1KB2 b - - 0 1
 	if(your_shi_num == 2 && your_xiang_num >= 1 && StoY(yk) MY_SMALL_EQL MY_RANK1){
-		if(MY_SQ17 == yma && PB90(MY_SQ2A) == your_xiang && StoX(mche) <= 0x4 && PB90(MY_SQ05) == EMPTY){
+		if(MY_SQ17 == yma && PB90(MY_SQ2A) == your_xiang && StoX(mche) <= 0x4 && PB90(MY_SQ05) == NO_PIECE){
 			RETRUN_MUL(2);
 		}
-		if(MY_SQ15 == yma && PB90(MY_SQ26) == your_xiang && StoX(mche) >= 0x4 && PB90(MY_SQ03) == EMPTY){
+		if(MY_SQ15 == yma && PB90(MY_SQ26) == your_xiang && StoX(mche) >= 0x4 && PB90(MY_SQ03) == NO_PIECE){
 			RETRUN_MUL(2);
 		}
 	}
@@ -366,11 +366,11 @@ void my_m_MT_R_1CHE_B_1MA(typePOS &POSITION, EvalInfo &ei){
 	if(your_shi_num == 2 && your_xiang_num >= 1 && StoY(yk) == MY_RANK0){
 
 		if(MY_SQ2A == yma && PB90(MY_SQ06) == your_xiang 
-			&& PB90(MY_SQ03) == your_shi && PB90(MY_SQ17) == EMPTY){
+			&& PB90(MY_SQ03) == your_shi && PB90(MY_SQ17) == NO_PIECE){
 				RETRUN_MUL(4);
 		}
 		if(MY_SQ26 == yma && PB90(MY_SQ02) == your_xiang 
-			&& PB90(MY_SQ05) == your_shi && PB90(MY_SQ15) == EMPTY){
+			&& PB90(MY_SQ05) == your_shi && PB90(MY_SQ15) == NO_PIECE){
 				RETRUN_MUL(4);
 		}
 	}

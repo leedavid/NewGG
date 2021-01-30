@@ -1,6 +1,15 @@
 #include "eval_total.h"
 #pragma warning(disable : 4100) 
 //////////////////////////////////////////////////////////////////////////
+
+constexpr Score Only_1Che1PaoxPawn_Your_Ma_add[] = {
+	Score(((118) << 16) + (148)),              // 00
+	Score(((96) << 16) + (128)),              // 01
+	Score(((64) << 16) + (96)),               // 02
+	Score(((32) << 16) + (64)),               // 03
+	Score(((0) << 16) + (0))                 // 04
+};
+
 /// 过河兵的数量
 template<Color Us>
 int PawnOverRiver(Position& pos, EvalInfo& ei){

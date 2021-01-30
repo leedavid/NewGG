@@ -34,7 +34,7 @@ void my_m_MT_R_2ma1pawn_B_1ma1pawn(typePOS &POSITION, EvalInfo &ei){
 	// fen 1P3k3/4aN3/3a2n2/6N2/6b2/6B2/9/3A5/3p1K3/2BA5 b - - 0 1
 	if(your_shi_num == 2 && your_xiang_num >= 1 && StoY(mpawn) == MY_RANK0){
 		if(!IsOnSameSide(mpawn,yk)){
-			Square ykl = yk MY_ADD 0x9;
+			Square ykl = Square(yk MY_ADD 0x9);
 			if(PB90(ykl) == my_ma && StoY(ykl) MY_SMALL_EQL MY_RANK2){
 				if(StoY(yma) MY_SMALL_EQL MY_RANK4){
 				  RETRUN_MUL(4);

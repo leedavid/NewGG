@@ -82,13 +82,13 @@ void my_m_MT_R_3pawn(typePOS &POSITION, EvalInfo &ei){
 		if(StoY(yk) == MY_RANK0){
 			P = m_and(bb_my_pawn,MyUpBB[MY_RANK2]);
 			if(count_1s(P) == 3 && PB90(MY_SQ16) == your_xiang){
-				if(yk == MY_SQ03 && PB90(MY_SQ15) == EMPTY){
+				if(yk == MY_SQ03 && PB90(MY_SQ15) == NO_PIECE){
 					P = m_and(P,LeftBB[0x4]);
 					if(count_1s(P) == 2){
 						RETRUN_MUL(2);
 					}
 				}
-				if(yk == MY_SQ05 && PB90(MY_SQ17) == EMPTY){
+				if(yk == MY_SQ05 && PB90(MY_SQ17) == NO_PIECE){
 					P = m_and(P,RightBB[0x4]);
 					if(count_1s(P) == 2){
 						RETRUN_MUL(2);

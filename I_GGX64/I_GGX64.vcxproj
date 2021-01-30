@@ -399,6 +399,7 @@
     <ClCompile Include="8\8对5\2炮1马5兵对1车1马3兵.cpp" />
     <ClCompile Include="aes.cpp" />
     <ClCompile Include="Base64.cpp" />
+    <ClCompile Include="nnue\features\half_kp.cpp" />
     <ClCompile Include="notation.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="0\MT_MUST_DRAWW.cpp" />
@@ -1730,8 +1731,10 @@
     <ClCompile Include="open_book.cpp" />
     <ClCompile Include="pawns.cpp" />
     <ClCompile Include="platform.cpp" />
+    <ClCompile Include="syzygy\tbprobe.cpp" />
     <ClCompile Include="thread.cpp" />
     <ClCompile Include="timeman.cpp" />
+    <ClCompile Include="tune.cpp" />
     <ClCompile Include="Um128_find_mul.cpp" />
     <ClCompile Include="Umul128_bitboard.cpp" />
     <ClCompile Include="WMI_DeviceQuery.cpp" />
@@ -1770,7 +1773,16 @@
     <ClInclude Include="db.h" />
     <ClInclude Include="endgame\s_end_undefine_data.h" />
     <ClInclude Include="eval_total.h" />
+    <ClInclude Include="incbin\incbin.h" />
     <ClInclude Include="mersenne.h" />
+    <ClInclude Include="nnue\architectures\halfkp_256x2-32-32.h" />
+    <ClInclude Include="nnue\features\features_common.h" />
+    <ClInclude Include="nnue\features\feature_set.h" />
+    <ClInclude Include="nnue\features\half_kp.h" />
+    <ClInclude Include="nnue\features\index_list.h" />
+    <ClInclude Include="nnue\layers\affine_transform.h" />
+    <ClInclude Include="nnue\layers\clipped_relu.h" />
+    <ClInclude Include="nnue\layers\input_slice.h" />
     <ClInclude Include="notation.h" />
     <ClInclude Include="open_book.h" />
     <ClInclude Include="pawns.h" />
@@ -1784,6 +1796,7 @@
     <ClInclude Include="my_const.h" />
     <ClInclude Include="my_data.h" />
     <ClInclude Include="stock_fish_data.h" />
+    <ClInclude Include="syzygy\tbprobe.h" />
     <ClInclude Include="s_annul_define.h" />
     <ClInclude Include="s_black.h" />
     <ClInclude Include="define.h" />
@@ -1811,6 +1824,7 @@
     <ClCompile Include="ucioption.cpp" />
     <ClCompile Include="VMP.cpp" />
     <ClInclude Include="thread_win32.h" />
+    <ClInclude Include="tune.h" />
     <ClInclude Include="Umul128_bitboard.h" />
     <ClInclude Include="VMP.h" />
     <ClInclude Include="WMI_DeviceQuery.h" />
@@ -1882,6 +1896,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GGicon.ico" />
+    <None Include="incbin\UNLICENCE" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="IPP_GGX64.rc" />

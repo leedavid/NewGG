@@ -455,37 +455,6 @@ FORCE_INLINE bool pop_1st_bit_sq(Bitboard &b, Square &sq) {
 }
 
 
-//FORCE_INLINE bool pop_1st_bit_sq(Bitboard &b, Square &sq) {
-//
-//	if (_mm_testz_si128(b, b)) {
-//		return false;
-//	}
-//
-//	unsigned long index;
-//	if (_mm_extract_epi64(b, 0)) {
-//		__int64 a0 = _mm_extract_epi64(b, 0);
-//		_BitScanForward64(&index, a0);
-//
-//		a0 &= a0 - 1;
-//		b = _mm_insert_epi64(b, a0, 0);
-//
-//		sq = (Square)index;
-//		return true;
-//	}
-//	else if (_mm_extract_epi64(b, 1)) {
-//		__int64 a1 = _mm_extract_epi64(b, 1);
-//		_BitScanForward64(&index, a1);
-//
-//		a1 &= a1 - 1;
-//		b = _mm_insert_epi64(b, a1, 1);
-//
-//		index += 64;
-//		sq = (Square)index;
-//		return true;
-//	}
-//	return false;
-//}
-
 
 
 #endif
