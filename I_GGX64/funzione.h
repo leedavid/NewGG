@@ -66,7 +66,7 @@ extern void frist_init(void);
 
 //extern void init_PawnCanAddByChe(void);
 //extern void board_display(typePOS *, const std::string& reason);
-extern void print_bb(Bitboard bb);
+//extern void print_bb(Bitboard bb);
 
 extern int White_pawn_already_over_river(typePOS &POSITION);
 extern int Black_pawn_already_over_river(typePOS &POSITION);

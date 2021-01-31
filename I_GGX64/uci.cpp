@@ -241,6 +241,10 @@ void UCI::loop(int argc, char* argv[]) {
 		if (argc == 1 && !getline(cin, cmd)) // Block here waiting for input
 			cmd = "quit";
 
+		if (cmd.substr(0, 3) == "fen") {
+			cmd = "position " + cmd;
+		}
+
 		istringstream is(cmd);
 
 		token.clear(); // getline() could return empty or blank line
