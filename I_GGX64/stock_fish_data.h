@@ -24,7 +24,11 @@ static const uint64 XMM_ALIGN BpawnOverBB[2] =     { 0xffffe00000000000,0x000000
 
 static const uint64 XMM_ALIGN WHOLE_BITBOARD90[2] = {0xffffffffffffffff,0x03ffffff};       //所有90格棋子
 
+#ifdef __arm64__
+#define ALL_B90 m128_from_2u64(WHOLE_BITBOARD90[1], WHOLE_BITBOARD90[0])
+#else
 #define ALL_B90 _mm_load_si128((__m128i*)(WHOLE_BITBOARD90))
+#endif
 
 static const uint64 XMM_ALIGN TiMenBit_Pawn[2] = { 0x0000000000a0d844,0x0000000000886c14};
 

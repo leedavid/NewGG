@@ -293,6 +293,7 @@ bool Position::pos_is_ok(int* failedStep) {
 		for(Piece p = RKING; p <= BPAWN; p++){
 			if(p == EMPTY || p == _X_X) continue;
 			if(pieceCount[p] != (int)count_1s(pieces(p))){
+				std::cout << pieceCount[p] << " and " << count_1s(pieces(p)) << "mismatch" << std::endl;
 				return false;
 			}
 			//for(int i = 0; i < pos.piece_count(RPAO + delt); i++){

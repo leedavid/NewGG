@@ -70,6 +70,32 @@
 
  Bitboard BetweenBB[90][90];          // 二个在同一线上的棋子之间的位棋盘．不包括自己的信息.
 
+ // void print_bb(Bitboard bb){
+ // 	printf("%s\n", "=========");
+ // 	for (int row = 0; row < 10; row++)  {
+ // 		for (int col = 0; col < 9; col++) {
+ // 			int bit = row * 9 + col;
+ // 			uint64_t occupied;
+ // 			if (bit > 63) {
+ // 				occupied = (bb[1] >> (bit - 64)) & 1;
+ // 			} else {
+ // 				occupied = (bb[0] >> bit) & 1;
+ // 			}
+
+ // 			if (occupied) {
+ // 				printf("%s", "*");
+ // 			} else {
+ // 				printf("%s", "o");
+ // 			}
+ // 		}
+ // 		printf("%s\n", "");
+ // 		if (row == 4) {
+ // 			printf("%s\n", "---------");
+ // 		} 
+ // 	}
+ // 	printf("%s\n", "=========");
+ // }
+
 // const char BB_BDISPLAY_CHESS[3] = {"●"};
 
 //将位棋盘打印出来

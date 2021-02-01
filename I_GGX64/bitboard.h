@@ -228,7 +228,27 @@ extern uint64 XIANG_Mult[90];
 
 #endif
 
+#if __arm64__
+#define m128_from_2u64(data0,data1)  (vcombine_u64(vcreate_u64(data1), vcreate_u64(data0)))
 
+#define m_not(bb) vandq_u64(~bb, ALL_B90)
+
+#define m_xor(xmm1,xmm2) veorq_u64(xmm1, xmm2)
+
+#define m_and(xmm1,xmm2) vandq_u64(xmm1, xmm2)
+
+#define m_or(xmm1,xmm2)  vorrq_u64(xmm1, xmm2)
+
+
+#define BB_u64(bb,i) vgetq_lane_u64(bb, i)
+#define BB_i64(bb,i) vgetq_lane_s64(bb, i)
+
+#define set_mask_bb(s)    SetMaskBB[s]
+#define clear_mask_bb(s)  ClearMaskBB[s]
+
+
+#define M128_get_Or64(bb)        (BB_u64(bb, 1) | BB_u64(bb, 0))
+#else
 #define m128_from_2u64(bb,data0,data1)  (bb = _mm_set_epi64x(data0,data1))
 
 #define m_not(bb) _mm_andnot_si128(bb,ALL_B90)
@@ -248,6 +268,7 @@ extern uint64 XIANG_Mult[90];
 
 
 #define M128_get_Or64(bb)        (_mm_extract_epi64(bb,1) | _mm_extract_epi64(bb,0))
+#endif
 //////////////////////////////////////////////////////////////////////////
 #define transform_bbm(bb,magic64,bits)  ((M128_get_Or64(bb) * (magic64)) >> (bits))
 #define transform_mul(bb,magic64,bits)  ((M128_get_Or64(bb) * (magic64)) >> (64 - (bits)))
@@ -264,7 +285,16 @@ extern uint64 XIANG_Mult[90];
 #define transform_bba(bb,magic64,bits)  ((M128_get_Or64(bb) * (magic64)) >> (bits));
 #define get_transfrom_u64(bb,magic64)  (M128_get_Or64(bb) * (magic64))
 
+#ifdef __arm64__
+__inline int count_1s(Bitboard bb){
+	return (int) vaddvq_u8(vcntq_u8(bb));
+}
 
+__inline int count_1s(Bitboard b1, Bitboard b2){
+	Bitboard bb = m_and(b1, b2);
+	return (int) vaddvq_u8(vcntq_u8(bb));
+}
+#else
 __inline int count_1s(Bitboard bb){
 	return (_mm_popcnt_u64(_mm_extract_epi64(bb, 0)) + _mm_popcnt_u64(_mm_extract_epi64(bb, 1)));
 }
@@ -273,9 +303,117 @@ __inline int count_1s(Bitboard b1, Bitboard b2){
 	Bitboard bb = m_and(b1, b2);
 	return (_mm_popcnt_u64(_mm_extract_epi64(bb, 0)) + _mm_popcnt_u64(_mm_extract_epi64(bb, 1)));
 }
+#endif
 
 
 //__
+#ifdef __arm64__
+
+__inline uint64 m_have_bit(Bitboard bb) {
+	return (BB_u64(bb, 0) | BB_u64(bb, 1));
+}
+
+FORCE_INLINE bool m128_is_same(Bitboard &b1, Bitboard &b2) {
+	uint64x2_t cmp = vceqq_u64(b1, b2);
+	return (BB_u64(cmp, 0) == 0xFFFFFFFFFFFFFFFF) && (BB_u64(cmp, 1) == 0xFFFFFFFFFFFFFFFF);
+}
+
+__inline uint64 have_bit(Bitboard b1, Bitboard b2){
+	Bitboard bb = vandq_u64(b1, b2);
+	return (BB_u64(bb, 0) | BB_u64(bb, 1));
+}
+
+__inline uint64 bit_is_set(Bitboard bb, Square sq){
+	return ((BB_u64(bb, 0) & BB_u64(SetMaskBB[sq], 0)) | (BB_u64(bb, 1) & BB_u64(SetMaskBB[sq], 1)));
+}
+
+#define set_bit(bb,sq)     (bb = vorrq_u64(bb,SetMaskBB[sq]))
+#define clear_bit(bb,sq)   (bb = vandq_u64(bb,ClearMaskBB[sq]))
+
+FORCE_INLINE bool pop_1st_bit_sq(Bitboard &b, Square &sq) {
+
+	uint64x2_t board_empty_v = vceqzq_u64(b);
+	uint64_t board_empty = board_empty_v[0] & board_empty_v[1];
+
+	if (!!board_empty) {
+		return false;
+	}
+
+	uint64_t lo;
+	uint64_t hi;
+	unsigned long index;
+
+	lo = BB_u64(b, 0);
+
+	// Count leading zeros of the reverse of lo
+	index = __builtin_clzll(__builtin_arm_rbit64(lo)); 
+
+	if (index < 64) {
+		// First bit is in the bottom 64 bits
+		// Clear the bit to be popped
+		lo = lo & (lo - 1);
+		b[0] = lo;
+	} else {
+		hi = BB_u64(b, 1);
+		index = 64 + __builtin_clzll(__builtin_arm_rbit64(hi));
+
+		hi = hi & (hi - 1);
+		b[1] = hi;
+	}
+
+	sq = (Square) index;
+	return true;
+}
+
+FORCE_INLINE Square pop_1st_bit_sq(Bitboard &b) {
+	Square sq;
+
+	pop_1st_bit_sq(b, sq);
+
+	return sq;
+}
+
+#define m_Lsf(bb,count) {\
+	Bitboard sltmp; \
+	sltmp = vcombine_u64(vcreate_u64(0), vcreate_u64(vgetq_lane_u64(bb, 0)));\
+	sltmp = vshrq_n_u64(sltmp, 64-(count));\
+	bb   = vshlq_n_u64(bb,count);\
+	bb   = vorrq_u64(bb,sltmp);\
+}
+
+#define m_Rsf(bb,count) {\
+	Bitboard sltmp; \
+	sltmp = vcombine_u64(vcreate_u64(vgetq_lane_u64(bb, 1)), vcreate_u64(0));\
+	sltmp = vshlq_n_u64(sltmp,64-(count));\
+	bb   = vshrq_n_u64(bb,count);\
+	bb   = vorrq_u64(bb,sltmp);\
+}
+
+inline uint32 msb(uint64 b) {
+	return 63 - __builtin_clzll(b);
+}
+
+__inline Square first_1(Bitboard b){
+	uint64_t lo;
+	uint64_t hi;
+	unsigned long index;
+
+	lo = BB_u64(b, 0);
+
+	// Count leading zeros of the reverse of lo
+	index = __builtin_clzll(__builtin_arm_rbit64(lo)); 
+
+	if (index < 64) {
+		// First bit is in the bottom 64 bits
+	} else {
+		hi = BB_u64(b, 1);
+		index = 64 + __builtin_clzll(__builtin_arm_rbit64(hi));
+	}
+
+	return (Square) index;
+}
+
+#else
 
 #define USE_SSE_BIT_OPERATION
 
@@ -496,16 +634,6 @@ inline uint32 msb(uint64 b) {
   return index;
 }
 
-
-#define one_rpawn_rk_attacks(sq)             OneRpawnOrRking_AttackBB[sq]
-#define one_bpawn_bk_attacks(sq)             OneBpawnOrBking_AttackBB[sq]
-
-#define attacks_by_rpawn_rk(sq)              Attack_By_Rpawn_Rking[sq]
-#define attacks_by_bpawn_bk(sq)              Attack_By_Bpawn_Bking[sq]
-
-#define shi_attacks(sq)                      ShiAttackBB[sq]
-
-
 __inline Square first_1(Bitboard b){
 	unsigned long index;
 	if(_mm_extract_epi64(b,0)){
@@ -517,6 +645,17 @@ __inline Square first_1(Bitboard b){
 	}
 	return (Square)index;
 }
+
+#endif
+
+
+#define one_rpawn_rk_attacks(sq)             OneRpawnOrRking_AttackBB[sq]
+#define one_bpawn_bk_attacks(sq)             OneBpawnOrBking_AttackBB[sq]
+
+#define attacks_by_rpawn_rk(sq)              Attack_By_Rpawn_Rking[sq]
+#define attacks_by_bpawn_bk(sq)              Attack_By_Bpawn_Bking[sq]
+
+#define shi_attacks(sq)                      ShiAttackBB[sq]
 
 /// squares_between returns a bitboard representing all squares between
 /// two squares.  For instance, squares_between(SQ_C4, SQ_F7) returns a

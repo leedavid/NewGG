@@ -60,7 +60,7 @@
 #ifdef USE_CYCLONE_UCI
 #define NOT_OUT_UPBOND_OR_LOW_BAND
 #else
-#define CAN_OUT_EVAL_INFO
+// #define CAN_OUT_EVAL_INFO
 #endif
 
 
