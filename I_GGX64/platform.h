@@ -81,8 +81,25 @@ typedef unsigned int        UINT;
 typedef uint64 Key;
 
 #define XMM_ALIGN __attribute__((aligned(16)))
+
+#if __arm64__ && __ARM_NEON__
+#include <arm_neon.h>
+typedef uint64x2_t __m128i;
+
+#define Bitboard uint64x2_t
+
+// Translation of some xmm functions used
+#define _mm_andnot_si128(a, b) vandq_u64(~a, b)
+#define _mm_and_si128(a, b) vandq_u64(a, b)
+#define _mm_or_si128(a, b) vorrq_u64(a, b)
+#define _mm_setzero_si128() vcombine_u64(vcreate_u64(0), vcreate_u64(0))
+#define _mm_load_si128(vp) (*vp)
+#define _mm_setr_epi32(e3, e2, e1, e0) vsetq_lane_u32(e3, vsetq_lane_u32(e2, vsetq_lane_u32(e1, vsetq_lane_u32(e0, vcombine_u64(vcreate_u64(0), vcreate_u64(0)), 3), 2), 1), 0)
+#define _mm_set1_epi32(a) vdupq_n_u32(a)
+#else
 #include <immintrin.h>
 #define Bitboard __m128i
+#endif
 #define TRUE   1
 #define FALSE  0
 

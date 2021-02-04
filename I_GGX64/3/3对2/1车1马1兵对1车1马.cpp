@@ -197,7 +197,7 @@ void my_m_MT_R_1che1ma1pawn_B_1che1ma(typePOS &POSITION, EvalInfo &ei){
 			}
 		}
 		// fen 2b1k4/4a4/4ba3/9/9/1p3r3/1nR6/5N3/4A4/2B1KA3 w - - 230 230
-		if(PB90(mma MY_ADD 9) == my_pawn){
+		if(((unsigned int) (mma MY_ADD 9) < 90) && PB90(mma MY_ADD 9) == my_pawn){
 			if(PB90(MY_SQ1C) == my_ma && PB90(MY_SQ1D) == your_che){
 				RETRUN_MUL(4);
 			}

@@ -66,7 +66,7 @@ struct StateInfo {
 };
 
 // In a std::deque references to elements are unaffected upon resizing
-typedef std::unique_ptr<std::deque<StateInfo>> StateListPtr;
+typedef std::unique_ptr<std::deque<StateInfo> > StateListPtr;
 
 /// 常捉判断结构
 /// 共有多少个新增吃子步. 最多16个吃子步? 
